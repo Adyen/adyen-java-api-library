@@ -97,455 +97,500 @@ public class AdditionalDataRiskStandalone {
   public AdditionalDataRiskStandalone() { 
   }
 
+  /**
+   * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
+   *
+   * @param payPalCountryCode
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone payPalCountryCode(String payPalCountryCode) {
     this.payPalCountryCode = payPalCountryCode;
     return this;
   }
 
-   /**
+  /**
    * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
    * @return payPalCountryCode
-  **/
+   */
   @ApiModelProperty(value = "Shopper's country of residence in the form of ISO standard 3166 2-character country codes.")
   @JsonProperty(JSON_PROPERTY_PAY_PAL_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayPalCountryCode() {
     return payPalCountryCode;
   }
 
-
- /**
-  * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
-  *
-  * @param payPalCountryCode
-  */ 
+  /**
+   * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
+   *
+   * @param payPalCountryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalCountryCode(String payPalCountryCode) {
     this.payPalCountryCode = payPalCountryCode;
   }
 
-
+  /**
+   * Shopper&#39;s email.
+   *
+   * @param payPalEmailId
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone payPalEmailId(String payPalEmailId) {
     this.payPalEmailId = payPalEmailId;
     return this;
   }
 
-   /**
+  /**
    * Shopper&#39;s email.
    * @return payPalEmailId
-  **/
+   */
   @ApiModelProperty(value = "Shopper's email.")
   @JsonProperty(JSON_PROPERTY_PAY_PAL_EMAIL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayPalEmailId() {
     return payPalEmailId;
   }
 
-
- /**
-  * Shopper&#39;s email.
-  *
-  * @param payPalEmailId
-  */ 
+  /**
+   * Shopper&#39;s email.
+   *
+   * @param payPalEmailId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_EMAIL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalEmailId(String payPalEmailId) {
     this.payPalEmailId = payPalEmailId;
   }
 
-
+  /**
+   * Shopper&#39;s first name.
+   *
+   * @param payPalFirstName
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone payPalFirstName(String payPalFirstName) {
     this.payPalFirstName = payPalFirstName;
     return this;
   }
 
-   /**
+  /**
    * Shopper&#39;s first name.
    * @return payPalFirstName
-  **/
+   */
   @ApiModelProperty(value = "Shopper's first name.")
   @JsonProperty(JSON_PROPERTY_PAY_PAL_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayPalFirstName() {
     return payPalFirstName;
   }
 
-
- /**
-  * Shopper&#39;s first name.
-  *
-  * @param payPalFirstName
-  */ 
+  /**
+   * Shopper&#39;s first name.
+   *
+   * @param payPalFirstName
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalFirstName(String payPalFirstName) {
     this.payPalFirstName = payPalFirstName;
   }
 
-
+  /**
+   * Shopper&#39;s last name.
+   *
+   * @param payPalLastName
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone payPalLastName(String payPalLastName) {
     this.payPalLastName = payPalLastName;
     return this;
   }
 
-   /**
+  /**
    * Shopper&#39;s last name.
    * @return payPalLastName
-  **/
+   */
   @ApiModelProperty(value = "Shopper's last name.")
   @JsonProperty(JSON_PROPERTY_PAY_PAL_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayPalLastName() {
     return payPalLastName;
   }
 
-
- /**
-  * Shopper&#39;s last name.
-  *
-  * @param payPalLastName
-  */ 
+  /**
+   * Shopper&#39;s last name.
+   *
+   * @param payPalLastName
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalLastName(String payPalLastName) {
     this.payPalLastName = payPalLastName;
   }
 
-
+  /**
+   * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
+   *
+   * @param payPalPayerId
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone payPalPayerId(String payPalPayerId) {
     this.payPalPayerId = payPalPayerId;
     return this;
   }
 
-   /**
+  /**
    * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
    * @return payPalPayerId
-  **/
+   */
   @ApiModelProperty(value = "Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.")
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PAYER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayPalPayerId() {
     return payPalPayerId;
   }
 
-
- /**
-  * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
-  *
-  * @param payPalPayerId
-  */ 
+  /**
+   * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
+   *
+   * @param payPalPayerId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PAYER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalPayerId(String payPalPayerId) {
     this.payPalPayerId = payPalPayerId;
   }
 
-
+  /**
+   * Shopper&#39;s phone number.
+   *
+   * @param payPalPhone
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone payPalPhone(String payPalPhone) {
     this.payPalPhone = payPalPhone;
     return this;
   }
 
-   /**
+  /**
    * Shopper&#39;s phone number.
    * @return payPalPhone
-  **/
+   */
   @ApiModelProperty(value = "Shopper's phone number.")
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayPalPhone() {
     return payPalPhone;
   }
 
-
- /**
-  * Shopper&#39;s phone number.
-  *
-  * @param payPalPhone
-  */ 
+  /**
+   * Shopper&#39;s phone number.
+   *
+   * @param payPalPhone
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalPhone(String payPalPhone) {
     this.payPalPhone = payPalPhone;
   }
 
-
+  /**
+   * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
+   *
+   * @param payPalProtectionEligibility
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone payPalProtectionEligibility(String payPalProtectionEligibility) {
     this.payPalProtectionEligibility = payPalProtectionEligibility;
     return this;
   }
 
-   /**
+  /**
    * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
    * @return payPalProtectionEligibility
-  **/
+   */
   @ApiModelProperty(value = "Allowed values: * **Eligible** — Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal's Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.")
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PROTECTION_ELIGIBILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayPalProtectionEligibility() {
     return payPalProtectionEligibility;
   }
 
-
- /**
-  * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
-  *
-  * @param payPalProtectionEligibility
-  */ 
+  /**
+   * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
+   *
+   * @param payPalProtectionEligibility
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PROTECTION_ELIGIBILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalProtectionEligibility(String payPalProtectionEligibility) {
     this.payPalProtectionEligibility = payPalProtectionEligibility;
   }
 
-
+  /**
+   * Unique transaction ID of the payment.
+   *
+   * @param payPalTransactionId
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone payPalTransactionId(String payPalTransactionId) {
     this.payPalTransactionId = payPalTransactionId;
     return this;
   }
 
-   /**
+  /**
    * Unique transaction ID of the payment.
    * @return payPalTransactionId
-  **/
+   */
   @ApiModelProperty(value = "Unique transaction ID of the payment.")
   @JsonProperty(JSON_PROPERTY_PAY_PAL_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayPalTransactionId() {
     return payPalTransactionId;
   }
 
-
- /**
-  * Unique transaction ID of the payment.
-  *
-  * @param payPalTransactionId
-  */ 
+  /**
+   * Unique transaction ID of the payment.
+   *
+   * @param payPalTransactionId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAY_PAL_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayPalTransactionId(String payPalTransactionId) {
     this.payPalTransactionId = payPalTransactionId;
   }
 
-
+  /**
+   * Raw AVS result received from the acquirer, where available. Example: D
+   *
+   * @param avsResultRaw
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone avsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
     return this;
   }
 
-   /**
+  /**
    * Raw AVS result received from the acquirer, where available. Example: D
    * @return avsResultRaw
-  **/
+   */
   @ApiModelProperty(value = "Raw AVS result received from the acquirer, where available. Example: D")
   @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAvsResultRaw() {
     return avsResultRaw;
   }
 
-
- /**
-  * Raw AVS result received from the acquirer, where available. Example: D
-  *
-  * @param avsResultRaw
-  */ 
+  /**
+   * Raw AVS result received from the acquirer, where available. Example: D
+   *
+   * @param avsResultRaw
+   */ 
   @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
   }
 
-
+  /**
+   * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
+   *
+   * @param bin
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone bin(String bin) {
     this.bin = bin;
     return this;
   }
 
-   /**
+  /**
    * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
    * @return bin
-  **/
+   */
   @ApiModelProperty(value = "The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).")
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBin() {
     return bin;
   }
 
-
- /**
-  * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
-  *
-  * @param bin
-  */ 
+  /**
+   * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
+   *
+   * @param bin
+   */ 
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
     this.bin = bin;
   }
 
-
+  /**
+   * Raw CVC result received from the acquirer, where available. Example: 1
+   *
+   * @param cvcResultRaw
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone cvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
     return this;
   }
 
-   /**
+  /**
    * Raw CVC result received from the acquirer, where available. Example: 1
    * @return cvcResultRaw
-  **/
+   */
   @ApiModelProperty(value = "Raw CVC result received from the acquirer, where available. Example: 1")
   @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCvcResultRaw() {
     return cvcResultRaw;
   }
 
-
- /**
-  * Raw CVC result received from the acquirer, where available. Example: 1
-  *
-  * @param cvcResultRaw
-  */ 
+  /**
+   * Raw CVC result received from the acquirer, where available. Example: 1
+   *
+   * @param cvcResultRaw
+   */ 
   @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
   }
 
-
+  /**
+   * Unique identifier or token for the shopper&#39;s card details.
+   *
+   * @param riskToken
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone riskToken(String riskToken) {
     this.riskToken = riskToken;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier or token for the shopper&#39;s card details.
    * @return riskToken
-  **/
+   */
   @ApiModelProperty(value = "Unique identifier or token for the shopper's card details.")
   @JsonProperty(JSON_PROPERTY_RISK_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRiskToken() {
     return riskToken;
   }
 
-
- /**
-  * Unique identifier or token for the shopper&#39;s card details.
-  *
-  * @param riskToken
-  */ 
+  /**
+   * Unique identifier or token for the shopper&#39;s card details.
+   *
+   * @param riskToken
+   */ 
   @JsonProperty(JSON_PROPERTY_RISK_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskToken(String riskToken) {
     this.riskToken = riskToken;
   }
 
-
+  /**
+   * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
+   *
+   * @param threeDAuthenticated
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone threeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
     return this;
   }
 
-   /**
+  /**
    * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
    * @return threeDAuthenticated
-  **/
+   */
   @ApiModelProperty(value = "A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true")
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDAuthenticated() {
     return threeDAuthenticated;
   }
 
-
- /**
-  * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
-  *
-  * @param threeDAuthenticated
-  */ 
+  /**
+   * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
+   *
+   * @param threeDAuthenticated
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
   }
 
-
+  /**
+   * A Boolean value indicating whether 3DS was offered for this payment. Example: true
+   *
+   * @param threeDOffered
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone threeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
     return this;
   }
 
-   /**
+  /**
    * A Boolean value indicating whether 3DS was offered for this payment. Example: true
    * @return threeDOffered
-  **/
+   */
   @ApiModelProperty(value = "A Boolean value indicating whether 3DS was offered for this payment. Example: true")
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDOffered() {
     return threeDOffered;
   }
 
-
- /**
-  * A Boolean value indicating whether 3DS was offered for this payment. Example: true
-  *
-  * @param threeDOffered
-  */ 
+  /**
+   * A Boolean value indicating whether 3DS was offered for this payment. Example: true
+   *
+   * @param threeDOffered
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
   }
 
-
+  /**
+   * Required for PayPal payments only. The only supported value is: **paypal**.
+   *
+   * @param tokenDataType
+   * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
+   */
   public AdditionalDataRiskStandalone tokenDataType(String tokenDataType) {
     this.tokenDataType = tokenDataType;
     return this;
   }
 
-   /**
+  /**
    * Required for PayPal payments only. The only supported value is: **paypal**.
    * @return tokenDataType
-  **/
+   */
   @ApiModelProperty(value = "Required for PayPal payments only. The only supported value is: **paypal**.")
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTokenDataType() {
     return tokenDataType;
   }
 
-
- /**
-  * Required for PayPal payments only. The only supported value is: **paypal**.
-  *
-  * @param tokenDataType
-  */ 
+  /**
+   * Required for PayPal payments only. The only supported value is: **paypal**.
+   *
+   * @param tokenDataType
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDataType(String tokenDataType) {
     this.tokenDataType = tokenDataType;
   }
-
 
   /**
    * Return true if this AdditionalDataRiskStandalone object is equal to o.
@@ -634,4 +679,3 @@ public class AdditionalDataRiskStandalone {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

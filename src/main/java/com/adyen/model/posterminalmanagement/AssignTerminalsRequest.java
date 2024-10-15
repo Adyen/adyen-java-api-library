@@ -59,126 +59,144 @@ public class AssignTerminalsRequest {
   public AssignTerminalsRequest() { 
   }
 
+  /**
+   * Your company account. To return terminals to the company inventory, specify only this parameter and the &#x60;terminals&#x60;.
+   *
+   * @param companyAccount
+   * @return the current {@code AssignTerminalsRequest} instance, allowing for method chaining
+   */
   public AssignTerminalsRequest companyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
     return this;
   }
 
-   /**
+  /**
    * Your company account. To return terminals to the company inventory, specify only this parameter and the &#x60;terminals&#x60;.
    * @return companyAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your company account. To return terminals to the company inventory, specify only this parameter and the `terminals`.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyAccount() {
     return companyAccount;
   }
 
-
- /**
-  * Your company account. To return terminals to the company inventory, specify only this parameter and the &#x60;terminals&#x60;.
-  *
-  * @param companyAccount
-  */ 
+  /**
+   * Your company account. To return terminals to the company inventory, specify only this parameter and the &#x60;terminals&#x60;.
+   *
+   * @param companyAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
-
+  /**
+   * Name of the merchant account. Specify this parameter to assign terminals to this merchant account or to a store under this merchant account.
+   *
+   * @param merchantAccount
+   * @return the current {@code AssignTerminalsRequest} instance, allowing for method chaining
+   */
   public AssignTerminalsRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * Name of the merchant account. Specify this parameter to assign terminals to this merchant account or to a store under this merchant account.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "Name of the merchant account. Specify this parameter to assign terminals to this merchant account or to a store under this merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * Name of the merchant account. Specify this parameter to assign terminals to this merchant account or to a store under this merchant account.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * Name of the merchant account. Specify this parameter to assign terminals to this merchant account or to a store under this merchant account.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.  - Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.  - Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account.
+   *
+   * @param merchantInventory
+   * @return the current {@code AssignTerminalsRequest} instance, allowing for method chaining
+   */
   public AssignTerminalsRequest merchantInventory(Boolean merchantInventory) {
     this.merchantInventory = merchantInventory;
     return this;
   }
 
-   /**
+  /**
    * Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.  - Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.  - Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account.
    * @return merchantInventory
-  **/
+   */
   @ApiModelProperty(value = "Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.  - Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.  - Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMerchantInventory() {
     return merchantInventory;
   }
 
-
- /**
-  * Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.  - Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.  - Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account.
-  *
-  * @param merchantInventory
-  */ 
+  /**
+   * Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.  - Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.  - Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account.
+   *
+   * @param merchantInventory
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantInventory(Boolean merchantInventory) {
     this.merchantInventory = merchantInventory;
   }
 
-
+  /**
+   * The store code of the store that you want to assign the terminals to.
+   *
+   * @param store
+   * @return the current {@code AssignTerminalsRequest} instance, allowing for method chaining
+   */
   public AssignTerminalsRequest store(String store) {
     this.store = store;
     return this;
   }
 
-   /**
+  /**
    * The store code of the store that you want to assign the terminals to.
    * @return store
-  **/
+   */
   @ApiModelProperty(value = "The store code of the store that you want to assign the terminals to.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStore() {
     return store;
   }
 
-
- /**
-  * The store code of the store that you want to assign the terminals to.
-  *
-  * @param store
-  */ 
+  /**
+   * The store code of the store that you want to assign the terminals to.
+   *
+   * @param store
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }
 
-
+  /**
+   * Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.  For example, &#x60;[\&quot;V400m-324689776\&quot;,\&quot;P400Plus-329127412\&quot;]&#x60;.
+   *
+   * @param terminals
+   * @return the current {@code AssignTerminalsRequest} instance, allowing for method chaining
+   */
   public AssignTerminalsRequest terminals(List<String> terminals) {
     this.terminals = terminals;
     return this;
@@ -189,30 +207,27 @@ public class AssignTerminalsRequest {
     return this;
   }
 
-   /**
+  /**
    * Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.  For example, &#x60;[\&quot;V400m-324689776\&quot;,\&quot;P400Plus-329127412\&quot;]&#x60;.
    * @return terminals
-  **/
+   */
   @ApiModelProperty(required = true, value = "Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.  For example, `[\"V400m-324689776\",\"P400Plus-329127412\"]`.")
   @JsonProperty(JSON_PROPERTY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getTerminals() {
     return terminals;
   }
 
-
- /**
-  * Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.  For example, &#x60;[\&quot;V400m-324689776\&quot;,\&quot;P400Plus-329127412\&quot;]&#x60;.
-  *
-  * @param terminals
-  */ 
+  /**
+   * Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.  For example, &#x60;[\&quot;V400m-324689776\&quot;,\&quot;P400Plus-329127412\&quot;]&#x60;.
+   *
+   * @param terminals
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminals(List<String> terminals) {
     this.terminals = terminals;
   }
-
 
   /**
    * Return true if this AssignTerminalsRequest object is equal to o.
@@ -281,4 +296,3 @@ public class AssignTerminalsRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

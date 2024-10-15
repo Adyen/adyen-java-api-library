@@ -82,216 +82,243 @@ public class Individual {
   public Individual() { 
   }
 
+  /**
+   * birthData
+   *
+   * @param birthData
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual birthData(BirthData birthData) {
     this.birthData = birthData;
     return this;
   }
 
-   /**
-   * Get birthData
+  /**
+   * birthData
    * @return birthData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BIRTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BirthData getBirthData() {
     return birthData;
   }
 
-
- /**
-  * birthData
-  *
-  * @param birthData
-  */ 
+  /**
+   * birthData
+   *
+   * @param birthData
+   */ 
   @JsonProperty(JSON_PROPERTY_BIRTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBirthData(BirthData birthData) {
     this.birthData = birthData;
   }
 
-
+  /**
+   * The email address of the legal entity.
+   *
+   * @param email
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email address of the legal entity.
    * @return email
-  **/
+   */
   @ApiModelProperty(value = "The email address of the legal entity.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The email address of the legal entity.
-  *
-  * @param email
-  */ 
+  /**
+   * The email address of the legal entity.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
 
-
+  /**
+   * identificationData
+   *
+   * @param identificationData
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual identificationData(IdentificationData identificationData) {
     this.identificationData = identificationData;
     return this;
   }
 
-   /**
-   * Get identificationData
+  /**
+   * identificationData
    * @return identificationData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public IdentificationData getIdentificationData() {
     return identificationData;
   }
 
-
- /**
-  * identificationData
-  *
-  * @param identificationData
-  */ 
+  /**
+   * identificationData
+   *
+   * @param identificationData
+   */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationData(IdentificationData identificationData) {
     this.identificationData = identificationData;
   }
 
-
+  /**
+   * name
+   *
+   * @param name
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual name(Name name) {
     this.name = name;
     return this;
   }
 
-   /**
-   * Get name
+  /**
+   * name
    * @return name
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Name getName() {
     return name;
   }
 
-
- /**
-  * name
-  *
-  * @param name
-  */ 
+  /**
+   * name
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
   }
 
-
+  /**
+   * The individual&#39;s nationality.
+   *
+   * @param nationality
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual nationality(String nationality) {
     this.nationality = nationality;
     return this;
   }
 
-   /**
+  /**
    * The individual&#39;s nationality.
    * @return nationality
-  **/
+   */
   @ApiModelProperty(value = "The individual's nationality.")
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNationality() {
     return nationality;
   }
 
-
- /**
-  * The individual&#39;s nationality.
-  *
-  * @param nationality
-  */ 
+  /**
+   * The individual&#39;s nationality.
+   *
+   * @param nationality
+   */ 
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
     this.nationality = nationality;
   }
 
-
+  /**
+   * phone
+   *
+   * @param phone
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual phone(PhoneNumber phone) {
     this.phone = phone;
     return this;
   }
 
-   /**
-   * Get phone
+  /**
+   * phone
    * @return phone
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PhoneNumber getPhone() {
     return phone;
   }
 
-
- /**
-  * phone
-  *
-  * @param phone
-  */ 
+  /**
+   * phone
+   *
+   * @param phone
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
     this.phone = phone;
   }
 
-
+  /**
+   * residentialAddress
+   *
+   * @param residentialAddress
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual residentialAddress(Address residentialAddress) {
     this.residentialAddress = residentialAddress;
     return this;
   }
 
-   /**
-   * Get residentialAddress
+  /**
+   * residentialAddress
    * @return residentialAddress
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getResidentialAddress() {
     return residentialAddress;
   }
 
-
- /**
-  * residentialAddress
-  *
-  * @param residentialAddress
-  */ 
+  /**
+   * residentialAddress
+   *
+   * @param residentialAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResidentialAddress(Address residentialAddress) {
     this.residentialAddress = residentialAddress;
   }
 
-
+  /**
+   * The tax information of the individual.
+   *
+   * @param taxInformation
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual taxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
     return this;
@@ -305,60 +332,60 @@ public class Individual {
     return this;
   }
 
-   /**
+  /**
    * The tax information of the individual.
    * @return taxInformation
-  **/
+   */
   @ApiModelProperty(value = "The tax information of the individual.")
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TaxInformation> getTaxInformation() {
     return taxInformation;
   }
 
-
- /**
-  * The tax information of the individual.
-  *
-  * @param taxInformation
-  */ 
+  /**
+   * The tax information of the individual.
+   *
+   * @param taxInformation
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
     this.taxInformation = taxInformation;
   }
 
-
+  /**
+   * webData
+   *
+   * @param webData
+   * @return the current {@code Individual} instance, allowing for method chaining
+   */
   public Individual webData(WebData webData) {
     this.webData = webData;
     return this;
   }
 
-   /**
-   * Get webData
+  /**
+   * webData
    * @return webData
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WebData getWebData() {
     return webData;
   }
 
-
- /**
-  * webData
-  *
-  * @param webData
-  */ 
+  /**
+   * webData
+   *
+   * @param webData
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {
     this.webData = webData;
   }
-
 
   /**
    * Return true if this Individual object is equal to o.
@@ -435,4 +462,3 @@ public class Individual {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

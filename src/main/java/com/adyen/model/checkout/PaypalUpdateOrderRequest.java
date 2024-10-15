@@ -66,36 +66,45 @@ public class PaypalUpdateOrderRequest {
   public PaypalUpdateOrderRequest() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
   public PaypalUpdateOrderRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The list of new delivery methods and the cost of each.
+   *
+   * @param deliveryMethods
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
   public PaypalUpdateOrderRequest deliveryMethods(List<DeliveryMethod> deliveryMethods) {
     this.deliveryMethods = deliveryMethods;
     return this;
@@ -109,150 +118,159 @@ public class PaypalUpdateOrderRequest {
     return this;
   }
 
-   /**
+  /**
    * The list of new delivery methods and the cost of each.
    * @return deliveryMethods
-  **/
+   */
   @ApiModelProperty(value = "The list of new delivery methods and the cost of each.")
   @JsonProperty(JSON_PROPERTY_DELIVERY_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DeliveryMethod> getDeliveryMethods() {
     return deliveryMethods;
   }
 
-
- /**
-  * The list of new delivery methods and the cost of each.
-  *
-  * @param deliveryMethods
-  */ 
+  /**
+   * The list of new delivery methods and the cost of each.
+   *
+   * @param deliveryMethods
+   */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
     this.deliveryMethods = deliveryMethods;
   }
 
-
+  /**
+   * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
+   *
+   * @param paymentData
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
   public PaypalUpdateOrderRequest paymentData(String paymentData) {
     this.paymentData = paymentData;
     return this;
   }
 
-   /**
+  /**
    * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
    * @return paymentData
-  **/
+   */
   @ApiModelProperty(value = "The `paymentData` from the client side. This value changes every time you make a `/paypal/updateOrder` request.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentData() {
     return paymentData;
   }
 
-
- /**
-  * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
-  *
-  * @param paymentData
-  */ 
+  /**
+   * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
+   *
+   * @param paymentData
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
   }
 
-
+  /**
+   * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
+   *
+   * @param pspReference
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
   public PaypalUpdateOrderRequest pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "The original `pspReference` from the `/payments` response.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
+   *
+   * @param sessionId
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
   public PaypalUpdateOrderRequest sessionId(String sessionId) {
     this.sessionId = sessionId;
     return this;
   }
 
-   /**
+  /**
    * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
    * @return sessionId
-  **/
+   */
   @ApiModelProperty(value = "The original `sessionId` from the `/sessions` response.")
   @JsonProperty(JSON_PROPERTY_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSessionId() {
     return sessionId;
   }
 
-
- /**
-  * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
-  *
-  * @param sessionId
-  */ 
+  /**
+   * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
+   *
+   * @param sessionId
+   */ 
   @JsonProperty(JSON_PROPERTY_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSessionId(String sessionId) {
     this.sessionId = sessionId;
   }
 
-
+  /**
+   * taxTotal
+   *
+   * @param taxTotal
+   * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
+   */
   public PaypalUpdateOrderRequest taxTotal(TaxTotal taxTotal) {
     this.taxTotal = taxTotal;
     return this;
   }
 
-   /**
-   * Get taxTotal
+  /**
+   * taxTotal
    * @return taxTotal
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TAX_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TaxTotal getTaxTotal() {
     return taxTotal;
   }
 
-
- /**
-  * taxTotal
-  *
-  * @param taxTotal
-  */ 
+  /**
+   * taxTotal
+   *
+   * @param taxTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxTotal(TaxTotal taxTotal) {
     this.taxTotal = taxTotal;
   }
-
 
   /**
    * Return true if this PaypalUpdateOrderRequest object is equal to o.
@@ -323,4 +341,3 @@ public class PaypalUpdateOrderRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

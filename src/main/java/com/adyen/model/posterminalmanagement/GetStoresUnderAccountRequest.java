@@ -45,65 +45,71 @@ public class GetStoresUnderAccountRequest {
   public GetStoresUnderAccountRequest() { 
   }
 
+  /**
+   * The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.
+   *
+   * @param companyAccount
+   * @return the current {@code GetStoresUnderAccountRequest} instance, allowing for method chaining
+   */
   public GetStoresUnderAccountRequest companyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
     return this;
   }
 
-   /**
+  /**
    * The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.
    * @return companyAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCompanyAccount() {
     return companyAccount;
   }
 
-
- /**
-  * The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.
-  *
-  * @param companyAccount
-  */ 
+  /**
+   * The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.
+   *
+   * @param companyAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
 
-
+  /**
+   * The merchant account. With this parameter, the response only includes the stores of the specified merchant account.
+   *
+   * @param merchantAccount
+   * @return the current {@code GetStoresUnderAccountRequest} instance, allowing for method chaining
+   */
   public GetStoresUnderAccountRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account. With this parameter, the response only includes the stores of the specified merchant account.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(value = "The merchant account. With this parameter, the response only includes the stores of the specified merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account. With this parameter, the response only includes the stores of the specified merchant account.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account. With this parameter, the response only includes the stores of the specified merchant account.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
-
 
   /**
    * Return true if this GetStoresUnderAccountRequest object is equal to o.
@@ -166,4 +172,3 @@ public class GetStoresUnderAccountRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

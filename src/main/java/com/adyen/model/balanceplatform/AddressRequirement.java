@@ -125,36 +125,45 @@ public class AddressRequirement {
   public AddressRequirement() { 
   }
 
+  /**
+   * Specifies the required address related fields for a particular route.
+   *
+   * @param description
+   * @return the current {@code AddressRequirement} instance, allowing for method chaining
+   */
   public AddressRequirement description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Specifies the required address related fields for a particular route.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Specifies the required address related fields for a particular route.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Specifies the required address related fields for a particular route.
-  *
-  * @param description
-  */ 
+  /**
+   * Specifies the required address related fields for a particular route.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * List of address fields.
+   *
+   * @param requiredAddressFields
+   * @return the current {@code AddressRequirement} instance, allowing for method chaining
+   */
   public AddressRequirement requiredAddressFields(List<RequiredAddressFieldsEnum> requiredAddressFields) {
     this.requiredAddressFields = requiredAddressFields;
     return this;
@@ -168,60 +177,60 @@ public class AddressRequirement {
     return this;
   }
 
-   /**
+  /**
    * List of address fields.
    * @return requiredAddressFields
-  **/
+   */
   @ApiModelProperty(value = "List of address fields.")
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<RequiredAddressFieldsEnum> getRequiredAddressFields() {
     return requiredAddressFields;
   }
 
-
- /**
-  * List of address fields.
-  *
-  * @param requiredAddressFields
-  */ 
+  /**
+   * List of address fields.
+   *
+   * @param requiredAddressFields
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequiredAddressFields(List<RequiredAddressFieldsEnum> requiredAddressFields) {
     this.requiredAddressFields = requiredAddressFields;
   }
 
-
+  /**
+   * **addressRequirement**
+   *
+   * @param type
+   * @return the current {@code AddressRequirement} instance, allowing for method chaining
+   */
   public AddressRequirement type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **addressRequirement**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**addressRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **addressRequirement**
-  *
-  * @param type
-  */ 
+  /**
+   * **addressRequirement**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this AddressRequirement object is equal to o.
@@ -286,4 +295,3 @@ public class AddressRequirement {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

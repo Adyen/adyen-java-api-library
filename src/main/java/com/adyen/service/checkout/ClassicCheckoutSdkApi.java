@@ -59,7 +59,7 @@ public class ClassicCheckoutSdkApi extends Service {
     * @param paymentSetupRequest {@link PaymentSetupRequest }  (required)
     * @return {@link PaymentSetupResponse }
     * @throws ApiException if fails to make API call
-    * @deprecated
+    * @deprecated since Adyen Checkout API v37
     */
     @Deprecated
     public PaymentSetupResponse paymentSession(PaymentSetupRequest paymentSetupRequest) throws ApiException, IOException {
@@ -73,7 +73,7 @@ public class ClassicCheckoutSdkApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PaymentSetupResponse }
     * @throws ApiException if fails to make API call
-    * @deprecated
+    * @deprecated since Adyen Checkout API v37
     */
    @Deprecated
     public PaymentSetupResponse paymentSession(PaymentSetupRequest paymentSetupRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -90,7 +90,7 @@ public class ClassicCheckoutSdkApi extends Service {
     * @param paymentVerificationRequest {@link PaymentVerificationRequest }  (required)
     * @return {@link PaymentVerificationResponse }
     * @throws ApiException if fails to make API call
-    * @deprecated
+    * @deprecated since Adyen Checkout API v37
     */
     @Deprecated
     public PaymentVerificationResponse verifyPaymentResult(PaymentVerificationRequest paymentVerificationRequest) throws ApiException, IOException {
@@ -104,7 +104,7 @@ public class ClassicCheckoutSdkApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link PaymentVerificationResponse }
     * @throws ApiException if fails to make API call
-    * @deprecated
+    * @deprecated since Adyen Checkout API v37
     */
    @Deprecated
     public PaymentVerificationResponse verifyPaymentResult(PaymentVerificationRequest paymentVerificationRequest, RequestOptions requestOptions) throws ApiException, IOException {

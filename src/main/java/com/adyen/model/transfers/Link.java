@@ -41,35 +41,38 @@ public class Link {
   public Link() { 
   }
 
+  /**
+   * The link to the resource.
+   *
+   * @param href
+   * @return the current {@code Link} instance, allowing for method chaining
+   */
   public Link href(String href) {
     this.href = href;
     return this;
   }
 
-   /**
+  /**
    * The link to the resource.
    * @return href
-  **/
+   */
   @ApiModelProperty(value = "The link to the resource.")
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHref() {
     return href;
   }
 
-
- /**
-  * The link to the resource.
-  *
-  * @param href
-  */ 
+  /**
+   * The link to the resource.
+   *
+   * @param href
+   */ 
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHref(String href) {
     this.href = href;
   }
-
 
   /**
    * Return true if this Link object is equal to o.
@@ -130,4 +133,3 @@ public class Link {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

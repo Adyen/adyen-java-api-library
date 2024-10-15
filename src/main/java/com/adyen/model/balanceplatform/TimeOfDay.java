@@ -45,65 +45,71 @@ public class TimeOfDay {
   public TimeOfDay() { 
   }
 
+  /**
+   * The end time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
+   *
+   * @param endTime
+   * @return the current {@code TimeOfDay} instance, allowing for method chaining
+   */
   public TimeOfDay endTime(String endTime) {
     this.endTime = endTime;
     return this;
   }
 
-   /**
+  /**
    * The end time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
    * @return endTime
-  **/
+   */
   @ApiModelProperty(value = "The end time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  ")
   @JsonProperty(JSON_PROPERTY_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEndTime() {
     return endTime;
   }
 
-
- /**
-  * The end time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
-  *
-  * @param endTime
-  */ 
+  /**
+   * The end time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
+   *
+   * @param endTime
+   */ 
   @JsonProperty(JSON_PROPERTY_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
-
+  /**
+   * The start time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
+   *
+   * @param startTime
+   * @return the current {@code TimeOfDay} instance, allowing for method chaining
+   */
   public TimeOfDay startTime(String startTime) {
     this.startTime = startTime;
     return this;
   }
 
-   /**
+  /**
    * The start time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
    * @return startTime
-  **/
+   */
   @ApiModelProperty(value = "The start time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  ")
   @JsonProperty(JSON_PROPERTY_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStartTime() {
     return startTime;
   }
 
-
- /**
-  * The start time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
-  *
-  * @param startTime
-  */ 
+  /**
+   * The start time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
+   *
+   * @param startTime
+   */ 
   @JsonProperty(JSON_PROPERTY_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartTime(String startTime) {
     this.startTime = startTime;
   }
-
 
   /**
    * Return true if this TimeOfDay object is equal to o.
@@ -166,4 +172,3 @@ public class TimeOfDay {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

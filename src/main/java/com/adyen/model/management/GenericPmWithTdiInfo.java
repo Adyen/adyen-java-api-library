@@ -42,35 +42,38 @@ public class GenericPmWithTdiInfo {
   public GenericPmWithTdiInfo() { 
   }
 
+  /**
+   * transactionDescription
+   *
+   * @param transactionDescription
+   * @return the current {@code GenericPmWithTdiInfo} instance, allowing for method chaining
+   */
   public GenericPmWithTdiInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
     return this;
   }
 
-   /**
-   * Get transactionDescription
+  /**
+   * transactionDescription
    * @return transactionDescription
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionDescriptionInfo getTransactionDescription() {
     return transactionDescription;
   }
 
-
- /**
-  * transactionDescription
-  *
-  * @param transactionDescription
-  */ 
+  /**
+   * transactionDescription
+   *
+   * @param transactionDescription
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
   }
-
 
   /**
    * Return true if this GenericPmWithTdiInfo object is equal to o.
@@ -131,4 +134,3 @@ public class GenericPmWithTdiInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

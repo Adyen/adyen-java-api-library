@@ -49,95 +49,104 @@ public class CostEstimateAssumptions {
   public CostEstimateAssumptions() { 
   }
 
+  /**
+   * If true, the cardholder is expected to successfully authorise via 3D Secure.
+   *
+   * @param assume3DSecureAuthenticated
+   * @return the current {@code CostEstimateAssumptions} instance, allowing for method chaining
+   */
   public CostEstimateAssumptions assume3DSecureAuthenticated(Boolean assume3DSecureAuthenticated) {
     this.assume3DSecureAuthenticated = assume3DSecureAuthenticated;
     return this;
   }
 
-   /**
+  /**
    * If true, the cardholder is expected to successfully authorise via 3D Secure.
    * @return assume3DSecureAuthenticated
-  **/
+   */
   @ApiModelProperty(value = "If true, the cardholder is expected to successfully authorise via 3D Secure.")
   @JsonProperty(JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAssume3DSecureAuthenticated() {
     return assume3DSecureAuthenticated;
   }
 
-
- /**
-  * If true, the cardholder is expected to successfully authorise via 3D Secure.
-  *
-  * @param assume3DSecureAuthenticated
-  */ 
+  /**
+   * If true, the cardholder is expected to successfully authorise via 3D Secure.
+   *
+   * @param assume3DSecureAuthenticated
+   */ 
   @JsonProperty(JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssume3DSecureAuthenticated(Boolean assume3DSecureAuthenticated) {
     this.assume3DSecureAuthenticated = assume3DSecureAuthenticated;
   }
 
-
+  /**
+   * If true, the transaction is expected to have valid Level 3 data.
+   *
+   * @param assumeLevel3Data
+   * @return the current {@code CostEstimateAssumptions} instance, allowing for method chaining
+   */
   public CostEstimateAssumptions assumeLevel3Data(Boolean assumeLevel3Data) {
     this.assumeLevel3Data = assumeLevel3Data;
     return this;
   }
 
-   /**
+  /**
    * If true, the transaction is expected to have valid Level 3 data.
    * @return assumeLevel3Data
-  **/
+   */
   @ApiModelProperty(value = "If true, the transaction is expected to have valid Level 3 data.")
   @JsonProperty(JSON_PROPERTY_ASSUME_LEVEL3_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAssumeLevel3Data() {
     return assumeLevel3Data;
   }
 
-
- /**
-  * If true, the transaction is expected to have valid Level 3 data.
-  *
-  * @param assumeLevel3Data
-  */ 
+  /**
+   * If true, the transaction is expected to have valid Level 3 data.
+   *
+   * @param assumeLevel3Data
+   */ 
   @JsonProperty(JSON_PROPERTY_ASSUME_LEVEL3_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssumeLevel3Data(Boolean assumeLevel3Data) {
     this.assumeLevel3Data = assumeLevel3Data;
   }
 
-
+  /**
+   * If not zero, the number of installments.
+   *
+   * @param installments
+   * @return the current {@code CostEstimateAssumptions} instance, allowing for method chaining
+   */
   public CostEstimateAssumptions installments(Integer installments) {
     this.installments = installments;
     return this;
   }
 
-   /**
+  /**
    * If not zero, the number of installments.
    * @return installments
-  **/
+   */
   @ApiModelProperty(value = "If not zero, the number of installments.")
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getInstallments() {
     return installments;
   }
 
-
- /**
-  * If not zero, the number of installments.
-  *
-  * @param installments
-  */ 
+  /**
+   * If not zero, the number of installments.
+   *
+   * @param installments
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Integer installments) {
     this.installments = installments;
   }
-
 
   /**
    * Return true if this CostEstimateAssumptions object is equal to o.
@@ -202,4 +211,3 @@ public class CostEstimateAssumptions {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

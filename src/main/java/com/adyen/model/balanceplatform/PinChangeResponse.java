@@ -78,35 +78,38 @@ public class PinChangeResponse {
   public PinChangeResponse() { 
   }
 
+  /**
+   * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
+   *
+   * @param status
+   * @return the current {@code PinChangeResponse} instance, allowing for method chaining
+   */
   public PinChangeResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this PinChangeResponse object is equal to o.
@@ -167,4 +170,3 @@ public class PinChangeResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

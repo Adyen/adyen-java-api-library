@@ -45,65 +45,71 @@ public class MatchingTransactionsRestriction {
   public MatchingTransactionsRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code MatchingTransactionsRestriction} instance, allowing for method chaining
+   */
   public MatchingTransactionsRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * The number of transactions.
+   *
+   * @param value
+   * @return the current {@code MatchingTransactionsRestriction} instance, allowing for method chaining
+   */
   public MatchingTransactionsRestriction value(Integer value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The number of transactions.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "The number of transactions.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getValue() {
     return value;
   }
 
-
- /**
-  * The number of transactions.
-  *
-  * @param value
-  */ 
+  /**
+   * The number of transactions.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this MatchingTransactionsRestriction object is equal to o.
@@ -166,4 +172,3 @@ public class MatchingTransactionsRestriction {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

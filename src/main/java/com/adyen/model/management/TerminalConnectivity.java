@@ -57,125 +57,137 @@ public class TerminalConnectivity {
   public TerminalConnectivity() { 
   }
 
+  /**
+   * bluetooth
+   *
+   * @param bluetooth
+   * @return the current {@code TerminalConnectivity} instance, allowing for method chaining
+   */
   public TerminalConnectivity bluetooth(TerminalConnectivityBluetooth bluetooth) {
     this.bluetooth = bluetooth;
     return this;
   }
 
-   /**
-   * Get bluetooth
+  /**
+   * bluetooth
    * @return bluetooth
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BLUETOOTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalConnectivityBluetooth getBluetooth() {
     return bluetooth;
   }
 
-
- /**
-  * bluetooth
-  *
-  * @param bluetooth
-  */ 
+  /**
+   * bluetooth
+   *
+   * @param bluetooth
+   */ 
   @JsonProperty(JSON_PROPERTY_BLUETOOTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetooth(TerminalConnectivityBluetooth bluetooth) {
     this.bluetooth = bluetooth;
   }
 
-
+  /**
+   * cellular
+   *
+   * @param cellular
+   * @return the current {@code TerminalConnectivity} instance, allowing for method chaining
+   */
   public TerminalConnectivity cellular(TerminalConnectivityCellular cellular) {
     this.cellular = cellular;
     return this;
   }
 
-   /**
-   * Get cellular
+  /**
+   * cellular
    * @return cellular
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CELLULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalConnectivityCellular getCellular() {
     return cellular;
   }
 
-
- /**
-  * cellular
-  *
-  * @param cellular
-  */ 
+  /**
+   * cellular
+   *
+   * @param cellular
+   */ 
   @JsonProperty(JSON_PROPERTY_CELLULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCellular(TerminalConnectivityCellular cellular) {
     this.cellular = cellular;
   }
 
-
+  /**
+   * ethernet
+   *
+   * @param ethernet
+   * @return the current {@code TerminalConnectivity} instance, allowing for method chaining
+   */
   public TerminalConnectivity ethernet(TerminalConnectivityEthernet ethernet) {
     this.ethernet = ethernet;
     return this;
   }
 
-   /**
-   * Get ethernet
+  /**
+   * ethernet
    * @return ethernet
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ETHERNET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalConnectivityEthernet getEthernet() {
     return ethernet;
   }
 
-
- /**
-  * ethernet
-  *
-  * @param ethernet
-  */ 
+  /**
+   * ethernet
+   *
+   * @param ethernet
+   */ 
   @JsonProperty(JSON_PROPERTY_ETHERNET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernet(TerminalConnectivityEthernet ethernet) {
     this.ethernet = ethernet;
   }
 
-
+  /**
+   * wifi
+   *
+   * @param wifi
+   * @return the current {@code TerminalConnectivity} instance, allowing for method chaining
+   */
   public TerminalConnectivity wifi(TerminalConnectivityWifi wifi) {
     this.wifi = wifi;
     return this;
   }
 
-   /**
-   * Get wifi
+  /**
+   * wifi
    * @return wifi
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WIFI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TerminalConnectivityWifi getWifi() {
     return wifi;
   }
 
-
- /**
-  * wifi
-  *
-  * @param wifi
-  */ 
+  /**
+   * wifi
+   *
+   * @param wifi
+   */ 
   @JsonProperty(JSON_PROPERTY_WIFI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifi(TerminalConnectivityWifi wifi) {
     this.wifi = wifi;
   }
-
 
   /**
    * Return true if this TerminalConnectivity object is equal to o.
@@ -242,4 +254,3 @@ public class TerminalConnectivity {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

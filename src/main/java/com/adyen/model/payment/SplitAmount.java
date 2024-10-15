@@ -45,65 +45,71 @@ public class SplitAmount {
   public SplitAmount() { 
   }
 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
+   *
+   * @param currency
+   * @return the current {@code SplitAmount} instance, allowing for method chaining
+   */
   public SplitAmount currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
    * @return currency
-  **/
+   */
   @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param value
+   * @return the current {@code SplitAmount} instance, allowing for method chaining
+   */
   public SplitAmount value(Long value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return value
-  **/
+   */
   @ApiModelProperty(required = true, value = "The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getValue() {
     return value;
   }
 
-
- /**
-  * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param value
-  */ 
+  /**
+   * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this SplitAmount object is equal to o.
@@ -166,4 +172,3 @@ public class SplitAmount {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

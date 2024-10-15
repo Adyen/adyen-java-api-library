@@ -44,7 +44,7 @@ public class BankAccountInfo {
   private BankAccountInfoAccountIdentification accountIdentification;
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  @Deprecated
+  @Deprecated // deprecated since Legal Entity Management API v2
   private String accountType;
 
   public static final String JSON_PROPERTY_BANK_NAME = "bankName";
@@ -59,62 +59,74 @@ public class BankAccountInfo {
   public BankAccountInfo() { 
   }
 
+  /**
+   * accountIdentification
+   *
+   * @param accountIdentification
+   * @return the current {@code BankAccountInfo} instance, allowing for method chaining
+   */
   public BankAccountInfo accountIdentification(BankAccountInfoAccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
     return this;
   }
 
-   /**
-   * Get accountIdentification
+  /**
+   * accountIdentification
    * @return accountIdentification
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccountInfoAccountIdentification getAccountIdentification() {
     return accountIdentification;
   }
 
-
- /**
-  * accountIdentification
-  *
-  * @param accountIdentification
-  */ 
+  /**
+   * accountIdentification
+   *
+   * @param accountIdentification
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountInfoAccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
   }
 
-
+  /**
+   * The type of bank account.
+   *
+   * @param accountType
+   * @return the current {@code BankAccountInfo} instance, allowing for method chaining
+   *
+   * @deprecated since Legal Entity Management API v2
+   */
   @Deprecated
   public BankAccountInfo accountType(String accountType) {
     this.accountType = accountType;
     return this;
   }
 
-   /**
+  /**
    * The type of bank account.
    * @return accountType
-   * @deprecated
-  **/
+   *
+   * @deprecated since Legal Entity Management API v2
+   */
   @Deprecated
   @ApiModelProperty(value = "The type of bank account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountType() {
     return accountType;
   }
 
-
- /**
-  * The type of bank account.
-  *
-  * @param accountType
-  */ 
+  /**
+   * The type of bank account.
+   *
+   * @param accountType
+   *
+   * @deprecated since Legal Entity Management API v2
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,96 +134,104 @@ public class BankAccountInfo {
     this.accountType = accountType;
   }
 
-
+  /**
+   * The name of the banking institution where the bank account is held.
+   *
+   * @param bankName
+   * @return the current {@code BankAccountInfo} instance, allowing for method chaining
+   */
   public BankAccountInfo bankName(String bankName) {
     this.bankName = bankName;
     return this;
   }
 
-   /**
+  /**
    * The name of the banking institution where the bank account is held.
    * @return bankName
-  **/
+   */
   @ApiModelProperty(value = "The name of the banking institution where the bank account is held.")
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBankName() {
     return bankName;
   }
 
-
- /**
-  * The name of the banking institution where the bank account is held.
-  *
-  * @param bankName
-  */ 
+  /**
+   * The name of the banking institution where the bank account is held.
+   *
+   * @param bankName
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankName(String bankName) {
     this.bankName = bankName;
   }
 
-
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
+   *
+   * @param countryCode
+   * @return the current {@code BankAccountInfo} instance, allowing for method chaining
+   */
   public BankAccountInfo countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
 
-   /**
+  /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    * @return countryCode
-  **/
+   */
   @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountryCode() {
     return countryCode;
   }
 
-
- /**
-  * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
-  *
-  * @param countryCode
-  */ 
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
+   *
+   * @param countryCode
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
 
-
+  /**
+   * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
+   *
+   * @param trustedSource
+   * @return the current {@code BankAccountInfo} instance, allowing for method chaining
+   */
   public BankAccountInfo trustedSource(Boolean trustedSource) {
     this.trustedSource = trustedSource;
     return this;
   }
 
-   /**
+  /**
    * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
    * @return trustedSource
-  **/
+   */
   @ApiModelProperty(value = "Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote=2023-05-08-hosted-onboarding).")
   @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getTrustedSource() {
     return trustedSource;
   }
 
-
- /**
-  * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
-  *
-  * @param trustedSource
-  */ 
+  /**
+   * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
+   *
+   * @param trustedSource
+   */ 
   @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrustedSource(Boolean trustedSource) {
     this.trustedSource = trustedSource;
   }
-
 
   /**
    * Return true if this BankAccountInfo object is equal to o.
@@ -280,4 +300,3 @@ public class BankAccountInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

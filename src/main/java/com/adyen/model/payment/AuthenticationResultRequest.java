@@ -45,65 +45,71 @@ public class AuthenticationResultRequest {
   public AuthenticationResultRequest() { 
   }
 
+  /**
+   * The merchant account identifier, with which the authentication was processed.
+   *
+   * @param merchantAccount
+   * @return the current {@code AuthenticationResultRequest} instance, allowing for method chaining
+   */
   public AuthenticationResultRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which the authentication was processed.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which the authentication was processed.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which the authentication was processed.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which the authentication was processed.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The pspReference identifier for the transaction.
+   *
+   * @param pspReference
+   * @return the current {@code AuthenticationResultRequest} instance, allowing for method chaining
+   */
   public AuthenticationResultRequest pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * The pspReference identifier for the transaction.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The pspReference identifier for the transaction.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * The pspReference identifier for the transaction.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * The pspReference identifier for the transaction.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
-
 
   /**
    * Return true if this AuthenticationResultRequest object is equal to o.
@@ -166,4 +172,3 @@ public class AuthenticationResultRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

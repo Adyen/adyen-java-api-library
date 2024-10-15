@@ -82,95 +82,104 @@ public class SELocalAccountIdentification {
   public SELocalAccountIdentification() { 
   }
 
+  /**
+   * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
+   *
+   * @param accountNumber
+   * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
+   */
   public SELocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
+   *
+   * @param clearingNumber
+   * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
+   */
   public SELocalAccountIdentification clearingNumber(String clearingNumber) {
     this.clearingNumber = clearingNumber;
     return this;
   }
 
-   /**
+  /**
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    * @return clearingNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getClearingNumber() {
     return clearingNumber;
   }
 
-
- /**
-  * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
-  *
-  * @param clearingNumber
-  */ 
+  /**
+   * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
+   *
+   * @param clearingNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingNumber(String clearingNumber) {
     this.clearingNumber = clearingNumber;
   }
 
-
+  /**
+   * **seLocal**
+   *
+   * @param type
+   * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
+   */
   public SELocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **seLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**seLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **seLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **seLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this SELocalAccountIdentification object is equal to o.
@@ -235,4 +244,3 @@ public class SELocalAccountIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

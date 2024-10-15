@@ -50,95 +50,104 @@ public class PaymentCancelRequest {
   public PaymentCancelRequest() { 
   }
 
+  /**
+   * applicationInfo
+   *
+   * @param applicationInfo
+   * @return the current {@code PaymentCancelRequest} instance, allowing for method chaining
+   */
   public PaymentCancelRequest applicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
     return this;
   }
 
-   /**
-   * Get applicationInfo
+  /**
+   * applicationInfo
    * @return applicationInfo
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationInfo getApplicationInfo() {
     return applicationInfo;
   }
 
-
- /**
-  * applicationInfo
-  *
-  * @param applicationInfo
-  */ 
+  /**
+   * applicationInfo
+   *
+   * @param applicationInfo
+   */ 
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
   }
 
-
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   * @return the current {@code PaymentCancelRequest} instance, allowing for method chaining
+   */
   public PaymentCancelRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account that is used to process the payment.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account that is used to process the payment.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * Your reference for the cancel request. Maximum length: 80 characters.
+   *
+   * @param reference
+   * @return the current {@code PaymentCancelRequest} instance, allowing for method chaining
+   */
   public PaymentCancelRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the cancel request. Maximum length: 80 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the cancel request. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the cancel request. Maximum length: 80 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the cancel request. Maximum length: 80 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this PaymentCancelRequest object is equal to o.
@@ -203,4 +212,3 @@ public class PaymentCancelRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

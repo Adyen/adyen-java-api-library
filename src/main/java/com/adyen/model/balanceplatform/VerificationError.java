@@ -90,6 +90,8 @@ public class VerificationError {
     
     ISSUECARDCONSUMER("issueCardConsumer"),
     
+    ISSUECREDITLIMIT("issueCreditLimit"),
+    
     LOCALACCEPTANCE("localAcceptance"),
     
     PAYOUT("payout"),
@@ -233,6 +235,12 @@ public class VerificationError {
   public VerificationError() { 
   }
 
+  /**
+   * Contains the capabilities that the verification error applies to.
+   *
+   * @param capabilities
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError capabilities(List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
     return this;
@@ -246,91 +254,100 @@ public class VerificationError {
     return this;
   }
 
-   /**
+  /**
    * Contains the capabilities that the verification error applies to.
    * @return capabilities
-  **/
+   */
   @ApiModelProperty(value = "Contains the capabilities that the verification error applies to.")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CapabilitiesEnum> getCapabilities() {
     return capabilities;
   }
 
-
- /**
-  * Contains the capabilities that the verification error applies to.
-  *
-  * @param capabilities
-  */ 
+  /**
+   * Contains the capabilities that the verification error applies to.
+   *
+   * @param capabilities
+   */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
   }
 
-
+  /**
+   * The verification error code.
+   *
+   * @param code
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError code(String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * The verification error code.
    * @return code
-  **/
+   */
   @ApiModelProperty(value = "The verification error code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCode() {
     return code;
   }
 
-
- /**
-  * The verification error code.
-  *
-  * @param code
-  */ 
+  /**
+   * The verification error code.
+   *
+   * @param code
+   */ 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
     this.code = code;
   }
 
-
+  /**
+   * A description of the error.
+   *
+   * @param message
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * A description of the error.
    * @return message
-  **/
+   */
   @ApiModelProperty(value = "A description of the error.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * A description of the error.
-  *
-  * @param message
-  */ 
+  /**
+   * A description of the error.
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
 
-
+  /**
+   * Contains the actions that you can take to resolve the verification error.
+   *
+   * @param remediatingActions
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError remediatingActions(List<RemediatingAction> remediatingActions) {
     this.remediatingActions = remediatingActions;
     return this;
@@ -344,31 +361,34 @@ public class VerificationError {
     return this;
   }
 
-   /**
+  /**
    * Contains the actions that you can take to resolve the verification error.
    * @return remediatingActions
-  **/
+   */
   @ApiModelProperty(value = "Contains the actions that you can take to resolve the verification error.")
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<RemediatingAction> getRemediatingActions() {
     return remediatingActions;
   }
 
-
- /**
-  * Contains the actions that you can take to resolve the verification error.
-  *
-  * @param remediatingActions
-  */ 
+  /**
+   * Contains the actions that you can take to resolve the verification error.
+   *
+   * @param remediatingActions
+   */ 
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
     this.remediatingActions = remediatingActions;
   }
 
-
+  /**
+   * Contains more granular information about the verification error.
+   *
+   * @param subErrors
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError subErrors(List<VerificationErrorRecursive> subErrors) {
     this.subErrors = subErrors;
     return this;
@@ -382,60 +402,60 @@ public class VerificationError {
     return this;
   }
 
-   /**
+  /**
    * Contains more granular information about the verification error.
    * @return subErrors
-  **/
+   */
   @ApiModelProperty(value = "Contains more granular information about the verification error.")
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<VerificationErrorRecursive> getSubErrors() {
     return subErrors;
   }
 
-
- /**
-  * Contains more granular information about the verification error.
-  *
-  * @param subErrors
-  */ 
+  /**
+   * Contains more granular information about the verification error.
+   *
+   * @param subErrors
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubErrors(List<VerificationErrorRecursive> subErrors) {
     this.subErrors = subErrors;
   }
 
-
+  /**
+   * The type of error.   Possible values: **invalidInput**, **dataMissing**.
+   *
+   * @param type
+   * @return the current {@code VerificationError} instance, allowing for method chaining
+   */
   public VerificationError type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of error.   Possible values: **invalidInput**, **dataMissing**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of error.   Possible values: **invalidInput**, **dataMissing**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of error.   Possible values: **invalidInput**, **dataMissing**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this VerificationError object is equal to o.
@@ -506,4 +526,3 @@ public class VerificationError {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

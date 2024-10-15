@@ -56,6 +56,12 @@ public class MerchantAccount {
   public MerchantAccount() { 
   }
 
+  /**
+   * List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.
+   *
+   * @param inStoreTerminals
+   * @return the current {@code MerchantAccount} instance, allowing for method chaining
+   */
   public MerchantAccount inStoreTerminals(List<String> inStoreTerminals) {
     this.inStoreTerminals = inStoreTerminals;
     return this;
@@ -69,31 +75,34 @@ public class MerchantAccount {
     return this;
   }
 
-   /**
+  /**
    * List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.
    * @return inStoreTerminals
-  **/
+   */
   @ApiModelProperty(value = "List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.")
   @JsonProperty(JSON_PROPERTY_IN_STORE_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getInStoreTerminals() {
     return inStoreTerminals;
   }
 
-
- /**
-  * List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.
-  *
-  * @param inStoreTerminals
-  */ 
+  /**
+   * List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.
+   *
+   * @param inStoreTerminals
+   */ 
   @JsonProperty(JSON_PROPERTY_IN_STORE_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInStoreTerminals(List<String> inStoreTerminals) {
     this.inStoreTerminals = inStoreTerminals;
   }
 
-
+  /**
+   * List of terminals assigned to the inventory of this merchant account.
+   *
+   * @param inventoryTerminals
+   * @return the current {@code MerchantAccount} instance, allowing for method chaining
+   */
   public MerchantAccount inventoryTerminals(List<String> inventoryTerminals) {
     this.inventoryTerminals = inventoryTerminals;
     return this;
@@ -107,61 +116,67 @@ public class MerchantAccount {
     return this;
   }
 
-   /**
+  /**
    * List of terminals assigned to the inventory of this merchant account.
    * @return inventoryTerminals
-  **/
+   */
   @ApiModelProperty(value = "List of terminals assigned to the inventory of this merchant account.")
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getInventoryTerminals() {
     return inventoryTerminals;
   }
 
-
- /**
-  * List of terminals assigned to the inventory of this merchant account.
-  *
-  * @param inventoryTerminals
-  */ 
+  /**
+   * List of terminals assigned to the inventory of this merchant account.
+   *
+   * @param inventoryTerminals
+   */ 
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventoryTerminals(List<String> inventoryTerminals) {
     this.inventoryTerminals = inventoryTerminals;
   }
 
-
+  /**
+   * The merchant account.
+   *
+   * @param merchantAccount
+   * @return the current {@code MerchantAccount} instance, allowing for method chaining
+   */
   public MerchantAccount merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * Array of stores under this merchant account.
+   *
+   * @param stores
+   * @return the current {@code MerchantAccount} instance, allowing for method chaining
+   */
   public MerchantAccount stores(List<Store> stores) {
     this.stores = stores;
     return this;
@@ -175,30 +190,27 @@ public class MerchantAccount {
     return this;
   }
 
-   /**
+  /**
    * Array of stores under this merchant account.
    * @return stores
-  **/
+   */
   @ApiModelProperty(value = "Array of stores under this merchant account.")
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Store> getStores() {
     return stores;
   }
 
-
- /**
-  * Array of stores under this merchant account.
-  *
-  * @param stores
-  */ 
+  /**
+   * Array of stores under this merchant account.
+   *
+   * @param stores
+   */ 
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<Store> stores) {
     this.stores = stores;
   }
-
 
   /**
    * Return true if this MerchantAccount object is equal to o.
@@ -265,4 +277,3 @@ public class MerchantAccount {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

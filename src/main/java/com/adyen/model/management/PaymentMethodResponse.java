@@ -236,36 +236,45 @@ public class PaymentMethodResponse {
   public PaymentMethodResponse() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code PaymentMethodResponse} instance, allowing for method chaining
+   */
   public PaymentMethodResponse links(PaginationLinks links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaginationLinks getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
     this.links = links;
   }
 
-
+  /**
+   * The list of supported payment methods and their details.
+   *
+   * @param data
+   * @return the current {@code PaymentMethodResponse} instance, allowing for method chaining
+   */
   public PaymentMethodResponse data(List<PaymentMethod> data) {
     this.data = data;
     return this;
@@ -279,91 +288,100 @@ public class PaymentMethodResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of supported payment methods and their details.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The list of supported payment methods and their details.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PaymentMethod> getData() {
     return data;
   }
 
-
- /**
-  * The list of supported payment methods and their details.
-  *
-  * @param data
-  */ 
+  /**
+   * The list of supported payment methods and their details.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PaymentMethod> data) {
     this.data = data;
   }
 
-
+  /**
+   * Total number of items.
+   *
+   * @param itemsTotal
+   * @return the current {@code PaymentMethodResponse} instance, allowing for method chaining
+   */
   public PaymentMethodResponse itemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
     return this;
   }
 
-   /**
+  /**
    * Total number of items.
    * @return itemsTotal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total number of items.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getItemsTotal() {
     return itemsTotal;
   }
 
-
- /**
-  * Total number of items.
-  *
-  * @param itemsTotal
-  */ 
+  /**
+   * Total number of items.
+   *
+   * @param itemsTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
 
-
+  /**
+   * Total number of pages.
+   *
+   * @param pagesTotal
+   * @return the current {@code PaymentMethodResponse} instance, allowing for method chaining
+   */
   public PaymentMethodResponse pagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
     return this;
   }
 
-   /**
+  /**
    * Total number of pages.
    * @return pagesTotal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPagesTotal() {
     return pagesTotal;
   }
 
-
- /**
-  * Total number of pages.
-  *
-  * @param pagesTotal
-  */ 
+  /**
+   * Total number of pages.
+   *
+   * @param pagesTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }
 
-
+  /**
+   * Payment method types with errors.
+   *
+   * @param typesWithErrors
+   * @return the current {@code PaymentMethodResponse} instance, allowing for method chaining
+   */
   public PaymentMethodResponse typesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
     this.typesWithErrors = typesWithErrors;
     return this;
@@ -377,30 +395,27 @@ public class PaymentMethodResponse {
     return this;
   }
 
-   /**
+  /**
    * Payment method types with errors.
    * @return typesWithErrors
-  **/
+   */
   @ApiModelProperty(value = "Payment method types with errors.")
   @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TypesWithErrorsEnum> getTypesWithErrors() {
     return typesWithErrors;
   }
 
-
- /**
-  * Payment method types with errors.
-  *
-  * @param typesWithErrors
-  */ 
+  /**
+   * Payment method types with errors.
+   *
+   * @param typesWithErrors
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTypesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
     this.typesWithErrors = typesWithErrors;
   }
-
 
   /**
    * Return true if this PaymentMethodResponse object is equal to o.
@@ -469,4 +484,3 @@ public class PaymentMethodResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

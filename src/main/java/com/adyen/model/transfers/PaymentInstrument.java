@@ -53,125 +53,137 @@ public class PaymentInstrument {
   public PaymentInstrument() { 
   }
 
+  /**
+   * The description of the resource.
+   *
+   * @param description
+   * @return the current {@code PaymentInstrument} instance, allowing for method chaining
+   */
   public PaymentInstrument description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * The description of the resource.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "The description of the resource.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * The description of the resource.
-  *
-  * @param description
-  */ 
+  /**
+   * The description of the resource.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   * @return the current {@code PaymentInstrument} instance, allowing for method chaining
+   */
   public PaymentInstrument id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the resource.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the resource.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the resource.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The reference for the resource.
+   *
+   * @param reference
+   * @return the current {@code PaymentInstrument} instance, allowing for method chaining
+   */
   public PaymentInstrument reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The reference for the resource.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The reference for the resource.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The reference for the resource.
-  *
-  * @param reference
-  */ 
+  /**
+   * The reference for the resource.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The type of wallet that the network token is associated with.
+   *
+   * @param tokenType
+   * @return the current {@code PaymentInstrument} instance, allowing for method chaining
+   */
   public PaymentInstrument tokenType(String tokenType) {
     this.tokenType = tokenType;
     return this;
   }
 
-   /**
+  /**
    * The type of wallet that the network token is associated with.
    * @return tokenType
-  **/
+   */
   @ApiModelProperty(value = "The type of wallet that the network token is associated with.")
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTokenType() {
     return tokenType;
   }
 
-
- /**
-  * The type of wallet that the network token is associated with.
-  *
-  * @param tokenType
-  */ 
+  /**
+   * The type of wallet that the network token is associated with.
+   *
+   * @param tokenType
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenType(String tokenType) {
     this.tokenType = tokenType;
   }
-
 
   /**
    * Return true if this PaymentInstrument object is equal to o.
@@ -238,4 +250,3 @@ public class PaymentInstrument {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

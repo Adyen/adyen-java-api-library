@@ -45,65 +45,71 @@ public class IdName {
   public IdName() { 
   }
 
+  /**
+   * The identifier of the terminal model.
+   *
+   * @param id
+   * @return the current {@code IdName} instance, allowing for method chaining
+   */
   public IdName id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The identifier of the terminal model.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The identifier of the terminal model.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The identifier of the terminal model.
-  *
-  * @param id
-  */ 
+  /**
+   * The identifier of the terminal model.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The name of the terminal model.
+   *
+   * @param name
+   * @return the current {@code IdName} instance, allowing for method chaining
+   */
   public IdName name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the terminal model.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The name of the terminal model.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The name of the terminal model.
-  *
-  * @param name
-  */ 
+  /**
+   * The name of the terminal model.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
-
 
   /**
    * Return true if this IdName object is equal to o.
@@ -166,4 +172,3 @@ public class IdName {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

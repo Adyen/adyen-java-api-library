@@ -49,6 +49,12 @@ public class AdditionalSettings {
   public AdditionalSettings() { 
   }
 
+  /**
+   * Object containing list of event codes for which the notification will be sent. 
+   *
+   * @param includeEventCodes
+   * @return the current {@code AdditionalSettings} instance, allowing for method chaining
+   */
   public AdditionalSettings includeEventCodes(List<String> includeEventCodes) {
     this.includeEventCodes = includeEventCodes;
     return this;
@@ -62,31 +68,34 @@ public class AdditionalSettings {
     return this;
   }
 
-   /**
+  /**
    * Object containing list of event codes for which the notification will be sent. 
    * @return includeEventCodes
-  **/
+   */
   @ApiModelProperty(value = "Object containing list of event codes for which the notification will be sent. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getIncludeEventCodes() {
     return includeEventCodes;
   }
 
-
- /**
-  * Object containing list of event codes for which the notification will be sent. 
-  *
-  * @param includeEventCodes
-  */ 
+  /**
+   * Object containing list of event codes for which the notification will be sent. 
+   *
+   * @param includeEventCodes
+   */ 
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIncludeEventCodes(List<String> includeEventCodes) {
     this.includeEventCodes = includeEventCodes;
   }
 
-
+  /**
+   * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
+   *
+   * @param properties
+   * @return the current {@code AdditionalSettings} instance, allowing for method chaining
+   */
   public AdditionalSettings properties(Map<String, Boolean> properties) {
     this.properties = properties;
     return this;
@@ -100,30 +109,27 @@ public class AdditionalSettings {
     return this;
   }
 
-   /**
+  /**
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    * @return properties
-  **/
+   */
   @ApiModelProperty(value = "Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, `captureDelayHours`: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.")
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, Boolean> getProperties() {
     return properties;
   }
 
-
- /**
-  * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
-  *
-  * @param properties
-  */ 
+  /**
+   * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
+   *
+   * @param properties
+   */ 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, Boolean> properties) {
     this.properties = properties;
   }
-
 
   /**
    * Return true if this AdditionalSettings object is equal to o.
@@ -186,4 +192,3 @@ public class AdditionalSettings {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -121,125 +121,137 @@ public class VisaCheckoutDetails {
   public VisaCheckoutDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
+   */
   public VisaCheckoutDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+   *
+   * @param fundingSource
+   * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
+   */
   public VisaCheckoutDetails fundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
     return this;
   }
 
-   /**
+  /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
-  **/
+   */
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FundingSourceEnum getFundingSource() {
     return fundingSource;
   }
 
-
- /**
-  * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
-  *
-  * @param fundingSource
-  */ 
+  /**
+   * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+   *
+   * @param fundingSource
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
   }
 
-
+  /**
+   * **visacheckout**
+   *
+   * @param type
+   * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
+   */
   public VisaCheckoutDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **visacheckout**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**visacheckout**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **visacheckout**
-  *
-  * @param type
-  */ 
+  /**
+   * **visacheckout**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
+   *
+   * @param visaCheckoutCallId
+   * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
+   */
   public VisaCheckoutDetails visaCheckoutCallId(String visaCheckoutCallId) {
     this.visaCheckoutCallId = visaCheckoutCallId;
     return this;
   }
 
-   /**
+  /**
    * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
    * @return visaCheckoutCallId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.")
   @JsonProperty(JSON_PROPERTY_VISA_CHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVisaCheckoutCallId() {
     return visaCheckoutCallId;
   }
 
-
- /**
-  * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
-  *
-  * @param visaCheckoutCallId
-  */ 
+  /**
+   * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
+   *
+   * @param visaCheckoutCallId
+   */ 
   @JsonProperty(JSON_PROPERTY_VISA_CHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisaCheckoutCallId(String visaCheckoutCallId) {
     this.visaCheckoutCallId = visaCheckoutCallId;
   }
-
 
   /**
    * Return true if this VisaCheckoutDetails object is equal to o.
@@ -306,4 +318,3 @@ public class VisaCheckoutDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -51,95 +51,104 @@ public class StoredDetails {
   public StoredDetails() { 
   }
 
+  /**
+   * bank
+   *
+   * @param bank
+   * @return the current {@code StoredDetails} instance, allowing for method chaining
+   */
   public StoredDetails bank(BankAccount bank) {
     this.bank = bank;
     return this;
   }
 
-   /**
-   * Get bank
+  /**
+   * bank
    * @return bank
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccount getBank() {
     return bank;
   }
 
-
- /**
-  * bank
-  *
-  * @param bank
-  */ 
+  /**
+   * bank
+   *
+   * @param bank
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(BankAccount bank) {
     this.bank = bank;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code StoredDetails} instance, allowing for method chaining
+   */
   public StoredDetails card(Card card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Card getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
   }
 
-
+  /**
+   * The email associated with stored payment details.
+   *
+   * @param emailAddress
+   * @return the current {@code StoredDetails} instance, allowing for method chaining
+   */
   public StoredDetails emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
   }
 
-   /**
+  /**
    * The email associated with stored payment details.
    * @return emailAddress
-  **/
+   */
   @ApiModelProperty(value = "The email associated with stored payment details.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmailAddress() {
     return emailAddress;
   }
 
-
- /**
-  * The email associated with stored payment details.
-  *
-  * @param emailAddress
-  */ 
+  /**
+   * The email associated with stored payment details.
+   *
+   * @param emailAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }
-
 
   /**
    * Return true if this StoredDetails object is equal to o.
@@ -204,4 +213,3 @@ public class StoredDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

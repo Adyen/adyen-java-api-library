@@ -46,65 +46,71 @@ public class CancelOrderRequest {
   public CancelOrderRequest() { 
   }
 
+  /**
+   * The merchant account identifier that orderData belongs to.
+   *
+   * @param merchantAccount
+   * @return the current {@code CancelOrderRequest} instance, allowing for method chaining
+   */
   public CancelOrderRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier that orderData belongs to.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier that orderData belongs to.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier that orderData belongs to.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier that orderData belongs to.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * order
+   *
+   * @param order
+   * @return the current {@code CancelOrderRequest} instance, allowing for method chaining
+   */
   public CancelOrderRequest order(EncryptedOrderData order) {
     this.order = order;
     return this;
   }
 
-   /**
-   * Get order
+  /**
+   * order
    * @return order
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EncryptedOrderData getOrder() {
     return order;
   }
 
-
- /**
-  * order
-  *
-  * @param order
-  */ 
+  /**
+   * order
+   *
+   * @param order
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(EncryptedOrderData order) {
     this.order = order;
   }
-
 
   /**
    * Return true if this CancelOrderRequest object is equal to o.
@@ -167,4 +173,3 @@ public class CancelOrderRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

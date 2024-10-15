@@ -61,96 +61,111 @@ public class OnboardingTheme {
   public OnboardingTheme() { 
   }
 
+  /**
+   * The creation date of the theme.
+   *
+   * @param createdAt
+   * @return the current {@code OnboardingTheme} instance, allowing for method chaining
+   */
   public OnboardingTheme createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
-   /**
+  /**
    * The creation date of the theme.
    * @return createdAt
-  **/
+   */
   @ApiModelProperty(required = true, value = "The creation date of the theme.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
- /**
-  * The creation date of the theme.
-  *
-  * @param createdAt
-  */ 
+  /**
+   * The creation date of the theme.
+   *
+   * @param createdAt
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
-
+  /**
+   * The description of the theme.
+   *
+   * @param description
+   * @return the current {@code OnboardingTheme} instance, allowing for method chaining
+   */
   public OnboardingTheme description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * The description of the theme.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "The description of the theme.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * The description of the theme.
-  *
-  * @param description
-  */ 
+  /**
+   * The description of the theme.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The unique identifier of the theme.
+   *
+   * @param id
+   * @return the current {@code OnboardingTheme} instance, allowing for method chaining
+   */
   public OnboardingTheme id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the theme.
    * @return id
-  **/
+   */
   @ApiModelProperty(required = true, value = "The unique identifier of the theme.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the theme.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the theme.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The properties of the theme.
+   *
+   * @param properties
+   * @return the current {@code OnboardingTheme} instance, allowing for method chaining
+   */
   public OnboardingTheme properties(Map<String, String> properties) {
     this.properties = properties;
     return this;
@@ -161,60 +176,60 @@ public class OnboardingTheme {
     return this;
   }
 
-   /**
+  /**
    * The properties of the theme.
    * @return properties
-  **/
+   */
   @ApiModelProperty(required = true, value = "The properties of the theme.")
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getProperties() {
     return properties;
   }
 
-
- /**
-  * The properties of the theme.
-  *
-  * @param properties
-  */ 
+  /**
+   * The properties of the theme.
+   *
+   * @param properties
+   */ 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, String> properties) {
     this.properties = properties;
   }
 
-
+  /**
+   * The date when the theme was last updated.
+   *
+   * @param updatedAt
+   * @return the current {@code OnboardingTheme} instance, allowing for method chaining
+   */
   public OnboardingTheme updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
-   /**
+  /**
    * The date when the theme was last updated.
    * @return updatedAt
-  **/
+   */
   @ApiModelProperty(value = "The date when the theme was last updated.")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
 
-
- /**
-  * The date when the theme was last updated.
-  *
-  * @param updatedAt
-  */ 
+  /**
+   * The date when the theme was last updated.
+   *
+   * @param updatedAt
+   */ 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
-
 
   /**
    * Return true if this OnboardingTheme object is equal to o.
@@ -283,4 +298,3 @@ public class OnboardingTheme {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

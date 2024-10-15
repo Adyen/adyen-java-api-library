@@ -45,65 +45,71 @@ public class MerchantAcquirerPair {
   public MerchantAcquirerPair() { 
   }
 
+  /**
+   * The acquirer ID.
+   *
+   * @param acquirerId
+   * @return the current {@code MerchantAcquirerPair} instance, allowing for method chaining
+   */
   public MerchantAcquirerPair acquirerId(String acquirerId) {
     this.acquirerId = acquirerId;
     return this;
   }
 
-   /**
+  /**
    * The acquirer ID.
    * @return acquirerId
-  **/
+   */
   @ApiModelProperty(value = "The acquirer ID.")
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcquirerId() {
     return acquirerId;
   }
 
-
- /**
-  * The acquirer ID.
-  *
-  * @param acquirerId
-  */ 
+  /**
+   * The acquirer ID.
+   *
+   * @param acquirerId
+   */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerId(String acquirerId) {
     this.acquirerId = acquirerId;
   }
 
-
+  /**
+   * The merchant identification number (MID).
+   *
+   * @param merchantId
+   * @return the current {@code MerchantAcquirerPair} instance, allowing for method chaining
+   */
   public MerchantAcquirerPair merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
+  /**
    * The merchant identification number (MID).
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(value = "The merchant identification number (MID).")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * The merchant identification number (MID).
-  *
-  * @param merchantId
-  */ 
+  /**
+   * The merchant identification number (MID).
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
-
 
   /**
    * Return true if this MerchantAcquirerPair object is equal to o.
@@ -166,4 +172,3 @@ public class MerchantAcquirerPair {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -55,125 +55,137 @@ public class ShippingLocation {
   public ShippingLocation() { 
   }
 
+  /**
+   * address
+   *
+   * @param address
+   * @return the current {@code ShippingLocation} instance, allowing for method chaining
+   */
   public ShippingLocation address(Address address) {
     this.address = address;
     return this;
   }
 
-   /**
-   * Get address
+  /**
+   * address
    * @return address
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
 
-
- /**
-  * address
-  *
-  * @param address
-  */ 
+  /**
+   * address
+   *
+   * @param address
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
     this.address = address;
   }
 
-
+  /**
+   * contact
+   *
+   * @param contact
+   * @return the current {@code ShippingLocation} instance, allowing for method chaining
+   */
   public ShippingLocation contact(Contact contact) {
     this.contact = contact;
     return this;
   }
 
-   /**
-   * Get contact
+  /**
+   * contact
    * @return contact
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Contact getContact() {
     return contact;
   }
 
-
- /**
-  * contact
-  *
-  * @param contact
-  */ 
+  /**
+   * contact
+   *
+   * @param contact
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContact(Contact contact) {
     this.contact = contact;
   }
 
-
+  /**
+   * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
+   *
+   * @param id
+   * @return the current {@code ShippingLocation} instance, allowing for method chaining
+   */
   public ShippingLocation id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the shipping location, for use as `shippingLocationId` when creating an order.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The unique name of the shipping location.
+   *
+   * @param name
+   * @return the current {@code ShippingLocation} instance, allowing for method chaining
+   */
   public ShippingLocation name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The unique name of the shipping location.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The unique name of the shipping location.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The unique name of the shipping location.
-  *
-  * @param name
-  */ 
+  /**
+   * The unique name of the shipping location.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
-
 
   /**
    * Return true if this ShippingLocation object is equal to o.
@@ -240,4 +252,3 @@ public class ShippingLocation {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

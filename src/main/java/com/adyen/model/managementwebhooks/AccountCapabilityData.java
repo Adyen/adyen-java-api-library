@@ -73,96 +73,111 @@ public class AccountCapabilityData {
   public AccountCapabilityData() { 
   }
 
+  /**
+   * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
+   *
+   * @param allowed
+   * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
+   */
   public AccountCapabilityData allowed(Boolean allowed) {
     this.allowed = allowed;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
    * @return allowed
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.")
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAllowed() {
     return allowed;
   }
 
-
- /**
-  * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
-  *
-  * @param allowed
-  */ 
+  /**
+   * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
+   *
+   * @param allowed
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
     this.allowed = allowed;
   }
 
-
+  /**
+   * The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
+   *
+   * @param allowedLevel
+   * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
+   */
   public AccountCapabilityData allowedLevel(String allowedLevel) {
     this.allowedLevel = allowedLevel;
     return this;
   }
 
-   /**
+  /**
    * The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    * @return allowedLevel
-  **/
+   */
   @ApiModelProperty(value = "The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAllowedLevel() {
     return allowedLevel;
   }
 
-
- /**
-  * The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
-  *
-  * @param allowedLevel
-  */ 
+  /**
+   * The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
+   *
+   * @param allowedLevel
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedLevel(String allowedLevel) {
     this.allowedLevel = allowedLevel;
   }
 
-
+  /**
+   * The name of the capability. For example, **sendToTransferInstrument**.
+   *
+   * @param capability
+   * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
+   */
   public AccountCapabilityData capability(String capability) {
     this.capability = capability;
     return this;
   }
 
-   /**
+  /**
    * The name of the capability. For example, **sendToTransferInstrument**.
    * @return capability
-  **/
+   */
   @ApiModelProperty(value = "The name of the capability. For example, **sendToTransferInstrument**.")
   @JsonProperty(JSON_PROPERTY_CAPABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCapability() {
     return capability;
   }
 
-
- /**
-  * The name of the capability. For example, **sendToTransferInstrument**.
-  *
-  * @param capability
-  */ 
+  /**
+   * The name of the capability. For example, **sendToTransferInstrument**.
+   *
+   * @param capability
+   */ 
   @JsonProperty(JSON_PROPERTY_CAPABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapability(String capability) {
     this.capability = capability;
   }
 
-
+  /**
+   * List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
+   *
+   * @param problems
+   * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
+   */
   public AccountCapabilityData problems(List<CapabilityProblem> problems) {
     this.problems = problems;
     return this;
@@ -176,150 +191,159 @@ public class AccountCapabilityData {
     return this;
   }
 
-   /**
+  /**
    * List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
    * @return problems
-  **/
+   */
   @ApiModelProperty(value = "List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.")
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CapabilityProblem> getProblems() {
     return problems;
   }
 
-
- /**
-  * List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
-  *
-  * @param problems
-  */ 
+  /**
+   * List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
+   *
+   * @param problems
+   */ 
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
     this.problems = problems;
   }
 
-
+  /**
+   * Indicates whether you requested the capability.
+   *
+   * @param requested
+   * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
+   */
   public AccountCapabilityData requested(Boolean requested) {
     this.requested = requested;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether you requested the capability.
    * @return requested
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates whether you requested the capability.")
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getRequested() {
     return requested;
   }
 
-
- /**
-  * Indicates whether you requested the capability.
-  *
-  * @param requested
-  */ 
+  /**
+   * Indicates whether you requested the capability.
+   *
+   * @param requested
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
     this.requested = requested;
   }
 
-
+  /**
+   * The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
+   *
+   * @param requestedLevel
+   * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
+   */
   public AccountCapabilityData requestedLevel(String requestedLevel) {
     this.requestedLevel = requestedLevel;
     return this;
   }
 
-   /**
+  /**
    * The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    * @return requestedLevel
-  **/
+   */
   @ApiModelProperty(required = true, value = "The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.")
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestedLevel() {
     return requestedLevel;
   }
 
-
- /**
-  * The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
-  *
-  * @param requestedLevel
-  */ 
+  /**
+   * The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
+   *
+   * @param requestedLevel
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(String requestedLevel) {
     this.requestedLevel = requestedLevel;
   }
 
-
+  /**
+   * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
+   *
+   * @param verificationDeadline
+   * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
+   */
   public AccountCapabilityData verificationDeadline(OffsetDateTime verificationDeadline) {
     this.verificationDeadline = verificationDeadline;
     return this;
   }
 
-   /**
+  /**
    * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
    * @return verificationDeadline
-  **/
+   */
   @ApiModelProperty(value = "The verification deadline for the capability that will be disallowed if verification errors are not resolved.")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getVerificationDeadline() {
     return verificationDeadline;
   }
 
-
- /**
-  * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
-  *
-  * @param verificationDeadline
-  */ 
+  /**
+   * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
+   *
+   * @param verificationDeadline
+   */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationDeadline(OffsetDateTime verificationDeadline) {
     this.verificationDeadline = verificationDeadline;
   }
 
-
+  /**
+   * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
+   *
+   * @param verificationStatus
+   * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
+   */
   public AccountCapabilityData verificationStatus(String verificationStatus) {
     this.verificationStatus = verificationStatus;
     return this;
   }
 
-   /**
+  /**
    * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
    * @return verificationStatus
-  **/
+   */
   @ApiModelProperty(value = "The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the `errors` array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. ")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVerificationStatus() {
     return verificationStatus;
   }
 
-
- /**
-  * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
-  *
-  * @param verificationStatus
-  */ 
+  /**
+   * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
+   *
+   * @param verificationStatus
+   */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(String verificationStatus) {
     this.verificationStatus = verificationStatus;
   }
-
 
   /**
    * Return true if this AccountCapabilityData object is equal to o.
@@ -394,4 +418,3 @@ public class AccountCapabilityData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -49,95 +49,104 @@ public class PayMeInfo {
   public PayMeInfo() { 
   }
 
+  /**
+   * Merchant display name
+   *
+   * @param displayName
+   * @return the current {@code PayMeInfo} instance, allowing for method chaining
+   */
   public PayMeInfo displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
 
-   /**
+  /**
    * Merchant display name
    * @return displayName
-  **/
+   */
   @ApiModelProperty(required = true, value = "Merchant display name")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDisplayName() {
     return displayName;
   }
 
-
- /**
-  * Merchant display name
-  *
-  * @param displayName
-  */ 
+  /**
+   * Merchant display name
+   *
+   * @param displayName
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
-
+  /**
+   * Merchant logo. Format: Base64-encoded string.
+   *
+   * @param logo
+   * @return the current {@code PayMeInfo} instance, allowing for method chaining
+   */
   public PayMeInfo logo(String logo) {
     this.logo = logo;
     return this;
   }
 
-   /**
+  /**
    * Merchant logo. Format: Base64-encoded string.
    * @return logo
-  **/
+   */
   @ApiModelProperty(required = true, value = "Merchant logo. Format: Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLogo() {
     return logo;
   }
 
-
- /**
-  * Merchant logo. Format: Base64-encoded string.
-  *
-  * @param logo
-  */ 
+  /**
+   * Merchant logo. Format: Base64-encoded string.
+   *
+   * @param logo
+   */ 
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
   }
 
-
+  /**
+   * The email address of merchant support.
+   *
+   * @param supportEmail
+   * @return the current {@code PayMeInfo} instance, allowing for method chaining
+   */
   public PayMeInfo supportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
     return this;
   }
 
-   /**
+  /**
    * The email address of merchant support.
    * @return supportEmail
-  **/
+   */
   @ApiModelProperty(required = true, value = "The email address of merchant support.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSupportEmail() {
     return supportEmail;
   }
 
-
- /**
-  * The email address of merchant support.
-  *
-  * @param supportEmail
-  */ 
+  /**
+   * The email address of merchant support.
+   *
+   * @param supportEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
   }
-
 
   /**
    * Return true if this PayMeInfo object is equal to o.
@@ -202,4 +211,3 @@ public class PayMeInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

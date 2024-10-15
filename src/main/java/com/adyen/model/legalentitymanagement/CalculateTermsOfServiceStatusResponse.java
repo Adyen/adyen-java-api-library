@@ -90,6 +90,12 @@ public class CalculateTermsOfServiceStatusResponse {
   public CalculateTermsOfServiceStatusResponse() { 
   }
 
+  /**
+   * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
+   *
+   * @param termsOfServiceTypes
+   * @return the current {@code CalculateTermsOfServiceStatusResponse} instance, allowing for method chaining
+   */
   public CalculateTermsOfServiceStatusResponse termsOfServiceTypes(List<TermsOfServiceTypesEnum> termsOfServiceTypes) {
     this.termsOfServiceTypes = termsOfServiceTypes;
     return this;
@@ -103,30 +109,27 @@ public class CalculateTermsOfServiceStatusResponse {
     return this;
   }
 
-   /**
+  /**
    * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
    * @return termsOfServiceTypes
-  **/
+   */
   @ApiModelProperty(value = "The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TermsOfServiceTypesEnum> getTermsOfServiceTypes() {
     return termsOfServiceTypes;
   }
 
-
- /**
-  * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
-  *
-  * @param termsOfServiceTypes
-  */ 
+  /**
+   * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
+   *
+   * @param termsOfServiceTypes
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceTypes(List<TermsOfServiceTypesEnum> termsOfServiceTypes) {
     this.termsOfServiceTypes = termsOfServiceTypes;
   }
-
 
   /**
    * Return true if this CalculateTermsOfServiceStatusResponse object is equal to o.
@@ -187,4 +190,3 @@ public class CalculateTermsOfServiceStatusResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

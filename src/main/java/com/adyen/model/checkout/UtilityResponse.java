@@ -44,6 +44,12 @@ public class UtilityResponse {
   public UtilityResponse() { 
   }
 
+  /**
+   * The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.
+   *
+   * @param originKeys
+   * @return the current {@code UtilityResponse} instance, allowing for method chaining
+   */
   public UtilityResponse originKeys(Map<String, String> originKeys) {
     this.originKeys = originKeys;
     return this;
@@ -57,30 +63,27 @@ public class UtilityResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.
    * @return originKeys
-  **/
+   */
   @ApiModelProperty(value = "The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.")
   @JsonProperty(JSON_PROPERTY_ORIGIN_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getOriginKeys() {
     return originKeys;
   }
 
-
- /**
-  * The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.
-  *
-  * @param originKeys
-  */ 
+  /**
+   * The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.
+   *
+   * @param originKeys
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGIN_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginKeys(Map<String, String> originKeys) {
     this.originKeys = originKeys;
   }
-
 
   /**
    * Return true if this UtilityResponse object is equal to o.
@@ -141,4 +144,3 @@ public class UtilityResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

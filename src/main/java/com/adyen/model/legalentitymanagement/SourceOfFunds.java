@@ -39,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class SourceOfFunds {
   public static final String JSON_PROPERTY_ACQUIRING_BUSINESS_LINE_ID = "acquiringBusinessLineId";
-  @Deprecated
+  @Deprecated // deprecated since Legal Entity Management API v3: This field will be removed in v4.
   private String acquiringBusinessLineId;
 
   public static final String JSON_PROPERTY_ADYEN_PROCESSED_FUNDS = "adyenProcessedFunds";
@@ -87,32 +87,44 @@ public class SourceOfFunds {
   public SourceOfFunds() { 
   }
 
+  /**
+   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+   *
+   * @param acquiringBusinessLineId
+   * @return the current {@code SourceOfFunds} instance, allowing for method chaining
+   *
+   * @deprecated since Legal Entity Management API v3
+   * This field will be removed in v4.
+   */
   @Deprecated
   public SourceOfFunds acquiringBusinessLineId(String acquiringBusinessLineId) {
     this.acquiringBusinessLineId = acquiringBusinessLineId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    * @return acquiringBusinessLineId
-   * @deprecated
-  **/
+   *
+   * @deprecated since Legal Entity Management API v3
+   * This field will be removed in v4.
+   */
   @Deprecated
   @ApiModelProperty(value = "The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.")
   @JsonProperty(JSON_PROPERTY_ACQUIRING_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcquiringBusinessLineId() {
     return acquiringBusinessLineId;
   }
 
-
- /**
-  * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
-  *
-  * @param acquiringBusinessLineId
-  */ 
+  /**
+   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+   *
+   * @param acquiringBusinessLineId
+   *
+   * @deprecated since Legal Entity Management API v3
+   * This field will be removed in v4.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_ACQUIRING_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,96 +132,104 @@ public class SourceOfFunds {
     this.acquiringBusinessLineId = acquiringBusinessLineId;
   }
 
-
+  /**
+   * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
+   *
+   * @param adyenProcessedFunds
+   * @return the current {@code SourceOfFunds} instance, allowing for method chaining
+   */
   public SourceOfFunds adyenProcessedFunds(Boolean adyenProcessedFunds) {
     this.adyenProcessedFunds = adyenProcessedFunds;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    * @return adyenProcessedFunds
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a `description` is required.")
   @JsonProperty(JSON_PROPERTY_ADYEN_PROCESSED_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAdyenProcessedFunds() {
     return adyenProcessedFunds;
   }
 
-
- /**
-  * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
-  *
-  * @param adyenProcessedFunds
-  */ 
+  /**
+   * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
+   *
+   * @param adyenProcessedFunds
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_PROCESSED_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenProcessedFunds(Boolean adyenProcessedFunds) {
     this.adyenProcessedFunds = adyenProcessedFunds;
   }
 
-
+  /**
+   * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
+   *
+   * @param description
+   * @return the current {@code SourceOfFunds} instance, allowing for method chaining
+   */
   public SourceOfFunds description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Text describing the source of funds. For example, for `type` **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when `adyenProcessedFunds` is **false**.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
-  *
-  * @param description
-  */ 
+  /**
+   * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The type of the source of funds. Possible value: **business**.
+   *
+   * @param type
+   * @return the current {@code SourceOfFunds} instance, allowing for method chaining
+   */
   public SourceOfFunds type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the source of funds. Possible value: **business**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of the source of funds. Possible value: **business**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of the source of funds. Possible value: **business**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of the source of funds. Possible value: **business**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this SourceOfFunds object is equal to o.
@@ -276,4 +296,3 @@ public class SourceOfFunds {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

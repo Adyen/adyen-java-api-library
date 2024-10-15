@@ -88,125 +88,137 @@ public class ReturnTransferResponse {
   public ReturnTransferResponse() { 
   }
 
+  /**
+   * The unique identifier of the return.
+   *
+   * @param id
+   * @return the current {@code ReturnTransferResponse} instance, allowing for method chaining
+   */
   public ReturnTransferResponse id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the return.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the return.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the return.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the return.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Your internal reference for the return.
+   *
+   * @param reference
+   * @return the current {@code ReturnTransferResponse} instance, allowing for method chaining
+   */
   public ReturnTransferResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your internal reference for the return.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your internal reference for the return.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your internal reference for the return.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your internal reference for the return.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
+   *
+   * @param status
+   * @return the current {@code ReturnTransferResponse} instance, allowing for method chaining
+   */
   public ReturnTransferResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The resulting status of the return.  Possible values: **Authorised**, **Declined**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
-  *
-  * @param status
-  */ 
+  /**
+   * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * The unique identifier of the original transfer.
+   *
+   * @param transferId
+   * @return the current {@code ReturnTransferResponse} instance, allowing for method chaining
+   */
   public ReturnTransferResponse transferId(String transferId) {
     this.transferId = transferId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the original transfer.
    * @return transferId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the original transfer.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransferId() {
     return transferId;
   }
 
-
- /**
-  * The unique identifier of the original transfer.
-  *
-  * @param transferId
-  */ 
+  /**
+   * The unique identifier of the original transfer.
+   *
+   * @param transferId
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferId(String transferId) {
     this.transferId = transferId;
   }
-
 
   /**
    * Return true if this ReturnTransferResponse object is equal to o.
@@ -273,4 +285,3 @@ public class ReturnTransferResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

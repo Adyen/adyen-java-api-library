@@ -50,95 +50,104 @@ public class CapitalGrantInfo {
   public CapitalGrantInfo() { 
   }
 
+  /**
+   * counterparty
+   *
+   * @param counterparty
+   * @return the current {@code CapitalGrantInfo} instance, allowing for method chaining
+   */
   public CapitalGrantInfo counterparty(Counterparty counterparty) {
     this.counterparty = counterparty;
     return this;
   }
 
-   /**
-   * Get counterparty
+  /**
+   * counterparty
    * @return counterparty
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Counterparty getCounterparty() {
     return counterparty;
   }
 
-
- /**
-  * counterparty
-  *
-  * @param counterparty
-  */ 
+  /**
+   * counterparty
+   *
+   * @param counterparty
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
     this.counterparty = counterparty;
   }
 
-
+  /**
+   * The identifier of the grant account used for the grant.
+   *
+   * @param grantAccountId
+   * @return the current {@code CapitalGrantInfo} instance, allowing for method chaining
+   */
   public CapitalGrantInfo grantAccountId(String grantAccountId) {
     this.grantAccountId = grantAccountId;
     return this;
   }
 
-   /**
+  /**
    * The identifier of the grant account used for the grant.
    * @return grantAccountId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The identifier of the grant account used for the grant.")
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getGrantAccountId() {
     return grantAccountId;
   }
 
-
- /**
-  * The identifier of the grant account used for the grant.
-  *
-  * @param grantAccountId
-  */ 
+  /**
+   * The identifier of the grant account used for the grant.
+   *
+   * @param grantAccountId
+   */ 
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantAccountId(String grantAccountId) {
     this.grantAccountId = grantAccountId;
   }
 
-
+  /**
+   * The identifier of the grant offer that has been selected and from which the grant details will be used.
+   *
+   * @param grantOfferId
+   * @return the current {@code CapitalGrantInfo} instance, allowing for method chaining
+   */
   public CapitalGrantInfo grantOfferId(String grantOfferId) {
     this.grantOfferId = grantOfferId;
     return this;
   }
 
-   /**
+  /**
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    * @return grantOfferId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The identifier of the grant offer that has been selected and from which the grant details will be used.")
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getGrantOfferId() {
     return grantOfferId;
   }
 
-
- /**
-  * The identifier of the grant offer that has been selected and from which the grant details will be used.
-  *
-  * @param grantOfferId
-  */ 
+  /**
+   * The identifier of the grant offer that has been selected and from which the grant details will be used.
+   *
+   * @param grantOfferId
+   */ 
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOfferId(String grantOfferId) {
     this.grantOfferId = grantOfferId;
   }
-
 
   /**
    * Return true if this CapitalGrantInfo object is equal to o.
@@ -203,4 +212,3 @@ public class CapitalGrantInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

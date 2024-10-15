@@ -60,7 +60,7 @@ public class CashAppDetails {
   private String onFileGrantId;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
@@ -111,182 +111,209 @@ public class CashAppDetails {
   public CashAppDetails() { 
   }
 
+  /**
+   * Cash App issued cashtag for recurring payment
+   *
+   * @param cashtag
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails cashtag(String cashtag) {
     this.cashtag = cashtag;
     return this;
   }
 
-   /**
+  /**
    * Cash App issued cashtag for recurring payment
    * @return cashtag
-  **/
+   */
   @ApiModelProperty(value = "Cash App issued cashtag for recurring payment")
   @JsonProperty(JSON_PROPERTY_CASHTAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCashtag() {
     return cashtag;
   }
 
-
- /**
-  * Cash App issued cashtag for recurring payment
-  *
-  * @param cashtag
-  */ 
+  /**
+   * Cash App issued cashtag for recurring payment
+   *
+   * @param cashtag
+   */ 
   @JsonProperty(JSON_PROPERTY_CASHTAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCashtag(String cashtag) {
     this.cashtag = cashtag;
   }
 
-
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * Cash App issued customerId for recurring payment
+   *
+   * @param customerId
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails customerId(String customerId) {
     this.customerId = customerId;
     return this;
   }
 
-   /**
+  /**
    * Cash App issued customerId for recurring payment
    * @return customerId
-  **/
+   */
   @ApiModelProperty(value = "Cash App issued customerId for recurring payment")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomerId() {
     return customerId;
   }
 
-
- /**
-  * Cash App issued customerId for recurring payment
-  *
-  * @param customerId
-  */ 
+  /**
+   * Cash App issued customerId for recurring payment
+   *
+   * @param customerId
+   */ 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerId(String customerId) {
     this.customerId = customerId;
   }
 
-
+  /**
+   * Cash App issued grantId for one time payment
+   *
+   * @param grantId
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails grantId(String grantId) {
     this.grantId = grantId;
     return this;
   }
 
-   /**
+  /**
    * Cash App issued grantId for one time payment
    * @return grantId
-  **/
+   */
   @ApiModelProperty(value = "Cash App issued grantId for one time payment")
   @JsonProperty(JSON_PROPERTY_GRANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getGrantId() {
     return grantId;
   }
 
-
- /**
-  * Cash App issued grantId for one time payment
-  *
-  * @param grantId
-  */ 
+  /**
+   * Cash App issued grantId for one time payment
+   *
+   * @param grantId
+   */ 
   @JsonProperty(JSON_PROPERTY_GRANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantId(String grantId) {
     this.grantId = grantId;
   }
 
-
+  /**
+   * Cash App issued onFileGrantId for recurring payment
+   *
+   * @param onFileGrantId
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails onFileGrantId(String onFileGrantId) {
     this.onFileGrantId = onFileGrantId;
     return this;
   }
 
-   /**
+  /**
    * Cash App issued onFileGrantId for recurring payment
    * @return onFileGrantId
-  **/
+   */
   @ApiModelProperty(value = "Cash App issued onFileGrantId for recurring payment")
   @JsonProperty(JSON_PROPERTY_ON_FILE_GRANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOnFileGrantId() {
     return onFileGrantId;
   }
 
-
- /**
-  * Cash App issued onFileGrantId for recurring payment
-  *
-  * @param onFileGrantId
-  */ 
+  /**
+   * Cash App issued onFileGrantId for recurring payment
+   *
+   * @param onFileGrantId
+   */ 
   @JsonProperty(JSON_PROPERTY_ON_FILE_GRANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOnFileGrantId(String onFileGrantId) {
     this.onFileGrantId = onFileGrantId;
   }
 
-
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */
   @Deprecated
   public CashAppDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated
-  **/
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,126 +321,137 @@ public class CashAppDetails {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * Cash App request id
+   *
+   * @param requestId
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
 
-   /**
+  /**
    * Cash App request id
    * @return requestId
-  **/
+   */
   @ApiModelProperty(value = "Cash App request id")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestId() {
     return requestId;
   }
 
-
- /**
-  * Cash App request id
-  *
-  * @param requestId
-  */ 
+  /**
+   * Cash App request id
+   *
+   * @param requestId
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
     this.requestId = requestId;
   }
 
-
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
 
-   /**
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
-  **/
+   */
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param storedPaymentMethodId
-  */ 
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
-
+  /**
+   * The payment method subtype.
+   *
+   * @param subtype
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails subtype(String subtype) {
     this.subtype = subtype;
     return this;
   }
 
-   /**
+  /**
    * The payment method subtype.
    * @return subtype
-  **/
+   */
   @ApiModelProperty(value = "The payment method subtype.")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubtype() {
     return subtype;
   }
 
-
- /**
-  * The payment method subtype.
-  *
-  * @param subtype
-  */ 
+  /**
+   * The payment method subtype.
+   *
+   * @param subtype
+   */ 
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
     this.subtype = subtype;
   }
 
-
+  /**
+   * cashapp
+   *
+   * @param type
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
   public CashAppDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * cashapp
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "cashapp")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * cashapp
-  *
-  * @param type
-  */ 
+  /**
+   * cashapp
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this CashAppDetails object is equal to o.
@@ -492,4 +530,3 @@ public class CashAppDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

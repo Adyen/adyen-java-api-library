@@ -41,35 +41,38 @@ public class CardholderReceipt {
   public CardholderReceipt() { 
   }
 
+  /**
+   * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
+   *
+   * @param headerForAuthorizedReceipt
+   * @return the current {@code CardholderReceipt} instance, allowing for method chaining
+   */
   public CardholderReceipt headerForAuthorizedReceipt(String headerForAuthorizedReceipt) {
     this.headerForAuthorizedReceipt = headerForAuthorizedReceipt;
     return this;
   }
 
-   /**
+  /**
    * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
    * @return headerForAuthorizedReceipt
-  **/
+   */
   @ApiModelProperty(value = "A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, `header,header,filler`")
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHeaderForAuthorizedReceipt() {
     return headerForAuthorizedReceipt;
   }
 
-
- /**
-  * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
-  *
-  * @param headerForAuthorizedReceipt
-  */ 
+  /**
+   * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
+   *
+   * @param headerForAuthorizedReceipt
+   */ 
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeaderForAuthorizedReceipt(String headerForAuthorizedReceipt) {
     this.headerForAuthorizedReceipt = headerForAuthorizedReceipt;
   }
-
 
   /**
    * Return true if this CardholderReceipt object is equal to o.
@@ -130,4 +133,3 @@ public class CardholderReceipt {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

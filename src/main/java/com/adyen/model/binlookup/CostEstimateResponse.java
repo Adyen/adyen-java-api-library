@@ -59,155 +59,170 @@ public class CostEstimateResponse {
   public CostEstimateResponse() { 
   }
 
+  /**
+   * cardBin
+   *
+   * @param cardBin
+   * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
+   */
   public CostEstimateResponse cardBin(CardBin cardBin) {
     this.cardBin = cardBin;
     return this;
   }
 
-   /**
-   * Get cardBin
+  /**
+   * cardBin
    * @return cardBin
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardBin getCardBin() {
     return cardBin;
   }
 
-
- /**
-  * cardBin
-  *
-  * @param cardBin
-  */ 
+  /**
+   * cardBin
+   *
+   * @param cardBin
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(CardBin cardBin) {
     this.cardBin = cardBin;
   }
 
-
+  /**
+   * costEstimateAmount
+   *
+   * @param costEstimateAmount
+   * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
+   */
   public CostEstimateResponse costEstimateAmount(Amount costEstimateAmount) {
     this.costEstimateAmount = costEstimateAmount;
     return this;
   }
 
-   /**
-   * Get costEstimateAmount
+  /**
+   * costEstimateAmount
    * @return costEstimateAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getCostEstimateAmount() {
     return costEstimateAmount;
   }
 
-
- /**
-  * costEstimateAmount
-  *
-  * @param costEstimateAmount
-  */ 
+  /**
+   * costEstimateAmount
+   *
+   * @param costEstimateAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateAmount(Amount costEstimateAmount) {
     this.costEstimateAmount = costEstimateAmount;
   }
 
-
+  /**
+   * Adyen&#39;s 16-character reference associated with the request.
+   *
+   * @param costEstimateReference
+   * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
+   */
   public CostEstimateResponse costEstimateReference(String costEstimateReference) {
     this.costEstimateReference = costEstimateReference;
     return this;
   }
 
-   /**
+  /**
    * Adyen&#39;s 16-character reference associated with the request.
    * @return costEstimateReference
-  **/
+   */
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the request.")
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCostEstimateReference() {
     return costEstimateReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character reference associated with the request.
-  *
-  * @param costEstimateReference
-  */ 
+  /**
+   * Adyen&#39;s 16-character reference associated with the request.
+   *
+   * @param costEstimateReference
+   */ 
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateReference(String costEstimateReference) {
     this.costEstimateReference = costEstimateReference;
   }
 
-
+  /**
+   * The result of the cost estimation.
+   *
+   * @param resultCode
+   * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
+   */
   public CostEstimateResponse resultCode(String resultCode) {
     this.resultCode = resultCode;
     return this;
   }
 
-   /**
+  /**
    * The result of the cost estimation.
    * @return resultCode
-  **/
+   */
   @ApiModelProperty(value = "The result of the cost estimation.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResultCode() {
     return resultCode;
   }
 
-
- /**
-  * The result of the cost estimation.
-  *
-  * @param resultCode
-  */ 
+  /**
+   * The result of the cost estimation.
+   *
+   * @param resultCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }
 
-
+  /**
+   * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
+   *
+   * @param surchargeType
+   * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
+   */
   public CostEstimateResponse surchargeType(String surchargeType) {
     this.surchargeType = surchargeType;
     return this;
   }
 
-   /**
+  /**
    * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
    * @return surchargeType
-  **/
+   */
   @ApiModelProperty(value = "Indicates the way the charges can be passed on to the cardholder. The following values are possible: * `ZERO` - the charges are not allowed to pass on * `PASSTHROUGH` - the charges can be passed on * `UNLIMITED` - there is no limit on how much surcharge is passed on")
   @JsonProperty(JSON_PROPERTY_SURCHARGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSurchargeType() {
     return surchargeType;
   }
 
-
- /**
-  * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
-  *
-  * @param surchargeType
-  */ 
+  /**
+   * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
+   *
+   * @param surchargeType
+   */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurchargeType(String surchargeType) {
     this.surchargeType = surchargeType;
   }
-
 
   /**
    * Return true if this CostEstimateResponse object is equal to o.
@@ -276,4 +291,3 @@ public class CostEstimateResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

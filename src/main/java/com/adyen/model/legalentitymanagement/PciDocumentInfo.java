@@ -50,95 +50,104 @@ public class PciDocumentInfo {
   public PciDocumentInfo() { 
   }
 
+  /**
+   * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
+   *
+   * @param createdAt
+   * @return the current {@code PciDocumentInfo} instance, allowing for method chaining
+   */
   public PciDocumentInfo createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
-   /**
+  /**
    * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    * @return createdAt
-  **/
+   */
   @ApiModelProperty(value = "The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
- /**
-  * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
-  *
-  * @param createdAt
-  */ 
+  /**
+   * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
+   *
+   * @param createdAt
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
-
+  /**
+   * The unique identifier of the signed questionnaire.
+   *
+   * @param id
+   * @return the current {@code PciDocumentInfo} instance, allowing for method chaining
+   */
   public PciDocumentInfo id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the signed questionnaire.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the signed questionnaire.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the signed questionnaire.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the signed questionnaire.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
+   *
+   * @param validUntil
+   * @return the current {@code PciDocumentInfo} instance, allowing for method chaining
+   */
   public PciDocumentInfo validUntil(OffsetDateTime validUntil) {
     this.validUntil = validUntil;
     return this;
   }
 
-   /**
+  /**
    * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    * @return validUntil
-  **/
+   */
   @ApiModelProperty(value = "The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00")
   @JsonProperty(JSON_PROPERTY_VALID_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getValidUntil() {
     return validUntil;
   }
 
-
- /**
-  * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
-  *
-  * @param validUntil
-  */ 
+  /**
+   * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
+   *
+   * @param validUntil
+   */ 
   @JsonProperty(JSON_PROPERTY_VALID_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidUntil(OffsetDateTime validUntil) {
     this.validUntil = validUntil;
   }
-
 
   /**
    * Return true if this PciDocumentInfo object is equal to o.
@@ -203,4 +212,3 @@ public class PciDocumentInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

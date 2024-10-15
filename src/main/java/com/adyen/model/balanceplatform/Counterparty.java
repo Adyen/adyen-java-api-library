@@ -46,65 +46,71 @@ public class Counterparty {
   public Counterparty() { 
   }
 
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   * @return the current {@code Counterparty} instance, allowing for method chaining
+   */
   public Counterparty bankAccount(BankAccount bankAccount) {
     this.bankAccount = bankAccount;
     return this;
   }
 
-   /**
-   * Get bankAccount
+  /**
+   * bankAccount
    * @return bankAccount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BankAccount getBankAccount() {
     return bankAccount;
   }
 
-
- /**
-  * bankAccount
-  *
-  * @param bankAccount
-  */ 
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccount bankAccount) {
     this.bankAccount = bankAccount;
   }
 
-
+  /**
+   * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   *
+   * @param transferInstrumentId
+   * @return the current {@code Counterparty} instance, allowing for method chaining
+   */
   public Counterparty transferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    * @return transferInstrumentId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransferInstrumentId() {
     return transferInstrumentId;
   }
 
-
- /**
-  * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
-  *
-  * @param transferInstrumentId
-  */ 
+  /**
+   * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   *
+   * @param transferInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
   }
-
 
   /**
    * Return true if this Counterparty object is equal to o.
@@ -167,4 +173,3 @@ public class Counterparty {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

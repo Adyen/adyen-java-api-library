@@ -49,95 +49,104 @@ public class PayPalInfo {
   public PayPalInfo() { 
   }
 
+  /**
+   * Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.
+   *
+   * @param directCapture
+   * @return the current {@code PayPalInfo} instance, allowing for method chaining
+   */
   public PayPalInfo directCapture(Boolean directCapture) {
     this.directCapture = directCapture;
     return this;
   }
 
-   /**
+  /**
    * Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.
    * @return directCapture
-  **/
+   */
   @ApiModelProperty(value = "Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.")
   @JsonProperty(JSON_PROPERTY_DIRECT_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDirectCapture() {
     return directCapture;
   }
 
-
- /**
-  * Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.
-  *
-  * @param directCapture
-  */ 
+  /**
+   * Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.
+   *
+   * @param directCapture
+   */ 
   @JsonProperty(JSON_PROPERTY_DIRECT_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectCapture(Boolean directCapture) {
     this.directCapture = directCapture;
   }
 
-
+  /**
+   * PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.
+   *
+   * @param payerId
+   * @return the current {@code PayPalInfo} instance, allowing for method chaining
+   */
   public PayPalInfo payerId(String payerId) {
     this.payerId = payerId;
     return this;
   }
 
-   /**
+  /**
    * PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.
    * @return payerId
-  **/
+   */
   @ApiModelProperty(required = true, value = "PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.")
   @JsonProperty(JSON_PROPERTY_PAYER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayerId() {
     return payerId;
   }
 
-
- /**
-  * PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.
-  *
-  * @param payerId
-  */ 
+  /**
+   * PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.
+   *
+   * @param payerId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerId(String payerId) {
     this.payerId = payerId;
   }
 
-
+  /**
+   * Your business email address.
+   *
+   * @param subject
+   * @return the current {@code PayPalInfo} instance, allowing for method chaining
+   */
   public PayPalInfo subject(String subject) {
     this.subject = subject;
     return this;
   }
 
-   /**
+  /**
    * Your business email address.
    * @return subject
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your business email address.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubject() {
     return subject;
   }
 
-
- /**
-  * Your business email address.
-  *
-  * @param subject
-  */ 
+  /**
+   * Your business email address.
+   *
+   * @param subject
+   */ 
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubject(String subject) {
     this.subject = subject;
   }
-
 
   /**
    * Return true if this PayPalInfo object is equal to o.
@@ -202,4 +211,3 @@ public class PayPalInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

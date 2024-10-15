@@ -53,125 +53,137 @@ public class OrderItem {
   public OrderItem() { 
   }
 
+  /**
+   * The unique identifier of the product.
+   *
+   * @param id
+   * @return the current {@code OrderItem} instance, allowing for method chaining
+   */
   public OrderItem id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the product.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the product.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the product.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the product.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The number of installments for the specified product &#x60;id&#x60;.
+   *
+   * @param installments
+   * @return the current {@code OrderItem} instance, allowing for method chaining
+   */
   public OrderItem installments(Long installments) {
     this.installments = installments;
     return this;
   }
 
-   /**
+  /**
    * The number of installments for the specified product &#x60;id&#x60;.
    * @return installments
-  **/
+   */
   @ApiModelProperty(value = "The number of installments for the specified product `id`.")
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getInstallments() {
     return installments;
   }
 
-
- /**
-  * The number of installments for the specified product &#x60;id&#x60;.
-  *
-  * @param installments
-  */ 
+  /**
+   * The number of installments for the specified product &#x60;id&#x60;.
+   *
+   * @param installments
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Long installments) {
     this.installments = installments;
   }
 
-
+  /**
+   * The name of the product.
+   *
+   * @param name
+   * @return the current {@code OrderItem} instance, allowing for method chaining
+   */
   public OrderItem name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the product.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The name of the product.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The name of the product.
-  *
-  * @param name
-  */ 
+  /**
+   * The name of the product.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * The number of items with the specified product &#x60;id&#x60; included in the order.
+   *
+   * @param quantity
+   * @return the current {@code OrderItem} instance, allowing for method chaining
+   */
   public OrderItem quantity(Integer quantity) {
     this.quantity = quantity;
     return this;
   }
 
-   /**
+  /**
    * The number of items with the specified product &#x60;id&#x60; included in the order.
    * @return quantity
-  **/
+   */
   @ApiModelProperty(value = "The number of items with the specified product `id` included in the order.")
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getQuantity() {
     return quantity;
   }
 
-
- /**
-  * The number of items with the specified product &#x60;id&#x60; included in the order.
-  *
-  * @param quantity
-  */ 
+  /**
+   * The number of items with the specified product &#x60;id&#x60; included in the order.
+   *
+   * @param quantity
+   */ 
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
-
 
   /**
    * Return true if this OrderItem object is equal to o.
@@ -238,4 +250,3 @@ public class OrderItem {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

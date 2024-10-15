@@ -45,65 +45,71 @@ public class DisablePermitResult {
   public DisablePermitResult() { 
   }
 
+  /**
+   * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   * @return the current {@code DisablePermitResult} instance, allowing for method chaining
+   */
   public DisablePermitResult pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * Status of the disable request.
+   *
+   * @param status
+   * @return the current {@code DisablePermitResult} instance, allowing for method chaining
+   */
   public DisablePermitResult status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Status of the disable request.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "Status of the disable request.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
- /**
-  * Status of the disable request.
-  *
-  * @param status
-  */ 
+  /**
+   * Status of the disable request.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this DisablePermitResult object is equal to o.
@@ -166,4 +172,3 @@ public class DisablePermitResult {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

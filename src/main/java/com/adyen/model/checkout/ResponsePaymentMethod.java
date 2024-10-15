@@ -45,65 +45,71 @@ public class ResponsePaymentMethod {
   public ResponsePaymentMethod() { 
   }
 
+  /**
+   * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
+   *
+   * @param brand
+   * @return the current {@code ResponsePaymentMethod} instance, allowing for method chaining
+   */
   public ResponsePaymentMethod brand(String brand) {
     this.brand = brand;
     return this;
   }
 
-   /**
+  /**
    * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
    * @return brand
-  **/
+   */
   @ApiModelProperty(value = "The card brand that the shopper used to pay. Only returned if `paymentMethod.type` is **scheme**.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBrand() {
     return brand;
   }
 
-
- /**
-  * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
-  *
-  * @param brand
-  */ 
+  /**
+   * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
+   *
+   * @param brand
+   */ 
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
 
-
+  /**
+   * The &#x60;paymentMethod.type&#x60; value used in the request.
+   *
+   * @param type
+   * @return the current {@code ResponsePaymentMethod} instance, allowing for method chaining
+   */
   public ResponsePaymentMethod type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The &#x60;paymentMethod.type&#x60; value used in the request.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The `paymentMethod.type` value used in the request.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The &#x60;paymentMethod.type&#x60; value used in the request.
-  *
-  * @param type
-  */ 
+  /**
+   * The &#x60;paymentMethod.type&#x60; value used in the request.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this ResponsePaymentMethod object is equal to o.
@@ -166,4 +172,3 @@ public class ResponsePaymentMethod {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -96,95 +96,104 @@ public class GetTermsOfServiceDocumentRequest {
   public GetTermsOfServiceDocumentRequest() { 
   }
 
+  /**
+   * The language to be used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
+   *
+   * @param language
+   * @return the current {@code GetTermsOfServiceDocumentRequest} instance, allowing for method chaining
+   */
   public GetTermsOfServiceDocumentRequest language(String language) {
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language to be used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    * @return language
-  **/
+   */
   @ApiModelProperty(required = true, value = "The language to be used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLanguage() {
     return language;
   }
 
-
- /**
-  * The language to be used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
-  *
-  * @param language
-  */ 
+  /**
+   * The language to be used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
+   *
+   * @param language
+   */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
   }
 
-
+  /**
+   * The requested format for the Terms of Service document. Default value: JSON. Possible values: **JSON**, **PDF**, or **TXT**.
+   *
+   * @param termsOfServiceDocumentFormat
+   * @return the current {@code GetTermsOfServiceDocumentRequest} instance, allowing for method chaining
+   */
   public GetTermsOfServiceDocumentRequest termsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
     this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
     return this;
   }
 
-   /**
+  /**
    * The requested format for the Terms of Service document. Default value: JSON. Possible values: **JSON**, **PDF**, or **TXT**.
    * @return termsOfServiceDocumentFormat
-  **/
+   */
   @ApiModelProperty(value = "The requested format for the Terms of Service document. Default value: JSON. Possible values: **JSON**, **PDF**, or **TXT**.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTermsOfServiceDocumentFormat() {
     return termsOfServiceDocumentFormat;
   }
 
-
- /**
-  * The requested format for the Terms of Service document. Default value: JSON. Possible values: **JSON**, **PDF**, or **TXT**.
-  *
-  * @param termsOfServiceDocumentFormat
-  */ 
+  /**
+   * The requested format for the Terms of Service document. Default value: JSON. Possible values: **JSON**, **PDF**, or **TXT**.
+   *
+   * @param termsOfServiceDocumentFormat
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
     this.termsOfServiceDocumentFormat = termsOfServiceDocumentFormat;
   }
 
-
+  /**
+   * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
+   *
+   * @param type
+   * @return the current {@code GetTermsOfServiceDocumentRequest} instance, allowing for method chaining
+   */
   public GetTermsOfServiceDocumentRequest type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
-  *
-  * @param type
-  */ 
+  /**
+   * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr**  
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this GetTermsOfServiceDocumentRequest object is equal to o.
@@ -249,4 +258,3 @@ public class GetTermsOfServiceDocumentRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

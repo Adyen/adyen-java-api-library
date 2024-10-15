@@ -45,65 +45,71 @@ public class AcceptTermsOfServiceRequest {
   public AcceptTermsOfServiceRequest() { 
   }
 
+  /**
+   * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
+   *
+   * @param acceptedBy
+   * @return the current {@code AcceptTermsOfServiceRequest} instance, allowing for method chaining
+   */
   public AcceptTermsOfServiceRequest acceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
     return this;
   }
 
-   /**
+  /**
    * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
    * @return acceptedBy
-  **/
+   */
   @ApiModelProperty(required = true, value = "The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  ")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcceptedBy() {
     return acceptedBy;
   }
 
-
- /**
-  * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
-  *
-  * @param acceptedBy
-  */ 
+  /**
+   * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
+   *
+   * @param acceptedBy
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
   }
 
-
+  /**
+   * The IP address of the user accepting the Terms of Service.
+   *
+   * @param ipAddress
+   * @return the current {@code AcceptTermsOfServiceRequest} instance, allowing for method chaining
+   */
   public AcceptTermsOfServiceRequest ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
 
-   /**
+  /**
    * The IP address of the user accepting the Terms of Service.
    * @return ipAddress
-  **/
+   */
   @ApiModelProperty(value = "The IP address of the user accepting the Terms of Service.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIpAddress() {
     return ipAddress;
   }
 
-
- /**
-  * The IP address of the user accepting the Terms of Service.
-  *
-  * @param ipAddress
-  */ 
+  /**
+   * The IP address of the user accepting the Terms of Service.
+   *
+   * @param ipAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
   }
-
 
   /**
    * Return true if this AcceptTermsOfServiceRequest object is equal to o.
@@ -166,4 +172,3 @@ public class AcceptTermsOfServiceRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

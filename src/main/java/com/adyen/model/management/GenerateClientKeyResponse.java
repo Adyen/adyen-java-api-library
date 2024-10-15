@@ -41,35 +41,38 @@ public class GenerateClientKeyResponse {
   public GenerateClientKeyResponse() { 
   }
 
+  /**
+   * Generated client key
+   *
+   * @param clientKey
+   * @return the current {@code GenerateClientKeyResponse} instance, allowing for method chaining
+   */
   public GenerateClientKeyResponse clientKey(String clientKey) {
     this.clientKey = clientKey;
     return this;
   }
 
-   /**
+  /**
    * Generated client key
    * @return clientKey
-  **/
+   */
   @ApiModelProperty(required = true, value = "Generated client key")
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getClientKey() {
     return clientKey;
   }
 
-
- /**
-  * Generated client key
-  *
-  * @param clientKey
-  */ 
+  /**
+   * Generated client key
+   *
+   * @param clientKey
+   */ 
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {
     this.clientKey = clientKey;
   }
-
 
   /**
    * Return true if this GenerateClientKeyResponse object is equal to o.
@@ -130,4 +133,3 @@ public class GenerateClientKeyResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -44,6 +44,12 @@ public class ListExternalTerminalActionsResponse {
   public ListExternalTerminalActionsResponse() { 
   }
 
+  /**
+   * The list of terminal actions.
+   *
+   * @param data
+   * @return the current {@code ListExternalTerminalActionsResponse} instance, allowing for method chaining
+   */
   public ListExternalTerminalActionsResponse data(List<ExternalTerminalAction> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class ListExternalTerminalActionsResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of terminal actions.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The list of terminal actions.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ExternalTerminalAction> getData() {
     return data;
   }
 
-
- /**
-  * The list of terminal actions.
-  *
-  * @param data
-  */ 
+  /**
+   * The list of terminal actions.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<ExternalTerminalAction> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this ListExternalTerminalActionsResponse object is equal to o.
@@ -141,4 +144,3 @@ public class ListExternalTerminalActionsResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

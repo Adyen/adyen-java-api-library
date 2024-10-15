@@ -41,35 +41,38 @@ public class UpdateSplitConfigurationRequest {
   public UpdateSplitConfigurationRequest() { 
   }
 
+  /**
+   * Your description for the split configuration.
+   *
+   * @param description
+   * @return the current {@code UpdateSplitConfigurationRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationRequest description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Your description for the split configuration.
    * @return description
-  **/
+   */
   @ApiModelProperty(required = true, value = "Your description for the split configuration.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Your description for the split configuration.
-  *
-  * @param description
-  */ 
+  /**
+   * Your description for the split configuration.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
-
 
   /**
    * Return true if this UpdateSplitConfigurationRequest object is equal to o.
@@ -130,4 +133,3 @@ public class UpdateSplitConfigurationRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

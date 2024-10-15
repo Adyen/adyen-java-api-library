@@ -48,6 +48,12 @@ public class CreatePermitResult {
   public CreatePermitResult() { 
   }
 
+  /**
+   * List of new permits.
+   *
+   * @param permitResultList
+   * @return the current {@code CreatePermitResult} instance, allowing for method chaining
+   */
   public CreatePermitResult permitResultList(List<PermitResult> permitResultList) {
     this.permitResultList = permitResultList;
     return this;
@@ -61,60 +67,60 @@ public class CreatePermitResult {
     return this;
   }
 
-   /**
+  /**
    * List of new permits.
    * @return permitResultList
-  **/
+   */
   @ApiModelProperty(value = "List of new permits.")
   @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PermitResult> getPermitResultList() {
     return permitResultList;
   }
 
-
- /**
-  * List of new permits.
-  *
-  * @param permitResultList
-  */ 
+  /**
+   * List of new permits.
+   *
+   * @param permitResultList
+   */ 
   @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermitResultList(List<PermitResult> permitResultList) {
     this.permitResultList = permitResultList;
   }
 
-
+  /**
+   * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   * @return the current {@code CreatePermitResult} instance, allowing for method chaining
+   */
   public CreatePermitResult pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
-
 
   /**
    * Return true if this CreatePermitResult object is equal to o.
@@ -177,4 +183,3 @@ public class CreatePermitResult {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

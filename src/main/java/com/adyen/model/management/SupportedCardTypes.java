@@ -57,155 +57,170 @@ public class SupportedCardTypes {
   public SupportedCardTypes() { 
   }
 
+  /**
+   * Set to **true** to accept credit cards.
+   *
+   * @param credit
+   * @return the current {@code SupportedCardTypes} instance, allowing for method chaining
+   */
   public SupportedCardTypes credit(Boolean credit) {
     this.credit = credit;
     return this;
   }
 
-   /**
+  /**
    * Set to **true** to accept credit cards.
    * @return credit
-  **/
+   */
   @ApiModelProperty(value = "Set to **true** to accept credit cards.")
   @JsonProperty(JSON_PROPERTY_CREDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getCredit() {
     return credit;
   }
 
-
- /**
-  * Set to **true** to accept credit cards.
-  *
-  * @param credit
-  */ 
+  /**
+   * Set to **true** to accept credit cards.
+   *
+   * @param credit
+   */ 
   @JsonProperty(JSON_PROPERTY_CREDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCredit(Boolean credit) {
     this.credit = credit;
   }
 
-
+  /**
+   * Set to **true** to accept debit cards.
+   *
+   * @param debit
+   * @return the current {@code SupportedCardTypes} instance, allowing for method chaining
+   */
   public SupportedCardTypes debit(Boolean debit) {
     this.debit = debit;
     return this;
   }
 
-   /**
+  /**
    * Set to **true** to accept debit cards.
    * @return debit
-  **/
+   */
   @ApiModelProperty(value = "Set to **true** to accept debit cards.")
   @JsonProperty(JSON_PROPERTY_DEBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDebit() {
     return debit;
   }
 
-
- /**
-  * Set to **true** to accept debit cards.
-  *
-  * @param debit
-  */ 
+  /**
+   * Set to **true** to accept debit cards.
+   *
+   * @param debit
+   */ 
   @JsonProperty(JSON_PROPERTY_DEBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDebit(Boolean debit) {
     this.debit = debit;
   }
 
-
+  /**
+   * Set to **true** to accept cards that allow deferred debit.
+   *
+   * @param deferredDebit
+   * @return the current {@code SupportedCardTypes} instance, allowing for method chaining
+   */
   public SupportedCardTypes deferredDebit(Boolean deferredDebit) {
     this.deferredDebit = deferredDebit;
     return this;
   }
 
-   /**
+  /**
    * Set to **true** to accept cards that allow deferred debit.
    * @return deferredDebit
-  **/
+   */
   @ApiModelProperty(value = "Set to **true** to accept cards that allow deferred debit.")
   @JsonProperty(JSON_PROPERTY_DEFERRED_DEBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDeferredDebit() {
     return deferredDebit;
   }
 
-
- /**
-  * Set to **true** to accept cards that allow deferred debit.
-  *
-  * @param deferredDebit
-  */ 
+  /**
+   * Set to **true** to accept cards that allow deferred debit.
+   *
+   * @param deferredDebit
+   */ 
   @JsonProperty(JSON_PROPERTY_DEFERRED_DEBIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeferredDebit(Boolean deferredDebit) {
     this.deferredDebit = deferredDebit;
   }
 
-
+  /**
+   * Set to **true** to accept prepaid cards.
+   *
+   * @param prepaid
+   * @return the current {@code SupportedCardTypes} instance, allowing for method chaining
+   */
   public SupportedCardTypes prepaid(Boolean prepaid) {
     this.prepaid = prepaid;
     return this;
   }
 
-   /**
+  /**
    * Set to **true** to accept prepaid cards.
    * @return prepaid
-  **/
+   */
   @ApiModelProperty(value = "Set to **true** to accept prepaid cards.")
   @JsonProperty(JSON_PROPERTY_PREPAID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getPrepaid() {
     return prepaid;
   }
 
-
- /**
-  * Set to **true** to accept prepaid cards.
-  *
-  * @param prepaid
-  */ 
+  /**
+   * Set to **true** to accept prepaid cards.
+   *
+   * @param prepaid
+   */ 
   @JsonProperty(JSON_PROPERTY_PREPAID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrepaid(Boolean prepaid) {
     this.prepaid = prepaid;
   }
 
-
+  /**
+   * Set to **true** to accept card types for which the terminal can&#39;t determine the funding source while offline.
+   *
+   * @param unknown
+   * @return the current {@code SupportedCardTypes} instance, allowing for method chaining
+   */
   public SupportedCardTypes unknown(Boolean unknown) {
     this.unknown = unknown;
     return this;
   }
 
-   /**
+  /**
    * Set to **true** to accept card types for which the terminal can&#39;t determine the funding source while offline.
    * @return unknown
-  **/
+   */
   @ApiModelProperty(value = "Set to **true** to accept card types for which the terminal can't determine the funding source while offline.")
   @JsonProperty(JSON_PROPERTY_UNKNOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getUnknown() {
     return unknown;
   }
 
-
- /**
-  * Set to **true** to accept card types for which the terminal can&#39;t determine the funding source while offline.
-  *
-  * @param unknown
-  */ 
+  /**
+   * Set to **true** to accept card types for which the terminal can&#39;t determine the funding source while offline.
+   *
+   * @param unknown
+   */ 
   @JsonProperty(JSON_PROPERTY_UNKNOWN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUnknown(Boolean unknown) {
     this.unknown = unknown;
   }
-
 
   /**
    * Return true if this SupportedCardTypes object is equal to o.
@@ -274,4 +289,3 @@ public class SupportedCardTypes {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

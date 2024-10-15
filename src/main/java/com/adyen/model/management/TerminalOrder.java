@@ -74,96 +74,111 @@ public class TerminalOrder {
   public TerminalOrder() { 
   }
 
+  /**
+   * billingEntity
+   *
+   * @param billingEntity
+   * @return the current {@code TerminalOrder} instance, allowing for method chaining
+   */
   public TerminalOrder billingEntity(BillingEntity billingEntity) {
     this.billingEntity = billingEntity;
     return this;
   }
 
-   /**
-   * Get billingEntity
+  /**
+   * billingEntity
    * @return billingEntity
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BillingEntity getBillingEntity() {
     return billingEntity;
   }
 
-
- /**
-  * billingEntity
-  *
-  * @param billingEntity
-  */ 
+  /**
+   * billingEntity
+   *
+   * @param billingEntity
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntity(BillingEntity billingEntity) {
     this.billingEntity = billingEntity;
   }
 
-
+  /**
+   * The merchant-defined purchase order number. This will be printed on the packing list.
+   *
+   * @param customerOrderReference
+   * @return the current {@code TerminalOrder} instance, allowing for method chaining
+   */
   public TerminalOrder customerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
     return this;
   }
 
-   /**
+  /**
    * The merchant-defined purchase order number. This will be printed on the packing list.
    * @return customerOrderReference
-  **/
+   */
   @ApiModelProperty(value = "The merchant-defined purchase order number. This will be printed on the packing list.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomerOrderReference() {
     return customerOrderReference;
   }
 
-
- /**
-  * The merchant-defined purchase order number. This will be printed on the packing list.
-  *
-  * @param customerOrderReference
-  */ 
+  /**
+   * The merchant-defined purchase order number. This will be printed on the packing list.
+   *
+   * @param customerOrderReference
+   */ 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
   }
 
-
+  /**
+   * The unique identifier of the order.
+   *
+   * @param id
+   * @return the current {@code TerminalOrder} instance, allowing for method chaining
+   */
   public TerminalOrder id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the order.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the order.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the order.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the order.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The products included in the order.
+   *
+   * @param items
+   * @return the current {@code TerminalOrder} instance, allowing for method chaining
+   */
   public TerminalOrder items(List<OrderItem> items) {
     this.items = items;
     return this;
@@ -177,150 +192,159 @@ public class TerminalOrder {
     return this;
   }
 
-   /**
+  /**
    * The products included in the order.
    * @return items
-  **/
+   */
   @ApiModelProperty(value = "The products included in the order.")
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<OrderItem> getItems() {
     return items;
   }
 
-
- /**
-  * The products included in the order.
-  *
-  * @param items
-  */ 
+  /**
+   * The products included in the order.
+   *
+   * @param items
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
     this.items = items;
   }
 
-
+  /**
+   * The date and time that the order was placed, in UTC ISO 8601 format. For example, \&quot;2011-12-03T10:15:30Z\&quot;.
+   *
+   * @param orderDate
+   * @return the current {@code TerminalOrder} instance, allowing for method chaining
+   */
   public TerminalOrder orderDate(String orderDate) {
     this.orderDate = orderDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time that the order was placed, in UTC ISO 8601 format. For example, \&quot;2011-12-03T10:15:30Z\&quot;.
    * @return orderDate
-  **/
+   */
   @ApiModelProperty(value = "The date and time that the order was placed, in UTC ISO 8601 format. For example, \"2011-12-03T10:15:30Z\".")
   @JsonProperty(JSON_PROPERTY_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOrderDate() {
     return orderDate;
   }
 
-
- /**
-  * The date and time that the order was placed, in UTC ISO 8601 format. For example, \&quot;2011-12-03T10:15:30Z\&quot;.
-  *
-  * @param orderDate
-  */ 
+  /**
+   * The date and time that the order was placed, in UTC ISO 8601 format. For example, \&quot;2011-12-03T10:15:30Z\&quot;.
+   *
+   * @param orderDate
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderDate(String orderDate) {
     this.orderDate = orderDate;
   }
 
-
+  /**
+   * shippingLocation
+   *
+   * @param shippingLocation
+   * @return the current {@code TerminalOrder} instance, allowing for method chaining
+   */
   public TerminalOrder shippingLocation(ShippingLocation shippingLocation) {
     this.shippingLocation = shippingLocation;
     return this;
   }
 
-   /**
-   * Get shippingLocation
+  /**
+   * shippingLocation
    * @return shippingLocation
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ShippingLocation getShippingLocation() {
     return shippingLocation;
   }
 
-
- /**
-  * shippingLocation
-  *
-  * @param shippingLocation
-  */ 
+  /**
+   * shippingLocation
+   *
+   * @param shippingLocation
+   */ 
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocation(ShippingLocation shippingLocation) {
     this.shippingLocation = shippingLocation;
   }
 
-
+  /**
+   * The processing status of the order.
+   *
+   * @param status
+   * @return the current {@code TerminalOrder} instance, allowing for method chaining
+   */
   public TerminalOrder status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The processing status of the order.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "The processing status of the order.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
- /**
-  * The processing status of the order.
-  *
-  * @param status
-  */ 
+  /**
+   * The processing status of the order.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
 
-
+  /**
+   * The URL, provided by the carrier company, where the shipment can be tracked.
+   *
+   * @param trackingUrl
+   * @return the current {@code TerminalOrder} instance, allowing for method chaining
+   */
   public TerminalOrder trackingUrl(String trackingUrl) {
     this.trackingUrl = trackingUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL, provided by the carrier company, where the shipment can be tracked.
    * @return trackingUrl
-  **/
+   */
   @ApiModelProperty(value = "The URL, provided by the carrier company, where the shipment can be tracked.")
   @JsonProperty(JSON_PROPERTY_TRACKING_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTrackingUrl() {
     return trackingUrl;
   }
 
-
- /**
-  * The URL, provided by the carrier company, where the shipment can be tracked.
-  *
-  * @param trackingUrl
-  */ 
+  /**
+   * The URL, provided by the carrier company, where the shipment can be tracked.
+   *
+   * @param trackingUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_TRACKING_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingUrl(String trackingUrl) {
     this.trackingUrl = trackingUrl;
   }
-
 
   /**
    * Return true if this TerminalOrder object is equal to o.
@@ -395,4 +419,3 @@ public class TerminalOrder {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

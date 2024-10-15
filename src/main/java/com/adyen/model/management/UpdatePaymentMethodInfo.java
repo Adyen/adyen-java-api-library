@@ -134,96 +134,111 @@ public class UpdatePaymentMethodInfo {
   public UpdatePaymentMethodInfo() { 
   }
 
+  /**
+   * accel
+   *
+   * @param accel
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo accel(AccelInfo accel) {
     this.accel = accel;
     return this;
   }
 
-   /**
-   * Get accel
+  /**
+   * accel
    * @return accel
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AccelInfo getAccel() {
     return accel;
   }
 
-
- /**
-  * accel
-  *
-  * @param accel
-  */ 
+  /**
+   * accel
+   *
+   * @param accel
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccel(AccelInfo accel) {
     this.accel = accel;
   }
 
-
+  /**
+   * bcmc
+   *
+   * @param bcmc
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo bcmc(BcmcInfo bcmc) {
     this.bcmc = bcmc;
     return this;
   }
 
-   /**
-   * Get bcmc
+  /**
+   * bcmc
    * @return bcmc
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BcmcInfo getBcmc() {
     return bcmc;
   }
 
-
- /**
-  * bcmc
-  *
-  * @param bcmc
-  */ 
+  /**
+   * bcmc
+   *
+   * @param bcmc
+   */ 
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBcmc(BcmcInfo bcmc) {
     this.bcmc = bcmc;
   }
 
-
+  /**
+   * cartesBancaires
+   *
+   * @param cartesBancaires
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo cartesBancaires(CartesBancairesInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
     return this;
   }
 
-   /**
-   * Get cartesBancaires
+  /**
+   * cartesBancaires
    * @return cartesBancaires
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CartesBancairesInfo getCartesBancaires() {
     return cartesBancaires;
   }
 
-
- /**
-  * cartesBancaires
-  *
-  * @param cartesBancaires
-  */ 
+  /**
+   * cartesBancaires
+   *
+   * @param cartesBancaires
+   */ 
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
     this.cartesBancaires = cartesBancaires;
   }
 
-
+  /**
+   * The list of countries where a payment method is available. By default, all countries supported by the payment method.
+   *
+   * @param countries
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo countries(List<String> countries) {
     this.countries = countries;
     return this;
@@ -237,61 +252,67 @@ public class UpdatePaymentMethodInfo {
     return this;
   }
 
-   /**
+  /**
    * The list of countries where a payment method is available. By default, all countries supported by the payment method.
    * @return countries
-  **/
+   */
   @ApiModelProperty(value = "The list of countries where a payment method is available. By default, all countries supported by the payment method.")
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getCountries() {
     return countries;
   }
 
-
- /**
-  * The list of countries where a payment method is available. By default, all countries supported by the payment method.
-  *
-  * @param countries
-  */ 
+  /**
+   * The list of countries where a payment method is available. By default, all countries supported by the payment method.
+   *
+   * @param countries
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(List<String> countries) {
     this.countries = countries;
   }
 
-
+  /**
+   * cup
+   *
+   * @param cup
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo cup(GenericPmWithTdiInfo cup) {
     this.cup = cup;
     return this;
   }
 
-   /**
-   * Get cup
+  /**
+   * cup
    * @return cup
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getCup() {
     return cup;
   }
 
-
- /**
-  * cup
-  *
-  * @param cup
-  */ 
+  /**
+   * cup
+   *
+   * @param cup
+   */ 
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCup(GenericPmWithTdiInfo cup) {
     this.cup = cup;
   }
 
-
+  /**
+   * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
+   *
+   * @param currencies
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo currencies(List<String> currencies) {
     this.currencies = currencies;
     return this;
@@ -305,31 +326,34 @@ public class UpdatePaymentMethodInfo {
     return this;
   }
 
-   /**
+  /**
    * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
    * @return currencies
-  **/
+   */
   @ApiModelProperty(value = "The list of currencies that a payment method supports. By default, all currencies supported by the payment method.")
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getCurrencies() {
     return currencies;
   }
 
-
- /**
-  * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
-  *
-  * @param currencies
-  */ 
+  /**
+   * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
+   *
+   * @param currencies
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<String> currencies) {
     this.currencies = currencies;
   }
 
-
+  /**
+   * Custom routing flags for acquirer routing.
+   *
+   * @param customRoutingFlags
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo customRoutingFlags(List<String> customRoutingFlags) {
     this.customRoutingFlags = customRoutingFlags;
     return this;
@@ -343,421 +367,463 @@ public class UpdatePaymentMethodInfo {
     return this;
   }
 
-   /**
+  /**
    * Custom routing flags for acquirer routing.
    * @return customRoutingFlags
-  **/
+   */
   @ApiModelProperty(value = "Custom routing flags for acquirer routing.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getCustomRoutingFlags() {
     return customRoutingFlags;
   }
 
-
- /**
-  * Custom routing flags for acquirer routing.
-  *
-  * @param customRoutingFlags
-  */ 
+  /**
+   * Custom routing flags for acquirer routing.
+   *
+   * @param customRoutingFlags
+   */ 
   @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomRoutingFlags(List<String> customRoutingFlags) {
     this.customRoutingFlags = customRoutingFlags;
   }
 
-
+  /**
+   * diners
+   *
+   * @param diners
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo diners(GenericPmWithTdiInfo diners) {
     this.diners = diners;
     return this;
   }
 
-   /**
-   * Get diners
+  /**
+   * diners
    * @return diners
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getDiners() {
     return diners;
   }
 
-
- /**
-  * diners
-  *
-  * @param diners
-  */ 
+  /**
+   * diners
+   *
+   * @param diners
+   */ 
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiners(GenericPmWithTdiInfo diners) {
     this.diners = diners;
   }
 
-
+  /**
+   * discover
+   *
+   * @param discover
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo discover(GenericPmWithTdiInfo discover) {
     this.discover = discover;
     return this;
   }
 
-   /**
-   * Get discover
+  /**
+   * discover
    * @return discover
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getDiscover() {
     return discover;
   }
 
-
- /**
-  * discover
-  *
-  * @param discover
-  */ 
+  /**
+   * discover
+   *
+   * @param discover
+   */ 
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiscover(GenericPmWithTdiInfo discover) {
     this.discover = discover;
   }
 
-
+  /**
+   * eftposAustralia
+   *
+   * @param eftposAustralia
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo eftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
     this.eftposAustralia = eftposAustralia;
     return this;
   }
 
-   /**
-   * Get eftposAustralia
+  /**
+   * eftposAustralia
    * @return eftposAustralia
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getEftposAustralia() {
     return eftposAustralia;
   }
 
-
- /**
-  * eftposAustralia
-  *
-  * @param eftposAustralia
-  */ 
+  /**
+   * eftposAustralia
+   *
+   * @param eftposAustralia
+   */ 
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
     this.eftposAustralia = eftposAustralia;
   }
 
-
+  /**
+   * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
+   *
+   * @param enabled
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    * @return enabled
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the payment method is enabled (**true**) or disabled (**false**).")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnabled() {
     return enabled;
   }
 
-
- /**
-  * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
-  *
-  * @param enabled
-  */ 
+  /**
+   * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
+   *
+   * @param enabled
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
-
+  /**
+   * girocard
+   *
+   * @param girocard
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo girocard(GenericPmWithTdiInfo girocard) {
     this.girocard = girocard;
     return this;
   }
 
-   /**
-   * Get girocard
+  /**
+   * girocard
    * @return girocard
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getGirocard() {
     return girocard;
   }
 
-
- /**
-  * girocard
-  *
-  * @param girocard
-  */ 
+  /**
+   * girocard
+   *
+   * @param girocard
+   */ 
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGirocard(GenericPmWithTdiInfo girocard) {
     this.girocard = girocard;
   }
 
-
+  /**
+   * ideal
+   *
+   * @param ideal
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo ideal(GenericPmWithTdiInfo ideal) {
     this.ideal = ideal;
     return this;
   }
 
-   /**
-   * Get ideal
+  /**
+   * ideal
    * @return ideal
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getIdeal() {
     return ideal;
   }
 
-
- /**
-  * ideal
-  *
-  * @param ideal
-  */ 
+  /**
+   * ideal
+   *
+   * @param ideal
+   */ 
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdeal(GenericPmWithTdiInfo ideal) {
     this.ideal = ideal;
   }
 
-
+  /**
+   * interacCard
+   *
+   * @param interacCard
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo interacCard(GenericPmWithTdiInfo interacCard) {
     this.interacCard = interacCard;
     return this;
   }
 
-   /**
-   * Get interacCard
+  /**
+   * interacCard
    * @return interacCard
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getInteracCard() {
     return interacCard;
   }
 
-
- /**
-  * interacCard
-  *
-  * @param interacCard
-  */ 
+  /**
+   * interacCard
+   *
+   * @param interacCard
+   */ 
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInteracCard(GenericPmWithTdiInfo interacCard) {
     this.interacCard = interacCard;
   }
 
-
+  /**
+   * jcb
+   *
+   * @param jcb
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo jcb(GenericPmWithTdiInfo jcb) {
     this.jcb = jcb;
     return this;
   }
 
-   /**
-   * Get jcb
+  /**
+   * jcb
    * @return jcb
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getJcb() {
     return jcb;
   }
 
-
- /**
-  * jcb
-  *
-  * @param jcb
-  */ 
+  /**
+   * jcb
+   *
+   * @param jcb
+   */ 
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJcb(GenericPmWithTdiInfo jcb) {
     this.jcb = jcb;
   }
 
-
+  /**
+   * maestro
+   *
+   * @param maestro
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo maestro(GenericPmWithTdiInfo maestro) {
     this.maestro = maestro;
     return this;
   }
 
-   /**
-   * Get maestro
+  /**
+   * maestro
    * @return maestro
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getMaestro() {
     return maestro;
   }
 
-
- /**
-  * maestro
-  *
-  * @param maestro
-  */ 
+  /**
+   * maestro
+   *
+   * @param maestro
+   */ 
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaestro(GenericPmWithTdiInfo maestro) {
     this.maestro = maestro;
   }
 
-
+  /**
+   * mc
+   *
+   * @param mc
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo mc(GenericPmWithTdiInfo mc) {
     this.mc = mc;
     return this;
   }
 
-   /**
-   * Get mc
+  /**
+   * mc
    * @return mc
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getMc() {
     return mc;
   }
 
-
- /**
-  * mc
-  *
-  * @param mc
-  */ 
+  /**
+   * mc
+   *
+   * @param mc
+   */ 
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMc(GenericPmWithTdiInfo mc) {
     this.mc = mc;
   }
 
-
+  /**
+   * nyce
+   *
+   * @param nyce
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo nyce(NyceInfo nyce) {
     this.nyce = nyce;
     return this;
   }
 
-   /**
-   * Get nyce
+  /**
+   * nyce
    * @return nyce
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NYCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NyceInfo getNyce() {
     return nyce;
   }
 
-
- /**
-  * nyce
-  *
-  * @param nyce
-  */ 
+  /**
+   * nyce
+   *
+   * @param nyce
+   */ 
   @JsonProperty(JSON_PROPERTY_NYCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNyce(NyceInfo nyce) {
     this.nyce = nyce;
   }
 
-
+  /**
+   * pulse
+   *
+   * @param pulse
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo pulse(PulseInfo pulse) {
     this.pulse = pulse;
     return this;
   }
 
-   /**
-   * Get pulse
+  /**
+   * pulse
    * @return pulse
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PULSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PulseInfo getPulse() {
     return pulse;
   }
 
-
- /**
-  * pulse
-  *
-  * @param pulse
-  */ 
+  /**
+   * pulse
+   *
+   * @param pulse
+   */ 
   @JsonProperty(JSON_PROPERTY_PULSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPulse(PulseInfo pulse) {
     this.pulse = pulse;
   }
 
-
+  /**
+   * star
+   *
+   * @param star
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo star(StarInfo star) {
     this.star = star;
     return this;
   }
 
-   /**
-   * Get star
+  /**
+   * star
    * @return star
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StarInfo getStar() {
     return star;
   }
 
-
- /**
-  * star
-  *
-  * @param star
-  */ 
+  /**
+   * star
+   *
+   * @param star
+   */ 
   @JsonProperty(JSON_PROPERTY_STAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStar(StarInfo star) {
     this.star = star;
   }
 
-
+  /**
+   * The list of stores for this payment method
+   *
+   * @param storeIds
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo storeIds(List<String> storeIds) {
     this.storeIds = storeIds;
     return this;
@@ -771,60 +837,60 @@ public class UpdatePaymentMethodInfo {
     return this;
   }
 
-   /**
+  /**
    * The list of stores for this payment method
    * @return storeIds
-  **/
+   */
   @ApiModelProperty(value = "The list of stores for this payment method")
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getStoreIds() {
     return storeIds;
   }
 
-
- /**
-  * The list of stores for this payment method
-  *
-  * @param storeIds
-  */ 
+  /**
+   * The list of stores for this payment method
+   *
+   * @param storeIds
+   */ 
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreIds(List<String> storeIds) {
     this.storeIds = storeIds;
   }
 
-
+  /**
+   * visa
+   *
+   * @param visa
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
   public UpdatePaymentMethodInfo visa(GenericPmWithTdiInfo visa) {
     this.visa = visa;
     return this;
   }
 
-   /**
-   * Get visa
+  /**
+   * visa
    * @return visa
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public GenericPmWithTdiInfo getVisa() {
     return visa;
   }
 
-
- /**
-  * visa
-  *
-  * @param visa
-  */ 
+  /**
+   * visa
+   *
+   * @param visa
+   */ 
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisa(GenericPmWithTdiInfo visa) {
     this.visa = visa;
   }
-
 
   /**
    * Return true if this UpdatePaymentMethodInfo object is equal to o.
@@ -927,4 +993,3 @@ public class UpdatePaymentMethodInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

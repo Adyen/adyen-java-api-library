@@ -45,65 +45,71 @@ public class MinorUnitsMonetaryValue {
   public MinorUnitsMonetaryValue() { 
   }
 
+  /**
+   * The transaction amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param amount
+   * @return the current {@code MinorUnitsMonetaryValue} instance, allowing for method chaining
+   */
   public MinorUnitsMonetaryValue amount(Integer amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
+  /**
    * The transaction amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "The transaction amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getAmount() {
     return amount;
   }
 
-
- /**
-  * The transaction amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param amount
-  */ 
+  /**
+   * The transaction amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Integer amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currencyCode
+   * @return the current {@code MinorUnitsMonetaryValue} instance, allowing for method chaining
+   */
   public MinorUnitsMonetaryValue currencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currencyCode
-  **/
+   */
   @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrencyCode() {
     return currencyCode;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param currencyCode
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currencyCode
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
   }
-
 
   /**
    * Return true if this MinorUnitsMonetaryValue object is equal to o.
@@ -166,4 +172,3 @@ public class MinorUnitsMonetaryValue {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

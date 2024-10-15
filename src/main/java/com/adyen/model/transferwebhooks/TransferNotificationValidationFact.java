@@ -45,65 +45,71 @@ public class TransferNotificationValidationFact {
   public TransferNotificationValidationFact() { 
   }
 
+  /**
+   * The evaluation result of the validation fact.
+   *
+   * @param result
+   * @return the current {@code TransferNotificationValidationFact} instance, allowing for method chaining
+   */
   public TransferNotificationValidationFact result(String result) {
     this.result = result;
     return this;
   }
 
-   /**
+  /**
    * The evaluation result of the validation fact.
    * @return result
-  **/
+   */
   @ApiModelProperty(value = "The evaluation result of the validation fact.")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResult() {
     return result;
   }
 
-
- /**
-  * The evaluation result of the validation fact.
-  *
-  * @param result
-  */ 
+  /**
+   * The evaluation result of the validation fact.
+   *
+   * @param result
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
     this.result = result;
   }
 
-
+  /**
+   * The type of the validation fact.
+   *
+   * @param type
+   * @return the current {@code TransferNotificationValidationFact} instance, allowing for method chaining
+   */
   public TransferNotificationValidationFact type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the validation fact.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of the validation fact.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The type of the validation fact.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of the validation fact.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this TransferNotificationValidationFact object is equal to o.
@@ -166,4 +172,3 @@ public class TransferNotificationValidationFact {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

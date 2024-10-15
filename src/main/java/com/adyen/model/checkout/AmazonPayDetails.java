@@ -86,125 +86,137 @@ public class AmazonPayDetails {
   public AmazonPayDetails() { 
   }
 
+  /**
+   * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.
+   *
+   * @param amazonPayToken
+   * @return the current {@code AmazonPayDetails} instance, allowing for method chaining
+   */
   public AmazonPayDetails amazonPayToken(String amazonPayToken) {
     this.amazonPayToken = amazonPayToken;
     return this;
   }
 
-   /**
+  /**
    * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.
    * @return amazonPayToken
-  **/
+   */
   @ApiModelProperty(value = "This is the `amazonPayToken` that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.")
   @JsonProperty(JSON_PROPERTY_AMAZON_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAmazonPayToken() {
     return amazonPayToken;
   }
 
-
- /**
-  * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.
-  *
-  * @param amazonPayToken
-  */ 
+  /**
+   * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.
+   *
+   * @param amazonPayToken
+   */ 
   @JsonProperty(JSON_PROPERTY_AMAZON_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmazonPayToken(String amazonPayToken) {
     this.amazonPayToken = amazonPayToken;
   }
 
-
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code AmazonPayDetails} instance, allowing for method chaining
+   */
   public AmazonPayDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The &#x60;checkoutSessionId&#x60; is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.
+   *
+   * @param checkoutSessionId
+   * @return the current {@code AmazonPayDetails} instance, allowing for method chaining
+   */
   public AmazonPayDetails checkoutSessionId(String checkoutSessionId) {
     this.checkoutSessionId = checkoutSessionId;
     return this;
   }
 
-   /**
+  /**
    * The &#x60;checkoutSessionId&#x60; is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.
    * @return checkoutSessionId
-  **/
+   */
   @ApiModelProperty(value = "The `checkoutSessionId` is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutSessionId() {
     return checkoutSessionId;
   }
 
-
- /**
-  * The &#x60;checkoutSessionId&#x60; is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.
-  *
-  * @param checkoutSessionId
-  */ 
+  /**
+   * The &#x60;checkoutSessionId&#x60; is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.
+   *
+   * @param checkoutSessionId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutSessionId(String checkoutSessionId) {
     this.checkoutSessionId = checkoutSessionId;
   }
 
-
+  /**
+   * **amazonpay**
+   *
+   * @param type
+   * @return the current {@code AmazonPayDetails} instance, allowing for method chaining
+   */
   public AmazonPayDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **amazonpay**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**amazonpay**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **amazonpay**
-  *
-  * @param type
-  */ 
+  /**
+   * **amazonpay**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this AmazonPayDetails object is equal to o.
@@ -271,4 +283,3 @@ public class AmazonPayDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

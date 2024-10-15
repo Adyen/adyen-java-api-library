@@ -42,35 +42,38 @@ public class TransactionRuleResponse {
   public TransactionRuleResponse() { 
   }
 
+  /**
+   * transactionRule
+   *
+   * @param transactionRule
+   * @return the current {@code TransactionRuleResponse} instance, allowing for method chaining
+   */
   public TransactionRuleResponse transactionRule(TransactionRule transactionRule) {
     this.transactionRule = transactionRule;
     return this;
   }
 
-   /**
-   * Get transactionRule
+  /**
+   * transactionRule
    * @return transactionRule
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionRule getTransactionRule() {
     return transactionRule;
   }
 
-
- /**
-  * transactionRule
-  *
-  * @param transactionRule
-  */ 
+  /**
+   * transactionRule
+   *
+   * @param transactionRule
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRule(TransactionRule transactionRule) {
     this.transactionRule = transactionRule;
   }
-
 
   /**
    * Return true if this TransactionRuleResponse object is equal to o.
@@ -131,4 +134,3 @@ public class TransactionRuleResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

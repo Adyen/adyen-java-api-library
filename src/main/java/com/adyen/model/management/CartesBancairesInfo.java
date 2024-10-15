@@ -46,65 +46,71 @@ public class CartesBancairesInfo {
   public CartesBancairesInfo() { 
   }
 
+  /**
+   * Cartes Bancaires SIRET. Format: 14 digits.
+   *
+   * @param siret
+   * @return the current {@code CartesBancairesInfo} instance, allowing for method chaining
+   */
   public CartesBancairesInfo siret(String siret) {
     this.siret = siret;
     return this;
   }
 
-   /**
+  /**
    * Cartes Bancaires SIRET. Format: 14 digits.
    * @return siret
-  **/
+   */
   @ApiModelProperty(required = true, value = "Cartes Bancaires SIRET. Format: 14 digits.")
   @JsonProperty(JSON_PROPERTY_SIRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSiret() {
     return siret;
   }
 
-
- /**
-  * Cartes Bancaires SIRET. Format: 14 digits.
-  *
-  * @param siret
-  */ 
+  /**
+   * Cartes Bancaires SIRET. Format: 14 digits.
+   *
+   * @param siret
+   */ 
   @JsonProperty(JSON_PROPERTY_SIRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiret(String siret) {
     this.siret = siret;
   }
 
-
+  /**
+   * transactionDescription
+   *
+   * @param transactionDescription
+   * @return the current {@code CartesBancairesInfo} instance, allowing for method chaining
+   */
   public CartesBancairesInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
     return this;
   }
 
-   /**
-   * Get transactionDescription
+  /**
+   * transactionDescription
    * @return transactionDescription
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionDescriptionInfo getTransactionDescription() {
     return transactionDescription;
   }
 
-
- /**
-  * transactionDescription
-  *
-  * @param transactionDescription
-  */ 
+  /**
+   * transactionDescription
+   *
+   * @param transactionDescription
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
   }
-
 
   /**
    * Return true if this CartesBancairesInfo object is equal to o.
@@ -167,4 +173,3 @@ public class CartesBancairesInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

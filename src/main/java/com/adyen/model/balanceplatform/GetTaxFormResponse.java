@@ -78,65 +78,71 @@ public class GetTaxFormResponse {
   public GetTaxFormResponse() { 
   }
 
+  /**
+   * The content of the tax form in Base64 format.
+   *
+   * @param content
+   * @return the current {@code GetTaxFormResponse} instance, allowing for method chaining
+   */
   public GetTaxFormResponse content(byte[] content) {
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The content of the tax form in Base64 format.
    * @return content
-  **/
+   */
   @ApiModelProperty(required = true, value = "The content of the tax form in Base64 format.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public byte[] getContent() {
     return content;
   }
 
-
- /**
-  * The content of the tax form in Base64 format.
-  *
-  * @param content
-  */ 
+  /**
+   * The content of the tax form in Base64 format.
+   *
+   * @param content
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
     this.content = content;
   }
 
-
+  /**
+   * The content type of the tax form.  Possible values: *  **application/pdf**  
+   *
+   * @param contentType
+   * @return the current {@code GetTaxFormResponse} instance, allowing for method chaining
+   */
   public GetTaxFormResponse contentType(ContentTypeEnum contentType) {
     this.contentType = contentType;
     return this;
   }
 
-   /**
+  /**
    * The content type of the tax form.  Possible values: *  **application/pdf**  
    * @return contentType
-  **/
+   */
   @ApiModelProperty(value = "The content type of the tax form.  Possible values: *  **application/pdf**  ")
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ContentTypeEnum getContentType() {
     return contentType;
   }
 
-
- /**
-  * The content type of the tax form.  Possible values: *  **application/pdf**  
-  *
-  * @param contentType
-  */ 
+  /**
+   * The content type of the tax form.  Possible values: *  **application/pdf**  
+   *
+   * @param contentType
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(ContentTypeEnum contentType) {
     this.contentType = contentType;
   }
-
 
   /**
    * Return true if this GetTaxFormResponse object is equal to o.
@@ -199,4 +205,3 @@ public class GetTaxFormResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

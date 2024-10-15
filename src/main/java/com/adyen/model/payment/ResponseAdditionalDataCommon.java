@@ -345,1775 +345,1952 @@ public class ResponseAdditionalDataCommon {
   public ResponseAdditionalDataCommon() { 
   }
 
+  /**
+   * The name of the Adyen acquirer account.  Example: PayPalSandbox_TestAcquirer  &gt; Only relevant for PayPal transactions.
+   *
+   * @param acquirerAccountCode
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon acquirerAccountCode(String acquirerAccountCode) {
     this.acquirerAccountCode = acquirerAccountCode;
     return this;
   }
 
-   /**
+  /**
    * The name of the Adyen acquirer account.  Example: PayPalSandbox_TestAcquirer  &gt; Only relevant for PayPal transactions.
    * @return acquirerAccountCode
-  **/
+   */
   @ApiModelProperty(value = "The name of the Adyen acquirer account.  Example: PayPalSandbox_TestAcquirer  > Only relevant for PayPal transactions.")
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcquirerAccountCode() {
     return acquirerAccountCode;
   }
 
-
- /**
-  * The name of the Adyen acquirer account.  Example: PayPalSandbox_TestAcquirer  &gt; Only relevant for PayPal transactions.
-  *
-  * @param acquirerAccountCode
-  */ 
+  /**
+   * The name of the Adyen acquirer account.  Example: PayPalSandbox_TestAcquirer  &gt; Only relevant for PayPal transactions.
+   *
+   * @param acquirerAccountCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerAccountCode(String acquirerAccountCode) {
     this.acquirerAccountCode = acquirerAccountCode;
   }
 
-
+  /**
+   * The name of the acquirer processing the payment request.  Example: TestPmmAcquirer
+   *
+   * @param acquirerCode
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon acquirerCode(String acquirerCode) {
     this.acquirerCode = acquirerCode;
     return this;
   }
 
-   /**
+  /**
    * The name of the acquirer processing the payment request.  Example: TestPmmAcquirer
    * @return acquirerCode
-  **/
+   */
   @ApiModelProperty(value = "The name of the acquirer processing the payment request.  Example: TestPmmAcquirer")
   @JsonProperty(JSON_PROPERTY_ACQUIRER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcquirerCode() {
     return acquirerCode;
   }
 
-
- /**
-  * The name of the acquirer processing the payment request.  Example: TestPmmAcquirer
-  *
-  * @param acquirerCode
-  */ 
+  /**
+   * The name of the acquirer processing the payment request.  Example: TestPmmAcquirer
+   *
+   * @param acquirerCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerCode(String acquirerCode) {
     this.acquirerCode = acquirerCode;
   }
 
-
+  /**
+   * The reference number that can be used for reconciliation in case a non-Adyen acquirer is used for settlement.  Example: 7C9N3FNBKT9
+   *
+   * @param acquirerReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon acquirerReference(String acquirerReference) {
     this.acquirerReference = acquirerReference;
     return this;
   }
 
-   /**
+  /**
    * The reference number that can be used for reconciliation in case a non-Adyen acquirer is used for settlement.  Example: 7C9N3FNBKT9
    * @return acquirerReference
-  **/
+   */
   @ApiModelProperty(value = "The reference number that can be used for reconciliation in case a non-Adyen acquirer is used for settlement.  Example: 7C9N3FNBKT9")
   @JsonProperty(JSON_PROPERTY_ACQUIRER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcquirerReference() {
     return acquirerReference;
   }
 
-
- /**
-  * The reference number that can be used for reconciliation in case a non-Adyen acquirer is used for settlement.  Example: 7C9N3FNBKT9
-  *
-  * @param acquirerReference
-  */ 
+  /**
+   * The reference number that can be used for reconciliation in case a non-Adyen acquirer is used for settlement.  Example: 7C9N3FNBKT9
+   *
+   * @param acquirerReference
+   */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerReference(String acquirerReference) {
     this.acquirerReference = acquirerReference;
   }
 
-
+  /**
+   * The Adyen alias of the card.  Example: H167852639363479
+   *
+   * @param alias
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon alias(String alias) {
     this.alias = alias;
     return this;
   }
 
-   /**
+  /**
    * The Adyen alias of the card.  Example: H167852639363479
    * @return alias
-  **/
+   */
   @ApiModelProperty(value = "The Adyen alias of the card.  Example: H167852639363479")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAlias() {
     return alias;
   }
 
-
- /**
-  * The Adyen alias of the card.  Example: H167852639363479
-  *
-  * @param alias
-  */ 
+  /**
+   * The Adyen alias of the card.  Example: H167852639363479
+   *
+   * @param alias
+   */ 
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlias(String alias) {
     this.alias = alias;
   }
 
-
+  /**
+   * The type of the card alias.  Example: Default
+   *
+   * @param aliasType
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon aliasType(String aliasType) {
     this.aliasType = aliasType;
     return this;
   }
 
-   /**
+  /**
    * The type of the card alias.  Example: Default
    * @return aliasType
-  **/
+   */
   @ApiModelProperty(value = "The type of the card alias.  Example: Default")
   @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAliasType() {
     return aliasType;
   }
 
-
- /**
-  * The type of the card alias.  Example: Default
-  *
-  * @param aliasType
-  */ 
+  /**
+   * The type of the card alias.  Example: Default
+   *
+   * @param aliasType
+   */ 
   @JsonProperty(JSON_PROPERTY_ALIAS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAliasType(String aliasType) {
     this.aliasType = aliasType;
   }
 
-
+  /**
+   * Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.  Example: 58747
+   *
+   * @param authCode
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon authCode(String authCode) {
     this.authCode = authCode;
     return this;
   }
 
-   /**
+  /**
    * Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.  Example: 58747
    * @return authCode
-  **/
+   */
   @ApiModelProperty(value = "Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.  Example: 58747")
   @JsonProperty(JSON_PROPERTY_AUTH_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthCode() {
     return authCode;
   }
 
-
- /**
-  * Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.  Example: 58747
-  *
-  * @param authCode
-  */ 
+  /**
+   * Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.  Example: 58747
+   *
+   * @param authCode
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTH_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthCode(String authCode) {
     this.authCode = authCode;
   }
 
-
+  /**
+   * Merchant ID known by the acquirer.
+   *
+   * @param authorisationMid
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon authorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
     return this;
   }
 
-   /**
+  /**
    * Merchant ID known by the acquirer.
    * @return authorisationMid
-  **/
+   */
   @ApiModelProperty(value = "Merchant ID known by the acquirer.")
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_MID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthorisationMid() {
     return authorisationMid;
   }
 
-
- /**
-  * Merchant ID known by the acquirer.
-  *
-  * @param authorisationMid
-  */ 
+  /**
+   * Merchant ID known by the acquirer.
+   *
+   * @param authorisationMid
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_MID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationMid(String authorisationMid) {
     this.authorisationMid = authorisationMid;
   }
 
-
+  /**
+   * The currency of the authorised amount, as a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param authorisedAmountCurrency
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon authorisedAmountCurrency(String authorisedAmountCurrency) {
     this.authorisedAmountCurrency = authorisedAmountCurrency;
     return this;
   }
 
-   /**
+  /**
    * The currency of the authorised amount, as a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return authorisedAmountCurrency
-  **/
+   */
   @ApiModelProperty(value = "The currency of the authorised amount, as a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthorisedAmountCurrency() {
     return authorisedAmountCurrency;
   }
 
-
- /**
-  * The currency of the authorised amount, as a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param authorisedAmountCurrency
-  */ 
+  /**
+   * The currency of the authorised amount, as a three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param authorisedAmountCurrency
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisedAmountCurrency(String authorisedAmountCurrency) {
     this.authorisedAmountCurrency = authorisedAmountCurrency;
   }
 
-
+  /**
+   * Value of the amount authorised.  This amount is represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param authorisedAmountValue
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon authorisedAmountValue(String authorisedAmountValue) {
     this.authorisedAmountValue = authorisedAmountValue;
     return this;
   }
 
-   /**
+  /**
    * Value of the amount authorised.  This amount is represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes).
    * @return authorisedAmountValue
-  **/
+   */
   @ApiModelProperty(value = "Value of the amount authorised.  This amount is represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthorisedAmountValue() {
     return authorisedAmountValue;
   }
 
-
- /**
-  * Value of the amount authorised.  This amount is represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param authorisedAmountValue
-  */ 
+  /**
+   * Value of the amount authorised.  This amount is represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param authorisedAmountValue
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISED_AMOUNT_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisedAmountValue(String authorisedAmountValue) {
     this.authorisedAmountValue = authorisedAmountValue;
   }
 
-
+  /**
+   * The AVS result code of the payment, which provides information about the outcome of the AVS check.  For possible values, see [AVS](https://docs.adyen.com/risk-management/configure-standard-risk-rules/consistency-rules#billing-address-does-not-match-cardholder-address-avs).
+   *
+   * @param avsResult
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon avsResult(String avsResult) {
     this.avsResult = avsResult;
     return this;
   }
 
-   /**
+  /**
    * The AVS result code of the payment, which provides information about the outcome of the AVS check.  For possible values, see [AVS](https://docs.adyen.com/risk-management/configure-standard-risk-rules/consistency-rules#billing-address-does-not-match-cardholder-address-avs).
    * @return avsResult
-  **/
+   */
   @ApiModelProperty(value = "The AVS result code of the payment, which provides information about the outcome of the AVS check.  For possible values, see [AVS](https://docs.adyen.com/risk-management/configure-standard-risk-rules/consistency-rules#billing-address-does-not-match-cardholder-address-avs).")
   @JsonProperty(JSON_PROPERTY_AVS_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAvsResult() {
     return avsResult;
   }
 
-
- /**
-  * The AVS result code of the payment, which provides information about the outcome of the AVS check.  For possible values, see [AVS](https://docs.adyen.com/risk-management/configure-standard-risk-rules/consistency-rules#billing-address-does-not-match-cardholder-address-avs).
-  *
-  * @param avsResult
-  */ 
+  /**
+   * The AVS result code of the payment, which provides information about the outcome of the AVS check.  For possible values, see [AVS](https://docs.adyen.com/risk-management/configure-standard-risk-rules/consistency-rules#billing-address-does-not-match-cardholder-address-avs).
+   *
+   * @param avsResult
+   */ 
   @JsonProperty(JSON_PROPERTY_AVS_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResult(String avsResult) {
     this.avsResult = avsResult;
   }
 
-
+  /**
+   * Raw AVS result received from the acquirer, where available.  Example: D
+   *
+   * @param avsResultRaw
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon avsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
     return this;
   }
 
-   /**
+  /**
    * Raw AVS result received from the acquirer, where available.  Example: D
    * @return avsResultRaw
-  **/
+   */
   @ApiModelProperty(value = "Raw AVS result received from the acquirer, where available.  Example: D")
   @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAvsResultRaw() {
     return avsResultRaw;
   }
 
-
- /**
-  * Raw AVS result received from the acquirer, where available.  Example: D
-  *
-  * @param avsResultRaw
-  */ 
+  /**
+   * Raw AVS result received from the acquirer, where available.  Example: D
+   *
+   * @param avsResultRaw
+   */ 
   @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvsResultRaw(String avsResultRaw) {
     this.avsResultRaw = avsResultRaw;
   }
 
-
+  /**
+   * BIC of a bank account.  Example: TESTNL01  &gt; Only relevant for SEPA Direct Debit transactions.
+   *
+   * @param bic
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon bic(String bic) {
     this.bic = bic;
     return this;
   }
 
-   /**
+  /**
    * BIC of a bank account.  Example: TESTNL01  &gt; Only relevant for SEPA Direct Debit transactions.
    * @return bic
-  **/
+   */
   @ApiModelProperty(value = "BIC of a bank account.  Example: TESTNL01  > Only relevant for SEPA Direct Debit transactions.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBic() {
     return bic;
   }
 
-
- /**
-  * BIC of a bank account.  Example: TESTNL01  &gt; Only relevant for SEPA Direct Debit transactions.
-  *
-  * @param bic
-  */ 
+  /**
+   * BIC of a bank account.  Example: TESTNL01  &gt; Only relevant for SEPA Direct Debit transactions.
+   *
+   * @param bic
+   */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
   }
 
-
+  /**
+   * Includes the co-branded card information.
+   *
+   * @param coBrandedWith
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon coBrandedWith(String coBrandedWith) {
     this.coBrandedWith = coBrandedWith;
     return this;
   }
 
-   /**
+  /**
    * Includes the co-branded card information.
    * @return coBrandedWith
-  **/
+   */
   @ApiModelProperty(value = "Includes the co-branded card information.")
   @JsonProperty(JSON_PROPERTY_CO_BRANDED_WITH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCoBrandedWith() {
     return coBrandedWith;
   }
 
-
- /**
-  * Includes the co-branded card information.
-  *
-  * @param coBrandedWith
-  */ 
+  /**
+   * Includes the co-branded card information.
+   *
+   * @param coBrandedWith
+   */ 
   @JsonProperty(JSON_PROPERTY_CO_BRANDED_WITH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCoBrandedWith(String coBrandedWith) {
     this.coBrandedWith = coBrandedWith;
   }
 
-
+  /**
+   * The result of CVC verification.
+   *
+   * @param cvcResult
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon cvcResult(String cvcResult) {
     this.cvcResult = cvcResult;
     return this;
   }
 
-   /**
+  /**
    * The result of CVC verification.
    * @return cvcResult
-  **/
+   */
   @ApiModelProperty(example = "1 Matches", value = "The result of CVC verification.")
   @JsonProperty(JSON_PROPERTY_CVC_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCvcResult() {
     return cvcResult;
   }
 
-
- /**
-  * The result of CVC verification.
-  *
-  * @param cvcResult
-  */ 
+  /**
+   * The result of CVC verification.
+   *
+   * @param cvcResult
+   */ 
   @JsonProperty(JSON_PROPERTY_CVC_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResult(String cvcResult) {
     this.cvcResult = cvcResult;
   }
 
-
+  /**
+   * The raw result of CVC verification.
+   *
+   * @param cvcResultRaw
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon cvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
     return this;
   }
 
-   /**
+  /**
    * The raw result of CVC verification.
    * @return cvcResultRaw
-  **/
+   */
   @ApiModelProperty(example = "M", value = "The raw result of CVC verification.")
   @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCvcResultRaw() {
     return cvcResultRaw;
   }
 
-
- /**
-  * The raw result of CVC verification.
-  *
-  * @param cvcResultRaw
-  */ 
+  /**
+   * The raw result of CVC verification.
+   *
+   * @param cvcResultRaw
+   */ 
   @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvcResultRaw(String cvcResultRaw) {
     this.cvcResultRaw = cvcResultRaw;
   }
 
-
+  /**
+   * Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction.
+   *
+   * @param dsTransID
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon dsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
     return this;
   }
 
-   /**
+  /**
    * Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction.
    * @return dsTransID
-  **/
+   */
   @ApiModelProperty(value = "Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction.")
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDsTransID() {
     return dsTransID;
   }
 
-
- /**
-  * Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction.
-  *
-  * @param dsTransID
-  */ 
+  /**
+   * Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction.
+   *
+   * @param dsTransID
+   */ 
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
   }
 
-
+  /**
+   * The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.  Example: 02
+   *
+   * @param eci
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon eci(String eci) {
     this.eci = eci;
     return this;
   }
 
-   /**
+  /**
    * The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.  Example: 02
    * @return eci
-  **/
+   */
   @ApiModelProperty(value = "The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.  Example: 02")
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEci() {
     return eci;
   }
 
-
- /**
-  * The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.  Example: 02
-  *
-  * @param eci
-  */ 
+  /**
+   * The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.  Example: 02
+   *
+   * @param eci
+   */ 
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
     this.eci = eci;
   }
 
-
+  /**
+   * The expiry date on the card.  Example: 6/2016  &gt; Returned only in case of a card payment.
+   *
+   * @param expiryDate
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon expiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
     return this;
   }
 
-   /**
+  /**
    * The expiry date on the card.  Example: 6/2016  &gt; Returned only in case of a card payment.
    * @return expiryDate
-  **/
+   */
   @ApiModelProperty(value = "The expiry date on the card.  Example: 6/2016  > Returned only in case of a card payment.")
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiryDate() {
     return expiryDate;
   }
 
-
- /**
-  * The expiry date on the card.  Example: 6/2016  &gt; Returned only in case of a card payment.
-  *
-  * @param expiryDate
-  */ 
+  /**
+   * The expiry date on the card.  Example: 6/2016  &gt; Returned only in case of a card payment.
+   *
+   * @param expiryDate
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
   }
 
-
+  /**
+   * The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.  Example: EUR
+   *
+   * @param extraCostsCurrency
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon extraCostsCurrency(String extraCostsCurrency) {
     this.extraCostsCurrency = extraCostsCurrency;
     return this;
   }
 
-   /**
+  /**
    * The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.  Example: EUR
    * @return extraCostsCurrency
-  **/
+   */
   @ApiModelProperty(value = "The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.  Example: EUR")
   @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExtraCostsCurrency() {
     return extraCostsCurrency;
   }
 
-
- /**
-  * The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.  Example: EUR
-  *
-  * @param extraCostsCurrency
-  */ 
+  /**
+   * The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.  Example: EUR
+   *
+   * @param extraCostsCurrency
+   */ 
   @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtraCostsCurrency(String extraCostsCurrency) {
     this.extraCostsCurrency = extraCostsCurrency;
   }
 
-
+  /**
+   * The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.
+   *
+   * @param extraCostsValue
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon extraCostsValue(String extraCostsValue) {
     this.extraCostsValue = extraCostsValue;
     return this;
   }
 
-   /**
+  /**
    * The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.
    * @return extraCostsValue
-  **/
+   */
   @ApiModelProperty(value = "The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.")
   @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExtraCostsValue() {
     return extraCostsValue;
   }
 
-
- /**
-  * The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.
-  *
-  * @param extraCostsValue
-  */ 
+  /**
+   * The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.
+   *
+   * @param extraCostsValue
+   */ 
   @JsonProperty(JSON_PROPERTY_EXTRA_COSTS_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtraCostsValue(String extraCostsValue) {
     this.extraCostsValue = extraCostsValue;
   }
 
-
+  /**
+   * The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.
+   *
+   * @param fraudCheckItemNrFraudCheckname
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon fraudCheckItemNrFraudCheckname(String fraudCheckItemNrFraudCheckname) {
     this.fraudCheckItemNrFraudCheckname = fraudCheckItemNrFraudCheckname;
     return this;
   }
 
-   /**
+  /**
    * The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.
    * @return fraudCheckItemNrFraudCheckname
-  **/
+   */
   @ApiModelProperty(value = "The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.")
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFraudCheckItemNrFraudCheckname() {
     return fraudCheckItemNrFraudCheckname;
   }
 
-
- /**
-  * The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.
-  *
-  * @param fraudCheckItemNrFraudCheckname
-  */ 
+  /**
+   * The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.
+   *
+   * @param fraudCheckItemNrFraudCheckname
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudCheckItemNrFraudCheckname(String fraudCheckItemNrFraudCheckname) {
     this.fraudCheckItemNrFraudCheckname = fraudCheckItemNrFraudCheckname;
   }
 
-
+  /**
+   * Indicates if the payment is sent to manual review.
+   *
+   * @param fraudManualReview
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon fraudManualReview(String fraudManualReview) {
     this.fraudManualReview = fraudManualReview;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the payment is sent to manual review.
    * @return fraudManualReview
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the payment is sent to manual review.")
   @JsonProperty(JSON_PROPERTY_FRAUD_MANUAL_REVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFraudManualReview() {
     return fraudManualReview;
   }
 
-
- /**
-  * Indicates if the payment is sent to manual review.
-  *
-  * @param fraudManualReview
-  */ 
+  /**
+   * Indicates if the payment is sent to manual review.
+   *
+   * @param fraudManualReview
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_MANUAL_REVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudManualReview(String fraudManualReview) {
     this.fraudManualReview = fraudManualReview;
   }
 
-
+  /**
+   * The fraud result properties of the payment.
+   *
+   * @param fraudResultType
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon fraudResultType(FraudResultTypeEnum fraudResultType) {
     this.fraudResultType = fraudResultType;
     return this;
   }
 
-   /**
+  /**
    * The fraud result properties of the payment.
    * @return fraudResultType
-  **/
+   */
   @ApiModelProperty(value = "The fraud result properties of the payment.")
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FraudResultTypeEnum getFraudResultType() {
     return fraudResultType;
   }
 
-
- /**
-  * The fraud result properties of the payment.
-  *
-  * @param fraudResultType
-  */ 
+  /**
+   * The fraud result properties of the payment.
+   *
+   * @param fraudResultType
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResultType(FraudResultTypeEnum fraudResultType) {
     this.fraudResultType = fraudResultType;
   }
 
-
+  /**
+   * Information regarding the funding type of the card. The possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID * PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  &gt; This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.  For receiving this field in the notification, enable **Include Funding Source** in **Notifications** &gt; **Additional settings**.
+   *
+   * @param fundingSource
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon fundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
     return this;
   }
 
-   /**
+  /**
    * Information regarding the funding type of the card. The possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID * PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  &gt; This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.  For receiving this field in the notification, enable **Include Funding Source** in **Notifications** &gt; **Additional settings**.
    * @return fundingSource
-  **/
+   */
   @ApiModelProperty(value = "Information regarding the funding type of the card. The possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID * PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  > This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.  For receiving this field in the notification, enable **Include Funding Source** in **Notifications** > **Additional settings**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFundingSource() {
     return fundingSource;
   }
 
-
- /**
-  * Information regarding the funding type of the card. The possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID * PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  &gt; This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.  For receiving this field in the notification, enable **Include Funding Source** in **Notifications** &gt; **Additional settings**.
-  *
-  * @param fundingSource
-  */ 
+  /**
+   * Information regarding the funding type of the card. The possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID * PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  &gt; This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.  For receiving this field in the notification, enable **Include Funding Source** in **Notifications** &gt; **Additional settings**.
+   *
+   * @param fundingSource
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
   }
 
-
+  /**
+   * Indicates availability of funds.  Visa: * \&quot;I\&quot; (fast funds are supported) * \&quot;N\&quot; (otherwise)  Mastercard: * \&quot;I\&quot; (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \&quot;N\&quot; (otherwise)  &gt; Returned when you verify a card BIN or estimate costs, and only if payoutEligible is \&quot;Y\&quot; or \&quot;D\&quot;.
+   *
+   * @param fundsAvailability
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon fundsAvailability(String fundsAvailability) {
     this.fundsAvailability = fundsAvailability;
     return this;
   }
 
-   /**
+  /**
    * Indicates availability of funds.  Visa: * \&quot;I\&quot; (fast funds are supported) * \&quot;N\&quot; (otherwise)  Mastercard: * \&quot;I\&quot; (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \&quot;N\&quot; (otherwise)  &gt; Returned when you verify a card BIN or estimate costs, and only if payoutEligible is \&quot;Y\&quot; or \&quot;D\&quot;.
    * @return fundsAvailability
-  **/
+   */
   @ApiModelProperty(value = "Indicates availability of funds.  Visa: * \"I\" (fast funds are supported) * \"N\" (otherwise)  Mastercard: * \"I\" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \"N\" (otherwise)  > Returned when you verify a card BIN or estimate costs, and only if payoutEligible is \"Y\" or \"D\".")
   @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFundsAvailability() {
     return fundsAvailability;
   }
 
-
- /**
-  * Indicates availability of funds.  Visa: * \&quot;I\&quot; (fast funds are supported) * \&quot;N\&quot; (otherwise)  Mastercard: * \&quot;I\&quot; (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \&quot;N\&quot; (otherwise)  &gt; Returned when you verify a card BIN or estimate costs, and only if payoutEligible is \&quot;Y\&quot; or \&quot;D\&quot;.
-  *
-  * @param fundsAvailability
-  */ 
+  /**
+   * Indicates availability of funds.  Visa: * \&quot;I\&quot; (fast funds are supported) * \&quot;N\&quot; (otherwise)  Mastercard: * \&quot;I\&quot; (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \&quot;N\&quot; (otherwise)  &gt; Returned when you verify a card BIN or estimate costs, and only if payoutEligible is \&quot;Y\&quot; or \&quot;D\&quot;.
+   *
+   * @param fundsAvailability
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundsAvailability(String fundsAvailability) {
     this.fundsAvailability = fundsAvailability;
   }
 
-
+  /**
+   * Provides the more granular indication of why a transaction was refused. When a transaction fails with either \&quot;Refused\&quot;, \&quot;Restricted Card\&quot;, \&quot;Transaction Not Permitted\&quot;, \&quot;Not supported\&quot; or \&quot;DeclinedNon Generic\&quot; refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the &#x60;inferredRefusalReason&#x60;, field is populated and the &#x60;refusalReason&#x60;, is set to \&quot;Not Supported\&quot;.  Possible values:  * 3D Secure Mandated * Closed Account * ContAuth Not Supported * CVC Mandated * Ecommerce Not Allowed * Crossborder Not Supported * Card Updated  * Low Authrate Bin * Non-reloadable prepaid card
+   *
+   * @param inferredRefusalReason
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon inferredRefusalReason(String inferredRefusalReason) {
     this.inferredRefusalReason = inferredRefusalReason;
     return this;
   }
 
-   /**
+  /**
    * Provides the more granular indication of why a transaction was refused. When a transaction fails with either \&quot;Refused\&quot;, \&quot;Restricted Card\&quot;, \&quot;Transaction Not Permitted\&quot;, \&quot;Not supported\&quot; or \&quot;DeclinedNon Generic\&quot; refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the &#x60;inferredRefusalReason&#x60;, field is populated and the &#x60;refusalReason&#x60;, is set to \&quot;Not Supported\&quot;.  Possible values:  * 3D Secure Mandated * Closed Account * ContAuth Not Supported * CVC Mandated * Ecommerce Not Allowed * Crossborder Not Supported * Card Updated  * Low Authrate Bin * Non-reloadable prepaid card
    * @return inferredRefusalReason
-  **/
+   */
   @ApiModelProperty(value = "Provides the more granular indication of why a transaction was refused. When a transaction fails with either \"Refused\", \"Restricted Card\", \"Transaction Not Permitted\", \"Not supported\" or \"DeclinedNon Generic\" refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the `inferredRefusalReason`, field is populated and the `refusalReason`, is set to \"Not Supported\".  Possible values:  * 3D Secure Mandated * Closed Account * ContAuth Not Supported * CVC Mandated * Ecommerce Not Allowed * Crossborder Not Supported * Card Updated  * Low Authrate Bin * Non-reloadable prepaid card")
   @JsonProperty(JSON_PROPERTY_INFERRED_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getInferredRefusalReason() {
     return inferredRefusalReason;
   }
 
-
- /**
-  * Provides the more granular indication of why a transaction was refused. When a transaction fails with either \&quot;Refused\&quot;, \&quot;Restricted Card\&quot;, \&quot;Transaction Not Permitted\&quot;, \&quot;Not supported\&quot; or \&quot;DeclinedNon Generic\&quot; refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the &#x60;inferredRefusalReason&#x60;, field is populated and the &#x60;refusalReason&#x60;, is set to \&quot;Not Supported\&quot;.  Possible values:  * 3D Secure Mandated * Closed Account * ContAuth Not Supported * CVC Mandated * Ecommerce Not Allowed * Crossborder Not Supported * Card Updated  * Low Authrate Bin * Non-reloadable prepaid card
-  *
-  * @param inferredRefusalReason
-  */ 
+  /**
+   * Provides the more granular indication of why a transaction was refused. When a transaction fails with either \&quot;Refused\&quot;, \&quot;Restricted Card\&quot;, \&quot;Transaction Not Permitted\&quot;, \&quot;Not supported\&quot; or \&quot;DeclinedNon Generic\&quot; refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the &#x60;inferredRefusalReason&#x60;, field is populated and the &#x60;refusalReason&#x60;, is set to \&quot;Not Supported\&quot;.  Possible values:  * 3D Secure Mandated * Closed Account * ContAuth Not Supported * CVC Mandated * Ecommerce Not Allowed * Crossborder Not Supported * Card Updated  * Low Authrate Bin * Non-reloadable prepaid card
+   *
+   * @param inferredRefusalReason
+   */ 
   @JsonProperty(JSON_PROPERTY_INFERRED_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInferredRefusalReason(String inferredRefusalReason) {
     this.inferredRefusalReason = inferredRefusalReason;
   }
 
-
+  /**
+   * Indicates if the card is used for business purposes only.
+   *
+   * @param isCardCommercial
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon isCardCommercial(String isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the card is used for business purposes only.
    * @return isCardCommercial
-  **/
+   */
   @ApiModelProperty(value = "Indicates if the card is used for business purposes only.")
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIsCardCommercial() {
     return isCardCommercial;
   }
 
-
- /**
-  * Indicates if the card is used for business purposes only.
-  *
-  * @param isCardCommercial
-  */ 
+  /**
+   * Indicates if the card is used for business purposes only.
+   *
+   * @param isCardCommercial
+   */ 
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCardCommercial(String isCardCommercial) {
     this.isCardCommercial = isCardCommercial;
   }
 
-
+  /**
+   * The issuing country of the card based on the BIN list that Adyen maintains.  Example: JP
+   *
+   * @param issuerCountry
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
     return this;
   }
 
-   /**
+  /**
    * The issuing country of the card based on the BIN list that Adyen maintains.  Example: JP
    * @return issuerCountry
-  **/
+   */
   @ApiModelProperty(value = "The issuing country of the card based on the BIN list that Adyen maintains.  Example: JP")
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuerCountry() {
     return issuerCountry;
   }
 
-
- /**
-  * The issuing country of the card based on the BIN list that Adyen maintains.  Example: JP
-  *
-  * @param issuerCountry
-  */ 
+  /**
+   * The issuing country of the card based on the BIN list that Adyen maintains.  Example: JP
+   *
+   * @param issuerCountry
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
   }
 
-
+  /**
+   * A Boolean value indicating whether a liability shift was offered for this payment.
+   *
+   * @param liabilityShift
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon liabilityShift(String liabilityShift) {
     this.liabilityShift = liabilityShift;
     return this;
   }
 
-   /**
+  /**
    * A Boolean value indicating whether a liability shift was offered for this payment.
    * @return liabilityShift
-  **/
+   */
   @ApiModelProperty(value = "A Boolean value indicating whether a liability shift was offered for this payment.")
   @JsonProperty(JSON_PROPERTY_LIABILITY_SHIFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLiabilityShift() {
     return liabilityShift;
   }
 
-
- /**
-  * A Boolean value indicating whether a liability shift was offered for this payment.
-  *
-  * @param liabilityShift
-  */ 
+  /**
+   * A Boolean value indicating whether a liability shift was offered for this payment.
+   *
+   * @param liabilityShift
+   */ 
   @JsonProperty(JSON_PROPERTY_LIABILITY_SHIFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLiabilityShift(String liabilityShift) {
     this.liabilityShift = liabilityShift;
   }
 
-
+  /**
+   * The &#x60;mcBankNetReferenceNumber&#x60;, is a minimum of six characters and a maximum of nine characters long.  &gt; Contact Support Team to enable this field.
+   *
+   * @param mcBankNetReferenceNumber
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon mcBankNetReferenceNumber(String mcBankNetReferenceNumber) {
     this.mcBankNetReferenceNumber = mcBankNetReferenceNumber;
     return this;
   }
 
-   /**
+  /**
    * The &#x60;mcBankNetReferenceNumber&#x60;, is a minimum of six characters and a maximum of nine characters long.  &gt; Contact Support Team to enable this field.
    * @return mcBankNetReferenceNumber
-  **/
+   */
   @ApiModelProperty(value = "The `mcBankNetReferenceNumber`, is a minimum of six characters and a maximum of nine characters long.  > Contact Support Team to enable this field.")
   @JsonProperty(JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMcBankNetReferenceNumber() {
     return mcBankNetReferenceNumber;
   }
 
-
- /**
-  * The &#x60;mcBankNetReferenceNumber&#x60;, is a minimum of six characters and a maximum of nine characters long.  &gt; Contact Support Team to enable this field.
-  *
-  * @param mcBankNetReferenceNumber
-  */ 
+  /**
+   * The &#x60;mcBankNetReferenceNumber&#x60;, is a minimum of six characters and a maximum of nine characters long.  &gt; Contact Support Team to enable this field.
+   *
+   * @param mcBankNetReferenceNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_MC_BANK_NET_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcBankNetReferenceNumber(String mcBankNetReferenceNumber) {
     this.mcBankNetReferenceNumber = mcBankNetReferenceNumber;
   }
 
-
+  /**
+   * The Merchant Advice Code (MAC) can be returned by Mastercard issuers for refused payments. If present, the MAC contains information about why the payment failed, and whether it can be retried.  For more information see [Mastercard Merchant Advice Codes](https://docs.adyen.com/development-resources/raw-acquirer-responses#mastercard-merchant-advice-codes).
+   *
+   * @param merchantAdviceCode
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon merchantAdviceCode(String merchantAdviceCode) {
     this.merchantAdviceCode = merchantAdviceCode;
     return this;
   }
 
-   /**
+  /**
    * The Merchant Advice Code (MAC) can be returned by Mastercard issuers for refused payments. If present, the MAC contains information about why the payment failed, and whether it can be retried.  For more information see [Mastercard Merchant Advice Codes](https://docs.adyen.com/development-resources/raw-acquirer-responses#mastercard-merchant-advice-codes).
    * @return merchantAdviceCode
-  **/
+   */
   @ApiModelProperty(value = "The Merchant Advice Code (MAC) can be returned by Mastercard issuers for refused payments. If present, the MAC contains information about why the payment failed, and whether it can be retried.  For more information see [Mastercard Merchant Advice Codes](https://docs.adyen.com/development-resources/raw-acquirer-responses#mastercard-merchant-advice-codes).")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ADVICE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAdviceCode() {
     return merchantAdviceCode;
   }
 
-
- /**
-  * The Merchant Advice Code (MAC) can be returned by Mastercard issuers for refused payments. If present, the MAC contains information about why the payment failed, and whether it can be retried.  For more information see [Mastercard Merchant Advice Codes](https://docs.adyen.com/development-resources/raw-acquirer-responses#mastercard-merchant-advice-codes).
-  *
-  * @param merchantAdviceCode
-  */ 
+  /**
+   * The Merchant Advice Code (MAC) can be returned by Mastercard issuers for refused payments. If present, the MAC contains information about why the payment failed, and whether it can be retried.  For more information see [Mastercard Merchant Advice Codes](https://docs.adyen.com/development-resources/raw-acquirer-responses#mastercard-merchant-advice-codes).
+   *
+   * @param merchantAdviceCode
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ADVICE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAdviceCode(String merchantAdviceCode) {
     this.merchantAdviceCode = merchantAdviceCode;
   }
 
-
+  /**
+   * The reference provided for the transaction.
+   *
+   * @param merchantReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon merchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
     return this;
   }
 
-   /**
+  /**
    * The reference provided for the transaction.
    * @return merchantReference
-  **/
+   */
   @ApiModelProperty(value = "The reference provided for the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantReference() {
     return merchantReference;
   }
 
-
- /**
-  * The reference provided for the transaction.
-  *
-  * @param merchantReference
-  */ 
+  /**
+   * The reference provided for the transaction.
+   *
+   * @param merchantReference
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
   }
 
-
+  /**
+   * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
+   *
+   * @param networkTxReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon networkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
     return this;
   }
 
-   /**
+  /**
    * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    * @return networkTxReference
-  **/
+   */
   @ApiModelProperty(value = "Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNetworkTxReference() {
     return networkTxReference;
   }
 
-
- /**
-  * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
-  *
-  * @param networkTxReference
-  */ 
+  /**
+   * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
+   *
+   * @param networkTxReference
+   */ 
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
   }
 
-
+  /**
+   * The owner name of a bank account.  Only relevant for SEPA Direct Debit transactions.
+   *
+   * @param ownerName
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon ownerName(String ownerName) {
     this.ownerName = ownerName;
     return this;
   }
 
-   /**
+  /**
    * The owner name of a bank account.  Only relevant for SEPA Direct Debit transactions.
    * @return ownerName
-  **/
+   */
   @ApiModelProperty(value = "The owner name of a bank account.  Only relevant for SEPA Direct Debit transactions.")
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOwnerName() {
     return ownerName;
   }
 
-
- /**
-  * The owner name of a bank account.  Only relevant for SEPA Direct Debit transactions.
-  *
-  * @param ownerName
-  */ 
+  /**
+   * The owner name of a bank account.  Only relevant for SEPA Direct Debit transactions.
+   *
+   * @param ownerName
+   */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
     this.ownerName = ownerName;
   }
 
-
+  /**
+   * The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.
+   *
+   * @param paymentAccountReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon paymentAccountReference(String paymentAccountReference) {
     this.paymentAccountReference = paymentAccountReference;
     return this;
   }
 
-   /**
+  /**
    * The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.
    * @return paymentAccountReference
-  **/
+   */
   @ApiModelProperty(value = "The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentAccountReference() {
     return paymentAccountReference;
   }
 
-
- /**
-  * The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.
-  *
-  * @param paymentAccountReference
-  */ 
+  /**
+   * The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.
+   *
+   * @param paymentAccountReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentAccountReference(String paymentAccountReference) {
     this.paymentAccountReference = paymentAccountReference;
   }
 
-
+  /**
+   * The payment method used in the transaction.
+   *
+   * @param paymentMethod
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
     return this;
   }
 
-   /**
+  /**
    * The payment method used in the transaction.
    * @return paymentMethod
-  **/
+   */
   @ApiModelProperty(value = "The payment method used in the transaction.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethod() {
     return paymentMethod;
   }
 
-
- /**
-  * The payment method used in the transaction.
-  *
-  * @param paymentMethod
-  */ 
+  /**
+   * The payment method used in the transaction.
+   *
+   * @param paymentMethod
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
-
+  /**
+   * The Adyen sub-variant of the payment method used for the payment request.  For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).  Example: mcpro
+   *
+   * @param paymentMethodVariant
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon paymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
     return this;
   }
 
-   /**
+  /**
    * The Adyen sub-variant of the payment method used for the payment request.  For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).  Example: mcpro
    * @return paymentMethodVariant
-  **/
+   */
   @ApiModelProperty(value = "The Adyen sub-variant of the payment method used for the payment request.  For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).  Example: mcpro")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodVariant() {
     return paymentMethodVariant;
   }
 
-
- /**
-  * The Adyen sub-variant of the payment method used for the payment request.  For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).  Example: mcpro
-  *
-  * @param paymentMethodVariant
-  */ 
+  /**
+   * The Adyen sub-variant of the payment method used for the payment request.  For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).  Example: mcpro
+   *
+   * @param paymentMethodVariant
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodVariant(String paymentMethodVariant) {
     this.paymentMethodVariant = paymentMethodVariant;
   }
 
-
+  /**
+   * Indicates whether a payout is eligible or not for this card.  Visa: * \&quot;Y\&quot; * \&quot;N\&quot;  Mastercard: * \&quot;Y\&quot; (domestic and cross-border)  * \&quot;D\&quot; (only domestic) * \&quot;N\&quot; (no MoneySend) * \&quot;U\&quot; (unknown)
+   *
+   * @param payoutEligible
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon payoutEligible(String payoutEligible) {
     this.payoutEligible = payoutEligible;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether a payout is eligible or not for this card.  Visa: * \&quot;Y\&quot; * \&quot;N\&quot;  Mastercard: * \&quot;Y\&quot; (domestic and cross-border)  * \&quot;D\&quot; (only domestic) * \&quot;N\&quot; (no MoneySend) * \&quot;U\&quot; (unknown)
    * @return payoutEligible
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether a payout is eligible or not for this card.  Visa: * \"Y\" * \"N\"  Mastercard: * \"Y\" (domestic and cross-border)  * \"D\" (only domestic) * \"N\" (no MoneySend) * \"U\" (unknown)")
   @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPayoutEligible() {
     return payoutEligible;
   }
 
-
- /**
-  * Indicates whether a payout is eligible or not for this card.  Visa: * \&quot;Y\&quot; * \&quot;N\&quot;  Mastercard: * \&quot;Y\&quot; (domestic and cross-border)  * \&quot;D\&quot; (only domestic) * \&quot;N\&quot; (no MoneySend) * \&quot;U\&quot; (unknown)
-  *
-  * @param payoutEligible
-  */ 
+  /**
+   * Indicates whether a payout is eligible or not for this card.  Visa: * \&quot;Y\&quot; * \&quot;N\&quot;  Mastercard: * \&quot;Y\&quot; (domestic and cross-border)  * \&quot;D\&quot; (only domestic) * \&quot;N\&quot; (no MoneySend) * \&quot;U\&quot; (unknown)
+   *
+   * @param payoutEligible
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayoutEligible(String payoutEligible) {
     this.payoutEligible = payoutEligible;
   }
 
-
+  /**
+   * The response code from the Real Time Account Updater service.  Possible return values are: * CardChanged * CardExpiryChanged * CloseAccount  * ContactCardAccountHolder
+   *
+   * @param realtimeAccountUpdaterStatus
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon realtimeAccountUpdaterStatus(String realtimeAccountUpdaterStatus) {
     this.realtimeAccountUpdaterStatus = realtimeAccountUpdaterStatus;
     return this;
   }
 
-   /**
+  /**
    * The response code from the Real Time Account Updater service.  Possible return values are: * CardChanged * CardExpiryChanged * CloseAccount  * ContactCardAccountHolder
    * @return realtimeAccountUpdaterStatus
-  **/
+   */
   @ApiModelProperty(value = "The response code from the Real Time Account Updater service.  Possible return values are: * CardChanged * CardExpiryChanged * CloseAccount  * ContactCardAccountHolder")
   @JsonProperty(JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRealtimeAccountUpdaterStatus() {
     return realtimeAccountUpdaterStatus;
   }
 
-
- /**
-  * The response code from the Real Time Account Updater service.  Possible return values are: * CardChanged * CardExpiryChanged * CloseAccount  * ContactCardAccountHolder
-  *
-  * @param realtimeAccountUpdaterStatus
-  */ 
+  /**
+   * The response code from the Real Time Account Updater service.  Possible return values are: * CardChanged * CardExpiryChanged * CloseAccount  * ContactCardAccountHolder
+   *
+   * @param realtimeAccountUpdaterStatus
+   */ 
   @JsonProperty(JSON_PROPERTY_REALTIME_ACCOUNT_UPDATER_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRealtimeAccountUpdaterStatus(String realtimeAccountUpdaterStatus) {
     this.realtimeAccountUpdaterStatus = realtimeAccountUpdaterStatus;
   }
 
-
+  /**
+   * Message to be displayed on the terminal.
+   *
+   * @param receiptFreeText
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon receiptFreeText(String receiptFreeText) {
     this.receiptFreeText = receiptFreeText;
     return this;
   }
 
-   /**
+  /**
    * Message to be displayed on the terminal.
    * @return receiptFreeText
-  **/
+   */
   @ApiModelProperty(value = "Message to be displayed on the terminal.")
   @JsonProperty(JSON_PROPERTY_RECEIPT_FREE_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReceiptFreeText() {
     return receiptFreeText;
   }
 
-
- /**
-  * Message to be displayed on the terminal.
-  *
-  * @param receiptFreeText
-  */ 
+  /**
+   * Message to be displayed on the terminal.
+   *
+   * @param receiptFreeText
+   */ 
   @JsonProperty(JSON_PROPERTY_RECEIPT_FREE_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptFreeText(String receiptFreeText) {
     this.receiptFreeText = receiptFreeText;
   }
 
-
+  /**
+   * The recurring contract types applicable to the transaction.
+   *
+   * @param recurringContractTypes
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon recurringContractTypes(String recurringContractTypes) {
     this.recurringContractTypes = recurringContractTypes;
     return this;
   }
 
-   /**
+  /**
    * The recurring contract types applicable to the transaction.
    * @return recurringContractTypes
-  **/
+   */
   @ApiModelProperty(value = "The recurring contract types applicable to the transaction.")
   @JsonProperty(JSON_PROPERTY_RECURRING_CONTRACT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringContractTypes() {
     return recurringContractTypes;
   }
 
-
- /**
-  * The recurring contract types applicable to the transaction.
-  *
-  * @param recurringContractTypes
-  */ 
+  /**
+   * The recurring contract types applicable to the transaction.
+   *
+   * @param recurringContractTypes
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_CONTRACT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringContractTypes(String recurringContractTypes) {
     this.recurringContractTypes = recurringContractTypes;
   }
 
-
+  /**
+   * The &#x60;pspReference&#x60;, of the first recurring payment that created the recurring detail.  This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.
+   *
+   * @param recurringFirstPspReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon recurringFirstPspReference(String recurringFirstPspReference) {
     this.recurringFirstPspReference = recurringFirstPspReference;
     return this;
   }
 
-   /**
+  /**
    * The &#x60;pspReference&#x60;, of the first recurring payment that created the recurring detail.  This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.
    * @return recurringFirstPspReference
-  **/
+   */
   @ApiModelProperty(value = "The `pspReference`, of the first recurring payment that created the recurring detail.  This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.")
   @JsonProperty(JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringFirstPspReference() {
     return recurringFirstPspReference;
   }
 
-
- /**
-  * The &#x60;pspReference&#x60;, of the first recurring payment that created the recurring detail.  This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.
-  *
-  * @param recurringFirstPspReference
-  */ 
+  /**
+   * The &#x60;pspReference&#x60;, of the first recurring payment that created the recurring detail.  This functionality requires additional configuration on Adyen&#39;s end. To enable it, contact the Support Team.
+   *
+   * @param recurringFirstPspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_FIRST_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringFirstPspReference(String recurringFirstPspReference) {
     this.recurringFirstPspReference = recurringFirstPspReference;
   }
 
-
+  /**
+   * The reference that uniquely identifies the recurring transaction.
+   *
+   * @param recurringRecurringDetailReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon recurringRecurringDetailReference(String recurringRecurringDetailReference) {
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * The reference that uniquely identifies the recurring transaction.
    * @return recurringRecurringDetailReference
-  **/
+   */
   @ApiModelProperty(value = "The reference that uniquely identifies the recurring transaction.")
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringRecurringDetailReference() {
     return recurringRecurringDetailReference;
   }
 
-
- /**
-  * The reference that uniquely identifies the recurring transaction.
-  *
-  * @param recurringRecurringDetailReference
-  */ 
+  /**
+   * The reference that uniquely identifies the recurring transaction.
+   *
+   * @param recurringRecurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringRecurringDetailReference(String recurringRecurringDetailReference) {
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
   }
 
-
+  /**
+   * The provided reference of the shopper for a recurring transaction.
+   *
+   * @param recurringShopperReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon recurringShopperReference(String recurringShopperReference) {
     this.recurringShopperReference = recurringShopperReference;
     return this;
   }
 
-   /**
+  /**
    * The provided reference of the shopper for a recurring transaction.
    * @return recurringShopperReference
-  **/
+   */
   @ApiModelProperty(value = "The provided reference of the shopper for a recurring transaction.")
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringShopperReference() {
     return recurringShopperReference;
   }
 
-
- /**
-  * The provided reference of the shopper for a recurring transaction.
-  *
-  * @param recurringShopperReference
-  */ 
+  /**
+   * The provided reference of the shopper for a recurring transaction.
+   *
+   * @param recurringShopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringShopperReference(String recurringShopperReference) {
     this.recurringShopperReference = recurringShopperReference;
   }
 
-
+  /**
+   * The processing model used for the recurring transaction.
+   *
+   * @param recurringProcessingModel
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
     return this;
   }
 
-   /**
+  /**
    * The processing model used for the recurring transaction.
    * @return recurringProcessingModel
-  **/
+   */
   @ApiModelProperty(value = "The processing model used for the recurring transaction.")
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
     return recurringProcessingModel;
   }
 
-
- /**
-  * The processing model used for the recurring transaction.
-  *
-  * @param recurringProcessingModel
-  */ 
+  /**
+   * The processing model used for the recurring transaction.
+   *
+   * @param recurringProcessingModel
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
   }
 
-
+  /**
+   * If the payment is referred, this field is set to true.  This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.  Example: true
+   *
+   * @param referred
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon referred(String referred) {
     this.referred = referred;
     return this;
   }
 
-   /**
+  /**
    * If the payment is referred, this field is set to true.  This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.  Example: true
    * @return referred
-  **/
+   */
   @ApiModelProperty(value = "If the payment is referred, this field is set to true.  This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.  Example: true")
   @JsonProperty(JSON_PROPERTY_REFERRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReferred() {
     return referred;
   }
 
-
- /**
-  * If the payment is referred, this field is set to true.  This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.  Example: true
-  *
-  * @param referred
-  */ 
+  /**
+   * If the payment is referred, this field is set to true.  This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.  Example: true
+   *
+   * @param referred
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferred(String referred) {
     this.referred = referred;
   }
 
-
+  /**
+   * Raw refusal reason received from the acquirer, where available.  Example: AUTHORISED
+   *
+   * @param refusalReasonRaw
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon refusalReasonRaw(String refusalReasonRaw) {
     this.refusalReasonRaw = refusalReasonRaw;
     return this;
   }
 
-   /**
+  /**
    * Raw refusal reason received from the acquirer, where available.  Example: AUTHORISED
    * @return refusalReasonRaw
-  **/
+   */
   @ApiModelProperty(value = "Raw refusal reason received from the acquirer, where available.  Example: AUTHORISED")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRefusalReasonRaw() {
     return refusalReasonRaw;
   }
 
-
- /**
-  * Raw refusal reason received from the acquirer, where available.  Example: AUTHORISED
-  *
-  * @param refusalReasonRaw
-  */ 
+  /**
+   * Raw refusal reason received from the acquirer, where available.  Example: AUTHORISED
+   *
+   * @param refusalReasonRaw
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReasonRaw(String refusalReasonRaw) {
     this.refusalReasonRaw = refusalReasonRaw;
   }
 
-
+  /**
+   * The amount of the payment request.
+   *
+   * @param requestAmount
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon requestAmount(String requestAmount) {
     this.requestAmount = requestAmount;
     return this;
   }
 
-   /**
+  /**
    * The amount of the payment request.
    * @return requestAmount
-  **/
+   */
   @ApiModelProperty(value = "The amount of the payment request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestAmount() {
     return requestAmount;
   }
 
-
- /**
-  * The amount of the payment request.
-  *
-  * @param requestAmount
-  */ 
+  /**
+   * The amount of the payment request.
+   *
+   * @param requestAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestAmount(String requestAmount) {
     this.requestAmount = requestAmount;
   }
 
-
+  /**
+   * The currency of the payment request.
+   *
+   * @param requestCurrencyCode
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon requestCurrencyCode(String requestCurrencyCode) {
     this.requestCurrencyCode = requestCurrencyCode;
     return this;
   }
 
-   /**
+  /**
    * The currency of the payment request.
    * @return requestCurrencyCode
-  **/
+   */
   @ApiModelProperty(value = "The currency of the payment request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestCurrencyCode() {
     return requestCurrencyCode;
   }
 
-
- /**
-  * The currency of the payment request.
-  *
-  * @param requestCurrencyCode
-  */ 
+  /**
+   * The currency of the payment request.
+   *
+   * @param requestCurrencyCode
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestCurrencyCode(String requestCurrencyCode) {
     this.requestCurrencyCode = requestCurrencyCode;
   }
 
-
+  /**
+   * The shopper interaction type of the payment request.  Example: Ecommerce
+   *
+   * @param shopperInteraction
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon shopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
     return this;
   }
 
-   /**
+  /**
    * The shopper interaction type of the payment request.  Example: Ecommerce
    * @return shopperInteraction
-  **/
+   */
   @ApiModelProperty(value = "The shopper interaction type of the payment request.  Example: Ecommerce")
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperInteraction() {
     return shopperInteraction;
   }
 
-
- /**
-  * The shopper interaction type of the payment request.  Example: Ecommerce
-  *
-  * @param shopperInteraction
-  */ 
+  /**
+   * The shopper interaction type of the payment request.  Example: Ecommerce
+   *
+   * @param shopperInteraction
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
 
-
+  /**
+   * The shopperReference passed in the payment request.  Example: AdyenTestShopperXX
+   *
+   * @param shopperReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
+  /**
    * The shopperReference passed in the payment request.  Example: AdyenTestShopperXX
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(value = "The shopperReference passed in the payment request.  Example: AdyenTestShopperXX")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * The shopperReference passed in the payment request.  Example: AdyenTestShopperXX
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * The shopperReference passed in the payment request.  Example: AdyenTestShopperXX
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
 
-
+  /**
+   * The terminal ID used in a point-of-sale payment.  Example: 06022622
+   *
+   * @param terminalId
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon terminalId(String terminalId) {
     this.terminalId = terminalId;
     return this;
   }
 
-   /**
+  /**
    * The terminal ID used in a point-of-sale payment.  Example: 06022622
    * @return terminalId
-  **/
+   */
   @ApiModelProperty(value = "The terminal ID used in a point-of-sale payment.  Example: 06022622")
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTerminalId() {
     return terminalId;
   }
 
-
- /**
-  * The terminal ID used in a point-of-sale payment.  Example: 06022622
-  *
-  * @param terminalId
-  */ 
+  /**
+   * The terminal ID used in a point-of-sale payment.  Example: 06022622
+   *
+   * @param terminalId
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
     this.terminalId = terminalId;
   }
 
-
+  /**
+   * A Boolean value indicating whether 3DS authentication was completed on this payment.  Example: true
+   *
+   * @param threeDAuthenticated
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon threeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
     return this;
   }
 
-   /**
+  /**
    * A Boolean value indicating whether 3DS authentication was completed on this payment.  Example: true
    * @return threeDAuthenticated
-  **/
+   */
   @ApiModelProperty(value = "A Boolean value indicating whether 3DS authentication was completed on this payment.  Example: true")
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDAuthenticated() {
     return threeDAuthenticated;
   }
 
-
- /**
-  * A Boolean value indicating whether 3DS authentication was completed on this payment.  Example: true
-  *
-  * @param threeDAuthenticated
-  */ 
+  /**
+   * A Boolean value indicating whether 3DS authentication was completed on this payment.  Example: true
+   *
+   * @param threeDAuthenticated
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticated(String threeDAuthenticated) {
     this.threeDAuthenticated = threeDAuthenticated;
   }
 
-
+  /**
+   * The raw 3DS authentication result from the card issuer.  Example: N
+   *
+   * @param threeDAuthenticatedResponse
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon threeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
     return this;
   }
 
-   /**
+  /**
    * The raw 3DS authentication result from the card issuer.  Example: N
    * @return threeDAuthenticatedResponse
-  **/
+   */
   @ApiModelProperty(value = "The raw 3DS authentication result from the card issuer.  Example: N")
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDAuthenticatedResponse() {
     return threeDAuthenticatedResponse;
   }
 
-
- /**
-  * The raw 3DS authentication result from the card issuer.  Example: N
-  *
-  * @param threeDAuthenticatedResponse
-  */ 
+  /**
+   * The raw 3DS authentication result from the card issuer.  Example: N
+   *
+   * @param threeDAuthenticatedResponse
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
     this.threeDAuthenticatedResponse = threeDAuthenticatedResponse;
   }
 
-
+  /**
+   * A Boolean value indicating whether 3DS was offered for this payment.  Example: true
+   *
+   * @param threeDOffered
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon threeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
     return this;
   }
 
-   /**
+  /**
    * A Boolean value indicating whether 3DS was offered for this payment.  Example: true
    * @return threeDOffered
-  **/
+   */
   @ApiModelProperty(value = "A Boolean value indicating whether 3DS was offered for this payment.  Example: true")
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDOffered() {
     return threeDOffered;
   }
 
-
- /**
-  * A Boolean value indicating whether 3DS was offered for this payment.  Example: true
-  *
-  * @param threeDOffered
-  */ 
+  /**
+   * A Boolean value indicating whether 3DS was offered for this payment.  Example: true
+   *
+   * @param threeDOffered
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOffered(String threeDOffered) {
     this.threeDOffered = threeDOffered;
   }
 
-
+  /**
+   * The raw enrollment result from the 3DS directory services of the card schemes.  Example: Y
+   *
+   * @param threeDOfferedResponse
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon threeDOfferedResponse(String threeDOfferedResponse) {
     this.threeDOfferedResponse = threeDOfferedResponse;
     return this;
   }
 
-   /**
+  /**
    * The raw enrollment result from the 3DS directory services of the card schemes.  Example: Y
    * @return threeDOfferedResponse
-  **/
+   */
   @ApiModelProperty(value = "The raw enrollment result from the 3DS directory services of the card schemes.  Example: Y")
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDOfferedResponse() {
     return threeDOfferedResponse;
   }
 
-
- /**
-  * The raw enrollment result from the 3DS directory services of the card schemes.  Example: Y
-  *
-  * @param threeDOfferedResponse
-  */ 
+  /**
+   * The raw enrollment result from the 3DS directory services of the card schemes.  Example: Y
+   *
+   * @param threeDOfferedResponse
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDOfferedResponse(String threeDOfferedResponse) {
     this.threeDOfferedResponse = threeDOfferedResponse;
   }
 
-
+  /**
+   * The 3D Secure 2 version.
+   *
+   * @param threeDSVersion
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon threeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
     return this;
   }
 
-   /**
+  /**
    * The 3D Secure 2 version.
    * @return threeDSVersion
-  **/
+   */
   @ApiModelProperty(value = "The 3D Secure 2 version.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getThreeDSVersion() {
     return threeDSVersion;
   }
 
-
- /**
-  * The 3D Secure 2 version.
-  *
-  * @param threeDSVersion
-  */ 
+  /**
+   * The 3D Secure 2 version.
+   *
+   * @param threeDSVersion
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
     this.threeDSVersion = threeDSVersion;
   }
 
-
+  /**
+   * The &#x60;visaTransactionId&#x60;, has a fixed length of 15 numeric characters.  &gt; Contact Support Team to enable this field.
+   *
+   * @param visaTransactionId
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon visaTransactionId(String visaTransactionId) {
     this.visaTransactionId = visaTransactionId;
     return this;
   }
 
-   /**
+  /**
    * The &#x60;visaTransactionId&#x60;, has a fixed length of 15 numeric characters.  &gt; Contact Support Team to enable this field.
    * @return visaTransactionId
-  **/
+   */
   @ApiModelProperty(value = "The `visaTransactionId`, has a fixed length of 15 numeric characters.  > Contact Support Team to enable this field.")
   @JsonProperty(JSON_PROPERTY_VISA_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVisaTransactionId() {
     return visaTransactionId;
   }
 
-
- /**
-  * The &#x60;visaTransactionId&#x60;, has a fixed length of 15 numeric characters.  &gt; Contact Support Team to enable this field.
-  *
-  * @param visaTransactionId
-  */ 
+  /**
+   * The &#x60;visaTransactionId&#x60;, has a fixed length of 15 numeric characters.  &gt; Contact Support Team to enable this field.
+   *
+   * @param visaTransactionId
+   */ 
   @JsonProperty(JSON_PROPERTY_VISA_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisaTransactionId(String visaTransactionId) {
     this.visaTransactionId = visaTransactionId;
   }
 
-
+  /**
+   * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;. If you want to submit the xid in your 3D Secure 1 request, use the &#x60;mpiData.xid&#x60;, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
+   *
+   * @param xid
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataCommon xid(String xid) {
     this.xid = xid;
     return this;
   }
 
-   /**
+  /**
    * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;. If you want to submit the xid in your 3D Secure 1 request, use the &#x60;mpiData.xid&#x60;, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
    * @return xid
-  **/
+   */
   @ApiModelProperty(value = "The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse 'N' or 'Y'. If you want to submit the xid in your 3D Secure 1 request, use the `mpiData.xid`, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA=")
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getXid() {
     return xid;
   }
 
-
- /**
-  * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;. If you want to submit the xid in your 3D Secure 1 request, use the &#x60;mpiData.xid&#x60;, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
-  *
-  * @param xid
-  */ 
+  /**
+   * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;. If you want to submit the xid in your 3D Secure 1 request, use the &#x60;mpiData.xid&#x60;, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
+   *
+   * @param xid
+   */ 
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(String xid) {
     this.xid = xid;
   }
-
 
   /**
    * Return true if this ResponseAdditionalDataCommon object is equal to o.
@@ -2290,4 +2467,3 @@ public class ResponseAdditionalDataCommon {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

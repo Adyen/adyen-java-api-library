@@ -41,35 +41,38 @@ public class TicketInfo {
   public TicketInfo() { 
   }
 
+  /**
+   * Ticket requestorId
+   *
+   * @param requestorId
+   * @return the current {@code TicketInfo} instance, allowing for method chaining
+   */
   public TicketInfo requestorId(String requestorId) {
     this.requestorId = requestorId;
     return this;
   }
 
-   /**
+  /**
    * Ticket requestorId
    * @return requestorId
-  **/
+   */
   @ApiModelProperty(value = "Ticket requestorId")
   @JsonProperty(JSON_PROPERTY_REQUESTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestorId() {
     return requestorId;
   }
 
-
- /**
-  * Ticket requestorId
-  *
-  * @param requestorId
-  */ 
+  /**
+   * Ticket requestorId
+   *
+   * @param requestorId
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUESTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestorId(String requestorId) {
     this.requestorId = requestorId;
   }
-
 
   /**
    * Return true if this TicketInfo object is equal to o.
@@ -130,4 +133,3 @@ public class TicketInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -121,125 +121,137 @@ public class MasterpassDetails {
   public MasterpassDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code MasterpassDetails} instance, allowing for method chaining
+   */
   public MasterpassDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+   *
+   * @param fundingSource
+   * @return the current {@code MasterpassDetails} instance, allowing for method chaining
+   */
   public MasterpassDetails fundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
     return this;
   }
 
-   /**
+  /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
-  **/
+   */
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FundingSourceEnum getFundingSource() {
     return fundingSource;
   }
 
-
- /**
-  * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
-  *
-  * @param fundingSource
-  */ 
+  /**
+   * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
+   *
+   * @param fundingSource
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
   }
 
-
+  /**
+   * The Masterpass transaction ID.
+   *
+   * @param masterpassTransactionId
+   * @return the current {@code MasterpassDetails} instance, allowing for method chaining
+   */
   public MasterpassDetails masterpassTransactionId(String masterpassTransactionId) {
     this.masterpassTransactionId = masterpassTransactionId;
     return this;
   }
 
-   /**
+  /**
    * The Masterpass transaction ID.
    * @return masterpassTransactionId
-  **/
+   */
   @ApiModelProperty(required = true, value = "The Masterpass transaction ID.")
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMasterpassTransactionId() {
     return masterpassTransactionId;
   }
 
-
- /**
-  * The Masterpass transaction ID.
-  *
-  * @param masterpassTransactionId
-  */ 
+  /**
+   * The Masterpass transaction ID.
+   *
+   * @param masterpassTransactionId
+   */ 
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMasterpassTransactionId(String masterpassTransactionId) {
     this.masterpassTransactionId = masterpassTransactionId;
   }
 
-
+  /**
+   * **masterpass**
+   *
+   * @param type
+   * @return the current {@code MasterpassDetails} instance, allowing for method chaining
+   */
   public MasterpassDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **masterpass**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**masterpass**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **masterpass**
-  *
-  * @param type
-  */ 
+  /**
+   * **masterpass**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this MasterpassDetails object is equal to o.
@@ -306,4 +318,3 @@ public class MasterpassDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

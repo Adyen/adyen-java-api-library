@@ -86,95 +86,104 @@ public class BankIdentification {
   public BankIdentification() { 
   }
 
+  /**
+   * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
+   *
+   * @param country
+   * @return the current {@code BankIdentification} instance, allowing for method chaining
+   */
   public BankIdentification country(String country) {
     this.country = country;
     return this;
   }
 
-   /**
+  /**
    * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return country
-  **/
+   */
   @ApiModelProperty(value = "Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCountry() {
     return country;
   }
 
-
- /**
-  * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-  *
-  * @param country
-  */ 
+  /**
+   * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
+   *
+   * @param country
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
 
-
+  /**
+   * The bank identification code.
+   *
+   * @param identification
+   * @return the current {@code BankIdentification} instance, allowing for method chaining
+   */
   public BankIdentification identification(String identification) {
     this.identification = identification;
     return this;
   }
 
-   /**
+  /**
    * The bank identification code.
    * @return identification
-  **/
+   */
   @ApiModelProperty(value = "The bank identification code.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdentification() {
     return identification;
   }
 
-
- /**
-  * The bank identification code.
-  *
-  * @param identification
-  */ 
+  /**
+   * The bank identification code.
+   *
+   * @param identification
+   */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentification(String identification) {
     this.identification = identification;
   }
 
-
+  /**
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   *
+   * @param identificationType
+   * @return the current {@code BankIdentification} instance, allowing for method chaining
+   */
   public BankIdentification identificationType(IdentificationTypeEnum identificationType) {
     this.identificationType = identificationType;
     return this;
   }
 
-   /**
+  /**
    * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
    * @return identificationType
-  **/
+   */
   @ApiModelProperty(value = "The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public IdentificationTypeEnum getIdentificationType() {
     return identificationType;
   }
 
-
- /**
-  * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
-  *
-  * @param identificationType
-  */ 
+  /**
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   *
+   * @param identificationType
+   */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationType(IdentificationTypeEnum identificationType) {
     this.identificationType = identificationType;
   }
-
 
   /**
    * Return true if this BankIdentification object is equal to o.
@@ -239,4 +248,3 @@ public class BankIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

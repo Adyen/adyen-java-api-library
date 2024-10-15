@@ -45,65 +45,71 @@ public class PermitResult {
   public PermitResult() { 
   }
 
+  /**
+   * The key to link permit requests to permit results.
+   *
+   * @param resultKey
+   * @return the current {@code PermitResult} instance, allowing for method chaining
+   */
   public PermitResult resultKey(String resultKey) {
     this.resultKey = resultKey;
     return this;
   }
 
-   /**
+  /**
    * The key to link permit requests to permit results.
    * @return resultKey
-  **/
+   */
   @ApiModelProperty(value = "The key to link permit requests to permit results.")
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResultKey() {
     return resultKey;
   }
 
-
- /**
-  * The key to link permit requests to permit results.
-  *
-  * @param resultKey
-  */ 
+  /**
+   * The key to link permit requests to permit results.
+   *
+   * @param resultKey
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
     this.resultKey = resultKey;
   }
 
-
+  /**
+   * The permit token which is used to make payments by the partner company.
+   *
+   * @param token
+   * @return the current {@code PermitResult} instance, allowing for method chaining
+   */
   public PermitResult token(String token) {
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * The permit token which is used to make payments by the partner company.
    * @return token
-  **/
+   */
   @ApiModelProperty(value = "The permit token which is used to make payments by the partner company.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToken() {
     return token;
   }
 
-
- /**
-  * The permit token which is used to make payments by the partner company.
-  *
-  * @param token
-  */ 
+  /**
+   * The permit token which is used to make payments by the partner company.
+   *
+   * @param token
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
   }
-
 
   /**
    * Return true if this PermitResult object is equal to o.
@@ -166,4 +172,3 @@ public class PermitResult {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

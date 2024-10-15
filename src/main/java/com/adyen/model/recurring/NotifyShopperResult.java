@@ -65,215 +65,236 @@ public class NotifyShopperResult {
   public NotifyShopperResult() { 
   }
 
+  /**
+   * Reference of Pre-debit notification that is displayed to the shopper
+   *
+   * @param displayedReference
+   * @return the current {@code NotifyShopperResult} instance, allowing for method chaining
+   */
   public NotifyShopperResult displayedReference(String displayedReference) {
     this.displayedReference = displayedReference;
     return this;
   }
 
-   /**
+  /**
    * Reference of Pre-debit notification that is displayed to the shopper
    * @return displayedReference
-  **/
+   */
   @ApiModelProperty(value = "Reference of Pre-debit notification that is displayed to the shopper")
   @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDisplayedReference() {
     return displayedReference;
   }
 
-
- /**
-  * Reference of Pre-debit notification that is displayed to the shopper
-  *
-  * @param displayedReference
-  */ 
+  /**
+   * Reference of Pre-debit notification that is displayed to the shopper
+   *
+   * @param displayedReference
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayedReference(String displayedReference) {
     this.displayedReference = displayedReference;
   }
 
-
+  /**
+   * A simple description of the &#x60;resultCode&#x60;.
+   *
+   * @param message
+   * @return the current {@code NotifyShopperResult} instance, allowing for method chaining
+   */
   public NotifyShopperResult message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * A simple description of the &#x60;resultCode&#x60;.
    * @return message
-  **/
+   */
   @ApiModelProperty(value = "A simple description of the `resultCode`.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * A simple description of the &#x60;resultCode&#x60;.
-  *
-  * @param message
-  */ 
+  /**
+   * A simple description of the &#x60;resultCode&#x60;.
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
 
-
+  /**
+   * The unique reference that is associated with the request.
+   *
+   * @param pspReference
+   * @return the current {@code NotifyShopperResult} instance, allowing for method chaining
+   */
   public NotifyShopperResult pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * The unique reference that is associated with the request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "The unique reference that is associated with the request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * The unique reference that is associated with the request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * The unique reference that is associated with the request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * Reference of Pre-debit notification sent in my the merchant
+   *
+   * @param reference
+   * @return the current {@code NotifyShopperResult} instance, allowing for method chaining
+   */
   public NotifyShopperResult reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Reference of Pre-debit notification sent in my the merchant
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Reference of Pre-debit notification sent in my the merchant")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Reference of Pre-debit notification sent in my the merchant
-  *
-  * @param reference
-  */ 
+  /**
+   * Reference of Pre-debit notification sent in my the merchant
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The code indicating the status of notification.
+   *
+   * @param resultCode
+   * @return the current {@code NotifyShopperResult} instance, allowing for method chaining
+   */
   public NotifyShopperResult resultCode(String resultCode) {
     this.resultCode = resultCode;
     return this;
   }
 
-   /**
+  /**
    * The code indicating the status of notification.
    * @return resultCode
-  **/
+   */
   @ApiModelProperty(value = "The code indicating the status of notification.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResultCode() {
     return resultCode;
   }
 
-
- /**
-  * The code indicating the status of notification.
-  *
-  * @param resultCode
-  */ 
+  /**
+   * The code indicating the status of notification.
+   *
+   * @param resultCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }
 
-
+  /**
+   * The unique reference for the request sent downstream.
+   *
+   * @param shopperNotificationReference
+   * @return the current {@code NotifyShopperResult} instance, allowing for method chaining
+   */
   public NotifyShopperResult shopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
     return this;
   }
 
-   /**
+  /**
    * The unique reference for the request sent downstream.
    * @return shopperNotificationReference
-  **/
+   */
   @ApiModelProperty(value = "The unique reference for the request sent downstream.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperNotificationReference() {
     return shopperNotificationReference;
   }
 
-
- /**
-  * The unique reference for the request sent downstream.
-  *
-  * @param shopperNotificationReference
-  */ 
+  /**
+   * The unique reference for the request sent downstream.
+   *
+   * @param shopperNotificationReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
   }
 
-
+  /**
+   * This is the recurringDetailReference returned in the response when token was created
+   *
+   * @param storedPaymentMethodId
+   * @return the current {@code NotifyShopperResult} instance, allowing for method chaining
+   */
   public NotifyShopperResult storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
 
-   /**
+  /**
    * This is the recurringDetailReference returned in the response when token was created
    * @return storedPaymentMethodId
-  **/
+   */
   @ApiModelProperty(value = "This is the recurringDetailReference returned in the response when token was created")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
-
- /**
-  * This is the recurringDetailReference returned in the response when token was created
-  *
-  * @param storedPaymentMethodId
-  */ 
+  /**
+   * This is the recurringDetailReference returned in the response when token was created
+   *
+   * @param storedPaymentMethodId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
-
 
   /**
    * Return true if this NotifyShopperResult object is equal to o.
@@ -346,4 +367,3 @@ public class NotifyShopperResult {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

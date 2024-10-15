@@ -42,35 +42,38 @@ public class Refunds {
   public Refunds() { 
   }
 
+  /**
+   * referenced
+   *
+   * @param referenced
+   * @return the current {@code Refunds} instance, allowing for method chaining
+   */
   public Refunds referenced(Referenced referenced) {
     this.referenced = referenced;
     return this;
   }
 
-   /**
-   * Get referenced
+  /**
+   * referenced
    * @return referenced
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFERENCED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Referenced getReferenced() {
     return referenced;
   }
 
-
- /**
-  * referenced
-  *
-  * @param referenced
-  */ 
+  /**
+   * referenced
+   *
+   * @param referenced
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenced(Referenced referenced) {
     this.referenced = referenced;
   }
-
 
   /**
    * Return true if this Refunds object is equal to o.
@@ -131,4 +134,3 @@ public class Refunds {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

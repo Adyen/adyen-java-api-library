@@ -45,65 +45,71 @@ public class Amount {
   public Amount() { 
   }
 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currency
+   * @return the current {@code Amount} instance, allowing for method chaining
+   */
   public Amount currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
-  **/
+   */
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param value
+   * @return the current {@code Amount} instance, allowing for method chaining
+   */
   public Amount value(Long value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return value
-  **/
+   */
   @ApiModelProperty(required = true, value = "The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getValue() {
     return value;
   }
 
-
- /**
-  * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param value
-  */ 
+  /**
+   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this Amount object is equal to o.
@@ -166,4 +172,3 @@ public class Amount {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

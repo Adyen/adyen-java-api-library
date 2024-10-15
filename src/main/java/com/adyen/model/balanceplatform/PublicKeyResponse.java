@@ -45,65 +45,71 @@ public class PublicKeyResponse {
   public PublicKeyResponse() { 
   }
 
+  /**
+   * The public key you need for encrypting a symmetric session key.
+   *
+   * @param publicKey
+   * @return the current {@code PublicKeyResponse} instance, allowing for method chaining
+   */
   public PublicKeyResponse publicKey(String publicKey) {
     this.publicKey = publicKey;
     return this;
   }
 
-   /**
+  /**
    * The public key you need for encrypting a symmetric session key.
    * @return publicKey
-  **/
+   */
   @ApiModelProperty(required = true, value = "The public key you need for encrypting a symmetric session key.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPublicKey() {
     return publicKey;
   }
 
-
- /**
-  * The public key you need for encrypting a symmetric session key.
-  *
-  * @param publicKey
-  */ 
+  /**
+   * The public key you need for encrypting a symmetric session key.
+   *
+   * @param publicKey
+   */ 
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicKey(String publicKey) {
     this.publicKey = publicKey;
   }
 
-
+  /**
+   * The expiry date of the public key.
+   *
+   * @param publicKeyExpiryDate
+   * @return the current {@code PublicKeyResponse} instance, allowing for method chaining
+   */
   public PublicKeyResponse publicKeyExpiryDate(String publicKeyExpiryDate) {
     this.publicKeyExpiryDate = publicKeyExpiryDate;
     return this;
   }
 
-   /**
+  /**
    * The expiry date of the public key.
    * @return publicKeyExpiryDate
-  **/
+   */
   @ApiModelProperty(required = true, value = "The expiry date of the public key.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPublicKeyExpiryDate() {
     return publicKeyExpiryDate;
   }
 
-
- /**
-  * The expiry date of the public key.
-  *
-  * @param publicKeyExpiryDate
-  */ 
+  /**
+   * The expiry date of the public key.
+   *
+   * @param publicKeyExpiryDate
+   */ 
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicKeyExpiryDate(String publicKeyExpiryDate) {
     this.publicKeyExpiryDate = publicKeyExpiryDate;
   }
-
 
   /**
    * Return true if this PublicKeyResponse object is equal to o.
@@ -166,4 +172,3 @@ public class PublicKeyResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

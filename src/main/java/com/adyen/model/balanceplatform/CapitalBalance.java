@@ -53,125 +53,137 @@ public class CapitalBalance {
   public CapitalBalance() { 
   }
 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currency
+   * @return the current {@code CapitalBalance} instance, allowing for method chaining
+   */
   public CapitalBalance currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
-  **/
+   */
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * Fee amount.
+   *
+   * @param fee
+   * @return the current {@code CapitalBalance} instance, allowing for method chaining
+   */
   public CapitalBalance fee(Long fee) {
     this.fee = fee;
     return this;
   }
 
-   /**
+  /**
    * Fee amount.
    * @return fee
-  **/
+   */
   @ApiModelProperty(required = true, value = "Fee amount.")
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getFee() {
     return fee;
   }
 
-
- /**
-  * Fee amount.
-  *
-  * @param fee
-  */ 
+  /**
+   * Fee amount.
+   *
+   * @param fee
+   */ 
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Long fee) {
     this.fee = fee;
   }
 
-
+  /**
+   * Principal amount.
+   *
+   * @param principal
+   * @return the current {@code CapitalBalance} instance, allowing for method chaining
+   */
   public CapitalBalance principal(Long principal) {
     this.principal = principal;
     return this;
   }
 
-   /**
+  /**
    * Principal amount.
    * @return principal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Principal amount.")
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getPrincipal() {
     return principal;
   }
 
-
- /**
-  * Principal amount.
-  *
-  * @param principal
-  */ 
+  /**
+   * Principal amount.
+   *
+   * @param principal
+   */ 
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipal(Long principal) {
     this.principal = principal;
   }
 
-
+  /**
+   * Total amount. A sum of principal amount and fee amount.
+   *
+   * @param total
+   * @return the current {@code CapitalBalance} instance, allowing for method chaining
+   */
   public CapitalBalance total(Long total) {
     this.total = total;
     return this;
   }
 
-   /**
+  /**
    * Total amount. A sum of principal amount and fee amount.
    * @return total
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total amount. A sum of principal amount and fee amount.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTotal() {
     return total;
   }
 
-
- /**
-  * Total amount. A sum of principal amount and fee amount.
-  *
-  * @param total
-  */ 
+  /**
+   * Total amount. A sum of principal amount and fee amount.
+   *
+   * @param total
+   */ 
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotal(Long total) {
     this.total = total;
   }
-
 
   /**
    * Return true if this CapitalBalance object is equal to o.
@@ -238,4 +250,3 @@ public class CapitalBalance {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -48,6 +48,12 @@ public class NotificationUrl {
   public NotificationUrl() { 
   }
 
+  /**
+   * One or more local URLs to send notifications to when using Terminal API.
+   *
+   * @param localUrls
+   * @return the current {@code NotificationUrl} instance, allowing for method chaining
+   */
   public NotificationUrl localUrls(List<Url> localUrls) {
     this.localUrls = localUrls;
     return this;
@@ -61,31 +67,34 @@ public class NotificationUrl {
     return this;
   }
 
-   /**
+  /**
    * One or more local URLs to send notifications to when using Terminal API.
    * @return localUrls
-  **/
+   */
   @ApiModelProperty(value = "One or more local URLs to send notifications to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Url> getLocalUrls() {
     return localUrls;
   }
 
-
- /**
-  * One or more local URLs to send notifications to when using Terminal API.
-  *
-  * @param localUrls
-  */ 
+  /**
+   * One or more local URLs to send notifications to when using Terminal API.
+   *
+   * @param localUrls
+   */ 
   @JsonProperty(JSON_PROPERTY_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalUrls(List<Url> localUrls) {
     this.localUrls = localUrls;
   }
 
-
+  /**
+   * One or more public URLs to send notifications to when using Terminal API.
+   *
+   * @param publicUrls
+   * @return the current {@code NotificationUrl} instance, allowing for method chaining
+   */
   public NotificationUrl publicUrls(List<Url> publicUrls) {
     this.publicUrls = publicUrls;
     return this;
@@ -99,30 +108,27 @@ public class NotificationUrl {
     return this;
   }
 
-   /**
+  /**
    * One or more public URLs to send notifications to when using Terminal API.
    * @return publicUrls
-  **/
+   */
   @ApiModelProperty(value = "One or more public URLs to send notifications to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Url> getPublicUrls() {
     return publicUrls;
   }
 
-
- /**
-  * One or more public URLs to send notifications to when using Terminal API.
-  *
-  * @param publicUrls
-  */ 
+  /**
+   * One or more public URLs to send notifications to when using Terminal API.
+   *
+   * @param publicUrls
+   */ 
   @JsonProperty(JSON_PROPERTY_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicUrls(List<Url> publicUrls) {
     this.publicUrls = publicUrls;
   }
-
 
   /**
    * Return true if this NotificationUrl object is equal to o.
@@ -185,4 +191,3 @@ public class NotificationUrl {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

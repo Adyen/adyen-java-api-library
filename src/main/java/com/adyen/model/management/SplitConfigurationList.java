@@ -44,6 +44,12 @@ public class SplitConfigurationList {
   public SplitConfigurationList() { 
   }
 
+  /**
+   * List of split configurations applied to the stores under the merchant account.
+   *
+   * @param data
+   * @return the current {@code SplitConfigurationList} instance, allowing for method chaining
+   */
   public SplitConfigurationList data(List<SplitConfiguration> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class SplitConfigurationList {
     return this;
   }
 
-   /**
+  /**
    * List of split configurations applied to the stores under the merchant account.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "List of split configurations applied to the stores under the merchant account.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SplitConfiguration> getData() {
     return data;
   }
 
-
- /**
-  * List of split configurations applied to the stores under the merchant account.
-  *
-  * @param data
-  */ 
+  /**
+   * List of split configurations applied to the stores under the merchant account.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<SplitConfiguration> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this SplitConfigurationList object is equal to o.
@@ -141,4 +144,3 @@ public class SplitConfigurationList {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -49,95 +49,104 @@ public class PaymentMethodGroup {
   public PaymentMethodGroup() { 
   }
 
+  /**
+   * The name of the group.
+   *
+   * @param name
+   * @return the current {@code PaymentMethodGroup} instance, allowing for method chaining
+   */
   public PaymentMethodGroup name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the group.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The name of the group.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The name of the group.
-  *
-  * @param name
-  */ 
+  /**
+   * The name of the group.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * Echo data to be used if the payment method is displayed as part of this group.
+   *
+   * @param paymentMethodData
+   * @return the current {@code PaymentMethodGroup} instance, allowing for method chaining
+   */
   public PaymentMethodGroup paymentMethodData(String paymentMethodData) {
     this.paymentMethodData = paymentMethodData;
     return this;
   }
 
-   /**
+  /**
    * Echo data to be used if the payment method is displayed as part of this group.
    * @return paymentMethodData
-  **/
+   */
   @ApiModelProperty(value = "Echo data to be used if the payment method is displayed as part of this group.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethodData() {
     return paymentMethodData;
   }
 
-
- /**
-  * Echo data to be used if the payment method is displayed as part of this group.
-  *
-  * @param paymentMethodData
-  */ 
+  /**
+   * Echo data to be used if the payment method is displayed as part of this group.
+   *
+   * @param paymentMethodData
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodData(String paymentMethodData) {
     this.paymentMethodData = paymentMethodData;
   }
 
-
+  /**
+   * The unique code of the group.
+   *
+   * @param type
+   * @return the current {@code PaymentMethodGroup} instance, allowing for method chaining
+   */
   public PaymentMethodGroup type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The unique code of the group.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The unique code of the group.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
 
-
- /**
-  * The unique code of the group.
-  *
-  * @param type
-  */ 
+  /**
+   * The unique code of the group.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PaymentMethodGroup object is equal to o.
@@ -202,4 +211,3 @@ public class PaymentMethodGroup {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

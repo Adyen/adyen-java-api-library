@@ -53,125 +53,137 @@ public class RegisterSCAResponse {
   public RegisterSCAResponse() { 
   }
 
+  /**
+   * The unique identifier of the SCA device you are registering.
+   *
+   * @param id
+   * @return the current {@code RegisterSCAResponse} instance, allowing for method chaining
+   */
   public RegisterSCAResponse id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the SCA device you are registering.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the SCA device you are registering.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the SCA device you are registering.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the SCA device you are registering.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The unique identifier of the payment instrument for which you are registering the SCA device.
+   *
+   * @param paymentInstrumentId
+   * @return the current {@code RegisterSCAResponse} instance, allowing for method chaining
+   */
   public RegisterSCAResponse paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    * @return paymentInstrumentId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the payment instrument for which you are registering the SCA device.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
-
- /**
-  * The unique identifier of the payment instrument for which you are registering the SCA device.
-  *
-  * @param paymentInstrumentId
-  */ 
+  /**
+   * The unique identifier of the payment instrument for which you are registering the SCA device.
+   *
+   * @param paymentInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
 
-
+  /**
+   * A string that you must pass to the authentication SDK to continue with the registration process.
+   *
+   * @param sdkInput
+   * @return the current {@code RegisterSCAResponse} instance, allowing for method chaining
+   */
   public RegisterSCAResponse sdkInput(String sdkInput) {
     this.sdkInput = sdkInput;
     return this;
   }
 
-   /**
+  /**
    * A string that you must pass to the authentication SDK to continue with the registration process.
    * @return sdkInput
-  **/
+   */
   @ApiModelProperty(value = "A string that you must pass to the authentication SDK to continue with the registration process.")
   @JsonProperty(JSON_PROPERTY_SDK_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSdkInput() {
     return sdkInput;
   }
 
-
- /**
-  * A string that you must pass to the authentication SDK to continue with the registration process.
-  *
-  * @param sdkInput
-  */ 
+  /**
+   * A string that you must pass to the authentication SDK to continue with the registration process.
+   *
+   * @param sdkInput
+   */ 
   @JsonProperty(JSON_PROPERTY_SDK_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkInput(String sdkInput) {
     this.sdkInput = sdkInput;
   }
 
-
+  /**
+   * Specifies if the registration was initiated successfully.
+   *
+   * @param success
+   * @return the current {@code RegisterSCAResponse} instance, allowing for method chaining
+   */
   public RegisterSCAResponse success(Boolean success) {
     this.success = success;
     return this;
   }
 
-   /**
+  /**
    * Specifies if the registration was initiated successfully.
    * @return success
-  **/
+   */
   @ApiModelProperty(value = "Specifies if the registration was initiated successfully.")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSuccess() {
     return success;
   }
 
-
- /**
-  * Specifies if the registration was initiated successfully.
-  *
-  * @param success
-  */ 
+  /**
+   * Specifies if the registration was initiated successfully.
+   *
+   * @param success
+   */ 
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {
     this.success = success;
   }
-
 
   /**
    * Return true if this RegisterSCAResponse object is equal to o.
@@ -238,4 +250,3 @@ public class RegisterSCAResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

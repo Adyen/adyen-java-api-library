@@ -117,36 +117,45 @@ public class PaymentCaptureResponse {
   public PaymentCaptureResponse() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
+   *
+   * @param lineItems
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
@@ -160,181 +169,199 @@ public class PaymentCaptureResponse {
     return this;
   }
 
-   /**
+  /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    * @return lineItems
-  **/
+   */
   @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.")
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<LineItem> getLineItems() {
     return lineItems;
   }
 
-
- /**
-  * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
-  *
-  * @param lineItems
-  */ 
+  /**
+   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
+   *
+   * @param lineItems
+   */ 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
 
-
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account that is used to process the payment.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account that is used to process the payment.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. 
+   *
+   * @param paymentPspReference
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse paymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
     return this;
   }
 
-   /**
+  /**
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. 
    * @return paymentPspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. ")
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentPspReference() {
     return paymentPspReference;
   }
 
-
- /**
-  * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. 
-  *
-  * @param paymentPspReference
-  */ 
+  /**
+   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. 
+   *
+   * @param paymentPspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
   }
 
-
+  /**
+   * platformChargebackLogic
+   *
+   * @param platformChargebackLogic
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
     return this;
   }
 
-   /**
-   * Get platformChargebackLogic
+  /**
+   * platformChargebackLogic
    * @return platformChargebackLogic
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PlatformChargebackLogic getPlatformChargebackLogic() {
     return platformChargebackLogic;
   }
 
-
- /**
-  * platformChargebackLogic
-  *
-  * @param platformChargebackLogic
-  */ 
+  /**
+   * platformChargebackLogic
+   *
+   * @param platformChargebackLogic
+   */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
   }
 
-
+  /**
+   * Adyen&#39;s 16-character reference associated with the capture request.
+   *
+   * @param pspReference
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * Adyen&#39;s 16-character reference associated with the capture request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the capture request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character reference associated with the capture request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * Adyen&#39;s 16-character reference associated with the capture request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * Your reference for the capture request.
+   *
+   * @param reference
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the capture request.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the capture request.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the capture request.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the capture request.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
+   *
+   * @param splits
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse splits(List<Split> splits) {
     this.splits = splits;
     return this;
@@ -348,61 +375,67 @@ public class PaymentCaptureResponse {
     return this;
   }
 
-   /**
+  /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    * @return splits
-  **/
+   */
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).")
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Split> getSplits() {
     return splits;
   }
 
-
- /**
-  * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
-  *
-  * @param splits
-  */ 
+  /**
+   * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
+   *
+   * @param splits
+   */ 
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
     this.splits = splits;
   }
 
-
+  /**
+   * The status of your request. This will always have the value **received**.
+   *
+   * @param status
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of your request. This will always have the value **received**.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * The status of your request. This will always have the value **received**.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of your request. This will always have the value **received**.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
-
+  /**
+   * List of sub-merchants.
+   *
+   * @param subMerchants
+   * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
+   */
   public PaymentCaptureResponse subMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
     return this;
@@ -416,30 +449,27 @@ public class PaymentCaptureResponse {
     return this;
   }
 
-   /**
+  /**
    * List of sub-merchants.
    * @return subMerchants
-  **/
+   */
   @ApiModelProperty(value = "List of sub-merchants.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SubMerchantInfo> getSubMerchants() {
     return subMerchants;
   }
 
-
- /**
-  * List of sub-merchants.
-  *
-  * @param subMerchants
-  */ 
+  /**
+   * List of sub-merchants.
+   *
+   * @param subMerchants
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchants(List<SubMerchantInfo> subMerchants) {
     this.subMerchants = subMerchants;
   }
-
 
   /**
    * Return true if this PaymentCaptureResponse object is equal to o.
@@ -518,4 +548,3 @@ public class PaymentCaptureResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

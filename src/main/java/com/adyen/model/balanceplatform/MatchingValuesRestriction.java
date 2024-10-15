@@ -88,36 +88,45 @@ public class MatchingValuesRestriction {
   public MatchingValuesRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code MatchingValuesRestriction} instance, allowing for method chaining
+   */
   public MatchingValuesRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * value
+   *
+   * @param value
+   * @return the current {@code MatchingValuesRestriction} instance, allowing for method chaining
+   */
   public MatchingValuesRestriction value(List<ValueEnum> value) {
     this.value = value;
     return this;
@@ -131,30 +140,27 @@ public class MatchingValuesRestriction {
     return this;
   }
 
-   /**
-   * Get value
+  /**
+   * value
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ValueEnum> getValue() {
     return value;
   }
 
-
- /**
-  * value
-  *
-  * @param value
-  */ 
+  /**
+   * value
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this MatchingValuesRestriction object is equal to o.
@@ -217,4 +223,3 @@ public class MatchingValuesRestriction {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

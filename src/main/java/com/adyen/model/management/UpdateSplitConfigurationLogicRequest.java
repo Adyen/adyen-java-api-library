@@ -601,515 +601,566 @@ public class UpdateSplitConfigurationLogicRequest {
   public UpdateSplitConfigurationLogicRequest() { 
   }
 
+  /**
+   * Deducts the acquiring fees (the aggregated amount of interchange and scheme fee) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param acquiringFees
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest acquiringFees(AcquiringFeesEnum acquiringFees) {
     this.acquiringFees = acquiringFees;
     return this;
   }
 
-   /**
+  /**
    * Deducts the acquiring fees (the aggregated amount of interchange and scheme fee) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
    * @return acquiringFees
-  **/
+   */
   @ApiModelProperty(value = "Deducts the acquiring fees (the aggregated amount of interchange and scheme fee) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_ACQUIRING_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AcquiringFeesEnum getAcquiringFees() {
     return acquiringFees;
   }
 
-
- /**
-  * Deducts the acquiring fees (the aggregated amount of interchange and scheme fee) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
-  *
-  * @param acquiringFees
-  */ 
+  /**
+   * Deducts the acquiring fees (the aggregated amount of interchange and scheme fee) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param acquiringFees
+   */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRING_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquiringFees(AcquiringFeesEnum acquiringFees) {
     this.acquiringFees = acquiringFees;
   }
 
-
+  /**
+   * additionalCommission
+   *
+   * @param additionalCommission
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest additionalCommission(AdditionalCommission additionalCommission) {
     this.additionalCommission = additionalCommission;
     return this;
   }
 
-   /**
-   * Get additionalCommission
+  /**
+   * additionalCommission
    * @return additionalCommission
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AdditionalCommission getAdditionalCommission() {
     return additionalCommission;
   }
 
-
- /**
-  * additionalCommission
-  *
-  * @param additionalCommission
-  */ 
+  /**
+   * additionalCommission
+   *
+   * @param additionalCommission
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalCommission(AdditionalCommission additionalCommission) {
     this.additionalCommission = additionalCommission;
   }
 
-
+  /**
+   * Deducts the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param adyenCommission
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest adyenCommission(AdyenCommissionEnum adyenCommission) {
     this.adyenCommission = adyenCommission;
     return this;
   }
 
-   /**
+  /**
    * Deducts the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
    * @return adyenCommission
-  **/
+   */
   @ApiModelProperty(value = "Deducts the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_ADYEN_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AdyenCommissionEnum getAdyenCommission() {
     return adyenCommission;
   }
 
-
- /**
-  * Deducts the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
-  *
-  * @param adyenCommission
-  */ 
+  /**
+   * Deducts the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param adyenCommission
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenCommission(AdyenCommissionEnum adyenCommission) {
     this.adyenCommission = adyenCommission;
   }
 
-
+  /**
+   * Deducts the fees due to Adyen (markup or commission) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param adyenFees
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest adyenFees(AdyenFeesEnum adyenFees) {
     this.adyenFees = adyenFees;
     return this;
   }
 
-   /**
+  /**
    * Deducts the fees due to Adyen (markup or commission) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
    * @return adyenFees
-  **/
+   */
   @ApiModelProperty(value = "Deducts the fees due to Adyen (markup or commission) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_ADYEN_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AdyenFeesEnum getAdyenFees() {
     return adyenFees;
   }
 
-
- /**
-  * Deducts the fees due to Adyen (markup or commission) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
-  *
-  * @param adyenFees
-  */ 
+  /**
+   * Deducts the fees due to Adyen (markup or commission) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param adyenFees
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenFees(AdyenFeesEnum adyenFees) {
     this.adyenFees = adyenFees;
   }
 
-
+  /**
+   * Deducts the transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/what-is-interchange) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param adyenMarkup
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest adyenMarkup(AdyenMarkupEnum adyenMarkup) {
     this.adyenMarkup = adyenMarkup;
     return this;
   }
 
-   /**
+  /**
    * Deducts the transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/what-is-interchange) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
    * @return adyenMarkup
-  **/
+   */
   @ApiModelProperty(value = "Deducts the transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/what-is-interchange) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_ADYEN_MARKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AdyenMarkupEnum getAdyenMarkup() {
     return adyenMarkup;
   }
 
-
- /**
-  * Deducts the transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/what-is-interchange) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
-  *
-  * @param adyenMarkup
-  */ 
+  /**
+   * Deducts the transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/what-is-interchange) from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param adyenMarkup
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_MARKUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenMarkup(AdyenMarkupEnum adyenMarkup) {
     this.adyenMarkup = adyenMarkup;
   }
 
-
+  /**
+   * Specifies how and from which balance account(s) to deduct the chargeback amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
+   *
+   * @param chargeback
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest chargeback(ChargebackEnum chargeback) {
     this.chargeback = chargeback;
     return this;
   }
 
-   /**
+  /**
    * Specifies how and from which balance account(s) to deduct the chargeback amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    * @return chargeback
-  **/
+   */
   @ApiModelProperty(value = "Specifies how and from which balance account(s) to deduct the chargeback amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.")
   @JsonProperty(JSON_PROPERTY_CHARGEBACK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ChargebackEnum getChargeback() {
     return chargeback;
   }
 
-
- /**
-  * Specifies how and from which balance account(s) to deduct the chargeback amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
-  *
-  * @param chargeback
-  */ 
+  /**
+   * Specifies how and from which balance account(s) to deduct the chargeback amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
+   *
+   * @param chargeback
+   */ 
   @JsonProperty(JSON_PROPERTY_CHARGEBACK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChargeback(ChargebackEnum chargeback) {
     this.chargeback = chargeback;
   }
 
-
+  /**
+   * Deducts the chargeback costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
+   *
+   * @param chargebackCostAllocation
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest chargebackCostAllocation(ChargebackCostAllocationEnum chargebackCostAllocation) {
     this.chargebackCostAllocation = chargebackCostAllocation;
     return this;
   }
 
-   /**
+  /**
    * Deducts the chargeback costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
    * @return chargebackCostAllocation
-  **/
+   */
   @ApiModelProperty(value = "Deducts the chargeback costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**")
   @JsonProperty(JSON_PROPERTY_CHARGEBACK_COST_ALLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ChargebackCostAllocationEnum getChargebackCostAllocation() {
     return chargebackCostAllocation;
   }
 
-
- /**
-  * Deducts the chargeback costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
-  *
-  * @param chargebackCostAllocation
-  */ 
+  /**
+   * Deducts the chargeback costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
+   *
+   * @param chargebackCostAllocation
+   */ 
   @JsonProperty(JSON_PROPERTY_CHARGEBACK_COST_ALLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChargebackCostAllocation(ChargebackCostAllocationEnum chargebackCostAllocation) {
     this.chargebackCostAllocation = chargebackCostAllocation;
   }
 
-
+  /**
+   * commission
+   *
+   * @param commission
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest commission(Commission commission) {
     this.commission = commission;
     return this;
   }
 
-   /**
-   * Get commission
+  /**
+   * commission
    * @return commission
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Commission getCommission() {
     return commission;
   }
 
-
- /**
-  * commission
-  *
-  * @param commission
-  */ 
+  /**
+   * commission
+   *
+   * @param commission
+   */ 
   @JsonProperty(JSON_PROPERTY_COMMISSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommission(Commission commission) {
     this.commission = commission;
   }
 
-
+  /**
+   * Deducts the interchange fee from specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param interchange
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest interchange(InterchangeEnum interchange) {
     this.interchange = interchange;
     return this;
   }
 
-   /**
+  /**
    * Deducts the interchange fee from specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
    * @return interchange
-  **/
+   */
   @ApiModelProperty(value = "Deducts the interchange fee from specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_INTERCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public InterchangeEnum getInterchange() {
     return interchange;
   }
 
-
- /**
-  * Deducts the interchange fee from specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
-  *
-  * @param interchange
-  */ 
+  /**
+   * Deducts the interchange fee from specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param interchange
+   */ 
   @JsonProperty(JSON_PROPERTY_INTERCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterchange(InterchangeEnum interchange) {
     this.interchange = interchange;
   }
 
-
+  /**
+   * Deducts all transaction fees incurred by the payment from the specified balance account. The transaction fees include the acquiring fees (interchange and scheme fee), and the fees due to Adyen (markup or commission). You can book any and all these fees to different balance account by specifying other transaction fee parameters in your split configuration profile:  - [&#x60;adyenCommission&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenCommission): The transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [&#x60;adyenMarkup&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenMarkup): The transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [&#x60;schemeFee&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-schemeFee): The fee paid to the card scheme for using their network. - [&#x60;interchange&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-interchange): The fee paid to the issuer for each payment transaction made with the card network. - [&#x60;adyenFees&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenFees): The aggregated amount of Adyen&#39;s commission and markup. - [&#x60;acquiringFees&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-acquiringFees): The aggregated amount of the interchange and scheme fees.  If you don&#39;t include at least one transaction fee type in the &#x60;splitLogic&#x60; object, Adyen updates the payment request with the &#x60;paymentFee&#x60; parameter, booking all transaction fees to your platform&#39;s liable balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param paymentFee
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest paymentFee(PaymentFeeEnum paymentFee) {
     this.paymentFee = paymentFee;
     return this;
   }
 
-   /**
+  /**
    * Deducts all transaction fees incurred by the payment from the specified balance account. The transaction fees include the acquiring fees (interchange and scheme fee), and the fees due to Adyen (markup or commission). You can book any and all these fees to different balance account by specifying other transaction fee parameters in your split configuration profile:  - [&#x60;adyenCommission&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenCommission): The transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [&#x60;adyenMarkup&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenMarkup): The transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [&#x60;schemeFee&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-schemeFee): The fee paid to the card scheme for using their network. - [&#x60;interchange&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-interchange): The fee paid to the issuer for each payment transaction made with the card network. - [&#x60;adyenFees&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenFees): The aggregated amount of Adyen&#39;s commission and markup. - [&#x60;acquiringFees&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-acquiringFees): The aggregated amount of the interchange and scheme fees.  If you don&#39;t include at least one transaction fee type in the &#x60;splitLogic&#x60; object, Adyen updates the payment request with the &#x60;paymentFee&#x60; parameter, booking all transaction fees to your platform&#39;s liable balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
    * @return paymentFee
-  **/
+   */
   @ApiModelProperty(value = "Deducts all transaction fees incurred by the payment from the specified balance account. The transaction fees include the acquiring fees (interchange and scheme fee), and the fees due to Adyen (markup or commission). You can book any and all these fees to different balance account by specifying other transaction fee parameters in your split configuration profile:  - [`adyenCommission`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenCommission): The transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [`adyenMarkup`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenMarkup): The transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [`schemeFee`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-schemeFee): The fee paid to the card scheme for using their network. - [`interchange`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-interchange): The fee paid to the issuer for each payment transaction made with the card network. - [`adyenFees`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenFees): The aggregated amount of Adyen's commission and markup. - [`acquiringFees`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-acquiringFees): The aggregated amount of the interchange and scheme fees.  If you don't include at least one transaction fee type in the `splitLogic` object, Adyen updates the payment request with the `paymentFee` parameter, booking all transaction fees to your platform's liable balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentFeeEnum getPaymentFee() {
     return paymentFee;
   }
 
-
- /**
-  * Deducts all transaction fees incurred by the payment from the specified balance account. The transaction fees include the acquiring fees (interchange and scheme fee), and the fees due to Adyen (markup or commission). You can book any and all these fees to different balance account by specifying other transaction fee parameters in your split configuration profile:  - [&#x60;adyenCommission&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenCommission): The transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [&#x60;adyenMarkup&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenMarkup): The transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [&#x60;schemeFee&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-schemeFee): The fee paid to the card scheme for using their network. - [&#x60;interchange&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-interchange): The fee paid to the issuer for each payment transaction made with the card network. - [&#x60;adyenFees&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenFees): The aggregated amount of Adyen&#39;s commission and markup. - [&#x60;acquiringFees&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-acquiringFees): The aggregated amount of the interchange and scheme fees.  If you don&#39;t include at least one transaction fee type in the &#x60;splitLogic&#x60; object, Adyen updates the payment request with the &#x60;paymentFee&#x60; parameter, booking all transaction fees to your platform&#39;s liable balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
-  *
-  * @param paymentFee
-  */ 
+  /**
+   * Deducts all transaction fees incurred by the payment from the specified balance account. The transaction fees include the acquiring fees (interchange and scheme fee), and the fees due to Adyen (markup or commission). You can book any and all these fees to different balance account by specifying other transaction fee parameters in your split configuration profile:  - [&#x60;adyenCommission&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenCommission): The transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [&#x60;adyenMarkup&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenMarkup): The transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [&#x60;schemeFee&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-schemeFee): The fee paid to the card scheme for using their network. - [&#x60;interchange&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-interchange): The fee paid to the issuer for each payment transaction made with the card network. - [&#x60;adyenFees&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenFees): The aggregated amount of Adyen&#39;s commission and markup. - [&#x60;acquiringFees&#x60;](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-acquiringFees): The aggregated amount of the interchange and scheme fees.  If you don&#39;t include at least one transaction fee type in the &#x60;splitLogic&#x60; object, Adyen updates the payment request with the &#x60;paymentFee&#x60; parameter, booking all transaction fees to your platform&#39;s liable balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param paymentFee
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentFee(PaymentFeeEnum paymentFee) {
     this.paymentFee = paymentFee;
   }
 
-
+  /**
+   * Specifies how and from which balance account(s) to deduct the refund amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**
+   *
+   * @param refund
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest refund(RefundEnum refund) {
     this.refund = refund;
     return this;
   }
 
-   /**
+  /**
    * Specifies how and from which balance account(s) to deduct the refund amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**
    * @return refund
-  **/
+   */
   @ApiModelProperty(value = "Specifies how and from which balance account(s) to deduct the refund amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**")
   @JsonProperty(JSON_PROPERTY_REFUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RefundEnum getRefund() {
     return refund;
   }
 
-
- /**
-  * Specifies how and from which balance account(s) to deduct the refund amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**
-  *
-  * @param refund
-  */ 
+  /**
+   * Specifies how and from which balance account(s) to deduct the refund amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**
+   *
+   * @param refund
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefund(RefundEnum refund) {
     this.refund = refund;
   }
 
-
+  /**
+   * Deducts the refund costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
+   *
+   * @param refundCostAllocation
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest refundCostAllocation(RefundCostAllocationEnum refundCostAllocation) {
     this.refundCostAllocation = refundCostAllocation;
     return this;
   }
 
-   /**
+  /**
    * Deducts the refund costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
    * @return refundCostAllocation
-  **/
+   */
   @ApiModelProperty(value = "Deducts the refund costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**")
   @JsonProperty(JSON_PROPERTY_REFUND_COST_ALLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RefundCostAllocationEnum getRefundCostAllocation() {
     return refundCostAllocation;
   }
 
-
- /**
-  * Deducts the refund costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
-  *
-  * @param refundCostAllocation
-  */ 
+  /**
+   * Deducts the refund costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
+   *
+   * @param refundCostAllocation
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUND_COST_ALLOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefundCostAllocation(RefundCostAllocationEnum refundCostAllocation) {
     this.refundCostAllocation = refundCostAllocation;
   }
 
-
+  /**
+   * Books the amount left over after currency conversion to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
+   *
+   * @param remainder
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest remainder(RemainderEnum remainder) {
     this.remainder = remainder;
     return this;
   }
 
-   /**
+  /**
    * Books the amount left over after currency conversion to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
    * @return remainder
-  **/
+   */
   @ApiModelProperty(value = "Books the amount left over after currency conversion to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_REMAINDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RemainderEnum getRemainder() {
     return remainder;
   }
 
-
- /**
-  * Books the amount left over after currency conversion to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
-  *
-  * @param remainder
-  */ 
+  /**
+   * Books the amount left over after currency conversion to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
+   *
+   * @param remainder
+   */ 
   @JsonProperty(JSON_PROPERTY_REMAINDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainder(RemainderEnum remainder) {
     this.remainder = remainder;
   }
 
-
+  /**
+   * Deducts the scheme fee from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param schemeFee
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest schemeFee(SchemeFeeEnum schemeFee) {
     this.schemeFee = schemeFee;
     return this;
   }
 
-   /**
+  /**
    * Deducts the scheme fee from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
    * @return schemeFee
-  **/
+   */
   @ApiModelProperty(value = "Deducts the scheme fee from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_SCHEME_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SchemeFeeEnum getSchemeFee() {
     return schemeFee;
   }
 
-
- /**
-  * Deducts the scheme fee from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
-  *
-  * @param schemeFee
-  */ 
+  /**
+   * Deducts the scheme fee from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+   *
+   * @param schemeFee
+   */ 
   @JsonProperty(JSON_PROPERTY_SCHEME_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeFee(SchemeFeeEnum schemeFee) {
     this.schemeFee = schemeFee;
   }
 
-
+  /**
+   * Unique identifier of the collection of split instructions that are applied when the rule conditions are met.
+   *
+   * @param splitLogicId
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest splitLogicId(String splitLogicId) {
     this.splitLogicId = splitLogicId;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the collection of split instructions that are applied when the rule conditions are met.
    * @return splitLogicId
-  **/
+   */
   @ApiModelProperty(value = "Unique identifier of the collection of split instructions that are applied when the rule conditions are met.")
   @JsonProperty(JSON_PROPERTY_SPLIT_LOGIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSplitLogicId() {
     return splitLogicId;
   }
 
-
- /**
-  * Unique identifier of the collection of split instructions that are applied when the rule conditions are met.
-  *
-  * @param splitLogicId
-  */ 
+  /**
+   * Unique identifier of the collection of split instructions that are applied when the rule conditions are met.
+   *
+   * @param splitLogicId
+   */ 
   @JsonProperty(JSON_PROPERTY_SPLIT_LOGIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitLogicId(String splitLogicId) {
     this.splitLogicId = splitLogicId;
   }
 
-
+  /**
+   * Books the surcharge amount to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**
+   *
+   * @param surcharge
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest surcharge(SurchargeEnum surcharge) {
     this.surcharge = surcharge;
     return this;
   }
 
-   /**
+  /**
    * Books the surcharge amount to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**
    * @return surcharge
-  **/
+   */
   @ApiModelProperty(value = "Books the surcharge amount to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**")
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SurchargeEnum getSurcharge() {
     return surcharge;
   }
 
-
- /**
-  * Books the surcharge amount to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**
-  *
-  * @param surcharge
-  */ 
+  /**
+   * Books the surcharge amount to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**
+   *
+   * @param surcharge
+   */ 
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(SurchargeEnum surcharge) {
     this.surcharge = surcharge;
   }
 
-
+  /**
+   * Books the tips (gratuity) to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
+   *
+   * @param tip
+   * @return the current {@code UpdateSplitConfigurationLogicRequest} instance, allowing for method chaining
+   */
   public UpdateSplitConfigurationLogicRequest tip(TipEnum tip) {
     this.tip = tip;
     return this;
   }
 
-   /**
+  /**
    * Books the tips (gratuity) to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
    * @return tip
-  **/
+   */
   @ApiModelProperty(value = "Books the tips (gratuity) to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_TIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TipEnum getTip() {
     return tip;
   }
 
-
- /**
-  * Books the tips (gratuity) to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
-  *
-  * @param tip
-  */ 
+  /**
+   * Books the tips (gratuity) to the specified balance account.  Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
+   *
+   * @param tip
+   */ 
   @JsonProperty(JSON_PROPERTY_TIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTip(TipEnum tip) {
     this.tip = tip;
   }
-
 
   /**
    * Return true if this UpdateSplitConfigurationLogicRequest object is equal to o.
@@ -1202,4 +1253,3 @@ public class UpdateSplitConfigurationLogicRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

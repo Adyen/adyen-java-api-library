@@ -41,35 +41,38 @@ public class SwishInfo {
   public SwishInfo() { 
   }
 
+  /**
+   * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
+   *
+   * @param swishNumber
+   * @return the current {@code SwishInfo} instance, allowing for method chaining
+   */
   public SwishInfo swishNumber(String swishNumber) {
     this.swishNumber = swishNumber;
     return this;
   }
 
-   /**
+  /**
    * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
    * @return swishNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "Swish number. Format: 10 digits without spaces. For example, **1231111111**.")
   @JsonProperty(JSON_PROPERTY_SWISH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSwishNumber() {
     return swishNumber;
   }
 
-
- /**
-  * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
-  *
-  * @param swishNumber
-  */ 
+  /**
+   * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
+   *
+   * @param swishNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_SWISH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSwishNumber(String swishNumber) {
     this.swishNumber = swishNumber;
   }
-
 
   /**
    * Return true if this SwishInfo object is equal to o.
@@ -130,4 +133,3 @@ public class SwishInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

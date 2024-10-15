@@ -82,95 +82,104 @@ public class CZLocalAccountIdentification {
   public CZLocalAccountIdentification() { 
   }
 
+  /**
+   * The 2- to 16-digit bank account number (Číslo účtu) in the following format:  - The optional prefix (předčíslí).  - The required second part (základní část) which must be at least two non-zero digits.  Examples:  - **19-123457** (with prefix)  - **123457** (without prefix)  - **000019-0000123457** (with prefix, normalized)  - **000000-0000123457** (without prefix, normalized)
+   *
+   * @param accountNumber
+   * @return the current {@code CZLocalAccountIdentification} instance, allowing for method chaining
+   */
   public CZLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 2- to 16-digit bank account number (Číslo účtu) in the following format:  - The optional prefix (předčíslí).  - The required second part (základní část) which must be at least two non-zero digits.  Examples:  - **19-123457** (with prefix)  - **123457** (without prefix)  - **000019-0000123457** (with prefix, normalized)  - **000000-0000123457** (without prefix, normalized)
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 2- to 16-digit bank account number (Číslo účtu) in the following format:  - The optional prefix (předčíslí).  - The required second part (základní část) which must be at least two non-zero digits.  Examples:  - **19-123457** (with prefix)  - **123457** (without prefix)  - **000019-0000123457** (with prefix, normalized)  - **000000-0000123457** (without prefix, normalized)")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 2- to 16-digit bank account number (Číslo účtu) in the following format:  - The optional prefix (předčíslí).  - The required second part (základní část) which must be at least two non-zero digits.  Examples:  - **19-123457** (with prefix)  - **123457** (without prefix)  - **000019-0000123457** (with prefix, normalized)  - **000000-0000123457** (without prefix, normalized)
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 2- to 16-digit bank account number (Číslo účtu) in the following format:  - The optional prefix (předčíslí).  - The required second part (základní část) which must be at least two non-zero digits.  Examples:  - **19-123457** (with prefix)  - **123457** (without prefix)  - **000019-0000123457** (with prefix, normalized)  - **000000-0000123457** (without prefix, normalized)
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * The 4-digit bank code (Kód banky), without separators or whitespace.
+   *
+   * @param bankCode
+   * @return the current {@code CZLocalAccountIdentification} instance, allowing for method chaining
+   */
   public CZLocalAccountIdentification bankCode(String bankCode) {
     this.bankCode = bankCode;
     return this;
   }
 
-   /**
+  /**
    * The 4-digit bank code (Kód banky), without separators or whitespace.
    * @return bankCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 4-digit bank code (Kód banky), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBankCode() {
     return bankCode;
   }
 
-
- /**
-  * The 4-digit bank code (Kód banky), without separators or whitespace.
-  *
-  * @param bankCode
-  */ 
+  /**
+   * The 4-digit bank code (Kód banky), without separators or whitespace.
+   *
+   * @param bankCode
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
     this.bankCode = bankCode;
   }
 
-
+  /**
+   * **czLocal**
+   *
+   * @param type
+   * @return the current {@code CZLocalAccountIdentification} instance, allowing for method chaining
+   */
   public CZLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **czLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**czLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **czLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **czLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this CZLocalAccountIdentification object is equal to o.
@@ -235,4 +244,3 @@ public class CZLocalAccountIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -45,65 +45,71 @@ public class ThreeDS2ResultRequest {
   public ThreeDS2ResultRequest() { 
   }
 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   * @return the current {@code ThreeDS2ResultRequest} instance, allowing for method chaining
+   */
   public ThreeDS2ResultRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the transaction.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The pspReference returned in the /authorise call.
+   *
+   * @param pspReference
+   * @return the current {@code ThreeDS2ResultRequest} instance, allowing for method chaining
+   */
   public ThreeDS2ResultRequest pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * The pspReference returned in the /authorise call.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The pspReference returned in the /authorise call.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * The pspReference returned in the /authorise call.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * The pspReference returned in the /authorise call.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
-
 
   /**
    * Return true if this ThreeDS2ResultRequest object is equal to o.
@@ -166,4 +172,3 @@ public class ThreeDS2ResultRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

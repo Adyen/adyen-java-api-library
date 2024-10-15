@@ -182,215 +182,236 @@ public class AccountSupportingEntityCapability {
   public AccountSupportingEntityCapability() { 
   }
 
+  /**
+   * Indicates whether the supporting entity capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.
+   *
+   * @param allowed
+   * @return the current {@code AccountSupportingEntityCapability} instance, allowing for method chaining
+   */
   public AccountSupportingEntityCapability allowed(Boolean allowed) {
     this.allowed = allowed;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the supporting entity capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.
    * @return allowed
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the supporting entity capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.")
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAllowed() {
     return allowed;
   }
 
-
- /**
-  * Indicates whether the supporting entity capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.
-  *
-  * @param allowed
-  */ 
+  /**
+   * Indicates whether the supporting entity capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.
+   *
+   * @param allowed
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
     this.allowed = allowed;
   }
 
-
+  /**
+   * The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
+   *
+   * @param allowedLevel
+   * @return the current {@code AccountSupportingEntityCapability} instance, allowing for method chaining
+   */
   public AccountSupportingEntityCapability allowedLevel(AllowedLevelEnum allowedLevel) {
     this.allowedLevel = allowedLevel;
     return this;
   }
 
-   /**
+  /**
    * The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    * @return allowedLevel
-  **/
+   */
   @ApiModelProperty(value = "The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AllowedLevelEnum getAllowedLevel() {
     return allowedLevel;
   }
 
-
- /**
-  * The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
-  *
-  * @param allowedLevel
-  */ 
+  /**
+   * The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
+   *
+   * @param allowedLevel
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedLevel(AllowedLevelEnum allowedLevel) {
     this.allowedLevel = allowedLevel;
   }
 
-
+  /**
+   * Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
+   *
+   * @param enabled
+   * @return the current {@code AccountSupportingEntityCapability} instance, allowing for method chaining
+   */
   public AccountSupportingEntityCapability enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
    * @return enabled
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnabled() {
     return enabled;
   }
 
-
- /**
-  * Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
-  *
-  * @param enabled
-  */ 
+  /**
+   * Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
+   *
+   * @param enabled
+   */ 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
-
+  /**
+   * The ID of the supporting entity.
+   *
+   * @param id
+   * @return the current {@code AccountSupportingEntityCapability} instance, allowing for method chaining
+   */
   public AccountSupportingEntityCapability id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The ID of the supporting entity.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The ID of the supporting entity.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The ID of the supporting entity.
-  *
-  * @param id
-  */ 
+  /**
+   * The ID of the supporting entity.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
+   *
+   * @param requested
+   * @return the current {@code AccountSupportingEntityCapability} instance, allowing for method chaining
+   */
   public AccountSupportingEntityCapability requested(Boolean requested) {
     this.requested = requested;
     return this;
   }
 
-   /**
+  /**
    * Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
    * @return requested
-  **/
+   */
   @ApiModelProperty(value = "Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the `allowed` field.")
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getRequested() {
     return requested;
   }
 
-
- /**
-  * Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
-  *
-  * @param requested
-  */ 
+  /**
+   * Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
+   *
+   * @param requested
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
     this.requested = requested;
   }
 
-
+  /**
+   * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
+   *
+   * @param requestedLevel
+   * @return the current {@code AccountSupportingEntityCapability} instance, allowing for method chaining
+   */
   public AccountSupportingEntityCapability requestedLevel(RequestedLevelEnum requestedLevel) {
     this.requestedLevel = requestedLevel;
     return this;
   }
 
-   /**
+  /**
    * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    * @return requestedLevel
-  **/
+   */
   @ApiModelProperty(value = "The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.")
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RequestedLevelEnum getRequestedLevel() {
     return requestedLevel;
   }
 
-
- /**
-  * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
-  *
-  * @param requestedLevel
-  */ 
+  /**
+   * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
+   *
+   * @param requestedLevel
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(RequestedLevelEnum requestedLevel) {
     this.requestedLevel = requestedLevel;
   }
 
-
+  /**
+   * The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
+   *
+   * @param verificationStatus
+   * @return the current {@code AccountSupportingEntityCapability} instance, allowing for method chaining
+   */
   public AccountSupportingEntityCapability verificationStatus(VerificationStatusEnum verificationStatus) {
     this.verificationStatus = verificationStatus;
     return this;
   }
 
-   /**
+  /**
    * The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
    * @return verificationStatus
-  **/
+   */
   @ApiModelProperty(value = "The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the `errors` array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. ")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public VerificationStatusEnum getVerificationStatus() {
     return verificationStatus;
   }
 
-
- /**
-  * The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
-  *
-  * @param verificationStatus
-  */ 
+  /**
+   * The status of the verification checks for the supporting entity capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
+   *
+   * @param verificationStatus
+   */ 
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(VerificationStatusEnum verificationStatus) {
     this.verificationStatus = verificationStatus;
   }
-
 
   /**
    * Return true if this AccountSupportingEntityCapability object is equal to o.
@@ -463,4 +484,3 @@ public class AccountSupportingEntityCapability {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

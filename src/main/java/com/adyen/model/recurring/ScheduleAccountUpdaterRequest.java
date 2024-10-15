@@ -65,6 +65,12 @@ public class ScheduleAccountUpdaterRequest {
   public ScheduleAccountUpdaterRequest() { 
   }
 
+  /**
+   * This field contains additional data, which may be required for a particular request.
+   *
+   * @param additionalData
+   * @return the current {@code ScheduleAccountUpdaterRequest} instance, allowing for method chaining
+   */
   public ScheduleAccountUpdaterRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -78,180 +84,192 @@ public class ScheduleAccountUpdaterRequest {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be required for a particular request.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be required for a particular request.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be required for a particular request.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * card
+   *
+   * @param card
+   * @return the current {@code ScheduleAccountUpdaterRequest} instance, allowing for method chaining
+   */
   public ScheduleAccountUpdaterRequest card(Card card) {
     this.card = card;
     return this;
   }
 
-   /**
-   * Get card
+  /**
+   * card
    * @return card
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Card getCard() {
     return card;
   }
 
-
- /**
-  * card
-  *
-  * @param card
-  */ 
+  /**
+   * card
+   *
+   * @param card
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
     this.card = card;
   }
 
-
+  /**
+   * Account of the merchant.
+   *
+   * @param merchantAccount
+   * @return the current {@code ScheduleAccountUpdaterRequest} instance, allowing for method chaining
+   */
   public ScheduleAccountUpdaterRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * Account of the merchant.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "Account of the merchant.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * Account of the merchant.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * Account of the merchant.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * A reference that merchants can apply for the call.
+   *
+   * @param reference
+   * @return the current {@code ScheduleAccountUpdaterRequest} instance, allowing for method chaining
+   */
   public ScheduleAccountUpdaterRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * A reference that merchants can apply for the call.
    * @return reference
-  **/
+   */
   @ApiModelProperty(required = true, value = "A reference that merchants can apply for the call.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * A reference that merchants can apply for the call.
-  *
-  * @param reference
-  */ 
+  /**
+   * A reference that merchants can apply for the call.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
 
-
+  /**
+   * The selected detail recurring reference.  Optional if &#x60;card&#x60; is provided.
+   *
+   * @param selectedRecurringDetailReference
+   * @return the current {@code ScheduleAccountUpdaterRequest} instance, allowing for method chaining
+   */
   public ScheduleAccountUpdaterRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * The selected detail recurring reference.  Optional if &#x60;card&#x60; is provided.
    * @return selectedRecurringDetailReference
-  **/
+   */
   @ApiModelProperty(value = "The selected detail recurring reference.  Optional if `card` is provided.")
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSelectedRecurringDetailReference() {
     return selectedRecurringDetailReference;
   }
 
-
- /**
-  * The selected detail recurring reference.  Optional if &#x60;card&#x60; is provided.
-  *
-  * @param selectedRecurringDetailReference
-  */ 
+  /**
+   * The selected detail recurring reference.  Optional if &#x60;card&#x60; is provided.
+   *
+   * @param selectedRecurringDetailReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
   }
 
-
+  /**
+   * The reference of the shopper that owns the recurring contract.  Optional if &#x60;card&#x60; is provided.
+   *
+   * @param shopperReference
+   * @return the current {@code ScheduleAccountUpdaterRequest} instance, allowing for method chaining
+   */
   public ScheduleAccountUpdaterRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
+  /**
    * The reference of the shopper that owns the recurring contract.  Optional if &#x60;card&#x60; is provided.
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(value = "The reference of the shopper that owns the recurring contract.  Optional if `card` is provided.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * The reference of the shopper that owns the recurring contract.  Optional if &#x60;card&#x60; is provided.
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * The reference of the shopper that owns the recurring contract.  Optional if &#x60;card&#x60; is provided.
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
-
 
   /**
    * Return true if this ScheduleAccountUpdaterRequest object is equal to o.
@@ -322,4 +340,3 @@ public class ScheduleAccountUpdaterRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

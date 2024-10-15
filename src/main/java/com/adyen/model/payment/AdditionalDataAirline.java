@@ -153,875 +153,962 @@ public class AdditionalDataAirline {
   public AdditionalDataAirline() { 
   }
 
+  /**
+   * The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters
+   *
+   * @param airlineAgencyInvoiceNumber
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineAgencyInvoiceNumber(String airlineAgencyInvoiceNumber) {
     this.airlineAgencyInvoiceNumber = airlineAgencyInvoiceNumber;
     return this;
   }
 
-   /**
+  /**
    * The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters
    * @return airlineAgencyInvoiceNumber
-  **/
+   */
   @ApiModelProperty(value = "The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_AGENCY_INVOICE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineAgencyInvoiceNumber() {
     return airlineAgencyInvoiceNumber;
   }
 
-
- /**
-  * The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters
-  *
-  * @param airlineAgencyInvoiceNumber
-  */ 
+  /**
+   * The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters
+   *
+   * @param airlineAgencyInvoiceNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_AGENCY_INVOICE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAgencyInvoiceNumber(String airlineAgencyInvoiceNumber) {
     this.airlineAgencyInvoiceNumber = airlineAgencyInvoiceNumber;
   }
 
-
+  /**
+   * The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters
+   *
+   * @param airlineAgencyPlanName
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineAgencyPlanName(String airlineAgencyPlanName) {
     this.airlineAgencyPlanName = airlineAgencyPlanName;
     return this;
   }
 
-   /**
+  /**
    * The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters
    * @return airlineAgencyPlanName
-  **/
+   */
   @ApiModelProperty(value = "The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_AGENCY_PLAN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineAgencyPlanName() {
     return airlineAgencyPlanName;
   }
 
-
- /**
-  * The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters
-  *
-  * @param airlineAgencyPlanName
-  */ 
+  /**
+   * The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters
+   *
+   * @param airlineAgencyPlanName
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_AGENCY_PLAN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAgencyPlanName(String airlineAgencyPlanName) {
     this.airlineAgencyPlanName = airlineAgencyPlanName;
   }
 
-
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-digit accounting code (PAX) that identifies the carrier. * Format: IATA 3-digit accounting code (PAX) * Example: KLM &#x3D; 074 * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineAirlineCode
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineAirlineCode(String airlineAirlineCode) {
     this.airlineAirlineCode = airlineAirlineCode;
     return this;
   }
 
-   /**
+  /**
    * The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-digit accounting code (PAX) that identifies the carrier. * Format: IATA 3-digit accounting code (PAX) * Example: KLM &#x3D; 074 * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineAirlineCode
-  **/
+   */
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-digit accounting code (PAX) that identifies the carrier. * Format: IATA 3-digit accounting code (PAX) * Example: KLM = 074 * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_AIRLINE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineAirlineCode() {
     return airlineAirlineCode;
   }
 
-
- /**
-  * The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-digit accounting code (PAX) that identifies the carrier. * Format: IATA 3-digit accounting code (PAX) * Example: KLM &#x3D; 074 * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineAirlineCode
-  */ 
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-digit accounting code (PAX) that identifies the carrier. * Format: IATA 3-digit accounting code (PAX) * Example: KLM &#x3D; 074 * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineAirlineCode
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_AIRLINE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAirlineCode(String airlineAirlineCode) {
     this.airlineAirlineCode = airlineAirlineCode;
   }
 
-
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. * Encoding: ASCII * Example: KLM &#x3D; KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineAirlineDesignatorCode
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineAirlineDesignatorCode(String airlineAirlineDesignatorCode) {
     this.airlineAirlineDesignatorCode = airlineAirlineDesignatorCode;
     return this;
   }
 
-   /**
+  /**
    * The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. * Encoding: ASCII * Example: KLM &#x3D; KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineAirlineDesignatorCode
-  **/
+   */
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. * Encoding: ASCII * Example: KLM = KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_AIRLINE_DESIGNATOR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineAirlineDesignatorCode() {
     return airlineAirlineDesignatorCode;
   }
 
-
- /**
-  * The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. * Encoding: ASCII * Example: KLM &#x3D; KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineAirlineDesignatorCode
-  */ 
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. * Encoding: ASCII * Example: KLM &#x3D; KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineAirlineDesignatorCode
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_AIRLINE_DESIGNATOR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineAirlineDesignatorCode(String airlineAirlineDesignatorCode) {
     this.airlineAirlineDesignatorCode = airlineAirlineDesignatorCode;
   }
 
-
+  /**
+   * The amount charged for boarding the plane, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 character * maxLength: 18 characters
+   *
+   * @param airlineBoardingFee
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineBoardingFee(String airlineBoardingFee) {
     this.airlineBoardingFee = airlineBoardingFee;
     return this;
   }
 
-   /**
+  /**
    * The amount charged for boarding the plane, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 character * maxLength: 18 characters
    * @return airlineBoardingFee
-  **/
+   */
   @ApiModelProperty(value = "The amount charged for boarding the plane, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 character * maxLength: 18 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_BOARDING_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineBoardingFee() {
     return airlineBoardingFee;
   }
 
-
- /**
-  * The amount charged for boarding the plane, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 character * maxLength: 18 characters
-  *
-  * @param airlineBoardingFee
-  */ 
+  /**
+   * The amount charged for boarding the plane, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 character * maxLength: 18 characters
+   *
+   * @param airlineBoardingFee
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_BOARDING_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineBoardingFee(String airlineBoardingFee) {
     this.airlineBoardingFee = airlineBoardingFee;
   }
 
-
+  /**
+   * The [CRS](https://en.wikipedia.org/wiki/Computer_reservation_system) used to make the reservation and purchase the ticket. * Encoding: ASCII * minLength: 4 characters * maxLength: 4 characters
+   *
+   * @param airlineComputerizedReservationSystem
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineComputerizedReservationSystem(String airlineComputerizedReservationSystem) {
     this.airlineComputerizedReservationSystem = airlineComputerizedReservationSystem;
     return this;
   }
 
-   /**
+  /**
    * The [CRS](https://en.wikipedia.org/wiki/Computer_reservation_system) used to make the reservation and purchase the ticket. * Encoding: ASCII * minLength: 4 characters * maxLength: 4 characters
    * @return airlineComputerizedReservationSystem
-  **/
+   */
   @ApiModelProperty(value = "The [CRS](https://en.wikipedia.org/wiki/Computer_reservation_system) used to make the reservation and purchase the ticket. * Encoding: ASCII * minLength: 4 characters * maxLength: 4 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineComputerizedReservationSystem() {
     return airlineComputerizedReservationSystem;
   }
 
-
- /**
-  * The [CRS](https://en.wikipedia.org/wiki/Computer_reservation_system) used to make the reservation and purchase the ticket. * Encoding: ASCII * minLength: 4 characters * maxLength: 4 characters
-  *
-  * @param airlineComputerizedReservationSystem
-  */ 
+  /**
+   * The [CRS](https://en.wikipedia.org/wiki/Computer_reservation_system) used to make the reservation and purchase the ticket. * Encoding: ASCII * minLength: 4 characters * maxLength: 4 characters
+   *
+   * @param airlineComputerizedReservationSystem
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_COMPUTERIZED_RESERVATION_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineComputerizedReservationSystem(String airlineComputerizedReservationSystem) {
     this.airlineComputerizedReservationSystem = airlineComputerizedReservationSystem;
   }
 
-
+  /**
+   * The alphanumeric customer reference number. * Encoding: ASCII * maxLength: 20 characters * If you send more than 20 characters, the customer reference number is truncated * Must not be all spaces
+   *
+   * @param airlineCustomerReferenceNumber
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineCustomerReferenceNumber(String airlineCustomerReferenceNumber) {
     this.airlineCustomerReferenceNumber = airlineCustomerReferenceNumber;
     return this;
   }
 
-   /**
+  /**
    * The alphanumeric customer reference number. * Encoding: ASCII * maxLength: 20 characters * If you send more than 20 characters, the customer reference number is truncated * Must not be all spaces
    * @return airlineCustomerReferenceNumber
-  **/
+   */
   @ApiModelProperty(value = "The alphanumeric customer reference number. * Encoding: ASCII * maxLength: 20 characters * If you send more than 20 characters, the customer reference number is truncated * Must not be all spaces")
   @JsonProperty(JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineCustomerReferenceNumber() {
     return airlineCustomerReferenceNumber;
   }
 
-
- /**
-  * The alphanumeric customer reference number. * Encoding: ASCII * maxLength: 20 characters * If you send more than 20 characters, the customer reference number is truncated * Must not be all spaces
-  *
-  * @param airlineCustomerReferenceNumber
-  */ 
+  /**
+   * The alphanumeric customer reference number. * Encoding: ASCII * maxLength: 20 characters * If you send more than 20 characters, the customer reference number is truncated * Must not be all spaces
+   *
+   * @param airlineCustomerReferenceNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_CUSTOMER_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineCustomerReferenceNumber(String airlineCustomerReferenceNumber) {
     this.airlineCustomerReferenceNumber = airlineCustomerReferenceNumber;
   }
 
-
+  /**
+   * A code that identifies the type of item bought. The description of the code can appear on credit card statements. * Encoding: ASCII * Example: Passenger ticket &#x3D; 01 * minLength: 2 characters * maxLength: 2 characters
+   *
+   * @param airlineDocumentType
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineDocumentType(String airlineDocumentType) {
     this.airlineDocumentType = airlineDocumentType;
     return this;
   }
 
-   /**
+  /**
    * A code that identifies the type of item bought. The description of the code can appear on credit card statements. * Encoding: ASCII * Example: Passenger ticket &#x3D; 01 * minLength: 2 characters * maxLength: 2 characters
    * @return airlineDocumentType
-  **/
+   */
   @ApiModelProperty(value = "A code that identifies the type of item bought. The description of the code can appear on credit card statements. * Encoding: ASCII * Example: Passenger ticket = 01 * minLength: 2 characters * maxLength: 2 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineDocumentType() {
     return airlineDocumentType;
   }
 
-
- /**
-  * A code that identifies the type of item bought. The description of the code can appear on credit card statements. * Encoding: ASCII * Example: Passenger ticket &#x3D; 01 * minLength: 2 characters * maxLength: 2 characters
-  *
-  * @param airlineDocumentType
-  */ 
+  /**
+   * A code that identifies the type of item bought. The description of the code can appear on credit card statements. * Encoding: ASCII * Example: Passenger ticket &#x3D; 01 * minLength: 2 characters * maxLength: 2 characters
+   *
+   * @param airlineDocumentType
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_DOCUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineDocumentType(String airlineDocumentType) {
     this.airlineDocumentType = airlineDocumentType;
   }
 
-
+  /**
+   * The flight departure date. Local time &#x60;(HH:mm)&#x60; is optional. * Date format: &#x60;yyyy-MM-dd&#x60; * Date and time format: &#x60;yyyy-MM-dd HH:mm&#x60; * minLength: 10 characters * maxLength: 16 characters
+   *
+   * @param airlineFlightDate
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineFlightDate(String airlineFlightDate) {
     this.airlineFlightDate = airlineFlightDate;
     return this;
   }
 
-   /**
+  /**
    * The flight departure date. Local time &#x60;(HH:mm)&#x60; is optional. * Date format: &#x60;yyyy-MM-dd&#x60; * Date and time format: &#x60;yyyy-MM-dd HH:mm&#x60; * minLength: 10 characters * maxLength: 16 characters
    * @return airlineFlightDate
-  **/
+   */
   @ApiModelProperty(value = "The flight departure date. Local time `(HH:mm)` is optional. * Date format: `yyyy-MM-dd` * Date and time format: `yyyy-MM-dd HH:mm` * minLength: 10 characters * maxLength: 16 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_FLIGHT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineFlightDate() {
     return airlineFlightDate;
   }
 
-
- /**
-  * The flight departure date. Local time &#x60;(HH:mm)&#x60; is optional. * Date format: &#x60;yyyy-MM-dd&#x60; * Date and time format: &#x60;yyyy-MM-dd HH:mm&#x60; * minLength: 10 characters * maxLength: 16 characters
-  *
-  * @param airlineFlightDate
-  */ 
+  /**
+   * The flight departure date. Local time &#x60;(HH:mm)&#x60; is optional. * Date format: &#x60;yyyy-MM-dd&#x60; * Date and time format: &#x60;yyyy-MM-dd HH:mm&#x60; * minLength: 10 characters * maxLength: 16 characters
+   *
+   * @param airlineFlightDate
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_FLIGHT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineFlightDate(String airlineFlightDate) {
     this.airlineFlightDate = airlineFlightDate;
   }
 
-
+  /**
+   * The date that the ticket was issued to the passenger. * minLength: 6 characters * maxLength: 6 characters * Date format: YYMMDD
+   *
+   * @param airlineIssueDate
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineIssueDate(String airlineIssueDate) {
     this.airlineIssueDate = airlineIssueDate;
     return this;
   }
 
-   /**
+  /**
    * The date that the ticket was issued to the passenger. * minLength: 6 characters * maxLength: 6 characters * Date format: YYMMDD
    * @return airlineIssueDate
-  **/
+   */
   @ApiModelProperty(value = "The date that the ticket was issued to the passenger. * minLength: 6 characters * maxLength: 6 characters * Date format: YYMMDD")
   @JsonProperty(JSON_PROPERTY_AIRLINE_ISSUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineIssueDate() {
     return airlineIssueDate;
   }
 
-
- /**
-  * The date that the ticket was issued to the passenger. * minLength: 6 characters * maxLength: 6 characters * Date format: YYMMDD
-  *
-  * @param airlineIssueDate
-  */ 
+  /**
+   * The date that the ticket was issued to the passenger. * minLength: 6 characters * maxLength: 6 characters * Date format: YYMMDD
+   *
+   * @param airlineIssueDate
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_ISSUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineIssueDate(String airlineIssueDate) {
     this.airlineIssueDate = airlineIssueDate;
   }
 
-
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM &#x3D; KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegCarrierCode
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegCarrierCode(String airlineLegCarrierCode) {
     this.airlineLegCarrierCode = airlineLegCarrierCode;
     return this;
   }
 
-   /**
+  /**
    * The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM &#x3D; KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineLegCarrierCode
-  **/
+   */
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM = KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegCarrierCode() {
     return airlineLegCarrierCode;
   }
 
-
- /**
-  * The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM &#x3D; KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineLegCarrierCode
-  */ 
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM &#x3D; KL * minLength: 2 characters * maxLength: 2 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegCarrierCode
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_CARRIER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegCarrierCode(String airlineLegCarrierCode) {
     this.airlineLegCarrierCode = airlineLegCarrierCode;
   }
 
-
+  /**
+   * A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegClassOfTravel
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegClassOfTravel(String airlineLegClassOfTravel) {
     this.airlineLegClassOfTravel = airlineLegClassOfTravel;
     return this;
   }
 
-   /**
+  /**
    * A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not be all spaces *Must not be all zeros.
    * @return airlineLegClassOfTravel
-  **/
+   */
   @ApiModelProperty(value = "A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegClassOfTravel() {
     return airlineLegClassOfTravel;
   }
 
-
- /**
-  * A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineLegClassOfTravel
-  */ 
+  /**
+   * A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegClassOfTravel
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_CLASS_OF_TRAVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegClassOfTravel(String airlineLegClassOfTravel) {
     this.airlineLegClassOfTravel = airlineLegClassOfTravel;
   }
 
-
+  /**
+   *   Date and time of travel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format &#x60;yyyy-MM-dd HH:mm&#x60;. * Encoding: ASCII * minLength: 16 characters * maxLength: 16 characters
+   *
+   * @param airlineLegDateOfTravel
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegDateOfTravel(String airlineLegDateOfTravel) {
     this.airlineLegDateOfTravel = airlineLegDateOfTravel;
     return this;
   }
 
-   /**
+  /**
    *   Date and time of travel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format &#x60;yyyy-MM-dd HH:mm&#x60;. * Encoding: ASCII * minLength: 16 characters * maxLength: 16 characters
    * @return airlineLegDateOfTravel
-  **/
+   */
   @ApiModelProperty(value = "  Date and time of travel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format `yyyy-MM-dd HH:mm`. * Encoding: ASCII * minLength: 16 characters * maxLength: 16 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegDateOfTravel() {
     return airlineLegDateOfTravel;
   }
 
-
- /**
-  *   Date and time of travel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format &#x60;yyyy-MM-dd HH:mm&#x60;. * Encoding: ASCII * minLength: 16 characters * maxLength: 16 characters
-  *
-  * @param airlineLegDateOfTravel
-  */ 
+  /**
+   *   Date and time of travel in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format &#x60;yyyy-MM-dd HH:mm&#x60;. * Encoding: ASCII * minLength: 16 characters * maxLength: 16 characters
+   *
+   * @param airlineLegDateOfTravel
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DATE_OF_TRAVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDateOfTravel(String airlineLegDateOfTravel) {
     this.airlineLegDateOfTravel = airlineLegDateOfTravel;
   }
 
-
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam &#x3D; AMS * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegDepartAirport
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegDepartAirport(String airlineLegDepartAirport) {
     this.airlineLegDepartAirport = airlineLegDepartAirport;
     return this;
   }
 
-   /**
+  /**
    * The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam &#x3D; AMS * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineLegDepartAirport
-  **/
+   */
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam = AMS * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DEPART_AIRPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegDepartAirport() {
     return airlineLegDepartAirport;
   }
 
-
- /**
-  * The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam &#x3D; AMS * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineLegDepartAirport
-  */ 
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam &#x3D; AMS * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegDepartAirport
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DEPART_AIRPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDepartAirport(String airlineLegDepartAirport) {
     this.airlineLegDepartAirport = airlineLegDepartAirport;
   }
 
-
+  /**
+   * The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 12 *Must not be all zeros.
+   *
+   * @param airlineLegDepartTax
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegDepartTax(String airlineLegDepartTax) {
     this.airlineLegDepartTax = airlineLegDepartTax;
     return this;
   }
 
-   /**
+  /**
    * The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 12 *Must not be all zeros.
    * @return airlineLegDepartTax
-  **/
+   */
   @ApiModelProperty(value = "The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 12 *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DEPART_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegDepartTax() {
     return airlineLegDepartTax;
   }
 
-
- /**
-  * The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 12 *Must not be all zeros.
-  *
-  * @param airlineLegDepartTax
-  */ 
+  /**
+   * The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 12 *Must not be all zeros.
+   *
+   * @param airlineLegDepartTax
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DEPART_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDepartTax(String airlineLegDepartTax) {
     this.airlineLegDepartTax = airlineLegDepartTax;
   }
 
-
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam &#x3D; AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegDestinationCode
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegDestinationCode(String airlineLegDestinationCode) {
     this.airlineLegDestinationCode = airlineLegDestinationCode;
     return this;
   }
 
-   /**
+  /**
    * The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam &#x3D; AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineLegDestinationCode
-  **/
+   */
   @ApiModelProperty(value = "The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam = AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DESTINATION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegDestinationCode() {
     return airlineLegDestinationCode;
   }
 
-
- /**
-  * The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam &#x3D; AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineLegDestinationCode
-  */ 
+  /**
+   * The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam &#x3D; AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegDestinationCode
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_DESTINATION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegDestinationCode(String airlineLegDestinationCode) {
     this.airlineLegDestinationCode = airlineLegDestinationCode;
   }
 
-
+  /**
+   * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegFareBaseCode
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegFareBaseCode(String airlineLegFareBaseCode) {
     this.airlineLegFareBaseCode = airlineLegFareBaseCode;
     return this;
   }
 
-   /**
+  /**
    * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineLegFareBaseCode
-  **/
+   */
   @ApiModelProperty(value = "The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegFareBaseCode() {
     return airlineLegFareBaseCode;
   }
 
-
- /**
-  * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineLegFareBaseCode
-  */ 
+  /**
+   * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegFareBaseCode
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegFareBaseCode(String airlineLegFareBaseCode) {
     this.airlineLegFareBaseCode = airlineLegFareBaseCode;
   }
 
-
+  /**
+   * The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegFlightNumber
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegFlightNumber(String airlineLegFlightNumber) {
     this.airlineLegFlightNumber = airlineLegFlightNumber;
     return this;
   }
 
-   /**
+  /**
    * The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineLegFlightNumber
-  **/
+   */
   @ApiModelProperty(value = "The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FLIGHT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegFlightNumber() {
     return airlineLegFlightNumber;
   }
 
-
- /**
-  * The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineLegFlightNumber
-  */ 
+  /**
+   * The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineLegFlightNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FLIGHT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegFlightNumber(String airlineLegFlightNumber) {
     this.airlineLegFlightNumber = airlineLegFlightNumber;
   }
 
-
+  /**
+   * A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character
+   *
+   * @param airlineLegStopOverCode
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineLegStopOverCode(String airlineLegStopOverCode) {
     this.airlineLegStopOverCode = airlineLegStopOverCode;
     return this;
   }
 
-   /**
+  /**
    * A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character
    * @return airlineLegStopOverCode
-  **/
+   */
   @ApiModelProperty(value = "A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character")
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_STOP_OVER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineLegStopOverCode() {
     return airlineLegStopOverCode;
   }
 
-
- /**
-  * A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character
-  *
-  * @param airlineLegStopOverCode
-  */ 
+  /**
+   * A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character
+   *
+   * @param airlineLegStopOverCode
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_STOP_OVER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineLegStopOverCode(String airlineLegStopOverCode) {
     this.airlineLegStopOverCode = airlineLegStopOverCode;
   }
 
-
+  /**
+   * The passenger&#39;s date of birth.  Date format: &#x60;yyyy-MM-dd&#x60; * minLength: 10 * maxLength: 10
+   *
+   * @param airlinePassengerDateOfBirth
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlinePassengerDateOfBirth(String airlinePassengerDateOfBirth) {
     this.airlinePassengerDateOfBirth = airlinePassengerDateOfBirth;
     return this;
   }
 
-   /**
+  /**
    * The passenger&#39;s date of birth.  Date format: &#x60;yyyy-MM-dd&#x60; * minLength: 10 * maxLength: 10
    * @return airlinePassengerDateOfBirth
-  **/
+   */
   @ApiModelProperty(value = "The passenger's date of birth.  Date format: `yyyy-MM-dd` * minLength: 10 * maxLength: 10")
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlinePassengerDateOfBirth() {
     return airlinePassengerDateOfBirth;
   }
 
-
- /**
-  * The passenger&#39;s date of birth.  Date format: &#x60;yyyy-MM-dd&#x60; * minLength: 10 * maxLength: 10
-  *
-  * @param airlinePassengerDateOfBirth
-  */ 
+  /**
+   * The passenger&#39;s date of birth.  Date format: &#x60;yyyy-MM-dd&#x60; * minLength: 10 * maxLength: 10
+   *
+   * @param airlinePassengerDateOfBirth
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerDateOfBirth(String airlinePassengerDateOfBirth) {
     this.airlinePassengerDateOfBirth = airlinePassengerDateOfBirth;
   }
 
-
+  /**
+   * The passenger&#39;s first name. &gt; This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
+   *
+   * @param airlinePassengerFirstName
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlinePassengerFirstName(String airlinePassengerFirstName) {
     this.airlinePassengerFirstName = airlinePassengerFirstName;
     return this;
   }
 
-   /**
+  /**
    * The passenger&#39;s first name. &gt; This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
    * @return airlinePassengerFirstName
-  **/
+   */
   @ApiModelProperty(value = "The passenger's first name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII")
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlinePassengerFirstName() {
     return airlinePassengerFirstName;
   }
 
-
- /**
-  * The passenger&#39;s first name. &gt; This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
-  *
-  * @param airlinePassengerFirstName
-  */ 
+  /**
+   * The passenger&#39;s first name. &gt; This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
+   *
+   * @param airlinePassengerFirstName
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerFirstName(String airlinePassengerFirstName) {
     this.airlinePassengerFirstName = airlinePassengerFirstName;
   }
 
-
+  /**
+   * The passenger&#39;s last name. &gt; This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
+   *
+   * @param airlinePassengerLastName
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlinePassengerLastName(String airlinePassengerLastName) {
     this.airlinePassengerLastName = airlinePassengerLastName;
     return this;
   }
 
-   /**
+  /**
    * The passenger&#39;s last name. &gt; This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
    * @return airlinePassengerLastName
-  **/
+   */
   @ApiModelProperty(value = "The passenger's last name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII")
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlinePassengerLastName() {
     return airlinePassengerLastName;
   }
 
-
- /**
-  * The passenger&#39;s last name. &gt; This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
-  *
-  * @param airlinePassengerLastName
-  */ 
+  /**
+   * The passenger&#39;s last name. &gt; This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
+   *
+   * @param airlinePassengerLastName
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerLastName(String airlinePassengerLastName) {
     this.airlinePassengerLastName = airlinePassengerLastName;
   }
 
-
+  /**
+   * The passenger&#39;s telephone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
+   *
+   * @param airlinePassengerTelephoneNumber
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlinePassengerTelephoneNumber(String airlinePassengerTelephoneNumber) {
     this.airlinePassengerTelephoneNumber = airlinePassengerTelephoneNumber;
     return this;
   }
 
-   /**
+  /**
    * The passenger&#39;s telephone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
    * @return airlinePassengerTelephoneNumber
-  **/
+   */
   @ApiModelProperty(value = "The passenger's telephone number, including country code. This is an alphanumeric field that can include the '+' and '-' signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlinePassengerTelephoneNumber() {
     return airlinePassengerTelephoneNumber;
   }
 
-
- /**
-  * The passenger&#39;s telephone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
-  *
-  * @param airlinePassengerTelephoneNumber
-  */ 
+  /**
+   * The passenger&#39;s telephone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
+   *
+   * @param airlinePassengerTelephoneNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerTelephoneNumber(String airlinePassengerTelephoneNumber) {
     this.airlinePassengerTelephoneNumber = airlinePassengerTelephoneNumber;
   }
 
-
+  /**
+   * The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters
+   *
+   * @param airlinePassengerTravellerType
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlinePassengerTravellerType(String airlinePassengerTravellerType) {
     this.airlinePassengerTravellerType = airlinePassengerTravellerType;
     return this;
   }
 
-   /**
+  /**
    * The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters
    * @return airlinePassengerTravellerType
-  **/
+   */
   @ApiModelProperty(value = "The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlinePassengerTravellerType() {
     return airlinePassengerTravellerType;
   }
 
-
- /**
-  * The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters
-  *
-  * @param airlinePassengerTravellerType
-  */ 
+  /**
+   * The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters
+   *
+   * @param airlinePassengerTravellerType
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerTravellerType(String airlinePassengerTravellerType) {
     this.airlinePassengerTravellerType = airlinePassengerTravellerType;
   }
 
-
+  /**
+   * The passenger&#39;s name, initials, and title. * Format: last name + first name or initials + title * Example: *FLYER / MARY MS* * minLength: 1 character * maxLength: 20 characters * If you send more than 20 characters, the name is truncated * Must not be all spaces  *Must not be all zeros.
+   *
+   * @param airlinePassengerName
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlinePassengerName(String airlinePassengerName) {
     this.airlinePassengerName = airlinePassengerName;
     return this;
   }
 
-   /**
+  /**
    * The passenger&#39;s name, initials, and title. * Format: last name + first name or initials + title * Example: *FLYER / MARY MS* * minLength: 1 character * maxLength: 20 characters * If you send more than 20 characters, the name is truncated * Must not be all spaces  *Must not be all zeros.
    * @return airlinePassengerName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The passenger's name, initials, and title. * Format: last name + first name or initials + title * Example: *FLYER / MARY MS* * minLength: 1 character * maxLength: 20 characters * If you send more than 20 characters, the name is truncated * Must not be all spaces  *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlinePassengerName() {
     return airlinePassengerName;
   }
 
-
- /**
-  * The passenger&#39;s name, initials, and title. * Format: last name + first name or initials + title * Example: *FLYER / MARY MS* * minLength: 1 character * maxLength: 20 characters * If you send more than 20 characters, the name is truncated * Must not be all spaces  *Must not be all zeros.
-  *
-  * @param airlinePassengerName
-  */ 
+  /**
+   * The passenger&#39;s name, initials, and title. * Format: last name + first name or initials + title * Example: *FLYER / MARY MS* * minLength: 1 character * maxLength: 20 characters * If you send more than 20 characters, the name is truncated * Must not be all spaces  *Must not be all zeros.
+   *
+   * @param airlinePassengerName
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerName(String airlinePassengerName) {
     this.airlinePassengerName = airlinePassengerName;
   }
 
-
+  /**
+   * The address of the organization that issued the ticket. * minLength: 0 characters * maxLength: 16 characters
+   *
+   * @param airlineTicketIssueAddress
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineTicketIssueAddress(String airlineTicketIssueAddress) {
     this.airlineTicketIssueAddress = airlineTicketIssueAddress;
     return this;
   }
 
-   /**
+  /**
    * The address of the organization that issued the ticket. * minLength: 0 characters * maxLength: 16 characters
    * @return airlineTicketIssueAddress
-  **/
+   */
   @ApiModelProperty(value = "The address of the organization that issued the ticket. * minLength: 0 characters * maxLength: 16 characters")
   @JsonProperty(JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineTicketIssueAddress() {
     return airlineTicketIssueAddress;
   }
 
-
- /**
-  * The address of the organization that issued the ticket. * minLength: 0 characters * maxLength: 16 characters
-  *
-  * @param airlineTicketIssueAddress
-  */ 
+  /**
+   * The address of the organization that issued the ticket. * minLength: 0 characters * maxLength: 16 characters
+   *
+   * @param airlineTicketIssueAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTicketIssueAddress(String airlineTicketIssueAddress) {
     this.airlineTicketIssueAddress = airlineTicketIssueAddress;
   }
 
-
+  /**
+   * The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineTicketNumber
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineTicketNumber(String airlineTicketNumber) {
     this.airlineTicketNumber = airlineTicketNumber;
     return this;
   }
 
-   /**
+  /**
    * The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineTicketNumber
-  **/
+   */
   @ApiModelProperty(value = "The ticket's unique identifier. * minLength: 1 character * maxLength: 15 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_TICKET_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineTicketNumber() {
     return airlineTicketNumber;
   }
 
-
- /**
-  * The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineTicketNumber
-  */ 
+  /**
+   * The ticket&#39;s unique identifier. * minLength: 1 character * maxLength: 15 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineTicketNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_TICKET_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTicketNumber(String airlineTicketNumber) {
     this.airlineTicketNumber = airlineTicketNumber;
   }
 
-
+  /**
+   * The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineTravelAgencyCode
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineTravelAgencyCode(String airlineTravelAgencyCode) {
     this.airlineTravelAgencyCode = airlineTravelAgencyCode;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineTravelAgencyCode
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineTravelAgencyCode() {
     return airlineTravelAgencyCode;
   }
 
-
- /**
-  * The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineTravelAgencyCode
-  */ 
+  /**
+   * The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineTravelAgencyCode
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTravelAgencyCode(String airlineTravelAgencyCode) {
     this.airlineTravelAgencyCode = airlineTravelAgencyCode;
   }
 
-
+  /**
+   * The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineTravelAgencyName
+   * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
+   */
   public AdditionalDataAirline airlineTravelAgencyName(String airlineTravelAgencyName) {
     this.airlineTravelAgencyName = airlineTravelAgencyName;
     return this;
   }
 
-   /**
+  /**
    * The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not be all spaces *Must not be all zeros.
    * @return airlineTravelAgencyName
-  **/
+   */
   @ApiModelProperty(value = "The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not be all spaces *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAirlineTravelAgencyName() {
     return airlineTravelAgencyName;
   }
 
-
- /**
-  * The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not be all spaces *Must not be all zeros.
-  *
-  * @param airlineTravelAgencyName
-  */ 
+  /**
+   * The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not be all spaces *Must not be all zeros.
+   *
+   * @param airlineTravelAgencyName
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE_TRAVEL_AGENCY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlineTravelAgencyName(String airlineTravelAgencyName) {
     this.airlineTravelAgencyName = airlineTravelAgencyName;
   }
-
 
   /**
    * Return true if this AdditionalDataAirline object is equal to o.
@@ -1138,4 +1225,3 @@ public class AdditionalDataAirline {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

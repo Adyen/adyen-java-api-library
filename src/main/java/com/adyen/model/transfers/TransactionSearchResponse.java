@@ -49,36 +49,45 @@ public class TransactionSearchResponse {
   public TransactionSearchResponse() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code TransactionSearchResponse} instance, allowing for method chaining
+   */
   public TransactionSearchResponse links(Links links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Links getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
     this.links = links;
   }
 
-
+  /**
+   * Contains the transactions that match the query parameters.
+   *
+   * @param data
+   * @return the current {@code TransactionSearchResponse} instance, allowing for method chaining
+   */
   public TransactionSearchResponse data(List<Transaction> data) {
     this.data = data;
     return this;
@@ -92,30 +101,27 @@ public class TransactionSearchResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains the transactions that match the query parameters.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "Contains the transactions that match the query parameters.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Transaction> getData() {
     return data;
   }
 
-
- /**
-  * Contains the transactions that match the query parameters.
-  *
-  * @param data
-  */ 
+  /**
+   * Contains the transactions that match the query parameters.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Transaction> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this TransactionSearchResponse object is equal to o.
@@ -178,4 +184,3 @@ public class TransactionSearchResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

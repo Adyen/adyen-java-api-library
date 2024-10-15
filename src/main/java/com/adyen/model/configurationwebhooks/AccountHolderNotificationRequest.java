@@ -85,95 +85,104 @@ public class AccountHolderNotificationRequest {
   public AccountHolderNotificationRequest() { 
   }
 
+  /**
+   * data
+   *
+   * @param data
+   * @return the current {@code AccountHolderNotificationRequest} instance, allowing for method chaining
+   */
   public AccountHolderNotificationRequest data(AccountHolderNotificationData data) {
     this.data = data;
     return this;
   }
 
-   /**
-   * Get data
+  /**
+   * data
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AccountHolderNotificationData getData() {
     return data;
   }
 
-
- /**
-  * data
-  *
-  * @param data
-  */ 
+  /**
+   * data
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(AccountHolderNotificationData data) {
     this.data = data;
   }
 
-
+  /**
+   * The environment from which the webhook originated.  Possible values: **test**, **live**.
+   *
+   * @param environment
+   * @return the current {@code AccountHolderNotificationRequest} instance, allowing for method chaining
+   */
   public AccountHolderNotificationRequest environment(String environment) {
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return environment
-  **/
+   */
   @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEnvironment() {
     return environment;
   }
 
-
- /**
-  * The environment from which the webhook originated.  Possible values: **test**, **live**.
-  *
-  * @param environment
-  */ 
+  /**
+   * The environment from which the webhook originated.  Possible values: **test**, **live**.
+   *
+   * @param environment
+   */ 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }
 
-
+  /**
+   * Type of webhook.
+   *
+   * @param type
+   * @return the current {@code AccountHolderNotificationRequest} instance, allowing for method chaining
+   */
   public AccountHolderNotificationRequest type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Type of webhook.
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "Type of webhook.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * Type of webhook.
-  *
-  * @param type
-  */ 
+  /**
+   * Type of webhook.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this AccountHolderNotificationRequest object is equal to o.
@@ -238,4 +247,3 @@ public class AccountHolderNotificationRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -51,66 +51,78 @@ public class GeneratePciDescriptionResponse {
   public GeneratePciDescriptionResponse() { 
   }
 
+  /**
+   * The generated questionnaires in a base64 encoded format.
+   *
+   * @param content
+   * @return the current {@code GeneratePciDescriptionResponse} instance, allowing for method chaining
+   */
   public GeneratePciDescriptionResponse content(byte[] content) {
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The generated questionnaires in a base64 encoded format.
    * @return content
-  **/
+   */
   @ApiModelProperty(value = "The generated questionnaires in a base64 encoded format.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public byte[] getContent() {
     return content;
   }
 
-
- /**
-  * The generated questionnaires in a base64 encoded format.
-  *
-  * @param content
-  */ 
+  /**
+   * The generated questionnaires in a base64 encoded format.
+   *
+   * @param content
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
     this.content = content;
   }
 
-
+  /**
+   * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
+   *
+   * @param language
+   * @return the current {@code GeneratePciDescriptionResponse} instance, allowing for method chaining
+   */
   public GeneratePciDescriptionResponse language(String language) {
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
    * @return language
-  **/
+   */
   @ApiModelProperty(value = "The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLanguage() {
     return language;
   }
 
-
- /**
-  * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
-  *
-  * @param language
-  */ 
+  /**
+   * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
+   *
+   * @param language
+   */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
   }
 
-
+  /**
+   * The array of Adyen-generated unique identifiers for the questionnaires.
+   *
+   * @param pciTemplateReferences
+   * @return the current {@code GeneratePciDescriptionResponse} instance, allowing for method chaining
+   */
   public GeneratePciDescriptionResponse pciTemplateReferences(List<String> pciTemplateReferences) {
     this.pciTemplateReferences = pciTemplateReferences;
     return this;
@@ -124,30 +136,27 @@ public class GeneratePciDescriptionResponse {
     return this;
   }
 
-   /**
+  /**
    * The array of Adyen-generated unique identifiers for the questionnaires.
    * @return pciTemplateReferences
-  **/
+   */
   @ApiModelProperty(value = "The array of Adyen-generated unique identifiers for the questionnaires.")
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getPciTemplateReferences() {
     return pciTemplateReferences;
   }
 
-
- /**
-  * The array of Adyen-generated unique identifiers for the questionnaires.
-  *
-  * @param pciTemplateReferences
-  */ 
+  /**
+   * The array of Adyen-generated unique identifiers for the questionnaires.
+   *
+   * @param pciTemplateReferences
+   */ 
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciTemplateReferences(List<String> pciTemplateReferences) {
     this.pciTemplateReferences = pciTemplateReferences;
   }
-
 
   /**
    * Return true if this GeneratePciDescriptionResponse object is equal to o.
@@ -212,4 +221,3 @@ public class GeneratePciDescriptionResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

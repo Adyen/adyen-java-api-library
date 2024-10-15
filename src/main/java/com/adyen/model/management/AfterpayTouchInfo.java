@@ -41,35 +41,38 @@ public class AfterpayTouchInfo {
   public AfterpayTouchInfo() { 
   }
 
+  /**
+   * Support Url
+   *
+   * @param supportUrl
+   * @return the current {@code AfterpayTouchInfo} instance, allowing for method chaining
+   */
   public AfterpayTouchInfo supportUrl(String supportUrl) {
     this.supportUrl = supportUrl;
     return this;
   }
 
-   /**
+  /**
    * Support Url
    * @return supportUrl
-  **/
+   */
   @ApiModelProperty(required = true, value = "Support Url")
   @JsonProperty(JSON_PROPERTY_SUPPORT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSupportUrl() {
     return supportUrl;
   }
 
-
- /**
-  * Support Url
-  *
-  * @param supportUrl
-  */ 
+  /**
+   * Support Url
+   *
+   * @param supportUrl
+   */ 
   @JsonProperty(JSON_PROPERTY_SUPPORT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportUrl(String supportUrl) {
     this.supportUrl = supportUrl;
   }
-
 
   /**
    * Return true if this AfterpayTouchInfo object is equal to o.
@@ -130,4 +133,3 @@ public class AfterpayTouchInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

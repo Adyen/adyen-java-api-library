@@ -45,65 +45,71 @@ public class RevealPinResponse {
   public RevealPinResponse() { 
   }
 
+  /**
+   * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
+   *
+   * @param encryptedPinBlock
+   * @return the current {@code RevealPinResponse} instance, allowing for method chaining
+   */
   public RevealPinResponse encryptedPinBlock(String encryptedPinBlock) {
     this.encryptedPinBlock = encryptedPinBlock;
     return this;
   }
 
-   /**
+  /**
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    * @return encryptedPinBlock
-  **/
+   */
   @ApiModelProperty(required = true, value = "The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEncryptedPinBlock() {
     return encryptedPinBlock;
   }
 
-
- /**
-  * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
-  *
-  * @param encryptedPinBlock
-  */ 
+  /**
+   * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
+   *
+   * @param encryptedPinBlock
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedPinBlock(String encryptedPinBlock) {
     this.encryptedPinBlock = encryptedPinBlock;
   }
 
-
+  /**
+   * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
+   *
+   * @param token
+   * @return the current {@code RevealPinResponse} instance, allowing for method chaining
+   */
   public RevealPinResponse token(String token) {
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    * @return token
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 16-digit token that you need to extract the `encryptedPinBlock`.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToken() {
     return token;
   }
 
-
- /**
-  * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
-  *
-  * @param token
-  */ 
+  /**
+   * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
+   *
+   * @param token
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
   }
-
 
   /**
    * Return true if this RevealPinResponse object is equal to o.
@@ -166,4 +172,3 @@ public class RevealPinResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

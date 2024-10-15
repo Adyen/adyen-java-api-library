@@ -84,65 +84,71 @@ public class StringMatch {
   public StringMatch() { 
   }
 
+  /**
+   * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
+   *
+   * @param operation
+   * @return the current {@code StringMatch} instance, allowing for method chaining
+   */
   public StringMatch operation(OperationEnum operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    * @return operation
-  **/
+   */
   @ApiModelProperty(value = "The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OperationEnum getOperation() {
     return operation;
   }
 
-
- /**
-  * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
-  *
-  * @param operation
-  */ 
+  /**
+   * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(OperationEnum operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * The string to be matched.
+   *
+   * @param value
+   * @return the current {@code StringMatch} instance, allowing for method chaining
+   */
   public StringMatch value(String value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The string to be matched.
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "The string to be matched.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getValue() {
     return value;
   }
 
-
- /**
-  * The string to be matched.
-  *
-  * @param value
-  */ 
+  /**
+   * The string to be matched.
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this StringMatch object is equal to o.
@@ -205,4 +211,3 @@ public class StringMatch {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -99,6 +99,12 @@ public class ModificationResult {
   public ModificationResult() { 
   }
 
+  /**
+   * This field contains additional data, which may be returned in a particular modification response.
+   *
+   * @param additionalData
+   * @return the current {@code ModificationResult} instance, allowing for method chaining
+   */
   public ModificationResult additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -112,90 +118,93 @@ public class ModificationResult {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be returned in a particular modification response.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular modification response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be returned in a particular modification response.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be returned in a particular modification response.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   * @return the current {@code ModificationResult} instance, allowing for method chaining
+   */
   public ModificationResult pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * Indicates if the modification request has been received for processing.
+   *
+   * @param response
+   * @return the current {@code ModificationResult} instance, allowing for method chaining
+   */
   public ModificationResult response(ResponseEnum response) {
     this.response = response;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the modification request has been received for processing.
    * @return response
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates if the modification request has been received for processing.")
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResponseEnum getResponse() {
     return response;
   }
 
-
- /**
-  * Indicates if the modification request has been received for processing.
-  *
-  * @param response
-  */ 
+  /**
+   * Indicates if the modification request has been received for processing.
+   *
+   * @param response
+   */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(ResponseEnum response) {
     this.response = response;
   }
-
 
   /**
    * Return true if this ModificationResult object is equal to o.
@@ -260,4 +269,3 @@ public class ModificationResult {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

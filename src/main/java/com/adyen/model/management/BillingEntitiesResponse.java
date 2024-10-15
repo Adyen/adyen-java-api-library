@@ -44,6 +44,12 @@ public class BillingEntitiesResponse {
   public BillingEntitiesResponse() { 
   }
 
+  /**
+   * List of legal entities that can be used for the billing of orders.
+   *
+   * @param data
+   * @return the current {@code BillingEntitiesResponse} instance, allowing for method chaining
+   */
   public BillingEntitiesResponse data(List<BillingEntity> data) {
     this.data = data;
     return this;
@@ -57,30 +63,27 @@ public class BillingEntitiesResponse {
     return this;
   }
 
-   /**
+  /**
    * List of legal entities that can be used for the billing of orders.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "List of legal entities that can be used for the billing of orders.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<BillingEntity> getData() {
     return data;
   }
 
-
- /**
-  * List of legal entities that can be used for the billing of orders.
-  *
-  * @param data
-  */ 
+  /**
+   * List of legal entities that can be used for the billing of orders.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<BillingEntity> data) {
     this.data = data;
   }
-
 
   /**
    * Return true if this BillingEntitiesResponse object is equal to o.
@@ -141,4 +144,3 @@ public class BillingEntitiesResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

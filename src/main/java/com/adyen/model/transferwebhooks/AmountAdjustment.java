@@ -89,95 +89,104 @@ public class AmountAdjustment {
   public AmountAdjustment() { 
   }
 
+  /**
+   * amount
+   *
+   * @param amount
+   * @return the current {@code AmountAdjustment} instance, allowing for method chaining
+   */
   public AmountAdjustment amount(Amount amount) {
     this.amount = amount;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * amount
    * @return amount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getAmount() {
     return amount;
   }
 
-
- /**
-  * amount
-  *
-  * @param amount
-  */ 
+  /**
+   * amount
+   *
+   * @param amount
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
-
+  /**
+   * The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
+   *
+   * @param amountAdjustmentType
+   * @return the current {@code AmountAdjustment} instance, allowing for method chaining
+   */
   public AmountAdjustment amountAdjustmentType(AmountAdjustmentTypeEnum amountAdjustmentType) {
     this.amountAdjustmentType = amountAdjustmentType;
     return this;
   }
 
-   /**
+  /**
    * The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
    * @return amountAdjustmentType
-  **/
+   */
   @ApiModelProperty(value = "The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AmountAdjustmentTypeEnum getAmountAdjustmentType() {
     return amountAdjustmentType;
   }
 
-
- /**
-  * The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
-  *
-  * @param amountAdjustmentType
-  */ 
+  /**
+   * The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
+   *
+   * @param amountAdjustmentType
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountAdjustmentType(AmountAdjustmentTypeEnum amountAdjustmentType) {
     this.amountAdjustmentType = amountAdjustmentType;
   }
 
-
+  /**
+   * The basepoints associated with the applied markup.
+   *
+   * @param basepoints
+   * @return the current {@code AmountAdjustment} instance, allowing for method chaining
+   */
   public AmountAdjustment basepoints(Integer basepoints) {
     this.basepoints = basepoints;
     return this;
   }
 
-   /**
+  /**
    * The basepoints associated with the applied markup.
    * @return basepoints
-  **/
+   */
   @ApiModelProperty(value = "The basepoints associated with the applied markup.")
   @JsonProperty(JSON_PROPERTY_BASEPOINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getBasepoints() {
     return basepoints;
   }
 
-
- /**
-  * The basepoints associated with the applied markup.
-  *
-  * @param basepoints
-  */ 
+  /**
+   * The basepoints associated with the applied markup.
+   *
+   * @param basepoints
+   */ 
   @JsonProperty(JSON_PROPERTY_BASEPOINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasepoints(Integer basepoints) {
     this.basepoints = basepoints;
   }
-
 
   /**
    * Return true if this AmountAdjustment object is equal to o.
@@ -242,4 +251,3 @@ public class AmountAdjustment {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

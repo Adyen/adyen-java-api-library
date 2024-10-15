@@ -57,36 +57,45 @@ public class ListTerminalsResponse {
   public ListTerminalsResponse() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code ListTerminalsResponse} instance, allowing for method chaining
+   */
   public ListTerminalsResponse links(PaginationLinks links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaginationLinks getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
     this.links = links;
   }
 
-
+  /**
+   * The list of terminals and their details.
+   *
+   * @param data
+   * @return the current {@code ListTerminalsResponse} instance, allowing for method chaining
+   */
   public ListTerminalsResponse data(List<Terminal> data) {
     this.data = data;
     return this;
@@ -100,90 +109,93 @@ public class ListTerminalsResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of terminals and their details.
    * @return data
-  **/
+   */
   @ApiModelProperty(value = "The list of terminals and their details.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Terminal> getData() {
     return data;
   }
 
-
- /**
-  * The list of terminals and their details.
-  *
-  * @param data
-  */ 
+  /**
+   * The list of terminals and their details.
+   *
+   * @param data
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Terminal> data) {
     this.data = data;
   }
 
-
+  /**
+   * Total number of items.
+   *
+   * @param itemsTotal
+   * @return the current {@code ListTerminalsResponse} instance, allowing for method chaining
+   */
   public ListTerminalsResponse itemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
     return this;
   }
 
-   /**
+  /**
    * Total number of items.
    * @return itemsTotal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total number of items.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getItemsTotal() {
     return itemsTotal;
   }
 
-
- /**
-  * Total number of items.
-  *
-  * @param itemsTotal
-  */ 
+  /**
+   * Total number of items.
+   *
+   * @param itemsTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
 
-
+  /**
+   * Total number of pages.
+   *
+   * @param pagesTotal
+   * @return the current {@code ListTerminalsResponse} instance, allowing for method chaining
+   */
   public ListTerminalsResponse pagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
     return this;
   }
 
-   /**
+  /**
    * Total number of pages.
    * @return pagesTotal
-  **/
+   */
   @ApiModelProperty(required = true, value = "Total number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getPagesTotal() {
     return pagesTotal;
   }
 
-
- /**
-  * Total number of pages.
-  *
-  * @param pagesTotal
-  */ 
+  /**
+   * Total number of pages.
+   *
+   * @param pagesTotal
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }
-
 
   /**
    * Return true if this ListTerminalsResponse object is equal to o.
@@ -250,4 +262,3 @@ public class ListTerminalsResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

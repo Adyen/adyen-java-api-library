@@ -41,35 +41,38 @@ public class ResponseAdditionalDataOpi {
   public ResponseAdditionalDataOpi() { 
   }
 
+  /**
+   * Returned in the response if you included &#x60;opi.includeTransToken: true&#x60; in an ecommerce payment request. This contains an Oracle Payment Interface token that you can store in your Oracle Opera database to identify tokenized ecommerce transactions. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
+   *
+   * @param opiTransToken
+   * @return the current {@code ResponseAdditionalDataOpi} instance, allowing for method chaining
+   */
   public ResponseAdditionalDataOpi opiTransToken(String opiTransToken) {
     this.opiTransToken = opiTransToken;
     return this;
   }
 
-   /**
+  /**
    * Returned in the response if you included &#x60;opi.includeTransToken: true&#x60; in an ecommerce payment request. This contains an Oracle Payment Interface token that you can store in your Oracle Opera database to identify tokenized ecommerce transactions. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
    * @return opiTransToken
-  **/
+   */
   @ApiModelProperty(value = "Returned in the response if you included `opi.includeTransToken: true` in an ecommerce payment request. This contains an Oracle Payment Interface token that you can store in your Oracle Opera database to identify tokenized ecommerce transactions. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).")
   @JsonProperty(JSON_PROPERTY_OPI_TRANS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOpiTransToken() {
     return opiTransToken;
   }
 
-
- /**
-  * Returned in the response if you included &#x60;opi.includeTransToken: true&#x60; in an ecommerce payment request. This contains an Oracle Payment Interface token that you can store in your Oracle Opera database to identify tokenized ecommerce transactions. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
-  *
-  * @param opiTransToken
-  */ 
+  /**
+   * Returned in the response if you included &#x60;opi.includeTransToken: true&#x60; in an ecommerce payment request. This contains an Oracle Payment Interface token that you can store in your Oracle Opera database to identify tokenized ecommerce transactions. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
+   *
+   * @param opiTransToken
+   */ 
   @JsonProperty(JSON_PROPERTY_OPI_TRANS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpiTransToken(String opiTransToken) {
     this.opiTransToken = opiTransToken;
   }
-
 
   /**
    * Return true if this ResponseAdditionalDataOpi object is equal to o.
@@ -130,4 +133,3 @@ public class ResponseAdditionalDataOpi {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

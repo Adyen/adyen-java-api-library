@@ -57,36 +57,45 @@ public class RecurringDetailsResult {
   public RecurringDetailsResult() { 
   }
 
+  /**
+   * The date when the recurring details were created.
+   *
+   * @param creationDate
+   * @return the current {@code RecurringDetailsResult} instance, allowing for method chaining
+   */
   public RecurringDetailsResult creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     return this;
   }
 
-   /**
+  /**
    * The date when the recurring details were created.
    * @return creationDate
-  **/
+   */
   @ApiModelProperty(value = "The date when the recurring details were created.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
-
- /**
-  * The date when the recurring details were created.
-  *
-  * @param creationDate
-  */ 
+  /**
+   * The date when the recurring details were created.
+   *
+   * @param creationDate
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
-
+  /**
+   * Payment details stored for recurring payments.
+   *
+   * @param details
+   * @return the current {@code RecurringDetailsResult} instance, allowing for method chaining
+   */
   public RecurringDetailsResult details(List<RecurringDetailWrapper> details) {
     this.details = details;
     return this;
@@ -100,90 +109,93 @@ public class RecurringDetailsResult {
     return this;
   }
 
-   /**
+  /**
    * Payment details stored for recurring payments.
    * @return details
-  **/
+   */
   @ApiModelProperty(value = "Payment details stored for recurring payments.")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<RecurringDetailWrapper> getDetails() {
     return details;
   }
 
-
- /**
-  * Payment details stored for recurring payments.
-  *
-  * @param details
-  */ 
+  /**
+   * Payment details stored for recurring payments.
+   *
+   * @param details
+   */ 
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(List<RecurringDetailWrapper> details) {
     this.details = details;
   }
 
-
+  /**
+   * The most recent email for this shopper (if available).
+   *
+   * @param lastKnownShopperEmail
+   * @return the current {@code RecurringDetailsResult} instance, allowing for method chaining
+   */
   public RecurringDetailsResult lastKnownShopperEmail(String lastKnownShopperEmail) {
     this.lastKnownShopperEmail = lastKnownShopperEmail;
     return this;
   }
 
-   /**
+  /**
    * The most recent email for this shopper (if available).
    * @return lastKnownShopperEmail
-  **/
+   */
   @ApiModelProperty(value = "The most recent email for this shopper (if available).")
   @JsonProperty(JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLastKnownShopperEmail() {
     return lastKnownShopperEmail;
   }
 
-
- /**
-  * The most recent email for this shopper (if available).
-  *
-  * @param lastKnownShopperEmail
-  */ 
+  /**
+   * The most recent email for this shopper (if available).
+   *
+   * @param lastKnownShopperEmail
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastKnownShopperEmail(String lastKnownShopperEmail) {
     this.lastKnownShopperEmail = lastKnownShopperEmail;
   }
 
-
+  /**
+   * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
+   *
+   * @param shopperReference
+   * @return the current {@code RecurringDetailsResult} instance, allowing for method chaining
+   */
   public RecurringDetailsResult shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
 
-   /**
+  /**
    * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
    * @return shopperReference
-  **/
+   */
   @ApiModelProperty(value = "The reference you use to uniquely identify the shopper (e.g. user ID or account ID).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperReference() {
     return shopperReference;
   }
 
-
- /**
-  * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
-  *
-  * @param shopperReference
-  */ 
+  /**
+   * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
+   *
+   * @param shopperReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
-
 
   /**
    * Return true if this RecurringDetailsResult object is equal to o.
@@ -250,4 +262,3 @@ public class RecurringDetailsResult {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

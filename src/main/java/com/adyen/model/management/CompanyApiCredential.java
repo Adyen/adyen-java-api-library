@@ -81,66 +81,78 @@ public class CompanyApiCredential {
   public CompanyApiCredential() { 
   }
 
+  /**
+   * links
+   *
+   * @param links
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential links(ApiCredentialLinks links) {
     this.links = links;
     return this;
   }
 
-   /**
-   * Get links
+  /**
+   * links
    * @return links
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApiCredentialLinks getLinks() {
     return links;
   }
 
-
- /**
-  * links
-  *
-  * @param links
-  */ 
+  /**
+   * links
+   *
+   * @param links
+   */ 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(ApiCredentialLinks links) {
     this.links = links;
   }
 
-
+  /**
+   * Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.
+   *
+   * @param active
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential active(Boolean active) {
     this.active = active;
     return this;
   }
 
-   /**
+  /**
    * Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.
    * @return active
-  **/
+   */
   @ApiModelProperty(required = true, value = "Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getActive() {
     return active;
   }
 
-
- /**
-  * Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.
-  *
-  * @param active
-  */ 
+  /**
+   * Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.
+   *
+   * @param active
+   */ 
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
 
-
+  /**
+   * List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.
+   *
+   * @param allowedIpAddresses
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential allowedIpAddresses(List<String> allowedIpAddresses) {
     this.allowedIpAddresses = allowedIpAddresses;
     return this;
@@ -151,31 +163,34 @@ public class CompanyApiCredential {
     return this;
   }
 
-   /**
+  /**
    * List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.
    * @return allowedIpAddresses
-  **/
+   */
   @ApiModelProperty(required = true, value = "List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getAllowedIpAddresses() {
     return allowedIpAddresses;
   }
 
-
- /**
-  * List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.
-  *
-  * @param allowedIpAddresses
-  */ 
+  /**
+   * List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.
+   *
+   * @param allowedIpAddresses
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedIpAddresses(List<String> allowedIpAddresses) {
     this.allowedIpAddresses = allowedIpAddresses;
   }
 
-
+  /**
+   * List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.
+   *
+   * @param allowedOrigins
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential allowedOrigins(List<AllowedOrigin> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
     return this;
@@ -189,31 +204,34 @@ public class CompanyApiCredential {
     return this;
   }
 
-   /**
+  /**
    * List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.
    * @return allowedOrigins
-  **/
+   */
   @ApiModelProperty(value = "List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AllowedOrigin> getAllowedOrigins() {
     return allowedOrigins;
   }
 
-
- /**
-  * List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.
-  *
-  * @param allowedOrigins
-  */ 
+  /**
+   * List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.
+   *
+   * @param allowedOrigins
+   */ 
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<AllowedOrigin> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
   }
 
-
+  /**
+   * List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.
+   *
+   * @param associatedMerchantAccounts
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential associatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
     return this;
@@ -227,121 +245,133 @@ public class CompanyApiCredential {
     return this;
   }
 
-   /**
+  /**
    * List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.
    * @return associatedMerchantAccounts
-  **/
+   */
   @ApiModelProperty(value = "List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.")
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getAssociatedMerchantAccounts() {
     return associatedMerchantAccounts;
   }
 
-
- /**
-  * List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.
-  *
-  * @param associatedMerchantAccounts
-  */ 
+  /**
+   * List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.
+   *
+   * @param associatedMerchantAccounts
+   */ 
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
   }
 
-
+  /**
+   * Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.
+   *
+   * @param clientKey
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential clientKey(String clientKey) {
     this.clientKey = clientKey;
     return this;
   }
 
-   /**
+  /**
    * Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.
    * @return clientKey
-  **/
+   */
   @ApiModelProperty(required = true, value = "Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.")
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getClientKey() {
     return clientKey;
   }
 
-
- /**
-  * Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.
-  *
-  * @param clientKey
-  */ 
+  /**
+   * Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.
+   *
+   * @param clientKey
+   */ 
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {
     this.clientKey = clientKey;
   }
 
-
+  /**
+   * Description of the API credential.
+   *
+   * @param description
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the API credential.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Description of the API credential.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Description of the API credential.
-  *
-  * @param description
-  */ 
+  /**
+   * Description of the API credential.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * Unique identifier of the API credential.
+   *
+   * @param id
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the API credential.
    * @return id
-  **/
+   */
   @ApiModelProperty(required = true, value = "Unique identifier of the API credential.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * Unique identifier of the API credential.
-  *
-  * @param id
-  */ 
+  /**
+   * Unique identifier of the API credential.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
+   *
+   * @param roles
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential roles(List<String> roles) {
     this.roles = roles;
     return this;
@@ -352,60 +382,60 @@ public class CompanyApiCredential {
     return this;
   }
 
-   /**
+  /**
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
    * @return roles
-  **/
+   */
   @ApiModelProperty(required = true, value = "List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getRoles() {
     return roles;
   }
 
-
- /**
-  * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
-  *
-  * @param roles
-  */ 
+  /**
+   * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
+   *
+   * @param roles
+   */ 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
 
-
+  /**
+   * The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.
+   *
+   * @param username
+   * @return the current {@code CompanyApiCredential} instance, allowing for method chaining
+   */
   public CompanyApiCredential username(String username) {
     this.username = username;
     return this;
   }
 
-   /**
+  /**
    * The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.
    * @return username
-  **/
+   */
   @ApiModelProperty(required = true, value = "The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUsername() {
     return username;
   }
 
-
- /**
-  * The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.
-  *
-  * @param username
-  */ 
+  /**
+   * The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.
+   *
+   * @param username
+   */ 
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }
-
 
   /**
    * Return true if this CompanyApiCredential object is equal to o.
@@ -484,4 +514,3 @@ public class CompanyApiCredential {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

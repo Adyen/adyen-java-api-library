@@ -86,65 +86,71 @@ public class TerminalConnectivityCellular {
   public TerminalConnectivityCellular() { 
   }
 
+  /**
+   * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+   *
+   * @param iccid
+   * @return the current {@code TerminalConnectivityCellular} instance, allowing for method chaining
+   */
   public TerminalConnectivityCellular iccid(String iccid) {
     this.iccid = iccid;
     return this;
   }
 
-   /**
+  /**
    * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
    * @return iccid
-  **/
+   */
   @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the SIM card in the terminal.")
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIccid() {
     return iccid;
   }
 
-
- /**
-  * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
-  *
-  * @param iccid
-  */ 
+  /**
+   * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+   *
+   * @param iccid
+   */ 
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid(String iccid) {
     this.iccid = iccid;
   }
 
-
+  /**
+   * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
+   *
+   * @param status
+   * @return the current {@code TerminalConnectivityCellular} instance, allowing for method chaining
+   */
   public TerminalConnectivityCellular status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
    * @return status
-  **/
+   */
   @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
-  *
-  * @param status
-  */ 
+  /**
+   * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this TerminalConnectivityCellular object is equal to o.
@@ -207,4 +213,3 @@ public class TerminalConnectivityCellular {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

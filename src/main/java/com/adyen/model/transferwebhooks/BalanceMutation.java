@@ -53,125 +53,137 @@ public class BalanceMutation {
   public BalanceMutation() { 
   }
 
+  /**
+   * The amount in the payment&#39;s currency that is debited or credited on the balance accounting register.
+   *
+   * @param balance
+   * @return the current {@code BalanceMutation} instance, allowing for method chaining
+   */
   public BalanceMutation balance(Long balance) {
     this.balance = balance;
     return this;
   }
 
-   /**
+  /**
    * The amount in the payment&#39;s currency that is debited or credited on the balance accounting register.
    * @return balance
-  **/
+   */
   @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the balance accounting register.")
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getBalance() {
     return balance;
   }
 
-
- /**
-  * The amount in the payment&#39;s currency that is debited or credited on the balance accounting register.
-  *
-  * @param balance
-  */ 
+  /**
+   * The amount in the payment&#39;s currency that is debited or credited on the balance accounting register.
+   *
+   * @param balance
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
     this.balance = balance;
   }
 
-
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currency
+   * @return the current {@code BalanceMutation} instance, allowing for method chaining
+   */
   public BalanceMutation currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
-  **/
+   */
   @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param currency
-  */ 
+  /**
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * The amount in the payment&#39;s currency that is debited or credited on the received accounting register.
+   *
+   * @param received
+   * @return the current {@code BalanceMutation} instance, allowing for method chaining
+   */
   public BalanceMutation received(Long received) {
     this.received = received;
     return this;
   }
 
-   /**
+  /**
    * The amount in the payment&#39;s currency that is debited or credited on the received accounting register.
    * @return received
-  **/
+   */
   @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the received accounting register.")
   @JsonProperty(JSON_PROPERTY_RECEIVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getReceived() {
     return received;
   }
 
-
- /**
-  * The amount in the payment&#39;s currency that is debited or credited on the received accounting register.
-  *
-  * @param received
-  */ 
+  /**
+   * The amount in the payment&#39;s currency that is debited or credited on the received accounting register.
+   *
+   * @param received
+   */ 
   @JsonProperty(JSON_PROPERTY_RECEIVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceived(Long received) {
     this.received = received;
   }
 
-
+  /**
+   * The amount in the payment&#39;s currency that is debited or credited on the reserved accounting register.
+   *
+   * @param reserved
+   * @return the current {@code BalanceMutation} instance, allowing for method chaining
+   */
   public BalanceMutation reserved(Long reserved) {
     this.reserved = reserved;
     return this;
   }
 
-   /**
+  /**
    * The amount in the payment&#39;s currency that is debited or credited on the reserved accounting register.
    * @return reserved
-  **/
+   */
   @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the reserved accounting register.")
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getReserved() {
     return reserved;
   }
 
-
- /**
-  * The amount in the payment&#39;s currency that is debited or credited on the reserved accounting register.
-  *
-  * @param reserved
-  */ 
+  /**
+   * The amount in the payment&#39;s currency that is debited or credited on the reserved accounting register.
+   *
+   * @param reserved
+   */ 
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {
     this.reserved = reserved;
   }
-
 
   /**
    * Return true if this BalanceMutation object is equal to o.
@@ -238,4 +250,3 @@ public class BalanceMutation {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

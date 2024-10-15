@@ -45,65 +45,71 @@ public class WeChatPayInfo {
   public WeChatPayInfo() { 
   }
 
+  /**
+   * The name of the contact person from merchant support.
+   *
+   * @param contactPersonName
+   * @return the current {@code WeChatPayInfo} instance, allowing for method chaining
+   */
   public WeChatPayInfo contactPersonName(String contactPersonName) {
     this.contactPersonName = contactPersonName;
     return this;
   }
 
-   /**
+  /**
    * The name of the contact person from merchant support.
    * @return contactPersonName
-  **/
+   */
   @ApiModelProperty(required = true, value = "The name of the contact person from merchant support.")
   @JsonProperty(JSON_PROPERTY_CONTACT_PERSON_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getContactPersonName() {
     return contactPersonName;
   }
 
-
- /**
-  * The name of the contact person from merchant support.
-  *
-  * @param contactPersonName
-  */ 
+  /**
+   * The name of the contact person from merchant support.
+   *
+   * @param contactPersonName
+   */ 
   @JsonProperty(JSON_PROPERTY_CONTACT_PERSON_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactPersonName(String contactPersonName) {
     this.contactPersonName = contactPersonName;
   }
 
-
+  /**
+   * The email address of merchant support.
+   *
+   * @param email
+   * @return the current {@code WeChatPayInfo} instance, allowing for method chaining
+   */
   public WeChatPayInfo email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email address of merchant support.
    * @return email
-  **/
+   */
   @ApiModelProperty(required = true, value = "The email address of merchant support.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
- /**
-  * The email address of merchant support.
-  *
-  * @param email
-  */ 
+  /**
+   * The email address of merchant support.
+   *
+   * @param email
+   */ 
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }
-
 
   /**
    * Return true if this WeChatPayInfo object is equal to o.
@@ -166,4 +172,3 @@ public class WeChatPayInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

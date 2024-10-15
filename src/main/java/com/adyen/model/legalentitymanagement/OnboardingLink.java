@@ -41,35 +41,38 @@ public class OnboardingLink {
   public OnboardingLink() { 
   }
 
+  /**
+   * The URL of the hosted onboarding page where you need to redirect your user. This URL expires after 4 minutes and can only be used once.  If the link expires, you need to create a new link.
+   *
+   * @param url
+   * @return the current {@code OnboardingLink} instance, allowing for method chaining
+   */
   public OnboardingLink url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * The URL of the hosted onboarding page where you need to redirect your user. This URL expires after 4 minutes and can only be used once.  If the link expires, you need to create a new link.
    * @return url
-  **/
+   */
   @ApiModelProperty(value = "The URL of the hosted onboarding page where you need to redirect your user. This URL expires after 4 minutes and can only be used once.  If the link expires, you need to create a new link.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
 
-
- /**
-  * The URL of the hosted onboarding page where you need to redirect your user. This URL expires after 4 minutes and can only be used once.  If the link expires, you need to create a new link.
-  *
-  * @param url
-  */ 
+  /**
+   * The URL of the hosted onboarding page where you need to redirect your user. This URL expires after 4 minutes and can only be used once.  If the link expires, you need to create a new link.
+   *
+   * @param url
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   /**
    * Return true if this OnboardingLink object is equal to o.
@@ -130,4 +133,3 @@ public class OnboardingLink {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

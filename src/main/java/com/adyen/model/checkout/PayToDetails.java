@@ -43,7 +43,7 @@ public class PayToDetails {
   private String checkoutAttemptId;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_SHOPPER_ACCOUNT_IDENTIFIER = "shopperAccountIdentifier";
@@ -91,62 +91,77 @@ public class PayToDetails {
   public PayToDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code PayToDetails} instance, allowing for method chaining
+   */
   public PayToDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code PayToDetails} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */
   @Deprecated
   public PayToDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated
-  **/
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,96 +169,104 @@ public class PayToDetails {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * The shopper&#39;s banking details or payId reference, used to complete payment.
+   *
+   * @param shopperAccountIdentifier
+   * @return the current {@code PayToDetails} instance, allowing for method chaining
+   */
   public PayToDetails shopperAccountIdentifier(String shopperAccountIdentifier) {
     this.shopperAccountIdentifier = shopperAccountIdentifier;
     return this;
   }
 
-   /**
+  /**
    * The shopper&#39;s banking details or payId reference, used to complete payment.
    * @return shopperAccountIdentifier
-  **/
+   */
   @ApiModelProperty(value = "The shopper's banking details or payId reference, used to complete payment.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_ACCOUNT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperAccountIdentifier() {
     return shopperAccountIdentifier;
   }
 
-
- /**
-  * The shopper&#39;s banking details or payId reference, used to complete payment.
-  *
-  * @param shopperAccountIdentifier
-  */ 
+  /**
+   * The shopper&#39;s banking details or payId reference, used to complete payment.
+   *
+   * @param shopperAccountIdentifier
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_ACCOUNT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperAccountIdentifier(String shopperAccountIdentifier) {
     this.shopperAccountIdentifier = shopperAccountIdentifier;
   }
 
-
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   * @return the current {@code PayToDetails} instance, allowing for method chaining
+   */
   public PayToDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
 
-   /**
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
-  **/
+   */
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param storedPaymentMethodId
-  */ 
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
-
+  /**
+   * **payto**
+   *
+   * @param type
+   * @return the current {@code PayToDetails} instance, allowing for method chaining
+   */
   public PayToDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **payto**
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "**payto**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **payto**
-  *
-  * @param type
-  */ 
+  /**
+   * **payto**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this PayToDetails object is equal to o.
@@ -312,4 +335,3 @@ public class PayToDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

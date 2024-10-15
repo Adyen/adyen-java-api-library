@@ -44,7 +44,7 @@ public class PayUUpiDetails {
   private String checkoutAttemptId;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE = "shopperNotificationReference";
@@ -95,62 +95,77 @@ public class PayUUpiDetails {
   public PayUUpiDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code PayUUpiDetails} instance, allowing for method chaining
+   */
   public PayUUpiDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   * @return the current {@code PayUUpiDetails} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */
   @Deprecated
   public PayUUpiDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
-   /**
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated
-  **/
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */
   @Deprecated
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param recurringDetailReference
-  */ 
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param recurringDetailReference
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   */ 
   @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,126 +173,137 @@ public class PayUUpiDetails {
     this.recurringDetailReference = recurringDetailReference;
   }
 
-
+  /**
+   * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
+   *
+   * @param shopperNotificationReference
+   * @return the current {@code PayUUpiDetails} instance, allowing for method chaining
+   */
   public PayUUpiDetails shopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
     return this;
   }
 
-   /**
+  /**
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    * @return shopperNotificationReference
-  **/
+   */
   @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getShopperNotificationReference() {
     return shopperNotificationReference;
   }
 
-
- /**
-  * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
-  *
-  * @param shopperNotificationReference
-  */ 
+  /**
+   * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
+   *
+   * @param shopperNotificationReference
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
   }
 
-
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   * @return the current {@code PayUUpiDetails} instance, allowing for method chaining
+   */
   public PayUUpiDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
 
-   /**
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
-  **/
+   */
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStoredPaymentMethodId() {
     return storedPaymentMethodId;
   }
 
-
- /**
-  * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-  *
-  * @param storedPaymentMethodId
-  */ 
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   *
+   * @param storedPaymentMethodId
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
   }
 
-
+  /**
+   * **payu_IN_upi**
+   *
+   * @param type
+   * @return the current {@code PayUUpiDetails} instance, allowing for method chaining
+   */
   public PayUUpiDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **payu_IN_upi**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**payu_IN_upi**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **payu_IN_upi**
-  *
-  * @param type
-  */ 
+  /**
+   * **payu_IN_upi**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
-
+  /**
+   * The virtual payment address for UPI.
+   *
+   * @param virtualPaymentAddress
+   * @return the current {@code PayUUpiDetails} instance, allowing for method chaining
+   */
   public PayUUpiDetails virtualPaymentAddress(String virtualPaymentAddress) {
     this.virtualPaymentAddress = virtualPaymentAddress;
     return this;
   }
 
-   /**
+  /**
    * The virtual payment address for UPI.
    * @return virtualPaymentAddress
-  **/
+   */
   @ApiModelProperty(value = "The virtual payment address for UPI.")
   @JsonProperty(JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVirtualPaymentAddress() {
     return virtualPaymentAddress;
   }
 
-
- /**
-  * The virtual payment address for UPI.
-  *
-  * @param virtualPaymentAddress
-  */ 
+  /**
+   * The virtual payment address for UPI.
+   *
+   * @param virtualPaymentAddress
+   */ 
   @JsonProperty(JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVirtualPaymentAddress(String virtualPaymentAddress) {
     this.virtualPaymentAddress = virtualPaymentAddress;
   }
-
 
   /**
    * Return true if this PayUUpiDetails object is equal to o.
@@ -348,4 +374,3 @@ public class PayUUpiDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

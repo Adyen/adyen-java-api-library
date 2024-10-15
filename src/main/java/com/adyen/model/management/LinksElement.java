@@ -41,35 +41,38 @@ public class LinksElement {
   public LinksElement() { 
   }
 
+  /**
+   * href
+   *
+   * @param href
+   * @return the current {@code LinksElement} instance, allowing for method chaining
+   */
   public LinksElement href(String href) {
     this.href = href;
     return this;
   }
 
-   /**
-   * Get href
+  /**
+   * href
    * @return href
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHref() {
     return href;
   }
 
-
- /**
-  * href
-  *
-  * @param href
-  */ 
+  /**
+   * href
+   *
+   * @param href
+   */ 
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHref(String href) {
     this.href = href;
   }
-
 
   /**
    * Return true if this LinksElement object is equal to o.
@@ -130,4 +133,3 @@ public class LinksElement {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

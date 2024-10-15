@@ -45,65 +45,71 @@ public class UndefinedBeneficiary {
   public UndefinedBeneficiary() { 
   }
 
+  /**
+   * The details of the undefined beneficiary.
+   *
+   * @param description
+   * @return the current {@code UndefinedBeneficiary} instance, allowing for method chaining
+   */
   public UndefinedBeneficiary description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * The details of the undefined beneficiary.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "The details of the undefined beneficiary.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * The details of the undefined beneficiary.
-  *
-  * @param description
-  */ 
+  /**
+   * The details of the undefined beneficiary.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * The reference of the undefined beneficiary.
+   *
+   * @param reference
+   * @return the current {@code UndefinedBeneficiary} instance, allowing for method chaining
+   */
   public UndefinedBeneficiary reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The reference of the undefined beneficiary.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "The reference of the undefined beneficiary.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * The reference of the undefined beneficiary.
-  *
-  * @param reference
-  */ 
+  /**
+   * The reference of the undefined beneficiary.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this UndefinedBeneficiary object is equal to o.
@@ -166,4 +172,3 @@ public class UndefinedBeneficiary {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

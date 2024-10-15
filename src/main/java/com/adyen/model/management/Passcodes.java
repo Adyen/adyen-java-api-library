@@ -53,125 +53,137 @@ public class Passcodes {
   public Passcodes() { 
   }
 
+  /**
+   * The passcode for the Admin menu and the Settings menu.
+   *
+   * @param adminMenuPin
+   * @return the current {@code Passcodes} instance, allowing for method chaining
+   */
   public Passcodes adminMenuPin(String adminMenuPin) {
     this.adminMenuPin = adminMenuPin;
     return this;
   }
 
-   /**
+  /**
    * The passcode for the Admin menu and the Settings menu.
    * @return adminMenuPin
-  **/
+   */
   @ApiModelProperty(value = "The passcode for the Admin menu and the Settings menu.")
   @JsonProperty(JSON_PROPERTY_ADMIN_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAdminMenuPin() {
     return adminMenuPin;
   }
 
-
- /**
-  * The passcode for the Admin menu and the Settings menu.
-  *
-  * @param adminMenuPin
-  */ 
+  /**
+   * The passcode for the Admin menu and the Settings menu.
+   *
+   * @param adminMenuPin
+   */ 
   @JsonProperty(JSON_PROPERTY_ADMIN_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdminMenuPin(String adminMenuPin) {
     this.adminMenuPin = adminMenuPin;
   }
 
-
+  /**
+   * The passcode for referenced and unreferenced refunds on standalone terminals.
+   *
+   * @param refundPin
+   * @return the current {@code Passcodes} instance, allowing for method chaining
+   */
   public Passcodes refundPin(String refundPin) {
     this.refundPin = refundPin;
     return this;
   }
 
-   /**
+  /**
    * The passcode for referenced and unreferenced refunds on standalone terminals.
    * @return refundPin
-  **/
+   */
   @ApiModelProperty(value = "The passcode for referenced and unreferenced refunds on standalone terminals.")
   @JsonProperty(JSON_PROPERTY_REFUND_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRefundPin() {
     return refundPin;
   }
 
-
- /**
-  * The passcode for referenced and unreferenced refunds on standalone terminals.
-  *
-  * @param refundPin
-  */ 
+  /**
+   * The passcode for referenced and unreferenced refunds on standalone terminals.
+   *
+   * @param refundPin
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUND_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefundPin(String refundPin) {
     this.refundPin = refundPin;
   }
 
-
+  /**
+   * The passcode to unlock the terminal screen after a timeout.
+   *
+   * @param screenLockPin
+   * @return the current {@code Passcodes} instance, allowing for method chaining
+   */
   public Passcodes screenLockPin(String screenLockPin) {
     this.screenLockPin = screenLockPin;
     return this;
   }
 
-   /**
+  /**
    * The passcode to unlock the terminal screen after a timeout.
    * @return screenLockPin
-  **/
+   */
   @ApiModelProperty(value = "The passcode to unlock the terminal screen after a timeout.")
   @JsonProperty(JSON_PROPERTY_SCREEN_LOCK_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getScreenLockPin() {
     return screenLockPin;
   }
 
-
- /**
-  * The passcode to unlock the terminal screen after a timeout.
-  *
-  * @param screenLockPin
-  */ 
+  /**
+   * The passcode to unlock the terminal screen after a timeout.
+   *
+   * @param screenLockPin
+   */ 
   @JsonProperty(JSON_PROPERTY_SCREEN_LOCK_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenLockPin(String screenLockPin) {
     this.screenLockPin = screenLockPin;
   }
 
-
+  /**
+   * The passcode for the Transactions menu.
+   *
+   * @param txMenuPin
+   * @return the current {@code Passcodes} instance, allowing for method chaining
+   */
   public Passcodes txMenuPin(String txMenuPin) {
     this.txMenuPin = txMenuPin;
     return this;
   }
 
-   /**
+  /**
    * The passcode for the Transactions menu.
    * @return txMenuPin
-  **/
+   */
   @ApiModelProperty(value = "The passcode for the Transactions menu.")
   @JsonProperty(JSON_PROPERTY_TX_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTxMenuPin() {
     return txMenuPin;
   }
 
-
- /**
-  * The passcode for the Transactions menu.
-  *
-  * @param txMenuPin
-  */ 
+  /**
+   * The passcode for the Transactions menu.
+   *
+   * @param txMenuPin
+   */ 
   @JsonProperty(JSON_PROPERTY_TX_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxMenuPin(String txMenuPin) {
     this.txMenuPin = txMenuPin;
   }
-
 
   /**
    * Return true if this Passcodes object is equal to o.
@@ -238,4 +250,3 @@ public class Passcodes {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

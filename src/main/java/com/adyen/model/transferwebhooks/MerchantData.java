@@ -58,155 +58,170 @@ public class MerchantData {
   public MerchantData() { 
   }
 
+  /**
+   * The unique identifier of the merchant&#39;s acquirer.
+   *
+   * @param acquirerId
+   * @return the current {@code MerchantData} instance, allowing for method chaining
+   */
   public MerchantData acquirerId(String acquirerId) {
     this.acquirerId = acquirerId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the merchant&#39;s acquirer.
    * @return acquirerId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the merchant's acquirer.")
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAcquirerId() {
     return acquirerId;
   }
 
-
- /**
-  * The unique identifier of the merchant&#39;s acquirer.
-  *
-  * @param acquirerId
-  */ 
+  /**
+   * The unique identifier of the merchant&#39;s acquirer.
+   *
+   * @param acquirerId
+   */ 
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerId(String acquirerId) {
     this.acquirerId = acquirerId;
   }
 
-
+  /**
+   * The merchant category code.
+   *
+   * @param mcc
+   * @return the current {@code MerchantData} instance, allowing for method chaining
+   */
   public MerchantData mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
 
-   /**
+  /**
    * The merchant category code.
    * @return mcc
-  **/
+   */
   @ApiModelProperty(value = "The merchant category code.")
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMcc() {
     return mcc;
   }
 
-
- /**
-  * The merchant category code.
-  *
-  * @param mcc
-  */ 
+  /**
+   * The merchant category code.
+   *
+   * @param mcc
+   */ 
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
 
-
+  /**
+   * The merchant identifier.
+   *
+   * @param merchantId
+   * @return the current {@code MerchantData} instance, allowing for method chaining
+   */
   public MerchantData merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
+  /**
    * The merchant identifier.
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(value = "The merchant identifier.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * The merchant identifier.
-  *
-  * @param merchantId
-  */ 
+  /**
+   * The merchant identifier.
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
-
+  /**
+   * nameLocation
+   *
+   * @param nameLocation
+   * @return the current {@code MerchantData} instance, allowing for method chaining
+   */
   public MerchantData nameLocation(NameLocation nameLocation) {
     this.nameLocation = nameLocation;
     return this;
   }
 
-   /**
-   * Get nameLocation
+  /**
+   * nameLocation
    * @return nameLocation
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NameLocation getNameLocation() {
     return nameLocation;
   }
 
-
- /**
-  * nameLocation
-  *
-  * @param nameLocation
-  */ 
+  /**
+   * nameLocation
+   *
+   * @param nameLocation
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNameLocation(NameLocation nameLocation) {
     this.nameLocation = nameLocation;
   }
 
-
+  /**
+   * The merchant postal code.
+   *
+   * @param postalCode
+   * @return the current {@code MerchantData} instance, allowing for method chaining
+   */
   public MerchantData postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
   }
 
-   /**
+  /**
    * The merchant postal code.
    * @return postalCode
-  **/
+   */
   @ApiModelProperty(value = "The merchant postal code.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
 
-
- /**
-  * The merchant postal code.
-  *
-  * @param postalCode
-  */ 
+  /**
+   * The merchant postal code.
+   *
+   * @param postalCode
+   */ 
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
-
 
   /**
    * Return true if this MerchantData object is equal to o.
@@ -275,4 +290,3 @@ public class MerchantData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

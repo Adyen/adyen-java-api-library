@@ -49,95 +49,104 @@ public class DeleteDefenseDocumentRequest {
   public DeleteDefenseDocumentRequest() { 
   }
 
+  /**
+   * The document type code of the defense document.
+   *
+   * @param defenseDocumentType
+   * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
+   */
   public DeleteDefenseDocumentRequest defenseDocumentType(String defenseDocumentType) {
     this.defenseDocumentType = defenseDocumentType;
     return this;
   }
 
-   /**
+  /**
    * The document type code of the defense document.
    * @return defenseDocumentType
-  **/
+   */
   @ApiModelProperty(required = true, value = "The document type code of the defense document.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDefenseDocumentType() {
     return defenseDocumentType;
   }
 
-
- /**
-  * The document type code of the defense document.
-  *
-  * @param defenseDocumentType
-  */ 
+  /**
+   * The document type code of the defense document.
+   *
+   * @param defenseDocumentType
+   */ 
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentType(String defenseDocumentType) {
     this.defenseDocumentType = defenseDocumentType;
   }
 
-
+  /**
+   * The PSP reference assigned to the dispute.
+   *
+   * @param disputePspReference
+   * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
+   */
   public DeleteDefenseDocumentRequest disputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
     return this;
   }
 
-   /**
+  /**
    * The PSP reference assigned to the dispute.
    * @return disputePspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The PSP reference assigned to the dispute.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDisputePspReference() {
     return disputePspReference;
   }
 
-
- /**
-  * The PSP reference assigned to the dispute.
-  *
-  * @param disputePspReference
-  */ 
+  /**
+   * The PSP reference assigned to the dispute.
+   *
+   * @param disputePspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
   }
 
-
+  /**
+   * The merchant account identifier, for which you want to process the dispute transaction.
+   *
+   * @param merchantAccountCode
+   * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
+   */
   public DeleteDefenseDocumentRequest merchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, for which you want to process the dispute transaction.
    * @return merchantAccountCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, for which you want to process the dispute transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
 
-
- /**
-  * The merchant account identifier, for which you want to process the dispute transaction.
-  *
-  * @param merchantAccountCode
-  */ 
+  /**
+   * The merchant account identifier, for which you want to process the dispute transaction.
+   *
+   * @param merchantAccountCode
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }
-
 
   /**
    * Return true if this DeleteDefenseDocumentRequest object is equal to o.
@@ -202,4 +211,3 @@ public class DeleteDefenseDocumentRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

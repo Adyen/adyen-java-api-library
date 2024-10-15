@@ -90,125 +90,137 @@ public class Device {
   public Device() { 
   }
 
+  /**
+   * The unique identifier of the SCA device.
+   *
+   * @param id
+   * @return the current {@code Device} instance, allowing for method chaining
+   */
   public Device id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the SCA device.
    * @return id
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the SCA device.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * The unique identifier of the SCA device.
-  *
-  * @param id
-  */ 
+  /**
+   * The unique identifier of the SCA device.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * The name of the SCA device. You can show this name to your user to help them identify the device.
+   *
+   * @param name
+   * @return the current {@code Device} instance, allowing for method chaining
+   */
   public Device name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the SCA device. You can show this name to your user to help them identify the device.
    * @return name
-  **/
+   */
   @ApiModelProperty(value = "The name of the SCA device. You can show this name to your user to help them identify the device.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
- /**
-  * The name of the SCA device. You can show this name to your user to help them identify the device.
-  *
-  * @param name
-  */ 
+  /**
+   * The name of the SCA device. You can show this name to your user to help them identify the device.
+   *
+   * @param name
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-
+  /**
+   * The unique identifier of the payment instrument that is associated with the SCA device.
+   *
+   * @param paymentInstrumentId
+   * @return the current {@code Device} instance, allowing for method chaining
+   */
   public Device paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the payment instrument that is associated with the SCA device.
    * @return paymentInstrumentId
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the payment instrument that is associated with the SCA device.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
-
- /**
-  * The unique identifier of the payment instrument that is associated with the SCA device.
-  *
-  * @param paymentInstrumentId
-  */ 
+  /**
+   * The unique identifier of the payment instrument that is associated with the SCA device.
+   *
+   * @param paymentInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
 
-
+  /**
+   * The type of device.  Possible values: **ios**, **android**, **browser**.
+   *
+   * @param type
+   * @return the current {@code Device} instance, allowing for method chaining
+   */
   public Device type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of device.  Possible values: **ios**, **android**, **browser**.
    * @return type
-  **/
+   */
   @ApiModelProperty(value = "The type of device.  Possible values: **ios**, **android**, **browser**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * The type of device.  Possible values: **ios**, **android**, **browser**.
-  *
-  * @param type
-  */ 
+  /**
+   * The type of device.  Possible values: **ios**, **android**, **browser**.
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this Device object is equal to o.
@@ -275,4 +287,3 @@ public class Device {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -48,36 +48,45 @@ public class OfflineProcessing {
   public OfflineProcessing() { 
   }
 
+  /**
+   * The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param chipFloorLimit
+   * @return the current {@code OfflineProcessing} instance, allowing for method chaining
+   */
   public OfflineProcessing chipFloorLimit(Integer chipFloorLimit) {
     this.chipFloorLimit = chipFloorLimit;
     return this;
   }
 
-   /**
+  /**
    * The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return chipFloorLimit
-  **/
+   */
   @ApiModelProperty(value = "The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CHIP_FLOOR_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getChipFloorLimit() {
     return chipFloorLimit;
   }
 
-
- /**
-  * The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-  *
-  * @param chipFloorLimit
-  */ 
+  /**
+   * The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   *
+   * @param chipFloorLimit
+   */ 
   @JsonProperty(JSON_PROPERTY_CHIP_FLOOR_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChipFloorLimit(Integer chipFloorLimit) {
     this.chipFloorLimit = chipFloorLimit;
   }
 
-
+  /**
+   * The maximum offline transaction amount for swiped cards, in the specified currency.
+   *
+   * @param offlineSwipeLimits
+   * @return the current {@code OfflineProcessing} instance, allowing for method chaining
+   */
   public OfflineProcessing offlineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {
     this.offlineSwipeLimits = offlineSwipeLimits;
     return this;
@@ -91,30 +100,27 @@ public class OfflineProcessing {
     return this;
   }
 
-   /**
+  /**
    * The maximum offline transaction amount for swiped cards, in the specified currency.
    * @return offlineSwipeLimits
-  **/
+   */
   @ApiModelProperty(value = "The maximum offline transaction amount for swiped cards, in the specified currency.")
   @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<MinorUnitsMonetaryValue> getOfflineSwipeLimits() {
     return offlineSwipeLimits;
   }
 
-
- /**
-  * The maximum offline transaction amount for swiped cards, in the specified currency.
-  *
-  * @param offlineSwipeLimits
-  */ 
+  /**
+   * The maximum offline transaction amount for swiped cards, in the specified currency.
+   *
+   * @param offlineSwipeLimits
+   */ 
   @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {
     this.offlineSwipeLimits = offlineSwipeLimits;
   }
-
 
   /**
    * Return true if this OfflineProcessing object is equal to o.
@@ -177,4 +183,3 @@ public class OfflineProcessing {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

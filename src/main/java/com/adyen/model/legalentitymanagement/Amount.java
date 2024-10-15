@@ -45,65 +45,71 @@ public class Amount {
   public Amount() { 
   }
 
+  /**
+   * The type of currency. Must be EUR (or EUR equivalent)
+   *
+   * @param currency
+   * @return the current {@code Amount} instance, allowing for method chaining
+   */
   public Amount currency(String currency) {
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The type of currency. Must be EUR (or EUR equivalent)
    * @return currency
-  **/
+   */
   @ApiModelProperty(value = "The type of currency. Must be EUR (or EUR equivalent)")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCurrency() {
     return currency;
   }
 
-
- /**
-  * The type of currency. Must be EUR (or EUR equivalent)
-  *
-  * @param currency
-  */ 
+  /**
+   * The type of currency. Must be EUR (or EUR equivalent)
+   *
+   * @param currency
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
 
-
+  /**
+   * Total value of amount. Must be &gt;&#x3D; 0
+   *
+   * @param value
+   * @return the current {@code Amount} instance, allowing for method chaining
+   */
   public Amount value(Long value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * Total value of amount. Must be &gt;&#x3D; 0
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "Total value of amount. Must be >= 0")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getValue() {
     return value;
   }
 
-
- /**
-  * Total value of amount. Must be &gt;&#x3D; 0
-  *
-  * @param value
-  */ 
+  /**
+   * Total value of amount. Must be &gt;&#x3D; 0
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this Amount object is equal to o.
@@ -166,4 +172,3 @@ public class Amount {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

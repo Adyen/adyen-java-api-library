@@ -86,125 +86,137 @@ public class AmountMinMaxRequirement {
   public AmountMinMaxRequirement() { 
   }
 
+  /**
+   * Specifies the eligible amounts for a particular route.
+   *
+   * @param description
+   * @return the current {@code AmountMinMaxRequirement} instance, allowing for method chaining
+   */
   public AmountMinMaxRequirement description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Specifies the eligible amounts for a particular route.
    * @return description
-  **/
+   */
   @ApiModelProperty(value = "Specifies the eligible amounts for a particular route.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
- /**
-  * Specifies the eligible amounts for a particular route.
-  *
-  * @param description
-  */ 
+  /**
+   * Specifies the eligible amounts for a particular route.
+   *
+   * @param description
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
 
-
+  /**
+   * Maximum amount.
+   *
+   * @param max
+   * @return the current {@code AmountMinMaxRequirement} instance, allowing for method chaining
+   */
   public AmountMinMaxRequirement max(Long max) {
     this.max = max;
     return this;
   }
 
-   /**
+  /**
    * Maximum amount.
    * @return max
-  **/
+   */
   @ApiModelProperty(value = "Maximum amount.")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMax() {
     return max;
   }
 
-
- /**
-  * Maximum amount.
-  *
-  * @param max
-  */ 
+  /**
+   * Maximum amount.
+   *
+   * @param max
+   */ 
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMax(Long max) {
     this.max = max;
   }
 
-
+  /**
+   * Minimum amount.
+   *
+   * @param min
+   * @return the current {@code AmountMinMaxRequirement} instance, allowing for method chaining
+   */
   public AmountMinMaxRequirement min(Long min) {
     this.min = min;
     return this;
   }
 
-   /**
+  /**
    * Minimum amount.
    * @return min
-  **/
+   */
   @ApiModelProperty(value = "Minimum amount.")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMin() {
     return min;
   }
 
-
- /**
-  * Minimum amount.
-  *
-  * @param min
-  */ 
+  /**
+   * Minimum amount.
+   *
+   * @param min
+   */ 
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMin(Long min) {
     this.min = min;
   }
 
-
+  /**
+   * **amountMinMaxRequirement**
+   *
+   * @param type
+   * @return the current {@code AmountMinMaxRequirement} instance, allowing for method chaining
+   */
   public AmountMinMaxRequirement type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **amountMinMaxRequirement**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**amountMinMaxRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **amountMinMaxRequirement**
-  *
-  * @param type
-  */ 
+  /**
+   * **amountMinMaxRequirement**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this AmountMinMaxRequirement object is equal to o.
@@ -271,4 +283,3 @@ public class AmountMinMaxRequirement {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

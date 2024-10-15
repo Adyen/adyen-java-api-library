@@ -44,6 +44,12 @@ public class BusinessLines {
   public BusinessLines() { 
   }
 
+  /**
+   * List of business lines.
+   *
+   * @param businessLines
+   * @return the current {@code BusinessLines} instance, allowing for method chaining
+   */
   public BusinessLines businessLines(List<BusinessLine> businessLines) {
     this.businessLines = businessLines;
     return this;
@@ -54,30 +60,27 @@ public class BusinessLines {
     return this;
   }
 
-   /**
+  /**
    * List of business lines.
    * @return businessLines
-  **/
+   */
   @ApiModelProperty(required = true, value = "List of business lines.")
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<BusinessLine> getBusinessLines() {
     return businessLines;
   }
 
-
- /**
-  * List of business lines.
-  *
-  * @param businessLines
-  */ 
+  /**
+   * List of business lines.
+   *
+   * @param businessLines
+   */ 
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLines(List<BusinessLine> businessLines) {
     this.businessLines = businessLines;
   }
-
 
   /**
    * Return true if this BusinessLines object is equal to o.
@@ -138,4 +141,3 @@ public class BusinessLines {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

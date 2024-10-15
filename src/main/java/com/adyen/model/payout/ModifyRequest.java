@@ -52,6 +52,12 @@ public class ModifyRequest {
   public ModifyRequest() { 
   }
 
+  /**
+   * This field contains additional data, which may be required for a particular payout request.
+   *
+   * @param additionalData
+   * @return the current {@code ModifyRequest} instance, allowing for method chaining
+   */
   public ModifyRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -65,90 +71,93 @@ public class ModifyRequest {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be required for a particular payout request.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payout request.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be required for a particular payout request.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be required for a particular payout request.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   * @return the current {@code ModifyRequest} instance, allowing for method chaining
+   */
   public ModifyRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account identifier, with which you want to process the transaction.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account identifier, with which you want to process the transaction.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * The PSP reference received in the &#x60;/submitThirdParty&#x60; response.
+   *
+   * @param originalReference
+   * @return the current {@code ModifyRequest} instance, allowing for method chaining
+   */
   public ModifyRequest originalReference(String originalReference) {
     this.originalReference = originalReference;
     return this;
   }
 
-   /**
+  /**
    * The PSP reference received in the &#x60;/submitThirdParty&#x60; response.
    * @return originalReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "The PSP reference received in the `/submitThirdParty` response.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOriginalReference() {
     return originalReference;
   }
 
-
- /**
-  * The PSP reference received in the &#x60;/submitThirdParty&#x60; response.
-  *
-  * @param originalReference
-  */ 
+  /**
+   * The PSP reference received in the &#x60;/submitThirdParty&#x60; response.
+   *
+   * @param originalReference
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
     this.originalReference = originalReference;
   }
-
 
   /**
    * Return true if this ModifyRequest object is equal to o.
@@ -213,4 +222,3 @@ public class ModifyRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

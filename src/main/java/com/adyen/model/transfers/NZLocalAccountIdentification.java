@@ -78,65 +78,71 @@ public class NZLocalAccountIdentification {
   public NZLocalAccountIdentification() { 
   }
 
+  /**
+   * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
+   *
+   * @param accountNumber
+   * @return the current {@code NZLocalAccountIdentification} instance, allowing for method chaining
+   */
   public NZLocalAccountIdentification accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
     return this;
   }
 
-   /**
+  /**
    * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    * @return accountNumber
-  **/
+   */
   @ApiModelProperty(required = true, value = "The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
 
-
- /**
-  * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
-  *
-  * @param accountNumber
-  */ 
+  /**
+   * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
+   *
+   * @param accountNumber
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
-
+  /**
+   * **nzLocal**
+   *
+   * @param type
+   * @return the current {@code NZLocalAccountIdentification} instance, allowing for method chaining
+   */
   public NZLocalAccountIdentification type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **nzLocal**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**nzLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **nzLocal**
-  *
-  * @param type
-  */ 
+  /**
+   * **nzLocal**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this NZLocalAccountIdentification object is equal to o.
@@ -199,4 +205,3 @@ public class NZLocalAccountIdentification {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

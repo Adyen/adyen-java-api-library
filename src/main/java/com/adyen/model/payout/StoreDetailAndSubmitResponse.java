@@ -56,6 +56,12 @@ public class StoreDetailAndSubmitResponse {
   public StoreDetailAndSubmitResponse() { 
   }
 
+  /**
+   * This field contains additional data, which may be returned in a particular response.
+   *
+   * @param additionalData
+   * @return the current {@code StoreDetailAndSubmitResponse} instance, allowing for method chaining
+   */
   public StoreDetailAndSubmitResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -69,120 +75,126 @@ public class StoreDetailAndSubmitResponse {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be returned in a particular response.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be returned in a particular response.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * A new reference to uniquely identify this request.
+   *
+   * @param pspReference
+   * @return the current {@code StoreDetailAndSubmitResponse} instance, allowing for method chaining
+   */
   public StoreDetailAndSubmitResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * A new reference to uniquely identify this request.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "A new reference to uniquely identify this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * A new reference to uniquely identify this request.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * A new reference to uniquely identify this request.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * In case of refusal, an informational message for the reason.
+   *
+   * @param refusalReason
+   * @return the current {@code StoreDetailAndSubmitResponse} instance, allowing for method chaining
+   */
   public StoreDetailAndSubmitResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     return this;
   }
 
-   /**
+  /**
    * In case of refusal, an informational message for the reason.
    * @return refusalReason
-  **/
+   */
   @ApiModelProperty(value = "In case of refusal, an informational message for the reason.")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRefusalReason() {
     return refusalReason;
   }
 
-
- /**
-  * In case of refusal, an informational message for the reason.
-  *
-  * @param refusalReason
-  */ 
+  /**
+   * In case of refusal, an informational message for the reason.
+   *
+   * @param refusalReason
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
   }
 
-
+  /**
+   * The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.
+   *
+   * @param resultCode
+   * @return the current {@code StoreDetailAndSubmitResponse} instance, allowing for method chaining
+   */
   public StoreDetailAndSubmitResponse resultCode(String resultCode) {
     this.resultCode = resultCode;
     return this;
   }
 
-   /**
+  /**
    * The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.
    * @return resultCode
-  **/
+   */
   @ApiModelProperty(required = true, value = "The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResultCode() {
     return resultCode;
   }
 
-
- /**
-  * The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.
-  *
-  * @param resultCode
-  */ 
+  /**
+   * The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.
+   *
+   * @param resultCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }
-
 
   /**
    * Return true if this StoreDetailAndSubmitResponse object is equal to o.
@@ -249,4 +261,3 @@ public class StoreDetailAndSubmitResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -83,65 +83,71 @@ public class PulseInfo {
   public PulseInfo() { 
   }
 
+  /**
+   * The type of transactions processed over this payment method.  Allowed values: - **pos** for in-person payments.  - **billpay** for subscription payments, both the initial payment and the later recurring payments. These transactions have &#x60;recurringProcessingModel&#x60; **Subscription**.  - **ecom** for all other card not present transactions. This includes non-recurring transactions and transactions with &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**. 
+   *
+   * @param processingType
+   * @return the current {@code PulseInfo} instance, allowing for method chaining
+   */
   public PulseInfo processingType(ProcessingTypeEnum processingType) {
     this.processingType = processingType;
     return this;
   }
 
-   /**
+  /**
    * The type of transactions processed over this payment method.  Allowed values: - **pos** for in-person payments.  - **billpay** for subscription payments, both the initial payment and the later recurring payments. These transactions have &#x60;recurringProcessingModel&#x60; **Subscription**.  - **ecom** for all other card not present transactions. This includes non-recurring transactions and transactions with &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**. 
    * @return processingType
-  **/
+   */
   @ApiModelProperty(required = true, value = "The type of transactions processed over this payment method.  Allowed values: - **pos** for in-person payments.  - **billpay** for subscription payments, both the initial payment and the later recurring payments. These transactions have `recurringProcessingModel` **Subscription**.  - **ecom** for all other card not present transactions. This includes non-recurring transactions and transactions with `recurringProcessingModel` **CardOnFile** or **UnscheduledCardOnFile**. ")
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ProcessingTypeEnum getProcessingType() {
     return processingType;
   }
 
-
- /**
-  * The type of transactions processed over this payment method.  Allowed values: - **pos** for in-person payments.  - **billpay** for subscription payments, both the initial payment and the later recurring payments. These transactions have &#x60;recurringProcessingModel&#x60; **Subscription**.  - **ecom** for all other card not present transactions. This includes non-recurring transactions and transactions with &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**. 
-  *
-  * @param processingType
-  */ 
+  /**
+   * The type of transactions processed over this payment method.  Allowed values: - **pos** for in-person payments.  - **billpay** for subscription payments, both the initial payment and the later recurring payments. These transactions have &#x60;recurringProcessingModel&#x60; **Subscription**.  - **ecom** for all other card not present transactions. This includes non-recurring transactions and transactions with &#x60;recurringProcessingModel&#x60; **CardOnFile** or **UnscheduledCardOnFile**. 
+   *
+   * @param processingType
+   */ 
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProcessingType(ProcessingTypeEnum processingType) {
     this.processingType = processingType;
   }
 
-
+  /**
+   * transactionDescription
+   *
+   * @param transactionDescription
+   * @return the current {@code PulseInfo} instance, allowing for method chaining
+   */
   public PulseInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
     return this;
   }
 
-   /**
-   * Get transactionDescription
+  /**
+   * transactionDescription
    * @return transactionDescription
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionDescriptionInfo getTransactionDescription() {
     return transactionDescription;
   }
 
-
- /**
-  * transactionDescription
-  *
-  * @param transactionDescription
-  */ 
+  /**
+   * transactionDescription
+   *
+   * @param transactionDescription
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
   }
-
 
   /**
    * Return true if this PulseInfo object is equal to o.
@@ -204,4 +210,3 @@ public class PulseInfo {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

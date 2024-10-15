@@ -52,6 +52,12 @@ public class ModifyResponse {
   public ModifyResponse() { 
   }
 
+  /**
+   * This field contains additional data, which may be returned in a particular response.
+   *
+   * @param additionalData
+   * @return the current {@code ModifyResponse} instance, allowing for method chaining
+   */
   public ModifyResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
@@ -65,90 +71,93 @@ public class ModifyResponse {
     return this;
   }
 
-   /**
+  /**
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
-  **/
+   */
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-
- /**
-  * This field contains additional data, which may be returned in a particular response.
-  *
-  * @param additionalData
-  */ 
+  /**
+   * This field contains additional data, which may be returned in a particular response.
+   *
+   * @param additionalData
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
-
+  /**
+   * Adyen&#39;s 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.
+   *
+   * @param pspReference
+   * @return the current {@code ModifyResponse} instance, allowing for method chaining
+   */
   public ModifyResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
+  /**
    * Adyen&#39;s 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * Adyen&#39;s 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.
-  *
-  * @param pspReference
-  */ 
+  /**
+   * Adyen&#39;s 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
 
-
+  /**
+   * The response: * In case of success, it is either &#x60;payout-confirm-received&#x60; or &#x60;payout-decline-received&#x60;. * In case of an error, an informational message is returned.
+   *
+   * @param response
+   * @return the current {@code ModifyResponse} instance, allowing for method chaining
+   */
   public ModifyResponse response(String response) {
     this.response = response;
     return this;
   }
 
-   /**
+  /**
    * The response: * In case of success, it is either &#x60;payout-confirm-received&#x60; or &#x60;payout-decline-received&#x60;. * In case of an error, an informational message is returned.
    * @return response
-  **/
+   */
   @ApiModelProperty(required = true, value = "The response: * In case of success, it is either `payout-confirm-received` or `payout-decline-received`. * In case of an error, an informational message is returned.")
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResponse() {
     return response;
   }
 
-
- /**
-  * The response: * In case of success, it is either &#x60;payout-confirm-received&#x60; or &#x60;payout-decline-received&#x60;. * In case of an error, an informational message is returned.
-  *
-  * @param response
-  */ 
+  /**
+   * The response: * In case of success, it is either &#x60;payout-confirm-received&#x60; or &#x60;payout-decline-received&#x60;. * In case of an error, an informational message is returned.
+   *
+   * @param response
+   */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(String response) {
     this.response = response;
   }
-
 
   /**
    * Return true if this ModifyResponse object is equal to o.
@@ -213,4 +222,3 @@ public class ModifyResponse {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -53,125 +53,137 @@ public class ServiceErrorDetails {
   public ServiceErrorDetails() { 
   }
 
+  /**
+   * errorCode
+   *
+   * @param errorCode
+   * @return the current {@code ServiceErrorDetails} instance, allowing for method chaining
+   */
   public ServiceErrorDetails errorCode(String errorCode) {
     this.errorCode = errorCode;
     return this;
   }
 
-   /**
-   * Get errorCode
+  /**
+   * errorCode
    * @return errorCode
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getErrorCode() {
     return errorCode;
   }
 
-
- /**
-  * errorCode
-  *
-  * @param errorCode
-  */ 
+  /**
+   * errorCode
+   *
+   * @param errorCode
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
 
-
+  /**
+   * errorType
+   *
+   * @param errorType
+   * @return the current {@code ServiceErrorDetails} instance, allowing for method chaining
+   */
   public ServiceErrorDetails errorType(String errorType) {
     this.errorType = errorType;
     return this;
   }
 
-   /**
-   * Get errorType
+  /**
+   * errorType
    * @return errorType
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getErrorType() {
     return errorType;
   }
 
-
- /**
-  * errorType
-  *
-  * @param errorType
-  */ 
+  /**
+   * errorType
+   *
+   * @param errorType
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorType(String errorType) {
     this.errorType = errorType;
   }
 
-
+  /**
+   * message
+   *
+   * @param message
+   * @return the current {@code ServiceErrorDetails} instance, allowing for method chaining
+   */
   public ServiceErrorDetails message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
-   * Get message
+  /**
+   * message
    * @return message
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
- /**
-  * message
-  *
-  * @param message
-  */ 
+  /**
+   * message
+   *
+   * @param message
+   */ 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
     this.message = message;
   }
 
-
+  /**
+   * pspReference
+   *
+   * @param pspReference
+   * @return the current {@code ServiceErrorDetails} instance, allowing for method chaining
+   */
   public ServiceErrorDetails pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
 
-   /**
-   * Get pspReference
+  /**
+   * pspReference
    * @return pspReference
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPspReference() {
     return pspReference;
   }
 
-
- /**
-  * pspReference
-  *
-  * @param pspReference
-  */ 
+  /**
+   * pspReference
+   *
+   * @param pspReference
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
-
 
   /**
    * Return true if this ServiceErrorDetails object is equal to o.
@@ -238,4 +250,3 @@ public class ServiceErrorDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -84,95 +84,104 @@ public class MolPayDetails {
   public MolPayDetails() { 
   }
 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   * @return the current {@code MolPayDetails} instance, allowing for method chaining
+   */
   public MolPayDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
 
-   /**
+  /**
    * The checkout attempt identifier.
    * @return checkoutAttemptId
-  **/
+   */
   @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckoutAttemptId() {
     return checkoutAttemptId;
   }
 
-
- /**
-  * The checkout attempt identifier.
-  *
-  * @param checkoutAttemptId
-  */ 
+  /**
+   * The checkout attempt identifier.
+   *
+   * @param checkoutAttemptId
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
   }
 
-
+  /**
+   * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
+   *
+   * @param issuer
+   * @return the current {@code MolPayDetails} instance, allowing for method chaining
+   */
   public MolPayDetails issuer(String issuer) {
     this.issuer = issuer;
     return this;
   }
 
-   /**
+  /**
    * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
    * @return issuer
-  **/
+   */
   @ApiModelProperty(required = true, value = "The shopper's bank. Specify this with the issuer value that corresponds to this bank.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIssuer() {
     return issuer;
   }
 
-
- /**
-  * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
-  *
-  * @param issuer
-  */ 
+  /**
+   * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
+   *
+   * @param issuer
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
 
-
+  /**
+   * **molpay**
+   *
+   * @param type
+   * @return the current {@code MolPayDetails} instance, allowing for method chaining
+   */
   public MolPayDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * **molpay**
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "**molpay**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
 
-
- /**
-  * **molpay**
-  *
-  * @param type
-  */ 
+  /**
+   * **molpay**
+   *
+   * @param type
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   /**
    * Return true if this MolPayDetails object is equal to o.
@@ -237,4 +246,3 @@ public class MolPayDetails {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

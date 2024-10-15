@@ -100,185 +100,203 @@ public class AuthenticationNotificationData {
   public AuthenticationNotificationData() { 
   }
 
+  /**
+   * authentication
+   *
+   * @param authentication
+   * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
+   */
   public AuthenticationNotificationData authentication(AuthenticationInfo authentication) {
     this.authentication = authentication;
     return this;
   }
 
-   /**
-   * Get authentication
+  /**
+   * authentication
    * @return authentication
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AuthenticationInfo getAuthentication() {
     return authentication;
   }
 
-
- /**
-  * authentication
-  *
-  * @param authentication
-  */ 
+  /**
+   * authentication
+   *
+   * @param authentication
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(AuthenticationInfo authentication) {
     this.authentication = authentication;
   }
 
-
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
+   */
   public AuthenticationNotificationData balancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the balance platform.
    * @return balancePlatform
-  **/
+   */
   @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBalancePlatform() {
     return balancePlatform;
   }
 
-
- /**
-  * The unique identifier of the balance platform.
-  *
-  * @param balancePlatform
-  */ 
+  /**
+   * The unique identifier of the balance platform.
+   *
+   * @param balancePlatform
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
 
-
+  /**
+   * Unique identifier of the authentication.
+   *
+   * @param id
+   * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
+   */
   public AuthenticationNotificationData id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the authentication.
    * @return id
-  **/
+   */
   @ApiModelProperty(required = true, value = "Unique identifier of the authentication.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
- /**
-  * Unique identifier of the authentication.
-  *
-  * @param id
-  */ 
+  /**
+   * Unique identifier of the authentication.
+   *
+   * @param id
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
 
-
+  /**
+   * Unique identifier of the payment instrument that was used for the authentication.
+   *
+   * @param paymentInstrumentId
+   * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
+   */
   public AuthenticationNotificationData paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the payment instrument that was used for the authentication.
    * @return paymentInstrumentId
-  **/
+   */
   @ApiModelProperty(required = true, value = "Unique identifier of the payment instrument that was used for the authentication.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
 
-
- /**
-  * Unique identifier of the payment instrument that was used for the authentication.
-  *
-  * @param paymentInstrumentId
-  */ 
+  /**
+   * Unique identifier of the payment instrument that was used for the authentication.
+   *
+   * @param paymentInstrumentId
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
 
-
+  /**
+   * purchase
+   *
+   * @param purchase
+   * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
+   */
   public AuthenticationNotificationData purchase(PurchaseInfo purchase) {
     this.purchase = purchase;
     return this;
   }
 
-   /**
-   * Get purchase
+  /**
+   * purchase
    * @return purchase
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PurchaseInfo getPurchase() {
     return purchase;
   }
 
-
- /**
-  * purchase
-  *
-  * @param purchase
-  */ 
+  /**
+   * purchase
+   *
+   * @param purchase
+   */ 
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchase(PurchaseInfo purchase) {
     this.purchase = purchase;
   }
 
-
+  /**
+   * Outcome of the authentication. Allowed values: * authenticated * rejected * error
+   *
+   * @param status
+   * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
+   */
   public AuthenticationNotificationData status(StatusEnum status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Outcome of the authentication. Allowed values: * authenticated * rejected * error
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "Outcome of the authentication. Allowed values: * authenticated * rejected * error")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StatusEnum getStatus() {
     return status;
   }
 
-
- /**
-  * Outcome of the authentication. Allowed values: * authenticated * rejected * error
-  *
-  * @param status
-  */ 
+  /**
+   * Outcome of the authentication. Allowed values: * authenticated * rejected * error
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this AuthenticationNotificationData object is equal to o.
@@ -349,4 +367,3 @@ public class AuthenticationNotificationData {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

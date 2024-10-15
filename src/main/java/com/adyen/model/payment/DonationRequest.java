@@ -63,185 +63,203 @@ public class DonationRequest {
   public DonationRequest() { 
   }
 
+  /**
+   * The Adyen account name of the charity.
+   *
+   * @param donationAccount
+   * @return the current {@code DonationRequest} instance, allowing for method chaining
+   */
   public DonationRequest donationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
     return this;
   }
 
-   /**
+  /**
    * The Adyen account name of the charity.
    * @return donationAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The Adyen account name of the charity.")
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDonationAccount() {
     return donationAccount;
   }
 
-
- /**
-  * The Adyen account name of the charity.
-  *
-  * @param donationAccount
-  */ 
+  /**
+   * The Adyen account name of the charity.
+   *
+   * @param donationAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
   }
 
-
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   * @return the current {@code DonationRequest} instance, allowing for method chaining
+   */
   public DonationRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
 
-   /**
+  /**
    * The merchant account that is used to process the payment.
    * @return merchantAccount
-  **/
+   */
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantAccount() {
     return merchantAccount;
   }
 
-
- /**
-  * The merchant account that is used to process the payment.
-  *
-  * @param merchantAccount
-  */ 
+  /**
+   * The merchant account that is used to process the payment.
+   *
+   * @param merchantAccount
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
 
-
+  /**
+   * modificationAmount
+   *
+   * @param modificationAmount
+   * @return the current {@code DonationRequest} instance, allowing for method chaining
+   */
   public DonationRequest modificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
     return this;
   }
 
-   /**
-   * Get modificationAmount
+  /**
+   * modificationAmount
    * @return modificationAmount
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getModificationAmount() {
     return modificationAmount;
   }
 
-
- /**
-  * modificationAmount
-  *
-  * @param modificationAmount
-  */ 
+  /**
+   * modificationAmount
+   *
+   * @param modificationAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
   }
 
-
+  /**
+   * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
+   *
+   * @param originalReference
+   * @return the current {@code DonationRequest} instance, allowing for method chaining
+   */
   public DonationRequest originalReference(String originalReference) {
     this.originalReference = originalReference;
     return this;
   }
 
-   /**
+  /**
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    * @return originalReference
-  **/
+   */
   @ApiModelProperty(value = "The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  ")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOriginalReference() {
     return originalReference;
   }
 
-
- /**
-  * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
-  *
-  * @param originalReference
-  */ 
+  /**
+   * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
+   *
+   * @param originalReference
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
     this.originalReference = originalReference;
   }
 
-
+  /**
+   * platformChargebackLogic
+   *
+   * @param platformChargebackLogic
+   * @return the current {@code DonationRequest} instance, allowing for method chaining
+   */
   public DonationRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
     return this;
   }
 
-   /**
-   * Get platformChargebackLogic
+  /**
+   * platformChargebackLogic
    * @return platformChargebackLogic
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PlatformChargebackLogic getPlatformChargebackLogic() {
     return platformChargebackLogic;
   }
 
-
- /**
-  * platformChargebackLogic
-  *
-  * @param platformChargebackLogic
-  */ 
+  /**
+   * platformChargebackLogic
+   *
+   * @param platformChargebackLogic
+   */ 
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
     this.platformChargebackLogic = platformChargebackLogic;
   }
 
-
+  /**
+   * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
+   *
+   * @param reference
+   * @return the current {@code DonationRequest} instance, allowing for method chaining
+   */
   public DonationRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return reference
-  **/
+   */
   @ApiModelProperty(value = "Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReference() {
     return reference;
   }
 
-
- /**
-  * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
-  *
-  * @param reference
-  */ 
+  /**
+   * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
+   *
+   * @param reference
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
-
 
   /**
    * Return true if this DonationRequest object is equal to o.
@@ -312,4 +330,3 @@ public class DonationRequest {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

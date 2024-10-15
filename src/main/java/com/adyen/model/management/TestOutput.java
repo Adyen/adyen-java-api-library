@@ -61,185 +61,203 @@ public class TestOutput {
   public TestOutput() { 
   }
 
+  /**
+   * Unique identifier of the merchant account that the notification is about.
+   *
+   * @param merchantId
+   * @return the current {@code TestOutput} instance, allowing for method chaining
+   */
   public TestOutput merchantId(String merchantId) {
     this.merchantId = merchantId;
     return this;
   }
 
-   /**
+  /**
    * Unique identifier of the merchant account that the notification is about.
    * @return merchantId
-  **/
+   */
   @ApiModelProperty(value = "Unique identifier of the merchant account that the notification is about.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMerchantId() {
     return merchantId;
   }
 
-
- /**
-  * Unique identifier of the merchant account that the notification is about.
-  *
-  * @param merchantId
-  */ 
+  /**
+   * Unique identifier of the merchant account that the notification is about.
+   *
+   * @param merchantId
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
 
-
+  /**
+   * The response your server returned for the test webhook.  Your server must respond with **HTTP 2xx* for the test webhook to be successful (&#x60;data.status&#x60;: **success**). Find out more about [accepting notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)  You can use the value of this field together with the [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot unsuccessful test webhooks.
+   *
+   * @param output
+   * @return the current {@code TestOutput} instance, allowing for method chaining
+   */
   public TestOutput output(String output) {
     this.output = output;
     return this;
   }
 
-   /**
+  /**
    * The response your server returned for the test webhook.  Your server must respond with **HTTP 2xx* for the test webhook to be successful (&#x60;data.status&#x60;: **success**). Find out more about [accepting notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)  You can use the value of this field together with the [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot unsuccessful test webhooks.
    * @return output
-  **/
+   */
   @ApiModelProperty(value = "The response your server returned for the test webhook.  Your server must respond with **HTTP 2xx* for the test webhook to be successful (`data.status`: **success**). Find out more about [accepting notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)  You can use the value of this field together with the [`responseCode`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot unsuccessful test webhooks.")
   @JsonProperty(JSON_PROPERTY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOutput() {
     return output;
   }
 
-
- /**
-  * The response your server returned for the test webhook.  Your server must respond with **HTTP 2xx* for the test webhook to be successful (&#x60;data.status&#x60;: **success**). Find out more about [accepting notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)  You can use the value of this field together with the [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot unsuccessful test webhooks.
-  *
-  * @param output
-  */ 
+  /**
+   * The response your server returned for the test webhook.  Your server must respond with **HTTP 2xx* for the test webhook to be successful (&#x60;data.status&#x60;: **success**). Find out more about [accepting notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)  You can use the value of this field together with the [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot unsuccessful test webhooks.
+   *
+   * @param output
+   */ 
   @JsonProperty(JSON_PROPERTY_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutput(String output) {
     this.output = output;
   }
 
-
+  /**
+   * The [body of the notification webhook](https://docs.adyen.com/development-resources/webhooks/understand-notifications#notification-structure) that was sent to your server.
+   *
+   * @param requestSent
+   * @return the current {@code TestOutput} instance, allowing for method chaining
+   */
   public TestOutput requestSent(String requestSent) {
     this.requestSent = requestSent;
     return this;
   }
 
-   /**
+  /**
    * The [body of the notification webhook](https://docs.adyen.com/development-resources/webhooks/understand-notifications#notification-structure) that was sent to your server.
    * @return requestSent
-  **/
+   */
   @ApiModelProperty(value = "The [body of the notification webhook](https://docs.adyen.com/development-resources/webhooks/understand-notifications#notification-structure) that was sent to your server.")
   @JsonProperty(JSON_PROPERTY_REQUEST_SENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRequestSent() {
     return requestSent;
   }
 
-
- /**
-  * The [body of the notification webhook](https://docs.adyen.com/development-resources/webhooks/understand-notifications#notification-structure) that was sent to your server.
-  *
-  * @param requestSent
-  */ 
+  /**
+   * The [body of the notification webhook](https://docs.adyen.com/development-resources/webhooks/understand-notifications#notification-structure) that was sent to your server.
+   *
+   * @param requestSent
+   */ 
   @JsonProperty(JSON_PROPERTY_REQUEST_SENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestSent(String requestSent) {
     this.requestSent = requestSent;
   }
 
-
+  /**
+   * The HTTP response code for your server&#39;s response to the test webhook.  You can use the value of this field together with the the [&#x60;output&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field value to troubleshoot failed test webhooks.
+   *
+   * @param responseCode
+   * @return the current {@code TestOutput} instance, allowing for method chaining
+   */
   public TestOutput responseCode(String responseCode) {
     this.responseCode = responseCode;
     return this;
   }
 
-   /**
+  /**
    * The HTTP response code for your server&#39;s response to the test webhook.  You can use the value of this field together with the the [&#x60;output&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field value to troubleshoot failed test webhooks.
    * @return responseCode
-  **/
+   */
   @ApiModelProperty(example = "200", value = "The HTTP response code for your server's response to the test webhook.  You can use the value of this field together with the the [`output`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field value to troubleshoot failed test webhooks.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResponseCode() {
     return responseCode;
   }
 
-
- /**
-  * The HTTP response code for your server&#39;s response to the test webhook.  You can use the value of this field together with the the [&#x60;output&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field value to troubleshoot failed test webhooks.
-  *
-  * @param responseCode
-  */ 
+  /**
+   * The HTTP response code for your server&#39;s response to the test webhook.  You can use the value of this field together with the the [&#x60;output&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field value to troubleshoot failed test webhooks.
+   *
+   * @param responseCode
+   */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponseCode(String responseCode) {
     this.responseCode = responseCode;
   }
 
-
+  /**
+   * The time between sending the test webhook and receiving the response from your server. You can use it as an indication of how long your server takes to process a webhook notification. Measured in milliseconds, for example **304 ms**.
+   *
+   * @param responseTime
+   * @return the current {@code TestOutput} instance, allowing for method chaining
+   */
   public TestOutput responseTime(String responseTime) {
     this.responseTime = responseTime;
     return this;
   }
 
-   /**
+  /**
    * The time between sending the test webhook and receiving the response from your server. You can use it as an indication of how long your server takes to process a webhook notification. Measured in milliseconds, for example **304 ms**.
    * @return responseTime
-  **/
+   */
   @ApiModelProperty(value = "The time between sending the test webhook and receiving the response from your server. You can use it as an indication of how long your server takes to process a webhook notification. Measured in milliseconds, for example **304 ms**.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResponseTime() {
     return responseTime;
   }
 
-
- /**
-  * The time between sending the test webhook and receiving the response from your server. You can use it as an indication of how long your server takes to process a webhook notification. Measured in milliseconds, for example **304 ms**.
-  *
-  * @param responseTime
-  */ 
+  /**
+   * The time between sending the test webhook and receiving the response from your server. You can use it as an indication of how long your server takes to process a webhook notification. Measured in milliseconds, for example **304 ms**.
+   *
+   * @param responseTime
+   */ 
   @JsonProperty(JSON_PROPERTY_RESPONSE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponseTime(String responseTime) {
     this.responseTime = responseTime;
   }
 
-
+  /**
+   * The status of the test request. Possible values are: * **success**, &#x60;data.responseCode&#x60;: **2xx**. * **failed**, in all other cases.  You can use the value of the [&#x60;output&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field together with the [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot failed test webhooks.
+   *
+   * @param status
+   * @return the current {@code TestOutput} instance, allowing for method chaining
+   */
   public TestOutput status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * The status of the test request. Possible values are: * **success**, &#x60;data.responseCode&#x60;: **2xx**. * **failed**, in all other cases.  You can use the value of the [&#x60;output&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field together with the [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot failed test webhooks.
    * @return status
-  **/
+   */
   @ApiModelProperty(required = true, value = "The status of the test request. Possible values are: * **success**, `data.responseCode`: **2xx**. * **failed**, in all other cases.  You can use the value of the [`output`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field together with the [`responseCode`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot failed test webhooks.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
 
-
- /**
-  * The status of the test request. Possible values are: * **success**, &#x60;data.responseCode&#x60;: **2xx**. * **failed**, in all other cases.  You can use the value of the [&#x60;output&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field together with the [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot failed test webhooks.
-  *
-  * @param status
-  */ 
+  /**
+   * The status of the test request. Possible values are: * **success**, &#x60;data.responseCode&#x60;: **2xx**. * **failed**, in all other cases.  You can use the value of the [&#x60;output&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field together with the [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot failed test webhooks.
+   *
+   * @param status
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }
-
 
   /**
    * Return true if this TestOutput object is equal to o.
@@ -310,4 +328,3 @@ public class TestOutput {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -136,6 +136,12 @@ public class CapabilitySettings {
   public CapabilitySettings() { 
   }
 
+  /**
+   * 
+   *
+   * @param amountPerIndustry
+   * @return the current {@code CapabilitySettings} instance, allowing for method chaining
+   */
   public CapabilitySettings amountPerIndustry(Map<String, Amount> amountPerIndustry) {
     this.amountPerIndustry = amountPerIndustry;
     return this;
@@ -149,61 +155,67 @@ public class CapabilitySettings {
     return this;
   }
 
-   /**
+  /**
    * 
    * @return amountPerIndustry
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, Amount> getAmountPerIndustry() {
     return amountPerIndustry;
   }
 
-
- /**
-  * 
-  *
-  * @param amountPerIndustry
-  */ 
+  /**
+   * 
+   *
+   * @param amountPerIndustry
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountPerIndustry(Map<String, Amount> amountPerIndustry) {
     this.amountPerIndustry = amountPerIndustry;
   }
 
-
+  /**
+   * 
+   *
+   * @param authorizedCardUsers
+   * @return the current {@code CapabilitySettings} instance, allowing for method chaining
+   */
   public CapabilitySettings authorizedCardUsers(Boolean authorizedCardUsers) {
     this.authorizedCardUsers = authorizedCardUsers;
     return this;
   }
 
-   /**
+  /**
    * 
    * @return authorizedCardUsers
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAuthorizedCardUsers() {
     return authorizedCardUsers;
   }
 
-
- /**
-  * 
-  *
-  * @param authorizedCardUsers
-  */ 
+  /**
+   * 
+   *
+   * @param authorizedCardUsers
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorizedCardUsers(Boolean authorizedCardUsers) {
     this.authorizedCardUsers = authorizedCardUsers;
   }
 
-
+  /**
+   * 
+   *
+   * @param fundingSource
+   * @return the current {@code CapabilitySettings} instance, allowing for method chaining
+   */
   public CapabilitySettings fundingSource(List<FundingSourceEnum> fundingSource) {
     this.fundingSource = fundingSource;
     return this;
@@ -217,90 +229,93 @@ public class CapabilitySettings {
     return this;
   }
 
-   /**
+  /**
    * 
    * @return fundingSource
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<FundingSourceEnum> getFundingSource() {
     return fundingSource;
   }
 
-
- /**
-  * 
-  *
-  * @param fundingSource
-  */ 
+  /**
+   * 
+   *
+   * @param fundingSource
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(List<FundingSourceEnum> fundingSource) {
     this.fundingSource = fundingSource;
   }
 
-
+  /**
+   * 
+   *
+   * @param interval
+   * @return the current {@code CapabilitySettings} instance, allowing for method chaining
+   */
   public CapabilitySettings interval(IntervalEnum interval) {
     this.interval = interval;
     return this;
   }
 
-   /**
+  /**
    * 
    * @return interval
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public IntervalEnum getInterval() {
     return interval;
   }
 
-
- /**
-  * 
-  *
-  * @param interval
-  */ 
+  /**
+   * 
+   *
+   * @param interval
+   */ 
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterval(IntervalEnum interval) {
     this.interval = interval;
   }
 
-
+  /**
+   * maxAmount
+   *
+   * @param maxAmount
+   * @return the current {@code CapabilitySettings} instance, allowing for method chaining
+   */
   public CapabilitySettings maxAmount(Amount maxAmount) {
     this.maxAmount = maxAmount;
     return this;
   }
 
-   /**
-   * Get maxAmount
+  /**
+   * maxAmount
    * @return maxAmount
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Amount getMaxAmount() {
     return maxAmount;
   }
 
-
- /**
-  * maxAmount
-  *
-  * @param maxAmount
-  */ 
+  /**
+   * maxAmount
+   *
+   * @param maxAmount
+   */ 
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(Amount maxAmount) {
     this.maxAmount = maxAmount;
   }
-
 
   /**
    * Return true if this CapabilitySettings object is equal to o.
@@ -369,4 +384,3 @@ public class CapabilitySettings {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

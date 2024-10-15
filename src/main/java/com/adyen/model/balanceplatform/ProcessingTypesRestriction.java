@@ -94,36 +94,45 @@ public class ProcessingTypesRestriction {
   public ProcessingTypesRestriction() { 
   }
 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   * @return the current {@code ProcessingTypesRestriction} instance, allowing for method chaining
+   */
   public ProcessingTypesRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
 
-   /**
+  /**
    * Defines how the condition must be evaluated.
    * @return operation
-  **/
+   */
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOperation() {
     return operation;
   }
 
-
- /**
-  * Defines how the condition must be evaluated.
-  *
-  * @param operation
-  */ 
+  /**
+   * Defines how the condition must be evaluated.
+   *
+   * @param operation
+   */ 
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
 
-
+  /**
+   * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
+   *
+   * @param value
+   * @return the current {@code ProcessingTypesRestriction} instance, allowing for method chaining
+   */
   public ProcessingTypesRestriction value(List<ValueEnum> value) {
     this.value = value;
     return this;
@@ -137,30 +146,27 @@ public class ProcessingTypesRestriction {
     return this;
   }
 
-   /**
+  /**
    * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
    * @return value
-  **/
+   */
   @ApiModelProperty(value = "List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  ")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ValueEnum> getValue() {
     return value;
   }
 
-
- /**
-  * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
-  *
-  * @param value
-  */ 
+  /**
+   * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
+   *
+   * @param value
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {
     this.value = value;
   }
-
 
   /**
    * Return true if this ProcessingTypesRestriction object is equal to o.
@@ -223,4 +229,3 @@ public class ProcessingTypesRestriction {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-

@@ -54,125 +54,137 @@ public class MerchantLinks {
   public MerchantLinks() { 
   }
 
+  /**
+   * apiCredentials
+   *
+   * @param apiCredentials
+   * @return the current {@code MerchantLinks} instance, allowing for method chaining
+   */
   public MerchantLinks apiCredentials(LinksElement apiCredentials) {
     this.apiCredentials = apiCredentials;
     return this;
   }
 
-   /**
-   * Get apiCredentials
+  /**
+   * apiCredentials
    * @return apiCredentials
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_API_CREDENTIALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getApiCredentials() {
     return apiCredentials;
   }
 
-
- /**
-  * apiCredentials
-  *
-  * @param apiCredentials
-  */ 
+  /**
+   * apiCredentials
+   *
+   * @param apiCredentials
+   */ 
   @JsonProperty(JSON_PROPERTY_API_CREDENTIALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiCredentials(LinksElement apiCredentials) {
     this.apiCredentials = apiCredentials;
   }
 
-
+  /**
+   * self
+   *
+   * @param self
+   * @return the current {@code MerchantLinks} instance, allowing for method chaining
+   */
   public MerchantLinks self(LinksElement self) {
     this.self = self;
     return this;
   }
 
-   /**
-   * Get self
+  /**
+   * self
    * @return self
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getSelf() {
     return self;
   }
 
-
- /**
-  * self
-  *
-  * @param self
-  */ 
+  /**
+   * self
+   *
+   * @param self
+   */ 
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }
 
-
+  /**
+   * users
+   *
+   * @param users
+   * @return the current {@code MerchantLinks} instance, allowing for method chaining
+   */
   public MerchantLinks users(LinksElement users) {
     this.users = users;
     return this;
   }
 
-   /**
-   * Get users
+  /**
+   * users
    * @return users
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getUsers() {
     return users;
   }
 
-
- /**
-  * users
-  *
-  * @param users
-  */ 
+  /**
+   * users
+   *
+   * @param users
+   */ 
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsers(LinksElement users) {
     this.users = users;
   }
 
-
+  /**
+   * webhooks
+   *
+   * @param webhooks
+   * @return the current {@code MerchantLinks} instance, allowing for method chaining
+   */
   public MerchantLinks webhooks(LinksElement webhooks) {
     this.webhooks = webhooks;
     return this;
   }
 
-   /**
-   * Get webhooks
+  /**
+   * webhooks
    * @return webhooks
-  **/
+   */
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LinksElement getWebhooks() {
     return webhooks;
   }
 
-
- /**
-  * webhooks
-  *
-  * @param webhooks
-  */ 
+  /**
+   * webhooks
+   *
+   * @param webhooks
+   */ 
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebhooks(LinksElement webhooks) {
     this.webhooks = webhooks;
   }
-
 
   /**
    * Return true if this MerchantLinks object is equal to o.
@@ -239,4 +251,3 @@ public class MerchantLinks {
     return JSON.getMapper().writeValueAsString(this);
   }
 }
-
