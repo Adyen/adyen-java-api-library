@@ -30,13 +30,10 @@ import com.adyen.model.payment.*;
 import com.adyen.service.PaymentApi;
 import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
-import com.fasterxml.jackson.databind.JavaType;
-import com.google.gson.reflect.TypeToken;
 import okio.ByteString;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -44,7 +41,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-import java.util.Base64;
+import org.apache.commons.codec.binary.Base64;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
@@ -454,7 +451,7 @@ public class PaymentTest extends BaseTest {
         byte[] actualDeserializedBytes = JSON.getMapper().readValue(serializedBytesWithQuotes, byte[].class);
 
         // Assert
-        assertEquals(expectedBytesAsString, new String(Base64.getDecoder().decode(actualDeserializedBytes)));
+        assertEquals(expectedBytesAsString, new String(Base64.decodeBase64(actualDeserializedBytes)));
     }
 
     @Test
