@@ -64,7 +64,9 @@ public class ModificationResult {
     
     TECHNICAL_CANCEL_RECEIVED_("[technical-cancel-received]"),
     
-    VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]");
+    VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]"),
+    
+    AUTHORISED("Authorised");
 
     private String value;
 
