@@ -84,7 +84,7 @@ public class FundRecipient {
   private String walletOwnerTaxId;
 
   /**
-   * The purpose of a digital wallet transaction
+   * The purpose of a digital wallet transaction.
    */
   public enum WalletPurposeEnum {
     IDENTIFIEDBOLETO("identifiedBoleto"),
@@ -131,7 +131,7 @@ public class FundRecipient {
   }
 
   /**
-   * Fund Recipient Iban for C2C payments
+   * The IBAN of the bank account where the funds are being transferred to.
    *
    * @param IBAN
    * @return the current {@code FundRecipient} instance, allowing for method chaining
@@ -142,10 +142,10 @@ public class FundRecipient {
   }
 
   /**
-   * Fund Recipient Iban for C2C payments
+   * The IBAN of the bank account where the funds are being transferred to.
    * @return IBAN
    */
-  @ApiModelProperty(value = "Fund Recipient Iban for C2C payments")
+  @ApiModelProperty(value = "The IBAN of the bank account where the funds are being transferred to.")
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIBAN() {
@@ -153,7 +153,7 @@ public class FundRecipient {
   }
 
   /**
-   * Fund Recipient Iban for C2C payments
+   * The IBAN of the bank account where the funds are being transferred to.
    *
    * @param IBAN
    */ 
@@ -428,7 +428,7 @@ public class FundRecipient {
   }
 
   /**
-   * Indicates where the money is going.
+   * The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    *
    * @param walletIdentifier
    * @return the current {@code FundRecipient} instance, allowing for method chaining
@@ -439,10 +439,10 @@ public class FundRecipient {
   }
 
   /**
-   * Indicates where the money is going.
+   * The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    * @return walletIdentifier
    */
-  @ApiModelProperty(value = "Indicates where the money is going.")
+  @ApiModelProperty(value = "The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.")
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWalletIdentifier() {
@@ -450,7 +450,7 @@ public class FundRecipient {
   }
 
   /**
-   * Indicates where the money is going.
+   * The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    *
    * @param walletIdentifier
    */ 
@@ -461,7 +461,7 @@ public class FundRecipient {
   }
 
   /**
-   * Indicates the tax identifier of the fund recipient
+   * The tax identifier of the person receiving the funds.
    *
    * @param walletOwnerTaxId
    * @return the current {@code FundRecipient} instance, allowing for method chaining
@@ -472,10 +472,10 @@ public class FundRecipient {
   }
 
   /**
-   * Indicates the tax identifier of the fund recipient
+   * The tax identifier of the person receiving the funds.
    * @return walletOwnerTaxId
    */
-  @ApiModelProperty(value = "Indicates the tax identifier of the fund recipient")
+  @ApiModelProperty(value = "The tax identifier of the person receiving the funds.")
   @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWalletOwnerTaxId() {
@@ -483,7 +483,7 @@ public class FundRecipient {
   }
 
   /**
-   * Indicates the tax identifier of the fund recipient
+   * The tax identifier of the person receiving the funds.
    *
    * @param walletOwnerTaxId
    */ 
@@ -494,7 +494,7 @@ public class FundRecipient {
   }
 
   /**
-   * The purpose of a digital wallet transaction
+   * The purpose of a digital wallet transaction.
    *
    * @param walletPurpose
    * @return the current {@code FundRecipient} instance, allowing for method chaining
@@ -505,10 +505,10 @@ public class FundRecipient {
   }
 
   /**
-   * The purpose of a digital wallet transaction
+   * The purpose of a digital wallet transaction.
    * @return walletPurpose
    */
-  @ApiModelProperty(value = "The purpose of a digital wallet transaction")
+  @ApiModelProperty(value = "The purpose of a digital wallet transaction.")
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WalletPurposeEnum getWalletPurpose() {
@@ -516,7 +516,7 @@ public class FundRecipient {
   }
 
   /**
-   * The purpose of a digital wallet transaction
+   * The purpose of a digital wallet transaction.
    *
    * @param walletPurpose
    */ 

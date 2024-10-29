@@ -28,16 +28,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * StoredPaymentMethodDetails
+ * TwintDetails
  */
 @JsonPropertyOrder({
-  StoredPaymentMethodDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  StoredPaymentMethodDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  StoredPaymentMethodDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  StoredPaymentMethodDetails.JSON_PROPERTY_TYPE
+  TwintDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  TwintDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  TwintDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  TwintDetails.JSON_PROPERTY_SUBTYPE,
+  TwintDetails.JSON_PROPERTY_TYPE
 })
 
-public class StoredPaymentMethodDetails {
+public class TwintDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
 
@@ -48,43 +49,14 @@ public class StoredPaymentMethodDetails {
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
+  public static final String JSON_PROPERTY_SUBTYPE = "subtype";
+  private String subtype;
+
   /**
    * The payment method type.
    */
   public enum TypeEnum {
-    BCMC_MOBILE("bcmc_mobile"),
-    
-    BCMC_MOBILE_QR("bcmc_mobile_QR"),
-    
-    BCMC_MOBILE_APP("bcmc_mobile_app"),
-    
-    MOMO_WALLET("momo_wallet"),
-    
-    MOMO_WALLET_APP("momo_wallet_app"),
-    
-    PAYMAYA_WALLET("paymaya_wallet"),
-    
-    GRABPAY_SG("grabpay_SG"),
-    
-    GRABPAY_MY("grabpay_MY"),
-    
-    GRABPAY_TH("grabpay_TH"),
-    
-    GRABPAY_ID("grabpay_ID"),
-    
-    GRABPAY_VN("grabpay_VN"),
-    
-    GRABPAY_PH("grabpay_PH"),
-    
-    OXXO("oxxo"),
-    
-    GCASH("gcash"),
-    
-    DANA("dana"),
-    
-    KAKAOPAY("kakaopay"),
-    
-    TRUEMONEY("truemoney");
+    TWINT("twint");
 
     private String value;
 
@@ -116,16 +88,16 @@ public class StoredPaymentMethodDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public StoredPaymentMethodDetails() { 
+  public TwintDetails() { 
   }
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code TwintDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails checkoutAttemptId(String checkoutAttemptId) {
+  public TwintDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
@@ -156,13 +128,13 @@ public class StoredPaymentMethodDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param recurringDetailReference
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code TwintDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
   @Deprecated
-  public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
+  public TwintDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
@@ -201,9 +173,9 @@ public class StoredPaymentMethodDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code TwintDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
+  public TwintDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
@@ -231,12 +203,45 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
+   * The type of flow to initiate.
+   *
+   * @param subtype
+   * @return the current {@code TwintDetails} instance, allowing for method chaining
+   */
+  public TwintDetails subtype(String subtype) {
+    this.subtype = subtype;
+    return this;
+  }
+
+  /**
+   * The type of flow to initiate.
+   * @return subtype
+   */
+  @ApiModelProperty(value = "The type of flow to initiate.")
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubtype() {
+    return subtype;
+  }
+
+  /**
+   * The type of flow to initiate.
+   *
+   * @param subtype
+   */ 
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubtype(String subtype) {
+    this.subtype = subtype;
+  }
+
+  /**
    * The payment method type.
    *
    * @param type
-   * @return the current {@code StoredPaymentMethodDetails} instance, allowing for method chaining
+   * @return the current {@code TwintDetails} instance, allowing for method chaining
    */
-  public StoredPaymentMethodDetails type(TypeEnum type) {
+  public TwintDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -264,7 +269,7 @@ public class StoredPaymentMethodDetails {
   }
 
   /**
-   * Return true if this StoredPaymentMethodDetails object is equal to o.
+   * Return true if this TwintDetails object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -274,25 +279,27 @@ public class StoredPaymentMethodDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredPaymentMethodDetails storedPaymentMethodDetails = (StoredPaymentMethodDetails) o;
-    return Objects.equals(this.checkoutAttemptId, storedPaymentMethodDetails.checkoutAttemptId) &&
-        Objects.equals(this.recurringDetailReference, storedPaymentMethodDetails.recurringDetailReference) &&
-        Objects.equals(this.storedPaymentMethodId, storedPaymentMethodDetails.storedPaymentMethodId) &&
-        Objects.equals(this.type, storedPaymentMethodDetails.type);
+    TwintDetails twintDetails = (TwintDetails) o;
+    return Objects.equals(this.checkoutAttemptId, twintDetails.checkoutAttemptId) &&
+        Objects.equals(this.recurringDetailReference, twintDetails.recurringDetailReference) &&
+        Objects.equals(this.storedPaymentMethodId, twintDetails.storedPaymentMethodId) &&
+        Objects.equals(this.subtype, twintDetails.subtype) &&
+        Objects.equals(this.type, twintDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(checkoutAttemptId, recurringDetailReference, storedPaymentMethodId, subtype, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredPaymentMethodDetails {\n");
+    sb.append("class TwintDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -310,17 +317,17 @@ public class StoredPaymentMethodDetails {
   }
 
 /**
-   * Create an instance of StoredPaymentMethodDetails given an JSON string
+   * Create an instance of TwintDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredPaymentMethodDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to StoredPaymentMethodDetails
+   * @return An instance of TwintDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TwintDetails
    */
-  public static StoredPaymentMethodDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredPaymentMethodDetails.class);
+  public static TwintDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TwintDetails.class);
   }
 /**
-  * Convert an instance of StoredPaymentMethodDetails to an JSON string
+  * Convert an instance of TwintDetails to an JSON string
   *
   * @return JSON string
   */
