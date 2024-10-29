@@ -121,10 +121,12 @@ public class ThreeDSRequestData {
   private DataOnlyEnum dataOnly;
 
   /**
-   * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available.
+   * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    */
   public enum NativeThreeDSEnum {
-    PREFERRED("preferred");
+    PREFERRED("preferred"),
+    
+    DISABLED("disabled");
 
     private String value;
 
@@ -264,7 +266,7 @@ public class ThreeDSRequestData {
   }
 
   /**
-   * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available.
+   * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    *
    * @param nativeThreeDS
    * @return the current {@code ThreeDSRequestData} instance, allowing for method chaining
@@ -275,10 +277,10 @@ public class ThreeDSRequestData {
   }
 
   /**
-   * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available.
+   * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    * @return nativeThreeDS
    */
-  @ApiModelProperty(value = "Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available.")
+  @ApiModelProperty(value = "Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.")
   @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NativeThreeDSEnum getNativeThreeDS() {
@@ -286,7 +288,7 @@ public class ThreeDSRequestData {
   }
 
   /**
-   * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available.
+   * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    *
    * @param nativeThreeDS
    */ 
