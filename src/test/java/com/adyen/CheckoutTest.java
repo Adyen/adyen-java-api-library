@@ -215,20 +215,6 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
-     * Should make paymentsResults call
-     */
-    @Test
-    public void TestPaymentsResultsSuccessCall() throws Exception {
-        Client client = createMockClientFromFile("mocks/checkout/paymentResultsResponse.json");
-        PaymentVerificationRequest paymentVerificationRequest = new PaymentVerificationRequest();
-        paymentVerificationRequest.setPayload("PAYLOAD");
-        ClassicCheckoutSdkApi checkout = new ClassicCheckoutSdkApi(client);
-        PaymentVerificationResponse paymentVerificationResponse = checkout.verifyPaymentResult(paymentVerificationRequest);
-        assertEquals(PaymentVerificationResponse.ResultCodeEnum.AUTHORISED, paymentVerificationResponse.getResultCode());
-        assertEquals("V4HZ4RBFJGXXGN82", paymentVerificationResponse.getPspReference());
-    }
-
-    /**
      * Should make orders call
      */
     @Test

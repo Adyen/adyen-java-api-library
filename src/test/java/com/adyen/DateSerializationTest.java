@@ -5,8 +5,6 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.PaymentLinkRequest;
 import com.adyen.model.checkout.PaymentRequest;
-import com.adyen.model.checkout.PaymentSetupRequest;
-import com.adyen.service.checkout.ClassicCheckoutSdkApi;
 import com.adyen.service.checkout.PaymentLinksApi;
 import com.adyen.service.checkout.PaymentsApi;
 import com.adyen.service.exception.ApiException;
@@ -60,25 +58,6 @@ public class DateSerializationTest extends BaseTest {
         ClientInterface http = client.getHttpClient();
 
         String expected1 = "\"deliverAt\":\"2023-06-02T12:00:00";
-        String expected2 = "\"dateOfBirth\":\"2023-06-02";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(false), isNull(), any(), isNull());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(false), isNull(), any(), isNull());
-    }
-
-    @Test
-    public void TestPaymentSessionDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/paymentSessionResponse.json");
-        ClassicCheckoutSdkApi checkout = new ClassicCheckoutSdkApi(client);
-
-        PaymentSetupRequest request = new PaymentSetupRequest();
-
-        request.setDateOfBirth(date().toLocalDate());
-        request.setDeliveryDate(date());
-
-        checkout.paymentSession(request);
-        ClientInterface http = client.getHttpClient();
-
-        String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
         String expected2 = "\"dateOfBirth\":\"2023-06-02";
         verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(false), isNull(), any(), isNull());
         verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(false), isNull(), any(), isNull());
