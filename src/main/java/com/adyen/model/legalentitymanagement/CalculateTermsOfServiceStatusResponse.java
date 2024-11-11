@@ -47,6 +47,8 @@ public class CalculateTermsOfServiceStatusResponse {
     
     ADYENCARD("adyenCard"),
     
+    ADYENCHARGECARD("adyenChargeCard"),
+    
     ADYENFORPLATFORMSADVANCED("adyenForPlatformsAdvanced"),
     
     ADYENFORPLATFORMSMANAGE("adyenForPlatformsManage"),
