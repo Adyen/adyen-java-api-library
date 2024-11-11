@@ -17,6 +17,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.legalentitymanagement.AcceptTermsOfServiceRequest;
 import com.adyen.model.legalentitymanagement.AcceptTermsOfServiceResponse;
 import com.adyen.model.legalentitymanagement.CalculateTermsOfServiceStatusResponse;
+import com.adyen.model.legalentitymanagement.GetAcceptedTermsOfServiceDocumentResponse;
 import com.adyen.model.legalentitymanagement.GetTermsOfServiceAcceptanceInfosResponse;
 import com.adyen.model.legalentitymanagement.GetTermsOfServiceDocumentRequest;
 import com.adyen.model.legalentitymanagement.GetTermsOfServiceDocumentResponse;
@@ -94,6 +95,51 @@ public class TermsOfServiceApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/termsOfService/{termsofservicedocumentid}", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return AcceptTermsOfServiceResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get accepted Terms of Service document
+    *
+    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorship, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. (required)
+    * @param termsofserviceacceptancereference {@link String } An Adyen-generated reference for the accepted Terms of Service. (required)
+    * @return {@link GetAcceptedTermsOfServiceDocumentResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public GetAcceptedTermsOfServiceDocumentResponse getAcceptedTermsOfServiceDocument(String id, String termsofserviceacceptancereference) throws ApiException, IOException {
+        return getAcceptedTermsOfServiceDocument(id, termsofserviceacceptancereference, null,  null);
+    }
+
+    /**
+    * Get accepted Terms of Service document
+    *
+    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorship, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. (required)
+    * @param termsofserviceacceptancereference {@link String } An Adyen-generated reference for the accepted Terms of Service. (required)
+    * @param termsOfServiceDocumentFormat {@link String } Query: The format of the Terms of Service document. Possible values: **JSON**, **PDF**, or **TXT** (optional)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link GetAcceptedTermsOfServiceDocumentResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public GetAcceptedTermsOfServiceDocumentResponse getAcceptedTermsOfServiceDocument(String id, String termsofserviceacceptancereference, String termsOfServiceDocumentFormat, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+        if (termsofserviceacceptancereference == null) {
+            throw new IllegalArgumentException("Please provide the termsofserviceacceptancereference path parameter");
+        }
+        pathParams.put("termsofserviceacceptancereference", termsofserviceacceptancereference);
+        //Add query params
+        Map<String, String> queryParams = new HashMap<>();
+        if (termsOfServiceDocumentFormat != null) {
+        queryParams.put("termsOfServiceDocumentFormat", termsOfServiceDocumentFormat);
+        }
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/acceptedTermsOfServiceDocument/{termsofserviceacceptancereference}", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
+        return GetAcceptedTermsOfServiceDocumentResponse.fromJson(jsonResult);
     }
 
     /**
