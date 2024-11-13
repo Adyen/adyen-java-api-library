@@ -166,7 +166,7 @@ public class PaymentInstrumentInfo {
   private StatusReasonEnum statusReason;
 
   /**
-   * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
+   * The type of payment instrument.  Possible values: **card**, **bankAccount**.
    */
   public enum TypeEnum {
     BANKACCOUNT("bankAccount"),
@@ -537,7 +537,7 @@ public class PaymentInstrumentInfo {
   }
 
   /**
-   * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
+   * The type of payment instrument.  Possible values: **card**, **bankAccount**.
    *
    * @param type
    * @return the current {@code PaymentInstrumentInfo} instance, allowing for method chaining
@@ -548,10 +548,10 @@ public class PaymentInstrumentInfo {
   }
 
   /**
-   * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
+   * The type of payment instrument.  Possible values: **card**, **bankAccount**.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "Type of payment instrument.  Possible value: **card**, **bankAccount**. ")
+  @ApiModelProperty(required = true, value = "The type of payment instrument.  Possible values: **card**, **bankAccount**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -559,7 +559,7 @@ public class PaymentInstrumentInfo {
   }
 
   /**
-   * Type of payment instrument.  Possible value: **card**, **bankAccount**. 
+   * The type of payment instrument.  Possible values: **card**, **bankAccount**.
    *
    * @param type
    */ 

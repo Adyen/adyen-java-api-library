@@ -192,6 +192,8 @@ public class SweepConfigurationV2 {
     
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
+    REFUSEDBYCUSTOMER("refusedByCustomer"),
+    
     ROUTENOTFOUND("routeNotFound"),
     
     SCAFAILED("scaFailed"),

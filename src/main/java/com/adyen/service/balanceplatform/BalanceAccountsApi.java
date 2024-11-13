@@ -22,6 +22,7 @@ import com.adyen.model.balanceplatform.CreateSweepConfigurationV2;
 import com.adyen.model.balanceplatform.PaginatedPaymentInstrumentsResponse;
 import com.adyen.model.balanceplatform.RestServiceError;
 import com.adyen.model.balanceplatform.SweepConfigurationV2;
+import com.adyen.model.balanceplatform.TransactionRulesResponse;
 import com.adyen.model.balanceplatform.UpdateSweepConfigurationV2;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
@@ -196,6 +197,39 @@ public class BalanceAccountsApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{balanceAccountId}/sweeps", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return BalanceSweepConfigurationsResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get all transaction rules for a balance account
+    *
+    * @param id {@link String } The unique identifier of the balance account. (required)
+    * @return {@link TransactionRulesResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRulesResponse getAllTransactionRulesForBalanceAccount(String id) throws ApiException, IOException {
+        return getAllTransactionRulesForBalanceAccount(id, null);
+    }
+
+    /**
+    * Get all transaction rules for a balance account
+    *
+    * @param id {@link String } The unique identifier of the balance account. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TransactionRulesResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRulesResponse getAllTransactionRulesForBalanceAccount(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/balanceAccounts/{id}/transactionRules", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return TransactionRulesResponse.fromJson(jsonResult);
     }
 
     /**
