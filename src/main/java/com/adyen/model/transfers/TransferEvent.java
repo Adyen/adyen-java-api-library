@@ -130,6 +130,8 @@ public class TransferEvent {
     
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
+    REFUSEDBYCUSTOMER("refusedByCustomer"),
+    
     ROUTENOTFOUND("routeNotFound"),
     
     SCAFAILED("scaFailed"),
@@ -934,7 +936,7 @@ public class TransferEvent {
   }
 
   /**
-   * A future date, when the funds are expected to be deducted from or credited to the balance account.
+   * The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    *
    * @param valueDate
    * @return the current {@code TransferEvent} instance, allowing for method chaining
@@ -945,10 +947,10 @@ public class TransferEvent {
   }
 
   /**
-   * A future date, when the funds are expected to be deducted from or credited to the balance account.
+   * The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    * @return valueDate
    */
-  @ApiModelProperty(value = "A future date, when the funds are expected to be deducted from or credited to the balance account.")
+  @ApiModelProperty(value = "The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.")
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValueDate() {
@@ -956,7 +958,7 @@ public class TransferEvent {
   }
 
   /**
-   * A future date, when the funds are expected to be deducted from or credited to the balance account.
+   * The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    *
    * @param valueDate
    */ 

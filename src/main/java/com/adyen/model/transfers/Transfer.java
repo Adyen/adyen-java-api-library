@@ -212,6 +212,8 @@ public class Transfer {
     
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
+    REFUSEDBYCUSTOMER("refusedByCustomer"),
+    
     ROUTENOTFOUND("routeNotFound"),
     
     SCAFAILED("scaFailed"),

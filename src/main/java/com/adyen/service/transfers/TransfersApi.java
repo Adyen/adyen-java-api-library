@@ -110,8 +110,8 @@ public class TransfersApi extends Service {
     /**
     * Get all transfers
     *
-    * @param createdSince {@link OffsetDateTime } Only include transfers that have been created on or after this point in time. The value must be in ISO 8601 format. For example, **2021-05-30T15:07:40Z**. (required)
-    * @param createdUntil {@link OffsetDateTime } Only include transfers that have been created on or before this point in time. The value must be in ISO 8601 format. For example, **2021-05-30T15:07:40Z**. (required)
+    * @param createdSince {@link OffsetDateTime } Only include transfers that have been created on or after this point in time. The value must be in ISO 8601 format and not earlier than 6 months before the &#x60;createdUntil&#x60; date. For example, **2021-05-30T15:07:40Z**. (required)
+    * @param createdUntil {@link OffsetDateTime } Only include transfers that have been created on or before this point in time. The value must be in ISO 8601 format and not later than 6 months after the &#x60;createdSince&#x60; date. For example, **2021-05-30T15:07:40Z**. (required)
     * @return {@link FindTransfersResponse }
     * @throws ApiException if fails to make API call
     */
@@ -128,8 +128,8 @@ public class TransfersApi extends Service {
     * @param paymentInstrumentId {@link String } Query: The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).  To use this parameter, you must also provide a &#x60;balanceAccountId&#x60;, &#x60;accountHolderId&#x60;, or &#x60;balancePlatform&#x60;.  The &#x60;paymentInstrumentId&#x60; must be related to the &#x60;balanceAccountId&#x60; or &#x60;accountHolderId&#x60; that you provide. (optional)
     * @param reference {@link String } Query: The reference you provided in the POST [/transfers](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers) request (optional)
     * @param category {@link String } Query: The type of transfer.  Possible values:   - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: Transfer initiated by a Adyen-issued card.  - **platformPayment**: Fund movements related to payments that are acquired for your users. (optional)
-    * @param createdSince {@link OffsetDateTime } Query: Only include transfers that have been created on or after this point in time. The value must be in ISO 8601 format. For example, **2021-05-30T15:07:40Z**. (required)
-    * @param createdUntil {@link OffsetDateTime } Query: Only include transfers that have been created on or before this point in time. The value must be in ISO 8601 format. For example, **2021-05-30T15:07:40Z**. (required)
+    * @param createdSince {@link OffsetDateTime } Query: Only include transfers that have been created on or after this point in time. The value must be in ISO 8601 format and not earlier than 6 months before the &#x60;createdUntil&#x60; date. For example, **2021-05-30T15:07:40Z**. (required)
+    * @param createdUntil {@link OffsetDateTime } Query: Only include transfers that have been created on or before this point in time. The value must be in ISO 8601 format and not later than 6 months after the &#x60;createdSince&#x60; date. For example, **2021-05-30T15:07:40Z**. (required)
     * @param cursor {@link String } Query: The &#x60;cursor&#x60; returned in the links of the previous response. (optional)
     * @param limit {@link Integer } Query: The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page. (optional)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
