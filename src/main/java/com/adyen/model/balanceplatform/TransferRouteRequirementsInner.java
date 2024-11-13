@@ -18,8 +18,11 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.AddressRequirement;
 import com.adyen.model.balanceplatform.AmountMinMaxRequirement;
+import com.adyen.model.balanceplatform.AmountNonZeroDecimalsRequirement;
 import com.adyen.model.balanceplatform.BankAccountIdentificationTypeRequirement;
+import com.adyen.model.balanceplatform.IbanAccountIdentificationRequirement;
 import com.adyen.model.balanceplatform.PaymentInstrumentRequirement;
+import com.adyen.model.balanceplatform.USInternationalAchAddressRequirement;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -154,6 +157,34 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
             }
 
 
+            // deserialize AmountNonZeroDecimalsRequirement
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AmountNonZeroDecimalsRequirement.class.equals(Integer.class) || AmountNonZeroDecimalsRequirement.class.equals(Long.class) || AmountNonZeroDecimalsRequirement.class.equals(Float.class) || AmountNonZeroDecimalsRequirement.class.equals(Double.class) || AmountNonZeroDecimalsRequirement.class.equals(Boolean.class) || AmountNonZeroDecimalsRequirement.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AmountNonZeroDecimalsRequirement.class.equals(Integer.class) || AmountNonZeroDecimalsRequirement.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AmountNonZeroDecimalsRequirement.class.equals(Float.class) || AmountNonZeroDecimalsRequirement.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AmountNonZeroDecimalsRequirement.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AmountNonZeroDecimalsRequirement.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(AmountNonZeroDecimalsRequirement.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), AmountNonZeroDecimalsRequirement.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AmountNonZeroDecimalsRequirement'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AmountNonZeroDecimalsRequirement'", e);
+            }
+
+
             // deserialize BankAccountIdentificationTypeRequirement
             try {
                 boolean attemptParsing = true;
@@ -182,6 +213,34 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
             }
 
 
+            // deserialize IbanAccountIdentificationRequirement
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (IbanAccountIdentificationRequirement.class.equals(Integer.class) || IbanAccountIdentificationRequirement.class.equals(Long.class) || IbanAccountIdentificationRequirement.class.equals(Float.class) || IbanAccountIdentificationRequirement.class.equals(Double.class) || IbanAccountIdentificationRequirement.class.equals(Boolean.class) || IbanAccountIdentificationRequirement.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((IbanAccountIdentificationRequirement.class.equals(Integer.class) || IbanAccountIdentificationRequirement.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((IbanAccountIdentificationRequirement.class.equals(Float.class) || IbanAccountIdentificationRequirement.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (IbanAccountIdentificationRequirement.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (IbanAccountIdentificationRequirement.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(IbanAccountIdentificationRequirement.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), IbanAccountIdentificationRequirement.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentificationRequirement'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'IbanAccountIdentificationRequirement'", e);
+            }
+
+
             // deserialize PaymentInstrumentRequirement
             try {
                 boolean attemptParsing = true;
@@ -207,6 +266,34 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'PaymentInstrumentRequirement'", e);
+            }
+
+
+            // deserialize USInternationalAchAddressRequirement
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (USInternationalAchAddressRequirement.class.equals(Integer.class) || USInternationalAchAddressRequirement.class.equals(Long.class) || USInternationalAchAddressRequirement.class.equals(Float.class) || USInternationalAchAddressRequirement.class.equals(Double.class) || USInternationalAchAddressRequirement.class.equals(Boolean.class) || USInternationalAchAddressRequirement.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((USInternationalAchAddressRequirement.class.equals(Integer.class) || USInternationalAchAddressRequirement.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((USInternationalAchAddressRequirement.class.equals(Float.class) || USInternationalAchAddressRequirement.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (USInternationalAchAddressRequirement.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (USInternationalAchAddressRequirement.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(USInternationalAchAddressRequirement.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), USInternationalAchAddressRequirement.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'USInternationalAchAddressRequirement'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'USInternationalAchAddressRequirement'", e);
             }
 
             // Throw error if there is no match
@@ -249,7 +336,17 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public TransferRouteRequirementsInner(AmountNonZeroDecimalsRequirement o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public TransferRouteRequirementsInner(BankAccountIdentificationTypeRequirement o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public TransferRouteRequirementsInner(IbanAccountIdentificationRequirement o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -259,14 +356,25 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public TransferRouteRequirementsInner(USInternationalAchAddressRequirement o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("AddressRequirement", new GenericType<AddressRequirement>() {
         });
         schemas.put("AmountMinMaxRequirement", new GenericType<AmountMinMaxRequirement>() {
         });
+        schemas.put("AmountNonZeroDecimalsRequirement", new GenericType<AmountNonZeroDecimalsRequirement>() {
+        });
         schemas.put("BankAccountIdentificationTypeRequirement", new GenericType<BankAccountIdentificationTypeRequirement>() {
         });
+        schemas.put("IbanAccountIdentificationRequirement", new GenericType<IbanAccountIdentificationRequirement>() {
+        });
         schemas.put("PaymentInstrumentRequirement", new GenericType<PaymentInstrumentRequirement>() {
+        });
+        schemas.put("USInternationalAchAddressRequirement", new GenericType<USInternationalAchAddressRequirement>() {
         });
         JSON.registerDescendants(TransferRouteRequirementsInner.class, Collections.unmodifiableMap(schemas));
     }
@@ -279,7 +387,7 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AddressRequirement, AmountMinMaxRequirement, BankAccountIdentificationTypeRequirement, PaymentInstrumentRequirement
+     * AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInternationalAchAddressRequirement
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -296,7 +404,17 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
             return;
         }
 
+        if (JSON.isInstanceOf(AmountNonZeroDecimalsRequirement.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (JSON.isInstanceOf(BankAccountIdentificationTypeRequirement.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(IbanAccountIdentificationRequirement.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -306,14 +424,19 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AddressRequirement, AmountMinMaxRequirement, BankAccountIdentificationTypeRequirement, PaymentInstrumentRequirement");
+        if (JSON.isInstanceOf(USInternationalAchAddressRequirement.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInternationalAchAddressRequirement");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AddressRequirement, AmountMinMaxRequirement, BankAccountIdentificationTypeRequirement, PaymentInstrumentRequirement
+     * AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInternationalAchAddressRequirement
      *
-     * @return The actual instance (AddressRequirement, AmountMinMaxRequirement, BankAccountIdentificationTypeRequirement, PaymentInstrumentRequirement)
+     * @return The actual instance (AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInternationalAchAddressRequirement)
      */
     @Override
     public Object getActualInstance() {
@@ -343,6 +466,17 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `AmountNonZeroDecimalsRequirement`. If the actual instance is not `AmountNonZeroDecimalsRequirement`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AmountNonZeroDecimalsRequirement`
+     * @throws ClassCastException if the instance is not `AmountNonZeroDecimalsRequirement`
+     */
+    public AmountNonZeroDecimalsRequirement getAmountNonZeroDecimalsRequirement() throws ClassCastException {
+        return (AmountNonZeroDecimalsRequirement)super.getActualInstance();
+    }
+
+    /**
      * Get the actual instance of `BankAccountIdentificationTypeRequirement`. If the actual instance is not `BankAccountIdentificationTypeRequirement`,
      * the ClassCastException will be thrown.
      *
@@ -354,6 +488,17 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `IbanAccountIdentificationRequirement`. If the actual instance is not `IbanAccountIdentificationRequirement`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `IbanAccountIdentificationRequirement`
+     * @throws ClassCastException if the instance is not `IbanAccountIdentificationRequirement`
+     */
+    public IbanAccountIdentificationRequirement getIbanAccountIdentificationRequirement() throws ClassCastException {
+        return (IbanAccountIdentificationRequirement)super.getActualInstance();
+    }
+
+    /**
      * Get the actual instance of `PaymentInstrumentRequirement`. If the actual instance is not `PaymentInstrumentRequirement`,
      * the ClassCastException will be thrown.
      *
@@ -362,6 +507,17 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
      */
     public PaymentInstrumentRequirement getPaymentInstrumentRequirement() throws ClassCastException {
         return (PaymentInstrumentRequirement)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `USInternationalAchAddressRequirement`. If the actual instance is not `USInternationalAchAddressRequirement`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `USInternationalAchAddressRequirement`
+     * @throws ClassCastException if the instance is not `USInternationalAchAddressRequirement`
+     */
+    public USInternationalAchAddressRequirement getUSInternationalAchAddressRequirement() throws ClassCastException {
+        return (USInternationalAchAddressRequirement)super.getActualInstance();
     }
 
     /**

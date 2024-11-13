@@ -20,6 +20,7 @@ import com.adyen.model.balanceplatform.AccountHolderUpdateRequest;
 import com.adyen.model.balanceplatform.GetTaxFormResponse;
 import com.adyen.model.balanceplatform.PaginatedBalanceAccountsResponse;
 import com.adyen.model.balanceplatform.RestServiceError;
+import com.adyen.model.balanceplatform.TransactionRulesResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -155,6 +156,39 @@ public class AccountHoldersApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/accountHolders/{id}/balanceAccounts", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return PaginatedBalanceAccountsResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get all transaction rules for an account holder
+    *
+    * @param id {@link String } The unique identifier of the account holder. (required)
+    * @return {@link TransactionRulesResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRulesResponse getAllTransactionRulesForAccountHolder(String id) throws ApiException, IOException {
+        return getAllTransactionRulesForAccountHolder(id, null);
+    }
+
+    /**
+    * Get all transaction rules for an account holder
+    *
+    * @param id {@link String } The unique identifier of the account holder. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TransactionRulesResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRulesResponse getAllTransactionRulesForAccountHolder(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/accountHolders/{id}/transactionRules", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return TransactionRulesResponse.fromJson(jsonResult);
     }
 
     /**

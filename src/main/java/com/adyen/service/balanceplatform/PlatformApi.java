@@ -17,6 +17,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.BalancePlatform;
 import com.adyen.model.balanceplatform.PaginatedAccountHoldersResponse;
 import com.adyen.model.balanceplatform.RestServiceError;
+import com.adyen.model.balanceplatform.TransactionRulesResponse;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
@@ -92,6 +93,39 @@ public class PlatformApi extends Service {
         Resource resource = new Resource(this, this.baseURL + "/balancePlatforms/{id}/accountHolders", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams, queryParams);
         return PaginatedAccountHoldersResponse.fromJson(jsonResult);
+    }
+
+    /**
+    * Get all transaction rules for a balance platform
+    *
+    * @param id {@link String } The unique identifier of the balance platform. (required)
+    * @return {@link TransactionRulesResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRulesResponse getAllTransactionRulesForBalancePlatform(String id) throws ApiException, IOException {
+        return getAllTransactionRulesForBalancePlatform(id, null);
+    }
+
+    /**
+    * Get all transaction rules for a balance platform
+    *
+    * @param id {@link String } The unique identifier of the balance platform. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link TransactionRulesResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public TransactionRulesResponse getAllTransactionRulesForBalancePlatform(String id, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = null;
+        Resource resource = new Resource(this, this.baseURL + "/balancePlatforms/{id}/transactionRules", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+        return TransactionRulesResponse.fromJson(jsonResult);
     }
 
     /**
