@@ -2,12 +2,14 @@ package com.adyen;
 
 
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.balanceplatform.*;
 
 import com.adyen.service.balanceplatform.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.google.gson.JsonSyntaxException;
+import org.hamcrest.core.AnyOf;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -19,6 +21,8 @@ import java.util.Map;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
 public class BalancePlatformTest extends BaseTest {
@@ -39,6 +43,25 @@ public class BalancePlatformTest extends BaseTest {
         assertEquals("123456789" ,response.getAccountHolders().get(0).getId());
         assertEquals("LE322KT223222D5FJ7THR293F" ,response.getAccountHolders().get(0).getLegalEntityId());
     }
+
+    @Test
+    public void GetAllTransactionRulesForBalancePlatformTest() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/TransactionRulesResponse.json");
+        PlatformApi service = new PlatformApi(client);
+        TransactionRulesResponse response = service.getAllTransactionRulesForBalancePlatform("123456789");
+        assertNotNull(response);
+        assertEquals(1 ,response.getTransactionRules().size());
+        verify(client.getHttpClient()).request(
+                "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/123456789/transactionRules",
+                null,
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.GET,
+                null
+        );
+    }
+
 
     @Test
     public void AccountHoldersCreateTest() throws  Exception {
@@ -124,6 +147,25 @@ public class BalancePlatformTest extends BaseTest {
                 queryMap
         );
     }
+
+    @Test
+    public void GetAllTransactionRulesForAccountHolderTest() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/TransactionRulesResponse.json");
+        AccountHoldersApi service = new AccountHoldersApi(client);
+        TransactionRulesResponse response = service.getAllTransactionRulesForAccountHolder("AH3227C223222B5CMD2SXFKGT");
+        assertNotNull(response);
+        assertEquals(1 ,response.getTransactionRules().size());
+        verify(client.getHttpClient()).request(
+                "https://balanceplatform-api-test.adyen.com/bcl/v2/accountHolders/AH3227C223222B5CMD2SXFKGT/transactionRules",
+                null,
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.GET,
+                null
+        );
+    }
+
     @Test
     public void BalanceAccountsCreateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/BalanceAccount.json");
@@ -168,6 +210,24 @@ public class BalancePlatformTest extends BaseTest {
         BalanceSweepConfigurationsResponse response = service.getAllSweepsForBalanceAccount("AH32272223222B59K6ZKBBFNQ");
         assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getSweeps().get(0).getId());
         assertEquals("BA32272223222B5FTD2KR6TJD", response.getSweeps().get(0).getCounterparty().getBalanceAccountId());
+    }
+
+    @Test
+    public void GetAllTransactionRulesForBalanceAccountTest() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/TransactionRulesResponse.json");
+        BalanceAccountsApi service = new BalanceAccountsApi(client);
+        TransactionRulesResponse response = service.getAllTransactionRulesForBalanceAccount("BA32272223222B59CZ3T52DKZ");
+        assertNotNull(response);
+        assertEquals(1 ,response.getTransactionRules().size());
+        verify(client.getHttpClient()).request(
+                "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA32272223222B59CZ3T52DKZ/transactionRules",
+                null,
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.GET,
+                null
+        );
     }
 
     @Test
@@ -478,5 +538,64 @@ public class BalancePlatformTest extends BaseTest {
         );
     }
 
+    @Test
+    public void CalculateTransferRoutesTest() throws  Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/TransferRoutesResponse.json");
+        TransferRoutesApi service = new TransferRoutesApi(client);
+        // def TransferRouteRequest
+        TransferRouteRequest transferRouteRequest = new TransferRouteRequest()
+                .balancePlatform("123456789")
+                .currency("USD")
+                .category(TransferRouteRequest.CategoryEnum.BANK)
+                .counterparty(new Counterparty()
+                        .bankAccount(new BankAccount()
+                                .accountIdentification(new BankAccountAccountIdentification(new IbanAccountIdentification()
+                                        .type(IbanAccountIdentification.TypeEnum.IBAN)
+                                        .iban("NL91ABNA0417164300")))));
+
+        TransferRouteResponse response = service.calculateTransferRoutes(transferRouteRequest);
+
+        assertNotNull(response);
+        assertEquals(2, response.getTransferRoutes().size());
+        verify(client.getHttpClient()).request(
+                eq("https://balanceplatform-api-test.adyen.com/bcl/v2/transferRoutes/calculate"),
+                anyString(),
+                eq(client.getConfig()),
+                eq(false),
+                eq(null),
+                eq(ApiConstants.HttpMethod.POST),
+                eq(null)
+        );
+    }
+
+    @Test
+    public void CalculateTransferRoutesIbanAccountIdentificationRequirementTest() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/TransferRoutesResponse.json");
+        TransferRoutesApi service = new TransferRoutesApi(client);
+        // def TransferRouteRequest
+        TransferRouteRequest transferRouteRequest = new TransferRouteRequest()
+                .balancePlatform("123456789")
+                .currency("USD")
+                .category(TransferRouteRequest.CategoryEnum.BANK)
+                .counterparty(new Counterparty()
+                        .bankAccount(new BankAccount()
+                                .accountIdentification(new BankAccountAccountIdentification(new IbanAccountIdentification()
+                                        .type(IbanAccountIdentification.TypeEnum.IBAN)
+                                        .iban("NL91ABNA0417164300")))));
+
+        TransferRouteResponse response = service.calculateTransferRoutes(transferRouteRequest);
+
+        assertNotNull(response);
+        assertEquals(2, response.getTransferRoutes().size());
+        verify(client.getHttpClient()).request(
+                eq("https://balanceplatform-api-test.adyen.com/bcl/v2/transferRoutes/calculate"),
+                anyString(),
+                eq(client.getConfig()),
+                eq(false),
+                eq(null),
+                eq(ApiConstants.HttpMethod.POST),
+                eq(null)
+        );
+    }
 
 }

@@ -1,0 +1,74 @@
+{
+  "transferRoutes": [
+    {
+      "country": "NL",
+      "currency": "USD",
+      "priority": "crossBorder",
+      "requirements": [
+        {
+          "description": "Amount of transfer must be at least 100, and no greater than 99999999999",
+          "max": 99999999999,
+          "min": 100,
+          "type": "amountMinMaxRequirement"
+        },
+        {
+          "description": "Country, street and city is required.",
+          "requiredAddressFields": [
+            "line1",
+            "city",
+            "country"
+          ],
+          "type": "addressRequirement"
+        },
+        {
+          "description": "Bank account identification type must be iban or numberAndBic",
+          "bankAccountIdentificationTypes": [
+            "iban",
+            "numberAndBic"
+          ],
+          "type": "bankAccountIdentificationTypeRequirement"
+        },
+        {
+          "issuingCountryCode": "NL",
+          "paymentInstrumentType": "BankAccount",
+          "type": "paymentInstrumentRequirement"
+        }
+      ]
+    },
+    {
+      "country": "NL",
+      "currency": "USD",
+      "priority": "wire",
+      "requirements": [
+        {
+          "description": "Amount of transfer must be at least 100, and no greater than 99999999999",
+          "max": 99999999999,
+          "min": 100,
+          "type": "amountMinMaxRequirement"
+        },
+        {
+          "description": "Country, street and city is required.",
+          "requiredAddressFields": [
+            "line1",
+            "city",
+            "country"
+          ],
+          "type": "addressRequirement"
+        },
+        {
+          "description": "Bank account identification type must be iban or numberAndBic",
+          "bankAccountIdentificationTypes": [
+            "iban",
+            "numberAndBic"
+          ],
+          "type": "bankAccountIdentificationTypeRequirement"
+        },
+        {
+          "issuingCountryCode": "NL",
+          "paymentInstrumentType": "BankAccount",
+          "type": "paymentInstrumentRequirement"
+        }
+      ]
+    }
+  ]
+}
