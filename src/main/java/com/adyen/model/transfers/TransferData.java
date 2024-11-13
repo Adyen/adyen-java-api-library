@@ -233,6 +233,8 @@ public class TransferData {
     
     REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
+    REFUSEDBYCUSTOMER("refusedByCustomer"),
+    
     ROUTENOTFOUND("routeNotFound"),
     
     SCAFAILED("scaFailed"),
