@@ -45,6 +45,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodsRequest.JSON_PROPERTY_COUNTRY_CODE,
   PaymentMethodsRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentMethodsRequest.JSON_PROPERTY_ORDER,
+  PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_CONVERSION_ID,
   PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_LOCALE,
   PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
   PaymentMethodsRequest.JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES,
@@ -113,6 +114,9 @@ public class PaymentMethodsRequest {
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private EncryptedOrderData order;
+
+  public static final String JSON_PROPERTY_SHOPPER_CONVERSION_ID = "shopperConversionId";
+  private String shopperConversionId;
 
   public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
@@ -458,6 +462,39 @@ public class PaymentMethodsRequest {
   }
 
   /**
+   * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
+   *
+   * @param shopperConversionId
+   * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
+   */
+  public PaymentMethodsRequest shopperConversionId(String shopperConversionId) {
+    this.shopperConversionId = shopperConversionId;
+    return this;
+  }
+
+  /**
+   * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
+   * @return shopperConversionId
+   */
+  @ApiModelProperty(value = "A unique ID that can be used to associate `/paymentMethods` and `/payments` requests with the same shopper transaction, offering insights into conversion rates.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CONVERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShopperConversionId() {
+    return shopperConversionId;
+  }
+
+  /**
+   * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
+   *
+   * @param shopperConversionId
+   */ 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CONVERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperConversionId(String shopperConversionId) {
+    this.shopperConversionId = shopperConversionId;
+  }
+
+  /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
    *
    * @param shopperLocale
@@ -642,6 +679,7 @@ public class PaymentMethodsRequest {
         Objects.equals(this.countryCode, paymentMethodsRequest.countryCode) &&
         Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount) &&
         Objects.equals(this.order, paymentMethodsRequest.order) &&
+        Objects.equals(this.shopperConversionId, paymentMethodsRequest.shopperConversionId) &&
         Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
         Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference) &&
         Objects.equals(this.splitCardFundingSources, paymentMethodsRequest.splitCardFundingSources) &&
@@ -651,7 +689,7 @@ public class PaymentMethodsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, merchantAccount, order, shopperLocale, shopperReference, splitCardFundingSources, store, storeFiltrationMode);
+    return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, merchantAccount, order, shopperConversionId, shopperLocale, shopperReference, splitCardFundingSources, store, storeFiltrationMode);
   }
 
   @Override
@@ -666,6 +704,7 @@ public class PaymentMethodsRequest {
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    shopperConversionId: ").append(toIndentedString(shopperConversionId)).append("\n");
     sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
     sb.append("    splitCardFundingSources: ").append(toIndentedString(splitCardFundingSources)).append("\n");

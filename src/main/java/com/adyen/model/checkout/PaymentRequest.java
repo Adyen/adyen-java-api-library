@@ -22,6 +22,7 @@ import com.adyen.model.checkout.ApplicationInfo;
 import com.adyen.model.checkout.AuthenticationData;
 import com.adyen.model.checkout.BillingAddress;
 import com.adyen.model.checkout.BrowserInfo;
+import com.adyen.model.checkout.CheckoutBankAccount;
 import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.Company;
 import com.adyen.model.checkout.DeliveryAddress;
@@ -66,6 +67,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRequest.JSON_PROPERTY_AMOUNT,
   PaymentRequest.JSON_PROPERTY_APPLICATION_INFO,
   PaymentRequest.JSON_PROPERTY_AUTHENTICATION_DATA,
+  PaymentRequest.JSON_PROPERTY_BANK_ACCOUNT,
   PaymentRequest.JSON_PROPERTY_BILLING_ADDRESS,
   PaymentRequest.JSON_PROPERTY_BROWSER_INFO,
   PaymentRequest.JSON_PROPERTY_CAPTURE_DELAY_HOURS,
@@ -112,6 +114,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRequest.JSON_PROPERTY_RETURN_URL,
   PaymentRequest.JSON_PROPERTY_RISK_DATA,
   PaymentRequest.JSON_PROPERTY_SESSION_VALIDITY,
+  PaymentRequest.JSON_PROPERTY_SHOPPER_CONVERSION_ID,
   PaymentRequest.JSON_PROPERTY_SHOPPER_EMAIL,
   PaymentRequest.JSON_PROPERTY_SHOPPER_I_P,
   PaymentRequest.JSON_PROPERTY_SHOPPER_INTERACTION,
@@ -148,6 +151,9 @@ public class PaymentRequest {
 
   public static final String JSON_PROPERTY_AUTHENTICATION_DATA = "authenticationData";
   private AuthenticationData authenticationData;
+
+  public static final String JSON_PROPERTY_BANK_ACCOUNT = "bankAccount";
+  private CheckoutBankAccount bankAccount;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private BillingAddress billingAddress;
@@ -434,6 +440,9 @@ public class PaymentRequest {
 
   public static final String JSON_PROPERTY_SESSION_VALIDITY = "sessionValidity";
   private String sessionValidity;
+
+  public static final String JSON_PROPERTY_SHOPPER_CONVERSION_ID = "shopperConversionId";
+  private String shopperConversionId;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
@@ -730,6 +739,39 @@ public class PaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationData(AuthenticationData authenticationData) {
     this.authenticationData = authenticationData;
+  }
+
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest bankAccount(CheckoutBankAccount bankAccount) {
+    this.bankAccount = bankAccount;
+    return this;
+  }
+
+  /**
+   * bankAccount
+   * @return bankAccount
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CheckoutBankAccount getBankAccount() {
+    return bankAccount;
+  }
+
+  /**
+   * bankAccount
+   *
+   * @param bankAccount
+   */ 
+  @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankAccount(CheckoutBankAccount bankAccount) {
+    this.bankAccount = bankAccount;
   }
 
   /**
@@ -2299,6 +2341,39 @@ public class PaymentRequest {
   }
 
   /**
+   * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
+   *
+   * @param shopperConversionId
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest shopperConversionId(String shopperConversionId) {
+    this.shopperConversionId = shopperConversionId;
+    return this;
+  }
+
+  /**
+   * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
+   * @return shopperConversionId
+   */
+  @ApiModelProperty(value = "A unique ID that can be used to associate `/paymentMethods` and `/payments` requests with the same shopper transaction, offering insights into conversion rates.")
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CONVERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShopperConversionId() {
+    return shopperConversionId;
+  }
+
+  /**
+   * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
+   *
+   * @param shopperConversionId
+   */ 
+  @JsonProperty(JSON_PROPERTY_SHOPPER_CONVERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperConversionId(String shopperConversionId) {
+    this.shopperConversionId = shopperConversionId;
+  }
+
+  /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    *
    * @param shopperEmail
@@ -2872,6 +2947,7 @@ public class PaymentRequest {
         Objects.equals(this.amount, paymentRequest.amount) &&
         Objects.equals(this.applicationInfo, paymentRequest.applicationInfo) &&
         Objects.equals(this.authenticationData, paymentRequest.authenticationData) &&
+        Objects.equals(this.bankAccount, paymentRequest.bankAccount) &&
         Objects.equals(this.billingAddress, paymentRequest.billingAddress) &&
         Objects.equals(this.browserInfo, paymentRequest.browserInfo) &&
         Objects.equals(this.captureDelayHours, paymentRequest.captureDelayHours) &&
@@ -2918,6 +2994,7 @@ public class PaymentRequest {
         Objects.equals(this.returnUrl, paymentRequest.returnUrl) &&
         Objects.equals(this.riskData, paymentRequest.riskData) &&
         Objects.equals(this.sessionValidity, paymentRequest.sessionValidity) &&
+        Objects.equals(this.shopperConversionId, paymentRequest.shopperConversionId) &&
         Objects.equals(this.shopperEmail, paymentRequest.shopperEmail) &&
         Objects.equals(this.shopperIP, paymentRequest.shopperIP) &&
         Objects.equals(this.shopperInteraction, paymentRequest.shopperInteraction) &&
@@ -2938,7 +3015,7 @@ public class PaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, subMerchants, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, bankAccount, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperConversionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, subMerchants, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2951,6 +3028,7 @@ public class PaymentRequest {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
     sb.append("    authenticationData: ").append(toIndentedString(authenticationData)).append("\n");
+    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
     sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
@@ -2997,6 +3075,7 @@ public class PaymentRequest {
     sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
     sb.append("    riskData: ").append(toIndentedString(riskData)).append("\n");
     sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
+    sb.append("    shopperConversionId: ").append(toIndentedString(shopperConversionId)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
