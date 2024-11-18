@@ -1,0 +1,9 @@
+{
+  "action": {
+    "paymentMethodType": "riverty",
+    "method": "GET",
+    "url": "https://checkoutshopper-test.adyen.com/checkoutshopper…",
+    "type": "redirect"
+  },
+  "resultCode": "RedirectShopper"
+}
