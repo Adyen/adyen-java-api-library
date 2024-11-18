@@ -61,7 +61,7 @@ public class PaymentsApi extends Service {
     }
 
     /**
-    * Get the list of brands on the card
+    * Get the brands and other details of a card
     *
     * @param cardDetailsRequest {@link CardDetailsRequest }  (required)
     * @return {@link CardDetailsResponse }
@@ -72,7 +72,7 @@ public class PaymentsApi extends Service {
     }
 
     /**
-    * Get the list of brands on the card
+    * Get the brands and other details of a card
     *
     * @param cardDetailsRequest {@link CardDetailsRequest }  (required)
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)

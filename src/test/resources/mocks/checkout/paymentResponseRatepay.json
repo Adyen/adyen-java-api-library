@@ -1,0 +1,8 @@
+{
+  "additionalData": {
+    "openinvoicedata.descriptor": "DN0099661Y8"
+  },
+  "pspReference":"881567437271705K",
+  "resultCode":"Authorised",
+  "merchantReference":"YOUR_ORDER_NUMBER"
+}

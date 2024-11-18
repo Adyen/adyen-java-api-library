@@ -26,6 +26,7 @@ import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 
 import com.adyen.model.checkout.*;
+import com.adyen.model.payment.PaymentResult;
 import com.adyen.service.checkout.*;
 
 import org.junit.Assert;
@@ -33,6 +34,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -450,5 +452,135 @@ public class CheckoutTest extends BaseTest {
         Assert.assertTrue(checkoutPaymentMethodGoogle.toJson().contains("googlePayToken"));
         Assert.assertTrue(checkoutPaymentMethodScheme.toJson().contains("scheme"));
         Assert.assertTrue(checkoutPaymentMethodApple.toJson().contains("NRWtuNlNEWkRCSm1xWndjMDFFbktkQU"));
+    }
+
+    @Test
+    public void TestPaymentWithRatepay() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentResponseRatepay.json");
+
+        RatepayDetails ratepayDetails = new RatepayDetails()
+                .type(RatepayDetails.TypeEnum.RATEPAY_DIRECTDEBIT);
+
+        PaymentRequest paymentRequest = new PaymentRequest()
+                .paymentMethod(new CheckoutPaymentMethod(ratepayDetails))
+                .amount(new Amount()
+                        .currency("EUR")
+                        .value(700L))
+                .shopperName(new Name()
+                        .firstName("Simon")
+                        .lastName("Hopper"))
+                .telephoneNumber("+31858888138")
+                .shopperEmail("s.hopper@example.com")
+                .billingAddress(new BillingAddress()
+                        .country("NL")
+                        .city("Amsterdam")
+                        .houseNumberOrName("6-50")
+                        .street("Simon Carmiggeltstraat")
+                        .postalCode("1011 DJ"))
+                .deviceFingerprint("eyJ2ZXJzaW9uIjoiMS4wLjAiLCJkZXZ...")
+                .lineItems(Arrays.asList(new LineItem().quantity(1L)
+                        .amountExcludingTax(331L)
+                        .taxPercentage(2100L)
+                        .description("Shoes")
+                        .id("Item #1")
+                        .taxAmount(69L)
+                        .amountIncludingTax(400L),
+                        new LineItem()
+                                .quantity(2L)
+                                .amountExcludingTax(248L)
+                                .taxPercentage(2100L)
+                                .description("Socks")
+                                .id("Item #2")
+                                .taxAmount(52L)
+                                .amountIncludingTax(300L)))
+                .bankAccount(new CheckoutBankAccount()
+                        .countryCode("NL")
+                        .iban("NL13TEST0123456789")
+                        .ownerName("Simon Hopper"));
+        paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(ratepayDetails));
+        PaymentsApi checkout = new PaymentsApi(client);
+        PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+
+        assertEquals("881567437271705K", paymentResponse.getPspReference());
+        assertEquals(PaymentResponse.ResultCodeEnum.AUTHORISED, paymentResponse.getResultCode());
+        assertNotNull(paymentResponse.getAdditionalData());
+
+        verify(client.getHttpClient()).request(
+                "https://checkout-test.adyen.com/v71/payments",
+                paymentRequest.toJson(),
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.POST,
+                null
+        );
+    }
+
+    @Test
+    public void TestPaymentWithRiverty() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentResponseRiverty.json");
+
+        RivertyDetails rivertyDetails = new RivertyDetails()
+                .type(RivertyDetails.TypeEnum.SEPADIRECTDEBIT_RIVERTY)
+                .iban("NL13TEST0123456789");
+
+        PaymentRequest paymentRequest = new PaymentRequest()
+                .paymentMethod(new CheckoutPaymentMethod(rivertyDetails))
+                .amount(new Amount()
+                        .currency("EUR")
+                        .value(700L))
+                .shopperName(new Name()
+                        .firstName("Simon")
+                        .lastName("Hopper"))
+                .telephoneNumber("+31858888138")
+                .shopperIP("123.123.123.123")
+                .shopperEmail("s.hopper@example.com")
+                .billingAddress(new BillingAddress()
+                        .country("NL")
+                        .city("Amsterdam")
+                        .houseNumberOrName("6-50")
+                        .street("Simon Carmiggeltstraat")
+                        .postalCode("1011 DJ"))
+                .deliveryAddress(new DeliveryAddress()
+                        .country("NL")
+                        .city("Amsterdam")
+                        .houseNumberOrName("6-50")
+                        .street("Simon Carmiggeltstraat")
+                        .postalCode("1011 DJ"))
+                .deviceFingerprint("eyJ2ZXJzaW9uIjoiMS4wLjAiLCJkZXZ...")
+                .lineItems(Arrays.asList(new LineItem().quantity(1L)
+                                .amountExcludingTax(331L)
+                                .taxPercentage(2100L)
+                                .description("Shoes")
+                                .id("Item #1")
+                                .taxAmount(69L)
+                                .amountIncludingTax(400L),
+                        new LineItem()
+                                .quantity(2L)
+                                .amountExcludingTax(248L)
+                                .taxPercentage(2100L)
+                                .description("Socks")
+                                .id("Item #2")
+                                .taxAmount(52L)
+                                .amountIncludingTax(300L)));
+        paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(rivertyDetails));
+        PaymentsApi checkout = new PaymentsApi(client);
+        PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+
+        assertNull(paymentResponse.getPspReference());
+        assertEquals(PaymentResponse.ResultCodeEnum.REDIRECTSHOPPER, paymentResponse.getResultCode());
+        assertEquals(CheckoutRedirectAction.TypeEnum.REDIRECT, paymentResponse.getAction().getCheckoutRedirectAction().getType());
+        assertEquals("https://checkoutshopper-test.adyen.com/checkoutshopper…", paymentResponse.getAction().getCheckoutRedirectAction().getUrl());
+
+
+        verify(client.getHttpClient()).request(
+                "https://checkout-test.adyen.com/v71/payments",
+                paymentRequest.toJson(),
+                client.getConfig(),
+                false,
+                null,
+                ApiConstants.HttpMethod.POST,
+                null
+        );
     }
 }
