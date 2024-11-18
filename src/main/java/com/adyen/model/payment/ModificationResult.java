@@ -50,21 +50,21 @@ public class ModificationResult {
    * Indicates if the modification request has been received for processing.
    */
   public enum ResponseEnum {
-    _CAPTURE_RECEIVED_("[capture-received]"),
+    CAPTURE_RECEIVED_("[capture-received]"),
     
-    _CANCEL_RECEIVED_("[cancel-received]"),
+    CANCEL_RECEIVED_("[cancel-received]"),
     
-    _REFUND_RECEIVED_("[refund-received]"),
+    REFUND_RECEIVED_("[refund-received]"),
     
-    _CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]"),
+    CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]"),
     
-    _ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]"),
+    ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]"),
     
-    _DONATION_RECEIVED_("[donation-received]"),
+    DONATION_RECEIVED_("[donation-received]"),
     
-    _TECHNICAL_CANCEL_RECEIVED_("[technical-cancel-received]"),
+    TECHNICAL_CANCEL_RECEIVED_("[technical-cancel-received]"),
     
-    _VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]"),
+    VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]"),
     
     AUTHORISED("Authorised");
 
