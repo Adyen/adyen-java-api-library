@@ -43,6 +43,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdateSweepConfigurationV2.JSON_PROPERTY_ID,
   UpdateSweepConfigurationV2.JSON_PROPERTY_PRIORITIES,
   UpdateSweepConfigurationV2.JSON_PROPERTY_REASON,
+  UpdateSweepConfigurationV2.JSON_PROPERTY_REASON_DETAIL,
   UpdateSweepConfigurationV2.JSON_PROPERTY_REFERENCE,
   UpdateSweepConfigurationV2.JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY,
   UpdateSweepConfigurationV2.JSON_PROPERTY_SCHEDULE,
@@ -231,6 +232,9 @@ public class UpdateSweepConfigurationV2 {
 
   public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
+
+  public static final String JSON_PROPERTY_REASON_DETAIL = "reasonDetail";
+  private String reasonDetail;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -569,6 +573,39 @@ public class UpdateSweepConfigurationV2 {
   }
 
   /**
+   * The human readable reason for disabling the sweep.
+   *
+   * @param reasonDetail
+   * @return the current {@code UpdateSweepConfigurationV2} instance, allowing for method chaining
+   */
+  public UpdateSweepConfigurationV2 reasonDetail(String reasonDetail) {
+    this.reasonDetail = reasonDetail;
+    return this;
+  }
+
+  /**
+   * The human readable reason for disabling the sweep.
+   * @return reasonDetail
+   */
+  @ApiModelProperty(value = "The human readable reason for disabling the sweep.")
+  @JsonProperty(JSON_PROPERTY_REASON_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getReasonDetail() {
+    return reasonDetail;
+  }
+
+  /**
+   * The human readable reason for disabling the sweep.
+   *
+   * @param reasonDetail
+   */ 
+  @JsonProperty(JSON_PROPERTY_REASON_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReasonDetail(String reasonDetail) {
+    this.reasonDetail = reasonDetail;
+  }
+
+  /**
    * Your reference for the sweep configuration.
    *
    * @param reference
@@ -851,6 +888,7 @@ public class UpdateSweepConfigurationV2 {
         Objects.equals(this.id, updateSweepConfigurationV2.id) &&
         Objects.equals(this.priorities, updateSweepConfigurationV2.priorities) &&
         Objects.equals(this.reason, updateSweepConfigurationV2.reason) &&
+        Objects.equals(this.reasonDetail, updateSweepConfigurationV2.reasonDetail) &&
         Objects.equals(this.reference, updateSweepConfigurationV2.reference) &&
         Objects.equals(this.referenceForBeneficiary, updateSweepConfigurationV2.referenceForBeneficiary) &&
         Objects.equals(this.schedule, updateSweepConfigurationV2.schedule) &&
@@ -863,7 +901,7 @@ public class UpdateSweepConfigurationV2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, counterparty, currency, description, id, priorities, reason, reference, referenceForBeneficiary, schedule, status, sweepAmount, targetAmount, triggerAmount, type);
+    return Objects.hash(category, counterparty, currency, description, id, priorities, reason, reasonDetail, reference, referenceForBeneficiary, schedule, status, sweepAmount, targetAmount, triggerAmount, type);
   }
 
   @Override
@@ -877,6 +915,7 @@ public class UpdateSweepConfigurationV2 {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    reasonDetail: ").append(toIndentedString(reasonDetail)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    referenceForBeneficiary: ").append(toIndentedString(referenceForBeneficiary)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
