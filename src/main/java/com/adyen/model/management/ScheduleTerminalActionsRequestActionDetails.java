@@ -12,10 +12,8 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
+
 import com.adyen.model.management.InstallAndroidAppDetails;
 import com.adyen.model.management.InstallAndroidCertificateDetails;
 import com.adyen.model.management.ReleaseUpdateDetails;
@@ -38,9 +36,6 @@ import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -90,165 +85,80 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         }
 
         @Override
-        public ScheduleTerminalActionsRequestActionDetails deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+        public ScheduleTerminalActionsRequestActionDetails deserialize(JsonParser jp, DeserializationContext ctxt)
+                throws IOException, JsonProcessingException {
+
             JsonNode tree = jp.readValueAsTree();
             Object deserialized = null;
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
-            int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            int match = 0;
 
-            // deserialize InstallAndroidAppDetails
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (InstallAndroidAppDetails.class.equals(Integer.class) || InstallAndroidAppDetails.class.equals(Long.class) || InstallAndroidAppDetails.class.equals(Float.class) || InstallAndroidAppDetails.class.equals(Double.class) || InstallAndroidAppDetails.class.equals(Boolean.class) || InstallAndroidAppDetails.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((InstallAndroidAppDetails.class.equals(Integer.class) || InstallAndroidAppDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((InstallAndroidAppDetails.class.equals(Float.class) || InstallAndroidAppDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (InstallAndroidAppDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (InstallAndroidAppDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+            List<Class<?>> targetClasses = Arrays.asList(
+                    InstallAndroidAppDetails.class,
+                    InstallAndroidCertificateDetails.class,
+                    ReleaseUpdateDetails.class,
+                    UninstallAndroidAppDetails.class,
+                    UninstallAndroidCertificateDetails.class
+            );
+
+            for (Class<?> targetClass : targetClasses) {
+                try {
+                    if (canAttemptParsing(targetClass, typeCoercion, token) || matchesTypeEnum(targetClass, tree)) {
+                        deserialized = JSON.getMapper().readValue(tree.toString(), targetClass);
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema '" + targetClass.getSimpleName() + "'");
                     }
+                } catch (Exception e) {
+                    log.log(Level.FINER, "Input data does not match schema '" + targetClass.getSimpleName() + "'", e);
                 }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(InstallAndroidAppDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), InstallAndroidAppDetails.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'InstallAndroidAppDetails'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'InstallAndroidAppDetails'", e);
             }
 
-
-            // deserialize InstallAndroidCertificateDetails
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (InstallAndroidCertificateDetails.class.equals(Integer.class) || InstallAndroidCertificateDetails.class.equals(Long.class) || InstallAndroidCertificateDetails.class.equals(Float.class) || InstallAndroidCertificateDetails.class.equals(Double.class) || InstallAndroidCertificateDetails.class.equals(Boolean.class) || InstallAndroidCertificateDetails.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((InstallAndroidCertificateDetails.class.equals(Integer.class) || InstallAndroidCertificateDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((InstallAndroidCertificateDetails.class.equals(Float.class) || InstallAndroidCertificateDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (InstallAndroidCertificateDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (InstallAndroidCertificateDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(InstallAndroidCertificateDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), InstallAndroidCertificateDetails.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'InstallAndroidCertificateDetails'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'InstallAndroidCertificateDetails'", e);
-            }
-
-
-            // deserialize ReleaseUpdateDetails
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (ReleaseUpdateDetails.class.equals(Integer.class) || ReleaseUpdateDetails.class.equals(Long.class) || ReleaseUpdateDetails.class.equals(Float.class) || ReleaseUpdateDetails.class.equals(Double.class) || ReleaseUpdateDetails.class.equals(Boolean.class) || ReleaseUpdateDetails.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((ReleaseUpdateDetails.class.equals(Integer.class) || ReleaseUpdateDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((ReleaseUpdateDetails.class.equals(Float.class) || ReleaseUpdateDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (ReleaseUpdateDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (ReleaseUpdateDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(ReleaseUpdateDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), ReleaseUpdateDetails.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'ReleaseUpdateDetails'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'ReleaseUpdateDetails'", e);
-            }
-
-
-            // deserialize UninstallAndroidAppDetails
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (UninstallAndroidAppDetails.class.equals(Integer.class) || UninstallAndroidAppDetails.class.equals(Long.class) || UninstallAndroidAppDetails.class.equals(Float.class) || UninstallAndroidAppDetails.class.equals(Double.class) || UninstallAndroidAppDetails.class.equals(Boolean.class) || UninstallAndroidAppDetails.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((UninstallAndroidAppDetails.class.equals(Integer.class) || UninstallAndroidAppDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((UninstallAndroidAppDetails.class.equals(Float.class) || UninstallAndroidAppDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (UninstallAndroidAppDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (UninstallAndroidAppDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(UninstallAndroidAppDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), UninstallAndroidAppDetails.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'UninstallAndroidAppDetails'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'UninstallAndroidAppDetails'", e);
-            }
-
-
-            // deserialize UninstallAndroidCertificateDetails
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (UninstallAndroidCertificateDetails.class.equals(Integer.class) || UninstallAndroidCertificateDetails.class.equals(Long.class) || UninstallAndroidCertificateDetails.class.equals(Float.class) || UninstallAndroidCertificateDetails.class.equals(Double.class) || UninstallAndroidCertificateDetails.class.equals(Boolean.class) || UninstallAndroidCertificateDetails.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((UninstallAndroidCertificateDetails.class.equals(Integer.class) || UninstallAndroidCertificateDetails.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((UninstallAndroidCertificateDetails.class.equals(Float.class) || UninstallAndroidCertificateDetails.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (UninstallAndroidCertificateDetails.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (UninstallAndroidCertificateDetails.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(UninstallAndroidCertificateDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), UninstallAndroidCertificateDetails.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'UninstallAndroidCertificateDetails'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'UninstallAndroidCertificateDetails'", e);
-            }
-
-            // Throw error if there is no match
             if (match == 0) {
-                throw new IOException(String.format("Failed deserialization for ScheduleTerminalActionsRequestActionDetails: %d classes match result, expected 1", match));
+                throw new IOException(String.format("Failed deserialization: %d classes match result, expected 1", match));
             }
-            // Log warning if there is more than one match
             if (match > 1) {
-                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for ScheduleTerminalActionsRequestActionDetails: %d classes match result, expected 1", match));
+                log.log(Level.WARNING, String.format("Warning, indecisive deserialization: %d classes match result, expected 1", match));
             }
 
-            ScheduleTerminalActionsRequestActionDetails ret = new ScheduleTerminalActionsRequestActionDetails();
-            ret.setActualInstance(deserialized);
-            return ret;
+            ScheduleTerminalActionsRequestActionDetails result = new ScheduleTerminalActionsRequestActionDetails();
+            result.setActualInstance(deserialized);
+            return result;
         }
+
+        private boolean canAttemptParsing(Class<?> targetClass, boolean typeCoercion, JsonToken token) {
+            boolean attemptParsing = typeCoercion;
+            if (!attemptParsing) {
+                attemptParsing |= ((targetClass.equals(Integer.class) || targetClass.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                attemptParsing |= ((targetClass.equals(Float.class) || targetClass.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                attemptParsing |= (targetClass.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                attemptParsing |= (targetClass.equals(String.class) && token == JsonToken.VALUE_STRING);
+            }
+            return attemptParsing;
+        }
+
+        private boolean matchesTypeEnum(Class<?> targetClass, JsonNode tree) {
+            try {
+                JsonNode typeNode = tree.findValue("type");
+                if (typeNode == null) return false;
+
+                String typeValue = typeNode.asText();
+                Class<?> typeEnumClass = Class.forName(targetClass.getName() + "$TypeEnum");
+                Object[] enumValues = typeEnumClass.getEnumConstants();
+                return Arrays.stream(enumValues)
+                        .map(enumValue -> {
+                            try {
+                                return typeEnumClass.getMethod("getValue").invoke(enumValue).toString();
+                            } catch (Exception ignored) {
+                                return "";
+                            }
+                        })
+                        .anyMatch(value -> value.contains(typeValue));
+            } catch (Exception ignored) {
+                return false;
+            }
+        }
+
 
         /**
          * Handle deserialization of the 'null' value.
