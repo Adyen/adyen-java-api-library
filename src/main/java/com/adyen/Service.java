@@ -48,32 +48,70 @@ public class Service {
 
     protected String createBaseURL(String url) {
         Config config = this.getClient().getConfig();
-        if (config.getEnvironment() != Environment.LIVE) {
-            return url.replaceFirst("-live", "-test");
+        Environment environment = config.getEnvironment();
+
+        // Handle non-live environment
+        if (environment != Environment.LIVE) {
+            return replaceLiveWithTest(url);
         }
 
-        if (url.contains("pal-")) {
-            if (config.getLiveEndpointUrlPrefix() == null) {
-                throw new IllegalArgumentException("please provide a live url prefix in the client");
-            }
-            url = url.replaceFirst("https://pal-test.adyen.com/pal/servlet/",
-                    "https://" + config.getLiveEndpointUrlPrefix() + "-pal-live.adyenpayments.com/pal/servlet/");
+        // Process PAL URLs
+        if (isPalUrl(url)) {
+            ensureLiveEndpointPrefixExists(config);
+            url = replacePalTestWithLive(url, config.getLiveEndpointUrlPrefix());
         }
 
-        if (url.contains("checkout-")) {
-            if (config.getLiveEndpointUrlPrefix() == null) {
-                throw new IllegalArgumentException("please provide a live url prefix in the client");
-            }
-            if (url.contains("/possdk/v68")) {
-                // Temporary until they fix possdk
-                url = url.replaceFirst("https://checkout-test.adyen.com/",
-                        "https://" + config.getLiveEndpointUrlPrefix() + "-checkout-live.adyenpayments.com/");
-            } else {
-                url = url.replaceFirst("https://checkout-test.adyen.com/",
-                        "https://" + config.getLiveEndpointUrlPrefix() + "-checkout-live.adyenpayments.com/checkout/");
-            }
+        // Process Checkout URLs
+        if (isCheckoutUrl(url)) {
+            ensureLiveEndpointPrefixExists(config);
+            url = processCheckoutUrl(url, config.getLiveEndpointUrlPrefix());
         }
 
+        // Final replacement for live environment
+        return replaceTestWithLive(url);
+    }
+
+    private String replaceLiveWithTest(String url) {
+        return url.replaceFirst("-live", "-test");
+    }
+
+    private String replaceTestWithLive(String url) {
         return url.replaceFirst("-test", "-live");
     }
+
+    private boolean isPalUrl(String url) {
+        return url.contains("pal-");
+    }
+
+    private boolean isCheckoutUrl(String url) {
+        return url.contains("checkout-");
+    }
+
+    private void ensureLiveEndpointPrefixExists(Config config) {
+        if (config.getLiveEndpointUrlPrefix() == null) {
+            throw new IllegalArgumentException("Please provide a live URL prefix in the client");
+        }
+    }
+
+    private String replacePalTestWithLive(String url, String liveEndpointUrlPrefix) {
+        return url.replaceFirst(
+                "https://pal-test.adyen.com/pal/servlet/",
+                "https://" + liveEndpointUrlPrefix + "-pal-live.adyenpayments.com/pal/servlet/"
+        );
+    }
+
+    private String processCheckoutUrl(String url, String liveEndpointUrlPrefix) {
+        if (url.contains("/possdk/v68")) {
+            // Temporary until they fix possdk
+            return url.replaceFirst(
+                    "https://checkout-test.adyen.com/",
+                    "https://" + liveEndpointUrlPrefix + "-checkout-live.adyenpayments.com/"
+            );
+        }
+        return url.replaceFirst(
+                "https://checkout-test.adyen.com/",
+                "https://" + liveEndpointUrlPrefix + "-checkout-live.adyenpayments.com/checkout/"
+        );
+    }
+
 }
