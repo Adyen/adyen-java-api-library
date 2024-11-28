@@ -19,7 +19,7 @@ public class DisputesTest extends BaseTest{
     @Test
     public void acceptDispute() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/disputes/post-acceptDispute-accept-dispute-200.json");
-        client.setEnvironment(Environment.TEST, null);
+        client.getClientEnvironment().setEnvironment(Environment.TEST, null);
         DisputesApi disputesApiService = new DisputesApi(client);
 
         AcceptDisputeRequest request = new AcceptDisputeRequest();
@@ -43,7 +43,7 @@ public class DisputesTest extends BaseTest{
     @Test
     public void defendDispute() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/disputes/post-defendDispute-defend-dispute-200.json");
-        client.setEnvironment(Environment.TEST, null);
+        client.getClientEnvironment().setEnvironment(Environment.TEST, null);
         DisputesApi disputesApiService = new DisputesApi(client);
 
         DefendDisputeRequest request = new DefendDisputeRequest();
@@ -68,7 +68,7 @@ public class DisputesTest extends BaseTest{
     @Test
     public void deleteDisputeDefenseDocument() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/disputes/post-deleteDisputeDefenseDocument-delete-dispute-defense-document-200.json");
-        client.setEnvironment(Environment.TEST, null);
+        client.getClientEnvironment().setEnvironment(Environment.TEST, null);
         DisputesApi disputesApiService = new DisputesApi(client);
 
         DeleteDefenseDocumentRequest request = new DeleteDefenseDocumentRequest();
@@ -93,7 +93,7 @@ public class DisputesTest extends BaseTest{
     @Test
     public void retrieveApplicableDefenseReasons() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/disputes/post-retrieveApplicableDefenseReasons-retrieve-defense-reasons-200.json");
-        client.setEnvironment(Environment.TEST, null);
+        client.getClientEnvironment().setEnvironment(Environment.TEST, null);
         DisputesApi disputesApiService = new DisputesApi(client);
 
         DefenseReasonsRequest request = new DefenseReasonsRequest();
@@ -141,7 +141,7 @@ public class DisputesTest extends BaseTest{
     @Test
     public void supplyDefenseDocument() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/disputes/post-supplyDefenseDocument-supply-defense-document-200.json");
-        client.setEnvironment(Environment.TEST, null);
+        client.getClientEnvironment().setEnvironment(Environment.TEST, null);
         DisputesApi disputesApiService = new DisputesApi(client);
 
         SupplyDefenseDocumentRequest request = new SupplyDefenseDocumentRequest();

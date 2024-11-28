@@ -9,9 +9,9 @@ import javax.net.ssl.SSLContext;
 public class Client {
     private ClientInterface httpClient;
     private Config config;
+    private ClientEnvironment clientEnvironment;
     public static final String LIB_NAME = "adyen-java-api-library";
     public static final String LIB_VERSION = "31.3.0";
-    public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
 
     public Client() {
@@ -20,7 +20,8 @@ public class Client {
 
     public Client(Config config) {
         this.config = config;
-        this.setEnvironment(config.environment, config.liveEndpointUrlPrefix);
+        this.clientEnvironment = new ClientEnvironment(config);
+        clientEnvironment.setEnvironment(config.environment, config.liveEndpointUrlPrefix);
     }
 
     public Client(String username, String password, Environment environment, String applicationName) {
@@ -43,7 +44,7 @@ public class Client {
         this.config = new Config();
         this.config.setUsername(username);
         this.config.setPassword(password);
-        this.setEnvironment(environment, liveEndpointUrlPrefix);
+        clientEnvironment.setEnvironment(environment, liveEndpointUrlPrefix);
         this.config.setApplicationName(applicationName);
     }
 
@@ -83,7 +84,7 @@ public class Client {
     public Client(String apiKey, Environment environment, String liveEndpointUrlPrefix) {
         this.config = new Config();
         this.config.setApiKey(apiKey);
-        this.setEnvironment(environment, liveEndpointUrlPrefix);
+        clientEnvironment.setEnvironment(environment, liveEndpointUrlPrefix);
     }
 
     /**
@@ -111,32 +112,6 @@ public class Client {
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
         this(apiKey, environment, liveEndpointUrlPrefix);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
-    }
-
-    /**
-     * @param environment This defines the payment environment live or test
-     * @deprecated As of library version 1.5.4, replaced by {@link #setEnvironment(Environment environment, String liveEndpointUrlPrefix)}.
-     */
-    @Deprecated
-    public void setEnvironment(Environment environment) {
-        this.setEnvironment(environment, null);
-    }
-
-    /**
-     * @param environment           This defines the payment environment live or test
-     * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
-     */
-    public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
-        if (liveEndpointUrlPrefix != null) {
-            config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
-        }
-        if (Environment.TEST.equals(environment)) {
-            this.config.setEnvironment(environment);
-            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
-        } else if (Environment.LIVE.equals(environment)) {
-            this.config.setEnvironment(environment);
-            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
-        }
     }
 
     @Override
@@ -170,4 +145,7 @@ public class Client {
         this.config.setReadTimeoutMillis(readTimeoutMillis);
     }
 
+    public ClientEnvironment getClientEnvironment() {
+        return clientEnvironment;
+    }
 }

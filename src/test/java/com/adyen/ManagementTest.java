@@ -31,7 +31,7 @@ public class ManagementTest extends BaseTest {
     @Test
     public void listMerchantAccountsPaginated() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/management/list-merchants.json");
-        client.setEnvironment(Environment.TEST, "junit");
+        client.getClientEnvironment().setEnvironment(Environment.TEST, "junit");
         Map<String, String> queryParams = Collections.singletonMap("pageSize", "25");
         AccountMerchantLevelApi service = new AccountMerchantLevelApi(client);
 

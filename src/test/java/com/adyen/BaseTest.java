@@ -20,7 +20,6 @@
  */
 package com.adyen;
 
-import com.adyen.constants.ApiConstants;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
@@ -74,6 +73,7 @@ public class BaseTest {
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder()
             .registerTypeHierarchyAdapter(XMLGregorianCalendar.class, new XMLGregorianCalendarTypeAdapter())
             .setPrettyPrinting().create();
+    String CARD_JSON = "card.encrypted.json";
     public static final String USER_AGENT = "User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36";
 
     private static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
@@ -278,7 +278,7 @@ public class BaseTest {
      */
     protected PaymentRequest createCSEPaymentRequest() {
         Map<String, String> additionalData = new HashMap<>();
-        additionalData.put(ApiConstants.AdditionalData.Card.Encrypted.JSON, "adyenjs_0_1_4p1$...");
+        additionalData.put(CARD_JSON, "adyenjs_0_1_4p1$...");
         return createBasePaymentRequest(new PaymentRequest()).reference("123456")
                 .additionalData(additionalData)
                 .amount(new com.adyen.model.payment.Amount().value(100000L).currency("EUR"));

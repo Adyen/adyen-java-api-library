@@ -54,7 +54,7 @@ public class CheckoutTest extends BaseTest {
         }
         Client client = new Client();
         client.setHttpClient(adyenHttpClient);
-        client.setEnvironment(Environment.TEST, null);
+        client.getClientEnvironment().setEnvironment(Environment.TEST, null);
         return client;
     }
 
@@ -405,7 +405,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestLiveURLCheckoutWithSetEnviroment() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/deleteStoredPaymentMethodResponse.json");
-        client.setEnvironment(Environment.LIVE, "prefix");
+        client.getClientEnvironment().setEnvironment(Environment.LIVE, "prefix");
         RecurringApi checkout = new RecurringApi(client);
         checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
         HashMap<String, String> queryParams = new HashMap<String,String>();
