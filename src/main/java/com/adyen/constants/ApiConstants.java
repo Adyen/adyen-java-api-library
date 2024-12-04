@@ -60,12 +60,6 @@ public interface ApiConstants {
         String ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
 
         String HMAC_SIGNATURE = "hmacSignature";
-
-        interface Card {
-            interface Encrypted {
-                String JSON = "card.encrypted.json";
-            }
-        }
     }
 
     interface SelectedBrand {

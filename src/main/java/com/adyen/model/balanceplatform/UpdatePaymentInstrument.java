@@ -56,6 +56,9 @@ public class UpdatePaymentInstrument {
   @Deprecated // deprecated since Configuration API v2: Please use `bankAccount` object instead
   private List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> additionalBankAccountIdentifications = null;
 
+  @Deprecated
+  private List<PaymentInstrumentAdditionalBankAccountIdentificationsInner> legacyBankAccountIdentifications = null;
+
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT_ID = "balanceAccountId";
   private String balanceAccountId;
 
@@ -238,6 +241,15 @@ public class UpdatePaymentInstrument {
       this.additionalBankAccountIdentifications = new ArrayList<>();
     }
     this.additionalBankAccountIdentifications.add(additionalBankAccountIdentificationsItem);
+    return this;
+  }
+
+  @Deprecated
+  public UpdatePaymentInstrument addBankAccountIdentification(PaymentInstrumentAdditionalBankAccountIdentificationsInner identification) {
+    if (this.legacyBankAccountIdentifications == null) {
+      this.legacyBankAccountIdentifications = new ArrayList<>();
+    }
+    this.legacyBankAccountIdentifications.add(identification);
     return this;
   }
 
