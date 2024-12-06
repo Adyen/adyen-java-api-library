@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CardDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   CardDetails.JSON_PROPERTY_CUPSECUREPLUS_SMSCODE,
   CardDetails.JSON_PROPERTY_CVC,
+  CardDetails.JSON_PROPERTY_ENCRYPTED_CARD,
   CardDetails.JSON_PROPERTY_ENCRYPTED_CARD_NUMBER,
   CardDetails.JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH,
   CardDetails.JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR,
@@ -69,6 +70,9 @@ public class CardDetails {
 
   public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
+
+  public static final String JSON_PROPERTY_ENCRYPTED_CARD = "encryptedCard";
+  private String encryptedCard;
 
   public static final String JSON_PROPERTY_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
   private String encryptedCardNumber;
@@ -172,7 +176,9 @@ public class CardDetails {
     
     GIFTCARD("giftcard"),
     
-    CARD("card");
+    CARD("card"),
+    
+    CLICKTOPAY("clicktopay");
 
     private String value;
 
@@ -346,6 +352,39 @@ public class CardDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
+  }
+
+  /**
+   * Only include this for JSON Web Encryption (JWE) implementations. The JWE-encrypted card details.
+   *
+   * @param encryptedCard
+   * @return the current {@code CardDetails} instance, allowing for method chaining
+   */
+  public CardDetails encryptedCard(String encryptedCard) {
+    this.encryptedCard = encryptedCard;
+    return this;
+  }
+
+  /**
+   * Only include this for JSON Web Encryption (JWE) implementations. The JWE-encrypted card details.
+   * @return encryptedCard
+   */
+  @ApiModelProperty(value = "Only include this for JSON Web Encryption (JWE) implementations. The JWE-encrypted card details.")
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEncryptedCard() {
+    return encryptedCard;
+  }
+
+  /**
+   * Only include this for JSON Web Encryption (JWE) implementations. The JWE-encrypted card details.
+   *
+   * @param encryptedCard
+   */ 
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEncryptedCard(String encryptedCard) {
+    this.encryptedCard = encryptedCard;
   }
 
   /**
@@ -1003,6 +1042,7 @@ public class CardDetails {
         Objects.equals(this.checkoutAttemptId, cardDetails.checkoutAttemptId) &&
         Objects.equals(this.cupsecureplusSmscode, cardDetails.cupsecureplusSmscode) &&
         Objects.equals(this.cvc, cardDetails.cvc) &&
+        Objects.equals(this.encryptedCard, cardDetails.encryptedCard) &&
         Objects.equals(this.encryptedCardNumber, cardDetails.encryptedCardNumber) &&
         Objects.equals(this.encryptedExpiryMonth, cardDetails.encryptedExpiryMonth) &&
         Objects.equals(this.encryptedExpiryYear, cardDetails.encryptedExpiryYear) &&
@@ -1026,7 +1066,7 @@ public class CardDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, checkoutAttemptId, cupsecureplusSmscode, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, fundingSource, holderName, networkPaymentReference, number, recurringDetailReference, shopperNotificationReference, srcCorrelationId, srcDigitalCardId, srcScheme, srcTokenReference, storedPaymentMethodId, threeDS2SdkVersion, type);
+    return Objects.hash(brand, checkoutAttemptId, cupsecureplusSmscode, cvc, encryptedCard, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, fundingSource, holderName, networkPaymentReference, number, recurringDetailReference, shopperNotificationReference, srcCorrelationId, srcDigitalCardId, srcScheme, srcTokenReference, storedPaymentMethodId, threeDS2SdkVersion, type);
   }
 
   @Override
@@ -1037,6 +1077,7 @@ public class CardDetails {
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    cupsecureplusSmscode: ").append(toIndentedString(cupsecureplusSmscode)).append("\n");
     sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
+    sb.append("    encryptedCard: ").append(toIndentedString(encryptedCard)).append("\n");
     sb.append("    encryptedCardNumber: ").append(toIndentedString(encryptedCardNumber)).append("\n");
     sb.append("    encryptedExpiryMonth: ").append(toIndentedString(encryptedExpiryMonth)).append("\n");
     sb.append("    encryptedExpiryYear: ").append(toIndentedString(encryptedExpiryYear)).append("\n");

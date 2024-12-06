@@ -22,6 +22,7 @@ import com.adyen.model.legalentitymanagement.LegalEntityCapability;
 import com.adyen.model.legalentitymanagement.Organization;
 import com.adyen.model.legalentitymanagement.SoleProprietorship;
 import com.adyen.model.legalentitymanagement.Trust;
+import com.adyen.model.legalentitymanagement.UnincorporatedPartnership;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -49,6 +50,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntityInfoRequiredType.JSON_PROPERTY_SOLE_PROPRIETORSHIP,
   LegalEntityInfoRequiredType.JSON_PROPERTY_TRUST,
   LegalEntityInfoRequiredType.JSON_PROPERTY_TYPE,
+  LegalEntityInfoRequiredType.JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP,
   LegalEntityInfoRequiredType.JSON_PROPERTY_VERIFICATION_PLAN
 })
 
@@ -117,6 +119,9 @@ public class LegalEntityInfoRequiredType {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP = "unincorporatedPartnership";
+  private UnincorporatedPartnership unincorporatedPartnership;
 
   public static final String JSON_PROPERTY_VERIFICATION_PLAN = "verificationPlan";
   private String verificationPlan;
@@ -405,6 +410,39 @@ public class LegalEntityInfoRequiredType {
   }
 
   /**
+   * unincorporatedPartnership
+   *
+   * @param unincorporatedPartnership
+   * @return the current {@code LegalEntityInfoRequiredType} instance, allowing for method chaining
+   */
+  public LegalEntityInfoRequiredType unincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
+    this.unincorporatedPartnership = unincorporatedPartnership;
+    return this;
+  }
+
+  /**
+   * unincorporatedPartnership
+   * @return unincorporatedPartnership
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UnincorporatedPartnership getUnincorporatedPartnership() {
+    return unincorporatedPartnership;
+  }
+
+  /**
+   * unincorporatedPartnership
+   *
+   * @param unincorporatedPartnership
+   */ 
+  @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUnincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
+    this.unincorporatedPartnership = unincorporatedPartnership;
+  }
+
+  /**
    * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
    *
    * @param verificationPlan
@@ -457,12 +495,13 @@ public class LegalEntityInfoRequiredType {
         Objects.equals(this.soleProprietorship, legalEntityInfoRequiredType.soleProprietorship) &&
         Objects.equals(this.trust, legalEntityInfoRequiredType.trust) &&
         Objects.equals(this.type, legalEntityInfoRequiredType.type) &&
+        Objects.equals(this.unincorporatedPartnership, legalEntityInfoRequiredType.unincorporatedPartnership) &&
         Objects.equals(this.verificationPlan, legalEntityInfoRequiredType.verificationPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, entityAssociations, individual, organization, reference, soleProprietorship, trust, type, verificationPlan);
+    return Objects.hash(capabilities, entityAssociations, individual, organization, reference, soleProprietorship, trust, type, unincorporatedPartnership, verificationPlan);
   }
 
   @Override
@@ -477,6 +516,7 @@ public class LegalEntityInfoRequiredType {
     sb.append("    soleProprietorship: ").append(toIndentedString(soleProprietorship)).append("\n");
     sb.append("    trust: ").append(toIndentedString(trust)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    unincorporatedPartnership: ").append(toIndentedString(unincorporatedPartnership)).append("\n");
     sb.append("    verificationPlan: ").append(toIndentedString(verificationPlan)).append("\n");
     sb.append("}");
     return sb.toString();

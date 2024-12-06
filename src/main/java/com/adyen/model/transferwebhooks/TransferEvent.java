@@ -21,6 +21,7 @@ import com.adyen.model.transferwebhooks.AmountAdjustment;
 import com.adyen.model.transferwebhooks.BalanceMutation;
 import com.adyen.model.transferwebhooks.ExternalReason;
 import com.adyen.model.transferwebhooks.Modification;
+import com.adyen.model.transferwebhooks.TransferEventEventsDataInner;
 import com.adyen.model.transferwebhooks.TransferEventTrackingData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -45,6 +46,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferEvent.JSON_PROPERTY_ARN,
   TransferEvent.JSON_PROPERTY_BOOKING_DATE,
   TransferEvent.JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME,
+  TransferEvent.JSON_PROPERTY_EVENTS_DATA,
   TransferEvent.JSON_PROPERTY_EXTERNAL_REASON,
   TransferEvent.JSON_PROPERTY_ID,
   TransferEvent.JSON_PROPERTY_MODIFICATION,
@@ -74,6 +76,9 @@ public class TransferEvent {
 
   public static final String JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME = "estimatedArrivalTime";
   private OffsetDateTime estimatedArrivalTime;
+
+  public static final String JSON_PROPERTY_EVENTS_DATA = "eventsData";
+  private List<TransferEventEventsDataInner> eventsData = null;
 
   public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
   private ExternalReason externalReason;
@@ -565,6 +570,47 @@ public class TransferEvent {
   }
 
   /**
+   * A list of event data.
+   *
+   * @param eventsData
+   * @return the current {@code TransferEvent} instance, allowing for method chaining
+   */
+  public TransferEvent eventsData(List<TransferEventEventsDataInner> eventsData) {
+    this.eventsData = eventsData;
+    return this;
+  }
+
+  public TransferEvent addEventsDataItem(TransferEventEventsDataInner eventsDataItem) {
+    if (this.eventsData == null) {
+      this.eventsData = new ArrayList<>();
+    }
+    this.eventsData.add(eventsDataItem);
+    return this;
+  }
+
+  /**
+   * A list of event data.
+   * @return eventsData
+   */
+  @ApiModelProperty(value = "A list of event data.")
+  @JsonProperty(JSON_PROPERTY_EVENTS_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TransferEventEventsDataInner> getEventsData() {
+    return eventsData;
+  }
+
+  /**
+   * A list of event data.
+   *
+   * @param eventsData
+   */ 
+  @JsonProperty(JSON_PROPERTY_EVENTS_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEventsData(List<TransferEventEventsDataInner> eventsData) {
+    this.eventsData = eventsData;
+  }
+
+  /**
    * externalReason
    *
    * @param externalReason
@@ -985,6 +1031,7 @@ public class TransferEvent {
         Objects.equals(this.arn, transferEvent.arn) &&
         Objects.equals(this.bookingDate, transferEvent.bookingDate) &&
         Objects.equals(this.estimatedArrivalTime, transferEvent.estimatedArrivalTime) &&
+        Objects.equals(this.eventsData, transferEvent.eventsData) &&
         Objects.equals(this.externalReason, transferEvent.externalReason) &&
         Objects.equals(this.id, transferEvent.id) &&
         Objects.equals(this.modification, transferEvent.modification) &&
@@ -1001,7 +1048,7 @@ public class TransferEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, amountAdjustments, arn, bookingDate, estimatedArrivalTime, externalReason, id, modification, mutations, originalAmount, reason, status, trackingData, transactionId, type, updateDate, valueDate);
+    return Objects.hash(amount, amountAdjustments, arn, bookingDate, estimatedArrivalTime, eventsData, externalReason, id, modification, mutations, originalAmount, reason, status, trackingData, transactionId, type, updateDate, valueDate);
   }
 
   @Override
@@ -1013,6 +1060,7 @@ public class TransferEvent {
     sb.append("    arn: ").append(toIndentedString(arn)).append("\n");
     sb.append("    bookingDate: ").append(toIndentedString(bookingDate)).append("\n");
     sb.append("    estimatedArrivalTime: ").append(toIndentedString(estimatedArrivalTime)).append("\n");
+    sb.append("    eventsData: ").append(toIndentedString(eventsData)).append("\n");
     sb.append("    externalReason: ").append(toIndentedString(externalReason)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modification: ").append(toIndentedString(modification)).append("\n");
