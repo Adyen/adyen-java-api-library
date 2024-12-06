@@ -57,6 +57,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferData.JSON_PROPERTY_DESCRIPTION,
   TransferData.JSON_PROPERTY_DIRECT_DEBIT_INFORMATION,
   TransferData.JSON_PROPERTY_DIRECTION,
+  TransferData.JSON_PROPERTY_EVENT_ID,
   TransferData.JSON_PROPERTY_EVENTS,
   TransferData.JSON_PROPERTY_ID,
   TransferData.JSON_PROPERTY_PAYMENT_INSTRUMENT,
@@ -88,7 +89,7 @@ public class TransferData {
   private List<BalanceMutation> balances = null;
 
   /**
-   * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by an Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.
+   * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    */
   public enum CategoryEnum {
     BANK("bank"),
@@ -99,7 +100,9 @@ public class TransferData {
     
     ISSUEDCARD("issuedCard"),
     
-    PLATFORMPAYMENT("platformPayment");
+    PLATFORMPAYMENT("platformPayment"),
+    
+    TOPUP("topUp");
 
     private String value;
 
@@ -183,6 +186,9 @@ public class TransferData {
 
   public static final String JSON_PROPERTY_DIRECTION = "direction";
   private DirectionEnum direction;
+
+  public static final String JSON_PROPERTY_EVENT_ID = "eventId";
+  private String eventId;
 
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<TransferEvent> events = null;
@@ -746,7 +752,7 @@ public class TransferData {
   }
 
   /**
-   * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by an Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.
+   * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
    * @param category
    * @return the current {@code TransferData} instance, allowing for method chaining
@@ -757,10 +763,10 @@ public class TransferData {
   }
 
   /**
-   * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by an Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.
+   * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    * @return category
    */
-  @ApiModelProperty(required = true, value = "The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by an Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.")
+  @ApiModelProperty(required = true, value = "The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CategoryEnum getCategory() {
@@ -768,7 +774,7 @@ public class TransferData {
   }
 
   /**
-   * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by an Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.
+   * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
    * @param category
    */ 
@@ -974,6 +980,39 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirection(DirectionEnum direction) {
     this.direction = direction;
+  }
+
+  /**
+   * The event id listed under events, that triggered the notification.
+   *
+   * @param eventId
+   * @return the current {@code TransferData} instance, allowing for method chaining
+   */
+  public TransferData eventId(String eventId) {
+    this.eventId = eventId;
+    return this;
+  }
+
+  /**
+   * The event id listed under events, that triggered the notification.
+   * @return eventId
+   */
+  @ApiModelProperty(value = "The event id listed under events, that triggered the notification.")
+  @JsonProperty(JSON_PROPERTY_EVENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEventId() {
+    return eventId;
+  }
+
+  /**
+   * The event id listed under events, that triggered the notification.
+   *
+   * @param eventId
+   */ 
+  @JsonProperty(JSON_PROPERTY_EVENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
   }
 
   /**
@@ -1404,6 +1443,7 @@ public class TransferData {
         Objects.equals(this.description, transferData.description) &&
         Objects.equals(this.directDebitInformation, transferData.directDebitInformation) &&
         Objects.equals(this.direction, transferData.direction) &&
+        Objects.equals(this.eventId, transferData.eventId) &&
         Objects.equals(this.events, transferData.events) &&
         Objects.equals(this.id, transferData.id) &&
         Objects.equals(this.paymentInstrument, transferData.paymentInstrument) &&
@@ -1420,7 +1460,7 @@ public class TransferData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, balances, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, events, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, sequenceNumber, status, tracking, transactionRulesResult, type);
+    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, balances, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, eventId, events, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, sequenceNumber, status, tracking, transactionRulesResult, type);
   }
 
   @Override
@@ -1439,6 +1479,7 @@ public class TransferData {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directDebitInformation: ").append(toIndentedString(directDebitInformation)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
