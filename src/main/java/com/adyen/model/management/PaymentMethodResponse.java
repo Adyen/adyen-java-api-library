@@ -61,6 +61,8 @@ public class PaymentMethodResponse {
   public enum TypesWithErrorsEnum {
     ACCEL("accel"),
     
+    AFFIRM("affirm"),
+    
     AFTERPAYTOUCH("afterpaytouch"),
     
     ALELO("alelo"),

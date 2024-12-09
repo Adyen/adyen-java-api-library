@@ -38,6 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   OnboardingLinkSettings.JSON_PROPERTY_ALLOW_INTRA_REGION_CROSS_BORDER_PAYOUT,
   OnboardingLinkSettings.JSON_PROPERTY_CHANGE_LEGAL_ENTITY_TYPE,
   OnboardingLinkSettings.JSON_PROPERTY_EDIT_PREFILLED_COUNTRY,
+  OnboardingLinkSettings.JSON_PROPERTY_ENFORCE_LEGAL_AGE,
   OnboardingLinkSettings.JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_INDIVIDUAL,
   OnboardingLinkSettings.JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_ORGANIZATION,
   OnboardingLinkSettings.JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_SOLE_PROPRIETOR,
@@ -65,6 +66,9 @@ public class OnboardingLinkSettings {
 
   public static final String JSON_PROPERTY_EDIT_PREFILLED_COUNTRY = "editPrefilledCountry";
   private Boolean editPrefilledCountry;
+
+  public static final String JSON_PROPERTY_ENFORCE_LEGAL_AGE = "enforceLegalAge";
+  private Boolean enforceLegalAge;
 
   public static final String JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_INDIVIDUAL = "hideOnboardingIntroductionIndividual";
   private Boolean hideOnboardingIntroductionIndividual;
@@ -270,6 +274,39 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditPrefilledCountry(Boolean editPrefilledCountry) {
     this.editPrefilledCountry = editPrefilledCountry;
+  }
+
+  /**
+   * Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
+   *
+   * @param enforceLegalAge
+   * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
+   */
+  public OnboardingLinkSettings enforceLegalAge(Boolean enforceLegalAge) {
+    this.enforceLegalAge = enforceLegalAge;
+    return this;
+  }
+
+  /**
+   * Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
+   * @return enforceLegalAge
+   */
+  @ApiModelProperty(value = "Default value: **false**  Indicates if only users above the age of 18 can be onboarded.")
+  @JsonProperty(JSON_PROPERTY_ENFORCE_LEGAL_AGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnforceLegalAge() {
+    return enforceLegalAge;
+  }
+
+  /**
+   * Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
+   *
+   * @param enforceLegalAge
+   */ 
+  @JsonProperty(JSON_PROPERTY_ENFORCE_LEGAL_AGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnforceLegalAge(Boolean enforceLegalAge) {
+    this.enforceLegalAge = enforceLegalAge;
   }
 
   /**
@@ -619,6 +656,7 @@ public class OnboardingLinkSettings {
         Objects.equals(this.allowIntraRegionCrossBorderPayout, onboardingLinkSettings.allowIntraRegionCrossBorderPayout) &&
         Objects.equals(this.changeLegalEntityType, onboardingLinkSettings.changeLegalEntityType) &&
         Objects.equals(this.editPrefilledCountry, onboardingLinkSettings.editPrefilledCountry) &&
+        Objects.equals(this.enforceLegalAge, onboardingLinkSettings.enforceLegalAge) &&
         Objects.equals(this.hideOnboardingIntroductionIndividual, onboardingLinkSettings.hideOnboardingIntroductionIndividual) &&
         Objects.equals(this.hideOnboardingIntroductionOrganization, onboardingLinkSettings.hideOnboardingIntroductionOrganization) &&
         Objects.equals(this.hideOnboardingIntroductionSoleProprietor, onboardingLinkSettings.hideOnboardingIntroductionSoleProprietor) &&
@@ -633,7 +671,7 @@ public class OnboardingLinkSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedCountries, allowBankAccountFormatSelection, allowIntraRegionCrossBorderPayout, changeLegalEntityType, editPrefilledCountry, hideOnboardingIntroductionIndividual, hideOnboardingIntroductionOrganization, hideOnboardingIntroductionSoleProprietor, hideOnboardingIntroductionTrust, instantBankVerification, requirePciSignEcomMoto, requirePciSignEcommerce, requirePciSignPos, requirePciSignPosMoto, transferInstrumentLimit);
+    return Objects.hash(acceptedCountries, allowBankAccountFormatSelection, allowIntraRegionCrossBorderPayout, changeLegalEntityType, editPrefilledCountry, enforceLegalAge, hideOnboardingIntroductionIndividual, hideOnboardingIntroductionOrganization, hideOnboardingIntroductionSoleProprietor, hideOnboardingIntroductionTrust, instantBankVerification, requirePciSignEcomMoto, requirePciSignEcommerce, requirePciSignPos, requirePciSignPosMoto, transferInstrumentLimit);
   }
 
   @Override
@@ -645,6 +683,7 @@ public class OnboardingLinkSettings {
     sb.append("    allowIntraRegionCrossBorderPayout: ").append(toIndentedString(allowIntraRegionCrossBorderPayout)).append("\n");
     sb.append("    changeLegalEntityType: ").append(toIndentedString(changeLegalEntityType)).append("\n");
     sb.append("    editPrefilledCountry: ").append(toIndentedString(editPrefilledCountry)).append("\n");
+    sb.append("    enforceLegalAge: ").append(toIndentedString(enforceLegalAge)).append("\n");
     sb.append("    hideOnboardingIntroductionIndividual: ").append(toIndentedString(hideOnboardingIntroductionIndividual)).append("\n");
     sb.append("    hideOnboardingIntroductionOrganization: ").append(toIndentedString(hideOnboardingIntroductionOrganization)).append("\n");
     sb.append("    hideOnboardingIntroductionSoleProprietor: ").append(toIndentedString(hideOnboardingIntroductionSoleProprietor)).append("\n");

@@ -37,6 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   ResponseAdditionalDataCard.JSON_PROPERTY_CARD_ISSUING_COUNTRY,
   ResponseAdditionalDataCard.JSON_PROPERTY_CARD_ISSUING_CURRENCY,
   ResponseAdditionalDataCard.JSON_PROPERTY_CARD_PAYMENT_METHOD,
+  ResponseAdditionalDataCard.JSON_PROPERTY_CARD_PRODUCT_ID,
   ResponseAdditionalDataCard.JSON_PROPERTY_CARD_SUMMARY,
   ResponseAdditionalDataCard.JSON_PROPERTY_ISSUER_BIN
 })
@@ -59,6 +60,62 @@ public class ResponseAdditionalDataCard {
 
   public static final String JSON_PROPERTY_CARD_PAYMENT_METHOD = "cardPaymentMethod";
   private String cardPaymentMethod;
+
+  /**
+   * The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
+   */
+  public enum CardProductIdEnum {
+    A("A"),
+    
+    B("B"),
+    
+    C("C"),
+    
+    D("D"),
+    
+    F("F"),
+    
+    MCC("MCC"),
+    
+    MCE("MCE"),
+    
+    MCF("MCF"),
+    
+    MCG("MCG"),
+    
+    MCH("MCH"),
+    
+    MCI("MCI");
+
+    private String value;
+
+    CardProductIdEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static CardProductIdEnum fromValue(String value) {
+      for (CardProductIdEnum b : CardProductIdEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_CARD_PRODUCT_ID = "cardProductId";
+  private CardProductIdEnum cardProductId;
 
   public static final String JSON_PROPERTY_CARD_SUMMARY = "cardSummary";
   private String cardSummary;
@@ -268,6 +325,39 @@ public class ResponseAdditionalDataCard {
   }
 
   /**
+   * The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
+   *
+   * @param cardProductId
+   * @return the current {@code ResponseAdditionalDataCard} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCard cardProductId(CardProductIdEnum cardProductId) {
+    this.cardProductId = cardProductId;
+    return this;
+  }
+
+  /**
+   * The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
+   * @return cardProductId
+   */
+  @ApiModelProperty(value = "The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit ")
+  @JsonProperty(JSON_PROPERTY_CARD_PRODUCT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CardProductIdEnum getCardProductId() {
+    return cardProductId;
+  }
+
+  /**
+   * The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
+   *
+   * @param cardProductId
+   */ 
+  @JsonProperty(JSON_PROPERTY_CARD_PRODUCT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCardProductId(CardProductIdEnum cardProductId) {
+    this.cardProductId = cardProductId;
+  }
+
+  /**
    * The last four digits of a card number.  &gt; Returned only in case of a card payment.
    *
    * @param cardSummary
@@ -351,13 +441,14 @@ public class ResponseAdditionalDataCard {
         Objects.equals(this.cardIssuingCountry, responseAdditionalDataCard.cardIssuingCountry) &&
         Objects.equals(this.cardIssuingCurrency, responseAdditionalDataCard.cardIssuingCurrency) &&
         Objects.equals(this.cardPaymentMethod, responseAdditionalDataCard.cardPaymentMethod) &&
+        Objects.equals(this.cardProductId, responseAdditionalDataCard.cardProductId) &&
         Objects.equals(this.cardSummary, responseAdditionalDataCard.cardSummary) &&
         Objects.equals(this.issuerBin, responseAdditionalDataCard.issuerBin);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardBin, cardHolderName, cardIssuingBank, cardIssuingCountry, cardIssuingCurrency, cardPaymentMethod, cardSummary, issuerBin);
+    return Objects.hash(cardBin, cardHolderName, cardIssuingBank, cardIssuingCountry, cardIssuingCurrency, cardPaymentMethod, cardProductId, cardSummary, issuerBin);
   }
 
   @Override
@@ -370,6 +461,7 @@ public class ResponseAdditionalDataCard {
     sb.append("    cardIssuingCountry: ").append(toIndentedString(cardIssuingCountry)).append("\n");
     sb.append("    cardIssuingCurrency: ").append(toIndentedString(cardIssuingCurrency)).append("\n");
     sb.append("    cardPaymentMethod: ").append(toIndentedString(cardPaymentMethod)).append("\n");
+    sb.append("    cardProductId: ").append(toIndentedString(cardProductId)).append("\n");
     sb.append("    cardSummary: ").append(toIndentedString(cardSummary)).append("\n");
     sb.append("    issuerBin: ").append(toIndentedString(issuerBin)).append("\n");
     sb.append("}");
