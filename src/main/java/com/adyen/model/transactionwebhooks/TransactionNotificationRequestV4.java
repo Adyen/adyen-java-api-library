@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -34,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   TransactionNotificationRequestV4.JSON_PROPERTY_DATA,
   TransactionNotificationRequestV4.JSON_PROPERTY_ENVIRONMENT,
+  TransactionNotificationRequestV4.JSON_PROPERTY_TIMESTAMP,
   TransactionNotificationRequestV4.JSON_PROPERTY_TYPE
 })
 
@@ -43,6 +45,9 @@ public class TransactionNotificationRequestV4 {
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
   private String environment;
+
+  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
+  private OffsetDateTime timestamp;
 
   /**
    * Type of the webhook.
@@ -150,6 +155,39 @@ public class TransactionNotificationRequestV4 {
   }
 
   /**
+   * When the event was queued.
+   *
+   * @param timestamp
+   * @return the current {@code TransactionNotificationRequestV4} instance, allowing for method chaining
+   */
+  public TransactionNotificationRequestV4 timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * When the event was queued.
+   * @return timestamp
+   */
+  @ApiModelProperty(value = "When the event was queued.")
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  /**
+   * When the event was queued.
+   *
+   * @param timestamp
+   */ 
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  /**
    * Type of the webhook.
    *
    * @param type
@@ -196,12 +234,13 @@ public class TransactionNotificationRequestV4 {
     TransactionNotificationRequestV4 transactionNotificationRequestV4 = (TransactionNotificationRequestV4) o;
     return Objects.equals(this.data, transactionNotificationRequestV4.data) &&
         Objects.equals(this.environment, transactionNotificationRequestV4.environment) &&
+        Objects.equals(this.timestamp, transactionNotificationRequestV4.timestamp) &&
         Objects.equals(this.type, transactionNotificationRequestV4.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, environment, type);
+    return Objects.hash(data, environment, timestamp, type);
   }
 
   @Override
@@ -210,6 +249,7 @@ public class TransactionNotificationRequestV4 {
     sb.append("class TransactionNotificationRequestV4 {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

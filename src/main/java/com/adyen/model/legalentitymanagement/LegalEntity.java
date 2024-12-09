@@ -26,6 +26,7 @@ import com.adyen.model.legalentitymanagement.Organization;
 import com.adyen.model.legalentitymanagement.SoleProprietorship;
 import com.adyen.model.legalentitymanagement.TransferInstrumentReference;
 import com.adyen.model.legalentitymanagement.Trust;
+import com.adyen.model.legalentitymanagement.UnincorporatedPartnership;
 import com.adyen.model.legalentitymanagement.VerificationDeadline;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -59,6 +60,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntity.JSON_PROPERTY_TRANSFER_INSTRUMENTS,
   LegalEntity.JSON_PROPERTY_TRUST,
   LegalEntity.JSON_PROPERTY_TYPE,
+  LegalEntity.JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP,
   LegalEntity.JSON_PROPERTY_VERIFICATION_DEADLINES,
   LegalEntity.JSON_PROPERTY_VERIFICATION_PLAN
 })
@@ -144,6 +146,9 @@ public class LegalEntity {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP = "unincorporatedPartnership";
+  private UnincorporatedPartnership unincorporatedPartnership;
 
   public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
   private List<VerificationDeadline> verificationDeadlines = null;
@@ -644,6 +649,39 @@ public class LegalEntity {
   }
 
   /**
+   * unincorporatedPartnership
+   *
+   * @param unincorporatedPartnership
+   * @return the current {@code LegalEntity} instance, allowing for method chaining
+   */
+  public LegalEntity unincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
+    this.unincorporatedPartnership = unincorporatedPartnership;
+    return this;
+  }
+
+  /**
+   * unincorporatedPartnership
+   * @return unincorporatedPartnership
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UnincorporatedPartnership getUnincorporatedPartnership() {
+    return unincorporatedPartnership;
+  }
+
+  /**
+   * unincorporatedPartnership
+   *
+   * @param unincorporatedPartnership
+   */ 
+  @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUnincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
+    this.unincorporatedPartnership = unincorporatedPartnership;
+  }
+
+  /**
    * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
    *
    * @param verificationDeadlines
@@ -742,13 +780,14 @@ public class LegalEntity {
         Objects.equals(this.transferInstruments, legalEntity.transferInstruments) &&
         Objects.equals(this.trust, legalEntity.trust) &&
         Objects.equals(this.type, legalEntity.type) &&
+        Objects.equals(this.unincorporatedPartnership, legalEntity.unincorporatedPartnership) &&
         Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines) &&
         Objects.equals(this.verificationPlan, legalEntity.verificationPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, trust, type, verificationDeadlines, verificationPlan);
+    return Objects.hash(capabilities, documentDetails, documents, entityAssociations, id, individual, organization, problems, reference, soleProprietorship, transferInstruments, trust, type, unincorporatedPartnership, verificationDeadlines, verificationPlan);
   }
 
   @Override
@@ -768,6 +807,7 @@ public class LegalEntity {
     sb.append("    transferInstruments: ").append(toIndentedString(transferInstruments)).append("\n");
     sb.append("    trust: ").append(toIndentedString(trust)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    unincorporatedPartnership: ").append(toIndentedString(unincorporatedPartnership)).append("\n");
     sb.append("    verificationDeadlines: ").append(toIndentedString(verificationDeadlines)).append("\n");
     sb.append("    verificationPlan: ").append(toIndentedString(verificationPlan)).append("\n");
     sb.append("}");

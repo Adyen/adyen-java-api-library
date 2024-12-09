@@ -32,12 +32,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   PhoneNumber.JSON_PROPERTY_NUMBER,
+  PhoneNumber.JSON_PROPERTY_PHONE_COUNTRY_CODE,
   PhoneNumber.JSON_PROPERTY_TYPE
 })
 
 public class PhoneNumber {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
+
+  public static final String JSON_PROPERTY_PHONE_COUNTRY_CODE = "phoneCountryCode";
+  private String phoneCountryCode;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -76,6 +80,39 @@ public class PhoneNumber {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
     this.number = number;
+  }
+
+  /**
+   * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the &#x60;phoneCountryCode&#x60; is determined by the country code digit(s) of &#x60;phone.number&#x60;
+   *
+   * @param phoneCountryCode
+   * @return the current {@code PhoneNumber} instance, allowing for method chaining
+   */
+  public PhoneNumber phoneCountryCode(String phoneCountryCode) {
+    this.phoneCountryCode = phoneCountryCode;
+    return this;
+  }
+
+  /**
+   * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the &#x60;phoneCountryCode&#x60; is determined by the country code digit(s) of &#x60;phone.number&#x60;
+   * @return phoneCountryCode
+   */
+  @ApiModelProperty(value = "The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the `phoneCountryCode` is determined by the country code digit(s) of `phone.number`")
+  @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPhoneCountryCode() {
+    return phoneCountryCode;
+  }
+
+  /**
+   * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the &#x60;phoneCountryCode&#x60; is determined by the country code digit(s) of &#x60;phone.number&#x60;
+   *
+   * @param phoneCountryCode
+   */ 
+  @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPhoneCountryCode(String phoneCountryCode) {
+    this.phoneCountryCode = phoneCountryCode;
   }
 
   /**
@@ -124,12 +161,13 @@ public class PhoneNumber {
     }
     PhoneNumber phoneNumber = (PhoneNumber) o;
     return Objects.equals(this.number, phoneNumber.number) &&
+        Objects.equals(this.phoneCountryCode, phoneNumber.phoneCountryCode) &&
         Objects.equals(this.type, phoneNumber.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, type);
+    return Objects.hash(number, phoneCountryCode, type);
   }
 
   @Override
@@ -137,6 +175,7 @@ public class PhoneNumber {
     StringBuilder sb = new StringBuilder();
     sb.append("class PhoneNumber {\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    phoneCountryCode: ").append(toIndentedString(phoneCountryCode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -34,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   AuthenticationNotificationRequest.JSON_PROPERTY_DATA,
   AuthenticationNotificationRequest.JSON_PROPERTY_ENVIRONMENT,
+  AuthenticationNotificationRequest.JSON_PROPERTY_TIMESTAMP,
   AuthenticationNotificationRequest.JSON_PROPERTY_TYPE
 })
 
@@ -43,6 +45,9 @@ public class AuthenticationNotificationRequest {
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
   private String environment;
+
+  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
+  private OffsetDateTime timestamp;
 
   /**
    * Type of notification.
@@ -150,6 +155,39 @@ public class AuthenticationNotificationRequest {
   }
 
   /**
+   * When the event was queued.
+   *
+   * @param timestamp
+   * @return the current {@code AuthenticationNotificationRequest} instance, allowing for method chaining
+   */
+  public AuthenticationNotificationRequest timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * When the event was queued.
+   * @return timestamp
+   */
+  @ApiModelProperty(value = "When the event was queued.")
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  /**
+   * When the event was queued.
+   *
+   * @param timestamp
+   */ 
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  /**
    * Type of notification.
    *
    * @param type
@@ -196,12 +234,13 @@ public class AuthenticationNotificationRequest {
     AuthenticationNotificationRequest authenticationNotificationRequest = (AuthenticationNotificationRequest) o;
     return Objects.equals(this.data, authenticationNotificationRequest.data) &&
         Objects.equals(this.environment, authenticationNotificationRequest.environment) &&
+        Objects.equals(this.timestamp, authenticationNotificationRequest.timestamp) &&
         Objects.equals(this.type, authenticationNotificationRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, environment, type);
+    return Objects.hash(data, environment, timestamp, type);
   }
 
   @Override
@@ -210,6 +249,7 @@ public class AuthenticationNotificationRequest {
     sb.append("class AuthenticationNotificationRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

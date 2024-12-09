@@ -46,7 +46,7 @@ public class Amount {
   }
 
   /**
-   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    *
    * @param currency
    * @return the current {@code Amount} instance, allowing for method chaining
@@ -57,10 +57,10 @@ public class Amount {
   }
 
   /**
-   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    * @return currency
    */
-  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -68,7 +68,7 @@ public class Amount {
   }
 
   /**
-   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    *
    * @param currency
    */ 
@@ -79,7 +79,7 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
    * @param value
    * @return the current {@code Amount} instance, allowing for method chaining
@@ -90,10 +90,10 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    * @return value
    */
-  @ApiModelProperty(required = true, value = "The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(required = true, value = "The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getValue() {
@@ -101,7 +101,7 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
    * @param value
    */ 

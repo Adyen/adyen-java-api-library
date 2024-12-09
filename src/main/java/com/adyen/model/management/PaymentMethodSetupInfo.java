@@ -23,6 +23,7 @@ import com.adyen.model.management.ApplePayInfo;
 import com.adyen.model.management.BcmcInfo;
 import com.adyen.model.management.CartesBancairesInfo;
 import com.adyen.model.management.ClearpayInfo;
+import com.adyen.model.management.DinersInfo;
 import com.adyen.model.management.GenericPmWithTdiInfo;
 import com.adyen.model.management.GiroPayInfo;
 import com.adyen.model.management.GooglePayInfo;
@@ -142,7 +143,7 @@ public class PaymentMethodSetupInfo {
   private List<String> customRoutingFlags = null;
 
   public static final String JSON_PROPERTY_DINERS = "diners";
-  private GenericPmWithTdiInfo diners;
+  private DinersInfo diners;
 
   public static final String JSON_PROPERTY_DISCOVER = "discover";
   private GenericPmWithTdiInfo discover;
@@ -263,6 +264,8 @@ public class PaymentMethodSetupInfo {
    */
   public enum TypeEnum {
     ACCEL("accel"),
+    
+    AFFIRM("affirm"),
     
     AFTERPAYTOUCH("afterpaytouch"),
     
@@ -877,7 +880,7 @@ public class PaymentMethodSetupInfo {
    * @param diners
    * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
    */
-  public PaymentMethodSetupInfo diners(GenericPmWithTdiInfo diners) {
+  public PaymentMethodSetupInfo diners(DinersInfo diners) {
     this.diners = diners;
     return this;
   }
@@ -889,7 +892,7 @@ public class PaymentMethodSetupInfo {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GenericPmWithTdiInfo getDiners() {
+  public DinersInfo getDiners() {
     return diners;
   }
 
@@ -900,7 +903,7 @@ public class PaymentMethodSetupInfo {
    */ 
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDiners(GenericPmWithTdiInfo diners) {
+  public void setDiners(DinersInfo diners) {
     this.diners = diners;
   }
 
