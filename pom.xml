@@ -261,7 +261,7 @@
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>1.15</version> <!-- or the latest version -->
+            <version>1.17.1</version> <!-- or the latest version -->
         </dependency>
         <!-- Generated model annotations -->
         <dependency>
