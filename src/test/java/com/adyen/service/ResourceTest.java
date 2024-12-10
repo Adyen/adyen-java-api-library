@@ -41,6 +41,7 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -90,7 +91,7 @@ public class ResourceTest extends BaseTest {
         Resource resource = new Resource(serviceMock, "/companies/{companyId}/merchants", null);
 
         HTTPClientException error = new HTTPClientException(500, "error", Collections.emptyMap(), "not JSON");
-        when(clientInterfaceMock.request(any(), any(), any(), any(), any(), any(), any())).thenThrow(error);
+        when(clientInterfaceMock.request(any(), any(), any(), anyBoolean(), any(), any(), any())).thenThrow(error);
 
         ApiException thrown = assertThrows(ApiException.class, () -> resource.request(null, null, ApiConstants.HttpMethod.GET, pathParams, queryString));
         assertEquals("not JSON", thrown.getResponseBody());
