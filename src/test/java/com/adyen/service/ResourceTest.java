@@ -77,7 +77,7 @@ public class ResourceTest extends BaseTest {
         Map<String, String> pathParams = Collections.singletonMap("companyId", "adyen");
         Map<String, String> queryString = Collections.singletonMap("pageSize", "10");
         Resource resource = new Resource(serviceMock, "/companies/{companyId}/merchants", null);
-
+        
         resource.request(null, null, ApiConstants.HttpMethod.GET, pathParams, queryString);
 
         verify(clientInterfaceMock).request("/companies/adyen/merchants", null, null, false, null, ApiConstants.HttpMethod.GET, queryString);
