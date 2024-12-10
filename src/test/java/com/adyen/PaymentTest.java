@@ -474,7 +474,7 @@ public class PaymentTest extends BaseTest {
         PaymentApi payment = new PaymentApi(client);
         RefundRequest request = new RefundRequest();
         ModificationResult result = payment.refund(request);
-        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
     }
 
     @Test
@@ -483,7 +483,7 @@ public class PaymentTest extends BaseTest {
         PaymentApi payment = new PaymentApi(client);
         CaptureRequest request = new CaptureRequest();
         ModificationResult result = payment.capture(request);
-        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
     }
 
     @Test
@@ -492,7 +492,7 @@ public class PaymentTest extends BaseTest {
         PaymentApi payment = new PaymentApi(client);
         CancelRequest request = new CancelRequest();
         ModificationResult result = payment.cancel(request);
-        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
     }
 
     @Test
@@ -501,7 +501,7 @@ public class PaymentTest extends BaseTest {
         PaymentApi payment = new PaymentApi(client);
         CancelOrRefundRequest request = new CancelOrRefundRequest();
         ModificationResult result = payment.cancelOrRefund(request);
-        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
     }
 
     @Test
@@ -510,7 +510,7 @@ public class PaymentTest extends BaseTest {
         PaymentApi payment = new PaymentApi(client);
         TechnicalCancelRequest request = new TechnicalCancelRequest();
         ModificationResult result = payment.technicalCancel(request);
-        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
     }
 
     @Test
@@ -519,7 +519,7 @@ public class PaymentTest extends BaseTest {
         PaymentApi payment = new PaymentApi(client);
         AdjustAuthorisationRequest request = new AdjustAuthorisationRequest();
         ModificationResult result = payment.adjustAuthorisation(request);
-        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
     }
 
     @Test
@@ -528,7 +528,7 @@ public class PaymentTest extends BaseTest {
         PaymentApi payment = new PaymentApi(client);
         DonationRequest request = new DonationRequest();
         ModificationResult result = payment.donate(request);
-        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
     }
 
     @Test
@@ -537,6 +537,6 @@ public class PaymentTest extends BaseTest {
         PaymentApi payment = new PaymentApi(client);
         VoidPendingRefundRequest request = new VoidPendingRefundRequest();
         ModificationResult result = payment.voidPendingRefund(request);
-        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum._REFUND_RECEIVED_);
     }
 }
