@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -76,10 +77,24 @@ public class ResourceTest extends BaseTest {
         Map<String, String> pathParams = Collections.singletonMap("companyId", "adyen");
         Map<String, String> queryString = Collections.singletonMap("pageSize", "10");
         Resource resource = new Resource(serviceMock, "/companies/{companyId}/merchants", null);
-        
+
         resource.request(null, null, ApiConstants.HttpMethod.GET, pathParams, queryString);
 
         verify(clientInterfaceMock).request("/companies/adyen/merchants", null, null, false, null, ApiConstants.HttpMethod.GET, queryString);
+    }
+
+    @Test
+    public void testNonJsonError() throws Exception {
+        Map<String, String> pathParams = Collections.singletonMap("companyId", "adyen");
+        Map<String, String> queryString = Collections.singletonMap("pageSize", "10");
+        Resource resource = new Resource(serviceMock, "/companies/{companyId}/merchants", null);
+
+        HTTPClientException error = new HTTPClientException(500, "error", Collections.emptyMap(), "not JSON");
+        when(clientInterfaceMock.request(any(),any(),any(),any(),any(),any(),any())).thenThrow(error);
+
+        ApiException thrown = assertThrows(ApiException.class, () -> resource.request(null, null, ApiConstants.HttpMethod.GET, pathParams, queryString));
+        assertEquals("not JSON", thrown.getResponseBody());
+        assertNull(thrown.getError());
     }
 
     @Test
