@@ -14,6 +14,8 @@ package com.adyen.service.legalentitymanagement;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.legalentitymanagement.CalculatePciStatusRequest;
+import com.adyen.model.legalentitymanagement.CalculatePciStatusResponse;
 import com.adyen.model.legalentitymanagement.GeneratePciDescriptionRequest;
 import com.adyen.model.legalentitymanagement.GeneratePciDescriptionResponse;
 import com.adyen.model.legalentitymanagement.GetPciQuestionnaireInfosResponse;
@@ -53,6 +55,41 @@ public class PciQuestionnairesApi extends Service {
     public PciQuestionnairesApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
+    }
+
+    /**
+    * Calculate PCI status of a legal entity
+    *
+    * @param id {@link String } The unique identifier of the legal entity to calculate PCI status. (required)
+    * @param calculatePciStatusRequest {@link CalculatePciStatusRequest }  (required)
+    * @return {@link CalculatePciStatusResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CalculatePciStatusResponse calculatePciStatusOfLegalEntity(String id, CalculatePciStatusRequest calculatePciStatusRequest) throws ApiException, IOException {
+        return calculatePciStatusOfLegalEntity(id, calculatePciStatusRequest, null);
+    }
+
+    /**
+    * Calculate PCI status of a legal entity
+    *
+    * @param id {@link String } The unique identifier of the legal entity to calculate PCI status. (required)
+    * @param calculatePciStatusRequest {@link CalculatePciStatusRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CalculatePciStatusResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public CalculatePciStatusResponse calculatePciStatusOfLegalEntity(String id, CalculatePciStatusRequest calculatePciStatusRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (id == null) {
+            throw new IllegalArgumentException("Please provide the id path parameter");
+        }
+        pathParams.put("id", id);
+
+        String requestBody = calculatePciStatusRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/legalEntities/{id}/pciQuestionnaires/signingRequired", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return CalculatePciStatusResponse.fromJson(jsonResult);
     }
 
     /**

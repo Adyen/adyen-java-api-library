@@ -118,7 +118,7 @@ public class GeneratePciDescriptionResponse {
   }
 
   /**
-   * The array of Adyen-generated unique identifiers for the questionnaires.
+   * The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    *
    * @param pciTemplateReferences
    * @return the current {@code GeneratePciDescriptionResponse} instance, allowing for method chaining
@@ -137,10 +137,10 @@ public class GeneratePciDescriptionResponse {
   }
 
   /**
-   * The array of Adyen-generated unique identifiers for the questionnaires.
+   * The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    * @return pciTemplateReferences
    */
-  @ApiModelProperty(value = "The array of Adyen-generated unique identifiers for the questionnaires.")
+  @ApiModelProperty(value = "The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.")
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPciTemplateReferences() {
@@ -148,7 +148,7 @@ public class GeneratePciDescriptionResponse {
   }
 
   /**
-   * The array of Adyen-generated unique identifiers for the questionnaires.
+   * The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    *
    * @param pciTemplateReferences
    */ 
