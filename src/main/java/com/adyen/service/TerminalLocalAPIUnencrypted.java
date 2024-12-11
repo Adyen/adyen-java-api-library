@@ -17,34 +17,39 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
+import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 
 /**
- * [UNENCRYPTED] Local Terminal Api.
- * Use this class (in TEST only) to experiment with the Local Terminal API separately
- * from the encryption implementation required for live payments.
- * <p>
+ * WARNING: This class is intended for TESTING purposes only.
+ * It must not be used in production environments.
+ * This implementation is used to test unencrypted traffic over a secure channel (TLSv1.2).
  * Be sure to remove the encryption key details on the Customer Area as it will not work with encryption key details set up.
  */
 public class TerminalLocalAPIUnencrypted extends Service {
 
     private final LocalRequest localRequest;
-
     private final Gson terminalApiGson;
 
     public TerminalLocalAPIUnencrypted(Client client) {
         super(client);
+
+        // Restrict to TEST environment only
         if (client.getConfig().getEnvironment() == Environment.LIVE) {
-            throw new IllegalArgumentException("Cannot use this class in a Live environment");
+            throw new IllegalStateException("This class is intended for TEST environment only.");
         }
+
+        System.out.println("[Warning] Using TerminalLocalAPIUnencrypted for testing unencrypted traffic.");
+
         terminalApiGson = TerminalAPIGsonBuilder.create();
         Config config = super.getClient().getConfig();
         config.setHostnameVerifier(new TerminalLocalAPIHostnameVerifier(Environment.TEST));
+
         if (config.getSSLContext() == null) {
-            config.setSSLContext(createTrustSSLContext());
+            config.setSSLContext(createTestTrustSSLContext());
             super.getClient().setConfig(config);
         }
+
         localRequest = new LocalRequest(this);
     }
 
@@ -68,37 +73,34 @@ public class TerminalLocalAPIUnencrypted extends Service {
         }.getType());
     }
 
-    private SSLContext createTrustSSLContext() {
+    /**
+     * Creates an SSLContext that uses TLSv1.2 and trusts all certificates.
+     * For TEST environment only.
+     *
+     * @return SSLContext configured for testing
+     */
+    private SSLContext createTestTrustSSLContext() {
         TrustManager[] trustAllCerts = new TrustManager[]{
                 new X509TrustManager() {
-                    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                        return null;
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return new X509Certificate[0];
                     }
 
-                    @Override
-                    public void checkClientTrusted(X509Certificate[] arg0, String arg1)
-                            throws CertificateException {
+                    public void checkClientTrusted(X509Certificate[] certs, String authType) {
                     }
 
-                    @Override
-                    public void checkServerTrusted(X509Certificate[] arg0, String arg1)
-                            throws CertificateException {
+                    public void checkServerTrusted(X509Certificate[] certs, String authType) {
                     }
-
                 }
         };
-        SSLContext sc = null;
+
         try {
-            sc = SSLContext.getInstance("SSL");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            // Specify TLSv1.2 for secure testing
+            SSLContext sc = SSLContext.getInstance("TLSv1.2");
+            sc.init(null, trustAllCerts, new SecureRandom());
+            return sc;
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+            throw new RuntimeException("Failed to create test SSL context with TLSv1.2", e);
         }
-        try {
-            assert sc != null;
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-        } catch (KeyManagementException e) {
-            e.printStackTrace();
-        }
-        return sc;
     }
 }
