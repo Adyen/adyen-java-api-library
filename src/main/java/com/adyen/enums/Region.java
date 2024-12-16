@@ -27,9 +27,9 @@ public final class Region {
      */
     public static final String AU = "au";
 
-    /** 
+    /**
      * India region
-     */ 
+     */
     public static final String IN = "in";
 
     /**
