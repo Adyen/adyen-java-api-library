@@ -13,6 +13,10 @@ public class Client {
     public static final String LIB_VERSION = "32.0.0";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
+    public static final String ENDPOINT_TERMINAL_CLOUD_LIVE = "https://terminal-api-live.adyen.com";
+    public static final String ENDPOINT_TERMINAL_CLOUD_US_LIVE = "https://terminal-api-live-us.adyen.com";
+    public static final String ENDPOINT_TERMINAL_CLOUD_AU_LIVE = "https://terminal-api-live-au.adyen.com";
+    public static final String ENDPOINT_TERMINAL_CLOUD_APSE_LIVE = "https://terminal-api-live-apse.adyen.com";
 
     public Client() {
         this.config = new Config();
