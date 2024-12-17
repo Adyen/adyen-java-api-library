@@ -2,6 +2,7 @@ package com.adyen;
 
 import com.adyen.enums.Environment;
 import com.adyen.enums.Regions;
+import com.adyen.enums.Regions.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
@@ -143,13 +144,13 @@ public class Client {
         }
     }
 
-    public String getCloudEndpoint() {
+    public String getCloudEndpoint(Region region) {
         // Return a custom endpoint if it has already been set
         if (config.getTerminalApiCloudEndpoint() != null) {
             return config.getTerminalApiCloudEndpoint();
         }
         // Check the environment and get the endpoint
-        if (Environment.TEST.equals(this.config.getEnvironment())){
+        if (Environment.TEST.equals(this.config.getEnvironment())) {
             return Client.TERMINAL_API_ENDPOINT_TEST;
         }
         // For LIVE environment, lookup the endpoint using the map
