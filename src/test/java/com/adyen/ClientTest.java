@@ -1,7 +1,6 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
 import org.junit.Assert;
 import org.junit.Test;

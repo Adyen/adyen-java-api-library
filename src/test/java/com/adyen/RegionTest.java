@@ -1,14 +1,9 @@
-/**
- * Adyen Java API Library
- * Copyright (c) 2022 Adyen N.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
- */
 package com.adyen;
 
-import com.adyen.enums.Region;
+import com.adyen.enums.Regions.Region;
+import com.adyen.enums.Regions;
+import java.util.stream.Collectors;
 import org.junit.Test;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +12,12 @@ import static org.junit.Assert.assertEquals;
 public class RegionTest {
     @Test
     public void testValidRegions() {
+
+        // Convert Regions.VALID_REGIONS to lowercase strings for comparison
+        List<String> actual = Regions.VALID_REGIONS.stream()
+        .map(region -> region.name().toLowerCase())
+        .collect(Collectors.toList());
+
         // Define the expected list of valid regions
         List<String> expected = List.of(
             "eu",
@@ -30,12 +31,21 @@ public class RegionTest {
         assertEquals(
             "VALID_REGIONS should match the expected regions.",
             expected,
-            Region.VALID_REGIONS
+            actual
         );
     }
 
     @Test
     public void testTerminalApiEndpointsMapping() {
+
+        // Convert TERMINAL_API_ENDPOINTS_MAPPING keys to lowercase strings for comparison
+        Map<String, String> actual = Regions.TERMINAL_API_ENDPOINTS_MAPPING.entrySet()
+        .stream()
+        .collect(Collectors.toMap(
+                entry -> entry.getKey().name().toLowerCase(), // Convert key (Region enum) to lowercase
+                Map.Entry::getValue
+        ));
+        
         // Define the expected map of region to endpoint mappings
         Map<String, String> expected = Map.of(
             "eu", "https://terminal-api-live.adyen.com",
@@ -48,7 +58,7 @@ public class RegionTest {
         assertEquals(
             "TERMINAL_API_ENDPOINTS_MAPPING should match the expected mappings.",
             expected,
-            Region.TERMINAL_API_ENDPOINTS_MAPPING
+            actual
         );
     }
 }
