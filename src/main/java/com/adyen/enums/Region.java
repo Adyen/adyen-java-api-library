@@ -50,10 +50,10 @@ public final class Region {
 
     static {
         Map<String, String> endpointsMapping = new HashMap<>();
-        endpointsMapping.put(EU, Client.ENDPOINT_TERMINAL_CLOUD_LIVE);
-        endpointsMapping.put(US, Client.ENDPOINT_TERMINAL_CLOUD_US_LIVE);
-        endpointsMapping.put(AU, Client.ENDPOINT_TERMINAL_CLOUD_AU_LIVE);
-        endpointsMapping.put(APSE, Client.ENDPOINT_TERMINAL_CLOUD_APSE_LIVE);
+        endpointsMapping.put(EU, Client.TERMINAL_API_ENDPOINT_LIVE);
+        endpointsMapping.put(US, Client.TERMINAL_API_ENDPOINT_US);
+        endpointsMapping.put(AU, Client.TERMINAL_API_ENDPOINT_AU);
+        endpointsMapping.put(APSE, Client.TERMINAL_API_ENDPOINT_APSE);
         TERMINAL_API_ENDPOINTS_MAPPING = Collections.unmodifiableMap(endpointsMapping);
     }
 }
