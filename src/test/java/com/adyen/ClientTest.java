@@ -1,7 +1,6 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
 import org.junit.Assert;
 import org.junit.Test;
@@ -36,6 +35,7 @@ public class ClientTest {
         config.setApiKey(apiKey);
         Client client = new Client(config);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+        // Assert.assertEquals("https://terminal-api-live.adyen.com", client.getTerminalApiRegion());
     }
 
     @Test

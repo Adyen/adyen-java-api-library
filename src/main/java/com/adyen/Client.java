@@ -1,6 +1,8 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Regions;
+import com.adyen.enums.Regions.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
@@ -13,6 +15,9 @@ public class Client {
     public static final String LIB_VERSION = "32.0.0";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_US = "https://terminal-api-live-us.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_AU = "https://terminal-api-live-au.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_APSE = "https://terminal-api-live-apse.adyen.com";
 
     public Client() {
         this.config = new Config();
@@ -137,6 +142,19 @@ public class Client {
             this.config.setEnvironment(environment);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
         }
+    }
+
+    public String getCloudEndpoint(Region region) {
+        // Return a custom endpoint if it has already been set
+        if (config.getTerminalApiCloudEndpoint() != null) {
+            return config.getTerminalApiCloudEndpoint();
+        }
+        // Check the environment and get the endpoint
+        if (Environment.TEST.equals(this.config.getEnvironment())) {
+            return Client.TERMINAL_API_ENDPOINT_TEST;
+        }
+        // For LIVE environment, lookup the endpoint using the map
+        return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(region != null ? region : Region.EU);
     }
 
     @Override
