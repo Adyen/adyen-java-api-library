@@ -121,6 +121,9 @@ public class AdyenHttpClient implements ClientInterface {
         if (config.getConnectionTimeoutMillis() > 0) {
             builder.setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS);
         }
+        if (config.getProtocolUpgradeEnabled() != null) {
+            builder.setProtocolUpgradeEnabled(config.getProtocolUpgradeEnabled());
+        }
         if (proxy != null && proxy.address() instanceof InetSocketAddress) {
             InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
             builder.setProxy(new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort()));

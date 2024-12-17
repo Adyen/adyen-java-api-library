@@ -17,6 +17,7 @@ public class Config {
     protected String apiKey;
     protected int connectionTimeoutMillis;
     protected int readTimeoutMillis;
+    protected Boolean protocolUpgradeEnabled;
 
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
@@ -99,6 +100,14 @@ public class Config {
 
     public void setReadTimeoutMillis(int readTimeoutMillis) {
         this.readTimeoutMillis = readTimeoutMillis;
+    }
+
+    public Boolean getProtocolUpgradeEnabled() {
+        return protocolUpgradeEnabled;
+    }
+
+    public void setProtocolUpgradeEnabled(Boolean protocolUpgradeEnabled) {
+        this.protocolUpgradeEnabled = protocolUpgradeEnabled;
     }
 
     public String getLiveEndpointUrlPrefix() {
