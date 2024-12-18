@@ -19,6 +19,7 @@ import java.util.HashMap;
 import com.adyen.model.balanceplatform.ActiveNetworkTokensRestriction;
 import com.adyen.model.balanceplatform.BrandVariantsRestriction;
 import com.adyen.model.balanceplatform.CounterpartyBankRestriction;
+import com.adyen.model.balanceplatform.CounterpartyTypesRestriction;
 import com.adyen.model.balanceplatform.CountriesRestriction;
 import com.adyen.model.balanceplatform.DayOfWeekRestriction;
 import com.adyen.model.balanceplatform.DifferentCurrenciesRestriction;
@@ -33,6 +34,7 @@ import com.adyen.model.balanceplatform.ProcessingTypesRestriction;
 import com.adyen.model.balanceplatform.RiskScoresRestriction;
 import com.adyen.model.balanceplatform.SameAmountRestriction;
 import com.adyen.model.balanceplatform.SameCounterpartyRestriction;
+import com.adyen.model.balanceplatform.SourceAccountTypesRestriction;
 import com.adyen.model.balanceplatform.TimeOfDayRestriction;
 import com.adyen.model.balanceplatform.TotalAmountRestriction;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -53,6 +55,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransactionRuleRestrictions.JSON_PROPERTY_ACTIVE_NETWORK_TOKENS,
   TransactionRuleRestrictions.JSON_PROPERTY_BRAND_VARIANTS,
   TransactionRuleRestrictions.JSON_PROPERTY_COUNTERPARTY_BANK,
+  TransactionRuleRestrictions.JSON_PROPERTY_COUNTERPARTY_TYPES,
   TransactionRuleRestrictions.JSON_PROPERTY_COUNTRIES,
   TransactionRuleRestrictions.JSON_PROPERTY_DAY_OF_WEEK,
   TransactionRuleRestrictions.JSON_PROPERTY_DIFFERENT_CURRENCIES,
@@ -67,6 +70,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransactionRuleRestrictions.JSON_PROPERTY_RISK_SCORES,
   TransactionRuleRestrictions.JSON_PROPERTY_SAME_AMOUNT_RESTRICTION,
   TransactionRuleRestrictions.JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION,
+  TransactionRuleRestrictions.JSON_PROPERTY_SOURCE_ACCOUNT_TYPES,
   TransactionRuleRestrictions.JSON_PROPERTY_TIME_OF_DAY,
   TransactionRuleRestrictions.JSON_PROPERTY_TOTAL_AMOUNT
 })
@@ -80,6 +84,9 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_COUNTERPARTY_BANK = "counterpartyBank";
   private CounterpartyBankRestriction counterpartyBank;
+
+  public static final String JSON_PROPERTY_COUNTERPARTY_TYPES = "counterpartyTypes";
+  private CounterpartyTypesRestriction counterpartyTypes;
 
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private CountriesRestriction countries;
@@ -122,6 +129,9 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION = "sameCounterpartyRestriction";
   private SameCounterpartyRestriction sameCounterpartyRestriction;
+
+  public static final String JSON_PROPERTY_SOURCE_ACCOUNT_TYPES = "sourceAccountTypes";
+  private SourceAccountTypesRestriction sourceAccountTypes;
 
   public static final String JSON_PROPERTY_TIME_OF_DAY = "timeOfDay";
   private TimeOfDayRestriction timeOfDay;
@@ -229,6 +239,39 @@ public class TransactionRuleRestrictions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterpartyBank(CounterpartyBankRestriction counterpartyBank) {
     this.counterpartyBank = counterpartyBank;
+  }
+
+  /**
+   * counterpartyTypes
+   *
+   * @param counterpartyTypes
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
+  public TransactionRuleRestrictions counterpartyTypes(CounterpartyTypesRestriction counterpartyTypes) {
+    this.counterpartyTypes = counterpartyTypes;
+    return this;
+  }
+
+  /**
+   * counterpartyTypes
+   * @return counterpartyTypes
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CounterpartyTypesRestriction getCounterpartyTypes() {
+    return counterpartyTypes;
+  }
+
+  /**
+   * counterpartyTypes
+   *
+   * @param counterpartyTypes
+   */ 
+  @JsonProperty(JSON_PROPERTY_COUNTERPARTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCounterpartyTypes(CounterpartyTypesRestriction counterpartyTypes) {
+    this.counterpartyTypes = counterpartyTypes;
   }
 
   /**
@@ -694,6 +737,39 @@ public class TransactionRuleRestrictions {
   }
 
   /**
+   * sourceAccountTypes
+   *
+   * @param sourceAccountTypes
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
+  public TransactionRuleRestrictions sourceAccountTypes(SourceAccountTypesRestriction sourceAccountTypes) {
+    this.sourceAccountTypes = sourceAccountTypes;
+    return this;
+  }
+
+  /**
+   * sourceAccountTypes
+   * @return sourceAccountTypes
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SOURCE_ACCOUNT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SourceAccountTypesRestriction getSourceAccountTypes() {
+    return sourceAccountTypes;
+  }
+
+  /**
+   * sourceAccountTypes
+   *
+   * @param sourceAccountTypes
+   */ 
+  @JsonProperty(JSON_PROPERTY_SOURCE_ACCOUNT_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSourceAccountTypes(SourceAccountTypesRestriction sourceAccountTypes) {
+    this.sourceAccountTypes = sourceAccountTypes;
+  }
+
+  /**
    * timeOfDay
    *
    * @param timeOfDay
@@ -774,6 +850,7 @@ public class TransactionRuleRestrictions {
     return Objects.equals(this.activeNetworkTokens, transactionRuleRestrictions.activeNetworkTokens) &&
         Objects.equals(this.brandVariants, transactionRuleRestrictions.brandVariants) &&
         Objects.equals(this.counterpartyBank, transactionRuleRestrictions.counterpartyBank) &&
+        Objects.equals(this.counterpartyTypes, transactionRuleRestrictions.counterpartyTypes) &&
         Objects.equals(this.countries, transactionRuleRestrictions.countries) &&
         Objects.equals(this.dayOfWeek, transactionRuleRestrictions.dayOfWeek) &&
         Objects.equals(this.differentCurrencies, transactionRuleRestrictions.differentCurrencies) &&
@@ -788,13 +865,14 @@ public class TransactionRuleRestrictions {
         Objects.equals(this.riskScores, transactionRuleRestrictions.riskScores) &&
         Objects.equals(this.sameAmountRestriction, transactionRuleRestrictions.sameAmountRestriction) &&
         Objects.equals(this.sameCounterpartyRestriction, transactionRuleRestrictions.sameCounterpartyRestriction) &&
+        Objects.equals(this.sourceAccountTypes, transactionRuleRestrictions.sourceAccountTypes) &&
         Objects.equals(this.timeOfDay, transactionRuleRestrictions.timeOfDay) &&
         Objects.equals(this.totalAmount, transactionRuleRestrictions.totalAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, timeOfDay, totalAmount);
+    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, counterpartyTypes, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, sourceAccountTypes, timeOfDay, totalAmount);
   }
 
   @Override
@@ -804,6 +882,7 @@ public class TransactionRuleRestrictions {
     sb.append("    activeNetworkTokens: ").append(toIndentedString(activeNetworkTokens)).append("\n");
     sb.append("    brandVariants: ").append(toIndentedString(brandVariants)).append("\n");
     sb.append("    counterpartyBank: ").append(toIndentedString(counterpartyBank)).append("\n");
+    sb.append("    counterpartyTypes: ").append(toIndentedString(counterpartyTypes)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    dayOfWeek: ").append(toIndentedString(dayOfWeek)).append("\n");
     sb.append("    differentCurrencies: ").append(toIndentedString(differentCurrencies)).append("\n");
@@ -818,6 +897,7 @@ public class TransactionRuleRestrictions {
     sb.append("    riskScores: ").append(toIndentedString(riskScores)).append("\n");
     sb.append("    sameAmountRestriction: ").append(toIndentedString(sameAmountRestriction)).append("\n");
     sb.append("    sameCounterpartyRestriction: ").append(toIndentedString(sameCounterpartyRestriction)).append("\n");
+    sb.append("    sourceAccountTypes: ").append(toIndentedString(sourceAccountTypes)).append("\n");
     sb.append("    timeOfDay: ").append(toIndentedString(timeOfDay)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("}");
