@@ -28,6 +28,7 @@ import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.model.terminal.security.SecurityTrailer;
 import com.adyen.terminal.security.exception.NexoCryptoException;
 import org.apache.commons.codec.binary.Base64;
+
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -41,15 +42,12 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.Provider;
 import java.security.SecureRandom;
 
 import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
 
 public class NexoCrypto {
 
-    private static SecureRandom secureRandom = new SecureRandom();
-    private static final Provider PROVIDER = secureRandom.getProvider();
     private final SecurityKey securityKey;
     private volatile NexoDerivedKey nexoDerivedKey;
 
@@ -58,7 +56,7 @@ public class NexoCrypto {
         this.securityKey = securityKey;
     }
 
-    public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader) throws Exception {
+    public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader) throws GeneralSecurityException {
         NexoDerivedKey derivedKey = getNexoDerivedKey();
         byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.UTF_8);
         byte[] ivNonce = generateRandomIvNonce();
@@ -80,7 +78,7 @@ public class NexoCrypto {
         return saleToPoiSecuredMessage;
     }
 
-    public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws Exception {
+    public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws GeneralSecurityException, NexoCryptoException {
         NexoDerivedKey derivedKey = getNexoDerivedKey();
         byte[] encryptedSaleToPoiMessageByteArray = Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
         byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
@@ -114,11 +112,6 @@ public class NexoCrypto {
         return nexoDerivedKey;
     }
 
-    /**
-     * Encrypt or decrypt data given a iv modifier and using the specified key
-     * <p>
-     * The actual iv is computed by taking the iv from the key material and xoring it with ivmod
-     */
     private byte[] crypt(byte[] bytes, NexoDerivedKey dk, byte[] ivNonce, int mode)
             throws NoSuchAlgorithmException, NoSuchPaddingException,
             IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
@@ -126,7 +119,6 @@ public class NexoCrypto {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         SecretKeySpec secretKeySpec = new SecretKeySpec(dk.getCipherKey(), "AES");
 
-        // xor dk.iv and the iv modifier
         byte[] iv = dk.getIv();
         byte[] actualIV = new byte[NEXO_IV_LENGTH];
         for (int i = 0; i < NEXO_IV_LENGTH; i++) {
@@ -138,9 +130,6 @@ public class NexoCrypto {
         return cipher.doFinal(bytes);
     }
 
-    /**
-     * Compute a hmac using the hmacKey
-     */
     private byte[] hmac(byte[] bytes, NexoDerivedKey derivedKey) throws NoSuchAlgorithmException, InvalidKeyException {
         Mac mac = Mac.getInstance("HmacSHA256");
         SecretKeySpec s = new SecretKeySpec(derivedKey.getHmacKey(), "HmacSHA256");
@@ -149,26 +138,21 @@ public class NexoCrypto {
         return mac.doFinal(bytes);
     }
 
-    /**
-     * Validate the hmac from a received message
-     */
     private void validateHmac(byte[] receivedHmac, byte[] decryptedMessage, NexoDerivedKey derivedKey) throws NexoCryptoException, InvalidKeyException, NoSuchAlgorithmException {
         byte[] hmac = hmac(decryptedMessage, derivedKey);
         boolean valid = MessageDigest.isEqual(hmac, receivedHmac);
 
         if (!valid) {
-            throw new NexoCryptoException("Hmac validation failed");
+            throw new NexoCryptoException("HMAC validation failed");
         }
     }
 
-    /**
-     * Generate a random iv nonce with cryptographically strongest non blocking RNG
-     */
     private byte[] generateRandomIvNonce() {
         byte[] ivNonce = new byte[NEXO_IV_LENGTH];
+        SecureRandom secureRandom;
         try {
-            secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking", PROVIDER);
-        } catch (Exception NoSuchAlgorithmException) {
+            secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking");
+        } catch (NoSuchAlgorithmException e) {
             secureRandom = new SecureRandom();
         }
         secureRandom.nextBytes(ivNonce);
