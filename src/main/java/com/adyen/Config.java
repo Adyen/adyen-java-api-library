@@ -1,6 +1,7 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import org.apache.hc.client5.http.config.RequestConfig;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -17,6 +18,7 @@ public class Config {
     protected String apiKey;
     protected int connectionTimeoutMillis;
     protected int readTimeoutMillis;
+    protected Boolean protocolUpgradeEnabled;
 
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
@@ -99,6 +101,18 @@ public class Config {
 
     public void setReadTimeoutMillis(int readTimeoutMillis) {
         this.readTimeoutMillis = readTimeoutMillis;
+    }
+
+    public Boolean getProtocolUpgradeEnabled() {
+        return protocolUpgradeEnabled;
+    }
+
+    /**
+     * Whether the HTTP requests should automatically attempt to upgrade to a safer/newer version of the protocol.
+     * See also {@link RequestConfig.Builder#setProtocolUpgradeEnabled(boolean)}.
+     */
+    public void setProtocolUpgradeEnabled(Boolean protocolUpgradeEnabled) {
+        this.protocolUpgradeEnabled = protocolUpgradeEnabled;
     }
 
     public String getLiveEndpointUrlPrefix() {
