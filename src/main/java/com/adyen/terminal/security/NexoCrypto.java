@@ -28,7 +28,6 @@ import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.model.terminal.security.SecurityTrailer;
 import com.adyen.terminal.security.exception.NexoCryptoException;
 import org.apache.commons.codec.binary.Base64;
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -64,7 +63,7 @@ public class NexoCrypto {
      * @param messageHeader        the message header for encryption
      * @return encrypted SaleToPOISecuredMessage
      */
-    public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader) throws GeneralSecurityException {
+    public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader) throws Exception {
         NexoDerivedKey derivedKey = getNexoDerivedKey();
         byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.UTF_8);
 
@@ -100,7 +99,7 @@ public class NexoCrypto {
      * @param saleToPoiSecuredMessage the encrypted message
      * @return the decrypted SaleToPOI message as a JSON string
      */
-    public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws GeneralSecurityException, NexoCryptoException {
+    public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws Exception {
         NexoDerivedKey derivedKey = getNexoDerivedKey();
 
         // Decode the encrypted blob
@@ -205,7 +204,7 @@ public class NexoCrypto {
         SecureRandom secureRandom;
         try {
             secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking");
-        } catch (NoSuchAlgorithmException e) {
+        } catch (Exception NoSuchAlgorithmException) {
             // Fallback to default SecureRandom implementation
             secureRandom = new SecureRandom();
         }
