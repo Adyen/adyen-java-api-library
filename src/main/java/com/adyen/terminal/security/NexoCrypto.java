@@ -41,30 +41,42 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.Provider;
 import java.security.SecureRandom;
 
 import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
 
 public class NexoCrypto {
 
-    private static SecureRandom secureRandom = new SecureRandom();
-    private static final Provider PROVIDER = secureRandom.getProvider();
     private final SecurityKey securityKey;
     private volatile NexoDerivedKey nexoDerivedKey;
 
     public NexoCrypto(SecurityKey securityKey) throws NexoCryptoException {
+        // Validate security key to ensure it has the necessary properties
         validateSecurityKey(securityKey);
         this.securityKey = securityKey;
     }
 
+    /**
+     * Encrypts the SaleToPOI message using the provided message header and security key.
+     *
+     * @param saleToPoiMessageJson the JSON string representing the SaleToPOI message
+     * @param messageHeader        the message header for encryption
+     * @return encrypted SaleToPOISecuredMessage
+     */
     public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader) throws Exception {
         NexoDerivedKey derivedKey = getNexoDerivedKey();
         byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.UTF_8);
+
+        // Generate a random initialization vector (IV) nonce
         byte[] ivNonce = generateRandomIvNonce();
+
+        // Perform AES encryption
         byte[] encryptedSaleToPoiMessage = crypt(saleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.ENCRYPT_MODE);
+
+        // Generate HMAC for message authentication
         byte[] encryptedSaleToPoiMessageHmac = hmac(saleToPoiMessageByteArray, derivedKey);
 
+        // Populate security trailer with metadata and HMAC
         SecurityTrailer securityTrailer = new SecurityTrailer();
         securityTrailer.setKeyVersion(securityKey.getKeyVersion());
         securityTrailer.setKeyIdentifier(securityKey.getKeyIdentifier());
@@ -72,6 +84,7 @@ public class NexoCrypto {
         securityTrailer.setNonce(ivNonce);
         securityTrailer.setAdyenCryptoVersion(securityKey.getAdyenCryptoVersion());
 
+        // Construct the secured message with the encrypted content and security trailer
         SaleToPOISecuredMessage saleToPoiSecuredMessage = new SaleToPOISecuredMessage();
         saleToPoiSecuredMessage.setMessageHeader(messageHeader);
         saleToPoiSecuredMessage.setNexoBlob(new String(Base64.encodeBase64(encryptedSaleToPoiMessage)));
@@ -80,18 +93,37 @@ public class NexoCrypto {
         return saleToPoiSecuredMessage;
     }
 
+    /**
+     * Decrypts the SaleToPOI secured message.
+     *
+     * @param saleToPoiSecuredMessage the encrypted message
+     * @return the decrypted SaleToPOI message as a JSON string
+     */
     public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws Exception {
         NexoDerivedKey derivedKey = getNexoDerivedKey();
+
+        // Decode the encrypted blob
         byte[] encryptedSaleToPoiMessageByteArray = Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
+
+        // Retrieve the nonce (IV) from the security trailer
         byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
+
+        // Decrypt the message
         byte[] decryptedSaleToPoiMessageByteArray = crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
 
+        // Validate HMAC to ensure message integrity
         byte[] receivedHmac = saleToPoiSecuredMessage.getSecurityTrailer().getHmac();
         validateHmac(receivedHmac, decryptedSaleToPoiMessageByteArray, derivedKey);
 
         return new String(decryptedSaleToPoiMessageByteArray, StandardCharsets.UTF_8);
     }
 
+    /**
+     * Validates the security key to ensure all required fields are present.
+     *
+     * @param securityKey the security key to validate
+     * @throws NexoCryptoException if the security key is invalid
+     */
     private void validateSecurityKey(SecurityKey securityKey) throws NexoCryptoException {
         if (securityKey == null
                 || securityKey.getPassphrase() == null
@@ -103,6 +135,11 @@ public class NexoCrypto {
         }
     }
 
+    /**
+     * Lazily initializes and retrieves the derived key material for encryption/decryption.
+     *
+     * @return the derived key material
+     */
     private NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
         if (nexoDerivedKey == null) {
             synchronized (this) {
@@ -115,9 +152,7 @@ public class NexoCrypto {
     }
 
     /**
-     * Encrypt or decrypt data given a iv modifier and using the specified key
-     * <p>
-     * The actual iv is computed by taking the iv from the key material and xoring it with ivmod
+     * Performs AES encryption/decryption using the derived key and provided IV.
      */
     private byte[] crypt(byte[] bytes, NexoDerivedKey dk, byte[] ivNonce, int mode)
             throws NoSuchAlgorithmException, NoSuchPaddingException,
@@ -126,7 +161,7 @@ public class NexoCrypto {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         SecretKeySpec secretKeySpec = new SecretKeySpec(dk.getCipherKey(), "AES");
 
-        // xor dk.iv and the iv modifier
+        // Derive the actual IV by XORing the derived IV with the nonce
         byte[] iv = dk.getIv();
         byte[] actualIV = new byte[NEXO_IV_LENGTH];
         for (int i = 0; i < NEXO_IV_LENGTH; i++) {
@@ -139,7 +174,7 @@ public class NexoCrypto {
     }
 
     /**
-     * Compute a hmac using the hmacKey
+     * Generates an HMAC for message authentication.
      */
     private byte[] hmac(byte[] bytes, NexoDerivedKey derivedKey) throws NoSuchAlgorithmException, InvalidKeyException {
         Mac mac = Mac.getInstance("HmacSHA256");
@@ -150,25 +185,27 @@ public class NexoCrypto {
     }
 
     /**
-     * Validate the hmac from a received message
+     * Validates the HMAC of a decrypted message to ensure data integrity.
      */
     private void validateHmac(byte[] receivedHmac, byte[] decryptedMessage, NexoDerivedKey derivedKey) throws NexoCryptoException, InvalidKeyException, NoSuchAlgorithmException {
         byte[] hmac = hmac(decryptedMessage, derivedKey);
         boolean valid = MessageDigest.isEqual(hmac, receivedHmac);
 
         if (!valid) {
-            throw new NexoCryptoException("Hmac validation failed");
+            throw new NexoCryptoException("HMAC validation failed");
         }
     }
 
     /**
-     * Generate a random iv nonce with cryptographically strongest non blocking RNG
+     * Generates a random IV nonce using a secure random number generator.
      */
     private byte[] generateRandomIvNonce() {
         byte[] ivNonce = new byte[NEXO_IV_LENGTH];
+        SecureRandom secureRandom;
         try {
-            secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking", PROVIDER);
+            secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking");
         } catch (Exception NoSuchAlgorithmException) {
+            // Fallback to default SecureRandom implementation
             secureRandom = new SecureRandom();
         }
         secureRandom.nextBytes(ivNonce);
