@@ -30,6 +30,7 @@ import java.security.cert.X509Certificate;
  * <p>
  * Be sure to remove the encryption key details on the Customer Area as it will not work with encryption key details set up.
  */
+@Deprecated
 public class TerminalLocalAPIUnencrypted extends Service {
 
     private final LocalRequest localRequest;
