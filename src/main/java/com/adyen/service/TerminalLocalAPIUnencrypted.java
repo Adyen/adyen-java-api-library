@@ -21,7 +21,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 /**
- * @deprecated This class is planned for deprecation in future releases.
+ * @deprecated This class is deprecated and will be removed in one of the future releases.
  * Find guide on how to use the local terminal API without encryption in the README.
  * <p>
  * [UNENCRYPTED] Local Terminal Api.
