@@ -60,6 +60,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdatePaymentMethodInfo.JSON_PROPERTY_NYCE,
   UpdatePaymentMethodInfo.JSON_PROPERTY_PULSE,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STAR,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_STORE_ID,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STORE_IDS,
   UpdatePaymentMethodInfo.JSON_PROPERTY_VISA
 })
@@ -125,7 +126,11 @@ public class UpdatePaymentMethodInfo {
   public static final String JSON_PROPERTY_STAR = "star";
   private StarInfo star;
 
+  public static final String JSON_PROPERTY_STORE_ID = "storeId";
+  private String storeId;
+
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
+  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per payment method is allowed.
   private List<String> storeIds = null;
 
   public static final String JSON_PROPERTY_VISA = "visa";
@@ -819,11 +824,48 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
+   * The store for this payment method
+   *
+   * @param storeId
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo storeId(String storeId) {
+    this.storeId = storeId;
+    return this;
+  }
+
+  /**
+   * The store for this payment method
+   * @return storeId
+   */
+  @ApiModelProperty(value = "The store for this payment method")
+  @JsonProperty(JSON_PROPERTY_STORE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStoreId() {
+    return storeId;
+  }
+
+  /**
+   * The store for this payment method
+   *
+   * @param storeId
+   */ 
+  @JsonProperty(JSON_PROPERTY_STORE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
+  }
+
+  /**
    * The list of stores for this payment method
    *
    * @param storeIds
    * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   *
+   * @deprecated since Management API v3
+   * Use &#x60;storeId&#x60; instead. Only one store per payment method is allowed.
    */
+  @Deprecated
   public UpdatePaymentMethodInfo storeIds(List<String> storeIds) {
     this.storeIds = storeIds;
     return this;
@@ -840,7 +882,11 @@ public class UpdatePaymentMethodInfo {
   /**
    * The list of stores for this payment method
    * @return storeIds
+   *
+   * @deprecated since Management API v3
+   * Use &#x60;storeId&#x60; instead. Only one store per payment method is allowed.
    */
+  @Deprecated
   @ApiModelProperty(value = "The list of stores for this payment method")
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -852,7 +898,11 @@ public class UpdatePaymentMethodInfo {
    * The list of stores for this payment method
    *
    * @param storeIds
+   *
+   * @deprecated since Management API v3
+   * Use &#x60;storeId&#x60; instead. Only one store per payment method is allowed.
    */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreIds(List<String> storeIds) {
@@ -924,13 +974,14 @@ public class UpdatePaymentMethodInfo {
         Objects.equals(this.nyce, updatePaymentMethodInfo.nyce) &&
         Objects.equals(this.pulse, updatePaymentMethodInfo.pulse) &&
         Objects.equals(this.star, updatePaymentMethodInfo.star) &&
+        Objects.equals(this.storeId, updatePaymentMethodInfo.storeId) &&
         Objects.equals(this.storeIds, updatePaymentMethodInfo.storeIds) &&
         Objects.equals(this.visa, updatePaymentMethodInfo.visa);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accel, bcmc, cartesBancaires, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, nyce, pulse, star, storeIds, visa);
+    return Objects.hash(accel, bcmc, cartesBancaires, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, nyce, pulse, star, storeId, storeIds, visa);
   }
 
   @Override
@@ -957,6 +1008,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
     sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
     sb.append("    star: ").append(toIndentedString(star)).append("\n");
+    sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
     sb.append("    visa: ").append(toIndentedString(visa)).append("\n");
     sb.append("}");
