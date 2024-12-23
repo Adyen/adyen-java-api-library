@@ -58,7 +58,7 @@ public class Balance {
   }
 
   /**
-   * The current balance minus any reserved balance.
+   * The balance available for use.
    *
    * @param available
    * @return the current {@code Balance} instance, allowing for method chaining
@@ -69,10 +69,10 @@ public class Balance {
   }
 
   /**
-   * The current balance minus any reserved balance.
+   * The balance available for use.
    * @return available
    */
-  @ApiModelProperty(required = true, value = "The current balance minus any reserved balance.")
+  @ApiModelProperty(required = true, value = "The balance available for use.")
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvailable() {
@@ -80,7 +80,7 @@ public class Balance {
   }
 
   /**
-   * The current balance minus any reserved balance.
+   * The balance available for use.
    *
    * @param available
    */ 
@@ -91,7 +91,7 @@ public class Balance {
   }
 
   /**
-   * The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.
+   * The sum of transactions that have already been settled.
    *
    * @param balance
    * @return the current {@code Balance} instance, allowing for method chaining
@@ -102,10 +102,10 @@ public class Balance {
   }
 
   /**
-   * The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.
+   * The sum of transactions that have already been settled.
    * @return balance
    */
-  @ApiModelProperty(required = true, value = "The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.")
+  @ApiModelProperty(required = true, value = "The sum of transactions that have already been settled.")
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBalance() {
@@ -113,7 +113,7 @@ public class Balance {
   }
 
   /**
-   * The current balance of funds in the balance account. These are the funds from all transactions with a value date in the past that have not yet been paid out.
+   * The sum of transactions that have already been settled.
    *
    * @param balance
    */ 
@@ -157,7 +157,7 @@ public class Balance {
   }
 
   /**
-   * The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).
+   * The sum of the transactions that will be settled in the future.
    *
    * @param pending
    * @return the current {@code Balance} instance, allowing for method chaining
@@ -168,10 +168,10 @@ public class Balance {
   }
 
   /**
-   * The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).
+   * The sum of the transactions that will be settled in the future.
    * @return pending
    */
-  @ApiModelProperty(value = "The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).")
+  @ApiModelProperty(value = "The sum of the transactions that will be settled in the future.")
   @JsonProperty(JSON_PROPERTY_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPending() {
@@ -179,7 +179,7 @@ public class Balance {
   }
 
   /**
-   * The amount of funds that Adyen has processed for this account, but will be settled in a future date.  For more information, see how to settle funds for users in your [platform](https://docs.adyen.com/platforms/settle-funds) and [marketplace](https://docs.adyen.com/marketplaces/settle-funds).
+   * The sum of the transactions that will be settled in the future.
    *
    * @param pending
    */ 
@@ -190,7 +190,7 @@ public class Balance {
   }
 
   /**
-   * The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).
+   * The balance currently held in reserve.
    *
    * @param reserved
    * @return the current {@code Balance} instance, allowing for method chaining
@@ -201,10 +201,10 @@ public class Balance {
   }
 
   /**
-   * The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).
+   * The balance currently held in reserve.
    * @return reserved
    */
-  @ApiModelProperty(required = true, value = "The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).")
+  @ApiModelProperty(required = true, value = "The balance currently held in reserve.")
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReserved() {
@@ -212,7 +212,7 @@ public class Balance {
   }
 
   /**
-   * The amount reserved for payments that have been [authorised](https://docs.adyen.com/issuing/payment-stages/#authorised), but not yet [captured](https://docs.adyen.com/issuing/payment-stages/#captured) by the merchant.  Applies only to [Adyen-issued cards](https://docs.adyen.com/issuing).
+   * The balance currently held in reserve.
    *
    * @param reserved
    */ 

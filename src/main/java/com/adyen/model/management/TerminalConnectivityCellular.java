@@ -32,6 +32,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   TerminalConnectivityCellular.JSON_PROPERTY_ICCID,
+  TerminalConnectivityCellular.JSON_PROPERTY_ICCID2,
   TerminalConnectivityCellular.JSON_PROPERTY_STATUS
 })
 
@@ -39,8 +40,11 @@ public class TerminalConnectivityCellular {
   public static final String JSON_PROPERTY_ICCID = "iccid";
   private String iccid;
 
+  public static final String JSON_PROPERTY_ICCID2 = "iccid2";
+  private String iccid2;
+
   /**
-   * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
+   * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
    */
   public enum StatusEnum {
     ACTIVATED("activated"),
@@ -87,7 +91,7 @@ public class TerminalConnectivityCellular {
   }
 
   /**
-   * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+   * The integrated circuit card identifier (ICCID) of the primary SIM card in the terminal.
    *
    * @param iccid
    * @return the current {@code TerminalConnectivityCellular} instance, allowing for method chaining
@@ -98,10 +102,10 @@ public class TerminalConnectivityCellular {
   }
 
   /**
-   * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+   * The integrated circuit card identifier (ICCID) of the primary SIM card in the terminal.
    * @return iccid
    */
-  @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the SIM card in the terminal.")
+  @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the primary SIM card in the terminal.")
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIccid() {
@@ -109,7 +113,7 @@ public class TerminalConnectivityCellular {
   }
 
   /**
-   * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
+   * The integrated circuit card identifier (ICCID) of the primary SIM card in the terminal.
    *
    * @param iccid
    */ 
@@ -120,7 +124,40 @@ public class TerminalConnectivityCellular {
   }
 
   /**
-   * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
+   * The integrated circuit card identifier (ICCID) of the secondary SIM card in the terminal, typically used for a [third-party SIM card](https://docs.adyen.com/point-of-sale/design-your-integration/network-and-connectivity/cellular-failover/#using-a-third-party-sim-card).
+   *
+   * @param iccid2
+   * @return the current {@code TerminalConnectivityCellular} instance, allowing for method chaining
+   */
+  public TerminalConnectivityCellular iccid2(String iccid2) {
+    this.iccid2 = iccid2;
+    return this;
+  }
+
+  /**
+   * The integrated circuit card identifier (ICCID) of the secondary SIM card in the terminal, typically used for a [third-party SIM card](https://docs.adyen.com/point-of-sale/design-your-integration/network-and-connectivity/cellular-failover/#using-a-third-party-sim-card).
+   * @return iccid2
+   */
+  @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the secondary SIM card in the terminal, typically used for a [third-party SIM card](https://docs.adyen.com/point-of-sale/design-your-integration/network-and-connectivity/cellular-failover/#using-a-third-party-sim-card).")
+  @JsonProperty(JSON_PROPERTY_ICCID2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIccid2() {
+    return iccid2;
+  }
+
+  /**
+   * The integrated circuit card identifier (ICCID) of the secondary SIM card in the terminal, typically used for a [third-party SIM card](https://docs.adyen.com/point-of-sale/design-your-integration/network-and-connectivity/cellular-failover/#using-a-third-party-sim-card).
+   *
+   * @param iccid2
+   */ 
+  @JsonProperty(JSON_PROPERTY_ICCID2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIccid2(String iccid2) {
+    this.iccid2 = iccid2;
+  }
+
+  /**
+   * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
    *
    * @param status
    * @return the current {@code TerminalConnectivityCellular} instance, allowing for method chaining
@@ -131,10 +168,10 @@ public class TerminalConnectivityCellular {
   }
 
   /**
-   * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
+   * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
    * @return status
    */
-  @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.")
+  @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -142,7 +179,7 @@ public class TerminalConnectivityCellular {
   }
 
   /**
-   * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal.
+   * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
    *
    * @param status
    */ 
@@ -165,12 +202,13 @@ public class TerminalConnectivityCellular {
     }
     TerminalConnectivityCellular terminalConnectivityCellular = (TerminalConnectivityCellular) o;
     return Objects.equals(this.iccid, terminalConnectivityCellular.iccid) &&
+        Objects.equals(this.iccid2, terminalConnectivityCellular.iccid2) &&
         Objects.equals(this.status, terminalConnectivityCellular.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iccid, status);
+    return Objects.hash(iccid, iccid2, status);
   }
 
   @Override
@@ -178,6 +216,7 @@ public class TerminalConnectivityCellular {
     StringBuilder sb = new StringBuilder();
     sb.append("class TerminalConnectivityCellular {\n");
     sb.append("    iccid: ").append(toIndentedString(iccid)).append("\n");
+    sb.append("    iccid2: ").append(toIndentedString(iccid2)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
