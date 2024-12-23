@@ -21,12 +21,16 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 /**
+ * @deprecated This class is deprecated and will be removed in one of the future releases.
+ * Find guide on how to use the local terminal API without encryption in the README.
+ * <p>
  * [UNENCRYPTED] Local Terminal Api.
  * Use this class (in TEST only) to experiment with the Local Terminal API separately
  * from the encryption implementation required for live payments.
  * <p>
  * Be sure to remove the encryption key details on the Customer Area as it will not work with encryption key details set up.
  */
+@Deprecated
 public class TerminalLocalAPIUnencrypted extends Service {
 
     private final LocalRequest localRequest;
