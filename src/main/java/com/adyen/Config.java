@@ -1,7 +1,6 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import org.apache.hc.client5.http.config.RequestConfig;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
