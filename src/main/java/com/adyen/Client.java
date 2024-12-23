@@ -144,7 +144,7 @@ public class Client {
         }
     }
 
-    public String getCloudEndpoint(Region region) {
+    public String getCloudEndpoint(Region region) { //adjust this 
         // Return a custom endpoint if it has already been set
         if (config.getTerminalApiCloudEndpoint() != null) {
             return config.getTerminalApiCloudEndpoint();
