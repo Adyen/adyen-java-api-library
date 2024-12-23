@@ -29,6 +29,8 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.ApiError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
+import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -113,7 +115,11 @@ public class Resource {
         } catch (HTTPClientException e) {
             apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
             apiException.setResponseBody(e.getResponseBody());
-            apiException.setError(ApiError.fromJson(e.getResponseBody()));
+            try {
+                apiException.setError(ApiError.fromJson(e.getResponseBody()));
+            } catch (Exception ignore) {
+                // Response body could not be parsed (e.g. not JSON), raw response body available in ApiException#responseBody
+            }
         }
         throw apiException;
     }
