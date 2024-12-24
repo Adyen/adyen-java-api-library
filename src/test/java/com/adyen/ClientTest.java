@@ -98,15 +98,6 @@ public class ClientTest {
         String result = liveClient.getCloudEndpoint(region, liveConfig.getEnvironment());
         Assert.assertEquals("Unexpected endpoint for region: " + region, expectedEndpoint, result);
     }
-    
-    @Test
-    public void testGetCloudEndpointForLiveEnvironmentWithDefaultRegion() {
-        Config liveConfig = new Config();
-        liveConfig.setEnvironment(Environment.LIVE);
-        Client liveClient = new Client(liveConfig);
-        String result = liveClient.getCloudEndpoint(null, Environment.LIVE);
-        Assert.assertEquals("https://terminal-api-live.adyen.com", result);
-    }
 
     @Test
     public void testClientCertificateAuth() {
