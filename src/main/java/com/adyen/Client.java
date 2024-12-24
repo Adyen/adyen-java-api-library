@@ -146,8 +146,7 @@ public class Client {
     }
 
     /**
-     * @param region The region for which the endpoint is requested.
-     * If null or the region is not found, defaults to default EU endpoint.
+     * @param region The region for which the endpoint is requested. If null or the region is not found, defaults to default EU endpoint.
      */
     public String getCloudEndpoint(Region region) {
         // Check the environment for TEST and get the endpoint
