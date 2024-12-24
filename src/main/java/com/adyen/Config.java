@@ -70,7 +70,7 @@ public class Config {
         this.apiKey = apiKey;
     }
 
-    public String getTerminalApiCloudEndpoint() {
+    public String  getTerminalApiCloudEndpoint() {
         return terminalApiCloudEndpoint;
     }
 

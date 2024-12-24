@@ -1,13 +1,16 @@
 package com.adyen;
 
-import com.adyen.enums.Environment;
-import com.adyen.model.RequestOptions;
+import java.util.HashMap;
+
+import javax.net.ssl.SSLContext;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import javax.net.ssl.SSLContext;
-import java.util.HashMap;
+import com.adyen.enums.Environment;
+import com.adyen.enums.Regions.Region;
+import com.adyen.model.RequestOptions;
 
 public class ClientTest {
 
@@ -35,8 +38,45 @@ public class ClientTest {
         config.setApiKey(apiKey);
         Client client = new Client(config);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-        // Assert.assertEquals("https://terminal-api-live.adyen.com", client.getTerminalApiRegion());
     }
+
+    @Test
+    public void testGetCloudEndpointWithCustomEndpoint() {
+        Config customConfig = new Config();
+        customConfig.setEnvironment(Environment.LIVE);
+        customConfig.setTerminalApiCloudEndpoint("https://terminal-api-live.adyen.com");
+        Client testClient = new Client(customConfig);
+        String result = testClient.getCloudEndpoint(null);
+        Assert.assertEquals("https://terminal-api-live.adyen.com", result);
+    }
+    
+    @Test
+    public void testGetCloudEndpointForTestEnvironment() {
+        Config testConfig = new Config();
+        testConfig.setEnvironment(Environment.TEST);
+        Client testClient = new Client(testConfig);
+        String result = testClient.getCloudEndpoint(Region.EU);
+        Assert.assertEquals("https://terminal-api-test.adyen.com", result);
+    }
+    
+    @Test
+    public void testGetCloudEndpointForLiveEnvironmentWithRegion() {
+        Config liveConfig = new Config();
+        liveConfig.setEnvironment(Environment.LIVE);
+        Client liveClient = new Client(liveConfig);
+        String result = liveClient.getCloudEndpoint(Region.AU);
+        Assert.assertEquals("https://terminal-api-live-au.adyen.com", result); 
+    }
+    
+    @Test
+    public void testGetCloudEndpointForLiveEnvironmentWithDefaultRegion() {
+        Config liveConfig = new Config();
+        liveConfig.setEnvironment(Environment.LIVE);
+        Client liveClient = new Client(liveConfig);
+        String result = liveClient.getCloudEndpoint(null);
+        Assert.assertEquals("https://terminal-api-live.adyen.com", result);
+    }
+    
 
     @Test
     public void testClientCertificateAuth() {

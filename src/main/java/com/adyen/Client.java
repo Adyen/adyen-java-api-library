@@ -135,6 +135,7 @@ public class Client {
         if (liveEndpointUrlPrefix != null) {
             config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
         }
+
         if (Environment.TEST.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
@@ -144,17 +145,26 @@ public class Client {
         }
     }
 
-    public String getCloudEndpoint(Region region) { //adjust this 
-        // Return a custom endpoint if it has already been set
-        if (config.getTerminalApiCloudEndpoint() != null) {
-            return config.getTerminalApiCloudEndpoint();
-        }
-        // Check the environment and get the endpoint
+    /**
+     * @param region The region for which the endpoint is requested. 
+     * If null or the region is not found, defaults to default EU endpoint.
+     */
+    public String getCloudEndpoint(Region region) {
+        // Check the environment for TEST and get the endpoint
         if (Environment.TEST.equals(this.config.getEnvironment())) {
             return Client.TERMINAL_API_ENDPOINT_TEST;
         }
+
         // For LIVE environment, lookup the endpoint using the map
-        return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(region != null ? region : Region.EU);
+        if (Environment.LIVE.equals(this.config.getEnvironment())) {
+            if (region != null && Regions.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
+                return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(region);
+            } else {
+                return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
+            }
+        }
+        // Default to EU endpoint if no environment or region is specified
+        return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
     }
 
     @Override
