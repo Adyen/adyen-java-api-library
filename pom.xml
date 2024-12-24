@@ -270,5 +270,11 @@
             <version>${swagger-core-version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.10.0</version> <!-- Use the latest compatible version -->
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

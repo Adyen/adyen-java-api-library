@@ -1,6 +1,8 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Regions;
+import com.adyen.enums.Regions.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
@@ -13,6 +15,9 @@ public class Client {
     public static final String LIB_VERSION = "32.1.0";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_US = "https://terminal-api-live-us.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_AU = "https://terminal-api-live-au.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_APSE = "https://terminal-api-live-apse.adyen.com";
 
     public Client() {
         this.config = new Config();
@@ -130,6 +135,7 @@ public class Client {
         if (liveEndpointUrlPrefix != null) {
             config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
         }
+
         if (Environment.TEST.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
@@ -137,6 +143,22 @@ public class Client {
             this.config.setEnvironment(environment);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
         }
+    }
+
+    /**
+     * @param region The region for which the endpoint is requested. If null or the region is not found, defaults to default EU endpoint.
+     */
+    public String getCloudEndpoint(Region region, Environment environment) {
+        // Check the environment for TEST and get the endpoint
+        if (environment.equals(Environment.TEST)) {
+            return Client.TERMINAL_API_ENDPOINT_TEST;
+        }
+        // For LIVE environment, lookup the endpoint using the map
+        if (environment.equals(Environment.LIVE)) {
+            return Regions.TERMINAL_API_ENDPOINTS_MAPPING.getOrDefault(region, TERMINAL_API_ENDPOINT_LIVE);
+        }
+        // Default to EU endpoint if no environment or region is specified
+        return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
     }
 
     @Override
