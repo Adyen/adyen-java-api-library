@@ -148,14 +148,14 @@ public class Client {
     /**
      * @param region The region for which the endpoint is requested. If null or the region is not found, defaults to default EU endpoint.
      */
-    public String getCloudEndpoint(Region region) {
+    public String getCloudEndpoint(Region region, Environment environment) {
         // Check the environment for TEST and get the endpoint
-        if (Environment.TEST.equals(this.config.getEnvironment())) {
+        if (environment.equals(Environment.TEST)) {
             return Client.TERMINAL_API_ENDPOINT_TEST;
         }
 
         // For LIVE environment, lookup the endpoint using the map
-        if (Environment.LIVE.equals(this.config.getEnvironment())) {
+        if (environment.equals(Environment.LIVE)) {
             if (region != null && Regions.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
                 return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(region);
             } else {
