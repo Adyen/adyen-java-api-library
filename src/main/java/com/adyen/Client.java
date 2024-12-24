@@ -153,14 +153,9 @@ public class Client {
         if (environment.equals(Environment.TEST)) {
             return Client.TERMINAL_API_ENDPOINT_TEST;
         }
-
         // For LIVE environment, lookup the endpoint using the map
         if (environment.equals(Environment.LIVE)) {
-            if (region != null && Regions.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
-                return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(region);
-            } else {
-                return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
-            }
+            return Regions.TERMINAL_API_ENDPOINTS_MAPPING.getOrDefault(region, TERMINAL_API_ENDPOINT_LIVE);
         }
         // Default to EU endpoint if no environment or region is specified
         return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);

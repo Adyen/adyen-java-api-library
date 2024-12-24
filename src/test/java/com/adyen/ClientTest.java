@@ -47,12 +47,15 @@ public class ClientTest {
 
     private static Stream<Arguments> provideCloudTestEndpointTestCases() {
         return Stream.of(
+            Arguments.of(null, Environment.TEST, "https://terminal-api-test.adyen.com"),
             Arguments.of(Region.EU, Environment.TEST, "https://terminal-api-test.adyen.com"),
             Arguments.of(Region.AU, Environment.TEST, "https://terminal-api-test.adyen.com"),
             Arguments.of(Region.US, Environment.TEST, "https://terminal-api-test.adyen.com"),
             Arguments.of(Region.APSE, Environment.TEST, "https://terminal-api-test.adyen.com")
         );
     }
+
+    // add test to make clear we don't support india yet, throw exception
 
     @ParameterizedTest
     @MethodSource("provideCloudTestEndpointTestCases")
@@ -75,6 +78,8 @@ public class ClientTest {
             Arguments.of(Region.APSE, Environment.LIVE, "https://terminal-api-live-apse.adyen.com")
         );
     }
+
+    //test for india environment assert throw not supported exception
 
     @ParameterizedTest
     @MethodSource("provideCloudLiveEndpointTestCases")
