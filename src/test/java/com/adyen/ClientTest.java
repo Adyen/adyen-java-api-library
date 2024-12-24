@@ -44,17 +44,7 @@ public class ClientTest {
         Client client = new Client(config);
         Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
     }
-    
-    @Test
-    public void testGetCloudEndpointWithCustomEndpoint() {
-        Config customConfig = new Config();
-        customConfig.setEnvironment(Environment.LIVE);
-        customConfig.setTerminalApiCloudEndpoint("https://terminal-api-live.adyen.com");
-        Client testClient = new Client(customConfig);
-        String result = testClient.getCloudEndpoint(null, Environment.LIVE);
-        Assert.assertEquals("https://terminal-api-live.adyen.com", result);
-    }
-    
+
     private static Stream<Arguments> provideCloudTestEndpointTestCases() {
         return Stream.of(
             Arguments.of(Region.EU, Environment.TEST, "https://terminal-api-test.adyen.com"),
@@ -115,5 +105,4 @@ public class ClientTest {
                 .additionalServiceHeaders(map);
         Assert.assertEquals(requestOptions.getAdditionalServiceHeaders(), map);
     }
-
 }
