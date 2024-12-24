@@ -116,7 +116,4 @@ public class ClientTest {
         Assert.assertEquals(requestOptions.getAdditionalServiceHeaders(), map);
     }
 
-    private void assertCommonEndpoints(Config config) {
-        Assert.assertEquals(Client.TERMINAL_API_ENDPOINT_LIVE, config.getTerminalApiCloudEndpoint());
-    }
 }
