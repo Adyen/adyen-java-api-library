@@ -37,7 +37,7 @@ public class ClientTest {
         config.setLiveEndpointUrlPrefix("prefix");
         config.setApiKey(apiKey);
         Client client = new Client(config);
-        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+     4   Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
     }
 
     @Test
