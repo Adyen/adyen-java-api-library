@@ -1,6 +1,8 @@
 package com.adyen;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Stream;
 
 import javax.net.ssl.SSLContext;
@@ -13,6 +15,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Regions;
 import com.adyen.enums.Regions.Region;
 import com.adyen.model.RequestOptions;
 
@@ -55,8 +58,6 @@ public class ClientTest {
         );
     }
 
-    // add test to make clear we don't support india yet, throw exception
-
     @ParameterizedTest
     @MethodSource("provideCloudTestEndpointTestCases")
     public void testGetCloudEndpointForTestEnvironment(Region region, Environment environment, String expectedEndpoint) {
@@ -79,8 +80,6 @@ public class ClientTest {
         );
     }
 
-    //test for india environment assert throw not supported exception
-
     @ParameterizedTest
     @MethodSource("provideCloudLiveEndpointTestCases")
     public void testGetCloudEndpointForLiveEnvironment(Region region, Environment environment, String expectedEndpoint) {
@@ -93,6 +92,38 @@ public class ClientTest {
         String result = liveClient.getCloudEndpoint(region, liveConfig.getEnvironment());
         Assert.assertEquals("Unexpected endpoint for region: " + region, expectedEndpoint, result);
     }
+
+    @Test
+    public void testRegionsNotInMappingThrowException() {
+        List<Region> unmappedRegions = new ArrayList<>();
+    
+        // Find unmapped regions
+        for (Region region : Regions.VALID_REGIONS) {
+            if (!Regions.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
+                unmappedRegions.add(region);
+            }
+        }
+    
+        // If no unmapped regions exist, skip the test
+        if (unmappedRegions.isEmpty()) {
+            System.out.println("Skipping test: All regions are in the mapping.");
+            return;
+        }
+    
+        // Iterate through unmapped regions and test
+        for (Region region : unmappedRegions) {
+            Config config = new Config();
+            config.setEnvironment(Environment.LIVE);
+            Client client = new Client(config);
+    
+            try {
+                client.getCloudEndpoint(region, Environment.LIVE);
+                Assert.fail("Expected IllegalArgumentException to be thrown for region: " + region);
+            } catch (IllegalArgumentException e) {
+                Assert.assertEquals("Region " + region + " is not supported yet", e.getMessage());
+            }
+        }
+    }          
 
     @Test
     public void testClientCertificateAuth() {

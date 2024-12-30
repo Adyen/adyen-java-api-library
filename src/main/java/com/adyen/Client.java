@@ -149,6 +149,9 @@ public class Client {
      * @param region The region for which the endpoint is requested. If null or the region is not found, defaults to default EU endpoint.
      */
     public String getCloudEndpoint(Region region, Environment environment) {
+        if (region != null && !Regions.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
+            throw new IllegalArgumentException("Region " + region + " is not supported yet");
+        }
         // Check the environment for TEST and get the endpoint
         if (environment.equals(Environment.TEST)) {
             return Client.TERMINAL_API_ENDPOINT_TEST;
