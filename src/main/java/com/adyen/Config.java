@@ -1,7 +1,8 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.enums.Regions.Region;
+import com.adyen.enums.Region;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 
@@ -70,7 +71,7 @@ public class Config {
         this.apiKey = apiKey;
     }
 
-    public String  getTerminalApiCloudEndpoint() {
+    public String getTerminalApiCloudEndpoint() {
         return terminalApiCloudEndpoint;
     }
 

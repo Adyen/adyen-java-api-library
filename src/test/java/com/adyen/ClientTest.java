@@ -15,8 +15,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import com.adyen.enums.Environment;
-import com.adyen.enums.Regions;
-import com.adyen.enums.Regions.Region;
+import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
 
 public class ClientTest {
@@ -95,8 +94,8 @@ public class ClientTest {
         List<Region> unmappedRegions = new ArrayList<>();
     
         // Find unmapped regions
-        for (Region region : Regions.VALID_REGIONS) {
-            if (!Regions.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
+        for (Region region : Region.VALID_REGIONS) {
+            if (!Region.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
                 unmappedRegions.add(region);
             }
         }

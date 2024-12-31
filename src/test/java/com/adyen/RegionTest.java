@@ -1,7 +1,6 @@
 package com.adyen;
 
-import com.adyen.enums.Regions.Region;
-import com.adyen.enums.Regions;
+import com.adyen.enums.Region;
 import java.util.stream.Collectors;
 import org.junit.Test;
 import java.util.List;
@@ -14,7 +13,7 @@ public class RegionTest {
     public void testValidRegions() {
 
         // Convert Regions.VALID_REGIONS to lowercase strings for comparison
-        List<String> actual = Regions.VALID_REGIONS.stream()
+        List<String> actual = Region.VALID_REGIONS.stream()
             .map(region -> region.name().toLowerCase())
             .collect(Collectors.toList());
 
@@ -39,7 +38,7 @@ public class RegionTest {
     public void testTerminalApiEndpointsMapping() {
 
         // Convert TERMINAL_API_ENDPOINTS_MAPPING keys to lowercase strings for comparison
-        Map<String, String> actual = Regions.TERMINAL_API_ENDPOINTS_MAPPING.entrySet()
+        Map<String, String> actual = Region.TERMINAL_API_ENDPOINTS_MAPPING.entrySet()
             .stream()
             .collect(Collectors.toMap(
                 entry -> entry.getKey().name().toLowerCase(), // Convert key (Region enum) to lowercase

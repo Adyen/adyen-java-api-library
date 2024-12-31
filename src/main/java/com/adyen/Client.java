@@ -1,8 +1,7 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
-import com.adyen.enums.Regions;
-import com.adyen.enums.Regions.Region;
+import com.adyen.enums.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
@@ -149,7 +148,7 @@ public class Client {
      * @param region The region for which the endpoint is requested. If null or the region is not found, defaults to default EU endpoint.
      */
     public String getCloudEndpoint(Region region, Environment environment) {
-        if (region != null && !Regions.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
+        if (region != null && !Region.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
             throw new IllegalArgumentException("Region " + region + " is not supported yet");
         }
         // Check the environment for TEST and get the endpoint
@@ -158,10 +157,10 @@ public class Client {
         }
         // For LIVE environment, lookup the endpoint using the map
         if (environment.equals(Environment.LIVE)) {
-            return Regions.TERMINAL_API_ENDPOINTS_MAPPING.getOrDefault(region, TERMINAL_API_ENDPOINT_LIVE);
+            return Region.TERMINAL_API_ENDPOINTS_MAPPING.getOrDefault(region, TERMINAL_API_ENDPOINT_LIVE);
         }
         // Default to EU endpoint if no environment or region is specified
-        return Regions.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
+        return Region.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
     }
 
     @Override
