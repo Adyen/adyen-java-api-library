@@ -131,17 +131,15 @@ public class Client {
      * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
-        if (liveEndpointUrlPrefix != null) {
-            config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
-        }
+        config.setEnvironment(environment);
+        config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
 
-        if (Environment.TEST.equals(environment)) {
-            this.config.setEnvironment(environment);
-            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
-        } else if (Environment.LIVE.equals(environment)) {
-            this.config.setEnvironment(environment);
-            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
-        }
+        // Determine the region, defaulting to EU if not set
+        Region region = config.getTerminalApiRegion() != null ? config.getTerminalApiRegion() : Region.EU;
+
+        // Determine and set the endpoint using getCloudEndpoint
+        String endpoint = getCloudEndpoint(region, environment);
+        config.setTerminalApiCloudEndpoint(endpoint);
     }
 
     /**
