@@ -90,36 +90,18 @@ public class ClientTest {
     }
 
     @Test
-    public void testRegionsNotInMappingThrowException() {
-        List<Region> unmappedRegions = new ArrayList<>();
-    
-        // Find unmapped regions
-        for (Region region : Region.VALID_REGIONS) {
-            if (!Region.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
-                unmappedRegions.add(region);
-            }
+    public void testUnmappedIndiaRegionThrowsException() {
+        Config config = new Config();
+        config.setEnvironment(Environment.LIVE);
+        Client client = new Client(config);
+
+        try {
+            client.getCloudEndpoint(Region.IN, Environment.LIVE);
+            Assert.fail("Expected IllegalArgumentException to be thrown for region: IN");
+        } catch (IllegalArgumentException e) {
+            Assert.assertEquals("Region IN is not supported yet", e.getMessage());
         }
-    
-        // If no unmapped regions exist, skip the test
-        if (unmappedRegions.isEmpty()) {
-            System.out.println("Skipping test: All regions are in the mapping.");
-            return;
-        }
-    
-        // Iterate through unmapped regions and test
-        for (Region region : unmappedRegions) {
-            Config config = new Config();
-            config.setEnvironment(Environment.LIVE);
-            Client client = new Client(config);
-    
-            try {
-                client.getCloudEndpoint(region, Environment.LIVE);
-                Assert.fail("Expected IllegalArgumentException to be thrown for region: " + region);
-            } catch (IllegalArgumentException e) {
-                Assert.assertEquals("Region " + region + " is not supported yet", e.getMessage());
-            }
-        }
-    }          
+    }      
 
     @Test
     public void testClientCertificateAuth() {
