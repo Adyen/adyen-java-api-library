@@ -1,6 +1,7 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Region;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -22,6 +23,7 @@ public class Config {
     protected String terminalApiCloudEndpoint;
     protected String terminalApiLocalEndpoint;
     protected String liveEndpointUrlPrefix;
+    protected Region terminalApiRegion;
     protected SSLContext sslContext;
     protected HostnameVerifier hostnameVerifier;
 
@@ -83,6 +85,14 @@ public class Config {
 
     public void setTerminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
         this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
+    }
+
+    public Region getTerminalApiRegion() {
+        return terminalApiRegion;
+    }
+
+    public void setTerminalApiRegion(Region terminalApiRegion) {
+        this.terminalApiRegion = terminalApiRegion;
     }
 
     public int getConnectionTimeoutMillis() {

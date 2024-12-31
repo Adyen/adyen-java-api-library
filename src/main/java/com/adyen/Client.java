@@ -1,6 +1,7 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
@@ -13,6 +14,9 @@ public class Client {
     public static final String LIB_VERSION = "32.1.0";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_US = "https://terminal-api-live-us.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_AU = "https://terminal-api-live-au.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_APSE = "https://terminal-api-live-apse.adyen.com";
 
     public Client() {
         this.config = new Config();
@@ -127,16 +131,35 @@ public class Client {
      * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
-        if (liveEndpointUrlPrefix != null) {
-            config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
+        config.setEnvironment(environment);
+        config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
+
+        String endpoint = retrieveCloudEndpoint(config.getTerminalApiRegion(), environment);
+        config.setTerminalApiCloudEndpoint(endpoint);
+    }
+
+    /**
+     * @param region The region for which the endpoint is requested. If null or the region is not found, defaults to default EU endpoint.
+     */
+    public String retrieveCloudEndpoint(Region region, Environment environment) {
+        // Check the environment for TEST and get the endpoint
+        if (environment.equals(Environment.TEST)) {
+            return Client.TERMINAL_API_ENDPOINT_TEST;
         }
-        if (Environment.TEST.equals(environment)) {
-            this.config.setEnvironment(environment);
-            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
-        } else if (Environment.LIVE.equals(environment)) {
-            this.config.setEnvironment(environment);
-            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
+
+        // For LIVE environment, lookup the endpoint using the map
+        if (environment.equals(Environment.LIVE)) {
+            if (region == null) {
+                return Region.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
+            }
+            if (!Region.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
+                throw new IllegalArgumentException("TerminalAPI endpoint for " + region + " is not supported yet");
+            }
+            return Region.TERMINAL_API_ENDPOINTS_MAPPING.getOrDefault(region, TERMINAL_API_ENDPOINT_LIVE);
         }
+
+        // Default to TEST if no environment or region is specified
+        return Client.TERMINAL_API_ENDPOINT_TEST;
     }
 
     @Override
