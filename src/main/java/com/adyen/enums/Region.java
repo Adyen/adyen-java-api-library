@@ -14,14 +14,14 @@ public enum Region {
     EU,
 
     /**
-     * United States region
-     */
-    US,
-
-    /**
      * Australia region
      */
     AU,
+    
+    /**
+     * United States region
+     */
+    US,
 
     /**
      * India region
