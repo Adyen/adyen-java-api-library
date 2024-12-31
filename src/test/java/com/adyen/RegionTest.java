@@ -11,9 +11,10 @@ import static org.junit.Assert.assertEquals;
 public class RegionTest {
     @Test
     public void testValidRegions() {
+        List<Region> VALID_REGIONS = List.of(Region.values());
 
         // Convert Regions.VALID_REGIONS to lowercase strings for comparison
-        List<String> actual = Region.VALID_REGIONS.stream()
+        List<String> actual = VALID_REGIONS.stream()
             .map(region -> region.name().toLowerCase())
             .collect(Collectors.toList());
 
@@ -27,16 +28,11 @@ public class RegionTest {
         );
 
         // Assert that the VALID_REGIONS in Region matches the expected list
-        assertEquals(
-            "VALID_REGIONS should match the expected regions.",
-            expected,
-            actual
-        );
+        assertEquals(expected, actual);
     }
 
     @Test
     public void testTerminalApiEndpointsMapping() {
-
         // Convert TERMINAL_API_ENDPOINTS_MAPPING keys to lowercase strings for comparison
         Map<String, String> actual = Region.TERMINAL_API_ENDPOINTS_MAPPING.entrySet()
             .stream()
@@ -54,10 +50,6 @@ public class RegionTest {
         );
 
         // Assert that the TERMINAL_API_ENDPOINTS_MAPPING in Region matches the expected map
-        assertEquals(
-            "TERMINAL_API_ENDPOINTS_MAPPING should match the expected mappings.",
-            expected,
-            actual
-        );
+        assertEquals(expected, actual);
     }
 }

@@ -34,22 +34,16 @@ public enum Region {
     APSE;
 
     /**
-     * List of all valid regions.
-     */
-    public static final List<Region> VALID_REGIONS =
-        Collections.unmodifiableList(List.of(Region.values()));
-
-    /**
      * Maps regions to their respective Terminal API endpoints.
      */
     public static final Map<Region, String> TERMINAL_API_ENDPOINTS_MAPPING;
 
     static {
-        Map<Region, String> endpointsMapping = new HashMap<>();
-        endpointsMapping.put(Region.EU, Client.TERMINAL_API_ENDPOINT_LIVE);
-        endpointsMapping.put(Region.AU, Client.TERMINAL_API_ENDPOINT_AU);
-        endpointsMapping.put(Region.US, Client.TERMINAL_API_ENDPOINT_US);
-        endpointsMapping.put(Region.APSE, Client.TERMINAL_API_ENDPOINT_APSE);
-        TERMINAL_API_ENDPOINTS_MAPPING = Collections.unmodifiableMap(endpointsMapping);
+        TERMINAL_API_ENDPOINTS_MAPPING = Map.of(
+                Region.EU, Client.TERMINAL_API_ENDPOINT_LIVE,
+                Region.AU, Client.TERMINAL_API_ENDPOINT_AU,
+                Region.US, Client.TERMINAL_API_ENDPOINT_US,
+                Region.APSE, Client.TERMINAL_API_ENDPOINT_APSE
+        );
     }
 }

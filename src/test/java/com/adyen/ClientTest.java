@@ -1,8 +1,6 @@
 package com.adyen;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.stream.Stream;
 
 import javax.net.ssl.SSLContext;
@@ -33,7 +31,6 @@ public class ClientTest {
         config.setEnvironment(Environment.TEST);
         config.setApiKey(apiKey);
         Client client = new Client(config);
-        
         Assert.assertEquals(Environment.TEST, client.getConfig().getEnvironment());
     }
     
@@ -62,10 +59,9 @@ public class ClientTest {
     public void testGetCloudEndpointForTestEnvironment(Region region, Environment environment, String expectedEndpoint) {
         Config testConfig = new Config();
         testConfig.setEnvironment(Environment.TEST);
+        testConfig.setTerminalApiRegion(region);
         Client testClient = new Client(testConfig);
-
-        String result = testClient.retrieveCloudEndpoint(region, testConfig.getEnvironment());
-        Assert.assertEquals("Unexpected endpoint for region: " + region, expectedEndpoint, result);
+        Assert.assertEquals(expectedEndpoint, testConfig.getTerminalApiCloudEndpoint());
     }
 
     private static Stream<Arguments> provideCloudLiveEndpointTestCases() {
@@ -82,25 +78,20 @@ public class ClientTest {
     @MethodSource("provideCloudLiveEndpointTestCases")
     public void testGetCloudEndpointForLiveEnvironment(Region region, Environment environment, String expectedEndpoint) {
         Config liveConfig = new Config();
-        liveConfig.setTerminalApiRegion(region);
         liveConfig.setEnvironment(Environment.LIVE);
+        liveConfig.setTerminalApiRegion(region);
         Client liveClient = new Client(liveConfig);
-        
-        Assert.assertEquals("TerminalAPI endpoint for " + region + " is not supported yet", expectedEndpoint, liveConfig.getTerminalApiCloudEndpoint());
+        Assert.assertEquals(expectedEndpoint, liveConfig.getTerminalApiCloudEndpoint());
     }
 
     @Test
     public void testUnmappedIndiaRegionThrowsException() {
         Config config = new Config();
         config.setEnvironment(Environment.LIVE);
-        Client client = new Client(config);
+        config.setTerminalApiRegion(Region.IN);
 
-        try {
-            client.retrieveCloudEndpoint(Region.IN, Environment.LIVE);
-            Assert.fail("Expected IllegalArgumentException to be thrown for region: IN");
-        } catch (IllegalArgumentException e) {
-            Assert.assertEquals("Region IN is not supported yet", e.getMessage());
-        }
+        Assert.assertThrows(IllegalArgumentException.class,
+                () -> new Client(config));
     }      
 
     @Test
