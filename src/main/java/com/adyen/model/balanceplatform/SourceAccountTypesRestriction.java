@@ -16,7 +16,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.adyen.model.balanceplatform.BankIdentification;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,30 +30,65 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * CounterpartyBankRestriction
+ * SourceAccountTypesRestriction
  */
 @JsonPropertyOrder({
-  CounterpartyBankRestriction.JSON_PROPERTY_OPERATION,
-  CounterpartyBankRestriction.JSON_PROPERTY_VALUE
+  SourceAccountTypesRestriction.JSON_PROPERTY_OPERATION,
+  SourceAccountTypesRestriction.JSON_PROPERTY_VALUE
 })
 
-public class CounterpartyBankRestriction {
+public class SourceAccountTypesRestriction {
   public static final String JSON_PROPERTY_OPERATION = "operation";
   private String operation;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private List<BankIdentification> value = null;
+  /**
+   * Gets or Sets value
+   */
+  public enum ValueEnum {
+    BALANCEACCOUNT("balanceAccount"),
+    
+    BUSINESSACCOUNT("businessAccount");
 
-  public CounterpartyBankRestriction() { 
+    private String value;
+
+    ValueEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ValueEnum fromValue(String value) {
+      for (ValueEnum b : ValueEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private List<ValueEnum> value = null;
+
+  public SourceAccountTypesRestriction() { 
   }
 
   /**
    * Defines how the condition must be evaluated.
    *
    * @param operation
-   * @return the current {@code CounterpartyBankRestriction} instance, allowing for method chaining
+   * @return the current {@code SourceAccountTypesRestriction} instance, allowing for method chaining
    */
-  public CounterpartyBankRestriction operation(String operation) {
+  public SourceAccountTypesRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
@@ -82,17 +116,17 @@ public class CounterpartyBankRestriction {
   }
 
   /**
-   * The list of counterparty bank institutions to be evaluated.
+   * The list of source account types to be evaluated.
    *
    * @param value
-   * @return the current {@code CounterpartyBankRestriction} instance, allowing for method chaining
+   * @return the current {@code SourceAccountTypesRestriction} instance, allowing for method chaining
    */
-  public CounterpartyBankRestriction value(List<BankIdentification> value) {
+  public SourceAccountTypesRestriction value(List<ValueEnum> value) {
     this.value = value;
     return this;
   }
 
-  public CounterpartyBankRestriction addValueItem(BankIdentification valueItem) {
+  public SourceAccountTypesRestriction addValueItem(ValueEnum valueItem) {
     if (this.value == null) {
       this.value = new ArrayList<>();
     }
@@ -101,29 +135,29 @@ public class CounterpartyBankRestriction {
   }
 
   /**
-   * The list of counterparty bank institutions to be evaluated.
+   * The list of source account types to be evaluated.
    * @return value
    */
-  @ApiModelProperty(value = "The list of counterparty bank institutions to be evaluated.")
+  @ApiModelProperty(value = "The list of source account types to be evaluated.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<BankIdentification> getValue() {
+  public List<ValueEnum> getValue() {
     return value;
   }
 
   /**
-   * The list of counterparty bank institutions to be evaluated.
+   * The list of source account types to be evaluated.
    *
    * @param value
    */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(List<BankIdentification> value) {
+  public void setValue(List<ValueEnum> value) {
     this.value = value;
   }
 
   /**
-   * Return true if this CounterpartyBankRestriction object is equal to o.
+   * Return true if this SourceAccountTypesRestriction object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -133,9 +167,9 @@ public class CounterpartyBankRestriction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CounterpartyBankRestriction counterpartyBankRestriction = (CounterpartyBankRestriction) o;
-    return Objects.equals(this.operation, counterpartyBankRestriction.operation) &&
-        Objects.equals(this.value, counterpartyBankRestriction.value);
+    SourceAccountTypesRestriction sourceAccountTypesRestriction = (SourceAccountTypesRestriction) o;
+    return Objects.equals(this.operation, sourceAccountTypesRestriction.operation) &&
+        Objects.equals(this.value, sourceAccountTypesRestriction.value);
   }
 
   @Override
@@ -146,7 +180,7 @@ public class CounterpartyBankRestriction {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CounterpartyBankRestriction {\n");
+    sb.append("class SourceAccountTypesRestriction {\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -165,17 +199,17 @@ public class CounterpartyBankRestriction {
   }
 
 /**
-   * Create an instance of CounterpartyBankRestriction given an JSON string
+   * Create an instance of SourceAccountTypesRestriction given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CounterpartyBankRestriction
-   * @throws JsonProcessingException if the JSON string is invalid with respect to CounterpartyBankRestriction
+   * @return An instance of SourceAccountTypesRestriction
+   * @throws JsonProcessingException if the JSON string is invalid with respect to SourceAccountTypesRestriction
    */
-  public static CounterpartyBankRestriction fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, CounterpartyBankRestriction.class);
+  public static SourceAccountTypesRestriction fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SourceAccountTypesRestriction.class);
   }
 /**
-  * Convert an instance of CounterpartyBankRestriction to an JSON string
+  * Convert an instance of SourceAccountTypesRestriction to an JSON string
   *
   * @return JSON string
   */
