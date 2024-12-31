@@ -135,23 +135,26 @@ public class Client {
         config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
 
         // Determine and set the endpoint using getCloudEndpoint
-        String endpoint = getCloudEndpoint(config.getTerminalApiRegion(), environment);
+        String endpoint = retrieveCloudEndpoint(config.getTerminalApiRegion(), environment);
         config.setTerminalApiCloudEndpoint(endpoint);
     }
 
     /**
      * @param region The region for which the endpoint is requested. If null or the region is not found, defaults to default EU endpoint.
      */
-    public String getCloudEndpoint(Region region, Environment environment) {
-        if (region != null && !Region.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
-            throw new IllegalArgumentException("Region " + region + " is not supported yet");
-        }
+    public String retrieveCloudEndpoint(Region region, Environment environment) {
         // Check the environment for TEST and get the endpoint
         if (environment.equals(Environment.TEST)) {
             return Client.TERMINAL_API_ENDPOINT_TEST;
         }
         // For LIVE environment, lookup the endpoint using the map
         if (environment.equals(Environment.LIVE)) {
+            if (region == null) {
+                return Region.TERMINAL_API_ENDPOINTS_MAPPING.get(Region.EU);
+            }
+            if (!Region.TERMINAL_API_ENDPOINTS_MAPPING.containsKey(region)) {
+                throw new IllegalArgumentException("TerminalAPI endpoint for " + region + " is not supported yet");
+            }
             return Region.TERMINAL_API_ENDPOINTS_MAPPING.getOrDefault(region, TERMINAL_API_ENDPOINT_LIVE);
         }
         // Default to EU endpoint if no environment or region is specified

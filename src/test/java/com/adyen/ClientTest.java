@@ -64,7 +64,7 @@ public class ClientTest {
         testConfig.setEnvironment(Environment.TEST);
         Client testClient = new Client(testConfig);
 
-        String result = testClient.getCloudEndpoint(region, testConfig.getEnvironment());
+        String result = testClient.retrieveCloudEndpoint(region, testConfig.getEnvironment());
         Assert.assertEquals("Unexpected endpoint for region: " + region, expectedEndpoint, result);
     }
 
@@ -82,11 +82,11 @@ public class ClientTest {
     @MethodSource("provideCloudLiveEndpointTestCases")
     public void testGetCloudEndpointForLiveEnvironment(Region region, Environment environment, String expectedEndpoint) {
         Config liveConfig = new Config();
+        liveConfig.setTerminalApiRegion(region);
         liveConfig.setEnvironment(Environment.LIVE);
         Client liveClient = new Client(liveConfig);
         
-        String result = liveClient.getCloudEndpoint(region, liveConfig.getEnvironment());
-        Assert.assertEquals("Unexpected endpoint for region: " + region, expectedEndpoint, result);
+        Assert.assertEquals("TerminalAPI endpoint for " + region + " is not supported yet", expectedEndpoint, liveConfig.getTerminalApiCloudEndpoint());
     }
 
     @Test
@@ -96,7 +96,7 @@ public class ClientTest {
         Client client = new Client(config);
 
         try {
-            client.getCloudEndpoint(Region.IN, Environment.LIVE);
+            client.retrieveCloudEndpoint(Region.IN, Environment.LIVE);
             Assert.fail("Expected IllegalArgumentException to be thrown for region: IN");
         } catch (IllegalArgumentException e) {
             Assert.assertEquals("Region IN is not supported yet", e.getMessage());
