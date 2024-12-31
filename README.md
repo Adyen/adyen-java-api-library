@@ -304,14 +304,14 @@ import com.adyen.model.terminal.*;
 // Step 2: Initialize the client object
 Client client = new Client("Your YOUR_API_KEY", Environment.TEST);
 
+// for LIVE environment use
+// Config config = new Config();
+// config.setEnvironment(Environment.LIVE);
+// config.setTerminalApiRegion(region);
+// Client client = new Client(config);
+
 // Step 3: Initialize the API object
 TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
-
-//for LIVE environment use
-Config config = new Config();
-config.setEnvironment(Environment.LIVE);
-config.setTerminalApiRegion(region);
-Client client = new Client(config);
 
 // Step 4: Create the request object
 String serviceID = "123456789";
