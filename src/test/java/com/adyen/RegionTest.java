@@ -15,8 +15,8 @@ public class RegionTest {
 
         // Convert Regions.VALID_REGIONS to lowercase strings for comparison
         List<String> actual = Regions.VALID_REGIONS.stream()
-        .map(region -> region.name().toLowerCase())
-        .collect(Collectors.toList());
+            .map(region -> region.name().toLowerCase())
+            .collect(Collectors.toList());
 
         // Define the expected list of valid regions
         List<String> expected = List.of(
@@ -40,8 +40,8 @@ public class RegionTest {
 
         // Convert TERMINAL_API_ENDPOINTS_MAPPING keys to lowercase strings for comparison
         Map<String, String> actual = Regions.TERMINAL_API_ENDPOINTS_MAPPING.entrySet()
-        .stream()
-        .collect(Collectors.toMap(
+            .stream()
+            .collect(Collectors.toMap(
                 entry -> entry.getKey().name().toLowerCase(), // Convert key (Region enum) to lowercase
                 Map.Entry::getValue
         ));
