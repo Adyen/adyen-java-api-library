@@ -65,7 +65,6 @@ public class ClientTest {
         testConfig.setEnvironment(Environment.TEST);
         Client testClient = new Client(testConfig);
 
-        // call the method and assert the result
         String result = testClient.getCloudEndpoint(region, testConfig.getEnvironment());
         Assert.assertEquals("Unexpected endpoint for region: " + region, expectedEndpoint, result);
     }
@@ -83,12 +82,10 @@ public class ClientTest {
     @ParameterizedTest
     @MethodSource("provideCloudLiveEndpointTestCases")
     public void testGetCloudEndpointForLiveEnvironment(Region region, Environment environment, String expectedEndpoint) {
-        // Create a Config object for the LIVE environment
         Config liveConfig = new Config();
         liveConfig.setEnvironment(Environment.LIVE);
         Client liveClient = new Client(liveConfig);
         
-        // call the method and assert the result
         String result = liveClient.getCloudEndpoint(region, liveConfig.getEnvironment());
         Assert.assertEquals("Unexpected endpoint for region: " + region, expectedEndpoint, result);
     }
