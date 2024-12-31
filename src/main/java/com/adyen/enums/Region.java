@@ -14,14 +14,14 @@ public enum Region {
     EU,
 
     /**
-     * United States region
-     */
-    US,
-
-    /**
      * Australia region
      */
     AU,
+
+    /**
+     * United States region
+     */
+    US,
 
     /**
      * India region
@@ -47,8 +47,8 @@ public enum Region {
     static {
         Map<Region, String> endpointsMapping = new HashMap<>();
         endpointsMapping.put(Region.EU, Client.TERMINAL_API_ENDPOINT_LIVE);
-        endpointsMapping.put(Region.US, Client.TERMINAL_API_ENDPOINT_US);
         endpointsMapping.put(Region.AU, Client.TERMINAL_API_ENDPOINT_AU);
+        endpointsMapping.put(Region.US, Client.TERMINAL_API_ENDPOINT_US);
         endpointsMapping.put(Region.APSE, Client.TERMINAL_API_ENDPOINT_APSE);
         TERMINAL_API_ENDPOINTS_MAPPING = Collections.unmodifiableMap(endpointsMapping);
     }
