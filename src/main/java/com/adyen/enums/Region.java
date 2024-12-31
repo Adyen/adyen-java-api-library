@@ -17,6 +17,11 @@ public enum Region {
      * Australia region
      */
     AU,
+    
+    /**
+     * United States region
+     */
+    US,
 
     /**
      * United States region
