@@ -20,8 +20,8 @@ public class RegionTest {
         // Define the expected list of valid regions
         List<String> expected = List.of(
             "eu",
-            "us",
             "au",
+            "us",
             "in",
             "apse"
         );
@@ -48,8 +48,8 @@ public class RegionTest {
         // Define the expected map of region to endpoint mappings
         Map<String, String> expected = Map.of(
             "eu", "https://terminal-api-live.adyen.com",
-            "us", "https://terminal-api-live-us.adyen.com",
             "au", "https://terminal-api-live-au.adyen.com",
+            "us", "https://terminal-api-live-us.adyen.com",
             "apse", "https://terminal-api-live-apse.adyen.com"
         );
 
