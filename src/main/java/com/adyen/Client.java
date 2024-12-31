@@ -134,11 +134,8 @@ public class Client {
         config.setEnvironment(environment);
         config.setLiveEndpointUrlPrefix(liveEndpointUrlPrefix);
 
-        // Determine the region, defaulting to EU if not set
-        Region region = config.getTerminalApiRegion() != null ? config.getTerminalApiRegion() : Region.EU;
-
         // Determine and set the endpoint using getCloudEndpoint
-        String endpoint = getCloudEndpoint(region, environment);
+        String endpoint = getCloudEndpoint(config.getTerminalApiRegion(), environment);
         config.setTerminalApiCloudEndpoint(endpoint);
     }
 
