@@ -37,7 +37,7 @@ public enum Region {
      * List of all valid regions.
      */
     public static final List<Region> VALID_REGIONS =
-    Collections.unmodifiableList(List.of(Region.values()));
+        Collections.unmodifiableList(List.of(Region.values()));
 
     /**
      * Maps regions to their respective Terminal API endpoints.
