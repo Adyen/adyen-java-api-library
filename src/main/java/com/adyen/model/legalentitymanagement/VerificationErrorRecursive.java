@@ -89,6 +89,10 @@ public class VerificationErrorRecursive {
     
     ISSUECARDCONSUMER("issueCardConsumer"),
     
+    ISSUECHARGECARD("issueChargeCard"),
+    
+    ISSUECHARGECARDCOMMERCIAL("issueChargeCardCommercial"),
+    
     ISSUECREDITLIMIT("issueCreditLimit"),
     
     LOCALACCEPTANCE("localAcceptance"),
@@ -136,6 +140,10 @@ public class VerificationErrorRecursive {
     USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL("useCardInRestrictedIndustriesCommercial"),
     
     USECARDINRESTRICTEDINDUSTRIESCONSUMER("useCardInRestrictedIndustriesConsumer"),
+    
+    USECHARGECARD("useChargeCard"),
+    
+    USECHARGECARDCOMMERCIAL("useChargeCardCommercial"),
     
     WITHDRAWFROMATM("withdrawFromAtm"),
     
