@@ -30,6 +30,7 @@ import com.adyen.model.balanceplatform.MatchingValuesRestriction;
 import com.adyen.model.balanceplatform.MccsRestriction;
 import com.adyen.model.balanceplatform.MerchantNamesRestriction;
 import com.adyen.model.balanceplatform.MerchantsRestriction;
+import com.adyen.model.balanceplatform.PriorityRestriction;
 import com.adyen.model.balanceplatform.ProcessingTypesRestriction;
 import com.adyen.model.balanceplatform.RiskScoresRestriction;
 import com.adyen.model.balanceplatform.SameAmountRestriction;
@@ -66,6 +67,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransactionRuleRestrictions.JSON_PROPERTY_MCCS,
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANT_NAMES,
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANTS,
+  TransactionRuleRestrictions.JSON_PROPERTY_PRIORITY,
   TransactionRuleRestrictions.JSON_PROPERTY_PROCESSING_TYPES,
   TransactionRuleRestrictions.JSON_PROPERTY_RISK_SCORES,
   TransactionRuleRestrictions.JSON_PROPERTY_SAME_AMOUNT_RESTRICTION,
@@ -117,6 +119,9 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_MERCHANTS = "merchants";
   private MerchantsRestriction merchants;
+
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private PriorityRestriction priority;
 
   public static final String JSON_PROPERTY_PROCESSING_TYPES = "processingTypes";
   private ProcessingTypesRestriction processingTypes;
@@ -605,6 +610,39 @@ public class TransactionRuleRestrictions {
   }
 
   /**
+   * priority
+   *
+   * @param priority
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
+  public TransactionRuleRestrictions priority(PriorityRestriction priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * priority
+   * @return priority
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PriorityRestriction getPriority() {
+    return priority;
+  }
+
+  /**
+   * priority
+   *
+   * @param priority
+   */ 
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPriority(PriorityRestriction priority) {
+    this.priority = priority;
+  }
+
+  /**
    * processingTypes
    *
    * @param processingTypes
@@ -861,6 +899,7 @@ public class TransactionRuleRestrictions {
         Objects.equals(this.mccs, transactionRuleRestrictions.mccs) &&
         Objects.equals(this.merchantNames, transactionRuleRestrictions.merchantNames) &&
         Objects.equals(this.merchants, transactionRuleRestrictions.merchants) &&
+        Objects.equals(this.priority, transactionRuleRestrictions.priority) &&
         Objects.equals(this.processingTypes, transactionRuleRestrictions.processingTypes) &&
         Objects.equals(this.riskScores, transactionRuleRestrictions.riskScores) &&
         Objects.equals(this.sameAmountRestriction, transactionRuleRestrictions.sameAmountRestriction) &&
@@ -872,7 +911,7 @@ public class TransactionRuleRestrictions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, counterpartyTypes, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, sourceAccountTypes, timeOfDay, totalAmount);
+    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, counterpartyTypes, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, priority, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, sourceAccountTypes, timeOfDay, totalAmount);
   }
 
   @Override
@@ -893,6 +932,7 @@ public class TransactionRuleRestrictions {
     sb.append("    mccs: ").append(toIndentedString(mccs)).append("\n");
     sb.append("    merchantNames: ").append(toIndentedString(merchantNames)).append("\n");
     sb.append("    merchants: ").append(toIndentedString(merchants)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    processingTypes: ").append(toIndentedString(processingTypes)).append("\n");
     sb.append("    riskScores: ").append(toIndentedString(riskScores)).append("\n");
     sb.append("    sameAmountRestriction: ").append(toIndentedString(sameAmountRestriction)).append("\n");
