@@ -86,6 +86,10 @@ public class VerificationDeadline {
     
     ISSUECARDCONSUMER("issueCardConsumer"),
     
+    ISSUECHARGECARD("issueChargeCard"),
+    
+    ISSUECHARGECARDCOMMERCIAL("issueChargeCardCommercial"),
+    
     ISSUECREDITLIMIT("issueCreditLimit"),
     
     LOCALACCEPTANCE("localAcceptance"),
@@ -133,6 +137,10 @@ public class VerificationDeadline {
     USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL("useCardInRestrictedIndustriesCommercial"),
     
     USECARDINRESTRICTEDINDUSTRIESCONSUMER("useCardInRestrictedIndustriesConsumer"),
+    
+    USECHARGECARD("useChargeCard"),
+    
+    USECHARGECARDCOMMERCIAL("useChargeCardCommercial"),
     
     WITHDRAWFROMATM("withdrawFromAtm"),
     

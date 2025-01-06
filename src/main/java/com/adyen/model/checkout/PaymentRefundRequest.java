@@ -61,7 +61,7 @@ public class PaymentRefundRequest {
   private String merchantAccount;
 
   /**
-   * Your reason for the refund request
+   * The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    */
   public enum MerchantRefundReasonEnum {
     FRAUD("FRAUD"),
@@ -257,7 +257,7 @@ public class PaymentRefundRequest {
   }
 
   /**
-   * Your reason for the refund request
+   * The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    *
    * @param merchantRefundReason
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
@@ -268,10 +268,10 @@ public class PaymentRefundRequest {
   }
 
   /**
-   * Your reason for the refund request
+   * The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    * @return merchantRefundReason
    */
-  @ApiModelProperty(value = "Your reason for the refund request")
+  @ApiModelProperty(value = "The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  ")
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MerchantRefundReasonEnum getMerchantRefundReason() {
@@ -279,7 +279,7 @@ public class PaymentRefundRequest {
   }
 
   /**
-   * Your reason for the refund request
+   * The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    *
    * @param merchantRefundReason
    */ 
