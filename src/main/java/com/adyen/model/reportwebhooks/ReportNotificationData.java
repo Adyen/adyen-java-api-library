@@ -39,6 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   ReportNotificationData.JSON_PROPERTY_CREATION_DATE,
   ReportNotificationData.JSON_PROPERTY_DOWNLOAD_URL,
   ReportNotificationData.JSON_PROPERTY_FILE_NAME,
+  ReportNotificationData.JSON_PROPERTY_ID,
   ReportNotificationData.JSON_PROPERTY_REPORT_TYPE
 })
 
@@ -60,6 +61,9 @@ public class ReportNotificationData {
 
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
   private String fileName;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_REPORT_TYPE = "reportType";
   private String reportType;
@@ -266,6 +270,39 @@ public class ReportNotificationData {
   }
 
   /**
+   * The ID of the resource.
+   *
+   * @param id
+   * @return the current {@code ReportNotificationData} instance, allowing for method chaining
+   */
+  public ReportNotificationData id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the resource.
+   * @return id
+   */
+  @ApiModelProperty(value = "The ID of the resource.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  /**
+   * The ID of the resource.
+   *
+   * @param id
+   */ 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  /**
    * The type of report. Possible values:  - &#x60;balanceplatform_accounting_interactive_report&#x60; - &#x60;balanceplatform_accounting_report&#x60; - &#x60;balanceplatform_balance_report&#x60; - &#x60;balanceplatform_fee_report&#x60; - &#x60;balanceplatform_payment_instrument_report&#x60; - &#x60;balanceplatform_payout_report&#x60; - &#x60;balanceplatform_statement_report&#x60;  
    *
    * @param reportType
@@ -316,12 +353,13 @@ public class ReportNotificationData {
         Objects.equals(this.creationDate, reportNotificationData.creationDate) &&
         Objects.equals(this.downloadUrl, reportNotificationData.downloadUrl) &&
         Objects.equals(this.fileName, reportNotificationData.fileName) &&
+        Objects.equals(this.id, reportNotificationData.id) &&
         Objects.equals(this.reportType, reportNotificationData.reportType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, balanceAccount, balancePlatform, creationDate, downloadUrl, fileName, reportType);
+    return Objects.hash(accountHolder, balanceAccount, balancePlatform, creationDate, downloadUrl, fileName, id, reportType);
   }
 
   @Override
@@ -334,6 +372,7 @@ public class ReportNotificationData {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    reportType: ").append(toIndentedString(reportType)).append("\n");
     sb.append("}");
     return sb.toString();

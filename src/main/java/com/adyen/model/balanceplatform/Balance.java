@@ -91,7 +91,7 @@ public class Balance {
   }
 
   /**
-   * The sum of transactions that have already been settled.
+   * The sum of the transactions that have already been settled.
    *
    * @param balance
    * @return the current {@code Balance} instance, allowing for method chaining
@@ -102,10 +102,10 @@ public class Balance {
   }
 
   /**
-   * The sum of transactions that have already been settled.
+   * The sum of the transactions that have already been settled.
    * @return balance
    */
-  @ApiModelProperty(required = true, value = "The sum of transactions that have already been settled.")
+  @ApiModelProperty(required = true, value = "The sum of the transactions that have already been settled.")
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBalance() {
@@ -113,7 +113,7 @@ public class Balance {
   }
 
   /**
-   * The sum of transactions that have already been settled.
+   * The sum of the transactions that have already been settled.
    *
    * @param balance
    */ 

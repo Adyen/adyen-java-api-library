@@ -64,7 +64,10 @@ public class PosTerminalManagementApi extends Service {
     * @param assignTerminalsRequest {@link AssignTerminalsRequest }  (required)
     * @return {@link AssignTerminalsResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+    @Deprecated
     public AssignTerminalsResponse assignTerminals(AssignTerminalsRequest assignTerminalsRequest) throws ApiException, IOException {
         return assignTerminals(assignTerminalsRequest, null);
     }
@@ -76,7 +79,10 @@ public class PosTerminalManagementApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link AssignTerminalsResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+   @Deprecated
     public AssignTerminalsResponse assignTerminals(AssignTerminalsRequest assignTerminalsRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = assignTerminalsRequest.toJson();
@@ -91,7 +97,10 @@ public class PosTerminalManagementApi extends Service {
     * @param findTerminalRequest {@link FindTerminalRequest }  (required)
     * @return {@link FindTerminalResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+    @Deprecated
     public FindTerminalResponse findTerminal(FindTerminalRequest findTerminalRequest) throws ApiException, IOException {
         return findTerminal(findTerminalRequest, null);
     }
@@ -103,7 +112,10 @@ public class PosTerminalManagementApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link FindTerminalResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+   @Deprecated
     public FindTerminalResponse findTerminal(FindTerminalRequest findTerminalRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = findTerminalRequest.toJson();
@@ -118,7 +130,10 @@ public class PosTerminalManagementApi extends Service {
     * @param getStoresUnderAccountRequest {@link GetStoresUnderAccountRequest }  (required)
     * @return {@link GetStoresUnderAccountResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+    @Deprecated
     public GetStoresUnderAccountResponse getStoresUnderAccount(GetStoresUnderAccountRequest getStoresUnderAccountRequest) throws ApiException, IOException {
         return getStoresUnderAccount(getStoresUnderAccountRequest, null);
     }
@@ -130,7 +145,10 @@ public class PosTerminalManagementApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link GetStoresUnderAccountResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+   @Deprecated
     public GetStoresUnderAccountResponse getStoresUnderAccount(GetStoresUnderAccountRequest getStoresUnderAccountRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = getStoresUnderAccountRequest.toJson();
@@ -145,7 +163,10 @@ public class PosTerminalManagementApi extends Service {
     * @param getTerminalDetailsRequest {@link GetTerminalDetailsRequest }  (required)
     * @return {@link GetTerminalDetailsResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+    @Deprecated
     public GetTerminalDetailsResponse getTerminalDetails(GetTerminalDetailsRequest getTerminalDetailsRequest) throws ApiException, IOException {
         return getTerminalDetails(getTerminalDetailsRequest, null);
     }
@@ -157,7 +178,10 @@ public class PosTerminalManagementApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link GetTerminalDetailsResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+   @Deprecated
     public GetTerminalDetailsResponse getTerminalDetails(GetTerminalDetailsRequest getTerminalDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = getTerminalDetailsRequest.toJson();
@@ -172,7 +196,10 @@ public class PosTerminalManagementApi extends Service {
     * @param getTerminalsUnderAccountRequest {@link GetTerminalsUnderAccountRequest }  (required)
     * @return {@link GetTerminalsUnderAccountResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+    @Deprecated
     public GetTerminalsUnderAccountResponse getTerminalsUnderAccount(GetTerminalsUnderAccountRequest getTerminalsUnderAccountRequest) throws ApiException, IOException {
         return getTerminalsUnderAccount(getTerminalsUnderAccountRequest, null);
     }
@@ -184,7 +211,10 @@ public class PosTerminalManagementApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link GetTerminalsUnderAccountResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since POS Terminal Management API v1
+    * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
+   @Deprecated
     public GetTerminalsUnderAccountResponse getTerminalsUnderAccount(GetTerminalsUnderAccountRequest getTerminalsUnderAccountRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = getTerminalsUnderAccountRequest.toJson();

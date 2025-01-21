@@ -34,9 +34,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AdditionalDataCommon.JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE,
   AdditionalDataCommon.JSON_PROPERTY_ALLOW_PARTIAL_AUTH,
   AdditionalDataCommon.JSON_PROPERTY_AUTHORISATION_TYPE,
+  AdditionalDataCommon.JSON_PROPERTY_AUTO_RESCUE,
   AdditionalDataCommon.JSON_PROPERTY_CUSTOM_ROUTING_FLAG,
   AdditionalDataCommon.JSON_PROPERTY_INDUSTRY_USAGE,
   AdditionalDataCommon.JSON_PROPERTY_MANUAL_CAPTURE,
+  AdditionalDataCommon.JSON_PROPERTY_MAX_DAYS_TO_RESCUE,
   AdditionalDataCommon.JSON_PROPERTY_NETWORK_TX_REFERENCE,
   AdditionalDataCommon.JSON_PROPERTY_OVERWRITE_BRAND,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_CITY,
@@ -58,6 +60,9 @@ public class AdditionalDataCommon {
 
   public static final String JSON_PROPERTY_AUTHORISATION_TYPE = "authorisationType";
   private String authorisationType;
+
+  public static final String JSON_PROPERTY_AUTO_RESCUE = "autoRescue";
+  private String autoRescue;
 
   public static final String JSON_PROPERTY_CUSTOM_ROUTING_FLAG = "customRoutingFlag";
   private String customRoutingFlag;
@@ -102,6 +107,9 @@ public class AdditionalDataCommon {
 
   public static final String JSON_PROPERTY_MANUAL_CAPTURE = "manualCapture";
   private String manualCapture;
+
+  public static final String JSON_PROPERTY_MAX_DAYS_TO_RESCUE = "maxDaysToRescue";
+  private String maxDaysToRescue;
 
   public static final String JSON_PROPERTY_NETWORK_TX_REFERENCE = "networkTxReference";
   private String networkTxReference;
@@ -236,6 +244,39 @@ public class AdditionalDataCommon {
   }
 
   /**
+   * Set to **true** to enable [Auto Rescue](https://docs.adyen.com/online-payments/auto-rescue/) for a transaction. Use the &#x60;maxDaysToRescue&#x60; to specify a rescue window.
+   *
+   * @param autoRescue
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
+  public AdditionalDataCommon autoRescue(String autoRescue) {
+    this.autoRescue = autoRescue;
+    return this;
+  }
+
+  /**
+   * Set to **true** to enable [Auto Rescue](https://docs.adyen.com/online-payments/auto-rescue/) for a transaction. Use the &#x60;maxDaysToRescue&#x60; to specify a rescue window.
+   * @return autoRescue
+   */
+  @ApiModelProperty(value = "Set to **true** to enable [Auto Rescue](https://docs.adyen.com/online-payments/auto-rescue/) for a transaction. Use the `maxDaysToRescue` to specify a rescue window.")
+  @JsonProperty(JSON_PROPERTY_AUTO_RESCUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAutoRescue() {
+    return autoRescue;
+  }
+
+  /**
+   * Set to **true** to enable [Auto Rescue](https://docs.adyen.com/online-payments/auto-rescue/) for a transaction. Use the &#x60;maxDaysToRescue&#x60; to specify a rescue window.
+   *
+   * @param autoRescue
+   */ 
+  @JsonProperty(JSON_PROPERTY_AUTO_RESCUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAutoRescue(String autoRescue) {
+    this.autoRescue = autoRescue;
+  }
+
+  /**
    * Allows you to determine or override the acquirer account that should be used for the transaction.  If you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request&#39;s additional data to target a specific acquirer.  To enable this functionality, contact [Support](https://www.adyen.help/hc/en-us/requests/new).
    *
    * @param customRoutingFlag
@@ -332,6 +373,39 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManualCapture(String manualCapture) {
     this.manualCapture = manualCapture;
+  }
+
+  /**
+   * The rescue window for a transaction, in days, when &#x60;autoRescue&#x60; is set to **true**. You can specify a value between 1 and 48.  * For [cards](https://docs.adyen.com/online-payments/auto-rescue/cards/), the default is one calendar month.  * For [SEPA](https://docs.adyen.com/online-payments/auto-rescue/sepa/), the default is 42 days.
+   *
+   * @param maxDaysToRescue
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
+  public AdditionalDataCommon maxDaysToRescue(String maxDaysToRescue) {
+    this.maxDaysToRescue = maxDaysToRescue;
+    return this;
+  }
+
+  /**
+   * The rescue window for a transaction, in days, when &#x60;autoRescue&#x60; is set to **true**. You can specify a value between 1 and 48.  * For [cards](https://docs.adyen.com/online-payments/auto-rescue/cards/), the default is one calendar month.  * For [SEPA](https://docs.adyen.com/online-payments/auto-rescue/sepa/), the default is 42 days.
+   * @return maxDaysToRescue
+   */
+  @ApiModelProperty(value = "The rescue window for a transaction, in days, when `autoRescue` is set to **true**. You can specify a value between 1 and 48.  * For [cards](https://docs.adyen.com/online-payments/auto-rescue/cards/), the default is one calendar month.  * For [SEPA](https://docs.adyen.com/online-payments/auto-rescue/sepa/), the default is 42 days.")
+  @JsonProperty(JSON_PROPERTY_MAX_DAYS_TO_RESCUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMaxDaysToRescue() {
+    return maxDaysToRescue;
+  }
+
+  /**
+   * The rescue window for a transaction, in days, when &#x60;autoRescue&#x60; is set to **true**. You can specify a value between 1 and 48.  * For [cards](https://docs.adyen.com/online-payments/auto-rescue/cards/), the default is one calendar month.  * For [SEPA](https://docs.adyen.com/online-payments/auto-rescue/sepa/), the default is 42 days.
+   *
+   * @param maxDaysToRescue
+   */ 
+  @JsonProperty(JSON_PROPERTY_MAX_DAYS_TO_RESCUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxDaysToRescue(String maxDaysToRescue) {
+    this.maxDaysToRescue = maxDaysToRescue;
   }
 
   /**
@@ -679,9 +753,11 @@ public class AdditionalDataCommon {
     return Objects.equals(this.requestedTestErrorResponseCode, additionalDataCommon.requestedTestErrorResponseCode) &&
         Objects.equals(this.allowPartialAuth, additionalDataCommon.allowPartialAuth) &&
         Objects.equals(this.authorisationType, additionalDataCommon.authorisationType) &&
+        Objects.equals(this.autoRescue, additionalDataCommon.autoRescue) &&
         Objects.equals(this.customRoutingFlag, additionalDataCommon.customRoutingFlag) &&
         Objects.equals(this.industryUsage, additionalDataCommon.industryUsage) &&
         Objects.equals(this.manualCapture, additionalDataCommon.manualCapture) &&
+        Objects.equals(this.maxDaysToRescue, additionalDataCommon.maxDaysToRescue) &&
         Objects.equals(this.networkTxReference, additionalDataCommon.networkTxReference) &&
         Objects.equals(this.overwriteBrand, additionalDataCommon.overwriteBrand) &&
         Objects.equals(this.subMerchantCity, additionalDataCommon.subMerchantCity) &&
@@ -696,7 +772,7 @@ public class AdditionalDataCommon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedTestErrorResponseCode, allowPartialAuth, authorisationType, customRoutingFlag, industryUsage, manualCapture, networkTxReference, overwriteBrand, subMerchantCity, subMerchantCountry, subMerchantID, subMerchantName, subMerchantPostalCode, subMerchantState, subMerchantStreet, subMerchantTaxId);
+    return Objects.hash(requestedTestErrorResponseCode, allowPartialAuth, authorisationType, autoRescue, customRoutingFlag, industryUsage, manualCapture, maxDaysToRescue, networkTxReference, overwriteBrand, subMerchantCity, subMerchantCountry, subMerchantID, subMerchantName, subMerchantPostalCode, subMerchantState, subMerchantStreet, subMerchantTaxId);
   }
 
   @Override
@@ -706,9 +782,11 @@ public class AdditionalDataCommon {
     sb.append("    requestedTestErrorResponseCode: ").append(toIndentedString(requestedTestErrorResponseCode)).append("\n");
     sb.append("    allowPartialAuth: ").append(toIndentedString(allowPartialAuth)).append("\n");
     sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
+    sb.append("    autoRescue: ").append(toIndentedString(autoRescue)).append("\n");
     sb.append("    customRoutingFlag: ").append(toIndentedString(customRoutingFlag)).append("\n");
     sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
     sb.append("    manualCapture: ").append(toIndentedString(manualCapture)).append("\n");
+    sb.append("    maxDaysToRescue: ").append(toIndentedString(maxDaysToRescue)).append("\n");
     sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
     sb.append("    overwriteBrand: ").append(toIndentedString(overwriteBrand)).append("\n");
     sb.append("    subMerchantCity: ").append(toIndentedString(subMerchantCity)).append("\n");
