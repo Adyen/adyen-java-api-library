@@ -53,8 +53,6 @@ public class PaymentDetails {
     
     PAYNOW("paynow"),
     
-    AFFIRM("affirm"),
-    
     AFFIRM_POS("affirm_pos"),
     
     TRUSTLY("trustly"),
