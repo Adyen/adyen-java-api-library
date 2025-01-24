@@ -1,0 +1,28 @@
+{
+  "paymentMethod": {
+    "brand": null,
+    "checkoutAttemptId": null,
+    "cvc": null,
+    "encryptedCard": null,
+    "encryptedCardNumber": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidmVyc2lvbiI6IjEifQ.DXQDEl3MdyyW_ZrJoF2Kt3P1H2wWaP1z-FgI6SuDv96lN7e_0ki0mUkI8AL2USS_iiMbG5W4NtD4Ut5TqCBPlgOZfN6vDyM8O6Df-qNbX7rnW9iQQUue_21oo6U9K2tpFEQ9rYgUVIFhfLdFmLZ4q8ejmXFSGuTh-iC06APs2zWdUn0v-S4q4ltAzhee_5yOvffoSCWOWiGltUqViVOnrllheH-POp4qfL9GbaIkjixPyLNLRizQTrOO_j3m0gczeiORcrjXI2NSouSkPP9M1K9nwUWX-jpVTf1PkqLTYRzGQwZCoL9JU9HabRXYdM_eLMtNaIfiBo_4wPq5Iocmww",
+    "encryptedExpiryMonth": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidmVyc2lvbiI6IjEifQ.MtVkIf8d7nh22lpyf5QgnNWQnGGrjyk06qA5l-jGG0t5n2eLMRwoxEIq-U7XnWERGzZcmTKhJx31Li7rHOsKUimakfimrGdQVjBFmayf0Uq0mg74SW8Z2bG4ll1TKicPefjDVI1vG0zbOfBcHAWHH8D-xeZM7UqKnuVFErKGgJR84DcCLx8Ue5r7n1NftOYTlVWC65jC-h17c6Q9nvtF2-or-ln3lbK7aIomJO7prmFRJi4NzgCfdvdskrYaHQ-Cmbetl6WYk061KMfGovaUbFIKdzzqp1VIiJ5PBsmz3_poL9G_ZIbbMYomO7HQ5qpn2PZy5XEFV5unPSnAMgj0lw.VDKN7ExyIs2NRLx2D8ptEw.oPjV7bqK07oWnlDV6PAhnHEiVQRE2HWjxs99U2bRfH1D-WeF66zYVVP08cSfB228N2p757gURgH5tchWninxRw.xh0PGSkQKBlp0lurhmQVZqln2YOQpKdYHsFioCl6HgQ",
+    "encryptedExpiryYear": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidmVyc2lvbiI6IjEifQ.Oy3Bpn9EDTI4HOIZv0tDQbX6zLga1pykydqFrxO-e_sEaNKAFdZph_zsA8E71ZlovYdhgaqbJW-5G3rubtVtQc6eawKviXHAJHJNMhlLdf0nsmBwAF2rpgBLvfWM4T48iQG3u1s2QvP75eNFAG0ps7tJM1kZbtnkyA9rBs-JVEZGj-p-B3kvKsqZrX48P8nObCzIdIQfW36i9bj26tCNmygXp5H8MA3fsTqbqytsffOTde-smQkrttoOysAQcD8t5ZoCbFByZElG5GBS1fpCiNVG6t7eFhOsYzG3Z-U23Ep7vRkQSG_zdGgXFEo-qE97e75PH3nXbHILOIIhe5IxrA.huo7SHXgBXtLWZeycoFZmQ.XK9szr9TDRSZGX3sqvv10t-hxQClJ37x_pDFxT4aQ7ZO_kHIsZo9RNp206Bdl3gJYVexwwk6w_j-9fb9sV1ggg.akr9kFjMo2bCwiNozxp6Uq62XmjDbcILXPJX3c3YcHc",
+    "encryptedSecurityCode": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidmVyc2lvbiI6IjEifQ.gqODDkA-rSgSZ48W-YK7Ofxyvdu6F7kRorV6dtDwaayHDDvTEw-eSsFYpfMfXKeGJcjhAWZL7RwR51XRTez-x7ujwt4MGavr__2NdDJ0tO1e-Pak2k34WZs3H_xyHfJmd7E9SODsJ1yweLNSRrfuLoKY3smSnOd85ZuKv-d1m74ojjWpvDC0pPTe69nsLzbIw1g--UxMGI9oXkeDP_EYnIo9F8W7qUCZfwQ23gJtYTcTg6Qxbd_DP57tKQhvYCi26AHweWKcPWlgl6B1g3z9pL__i46dG8BCd3LDX8ETmgurbbq8chObI-h7FYEZrmLfeTJcRfE0uW7GXvT9ZojIGA.QKdUIrCAsDoNOD3qN7dEqA.LmmCr1q5vKMt_m_ZkQbho7E-28H0N7Hxc8XVrX4yQXkZRqSaGLCOR4MiYV0uFFeV5qzBt6jpTHFANmT9DXQgsg.k9zkNnkggMuHdcpwsLvfmPTDhrw3zF00FXsw7p9QC_Q",
+    "expiryMonth": null,
+    "expiryYear": null,
+    "fundingSource": null,
+    "holderName": null,
+    "networkPaymentReference": null,
+    "number": null,
+    "shopperNotificationReference": null,
+    "srcCorrelationId": null,
+    "srcDigitalCardId": null,
+    "srcScheme": null,
+    "srcTokenReference": null,
+    "storedPaymentMethodId": null,
+    "threeDS2SdkVersion": "2.4.2",
+    "type": "scheme"
+  },
+  "isNullable": false,
+  "schemaType": "oneOf"
+}

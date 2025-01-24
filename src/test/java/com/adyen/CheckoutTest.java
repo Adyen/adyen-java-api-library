@@ -86,23 +86,27 @@ public class CheckoutTest extends BaseTest {
      * Should be able to stringify and parse paymentMethod in CheckoutPaymentRequest (test oneOf serialization and deserialization)
      */
     @Test
-    public void TestCheckoutPaymentRequestSerialization() throws Exception {
-        String paymentRequestJson = getFileContents("mocks/checkout/paymentRequest.json");
-        IdealDetails idealDetails = new IdealDetails();
-        idealDetails.setIssuer("issuerName");
-        Amount amount = new Amount().currency("EUR").value(1000L);
-        PaymentRequest paymentRequest = new PaymentRequest();
-        paymentRequest.setAmount(amount);
-        paymentRequest.setMerchantAccount("myMerchantAccount");
-        paymentRequest.setReference("merchantReference");
-        paymentRequest.setReturnUrl("http://return.com");
-        paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(idealDetails));
+    public void TestDeserializePaymentRequestIdeal() throws Exception {
+        String paymentRequestJson = getFileContents("mocks/checkout/paymentRequestIdeal.json");
 
         PaymentRequest parsedCheckoutPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
         assertEquals(IdealDetails.TypeEnum.IDEAL, parsedCheckoutPaymentRequest.getPaymentMethod().getIdealDetails().getType());
         assertEquals("EUR", parsedCheckoutPaymentRequest.getAmount().getCurrency());
     }
 
+    /**
+     * Deserialise CardDetails (scheme)
+     * @throws Exception
+     */
+    @Test
+    public void TestDeserializePaymentRequestScheme() throws Exception {
+        String paymentRequestJson = getFileContents("mocks/checkout/paymentRequestScheme.json");
+
+        PaymentRequest parsedCheckoutPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
+        assertNotNull(parsedCheckoutPaymentRequest.getPaymentMethod());
+        assertEquals(CardDetails.TypeEnum.SCHEME, parsedCheckoutPaymentRequest.getPaymentMethod().getCardDetails().getType());
+        assertNotNull(parsedCheckoutPaymentRequest.getPaymentMethod().getCardDetails().getEncryptedCardNumber());
+    }
     /**
      * Should make paymentMethods call
      */
