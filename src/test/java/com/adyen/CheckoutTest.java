@@ -102,7 +102,7 @@ public class CheckoutTest extends BaseTest {
         // reference
         assertEquals("merchantReference", parsedCheckoutPaymentRequest.getReference());
         // return url
-        assertEquals("http://return.com", parsedCheckoutPaymentRequest.getReturnUrl());
+        assertEquals("https://your-company.com/..", parsedCheckoutPaymentRequest.getReturnUrl());
     }
 
     /**
