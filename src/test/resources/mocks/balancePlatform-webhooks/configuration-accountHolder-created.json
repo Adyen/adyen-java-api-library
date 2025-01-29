@@ -1,0 +1,149 @@
+{
+  "data": {
+    "balancePlatform": "YOUR_BALANCE_PLATFORM",
+    "accountHolder": {
+      "legalEntityId": "LE00000000000000000001",
+      "reference": "YOUR_REFERENCE-2412C",
+      "capabilities": {
+        "sendToTransferInstrument": {
+          "enabled": true,
+          "requested": true,
+          "allowed": false,
+          "problems": [
+            {
+              "entity": {
+                "id": "LE00000000000000000001",
+                "type": "LegalEntity"
+              },
+              "verificationErrors": [
+                {
+                  "code": "2_902",
+                  "message": "Terms Of Service forms are not accepted.",
+                  "remediatingActions": [
+                    {
+                      "code": "2_902",
+                      "message": "Accept TOS"
+                    }
+                  ],
+                  "type": "invalidInput"
+                }
+              ]
+            },
+            {
+              "entity": {
+                "id": "SE00000000000000000001",
+                "type": "BankAccount"
+              },
+              "verificationErrors": [
+                {
+                  "code": "2_8037",
+                  "message": "'bankStatement' was missing.",
+                  "remediatingActions": [
+                    {
+                      "code": "1_703",
+                      "message": "Upload a bank statement"
+                    }
+                  ],
+                  "type": "dataMissing"
+                }
+              ]
+            },
+            {
+              "entity": {
+                "id": "SE00000000000000000002",
+                "type": "BankAccount"
+              },
+              "verificationErrors": [
+                {
+                  "code": "2_8037",
+                  "message": "'bankStatement' was missing.",
+                  "remediatingActions": [
+                    {
+                      "code": "1_703",
+                      "message": "Upload a bank statement"
+                    }
+                  ],
+                  "type": "dataMissing"
+                }
+              ]
+            },
+            {
+              "entity": {
+                "id": "LE00000000000000000001",
+                "type": "LegalEntity"
+              },
+              "verificationErrors": [
+                {
+                  "code": "2_8189",
+                  "message": "'UBO through control' was missing.",
+                  "remediatingActions": [
+                    {
+                      "code": "2_151",
+                      "message": "Add 'organization.entityAssociations' of type 'uboThroughControl' to legal entity"
+                    }
+                  ],
+                  "type": "dataMissing"
+                },
+                {
+                  "code": "1_50",
+                  "message": "Organization details couldn't be verified",
+                  "subErrors": [
+                    {
+                      "code": "1_5016",
+                      "message": "The tax ID number couldn't be verified",
+                      "remediatingActions": [
+                        {
+                          "code": "1_500",
+                          "message": "Update organization details"
+                        },
+                        {
+                          "code": "1_501",
+                          "message": "Upload a registration document"
+                        }
+                      ],
+                      "type": "invalidInput"
+                    }
+                  ],
+                  "type": "invalidInput"
+                },
+                {
+                  "code": "2_8067",
+                  "message": "'Signatory' was missing.",
+                  "remediatingActions": [
+                    {
+                      "code": "2_124",
+                      "message": "Add 'organization.entityAssociations' of type 'signatory' to legal entity"
+                    }
+                  ],
+                  "type": "dataMissing"
+                }
+              ]
+            }
+          ],
+          "transferInstruments": [
+            {
+              "enabled": true,
+              "requested": true,
+              "allowed": false,
+              "id": "SE00000000000000000001",
+              "verificationStatus": "pending"
+            },
+            {
+              "enabled": true,
+              "requested": true,
+              "allowed": false,
+              "id": "SE00000000000000000002",
+              "verificationStatus": "pending"
+            }
+          ],
+          "verificationStatus": "pending"
+        }
+      },
+      "id": "AH00000000000000000001",
+      "status": "active"
+    }
+  },
+  "environment": "test",
+  "timestamp": "2024-12-15T15:42:03+01:00",
+  "type": "balancePlatform.accountHolder.created"
+}

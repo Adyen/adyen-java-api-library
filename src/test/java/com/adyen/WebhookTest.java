@@ -35,7 +35,6 @@ import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
-import com.adyen.notification.BankingWebhookHandler;
 import com.adyen.notification.ClassicPlatformWebhookHandler;
 import com.adyen.notification.ManagementWebhookHandler;
 import com.adyen.notification.WebhookHandler;
@@ -248,81 +247,6 @@ public class WebhookTest extends BaseTest {
         return webhookHandler.handleNotificationJson(json);
     }
 
-    @Test
-    public void testBankingWebhook() {
-        String jsonRequest = "{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}";
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(jsonRequest);
-        AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest().get();
-        Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationRequest.getData().getAccountHolder().getId());
-    }
-
-    @Test
-    public void testBankingWebhookClassCastExceptionCast() {
-        String jsonRequest = "{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}";
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(jsonRequest);
-        Assert.assertTrue(webhookHandler.getAccountHolderNotificationRequest().isPresent());
-        Assert.assertFalse(webhookHandler.getCardOrderNotificationRequest().isPresent());
-        Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
-    }
-
-    @Test
-    public void testBankingWebhookHmacValidator() throws SignatureException {
-        String notification = "{\"data\":{\"balancePlatform\":\"Integration_tools_test\",\"accountId\":\"BA32272223222H5HVKTBK4MLB\",\"sweep\":{\"id\":\"SWPC42272223222H5HVKV6H8C64DP5\",\"schedule\":{\"type\":\"balance\"},\"status\":\"active\",\"targetAmount\":{\"currency\":\"EUR\",\"value\":0},\"triggerAmount\":{\"currency\":\"EUR\",\"value\":0},\"type\":\"pull\",\"counterparty\":{\"balanceAccountId\":\"BA3227C223222H5HVKT3H9WLC\"},\"currency\":\"EUR\"}},\"environment\":\"test\",\"type\":\"balancePlatform.balanceAccountSweep.updated\"}";
-        String signKey = "D7DD5BA6146493707BF0BE7496F6404EC7A63616B7158EC927B9F54BB436765F";
-        String hmacKey = "9Qz9S/0xpar1klkniKdshxpAhRKbiSAewPpWoxKefQA=";
-        HMACValidator hmacValidator = new HMACValidator();
-        boolean response = hmacValidator.validateHMAC(hmacKey, signKey, notification);
-        Assert.assertTrue(response);
-    }
-
-    @Test
-    public void testBankingWebhookAcsParsing() {
-        String notification = "{\n" +
-                "               \"data\" : {\n" +
-                "                  \"balancePlatform\" : \"YOUR_BALANCE_PLATFORM\",\n" +
-                "                  \"creationDate\" : \"2023-01-19T17:07:59+01:00\",\n" +
-                "                  \"id\" : \"a8fc7a40-6e48-498a-bdc2-494daf0f490a\",\n" +
-                "                  \"authentication\" : {\n" +
-                "                     \"acsTransId\" : \"a8fc7a40-6e48-498a-bdc2-494daf0f490a\",\n" +
-                "                     \"challenge\" : {\n" +
-                "                        \"flow\" : \"OTP_SMS\",\n" +
-                "                        \"lastInteraction\" : \"2023-01-19T17:37:13+01:00\",\n" +
-                "                        \"resends\" : 0,\n" +
-                "                        \"retries\" : 2\n" +
-                "                     },\n" +
-                "                     \"challengeIndicator\" : \"01\",\n" +
-                "                     \"createdAt\" : \"2023-01-19T17:07:17+01:00\",\n" +
-                "                     \"deviceChannel\" : \"app\",\n" +
-                "                     \"dsTransID\" : \"59de4e30-7f84-4a77-aaf8-1ca493092ef9\",\n" +
-                "                     \"exemptionIndicator\" : \"noExemptionApplied\",\n" +
-                "                     \"inPSD2Scope\" : false,\n" +
-                "                     \"messageCategory\" : \"payment\",\n" +
-                "                     \"messageVersion\" : \"2.2.0\",\n" +
-                "                     \"threeDSServerTransID\" : \"8bc0fdbd-5c8a-4bed-a171-9d10347e7798\",\n" +
-                "                     \"transStatus\" : \"N\",\n" +
-                "                     \"transStatusReason\" : \"19\",\n" +
-                "                     \"type\" : \"challenge\"\n" +
-                "                  },\n" +
-                "                  \"paymentInstrumentId\" : \"PI3227C223222B5BPCMFXD2XG\",\n" +
-                "                  \"purchase\" : {\n" +
-                "                     \"date\" : \"2022-12-22T15:49:03+01:00\",\n" +
-                "                     \"merchantName\" : \"TeaShop_NL\",\n" +
-                "                     \"originalAmount\" : {\n" +
-                "                        \"currency\" : \"EUR\",\n" +
-                "                        \"value\" : 1000\n" +
-                "                     }\n" +
-                "                  },\n" +
-                "                  \"status\" : \"rejected\"\n" +
-                "               },\n" +
-                "               \"environment\" : \"test\",\n" +
-                "               \"type\" : \"balancePlatform.authentication.created\"\n" +
-                "            }";
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(notification);
-        Assert.assertTrue(webhookHandler.getAuthenticationNotificationRequest().isPresent());
-        AuthenticationNotificationRequest request = webhookHandler.getAuthenticationNotificationRequest().get();
-        Assert.assertEquals("a8fc7a40-6e48-498a-bdc2-494daf0f490a", request.getData().getId());
-        Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
-    }
 
     @Test
     public void testDonationWebhookJackson() throws SignatureException, IOException {
@@ -654,13 +578,4 @@ public class WebhookTest extends BaseTest {
         Assert.assertEquals("ACCOUNT_HOLDER_CREATED", payload.getEventType());
     }
 
-    @Test
-    public void testTransactionWebhookParsing() {
-        String json = getFileContents("mocks/notification/balancePlatform-transaction-created.json");
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(json);
-        Assert.assertTrue(webhookHandler.getTransactionNotificationRequest().isPresent());
-        TransactionNotificationRequestV4 request = webhookHandler.getTransactionNotificationRequest().get();
-        Assert.assertEquals("EVJN42272224222B5JB8BRC84N686ZEUR", request.getData().getId());
-        Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
-    }
 }
