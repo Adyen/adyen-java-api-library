@@ -1,0 +1,22 @@
+{
+  "data": {
+    "balancePlatform": "YOUR_BALANCE_PLATFORM",
+    "creationDate": "2024-07-02T02:01:08+02:00",
+    "id": "BA00000000000000000001",
+    "accountHolder": {
+      "description": "Description for the account holder.",
+      "reference": "YOUR_REFERENCE",
+      "id": "AH00000000000000000001"
+    },
+    "amount": {
+      "currency": "EUR",
+      "value": -145050
+    },
+    "liableBalanceAccountId": "BA11111111111111111111",
+    "negativeBalanceSince": "2024-10-19T00:33:13+02:00",
+    "scheduledCompensationAt": "2024-12-01T01:00:00+01:00"
+  },
+  "environment": "test",
+  "timestamp": "2024-10-22T00:00:00+02:00",
+  "type": "balancePlatform.negativeBalanceCompensationWarning.scheduled"
+}

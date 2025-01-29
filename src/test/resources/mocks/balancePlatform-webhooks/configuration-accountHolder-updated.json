@@ -1,0 +1,35 @@
+{
+  "data": {
+    "balancePlatform": "YOUR_BALANCE_PLATFORM",
+    "id": "AH00000000000000000001",
+    "accountHolder": {
+      "description": "Test inc.",
+      "legalEntityId": "LE32BZ5223226B5LZ3CZM2L5S",
+      "reference": "YOUR_REFERENCE-2412C",
+      "capabilities": {
+        "issueChargeCard": {
+          "enabled": true,
+          "requested": true,
+          "allowed": true,
+          "verificationStatus": "pending"
+        }
+      },
+      "metadata": {
+        "applicationId": "app-01"
+      },
+      "id": "AH00000000000000000001",
+      "status": "active",
+      "verificationDeadlines": [
+        {
+          "capabilities": [
+            "issueChargeCardCommercial"
+          ],
+          "expiresAt": "2025-02-22T20:59:53+01:00"
+        }
+      ]
+    }
+  },
+  "environment": "test",
+  "timestamp": "2025-01-23T19:59:57.316Z",
+  "type": "balancePlatform.accountHolder.updated"
+}
