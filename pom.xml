@@ -4,7 +4,7 @@
     <groupId>com.adyen</groupId>
     <artifactId>adyen-java-api-library</artifactId>
     <packaging>jar</packaging>
-    <version>33.0.0</version>
+    <version>33.1.0</version>
     <name>Adyen Java API Library</name>
     <description>Adyen API Client Library for Java</description>
     <url>https://github.com/adyen/adyen-java-api-library</url>
