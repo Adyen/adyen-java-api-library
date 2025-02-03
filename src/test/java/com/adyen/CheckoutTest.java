@@ -86,23 +86,49 @@ public class CheckoutTest extends BaseTest {
      * Should be able to stringify and parse paymentMethod in CheckoutPaymentRequest (test oneOf serialization and deserialization)
      */
     @Test
-    public void TestCheckoutPaymentRequestSerialization() throws Exception {
-        String paymentRequestJson = getFileContents("mocks/checkout/paymentRequest.json");
-        IdealDetails idealDetails = new IdealDetails();
-        idealDetails.setIssuer("issuerName");
-        Amount amount = new Amount().currency("EUR").value(1000L);
-        PaymentRequest paymentRequest = new PaymentRequest();
-        paymentRequest.setAmount(amount);
-        paymentRequest.setMerchantAccount("myMerchantAccount");
-        paymentRequest.setReference("merchantReference");
-        paymentRequest.setReturnUrl("http://return.com");
-        paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(idealDetails));
+    public void TestDeserializePaymentRequestIdeal() throws Exception {
+        String paymentRequestJson = getFileContents("mocks/checkout/paymentRequestIdeal.json");
 
         PaymentRequest parsedCheckoutPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
+
+        // paymentMethod
         assertEquals(IdealDetails.TypeEnum.IDEAL, parsedCheckoutPaymentRequest.getPaymentMethod().getIdealDetails().getType());
+        assertEquals("issuerName", parsedCheckoutPaymentRequest.getPaymentMethod().getIdealDetails().getIssuer());
+        // amount
+        assertEquals(1000L, parsedCheckoutPaymentRequest.getAmount().getValue().longValue());
         assertEquals("EUR", parsedCheckoutPaymentRequest.getAmount().getCurrency());
+        // merchant account
+        assertEquals("myMerchantAccount", parsedCheckoutPaymentRequest.getMerchantAccount());
+        // reference
+        assertEquals("merchantReference", parsedCheckoutPaymentRequest.getReference());
+        // return url
+        assertEquals("https://your-company.com/..", parsedCheckoutPaymentRequest.getReturnUrl());
     }
 
+    /**
+     * Deserialise CardDetails (scheme)
+     * @throws Exception
+     */
+    @Test
+    public void TestDeserializePaymentRequestScheme() throws Exception {
+        String paymentRequestJson = getFileContents("mocks/checkout/paymentRequestScheme.json");
+
+        PaymentRequest parsedCheckoutPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
+        assertNotNull(parsedCheckoutPaymentRequest.getPaymentMethod());
+        assertEquals(CardDetails.TypeEnum.SCHEME, parsedCheckoutPaymentRequest.getPaymentMethod().getCardDetails().getType());
+        assertEquals("2.4.2", parsedCheckoutPaymentRequest.getPaymentMethod().getCardDetails().getThreeDS2SdkVersion());
+        // verify un-encrypted fields are empty
+        assertNull(parsedCheckoutPaymentRequest.getPaymentMethod().getCardDetails().getNumber());
+        assertNull(parsedCheckoutPaymentRequest.getPaymentMethod().getCardDetails().getCvc());
+        // verify encrypted fields are correct
+        assertNotNull(parsedCheckoutPaymentRequest.getPaymentMethod().getCardDetails().getEncryptedCardNumber());
+        assertEquals("eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidmVyc2lvbiI6IjEifQ.DXQDEl3M" +
+                        "dyyW_ZrJoF2Kt3P1H2wWaP1z-FgI6SuDv96lN7e_0ki0mUkI8AL2USS_iiMbG5W4NtD4Ut5TqCBPlgOZfN6vDyM8O6Df-" +
+                        "qNbX7rnW9iQQUue_21oo6U9K2tpFEQ9rYgUVIFhfLdFmLZ4q8ejmXFSGuTh-iC06APs2zWdUn0v-S4q4ltAzhee_5yOvff" +
+                        "oSCWOWiGltUqViVOnrllheH-POp4qfL9GbaIkjixPyLNLRizQTrOO_j3m0gczeiORcrjXI2NSouSkPP9M1K9nwUWX-jpVTf" +
+                        "1PkqLTYRzGQwZCoL9JU9HabRXYdM_eLMtNaIfiBo_4wPq5Iocmww",
+                parsedCheckoutPaymentRequest.getPaymentMethod().getCardDetails().getEncryptedCardNumber());
+    }
     /**
      * Should make paymentMethods call
      */

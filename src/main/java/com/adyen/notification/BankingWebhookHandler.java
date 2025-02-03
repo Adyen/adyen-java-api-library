@@ -6,6 +6,7 @@ import com.adyen.model.configurationwebhooks.BalanceAccountNotificationRequest;
 import com.adyen.model.configurationwebhooks.CardOrderNotificationRequest;
 import com.adyen.model.configurationwebhooks.PaymentNotificationRequest;
 import com.adyen.model.configurationwebhooks.SweepConfigurationNotificationRequest;
+import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensationWarningNotificationRequest;
 import com.adyen.model.reportwebhooks.ReportNotificationRequest;
 import com.adyen.model.transferwebhooks.JSON;
 import com.adyen.model.transferwebhooks.TransferNotificationRequest;
@@ -58,11 +59,17 @@ public class BankingWebhookHandler {
         return getOptionalField(TransactionNotificationRequestV4.class);
     }
 
+    public Optional<NegativeBalanceCompensationWarningNotificationRequest> getNegativeBalanceCompensationWarningNotificationRequest() {
+        return getOptionalField(NegativeBalanceCompensationWarningNotificationRequest.class);
+    }
+
     private <T> Optional<T> getOptionalField(Class<T> clazz) {
         try {
             T val = JSON.getMapper().readValue(payload, clazz);
             return Optional.ofNullable(val);
         } catch (Exception e) {
+            // an error has occurred during deserialization (object not found, deserialization error)
+            LOG.warning("Object not found or unexpected error trying to access:  " + clazz.getName());
             LOG.warning("Deserialization error: " + e.getMessage());
             return Optional.empty();
         }

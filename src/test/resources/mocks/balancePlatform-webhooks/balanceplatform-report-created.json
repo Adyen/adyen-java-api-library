@@ -1,0 +1,13 @@
+{
+  "data": {
+    "balancePlatform": "YOUR_BALANCE_PLATFORM",
+    "creationDate": "2024-07-02T02:01:08+02:00",
+    "id": "balanceplatform_accounting_report_2024_07_01.csv",
+    "downloadUrl": "https://balanceplatform-test.adyen.com/balanceplatform/.../.../.../balanceplatform_accounting_report_2024_07_01.csv",
+    "fileName": "balanceplatform_accounting_report_2024_07_01.csv",
+    "reportType": "balanceplatform_accounting_report"
+  },
+  "environment": "test",
+  "timestamp": "2024-07-02T02:01:05+02:00",
+  "type": "balancePlatform.report.created"
+}

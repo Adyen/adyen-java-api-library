@@ -9,5 +9,5 @@
     "type":"ideal"
   },
   "reference":"merchantReference",
-  "returnUrl":"http://return.com"
+  "returnUrl":"https://your-company.com/.."
 }
