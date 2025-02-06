@@ -13,7 +13,6 @@
 package com.adyen.model.acswebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.acswebhooks.Amount;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -65,9 +63,8 @@ public class PurchaseInfo {
    * Date of the purchase.
    * @return date
    */
-  @ApiModelProperty(required = true, value = "Date of the purchase.")
   @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDate() {
     return date;
   }
@@ -76,9 +73,9 @@ public class PurchaseInfo {
    * Date of the purchase.
    *
    * @param date
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDate(String date) {
     this.date = date;
   }
@@ -98,9 +95,8 @@ public class PurchaseInfo {
    * Name of the merchant.
    * @return merchantName
    */
-  @ApiModelProperty(required = true, value = "Name of the merchant.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantName() {
     return merchantName;
   }
@@ -109,9 +105,9 @@ public class PurchaseInfo {
    * Name of the merchant.
    *
    * @param merchantName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantName(String merchantName) {
     this.merchantName = merchantName;
   }
@@ -128,12 +124,11 @@ public class PurchaseInfo {
   }
 
   /**
-   * originalAmount
+   * Get originalAmount
    * @return originalAmount
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Amount getOriginalAmount() {
     return originalAmount;
   }
@@ -142,9 +137,9 @@ public class PurchaseInfo {
    * originalAmount
    *
    * @param originalAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOriginalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
   }

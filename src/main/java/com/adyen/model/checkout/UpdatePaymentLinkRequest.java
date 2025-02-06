@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -39,7 +37,7 @@ public class UpdatePaymentLinkRequest {
    * Status of the payment link. Possible values: * **expired**
    */
   public enum StatusEnum {
-    EXPIRED("expired");
+    EXPIRED(String.valueOf("expired"));
 
     private String value;
 
@@ -89,9 +87,8 @@ public class UpdatePaymentLinkRequest {
    * Status of the payment link. Possible values: * **expired**
    * @return status
    */
-  @ApiModelProperty(required = true, value = "Status of the payment link. Possible values: * **expired**")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -100,9 +97,9 @@ public class UpdatePaymentLinkRequest {
    * Status of the payment link. Possible values: * **expired**
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }

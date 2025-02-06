@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -96,9 +94,9 @@ public class CardDonations {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   public enum FundingSourceEnum {
-    CREDIT("credit"),
+    CREDIT(String.valueOf("credit")),
     
-    DEBIT("debit");
+    DEBIT(String.valueOf("debit"));
 
     private String value;
 
@@ -168,17 +166,17 @@ public class CardDonations {
    * Default payment method details. Common for scheme payment methods, and for simple payment method details.
    */
   public enum TypeEnum {
-    BCMC("bcmc"),
+    BCMC(String.valueOf("bcmc")),
     
-    SCHEME("scheme"),
+    SCHEME(String.valueOf("scheme")),
     
-    NETWORKTOKEN("networkToken"),
+    NETWORKTOKEN(String.valueOf("networkToken")),
     
-    GIFTCARD("giftcard"),
+    GIFTCARD(String.valueOf("giftcard")),
     
-    CARD("card"),
+    CARD(String.valueOf("card")),
     
-    CLICKTOPAY("clicktopay");
+    CLICKTOPAY(String.valueOf("clicktopay"));
 
     private String value;
 
@@ -208,7 +206,7 @@ public class CardDonations {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.SCHEME;
 
   public CardDonations() { 
   }
@@ -228,7 +226,6 @@ public class CardDonations {
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
    * @return brand
    */
-  @ApiModelProperty(value = "Secondary brand of the card. For example: **plastix**, **hmclub**.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
@@ -239,7 +236,7 @@ public class CardDonations {
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
    *
    * @param brand
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -261,7 +258,6 @@ public class CardDonations {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -272,7 +268,7 @@ public class CardDonations {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -287,20 +283,18 @@ public class CardDonations {
    *
    * @deprecated 
    */
-  @Deprecated
+  @Deprecated // deprecated 
   public CardDonations cupsecureplusSmscode(String cupsecureplusSmscode) {
     this.cupsecureplusSmscode = cupsecureplusSmscode;
     return this;
   }
 
   /**
-   * cupsecureplusSmscode
+   * Get cupsecureplusSmscode
    * @return cupsecureplusSmscode
-   *
-   * @deprecated 
+   * @deprecated // deprecated 
    */
-  @Deprecated
-  @ApiModelProperty(value = "")
+  @Deprecated // deprecated 
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCupsecureplusSmscode() {
@@ -313,8 +307,8 @@ public class CardDonations {
    * @param cupsecureplusSmscode
    *
    * @deprecated 
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated 
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCupsecureplusSmscode(String cupsecureplusSmscode) {
@@ -336,7 +330,6 @@ public class CardDonations {
    * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return cvc
    */
-  @ApiModelProperty(value = "The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCvc() {
@@ -347,7 +340,7 @@ public class CardDonations {
    * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
    * @param cvc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
@@ -369,7 +362,6 @@ public class CardDonations {
    * Only include this for JSON Web Encryption (JWE) implementations. The JWE-encrypted card details.
    * @return encryptedCard
    */
-  @ApiModelProperty(value = "Only include this for JSON Web Encryption (JWE) implementations. The JWE-encrypted card details.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedCard() {
@@ -380,7 +372,7 @@ public class CardDonations {
    * Only include this for JSON Web Encryption (JWE) implementations. The JWE-encrypted card details.
    *
    * @param encryptedCard
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCard(String encryptedCard) {
@@ -402,7 +394,6 @@ public class CardDonations {
    * The encrypted card number.
    * @return encryptedCardNumber
    */
-  @ApiModelProperty(value = "The encrypted card number.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedCardNumber() {
@@ -413,7 +404,7 @@ public class CardDonations {
    * The encrypted card number.
    *
    * @param encryptedCardNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
@@ -435,7 +426,6 @@ public class CardDonations {
    * The encrypted card expiry month.
    * @return encryptedExpiryMonth
    */
-  @ApiModelProperty(value = "The encrypted card expiry month.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedExpiryMonth() {
@@ -446,7 +436,7 @@ public class CardDonations {
    * The encrypted card expiry month.
    *
    * @param encryptedExpiryMonth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryMonth(String encryptedExpiryMonth) {
@@ -468,7 +458,6 @@ public class CardDonations {
    * The encrypted card expiry year.
    * @return encryptedExpiryYear
    */
-  @ApiModelProperty(value = "The encrypted card expiry year.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedExpiryYear() {
@@ -479,7 +468,7 @@ public class CardDonations {
    * The encrypted card expiry year.
    *
    * @param encryptedExpiryYear
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryYear(String encryptedExpiryYear) {
@@ -501,7 +490,6 @@ public class CardDonations {
    * The encrypted card verification code.
    * @return encryptedSecurityCode
    */
-  @ApiModelProperty(value = "The encrypted card verification code.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedSecurityCode() {
@@ -512,7 +500,7 @@ public class CardDonations {
    * The encrypted card verification code.
    *
    * @param encryptedSecurityCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedSecurityCode(String encryptedSecurityCode) {
@@ -534,7 +522,6 @@ public class CardDonations {
    * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return expiryMonth
    */
-  @ApiModelProperty(value = "The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryMonth() {
@@ -545,7 +532,7 @@ public class CardDonations {
    * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
    * @param expiryMonth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
@@ -567,7 +554,6 @@ public class CardDonations {
    * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return expiryYear
    */
-  @ApiModelProperty(value = "The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryYear() {
@@ -578,7 +564,7 @@ public class CardDonations {
    * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
    * @param expiryYear
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
@@ -600,7 +586,6 @@ public class CardDonations {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
    */
-  @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FundingSourceEnum getFundingSource() {
@@ -611,7 +596,7 @@ public class CardDonations {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
    * @param fundingSource
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
@@ -633,7 +618,6 @@ public class CardDonations {
    * The name of the card holder.
    * @return holderName
    */
-  @ApiModelProperty(value = "The name of the card holder.")
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHolderName() {
@@ -644,7 +628,7 @@ public class CardDonations {
    * The name of the card holder.
    *
    * @param holderName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
@@ -666,7 +650,6 @@ public class CardDonations {
    * The transaction identifier from card schemes. This is the [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment.
    * @return networkPaymentReference
    */
-  @ApiModelProperty(value = "The transaction identifier from card schemes. This is the [`networkTxReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment.")
   @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNetworkPaymentReference() {
@@ -677,7 +660,7 @@ public class CardDonations {
    * The transaction identifier from card schemes. This is the [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment.
    *
    * @param networkPaymentReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkPaymentReference(String networkPaymentReference) {
@@ -699,7 +682,6 @@ public class CardDonations {
    * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return number
    */
-  @ApiModelProperty(value = "The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNumber() {
@@ -710,7 +692,7 @@ public class CardDonations {
    * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
    * @param number
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -726,7 +708,7 @@ public class CardDonations {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public CardDonations recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -735,12 +717,9 @@ public class CardDonations {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   *
-   * @deprecated since Adyen Checkout API v49
-   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
-  @Deprecated
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -754,8 +733,8 @@ public class CardDonations {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -777,7 +756,6 @@ public class CardDonations {
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used only for recurring payments in India.
    * @return shopperNotificationReference
    */
-  @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used only for recurring payments in India.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperNotificationReference() {
@@ -788,7 +766,7 @@ public class CardDonations {
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used only for recurring payments in India.
    *
    * @param shopperNotificationReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
@@ -810,7 +788,6 @@ public class CardDonations {
    * An identifier used for the Click to Pay transaction.
    * @return srcCorrelationId
    */
-  @ApiModelProperty(value = "An identifier used for the Click to Pay transaction.")
   @JsonProperty(JSON_PROPERTY_SRC_CORRELATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSrcCorrelationId() {
@@ -821,7 +798,7 @@ public class CardDonations {
    * An identifier used for the Click to Pay transaction.
    *
    * @param srcCorrelationId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SRC_CORRELATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrcCorrelationId(String srcCorrelationId) {
@@ -843,7 +820,6 @@ public class CardDonations {
    * The SRC reference for the Click to Pay token.
    * @return srcDigitalCardId
    */
-  @ApiModelProperty(value = "The SRC reference for the Click to Pay token.")
   @JsonProperty(JSON_PROPERTY_SRC_DIGITAL_CARD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSrcDigitalCardId() {
@@ -854,7 +830,7 @@ public class CardDonations {
    * The SRC reference for the Click to Pay token.
    *
    * @param srcDigitalCardId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SRC_DIGITAL_CARD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrcDigitalCardId(String srcDigitalCardId) {
@@ -876,7 +852,6 @@ public class CardDonations {
    * The scheme that is being used for Click to Pay.
    * @return srcScheme
    */
-  @ApiModelProperty(value = "The scheme that is being used for Click to Pay.")
   @JsonProperty(JSON_PROPERTY_SRC_SCHEME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSrcScheme() {
@@ -887,7 +862,7 @@ public class CardDonations {
    * The scheme that is being used for Click to Pay.
    *
    * @param srcScheme
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SRC_SCHEME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrcScheme(String srcScheme) {
@@ -909,7 +884,6 @@ public class CardDonations {
    * The reference for the Click to Pay token.
    * @return srcTokenReference
    */
-  @ApiModelProperty(value = "The reference for the Click to Pay token.")
   @JsonProperty(JSON_PROPERTY_SRC_TOKEN_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSrcTokenReference() {
@@ -920,7 +894,7 @@ public class CardDonations {
    * The reference for the Click to Pay token.
    *
    * @param srcTokenReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SRC_TOKEN_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrcTokenReference(String srcTokenReference) {
@@ -942,7 +916,6 @@ public class CardDonations {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -953,7 +926,7 @@ public class CardDonations {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -975,7 +948,6 @@ public class CardDonations {
    * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    * @return threeDS2SdkVersion
    */
-  @ApiModelProperty(value = "Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getThreeDS2SdkVersion() {
@@ -986,7 +958,7 @@ public class CardDonations {
    * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    *
    * @param threeDS2SdkVersion
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2SdkVersion(String threeDS2SdkVersion) {
@@ -1008,7 +980,6 @@ public class CardDonations {
    * Default payment method details. Common for scheme payment methods, and for simple payment method details.
    * @return type
    */
-  @ApiModelProperty(value = "Default payment method details. Common for scheme payment methods, and for simple payment method details.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -1019,7 +990,7 @@ public class CardDonations {
    * Default payment method details. Common for scheme payment methods, and for simple payment method details.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

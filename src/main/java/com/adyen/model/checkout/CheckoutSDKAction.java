@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,15 +46,15 @@ public class CheckoutSDKAction {
   private String paymentMethodType;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
-  private Map<String, String> sdkData = null;
+  private Map<String, String> sdkData = new HashMap<>();
 
   /**
    * The type of the action.
    */
   public enum TypeEnum {
-    SDK("sdk"),
+    SDK(String.valueOf("sdk")),
     
-    WECHATPAYSDK("wechatpaySDK");
+    WECHATPAYSDK(String.valueOf("wechatpaySDK"));
 
     private String value;
 
@@ -110,7 +107,6 @@ public class CheckoutSDKAction {
    * Encoded payment data.
    * @return paymentData
    */
-  @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentData() {
@@ -121,7 +117,7 @@ public class CheckoutSDKAction {
    * Encoded payment data.
    *
    * @param paymentData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -143,7 +139,6 @@ public class CheckoutSDKAction {
    * Specifies the payment method.
    * @return paymentMethodType
    */
-  @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethodType() {
@@ -154,7 +149,7 @@ public class CheckoutSDKAction {
    * Specifies the payment method.
    *
    * @param paymentMethodType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -184,7 +179,6 @@ public class CheckoutSDKAction {
    * The data to pass to the SDK.
    * @return sdkData
    */
-  @ApiModelProperty(value = "The data to pass to the SDK.")
   @JsonProperty(JSON_PROPERTY_SDK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getSdkData() {
@@ -195,7 +189,7 @@ public class CheckoutSDKAction {
    * The data to pass to the SDK.
    *
    * @param sdkData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SDK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkData(Map<String, String> sdkData) {
@@ -217,9 +211,8 @@ public class CheckoutSDKAction {
    * The type of the action.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The type of the action.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -228,9 +221,9 @@ public class CheckoutSDKAction {
    * The type of the action.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -250,7 +243,6 @@ public class CheckoutSDKAction {
    * Specifies the URL to redirect to.
    * @return url
    */
-  @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -261,7 +253,7 @@ public class CheckoutSDKAction {
    * Specifies the URL to redirect to.
    *
    * @param url
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

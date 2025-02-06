@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -59,15 +57,15 @@ public class EcontextVoucherDetails {
    * **econtextvoucher**
    */
   public enum TypeEnum {
-    ECONTEXT_SEVEN_ELEVEN("econtext_seven_eleven"),
+    ECONTEXT_SEVEN_ELEVEN(String.valueOf("econtext_seven_eleven")),
     
-    ECONTEXT_ONLINE("econtext_online"),
+    ECONTEXT_ONLINE(String.valueOf("econtext_online")),
     
-    ECONTEXT("econtext"),
+    ECONTEXT(String.valueOf("econtext")),
     
-    ECONTEXT_STORES("econtext_stores"),
+    ECONTEXT_STORES(String.valueOf("econtext_stores")),
     
-    ECONTEXT_ATM("econtext_atm");
+    ECONTEXT_ATM(String.valueOf("econtext_atm"));
 
     private String value;
 
@@ -117,7 +115,6 @@ public class EcontextVoucherDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -128,7 +125,7 @@ public class EcontextVoucherDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -150,9 +147,8 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s first name.
    * @return firstName
    */
-  @ApiModelProperty(required = true, value = "The shopper's first name.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFirstName() {
     return firstName;
   }
@@ -161,9 +157,9 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s first name.
    *
    * @param firstName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
@@ -183,9 +179,8 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s last name.
    * @return lastName
    */
-  @ApiModelProperty(required = true, value = "The shopper's last name.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLastName() {
     return lastName;
   }
@@ -194,9 +189,9 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s last name.
    *
    * @param lastName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
@@ -216,9 +211,8 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s email.
    * @return shopperEmail
    */
-  @ApiModelProperty(required = true, value = "The shopper's email.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getShopperEmail() {
     return shopperEmail;
   }
@@ -227,9 +221,9 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s email.
    *
    * @param shopperEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
@@ -249,9 +243,8 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    * @return telephoneNumber
    */
-  @ApiModelProperty(required = true, value = "The shopper's contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
@@ -260,9 +253,9 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    *
    * @param telephoneNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
@@ -282,9 +275,8 @@ public class EcontextVoucherDetails {
    * **econtextvoucher**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**econtextvoucher**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -293,9 +285,9 @@ public class EcontextVoucherDetails {
    * **econtextvoucher**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

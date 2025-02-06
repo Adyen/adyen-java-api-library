@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
@@ -24,9 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -55,11 +53,11 @@ public class PaymentAmountUpdateResponse {
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    */
   public enum IndustryUsageEnum {
-    DELAYEDCHARGE("delayedCharge"),
+    DELAYEDCHARGE(String.valueOf("delayedCharge")),
     
-    INSTALLMENT("installment"),
+    INSTALLMENT(String.valueOf("installment")),
     
-    NOSHOW("noShow");
+    NOSHOW(String.valueOf("noShow"));
 
     private String value;
 
@@ -92,7 +90,7 @@ public class PaymentAmountUpdateResponse {
   private IndustryUsageEnum industryUsage;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = null;
+  private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -107,13 +105,13 @@ public class PaymentAmountUpdateResponse {
   private String reference;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = null;
+  private List<Split> splits = new ArrayList<>();
 
   /**
    * The status of your request. This will always have the value **received**.
    */
   public enum StatusEnum {
-    RECEIVED("received");
+    RECEIVED(String.valueOf("received"));
 
     private String value;
 
@@ -160,12 +158,11 @@ public class PaymentAmountUpdateResponse {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Amount getAmount() {
     return amount;
   }
@@ -174,9 +171,9 @@ public class PaymentAmountUpdateResponse {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -196,7 +193,6 @@ public class PaymentAmountUpdateResponse {
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    * @return industryUsage
    */
-  @ApiModelProperty(value = "The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IndustryUsageEnum getIndustryUsage() {
@@ -207,7 +203,7 @@ public class PaymentAmountUpdateResponse {
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    *
    * @param industryUsage
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryUsage(IndustryUsageEnum industryUsage) {
@@ -237,7 +233,6 @@ public class PaymentAmountUpdateResponse {
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    * @return lineItems
    */
-  @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.")
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LineItem> getLineItems() {
@@ -248,7 +243,7 @@ public class PaymentAmountUpdateResponse {
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    *
    * @param lineItems
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
@@ -270,9 +265,8 @@ public class PaymentAmountUpdateResponse {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -281,9 +275,9 @@ public class PaymentAmountUpdateResponse {
    * The merchant account that is used to process the payment.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -303,9 +297,8 @@ public class PaymentAmountUpdateResponse {
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to update. 
    * @return paymentPspReference
    */
-  @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to update. ")
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPaymentPspReference() {
     return paymentPspReference;
   }
@@ -314,9 +307,9 @@ public class PaymentAmountUpdateResponse {
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to update. 
    *
    * @param paymentPspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPaymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
   }
@@ -336,9 +329,8 @@ public class PaymentAmountUpdateResponse {
    * Adyen&#39;s 16-character reference associated with the amount update request.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the amount update request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPspReference() {
     return pspReference;
   }
@@ -347,9 +339,9 @@ public class PaymentAmountUpdateResponse {
    * Adyen&#39;s 16-character reference associated with the amount update request.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -369,9 +361,8 @@ public class PaymentAmountUpdateResponse {
    * Your reference for the amount update request. Maximum length: 80 characters.
    * @return reference
    */
-  @ApiModelProperty(required = true, value = "Your reference for the amount update request. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getReference() {
     return reference;
   }
@@ -380,9 +371,9 @@ public class PaymentAmountUpdateResponse {
    * Your reference for the amount update request. Maximum length: 80 characters.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReference(String reference) {
     this.reference = reference;
   }
@@ -410,7 +401,6 @@ public class PaymentAmountUpdateResponse {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
    * @return splits
    */
-  @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).")
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Split> getSplits() {
@@ -421,7 +411,7 @@ public class PaymentAmountUpdateResponse {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
    *
    * @param splits
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
@@ -443,9 +433,8 @@ public class PaymentAmountUpdateResponse {
    * The status of your request. This will always have the value **received**.
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -454,9 +443,9 @@ public class PaymentAmountUpdateResponse {
    * The status of your request. This will always have the value **received**.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }

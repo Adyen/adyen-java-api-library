@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -74,10 +72,9 @@ public class CheckoutOrderResponse {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -88,7 +85,7 @@ public class CheckoutOrderResponse {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -110,7 +107,6 @@ public class CheckoutOrderResponse {
    * The expiry date for the order.
    * @return expiresAt
    */
-  @ApiModelProperty(value = "The expiry date for the order.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiresAt() {
@@ -121,7 +117,7 @@ public class CheckoutOrderResponse {
    * The expiry date for the order.
    *
    * @param expiresAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
@@ -143,7 +139,6 @@ public class CheckoutOrderResponse {
    * The encrypted order data.
    * @return orderData
    */
-  @ApiModelProperty(value = "The encrypted order data.")
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrderData() {
@@ -154,7 +149,7 @@ public class CheckoutOrderResponse {
    * The encrypted order data.
    *
    * @param orderData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
@@ -176,9 +171,8 @@ public class CheckoutOrderResponse {
    * The &#x60;pspReference&#x60; that belongs to the order.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "The `pspReference` that belongs to the order.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPspReference() {
     return pspReference;
   }
@@ -187,9 +181,9 @@ public class CheckoutOrderResponse {
    * The &#x60;pspReference&#x60; that belongs to the order.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -209,7 +203,6 @@ public class CheckoutOrderResponse {
    * The merchant reference for the order.
    * @return reference
    */
-  @ApiModelProperty(value = "The merchant reference for the order.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -220,7 +213,7 @@ public class CheckoutOrderResponse {
    * The merchant reference for the order.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -239,10 +232,9 @@ public class CheckoutOrderResponse {
   }
 
   /**
-   * remainingAmount
+   * Get remainingAmount
    * @return remainingAmount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getRemainingAmount() {
@@ -253,7 +245,7 @@ public class CheckoutOrderResponse {
    * remainingAmount
    *
    * @param remainingAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {

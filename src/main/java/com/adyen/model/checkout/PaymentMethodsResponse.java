@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.PaymentMethod;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,10 +39,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaymentMethodsResponse {
   public static final String JSON_PROPERTY_PAYMENT_METHODS = "paymentMethods";
-  private List<PaymentMethod> paymentMethods = null;
+  private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHODS = "storedPaymentMethods";
-  private List<StoredPaymentMethod> storedPaymentMethods = null;
+  private List<StoredPaymentMethod> storedPaymentMethods = new ArrayList<>();
 
   public PaymentMethodsResponse() { 
   }
@@ -72,7 +70,6 @@ public class PaymentMethodsResponse {
    * Detailed list of payment methods required to generate payment forms.
    * @return paymentMethods
    */
-  @ApiModelProperty(value = "Detailed list of payment methods required to generate payment forms.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentMethod> getPaymentMethods() {
@@ -83,7 +80,7 @@ public class PaymentMethodsResponse {
    * Detailed list of payment methods required to generate payment forms.
    *
    * @param paymentMethods
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
@@ -113,7 +110,6 @@ public class PaymentMethodsResponse {
    * List of all stored payment methods.
    * @return storedPaymentMethods
    */
-  @ApiModelProperty(value = "List of all stored payment methods.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<StoredPaymentMethod> getStoredPaymentMethods() {
@@ -124,7 +120,7 @@ public class PaymentMethodsResponse {
    * List of all stored payment methods.
    *
    * @param storedPaymentMethods
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {

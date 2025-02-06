@@ -13,7 +13,6 @@
 package com.adyen.model.acswebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,19 +43,19 @@ public class ChallengeInfo {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    */
   public enum ChallengeCancelEnum {
-    _01("01"),
+    _01(String.valueOf("01")),
     
-    _02("02"),
+    _02(String.valueOf("02")),
     
-    _03("03"),
+    _03(String.valueOf("03")),
     
-    _04("04"),
+    _04(String.valueOf("04")),
     
-    _05("05"),
+    _05(String.valueOf("05")),
     
-    _06("06"),
+    _06(String.valueOf("06")),
     
-    _07("07");
+    _07(String.valueOf("07"));
 
     private String value;
 
@@ -93,9 +91,9 @@ public class ChallengeInfo {
    * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
    */
   public enum FlowEnum {
-    OTP_SMS("OTP_SMS"),
+    OTP_SMS(String.valueOf("OTP_SMS")),
     
-    OOB("OOB");
+    OOB(String.valueOf("OOB"));
 
     private String value;
 
@@ -157,7 +155,6 @@ public class ChallengeInfo {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    * @return challengeCancel
    */
-  @ApiModelProperty(value = "Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).")
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ChallengeCancelEnum getChallengeCancel() {
@@ -168,7 +165,7 @@ public class ChallengeInfo {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    *
    * @param challengeCancel
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
@@ -190,9 +187,8 @@ public class ChallengeInfo {
    * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
    * @return flow
    */
-  @ApiModelProperty(required = true, value = "The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow")
   @JsonProperty(JSON_PROPERTY_FLOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FlowEnum getFlow() {
     return flow;
   }
@@ -201,9 +197,9 @@ public class ChallengeInfo {
    * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
    *
    * @param flow
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FLOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFlow(FlowEnum flow) {
     this.flow = flow;
   }
@@ -223,9 +219,8 @@ public class ChallengeInfo {
    * The last time of interaction with the challenge.
    * @return lastInteraction
    */
-  @ApiModelProperty(required = true, value = "The last time of interaction with the challenge.")
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getLastInteraction() {
     return lastInteraction;
   }
@@ -234,9 +229,9 @@ public class ChallengeInfo {
    * The last time of interaction with the challenge.
    *
    * @param lastInteraction
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLastInteraction(OffsetDateTime lastInteraction) {
     this.lastInteraction = lastInteraction;
   }
@@ -256,7 +251,6 @@ public class ChallengeInfo {
    * The last four digits of the phone number used in the challenge.
    * @return phoneNumber
    */
-  @ApiModelProperty(value = "The last four digits of the phone number used in the challenge.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneNumber() {
@@ -267,7 +261,7 @@ public class ChallengeInfo {
    * The last four digits of the phone number used in the challenge.
    *
    * @param phoneNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -289,7 +283,6 @@ public class ChallengeInfo {
    * The number of times the one-time password (OTP) was resent during the challenge.
    * @return resends
    */
-  @ApiModelProperty(value = "The number of times the one-time password (OTP) was resent during the challenge.")
   @JsonProperty(JSON_PROPERTY_RESENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getResends() {
@@ -300,7 +293,7 @@ public class ChallengeInfo {
    * The number of times the one-time password (OTP) was resent during the challenge.
    *
    * @param resends
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResends(Integer resends) {
@@ -322,7 +315,6 @@ public class ChallengeInfo {
    * The number of retries used in the challenge.
    * @return retries
    */
-  @ApiModelProperty(value = "The number of retries used in the challenge.")
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getRetries() {
@@ -333,7 +325,7 @@ public class ChallengeInfo {
    * The number of retries used in the challenge.
    *
    * @param retries
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetries(Integer retries) {

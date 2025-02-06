@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -76,7 +74,6 @@ public class AdditionalDataWallets {
    * The Android Pay token retrieved from the SDK.
    * @return androidpayToken
    */
-  @ApiModelProperty(value = "The Android Pay token retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_ANDROIDPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAndroidpayToken() {
@@ -87,7 +84,7 @@ public class AdditionalDataWallets {
    * The Android Pay token retrieved from the SDK.
    *
    * @param androidpayToken
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ANDROIDPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAndroidpayToken(String androidpayToken) {
@@ -109,7 +106,6 @@ public class AdditionalDataWallets {
    * The Mastercard Masterpass Transaction ID retrieved from the SDK.
    * @return masterpassTransactionId
    */
-  @ApiModelProperty(value = "The Mastercard Masterpass Transaction ID retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMasterpassTransactionId() {
@@ -120,7 +116,7 @@ public class AdditionalDataWallets {
    * The Mastercard Masterpass Transaction ID retrieved from the SDK.
    *
    * @param masterpassTransactionId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMasterpassTransactionId(String masterpassTransactionId) {
@@ -142,7 +138,6 @@ public class AdditionalDataWallets {
    * The Apple Pay token retrieved from the SDK.
    * @return paymentToken
    */
-  @ApiModelProperty(value = "The Apple Pay token retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentToken() {
@@ -153,7 +148,7 @@ public class AdditionalDataWallets {
    * The Apple Pay token retrieved from the SDK.
    *
    * @param paymentToken
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentToken(String paymentToken) {
@@ -175,7 +170,6 @@ public class AdditionalDataWallets {
    * The Google Pay token retrieved from the SDK.
    * @return paywithgoogleToken
    */
-  @ApiModelProperty(value = "The Google Pay token retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_PAYWITHGOOGLE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaywithgoogleToken() {
@@ -186,7 +180,7 @@ public class AdditionalDataWallets {
    * The Google Pay token retrieved from the SDK.
    *
    * @param paywithgoogleToken
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYWITHGOOGLE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaywithgoogleToken(String paywithgoogleToken) {
@@ -208,7 +202,6 @@ public class AdditionalDataWallets {
    * The Samsung Pay token retrieved from the SDK.
    * @return samsungpayToken
    */
-  @ApiModelProperty(value = "The Samsung Pay token retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_SAMSUNGPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSamsungpayToken() {
@@ -219,7 +212,7 @@ public class AdditionalDataWallets {
    * The Samsung Pay token retrieved from the SDK.
    *
    * @param samsungpayToken
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SAMSUNGPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSamsungpayToken(String samsungpayToken) {
@@ -241,7 +234,6 @@ public class AdditionalDataWallets {
    * The Visa Checkout Call ID retrieved from the SDK.
    * @return visacheckoutCallId
    */
-  @ApiModelProperty(value = "The Visa Checkout Call ID retrieved from the SDK.")
   @JsonProperty(JSON_PROPERTY_VISACHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVisacheckoutCallId() {
@@ -252,7 +244,7 @@ public class AdditionalDataWallets {
    * The Visa Checkout Call ID retrieved from the SDK.
    *
    * @param visacheckoutCallId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VISACHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisacheckoutCallId(String visacheckoutCallId) {

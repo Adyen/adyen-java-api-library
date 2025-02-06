@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,7 +51,7 @@ public class BrowserInfo {
   private Boolean javaEnabled;
 
   public static final String JSON_PROPERTY_JAVA_SCRIPT_ENABLED = "javaScriptEnabled";
-  private Boolean javaScriptEnabled;
+  private Boolean javaScriptEnabled = true;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
@@ -88,9 +86,8 @@ public class BrowserInfo {
    * The accept header value of the shopper&#39;s browser.
    * @return acceptHeader
    */
-  @ApiModelProperty(required = true, value = "The accept header value of the shopper's browser.")
   @JsonProperty(JSON_PROPERTY_ACCEPT_HEADER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAcceptHeader() {
     return acceptHeader;
   }
@@ -99,9 +96,9 @@ public class BrowserInfo {
    * The accept header value of the shopper&#39;s browser.
    *
    * @param acceptHeader
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCEPT_HEADER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAcceptHeader(String acceptHeader) {
     this.acceptHeader = acceptHeader;
   }
@@ -121,9 +118,8 @@ public class BrowserInfo {
    * The color depth of the shopper&#39;s browser in bits per pixel. This should be obtained by using the browser&#39;s &#x60;screen.colorDepth&#x60; property. Accepted values: 1, 4, 8, 15, 16, 24, 30, 32 or 48 bit color depth.
    * @return colorDepth
    */
-  @ApiModelProperty(required = true, value = "The color depth of the shopper's browser in bits per pixel. This should be obtained by using the browser's `screen.colorDepth` property. Accepted values: 1, 4, 8, 15, 16, 24, 30, 32 or 48 bit color depth.")
   @JsonProperty(JSON_PROPERTY_COLOR_DEPTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getColorDepth() {
     return colorDepth;
   }
@@ -132,9 +128,9 @@ public class BrowserInfo {
    * The color depth of the shopper&#39;s browser in bits per pixel. This should be obtained by using the browser&#39;s &#x60;screen.colorDepth&#x60; property. Accepted values: 1, 4, 8, 15, 16, 24, 30, 32 or 48 bit color depth.
    *
    * @param colorDepth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COLOR_DEPTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setColorDepth(Integer colorDepth) {
     this.colorDepth = colorDepth;
   }
@@ -154,9 +150,8 @@ public class BrowserInfo {
    * Boolean value indicating if the shopper&#39;s browser is able to execute Java.
    * @return javaEnabled
    */
-  @ApiModelProperty(required = true, value = "Boolean value indicating if the shopper's browser is able to execute Java.")
   @JsonProperty(JSON_PROPERTY_JAVA_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getJavaEnabled() {
     return javaEnabled;
   }
@@ -165,9 +160,9 @@ public class BrowserInfo {
    * Boolean value indicating if the shopper&#39;s browser is able to execute Java.
    *
    * @param javaEnabled
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_JAVA_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setJavaEnabled(Boolean javaEnabled) {
     this.javaEnabled = javaEnabled;
   }
@@ -187,7 +182,6 @@ public class BrowserInfo {
    * Boolean value indicating if the shopper&#39;s browser is able to execute JavaScript. A default &#39;true&#39; value is assumed if the field is not present.
    * @return javaScriptEnabled
    */
-  @ApiModelProperty(value = "Boolean value indicating if the shopper's browser is able to execute JavaScript. A default 'true' value is assumed if the field is not present.")
   @JsonProperty(JSON_PROPERTY_JAVA_SCRIPT_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getJavaScriptEnabled() {
@@ -198,7 +192,7 @@ public class BrowserInfo {
    * Boolean value indicating if the shopper&#39;s browser is able to execute JavaScript. A default &#39;true&#39; value is assumed if the field is not present.
    *
    * @param javaScriptEnabled
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_JAVA_SCRIPT_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJavaScriptEnabled(Boolean javaScriptEnabled) {
@@ -220,9 +214,8 @@ public class BrowserInfo {
    * The &#x60;navigator.language&#x60; value of the shopper&#39;s browser (as defined in IETF BCP 47).
    * @return language
    */
-  @ApiModelProperty(required = true, value = "The `navigator.language` value of the shopper's browser (as defined in IETF BCP 47).")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLanguage() {
     return language;
   }
@@ -231,9 +224,9 @@ public class BrowserInfo {
    * The &#x60;navigator.language&#x60; value of the shopper&#39;s browser (as defined in IETF BCP 47).
    *
    * @param language
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLanguage(String language) {
     this.language = language;
   }
@@ -253,9 +246,8 @@ public class BrowserInfo {
    * The total height of the shopper&#39;s device screen in pixels.
    * @return screenHeight
    */
-  @ApiModelProperty(required = true, value = "The total height of the shopper's device screen in pixels.")
   @JsonProperty(JSON_PROPERTY_SCREEN_HEIGHT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getScreenHeight() {
     return screenHeight;
   }
@@ -264,9 +256,9 @@ public class BrowserInfo {
    * The total height of the shopper&#39;s device screen in pixels.
    *
    * @param screenHeight
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SCREEN_HEIGHT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setScreenHeight(Integer screenHeight) {
     this.screenHeight = screenHeight;
   }
@@ -286,9 +278,8 @@ public class BrowserInfo {
    * The total width of the shopper&#39;s device screen in pixels.
    * @return screenWidth
    */
-  @ApiModelProperty(required = true, value = "The total width of the shopper's device screen in pixels.")
   @JsonProperty(JSON_PROPERTY_SCREEN_WIDTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getScreenWidth() {
     return screenWidth;
   }
@@ -297,9 +288,9 @@ public class BrowserInfo {
    * The total width of the shopper&#39;s device screen in pixels.
    *
    * @param screenWidth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SCREEN_WIDTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setScreenWidth(Integer screenWidth) {
     this.screenWidth = screenWidth;
   }
@@ -319,9 +310,8 @@ public class BrowserInfo {
    * Time difference between UTC time and the shopper&#39;s browser local time, in minutes.
    * @return timeZoneOffset
    */
-  @ApiModelProperty(required = true, value = "Time difference between UTC time and the shopper's browser local time, in minutes.")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getTimeZoneOffset() {
     return timeZoneOffset;
   }
@@ -330,9 +320,9 @@ public class BrowserInfo {
    * Time difference between UTC time and the shopper&#39;s browser local time, in minutes.
    *
    * @param timeZoneOffset
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTimeZoneOffset(Integer timeZoneOffset) {
     this.timeZoneOffset = timeZoneOffset;
   }
@@ -352,9 +342,8 @@ public class BrowserInfo {
    * The user agent value of the shopper&#39;s browser.
    * @return userAgent
    */
-  @ApiModelProperty(required = true, value = "The user agent value of the shopper's browser.")
   @JsonProperty(JSON_PROPERTY_USER_AGENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getUserAgent() {
     return userAgent;
   }
@@ -363,9 +352,9 @@ public class BrowserInfo {
    * The user agent value of the shopper&#39;s browser.
    *
    * @param userAgent
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_USER_AGENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserAgent(String userAgent) {
     this.userAgent = userAgent;
   }

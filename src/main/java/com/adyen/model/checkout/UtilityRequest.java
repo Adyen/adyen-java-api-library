@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -55,6 +53,9 @@ public class UtilityRequest {
   }
 
   public UtilityRequest addOriginDomainsItem(String originDomainsItem) {
+    if (this.originDomains == null) {
+      this.originDomains = new ArrayList<>();
+    }
     this.originDomains.add(originDomainsItem);
     return this;
   }
@@ -63,9 +64,8 @@ public class UtilityRequest {
    * The list of origin domains, for which origin keys are requested.
    * @return originDomains
    */
-  @ApiModelProperty(required = true, value = "The list of origin domains, for which origin keys are requested.")
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getOriginDomains() {
     return originDomains;
   }
@@ -74,9 +74,9 @@ public class UtilityRequest {
    * The list of origin domains, for which origin keys are requested.
    *
    * @param originDomains
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOriginDomains(List<String> originDomains) {
     this.originDomains = originDomains;
   }

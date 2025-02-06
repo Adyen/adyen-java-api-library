@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,7 +66,6 @@ public class SDKEphemPubKey {
    * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
    * @return crv
    */
-  @ApiModelProperty(value = "The `crv` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_CRV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCrv() {
@@ -79,7 +76,7 @@ public class SDKEphemPubKey {
    * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
    *
    * @param crv
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CRV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCrv(String crv) {
@@ -101,7 +98,6 @@ public class SDKEphemPubKey {
    * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
    * @return kty
    */
-  @ApiModelProperty(value = "The `kty` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_KTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKty() {
@@ -112,7 +108,7 @@ public class SDKEphemPubKey {
    * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
    *
    * @param kty
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_KTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKty(String kty) {
@@ -134,7 +130,6 @@ public class SDKEphemPubKey {
    * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
    * @return x
    */
-  @ApiModelProperty(value = "The `x` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getX() {
@@ -145,7 +140,7 @@ public class SDKEphemPubKey {
    * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
    *
    * @param x
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setX(String x) {
@@ -167,7 +162,6 @@ public class SDKEphemPubKey {
    * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
    * @return y
    */
-  @ApiModelProperty(value = "The `y` value as received from the 3D Secure 2 SDK.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getY() {
@@ -178,7 +172,7 @@ public class SDKEphemPubKey {
    * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
    *
    * @param y
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setY(String y) {

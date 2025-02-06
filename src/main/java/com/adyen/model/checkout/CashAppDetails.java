@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -76,7 +74,7 @@ public class CashAppDetails {
    * cashapp
    */
   public enum TypeEnum {
-    CASHAPP("cashapp");
+    CASHAPP(String.valueOf("cashapp"));
 
     private String value;
 
@@ -106,7 +104,7 @@ public class CashAppDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.CASHAPP;
 
   public CashAppDetails() { 
   }
@@ -126,7 +124,6 @@ public class CashAppDetails {
    * Cash App issued cashtag for recurring payment
    * @return cashtag
    */
-  @ApiModelProperty(value = "Cash App issued cashtag for recurring payment")
   @JsonProperty(JSON_PROPERTY_CASHTAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCashtag() {
@@ -137,7 +134,7 @@ public class CashAppDetails {
    * Cash App issued cashtag for recurring payment
    *
    * @param cashtag
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CASHTAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCashtag(String cashtag) {
@@ -159,7 +156,6 @@ public class CashAppDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -170,7 +166,7 @@ public class CashAppDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -192,7 +188,6 @@ public class CashAppDetails {
    * Cash App issued customerId for recurring payment
    * @return customerId
    */
-  @ApiModelProperty(value = "Cash App issued customerId for recurring payment")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomerId() {
@@ -203,7 +198,7 @@ public class CashAppDetails {
    * Cash App issued customerId for recurring payment
    *
    * @param customerId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerId(String customerId) {
@@ -225,7 +220,6 @@ public class CashAppDetails {
    * Cash App issued grantId for one time payment
    * @return grantId
    */
-  @ApiModelProperty(value = "Cash App issued grantId for one time payment")
   @JsonProperty(JSON_PROPERTY_GRANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGrantId() {
@@ -236,7 +230,7 @@ public class CashAppDetails {
    * Cash App issued grantId for one time payment
    *
    * @param grantId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GRANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantId(String grantId) {
@@ -258,7 +252,6 @@ public class CashAppDetails {
    * Cash App issued onFileGrantId for recurring payment
    * @return onFileGrantId
    */
-  @ApiModelProperty(value = "Cash App issued onFileGrantId for recurring payment")
   @JsonProperty(JSON_PROPERTY_ON_FILE_GRANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOnFileGrantId() {
@@ -269,7 +262,7 @@ public class CashAppDetails {
    * Cash App issued onFileGrantId for recurring payment
    *
    * @param onFileGrantId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ON_FILE_GRANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOnFileGrantId(String onFileGrantId) {
@@ -285,7 +278,7 @@ public class CashAppDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public CashAppDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -294,12 +287,9 @@ public class CashAppDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   *
-   * @deprecated since Adyen Checkout API v49
-   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
-  @Deprecated
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -313,8 +303,8 @@ public class CashAppDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -336,7 +326,6 @@ public class CashAppDetails {
    * Cash App request id
    * @return requestId
    */
-  @ApiModelProperty(value = "Cash App request id")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestId() {
@@ -347,7 +336,7 @@ public class CashAppDetails {
    * Cash App request id
    *
    * @param requestId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
@@ -369,7 +358,6 @@ public class CashAppDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -380,7 +368,7 @@ public class CashAppDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -402,7 +390,6 @@ public class CashAppDetails {
    * The payment method subtype.
    * @return subtype
    */
-  @ApiModelProperty(value = "The payment method subtype.")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubtype() {
@@ -413,7 +400,7 @@ public class CashAppDetails {
    * The payment method subtype.
    *
    * @param subtype
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
@@ -435,7 +422,6 @@ public class CashAppDetails {
    * cashapp
    * @return type
    */
-  @ApiModelProperty(value = "cashapp")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -446,7 +432,7 @@ public class CashAppDetails {
    * cashapp
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -51,13 +49,13 @@ public class DragonpayDetails {
    * **dragonpay**
    */
   public enum TypeEnum {
-    EBANKING("dragonpay_ebanking"),
+    DRAGONPAY_EBANKING(String.valueOf("dragonpay_ebanking")),
     
-    OTC_BANKING("dragonpay_otc_banking"),
+    DRAGONPAY_OTC_BANKING(String.valueOf("dragonpay_otc_banking")),
     
-    OTC_NON_BANKING("dragonpay_otc_non_banking"),
+    DRAGONPAY_OTC_NON_BANKING(String.valueOf("dragonpay_otc_non_banking")),
     
-    OTC_PHILIPPINES("dragonpay_otc_philippines");
+    DRAGONPAY_OTC_PHILIPPINES(String.valueOf("dragonpay_otc_philippines"));
 
     private String value;
 
@@ -107,7 +105,6 @@ public class DragonpayDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -118,7 +115,7 @@ public class DragonpayDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -140,9 +137,8 @@ public class DragonpayDetails {
    * The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    * @return issuer
    */
-  @ApiModelProperty(required = true, value = "The Dragonpay issuer value of the shopper's selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getIssuer() {
     return issuer;
   }
@@ -151,9 +147,9 @@ public class DragonpayDetails {
    * The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    *
    * @param issuer
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
@@ -173,7 +169,6 @@ public class DragonpayDetails {
    * The shopper’s email address.
    * @return shopperEmail
    */
-  @ApiModelProperty(value = "The shopper’s email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -184,7 +179,7 @@ public class DragonpayDetails {
    * The shopper’s email address.
    *
    * @param shopperEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -206,9 +201,8 @@ public class DragonpayDetails {
    * **dragonpay**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**dragonpay**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -217,9 +211,9 @@ public class DragonpayDetails {
    * **dragonpay**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

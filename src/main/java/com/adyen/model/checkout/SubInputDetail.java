@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Item;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,10 +44,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class SubInputDetail {
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
-  private Map<String, String> configuration = null;
+  private Map<String, String> configuration = new HashMap<>();
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  private List<Item> items = null;
+  private List<Item> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
@@ -89,7 +87,6 @@ public class SubInputDetail {
    * Configuration parameters for the required input.
    * @return configuration
    */
-  @ApiModelProperty(value = "Configuration parameters for the required input.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getConfiguration() {
@@ -100,7 +97,7 @@ public class SubInputDetail {
    * Configuration parameters for the required input.
    *
    * @param configuration
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
@@ -130,7 +127,6 @@ public class SubInputDetail {
    * In case of a select, the items to choose from.
    * @return items
    */
-  @ApiModelProperty(value = "In case of a select, the items to choose from.")
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Item> getItems() {
@@ -141,7 +137,7 @@ public class SubInputDetail {
    * In case of a select, the items to choose from.
    *
    * @param items
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<Item> items) {
@@ -163,7 +159,6 @@ public class SubInputDetail {
    * The value to provide in the result.
    * @return key
    */
-  @ApiModelProperty(value = "The value to provide in the result.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getKey() {
@@ -174,7 +169,7 @@ public class SubInputDetail {
    * The value to provide in the result.
    *
    * @param key
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKey(String key) {
@@ -196,7 +191,6 @@ public class SubInputDetail {
    * True if this input is optional to provide.
    * @return optional
    */
-  @ApiModelProperty(value = "True if this input is optional to provide.")
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getOptional() {
@@ -207,7 +201,7 @@ public class SubInputDetail {
    * True if this input is optional to provide.
    *
    * @param optional
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptional(Boolean optional) {
@@ -229,7 +223,6 @@ public class SubInputDetail {
    * The type of the required input.
    * @return type
    */
-  @ApiModelProperty(value = "The type of the required input.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -240,7 +233,7 @@ public class SubInputDetail {
    * The type of the required input.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
@@ -262,7 +255,6 @@ public class SubInputDetail {
    * The value can be pre-filled, if available.
    * @return value
    */
-  @ApiModelProperty(value = "The value can be pre-filled, if available.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {
@@ -273,7 +265,7 @@ public class SubInputDetail {
    * The value can be pre-filled, if available.
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {

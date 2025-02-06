@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.DonationCampaign;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class DonationCampaignsResponse {
   public static final String JSON_PROPERTY_DONATION_CAMPAIGNS = "donationCampaigns";
-  private List<DonationCampaign> donationCampaigns = null;
+  private List<DonationCampaign> donationCampaigns = new ArrayList<>();
 
   public DonationCampaignsResponse() { 
   }
@@ -67,7 +65,6 @@ public class DonationCampaignsResponse {
    * List of active donation campaigns for your merchant account.
    * @return donationCampaigns
    */
-  @ApiModelProperty(value = "List of active donation campaigns for your merchant account.")
   @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DonationCampaign> getDonationCampaigns() {
@@ -78,7 +75,7 @@ public class DonationCampaignsResponse {
    * List of active donation campaigns for your merchant account.
    *
    * @param donationCampaigns
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationCampaigns(List<DonationCampaign> donationCampaigns) {

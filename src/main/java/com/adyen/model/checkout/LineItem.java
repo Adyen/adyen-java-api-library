@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -124,7 +122,6 @@ public class LineItem {
    * Item amount excluding the tax, in minor units.
    * @return amountExcludingTax
    */
-  @ApiModelProperty(value = "Item amount excluding the tax, in minor units.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAmountExcludingTax() {
@@ -135,7 +132,7 @@ public class LineItem {
    * Item amount excluding the tax, in minor units.
    *
    * @param amountExcludingTax
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountExcludingTax(Long amountExcludingTax) {
@@ -157,7 +154,6 @@ public class LineItem {
    * Item amount including the tax, in minor units.
    * @return amountIncludingTax
    */
-  @ApiModelProperty(value = "Item amount including the tax, in minor units.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAmountIncludingTax() {
@@ -168,7 +164,7 @@ public class LineItem {
    * Item amount including the tax, in minor units.
    *
    * @param amountIncludingTax
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountIncludingTax(Long amountIncludingTax) {
@@ -190,7 +186,6 @@ public class LineItem {
    * Brand of the item.
    * @return brand
    */
-  @ApiModelProperty(value = "Brand of the item.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
@@ -201,7 +196,7 @@ public class LineItem {
    * Brand of the item.
    *
    * @param brand
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -223,7 +218,6 @@ public class LineItem {
    * Color of the item.
    * @return color
    */
-  @ApiModelProperty(value = "Color of the item.")
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getColor() {
@@ -234,7 +228,7 @@ public class LineItem {
    * Color of the item.
    *
    * @param color
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setColor(String color) {
@@ -256,7 +250,6 @@ public class LineItem {
    * Description of the line item.
    * @return description
    */
-  @ApiModelProperty(value = "Description of the line item.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -267,7 +260,7 @@ public class LineItem {
    * Description of the line item.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -289,7 +282,6 @@ public class LineItem {
    * ID of the line item.
    * @return id
    */
-  @ApiModelProperty(value = "ID of the line item.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -300,7 +292,7 @@ public class LineItem {
    * ID of the line item.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -322,7 +314,6 @@ public class LineItem {
    * Link to the picture of the purchased item.
    * @return imageUrl
    */
-  @ApiModelProperty(value = "Link to the picture of the purchased item.")
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getImageUrl() {
@@ -333,7 +324,7 @@ public class LineItem {
    * Link to the picture of the purchased item.
    *
    * @param imageUrl
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImageUrl(String imageUrl) {
@@ -355,7 +346,6 @@ public class LineItem {
    * Item category, used by the payment methods PayPal and Ratepay.
    * @return itemCategory
    */
-  @ApiModelProperty(value = "Item category, used by the payment methods PayPal and Ratepay.")
   @JsonProperty(JSON_PROPERTY_ITEM_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getItemCategory() {
@@ -366,7 +356,7 @@ public class LineItem {
    * Item category, used by the payment methods PayPal and Ratepay.
    *
    * @param itemCategory
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ITEM_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemCategory(String itemCategory) {
@@ -388,7 +378,6 @@ public class LineItem {
    * Manufacturer of the item.
    * @return manufacturer
    */
-  @ApiModelProperty(value = "Manufacturer of the item.")
   @JsonProperty(JSON_PROPERTY_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getManufacturer() {
@@ -399,7 +388,7 @@ public class LineItem {
    * Manufacturer of the item.
    *
    * @param manufacturer
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManufacturer(String manufacturer) {
@@ -421,7 +410,6 @@ public class LineItem {
    * Marketplace seller id.
    * @return marketplaceSellerId
    */
-  @ApiModelProperty(value = "Marketplace seller id.")
   @JsonProperty(JSON_PROPERTY_MARKETPLACE_SELLER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMarketplaceSellerId() {
@@ -432,7 +420,7 @@ public class LineItem {
    * Marketplace seller id.
    *
    * @param marketplaceSellerId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MARKETPLACE_SELLER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMarketplaceSellerId(String marketplaceSellerId) {
@@ -454,7 +442,6 @@ public class LineItem {
    * Link to the purchased item.
    * @return productUrl
    */
-  @ApiModelProperty(value = "Link to the purchased item.")
   @JsonProperty(JSON_PROPERTY_PRODUCT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProductUrl() {
@@ -465,7 +452,7 @@ public class LineItem {
    * Link to the purchased item.
    *
    * @param productUrl
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PRODUCT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProductUrl(String productUrl) {
@@ -487,7 +474,6 @@ public class LineItem {
    * Number of items.
    * @return quantity
    */
-  @ApiModelProperty(value = "Number of items.")
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getQuantity() {
@@ -498,7 +484,7 @@ public class LineItem {
    * Number of items.
    *
    * @param quantity
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(Long quantity) {
@@ -520,7 +506,6 @@ public class LineItem {
    * Email associated with the given product in the basket (usually in electronic gift cards).
    * @return receiverEmail
    */
-  @ApiModelProperty(value = "Email associated with the given product in the basket (usually in electronic gift cards).")
   @JsonProperty(JSON_PROPERTY_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReceiverEmail() {
@@ -531,7 +516,7 @@ public class LineItem {
    * Email associated with the given product in the basket (usually in electronic gift cards).
    *
    * @param receiverEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiverEmail(String receiverEmail) {
@@ -553,7 +538,6 @@ public class LineItem {
    * Size of the item.
    * @return size
    */
-  @ApiModelProperty(value = "Size of the item.")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSize() {
@@ -564,7 +548,7 @@ public class LineItem {
    * Size of the item.
    *
    * @param size
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSize(String size) {
@@ -586,7 +570,6 @@ public class LineItem {
    * Stock keeping unit.
    * @return sku
    */
-  @ApiModelProperty(value = "Stock keeping unit.")
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSku() {
@@ -597,7 +580,7 @@ public class LineItem {
    * Stock keeping unit.
    *
    * @param sku
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSku(String sku) {
@@ -619,7 +602,6 @@ public class LineItem {
    * Tax amount, in minor units.
    * @return taxAmount
    */
-  @ApiModelProperty(value = "Tax amount, in minor units.")
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTaxAmount() {
@@ -630,7 +612,7 @@ public class LineItem {
    * Tax amount, in minor units.
    *
    * @param taxAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxAmount(Long taxAmount) {
@@ -652,7 +634,6 @@ public class LineItem {
    * Tax percentage, in minor units.
    * @return taxPercentage
    */
-  @ApiModelProperty(value = "Tax percentage, in minor units.")
   @JsonProperty(JSON_PROPERTY_TAX_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTaxPercentage() {
@@ -663,7 +644,7 @@ public class LineItem {
    * Tax percentage, in minor units.
    *
    * @param taxPercentage
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TAX_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxPercentage(Long taxPercentage) {
@@ -685,7 +666,6 @@ public class LineItem {
    * Universal Product Code.
    * @return upc
    */
-  @ApiModelProperty(value = "Universal Product Code.")
   @JsonProperty(JSON_PROPERTY_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUpc() {
@@ -696,7 +676,7 @@ public class LineItem {
    * Universal Product Code.
    *
    * @param upc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpc(String upc) {

@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class CheckoutQrCodeAction {
    * **qrCode**
    */
   public enum TypeEnum {
-    QRCODE("qrCode");
+    QRCODE(String.valueOf("qrCode"));
 
     private String value;
 
@@ -109,7 +107,6 @@ public class CheckoutQrCodeAction {
    * Expiry time of the QR code.
    * @return expiresAt
    */
-  @ApiModelProperty(value = "Expiry time of the QR code.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiresAt() {
@@ -120,7 +117,7 @@ public class CheckoutQrCodeAction {
    * Expiry time of the QR code.
    *
    * @param expiresAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
@@ -142,7 +139,6 @@ public class CheckoutQrCodeAction {
    * Encoded payment data.
    * @return paymentData
    */
-  @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentData() {
@@ -153,7 +149,7 @@ public class CheckoutQrCodeAction {
    * Encoded payment data.
    *
    * @param paymentData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -175,7 +171,6 @@ public class CheckoutQrCodeAction {
    * Specifies the payment method.
    * @return paymentMethodType
    */
-  @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethodType() {
@@ -186,7 +181,7 @@ public class CheckoutQrCodeAction {
    * Specifies the payment method.
    *
    * @param paymentMethodType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -208,7 +203,6 @@ public class CheckoutQrCodeAction {
    * The contents of the QR code as a UTF8 string.
    * @return qrCodeData
    */
-  @ApiModelProperty(value = "The contents of the QR code as a UTF8 string.")
   @JsonProperty(JSON_PROPERTY_QR_CODE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQrCodeData() {
@@ -219,7 +213,7 @@ public class CheckoutQrCodeAction {
    * The contents of the QR code as a UTF8 string.
    *
    * @param qrCodeData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_QR_CODE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQrCodeData(String qrCodeData) {
@@ -241,9 +235,8 @@ public class CheckoutQrCodeAction {
    * **qrCode**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**qrCode**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -252,9 +245,9 @@ public class CheckoutQrCodeAction {
    * **qrCode**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
@@ -274,7 +267,6 @@ public class CheckoutQrCodeAction {
    * Specifies the URL to redirect to.
    * @return url
    */
-  @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -285,7 +277,7 @@ public class CheckoutQrCodeAction {
    * Specifies the URL to redirect to.
    *
    * @param url
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
