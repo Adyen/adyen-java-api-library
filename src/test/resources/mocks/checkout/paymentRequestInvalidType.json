@@ -1,0 +1,12 @@
+{
+  "amount":{
+    "currency":"EUR",
+    "value":1000
+  },
+  "merchantAccount":"myMerchantAccount",
+  "paymentMethod":{
+    "type":"unknown-payment-method"
+  },
+  "reference":"merchantReference",
+  "returnUrl":"https://your-company.com/.."
+}

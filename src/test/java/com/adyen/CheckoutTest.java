@@ -481,6 +481,16 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
+    public void TestDeserializePaymentRequestError() throws Exception {
+        // test deserialization of PaymentMethod without known `type`
+        String paymentRequestJson = getFileContents("mocks/checkout/paymentRequestInvalidType.json");
+
+        assertThrows(IOException.class, () -> {
+            PaymentRequest parsedCheckoutPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
+        });
+    }
+
+    @Test
     public void TestPaymentWithRatepay() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentResponseRatepay.json");
 
@@ -609,4 +619,5 @@ public class CheckoutTest extends BaseTest {
                 null
         );
     }
+
 }
