@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class SourceOfFunds {
    * The type of the source of funds. Possible value: **business**.
    */
   public enum TypeEnum {
-    BUSINESS("business");
+    BUSINESS(String.valueOf("business"));
 
     private String value;
 
@@ -96,7 +94,7 @@ public class SourceOfFunds {
    * @deprecated since Legal Entity Management API v3
    * This field will be removed in v4.
    */
-  @Deprecated
+  @Deprecated // deprecated since Legal Entity Management API v3: This field will be removed in v4.
   public SourceOfFunds acquiringBusinessLineId(String acquiringBusinessLineId) {
     this.acquiringBusinessLineId = acquiringBusinessLineId;
     return this;
@@ -105,12 +103,9 @@ public class SourceOfFunds {
   /**
    * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    * @return acquiringBusinessLineId
-   *
-   * @deprecated since Legal Entity Management API v3
-   * This field will be removed in v4.
+   * @deprecated // deprecated since Legal Entity Management API v3: This field will be removed in v4.
    */
-  @Deprecated
-  @ApiModelProperty(value = "The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.")
+  @Deprecated // deprecated since Legal Entity Management API v3: This field will be removed in v4.
   @JsonProperty(JSON_PROPERTY_ACQUIRING_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcquiringBusinessLineId() {
@@ -124,8 +119,8 @@ public class SourceOfFunds {
    *
    * @deprecated since Legal Entity Management API v3
    * This field will be removed in v4.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Legal Entity Management API v3: This field will be removed in v4.
   @JsonProperty(JSON_PROPERTY_ACQUIRING_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquiringBusinessLineId(String acquiringBusinessLineId) {
@@ -147,7 +142,6 @@ public class SourceOfFunds {
    * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    * @return adyenProcessedFunds
    */
-  @ApiModelProperty(value = "Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a `description` is required.")
   @JsonProperty(JSON_PROPERTY_ADYEN_PROCESSED_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAdyenProcessedFunds() {
@@ -158,7 +152,7 @@ public class SourceOfFunds {
    * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    *
    * @param adyenProcessedFunds
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADYEN_PROCESSED_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenProcessedFunds(Boolean adyenProcessedFunds) {
@@ -180,7 +174,6 @@ public class SourceOfFunds {
    * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    * @return description
    */
-  @ApiModelProperty(value = "Text describing the source of funds. For example, for `type` **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when `adyenProcessedFunds` is **false**.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -191,7 +184,7 @@ public class SourceOfFunds {
    * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -213,7 +206,6 @@ public class SourceOfFunds {
    * The type of the source of funds. Possible value: **business**.
    * @return type
    */
-  @ApiModelProperty(value = "The type of the source of funds. Possible value: **business**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -224,7 +216,7 @@ public class SourceOfFunds {
    * The type of the source of funds. Possible value: **business**.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

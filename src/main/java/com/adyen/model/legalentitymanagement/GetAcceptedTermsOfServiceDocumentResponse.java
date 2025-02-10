@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -51,11 +49,11 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * The format of the Terms of Service document.
    */
   public enum TermsOfServiceDocumentFormatEnum {
-    JSON("JSON"),
+    JSON(String.valueOf("JSON")),
     
-    PDF("PDF"),
+    PDF(String.valueOf("PDF")),
     
-    TXT("TXT");
+    TXT(String.valueOf("TXT"));
 
     private String value;
 
@@ -105,7 +103,6 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.
    * @return document
    */
-  @ApiModelProperty(value = "The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.")
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getDocument() {
@@ -116,7 +113,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.
    *
    * @param document
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocument(byte[] document) {
@@ -138,7 +135,6 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * The unique identifier of the legal entity.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the legal entity.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -149,7 +145,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * The unique identifier of the legal entity.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -171,7 +167,6 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * An Adyen-generated reference for the accepted Terms of Service.
    * @return termsOfServiceAcceptanceReference
    */
-  @ApiModelProperty(value = "An Adyen-generated reference for the accepted Terms of Service.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_ACCEPTANCE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTermsOfServiceAcceptanceReference() {
@@ -182,7 +177,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * An Adyen-generated reference for the accepted Terms of Service.
    *
    * @param termsOfServiceAcceptanceReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_ACCEPTANCE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceAcceptanceReference(String termsOfServiceAcceptanceReference) {
@@ -204,7 +199,6 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * The format of the Terms of Service document.
    * @return termsOfServiceDocumentFormat
    */
-  @ApiModelProperty(value = "The format of the Terms of Service document.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TermsOfServiceDocumentFormatEnum getTermsOfServiceDocumentFormat() {
@@ -215,7 +209,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
    * The format of the Terms of Service document.
    *
    * @param termsOfServiceDocumentFormat
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentFormat(TermsOfServiceDocumentFormatEnum termsOfServiceDocumentFormat) {

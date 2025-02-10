@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.SourceOfFunds;
@@ -24,9 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -48,13 +46,13 @@ public class BusinessLineInfoUpdate {
   private String industryCode;
 
   public static final String JSON_PROPERTY_SALES_CHANNELS = "salesChannels";
-  private List<String> salesChannels = null;
+  private List<String> salesChannels = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SOURCE_OF_FUNDS = "sourceOfFunds";
   private SourceOfFunds sourceOfFunds;
 
   public static final String JSON_PROPERTY_WEB_DATA = "webData";
-  private List<WebData> webData = null;
+  private List<WebData> webData = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WEB_DATA_EXEMPTION = "webDataExemption";
   private WebDataExemption webDataExemption;
@@ -77,7 +75,6 @@ public class BusinessLineInfoUpdate {
    * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
    * @return industryCode
    */
-  @ApiModelProperty(value = "A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.")
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndustryCode() {
@@ -88,7 +85,7 @@ public class BusinessLineInfoUpdate {
    * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
    *
    * @param industryCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryCode(String industryCode) {
@@ -118,7 +115,6 @@ public class BusinessLineInfoUpdate {
    * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    * @return salesChannels
    */
-  @ApiModelProperty(value = "A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.")
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSalesChannels() {
@@ -129,7 +125,7 @@ public class BusinessLineInfoUpdate {
    * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    *
    * @param salesChannels
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesChannels(List<String> salesChannels) {
@@ -148,10 +144,9 @@ public class BusinessLineInfoUpdate {
   }
 
   /**
-   * sourceOfFunds
+   * Get sourceOfFunds
    * @return sourceOfFunds
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SourceOfFunds getSourceOfFunds() {
@@ -162,7 +157,7 @@ public class BusinessLineInfoUpdate {
    * sourceOfFunds
    *
    * @param sourceOfFunds
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSourceOfFunds(SourceOfFunds sourceOfFunds) {
@@ -192,7 +187,6 @@ public class BusinessLineInfoUpdate {
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    * @return webData
    */
-  @ApiModelProperty(value = "List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.")
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<WebData> getWebData() {
@@ -203,7 +197,7 @@ public class BusinessLineInfoUpdate {
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    *
    * @param webData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(List<WebData> webData) {
@@ -222,10 +216,9 @@ public class BusinessLineInfoUpdate {
   }
 
   /**
-   * webDataExemption
+   * Get webDataExemption
    * @return webDataExemption
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WebDataExemption getWebDataExemption() {
@@ -236,7 +229,7 @@ public class BusinessLineInfoUpdate {
    * webDataExemption
    *
    * @param webDataExemption
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebDataExemption(WebDataExemption webDataExemption) {

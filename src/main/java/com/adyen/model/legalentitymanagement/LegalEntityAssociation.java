@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -63,47 +61,47 @@ public class LegalEntityAssociation {
   private String relationship;
 
   public static final String JSON_PROPERTY_SETTLOR_EXEMPTION_REASON = "settlorExemptionReason";
-  private List<String> settlorExemptionReason = null;
+  private List<String> settlorExemptionReason = new ArrayList<>();
 
   /**
    * Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
    */
   public enum TypeEnum {
-    DEFINEDBENEFICIARY("definedBeneficiary"),
+    DEFINEDBENEFICIARY(String.valueOf("definedBeneficiary")),
     
-    DIRECTOR("director"),
+    DIRECTOR(String.valueOf("director")),
     
-    IMMEDIATEPARENTCOMPANY("immediateParentCompany"),
+    IMMEDIATEPARENTCOMPANY(String.valueOf("immediateParentCompany")),
     
-    LEGALREPRESENTATIVE("legalRepresentative"),
+    LEGALREPRESENTATIVE(String.valueOf("legalRepresentative")),
     
-    PCISIGNATORY("pciSignatory"),
+    PCISIGNATORY(String.valueOf("pciSignatory")),
     
-    PROTECTOR("protector"),
+    PROTECTOR(String.valueOf("protector")),
     
-    SECONDARYPARTNER("secondaryPartner"),
+    SECONDARYPARTNER(String.valueOf("secondaryPartner")),
     
-    SECONDARYTRUSTEE("secondaryTrustee"),
+    SECONDARYTRUSTEE(String.valueOf("secondaryTrustee")),
     
-    SETTLOR("settlor"),
+    SETTLOR(String.valueOf("settlor")),
     
-    SIGNATORY("signatory"),
+    SIGNATORY(String.valueOf("signatory")),
     
-    SOLEPROPRIETORSHIP("soleProprietorship"),
+    SOLEPROPRIETORSHIP(String.valueOf("soleProprietorship")),
     
-    TRUST("trust"),
+    TRUST(String.valueOf("trust")),
     
-    TRUSTOWNERSHIP("trustOwnership"),
+    TRUSTOWNERSHIP(String.valueOf("trustOwnership")),
     
-    UBOTHROUGHCONTROL("uboThroughControl"),
+    UBOTHROUGHCONTROL(String.valueOf("uboThroughControl")),
     
-    UBOTHROUGHOWNERSHIP("uboThroughOwnership"),
+    UBOTHROUGHOWNERSHIP(String.valueOf("uboThroughOwnership")),
     
-    ULTIMATEPARENTCOMPANY("ultimateParentCompany"),
+    ULTIMATEPARENTCOMPANY(String.valueOf("ultimateParentCompany")),
     
-    UNDEFINEDBENEFICIARY("undefinedBeneficiary"),
+    UNDEFINEDBENEFICIARY(String.valueOf("undefinedBeneficiary")),
     
-    UNINCORPORATEDPARTNERSHIP("unincorporatedPartnership");
+    UNINCORPORATEDPARTNERSHIP(String.valueOf("unincorporatedPartnership"));
 
     private String value;
 
@@ -138,71 +136,39 @@ public class LegalEntityAssociation {
   public LegalEntityAssociation() { 
   }
 
-  /**
-   * The unique identifier of another legal entity with which the &#x60;legalEntityId&#x60; is associated. When the &#x60;legalEntityId&#x60; is associated to legal entities other than the current one, the response returns all the associations.
-   *
-   * @param associatorId
-   * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
-   */
-  public LegalEntityAssociation associatorId(String associatorId) {
+  @JsonCreator
+  public LegalEntityAssociation(
+    @JsonProperty(JSON_PROPERTY_ASSOCIATOR_ID) String associatorId, 
+    @JsonProperty(JSON_PROPERTY_ENTITY_TYPE) String entityType, 
+    @JsonProperty(JSON_PROPERTY_NAME) String name
+  ) {
+    this();
     this.associatorId = associatorId;
-    return this;
+    this.entityType = entityType;
+    this.name = name;
   }
 
   /**
    * The unique identifier of another legal entity with which the &#x60;legalEntityId&#x60; is associated. When the &#x60;legalEntityId&#x60; is associated to legal entities other than the current one, the response returns all the associations.
    * @return associatorId
    */
-  @ApiModelProperty(value = "The unique identifier of another legal entity with which the `legalEntityId` is associated. When the `legalEntityId` is associated to legal entities other than the current one, the response returns all the associations.")
   @JsonProperty(JSON_PROPERTY_ASSOCIATOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAssociatorId() {
     return associatorId;
   }
 
-  /**
-   * The unique identifier of another legal entity with which the &#x60;legalEntityId&#x60; is associated. When the &#x60;legalEntityId&#x60; is associated to legal entities other than the current one, the response returns all the associations.
-   *
-   * @param associatorId
-   */ 
-  @JsonProperty(JSON_PROPERTY_ASSOCIATOR_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAssociatorId(String associatorId) {
-    this.associatorId = associatorId;
-  }
-
-  /**
-   * The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.
-   *
-   * @param entityType
-   * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
-   */
-  public LegalEntityAssociation entityType(String entityType) {
-    this.entityType = entityType;
-    return this;
-  }
 
   /**
    * The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.
    * @return entityType
    */
-  @ApiModelProperty(value = "The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.")
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEntityType() {
     return entityType;
   }
 
-  /**
-   * The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.
-   *
-   * @param entityType
-   */ 
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityType(String entityType) {
-    this.entityType = entityType;
-  }
 
   /**
    * The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
@@ -219,7 +185,6 @@ public class LegalEntityAssociation {
    * The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
    * @return jobTitle
    */
-  @ApiModelProperty(value = "The individual's job title if the `type` is **uboThroughControl** or **signatory**.")
   @JsonProperty(JSON_PROPERTY_JOB_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getJobTitle() {
@@ -230,7 +195,7 @@ public class LegalEntityAssociation {
    * The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
    *
    * @param jobTitle
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_JOB_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJobTitle(String jobTitle) {
@@ -252,9 +217,8 @@ public class LegalEntityAssociation {
    * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
    * @return legalEntityId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLegalEntityId() {
     return legalEntityId;
   }
@@ -263,45 +227,23 @@ public class LegalEntityAssociation {
    * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
    *
    * @param legalEntityId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
 
   /**
    * The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
-   *
-   * @param name
-   * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
-   */
-  public LegalEntityAssociation name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
    * @return name
    */
-  @ApiModelProperty(value = "The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, `name.firstName` and `name.lastName`. - For **organization**, `legalName`. - For **soleProprietorship**, `name`.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
 
-  /**
-   * The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
-   *
-   * @param name
-   */ 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
 
   /**
    * The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
@@ -318,7 +260,6 @@ public class LegalEntityAssociation {
    * The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
    * @return relationship
    */
-  @ApiModelProperty(value = "The individual's relationship to a legal representative if the `type` is **legalRepresentative**. Possible values: **parent**, **guardian**.")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRelationship() {
@@ -329,7 +270,7 @@ public class LegalEntityAssociation {
    * The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
    *
    * @param relationship
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelationship(String relationship) {
@@ -359,7 +300,6 @@ public class LegalEntityAssociation {
    * Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
    * @return settlorExemptionReason
    */
-  @ApiModelProperty(value = "Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.")
   @JsonProperty(JSON_PROPERTY_SETTLOR_EXEMPTION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSettlorExemptionReason() {
@@ -370,7 +310,7 @@ public class LegalEntityAssociation {
    * Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
    *
    * @param settlorExemptionReason
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SETTLOR_EXEMPTION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettlorExemptionReason(List<String> settlorExemptionReason) {
@@ -392,9 +332,8 @@ public class LegalEntityAssociation {
    * Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -403,9 +342,9 @@ public class LegalEntityAssociation {
    * Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **director**, **signatory**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

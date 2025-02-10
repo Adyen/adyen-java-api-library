@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -59,23 +57,23 @@ public class GetTermsOfServiceDocumentResponse {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   public enum TypeEnum {
-    ADYENACCOUNT("adyenAccount"),
+    ADYENACCOUNT(String.valueOf("adyenAccount")),
     
-    ADYENCAPITAL("adyenCapital"),
+    ADYENCAPITAL(String.valueOf("adyenCapital")),
     
-    ADYENCARD("adyenCard"),
+    ADYENCARD(String.valueOf("adyenCard")),
     
-    ADYENCHARGECARD("adyenChargeCard"),
+    ADYENCHARGECARD(String.valueOf("adyenChargeCard")),
     
-    ADYENFORPLATFORMSADVANCED("adyenForPlatformsAdvanced"),
+    ADYENFORPLATFORMSADVANCED(String.valueOf("adyenForPlatformsAdvanced")),
     
-    ADYENFORPLATFORMSMANAGE("adyenForPlatformsManage"),
+    ADYENFORPLATFORMSMANAGE(String.valueOf("adyenForPlatformsManage")),
     
-    ADYENFRANCHISEE("adyenFranchisee"),
+    ADYENFRANCHISEE(String.valueOf("adyenFranchisee")),
     
-    ADYENISSUING("adyenIssuing"),
+    ADYENISSUING(String.valueOf("adyenIssuing")),
     
-    ADYENPCCR("adyenPccr");
+    ADYENPCCR(String.valueOf("adyenPccr"));
 
     private String value;
 
@@ -125,7 +123,6 @@ public class GetTermsOfServiceDocumentResponse {
    * The Terms of Service document in Base64-encoded format.
    * @return document
    */
-  @ApiModelProperty(value = "The Terms of Service document in Base64-encoded format.")
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getDocument() {
@@ -136,7 +133,7 @@ public class GetTermsOfServiceDocumentResponse {
    * The Terms of Service document in Base64-encoded format.
    *
    * @param document
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocument(byte[] document) {
@@ -158,7 +155,6 @@ public class GetTermsOfServiceDocumentResponse {
    * The unique identifier of the legal entity.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the legal entity.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -169,7 +165,7 @@ public class GetTermsOfServiceDocumentResponse {
    * The unique identifier of the legal entity.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -191,7 +187,6 @@ public class GetTermsOfServiceDocumentResponse {
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    * @return language
    */
-  @ApiModelProperty(value = "The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLanguage() {
@@ -202,7 +197,7 @@ public class GetTermsOfServiceDocumentResponse {
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    *
    * @param language
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
@@ -224,7 +219,6 @@ public class GetTermsOfServiceDocumentResponse {
    * The format of the Terms of Service document.
    * @return termsOfServiceDocumentFormat
    */
-  @ApiModelProperty(value = "The format of the Terms of Service document.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTermsOfServiceDocumentFormat() {
@@ -235,7 +229,7 @@ public class GetTermsOfServiceDocumentResponse {
    * The format of the Terms of Service document.
    *
    * @param termsOfServiceDocumentFormat
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
@@ -257,7 +251,6 @@ public class GetTermsOfServiceDocumentResponse {
    * The unique identifier of the Terms of Service document.
    * @return termsOfServiceDocumentId
    */
-  @ApiModelProperty(value = "The unique identifier of the Terms of Service document.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTermsOfServiceDocumentId() {
@@ -268,7 +261,7 @@ public class GetTermsOfServiceDocumentResponse {
    * The unique identifier of the Terms of Service document.
    *
    * @param termsOfServiceDocumentId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentId(String termsOfServiceDocumentId) {
@@ -290,7 +283,6 @@ public class GetTermsOfServiceDocumentResponse {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    * @return type
    */
-  @ApiModelProperty(value = "The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -301,7 +293,7 @@ public class GetTermsOfServiceDocumentResponse {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

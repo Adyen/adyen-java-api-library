@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
@@ -28,9 +27,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -74,7 +72,7 @@ public class Individual {
   private Address residentialAddress;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = null;
+  private List<TaxInformation> taxInformation = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WEB_DATA = "webData";
   private WebData webData;
@@ -94,10 +92,9 @@ public class Individual {
   }
 
   /**
-   * birthData
+   * Get birthData
    * @return birthData
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BIRTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BirthData getBirthData() {
@@ -108,7 +105,7 @@ public class Individual {
    * birthData
    *
    * @param birthData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BIRTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBirthData(BirthData birthData) {
@@ -130,7 +127,6 @@ public class Individual {
    * The email address of the legal entity.
    * @return email
    */
-  @ApiModelProperty(value = "The email address of the legal entity.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -141,7 +137,7 @@ public class Individual {
    * The email address of the legal entity.
    *
    * @param email
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -160,10 +156,9 @@ public class Individual {
   }
 
   /**
-   * identificationData
+   * Get identificationData
    * @return identificationData
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IdentificationData getIdentificationData() {
@@ -174,7 +169,7 @@ public class Individual {
    * identificationData
    *
    * @param identificationData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationData(IdentificationData identificationData) {
@@ -193,12 +188,11 @@ public class Individual {
   }
 
   /**
-   * name
+   * Get name
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Name getName() {
     return name;
   }
@@ -207,9 +201,9 @@ public class Individual {
    * name
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(Name name) {
     this.name = name;
   }
@@ -229,7 +223,6 @@ public class Individual {
    * The individual&#39;s nationality.
    * @return nationality
    */
-  @ApiModelProperty(value = "The individual's nationality.")
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNationality() {
@@ -240,7 +233,7 @@ public class Individual {
    * The individual&#39;s nationality.
    *
    * @param nationality
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
@@ -259,10 +252,9 @@ public class Individual {
   }
 
   /**
-   * phone
+   * Get phone
    * @return phone
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PhoneNumber getPhone() {
@@ -273,7 +265,7 @@ public class Individual {
    * phone
    *
    * @param phone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
@@ -292,12 +284,11 @@ public class Individual {
   }
 
   /**
-   * residentialAddress
+   * Get residentialAddress
    * @return residentialAddress
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Address getResidentialAddress() {
     return residentialAddress;
   }
@@ -306,9 +297,9 @@ public class Individual {
    * residentialAddress
    *
    * @param residentialAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResidentialAddress(Address residentialAddress) {
     this.residentialAddress = residentialAddress;
   }
@@ -336,7 +327,6 @@ public class Individual {
    * The tax information of the individual.
    * @return taxInformation
    */
-  @ApiModelProperty(value = "The tax information of the individual.")
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TaxInformation> getTaxInformation() {
@@ -347,7 +337,7 @@ public class Individual {
    * The tax information of the individual.
    *
    * @param taxInformation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
@@ -366,10 +356,9 @@ public class Individual {
   }
 
   /**
-   * webData
+   * Get webData
    * @return webData
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WebData getWebData() {
@@ -380,7 +369,7 @@ public class Individual {
    * webData
    *
    * @param webData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {

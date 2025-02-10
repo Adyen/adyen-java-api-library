@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.OnboardingTheme;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -67,7 +65,6 @@ public class OnboardingThemes {
    * The next page. Only present if there is a next page.
    * @return next
    */
-  @ApiModelProperty(value = "The next page. Only present if there is a next page.")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNext() {
@@ -78,7 +75,7 @@ public class OnboardingThemes {
    * The next page. Only present if there is a next page.
    *
    * @param next
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(String next) {
@@ -100,7 +97,6 @@ public class OnboardingThemes {
    * The previous page. Only present if there is a previous page.
    * @return previous
    */
-  @ApiModelProperty(value = "The previous page. Only present if there is a previous page.")
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrevious() {
@@ -111,7 +107,7 @@ public class OnboardingThemes {
    * The previous page. Only present if there is a previous page.
    *
    * @param previous
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrevious(String previous) {
@@ -130,6 +126,9 @@ public class OnboardingThemes {
   }
 
   public OnboardingThemes addThemesItem(OnboardingTheme themesItem) {
+    if (this.themes == null) {
+      this.themes = new ArrayList<>();
+    }
     this.themes.add(themesItem);
     return this;
   }
@@ -138,9 +137,8 @@ public class OnboardingThemes {
    * List of onboarding themes.
    * @return themes
    */
-  @ApiModelProperty(required = true, value = "List of onboarding themes.")
   @JsonProperty(JSON_PROPERTY_THEMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<OnboardingTheme> getThemes() {
     return themes;
   }
@@ -149,9 +147,9 @@ public class OnboardingThemes {
    * List of onboarding themes.
    *
    * @param themes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THEMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setThemes(List<OnboardingTheme> themes) {
     this.themes = themes;
   }

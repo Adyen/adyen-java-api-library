@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.CapabilityProblemEntityRecursive;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,7 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CapabilityProblemEntity {
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
-  private List<String> documents = null;
+  private List<String> documents = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -54,13 +52,13 @@ public class CapabilityProblemEntity {
    * Gets or Sets type
    */
   public enum TypeEnum {
-    BANKACCOUNT("BankAccount"),
+    BANKACCOUNT(String.valueOf("BankAccount")),
     
-    DOCUMENT("Document"),
+    DOCUMENT(String.valueOf("Document")),
     
-    LEGALENTITY("LegalEntity"),
+    LEGALENTITY(String.valueOf("LegalEntity")),
     
-    PRODUCT("product");
+    PRODUCT(String.valueOf("product"));
 
     private String value;
 
@@ -118,7 +116,6 @@ public class CapabilityProblemEntity {
    * List of document IDs corresponding to the verification errors from capabilities.
    * @return documents
    */
-  @ApiModelProperty(value = "List of document IDs corresponding to the verification errors from capabilities.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDocuments() {
@@ -129,7 +126,7 @@ public class CapabilityProblemEntity {
    * List of document IDs corresponding to the verification errors from capabilities.
    *
    * @param documents
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<String> documents) {
@@ -148,10 +145,9 @@ public class CapabilityProblemEntity {
   }
 
   /**
-   * id
+   * Get id
    * @return id
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -162,7 +158,7 @@ public class CapabilityProblemEntity {
    * id
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -181,10 +177,9 @@ public class CapabilityProblemEntity {
   }
 
   /**
-   * owner
+   * Get owner
    * @return owner
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CapabilityProblemEntityRecursive getOwner() {
@@ -195,7 +190,7 @@ public class CapabilityProblemEntity {
    * owner
    *
    * @param owner
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwner(CapabilityProblemEntityRecursive owner) {
@@ -214,10 +209,9 @@ public class CapabilityProblemEntity {
   }
 
   /**
-   * type
+   * Get type
    * @return type
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -228,7 +222,7 @@ public class CapabilityProblemEntity {
    * type
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

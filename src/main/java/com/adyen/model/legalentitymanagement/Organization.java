@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
@@ -27,9 +26,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -93,7 +91,7 @@ public class Organization {
   private StockData stockData;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = null;
+  private List<TaxInformation> taxInformation = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION = "taxReportingClassification";
   private TaxReportingClassification taxReportingClassification;
@@ -102,17 +100,17 @@ public class Organization {
    * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    */
   public enum TypeEnum {
-    ASSOCIATIONINCORPORATED("associationIncorporated"),
+    ASSOCIATIONINCORPORATED(String.valueOf("associationIncorporated")),
     
-    GOVERNMENTALORGANIZATION("governmentalOrganization"),
+    GOVERNMENTALORGANIZATION(String.valueOf("governmentalOrganization")),
     
-    LISTEDPUBLICCOMPANY("listedPublicCompany"),
+    LISTEDPUBLICCOMPANY(String.valueOf("listedPublicCompany")),
     
-    NONPROFIT("nonProfit"),
+    NONPROFIT(String.valueOf("nonProfit")),
     
-    PARTNERSHIPINCORPORATED("partnershipIncorporated"),
+    PARTNERSHIPINCORPORATED(String.valueOf("partnershipIncorporated")),
     
-    PRIVATECOMPANY("privateCompany");
+    PRIVATECOMPANY(String.valueOf("privateCompany"));
 
     private String value;
 
@@ -148,9 +146,9 @@ public class Organization {
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   public enum VatAbsenceReasonEnum {
-    INDUSTRYEXEMPTION("industryExemption"),
+    INDUSTRYEXEMPTION(String.valueOf("industryExemption")),
     
-    BELOWTAXTHRESHOLD("belowTaxThreshold");
+    BELOWTAXTHRESHOLD(String.valueOf("belowTaxThreshold"));
 
     private String value;
 
@@ -206,7 +204,6 @@ public class Organization {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return countryOfGoverningLaw
    */
-  @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountryOfGoverningLaw() {
@@ -217,7 +214,7 @@ public class Organization {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
    * @param countryOfGoverningLaw
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
@@ -239,7 +236,6 @@ public class Organization {
    * The date when the organization was incorporated in YYYY-MM-DD format.
    * @return dateOfIncorporation
    */
-  @ApiModelProperty(value = "The date when the organization was incorporated in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDateOfIncorporation() {
@@ -250,7 +246,7 @@ public class Organization {
    * The date when the organization was incorporated in YYYY-MM-DD format.
    *
    * @param dateOfIncorporation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
@@ -272,7 +268,6 @@ public class Organization {
    * Your description for the organization.
    * @return description
    */
-  @ApiModelProperty(value = "Your description for the organization.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -283,7 +278,7 @@ public class Organization {
    * Your description for the organization.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -305,7 +300,6 @@ public class Organization {
    * The organization&#39;s trading name, if different from the registered legal name.
    * @return doingBusinessAs
    */
-  @ApiModelProperty(value = "The organization's trading name, if different from the registered legal name.")
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDoingBusinessAs() {
@@ -316,7 +310,7 @@ public class Organization {
    * The organization&#39;s trading name, if different from the registered legal name.
    *
    * @param doingBusinessAs
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
@@ -338,7 +332,6 @@ public class Organization {
    * The email address of the legal entity.
    * @return email
    */
-  @ApiModelProperty(value = "The email address of the legal entity.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -349,7 +342,7 @@ public class Organization {
    * The email address of the legal entity.
    *
    * @param email
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -371,9 +364,8 @@ public class Organization {
    * The organization&#39;s legal name.
    * @return legalName
    */
-  @ApiModelProperty(required = true, value = "The organization's legal name.")
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLegalName() {
     return legalName;
   }
@@ -382,9 +374,9 @@ public class Organization {
    * The organization&#39;s legal name.
    *
    * @param legalName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLegalName(String legalName) {
     this.legalName = legalName;
   }
@@ -401,10 +393,9 @@ public class Organization {
   }
 
   /**
-   * phone
+   * Get phone
    * @return phone
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PhoneNumber getPhone() {
@@ -415,7 +406,7 @@ public class Organization {
    * phone
    *
    * @param phone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(PhoneNumber phone) {
@@ -434,10 +425,9 @@ public class Organization {
   }
 
   /**
-   * principalPlaceOfBusiness
+   * Get principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getPrincipalPlaceOfBusiness() {
@@ -448,7 +438,7 @@ public class Organization {
    * principalPlaceOfBusiness
    *
    * @param principalPlaceOfBusiness
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -467,12 +457,11 @@ public class Organization {
   }
 
   /**
-   * registeredAddress
+   * Get registeredAddress
    * @return registeredAddress
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Address getRegisteredAddress() {
     return registeredAddress;
   }
@@ -481,9 +470,9 @@ public class Organization {
    * registeredAddress
    *
    * @param registeredAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRegisteredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
   }
@@ -503,7 +492,6 @@ public class Organization {
    * The organization&#39;s registration number.
    * @return registrationNumber
    */
-  @ApiModelProperty(value = "The organization's registration number.")
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegistrationNumber() {
@@ -514,7 +502,7 @@ public class Organization {
    * The organization&#39;s registration number.
    *
    * @param registrationNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
@@ -533,10 +521,9 @@ public class Organization {
   }
 
   /**
-   * stockData
+   * Get stockData
    * @return stockData
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STOCK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StockData getStockData() {
@@ -547,7 +534,7 @@ public class Organization {
    * stockData
    *
    * @param stockData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STOCK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStockData(StockData stockData) {
@@ -577,7 +564,6 @@ public class Organization {
    * The tax information of the organization.
    * @return taxInformation
    */
-  @ApiModelProperty(value = "The tax information of the organization.")
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TaxInformation> getTaxInformation() {
@@ -588,7 +574,7 @@ public class Organization {
    * The tax information of the organization.
    *
    * @param taxInformation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
@@ -607,10 +593,9 @@ public class Organization {
   }
 
   /**
-   * taxReportingClassification
+   * Get taxReportingClassification
    * @return taxReportingClassification
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TaxReportingClassification getTaxReportingClassification() {
@@ -621,7 +606,7 @@ public class Organization {
    * taxReportingClassification
    *
    * @param taxReportingClassification
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxReportingClassification(TaxReportingClassification taxReportingClassification) {
@@ -643,7 +628,6 @@ public class Organization {
    * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    * @return type
    */
-  @ApiModelProperty(value = "Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -654,7 +638,7 @@ public class Organization {
    * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -676,7 +660,6 @@ public class Organization {
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
    */
-  @ApiModelProperty(value = "The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public VatAbsenceReasonEnum getVatAbsenceReason() {
@@ -687,7 +670,7 @@ public class Organization {
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
    * @param vatAbsenceReason
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -709,7 +692,6 @@ public class Organization {
    * The organization&#39;s VAT number.
    * @return vatNumber
    */
-  @ApiModelProperty(value = "The organization's VAT number.")
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVatNumber() {
@@ -720,7 +702,7 @@ public class Organization {
    * The organization&#39;s VAT number.
    *
    * @param vatNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {
@@ -739,10 +721,9 @@ public class Organization {
   }
 
   /**
-   * webData
+   * Get webData
    * @return webData
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WebData getWebData() {
@@ -753,7 +734,7 @@ public class Organization {
    * webData
    *
    * @param webData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebData(WebData webData) {

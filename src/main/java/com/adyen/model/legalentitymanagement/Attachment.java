@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -74,9 +72,8 @@ public class Attachment {
    * The document in Base64-encoded string format.
    * @return content
    */
-  @ApiModelProperty(required = true, value = "The document in Base64-encoded string format.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public byte[] getContent() {
     return content;
   }
@@ -85,9 +82,9 @@ public class Attachment {
    * The document in Base64-encoded string format.
    *
    * @param content
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONTENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setContent(byte[] content) {
     this.content = content;
   }
@@ -100,7 +97,7 @@ public class Attachment {
    *
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated
+  @Deprecated // deprecated since Legal Entity Management API v1
   public Attachment contentType(String contentType) {
     this.contentType = contentType;
     return this;
@@ -109,11 +106,9 @@ public class Attachment {
   /**
    * The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. 
    * @return contentType
-   *
-   * @deprecated since Legal Entity Management API v1
+   * @deprecated // deprecated since Legal Entity Management API v1
    */
-  @Deprecated
-  @ApiModelProperty(value = "The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. ")
+  @Deprecated // deprecated since Legal Entity Management API v1
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContentType() {
@@ -126,8 +121,8 @@ public class Attachment {
    * @param contentType
    *
    * @deprecated since Legal Entity Management API v1
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Legal Entity Management API v1
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(String contentType) {
@@ -142,7 +137,7 @@ public class Attachment {
    *
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated
+  @Deprecated // deprecated since Legal Entity Management API v1
   public Attachment filename(String filename) {
     this.filename = filename;
     return this;
@@ -151,11 +146,9 @@ public class Attachment {
   /**
    * The name of the file including the file extension.
    * @return filename
-   *
-   * @deprecated since Legal Entity Management API v1
+   * @deprecated // deprecated since Legal Entity Management API v1
    */
-  @Deprecated
-  @ApiModelProperty(value = "The name of the file including the file extension.")
+  @Deprecated // deprecated since Legal Entity Management API v1
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFilename() {
@@ -168,8 +161,8 @@ public class Attachment {
    * @param filename
    *
    * @deprecated since Legal Entity Management API v1
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Legal Entity Management API v1
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilename(String filename) {
@@ -191,7 +184,6 @@ public class Attachment {
    * The name of the file including the file extension.
    * @return pageName
    */
-  @ApiModelProperty(value = "The name of the file including the file extension.")
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPageName() {
@@ -202,7 +194,7 @@ public class Attachment {
    * The name of the file including the file extension.
    *
    * @param pageName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageName(String pageName) {
@@ -224,7 +216,6 @@ public class Attachment {
    * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    * @return pageType
    */
-  @ApiModelProperty(value = "Specifies which side of the ID card is uploaded.  * When `type` is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.")
   @JsonProperty(JSON_PROPERTY_PAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPageType() {
@@ -235,7 +226,7 @@ public class Attachment {
    * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    *
    * @param pageType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageType(String pageType) {

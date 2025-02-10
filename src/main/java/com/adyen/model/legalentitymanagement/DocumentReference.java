@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.DocumentPage;
@@ -22,10 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -61,7 +59,7 @@ public class DocumentReference {
   private OffsetDateTime modificationDate;
 
   public static final String JSON_PROPERTY_PAGES = "pages";
-  private List<DocumentPage> pages = null;
+  private List<DocumentPage> pages = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -84,7 +82,6 @@ public class DocumentReference {
    * Identifies whether the document is active and used for checks.
    * @return active
    */
-  @ApiModelProperty(value = "Identifies whether the document is active and used for checks.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
@@ -95,7 +92,7 @@ public class DocumentReference {
    * Identifies whether the document is active and used for checks.
    *
    * @param active
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -117,7 +114,6 @@ public class DocumentReference {
    * Your description for the document.
    * @return description
    */
-  @ApiModelProperty(value = "Your description for the document.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -128,7 +124,7 @@ public class DocumentReference {
    * Your description for the document.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -150,7 +146,6 @@ public class DocumentReference {
    * Document name.
    * @return fileName
    */
-  @ApiModelProperty(value = "Document name.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFileName() {
@@ -161,7 +156,7 @@ public class DocumentReference {
    * Document name.
    *
    * @param fileName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
@@ -183,7 +178,6 @@ public class DocumentReference {
    * The unique identifier of the resource.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -194,7 +188,7 @@ public class DocumentReference {
    * The unique identifier of the resource.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -216,7 +210,6 @@ public class DocumentReference {
    * The modification date of the document.
    * @return modificationDate
    */
-  @ApiModelProperty(value = "The modification date of the document.")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getModificationDate() {
@@ -227,7 +220,7 @@ public class DocumentReference {
    * The modification date of the document.
    *
    * @param modificationDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationDate(OffsetDateTime modificationDate) {
@@ -257,7 +250,6 @@ public class DocumentReference {
    * List of document pages
    * @return pages
    */
-  @ApiModelProperty(value = "List of document pages")
   @JsonProperty(JSON_PROPERTY_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DocumentPage> getPages() {
@@ -268,7 +260,7 @@ public class DocumentReference {
    * List of document pages
    *
    * @param pages
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPages(List<DocumentPage> pages) {
@@ -290,7 +282,6 @@ public class DocumentReference {
    * Type of document, used when providing an ID number or uploading a document.
    * @return type
    */
-  @ApiModelProperty(value = "Type of document, used when providing an ID number or uploading a document.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -301,7 +292,7 @@ public class DocumentReference {
    * Type of document, used when providing an ID number or uploading a document.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

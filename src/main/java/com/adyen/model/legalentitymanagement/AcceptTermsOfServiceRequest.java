@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,9 +58,8 @@ public class AcceptTermsOfServiceRequest {
    * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
    * @return acceptedBy
    */
-  @ApiModelProperty(required = true, value = "The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  ")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAcceptedBy() {
     return acceptedBy;
   }
@@ -71,9 +68,9 @@ public class AcceptTermsOfServiceRequest {
    * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
    *
    * @param acceptedBy
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
   }
@@ -93,7 +90,6 @@ public class AcceptTermsOfServiceRequest {
    * The IP address of the user accepting the Terms of Service.
    * @return ipAddress
    */
-  @ApiModelProperty(value = "The IP address of the user accepting the Terms of Service.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIpAddress() {
@@ -104,7 +100,7 @@ public class AcceptTermsOfServiceRequest {
    * The IP address of the user accepting the Terms of Service.
    *
    * @param ipAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {

@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.BankAccountInfo;
@@ -25,9 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,10 +51,10 @@ public class TransferInstrument {
   private BankAccountInfo bankAccount;
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private Map<String, SupportingEntityCapability> capabilities = null;
+  private Map<String, SupportingEntityCapability> capabilities = new HashMap<>();
 
   public static final String JSON_PROPERTY_DOCUMENT_DETAILS = "documentDetails";
-  private List<DocumentReference> documentDetails = null;
+  private List<DocumentReference> documentDetails = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -65,15 +63,15 @@ public class TransferInstrument {
   private String legalEntityId;
 
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
-  private List<CapabilityProblem> problems = null;
+  private List<CapabilityProblem> problems = new ArrayList<>();
 
   /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
    */
   public enum TypeEnum {
-    BANKACCOUNT("bankAccount"),
+    BANKACCOUNT(String.valueOf("bankAccount")),
     
-    RECURRINGDETAIL("recurringDetail");
+    RECURRINGDETAIL(String.valueOf("recurringDetail"));
 
     private String value;
 
@@ -108,6 +106,14 @@ public class TransferInstrument {
   public TransferInstrument() { 
   }
 
+  @JsonCreator
+  public TransferInstrument(
+    @JsonProperty(JSON_PROPERTY_ID) String id
+  ) {
+    this();
+    this.id = id;
+  }
+
   /**
    * bankAccount
    *
@@ -120,12 +126,11 @@ public class TransferInstrument {
   }
 
   /**
-   * bankAccount
+   * Get bankAccount
    * @return bankAccount
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public BankAccountInfo getBankAccount() {
     return bankAccount;
   }
@@ -134,9 +139,9 @@ public class TransferInstrument {
    * bankAccount
    *
    * @param bankAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBankAccount(BankAccountInfo bankAccount) {
     this.bankAccount = bankAccount;
   }
@@ -164,7 +169,6 @@ public class TransferInstrument {
    * List of capabilities for this transfer instrument.
    * @return capabilities
    */
-  @ApiModelProperty(value = "List of capabilities for this transfer instrument.")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, SupportingEntityCapability> getCapabilities() {
@@ -175,7 +179,7 @@ public class TransferInstrument {
    * List of capabilities for this transfer instrument.
    *
    * @param capabilities
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, SupportingEntityCapability> capabilities) {
@@ -205,7 +209,6 @@ public class TransferInstrument {
    * List of documents uploaded for the transfer instrument.
    * @return documentDetails
    */
-  @ApiModelProperty(value = "List of documents uploaded for the transfer instrument.")
   @JsonProperty(JSON_PROPERTY_DOCUMENT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DocumentReference> getDocumentDetails() {
@@ -216,7 +219,7 @@ public class TransferInstrument {
    * List of documents uploaded for the transfer instrument.
    *
    * @param documentDetails
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocumentDetails(List<DocumentReference> documentDetails) {
@@ -225,36 +228,14 @@ public class TransferInstrument {
 
   /**
    * The unique identifier of the transfer instrument.
-   *
-   * @param id
-   * @return the current {@code TransferInstrument} instance, allowing for method chaining
-   */
-  public TransferInstrument id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The unique identifier of the transfer instrument.
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the transfer instrument.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
 
-  /**
-   * The unique identifier of the transfer instrument.
-   *
-   * @param id
-   */ 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
 
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
@@ -271,9 +252,8 @@ public class TransferInstrument {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    * @return legalEntityId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLegalEntityId() {
     return legalEntityId;
   }
@@ -282,9 +262,9 @@ public class TransferInstrument {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    *
    * @param legalEntityId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
@@ -312,7 +292,6 @@ public class TransferInstrument {
    * The verification errors related to capabilities for this transfer instrument.
    * @return problems
    */
-  @ApiModelProperty(value = "The verification errors related to capabilities for this transfer instrument.")
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CapabilityProblem> getProblems() {
@@ -323,7 +302,7 @@ public class TransferInstrument {
    * The verification errors related to capabilities for this transfer instrument.
    *
    * @param problems
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
@@ -345,9 +324,8 @@ public class TransferInstrument {
    * The type of transfer instrument.  Possible value: **bankAccount**.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The type of transfer instrument.  Possible value: **bankAccount**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -356,9 +334,9 @@ public class TransferInstrument {
    * The type of transfer instrument.  Possible value: **bankAccount**.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

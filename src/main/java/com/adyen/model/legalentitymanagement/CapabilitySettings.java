@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Amount;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +43,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CapabilitySettings {
   public static final String JSON_PROPERTY_AMOUNT_PER_INDUSTRY = "amountPerIndustry";
-  private Map<String, Amount> amountPerIndustry = null;
+  private Map<String, Amount> amountPerIndustry = new HashMap<>();
 
   public static final String JSON_PROPERTY_AUTHORIZED_CARD_USERS = "authorizedCardUsers";
   private Boolean authorizedCardUsers;
@@ -54,11 +52,11 @@ public class CapabilitySettings {
    * Gets or Sets fundingSource
    */
   public enum FundingSourceEnum {
-    CREDIT("credit"),
+    CREDIT(String.valueOf("credit")),
     
-    DEBIT("debit"),
+    DEBIT(String.valueOf("debit")),
     
-    PREPAID("prepaid");
+    PREPAID(String.valueOf("prepaid"));
 
     private String value;
 
@@ -88,17 +86,17 @@ public class CapabilitySettings {
   }
 
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
-  private List<FundingSourceEnum> fundingSource = null;
+  private List<FundingSourceEnum> fundingSource = new ArrayList<>();
 
   /**
    * The period when the rule conditions apply.
    */
   public enum IntervalEnum {
-    DAILY("daily"),
+    DAILY(String.valueOf("daily")),
     
-    MONTHLY("monthly"),
+    MONTHLY(String.valueOf("monthly")),
     
-    WEEKLY("weekly");
+    WEEKLY(String.valueOf("weekly"));
 
     private String value;
 
@@ -159,7 +157,6 @@ public class CapabilitySettings {
    * The maximum amount a card holder can spend per industry.
    * @return amountPerIndustry
    */
-  @ApiModelProperty(value = "The maximum amount a card holder can spend per industry.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Amount> getAmountPerIndustry() {
@@ -170,7 +167,7 @@ public class CapabilitySettings {
    * The maximum amount a card holder can spend per industry.
    *
    * @param amountPerIndustry
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountPerIndustry(Map<String, Amount> amountPerIndustry) {
@@ -192,7 +189,6 @@ public class CapabilitySettings {
    * The number of card holders who can use the card.
    * @return authorizedCardUsers
    */
-  @ApiModelProperty(value = "The number of card holders who can use the card.")
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAuthorizedCardUsers() {
@@ -203,7 +199,7 @@ public class CapabilitySettings {
    * The number of card holders who can use the card.
    *
    * @param authorizedCardUsers
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorizedCardUsers(Boolean authorizedCardUsers) {
@@ -233,7 +229,6 @@ public class CapabilitySettings {
    * The funding source of the card, for example **debit**.
    * @return fundingSource
    */
-  @ApiModelProperty(value = "The funding source of the card, for example **debit**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<FundingSourceEnum> getFundingSource() {
@@ -244,7 +239,7 @@ public class CapabilitySettings {
    * The funding source of the card, for example **debit**.
    *
    * @param fundingSource
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(List<FundingSourceEnum> fundingSource) {
@@ -266,7 +261,6 @@ public class CapabilitySettings {
    * The period when the rule conditions apply.
    * @return interval
    */
-  @ApiModelProperty(value = "The period when the rule conditions apply.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IntervalEnum getInterval() {
@@ -277,7 +271,7 @@ public class CapabilitySettings {
    * The period when the rule conditions apply.
    *
    * @param interval
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterval(IntervalEnum interval) {
@@ -296,10 +290,9 @@ public class CapabilitySettings {
   }
 
   /**
-   * maxAmount
+   * Get maxAmount
    * @return maxAmount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getMaxAmount() {
@@ -310,7 +303,7 @@ public class CapabilitySettings {
    * maxAmount
    *
    * @param maxAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(Amount maxAmount) {

@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -47,7 +45,7 @@ public class UKLocalAccountIdentification {
    * **ukLocal**
    */
   public enum TypeEnum {
-    UKLOCAL("ukLocal");
+    UKLOCAL(String.valueOf("ukLocal"));
 
     private String value;
 
@@ -77,7 +75,7 @@ public class UKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.UKLOCAL;
 
   public UKLocalAccountIdentification() { 
   }
@@ -97,9 +95,8 @@ public class UKLocalAccountIdentification {
    * The 8-digit bank account number, without separators or whitespace.
    * @return accountNumber
    */
-  @ApiModelProperty(required = true, value = "The 8-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -108,9 +105,9 @@ public class UKLocalAccountIdentification {
    * The 8-digit bank account number, without separators or whitespace.
    *
    * @param accountNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
@@ -130,9 +127,8 @@ public class UKLocalAccountIdentification {
    * The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    * @return sortCode
    */
-  @ApiModelProperty(required = true, value = "The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSortCode() {
     return sortCode;
   }
@@ -141,9 +137,9 @@ public class UKLocalAccountIdentification {
    * The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    *
    * @param sortCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSortCode(String sortCode) {
     this.sortCode = sortCode;
   }
@@ -163,9 +159,8 @@ public class UKLocalAccountIdentification {
    * **ukLocal**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**ukLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -174,9 +169,9 @@ public class UKLocalAccountIdentification {
    * **ukLocal**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
