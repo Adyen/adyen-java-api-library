@@ -13,7 +13,6 @@
 package com.adyen.model.negativebalancewarningwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.negativebalancewarningwebhooks.Amount;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -84,10 +82,9 @@ public class NegativeBalanceCompensationWarningNotificationData {
   }
 
   /**
-   * accountHolder
+   * Get accountHolder
    * @return accountHolder
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResourceReference getAccountHolder() {
@@ -98,7 +95,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * accountHolder
    *
    * @param accountHolder
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
@@ -117,10 +114,9 @@ public class NegativeBalanceCompensationWarningNotificationData {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -131,7 +127,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -153,7 +149,6 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The unique identifier of the balance platform.
    * @return balancePlatform
    */
-  @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
@@ -164,7 +159,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The unique identifier of the balance platform.
    *
    * @param balancePlatform
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -186,7 +181,6 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return creationDate
    */
-  @ApiModelProperty(value = "The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -197,7 +191,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
    * @param creationDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -219,7 +213,6 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The ID of the resource.
    * @return id
    */
-  @ApiModelProperty(value = "The ID of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -230,7 +223,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The ID of the resource.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -252,7 +245,6 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The balance account ID of the account that will be used to compensate the balance account whose balance is negative.
    * @return liableBalanceAccountId
    */
-  @ApiModelProperty(value = "The balance account ID of the account that will be used to compensate the balance account whose balance is negative.")
   @JsonProperty(JSON_PROPERTY_LIABLE_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLiableBalanceAccountId() {
@@ -263,7 +255,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The balance account ID of the account that will be used to compensate the balance account whose balance is negative.
    *
    * @param liableBalanceAccountId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LIABLE_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLiableBalanceAccountId(String liableBalanceAccountId) {
@@ -285,7 +277,6 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The date the balance for the account became negative.
    * @return negativeBalanceSince
    */
-  @ApiModelProperty(value = "The date the balance for the account became negative.")
   @JsonProperty(JSON_PROPERTY_NEGATIVE_BALANCE_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getNegativeBalanceSince() {
@@ -296,7 +287,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The date the balance for the account became negative.
    *
    * @param negativeBalanceSince
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NEGATIVE_BALANCE_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNegativeBalanceSince(OffsetDateTime negativeBalanceSince) {
@@ -318,7 +309,6 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The date when a compensation transfer to the account is scheduled to happen.
    * @return scheduledCompensationAt
    */
-  @ApiModelProperty(value = "The date when a compensation transfer to the account is scheduled to happen.")
   @JsonProperty(JSON_PROPERTY_SCHEDULED_COMPENSATION_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getScheduledCompensationAt() {
@@ -329,7 +319,7 @@ public class NegativeBalanceCompensationWarningNotificationData {
    * The date when a compensation transfer to the account is scheduled to happen.
    *
    * @param scheduledCompensationAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SCHEDULED_COMPENSATION_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheduledCompensationAt(OffsetDateTime scheduledCompensationAt) {
