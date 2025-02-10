@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payout.Address;
@@ -24,10 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,7 +44,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class FundSource {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
@@ -90,7 +87,6 @@ public class FundSource {
    * A map of name-value pairs for passing additional or industry-specific data.
    * @return additionalData
    */
-  @ApiModelProperty(value = "A map of name-value pairs for passing additional or industry-specific data.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -101,7 +97,7 @@ public class FundSource {
    * A map of name-value pairs for passing additional or industry-specific data.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -120,10 +116,9 @@ public class FundSource {
   }
 
   /**
-   * billingAddress
+   * Get billingAddress
    * @return billingAddress
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getBillingAddress() {
@@ -134,7 +129,7 @@ public class FundSource {
    * billingAddress
    *
    * @param billingAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -153,10 +148,9 @@ public class FundSource {
   }
 
   /**
-   * card
+   * Get card
    * @return card
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Card getCard() {
@@ -167,7 +161,7 @@ public class FundSource {
    * card
    *
    * @param card
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -189,7 +183,6 @@ public class FundSource {
    * Email address of the person.
    * @return shopperEmail
    */
-  @ApiModelProperty(value = "Email address of the person.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -200,7 +193,7 @@ public class FundSource {
    * Email address of the person.
    *
    * @param shopperEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -219,10 +212,9 @@ public class FundSource {
   }
 
   /**
-   * shopperName
+   * Get shopperName
    * @return shopperName
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getShopperName() {
@@ -233,7 +225,7 @@ public class FundSource {
    * shopperName
    *
    * @param shopperName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -255,7 +247,6 @@ public class FundSource {
    * Phone number of the person
    * @return telephoneNumber
    */
-  @ApiModelProperty(value = "Phone number of the person")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
@@ -266,7 +257,7 @@ public class FundSource {
    * Phone number of the person
    *
    * @param telephoneNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {

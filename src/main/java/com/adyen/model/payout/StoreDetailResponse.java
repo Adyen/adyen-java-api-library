@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class StoreDetailResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -79,7 +76,6 @@ public class StoreDetailResponse {
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -90,7 +86,7 @@ public class StoreDetailResponse {
    * This field contains additional data, which may be returned in a particular response.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -112,9 +108,8 @@ public class StoreDetailResponse {
    * A new reference to uniquely identify this request.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "A new reference to uniquely identify this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPspReference() {
     return pspReference;
   }
@@ -123,9 +118,9 @@ public class StoreDetailResponse {
    * A new reference to uniquely identify this request.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -145,9 +140,8 @@ public class StoreDetailResponse {
    * The token which you can use later on for submitting the payout.
    * @return recurringDetailReference
    */
-  @ApiModelProperty(required = true, value = "The token which you can use later on for submitting the payout.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
@@ -156,9 +150,9 @@ public class StoreDetailResponse {
    * The token which you can use later on for submitting the payout.
    *
    * @param recurringDetailReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
@@ -178,9 +172,8 @@ public class StoreDetailResponse {
    * The result code of the transaction. &#x60;Success&#x60; indicates that the details were stored successfully.
    * @return resultCode
    */
-  @ApiModelProperty(required = true, value = "The result code of the transaction. `Success` indicates that the details were stored successfully.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getResultCode() {
     return resultCode;
   }
@@ -189,9 +182,9 @@ public class StoreDetailResponse {
    * The result code of the transaction. &#x60;Success&#x60; indicates that the details were stored successfully.
    *
    * @param resultCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }

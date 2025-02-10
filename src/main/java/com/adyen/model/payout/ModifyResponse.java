@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,7 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ModifyResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -75,7 +72,6 @@ public class ModifyResponse {
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -86,7 +82,7 @@ public class ModifyResponse {
    * This field contains additional data, which may be returned in a particular response.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -108,9 +104,8 @@ public class ModifyResponse {
    * Adyen&#39;s 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPspReference() {
     return pspReference;
   }
@@ -119,9 +114,9 @@ public class ModifyResponse {
    * Adyen&#39;s 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -141,9 +136,8 @@ public class ModifyResponse {
    * The response: * In case of success, it is either &#x60;payout-confirm-received&#x60; or &#x60;payout-decline-received&#x60;. * In case of an error, an informational message is returned.
    * @return response
    */
-  @ApiModelProperty(required = true, value = "The response: * In case of success, it is either `payout-confirm-received` or `payout-decline-received`. * In case of an error, an informational message is returned.")
   @JsonProperty(JSON_PROPERTY_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getResponse() {
     return response;
   }
@@ -152,9 +146,9 @@ public class ModifyResponse {
    * The response: * In case of success, it is either &#x60;payout-confirm-received&#x60; or &#x60;payout-decline-received&#x60;. * In case of an error, an informational message is returned.
    *
    * @param response
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResponse(String response) {
     this.response = response;
   }

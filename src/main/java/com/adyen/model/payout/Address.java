@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -76,9 +74,8 @@ public class Address {
    * The name of the city. Maximum length: 3000 characters.
    * @return city
    */
-  @ApiModelProperty(required = true, value = "The name of the city. Maximum length: 3000 characters.")
   @JsonProperty(JSON_PROPERTY_CITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCity() {
     return city;
   }
@@ -87,9 +84,9 @@ public class Address {
    * The name of the city. Maximum length: 3000 characters.
    *
    * @param city
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCity(String city) {
     this.city = city;
   }
@@ -109,9 +106,8 @@ public class Address {
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
    * @return country
    */
-  @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code. For example, **US**. > If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCountry() {
     return country;
   }
@@ -120,9 +116,9 @@ public class Address {
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
    *
    * @param country
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCountry(String country) {
     this.country = country;
   }
@@ -142,9 +138,8 @@ public class Address {
    * The number or name of the house. Maximum length: 3000 characters.
    * @return houseNumberOrName
    */
-  @ApiModelProperty(required = true, value = "The number or name of the house. Maximum length: 3000 characters.")
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getHouseNumberOrName() {
     return houseNumberOrName;
   }
@@ -153,9 +148,9 @@ public class Address {
    * The number or name of the house. Maximum length: 3000 characters.
    *
    * @param houseNumberOrName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHouseNumberOrName(String houseNumberOrName) {
     this.houseNumberOrName = houseNumberOrName;
   }
@@ -175,9 +170,8 @@ public class Address {
    * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
    * @return postalCode
    */
-  @ApiModelProperty(required = true, value = "A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPostalCode() {
     return postalCode;
   }
@@ -186,9 +180,9 @@ public class Address {
    * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
    *
    * @param postalCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
@@ -208,7 +202,6 @@ public class Address {
    * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
    * @return stateOrProvince
    */
-  @ApiModelProperty(value = "The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. > Required for the US and Canada.")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStateOrProvince() {
@@ -219,7 +212,7 @@ public class Address {
    * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
    *
    * @param stateOrProvince
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -241,9 +234,8 @@ public class Address {
    * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
    * @return street
    */
-  @ApiModelProperty(required = true, value = "The name of the street. Maximum length: 3000 characters. > The house number should not be included in this field; it should be separately provided via `houseNumberOrName`.")
   @JsonProperty(JSON_PROPERTY_STREET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getStreet() {
     return street;
   }
@@ -252,9 +244,9 @@ public class Address {
    * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
    *
    * @param street
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STREET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStreet(String street) {
     this.street = street;
   }

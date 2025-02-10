@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class StoreDetailAndSubmitResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -79,7 +76,6 @@ public class StoreDetailAndSubmitResponse {
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -90,7 +86,7 @@ public class StoreDetailAndSubmitResponse {
    * This field contains additional data, which may be returned in a particular response.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -112,9 +108,8 @@ public class StoreDetailAndSubmitResponse {
    * A new reference to uniquely identify this request.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "A new reference to uniquely identify this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPspReference() {
     return pspReference;
   }
@@ -123,9 +118,9 @@ public class StoreDetailAndSubmitResponse {
    * A new reference to uniquely identify this request.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -145,7 +140,6 @@ public class StoreDetailAndSubmitResponse {
    * In case of refusal, an informational message for the reason.
    * @return refusalReason
    */
-  @ApiModelProperty(value = "In case of refusal, an informational message for the reason.")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRefusalReason() {
@@ -156,7 +150,7 @@ public class StoreDetailAndSubmitResponse {
    * In case of refusal, an informational message for the reason.
    *
    * @param refusalReason
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
@@ -178,9 +172,8 @@ public class StoreDetailAndSubmitResponse {
    * The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.
    * @return resultCode
    */
-  @ApiModelProperty(required = true, value = "The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getResultCode() {
     return resultCode;
   }
@@ -189,9 +182,9 @@ public class StoreDetailAndSubmitResponse {
    * The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.
    *
    * @param resultCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }

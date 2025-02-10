@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,7 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ModifyRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -75,7 +72,6 @@ public class ModifyRequest {
    * This field contains additional data, which may be required for a particular payout request.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payout request.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -86,7 +82,7 @@ public class ModifyRequest {
    * This field contains additional data, which may be required for a particular payout request.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -108,9 +104,8 @@ public class ModifyRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -119,9 +114,9 @@ public class ModifyRequest {
    * The merchant account identifier, with which you want to process the transaction.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -141,9 +136,8 @@ public class ModifyRequest {
    * The PSP reference received in the &#x60;/submitThirdParty&#x60; response.
    * @return originalReference
    */
-  @ApiModelProperty(required = true, value = "The PSP reference received in the `/submitThirdParty` response.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getOriginalReference() {
     return originalReference;
   }
@@ -152,9 +146,9 @@ public class ModifyRequest {
    * The PSP reference received in the &#x60;/submitThirdParty&#x60; response.
    *
    * @param originalReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOriginalReference(String originalReference) {
     this.originalReference = originalReference;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payout.Amount;
@@ -24,11 +23,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -57,7 +54,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class SubmitRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
@@ -69,9 +66,9 @@ public class SubmitRequest {
    * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company &gt; This field is required to update the existing &#x60;entityType&#x60; that is associated with this recurring contract.
    */
   public enum EntityTypeEnum {
-    NATURALPERSON("NaturalPerson"),
+    NATURALPERSON(String.valueOf("NaturalPerson")),
     
-    COMPANY("Company");
+    COMPANY(String.valueOf("Company"));
 
     private String value;
 
@@ -162,7 +159,6 @@ public class SubmitRequest {
    * This field contains additional data, which may be required for a particular request.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -173,7 +169,7 @@ public class SubmitRequest {
    * This field contains additional data, which may be required for a particular request.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -192,12 +188,11 @@ public class SubmitRequest {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Amount getAmount() {
     return amount;
   }
@@ -206,9 +201,9 @@ public class SubmitRequest {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -228,7 +223,6 @@ public class SubmitRequest {
    * The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  &gt; This field is mandatory for natural persons.  &gt; This field is required to update the existing &#x60;dateOfBirth&#x60; that is associated with this recurring contract.
    * @return dateOfBirth
    */
-  @ApiModelProperty(value = "The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  > This field is mandatory for natural persons.  > This field is required to update the existing `dateOfBirth` that is associated with this recurring contract.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LocalDate getDateOfBirth() {
@@ -239,7 +233,7 @@ public class SubmitRequest {
    * The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  &gt; This field is mandatory for natural persons.  &gt; This field is required to update the existing &#x60;dateOfBirth&#x60; that is associated with this recurring contract.
    *
    * @param dateOfBirth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -261,7 +255,6 @@ public class SubmitRequest {
    * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company &gt; This field is required to update the existing &#x60;entityType&#x60; that is associated with this recurring contract.
    * @return entityType
    */
-  @ApiModelProperty(value = "The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company > This field is required to update the existing `entityType` that is associated with this recurring contract.")
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EntityTypeEnum getEntityType() {
@@ -272,7 +265,7 @@ public class SubmitRequest {
    * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company &gt; This field is required to update the existing &#x60;entityType&#x60; that is associated with this recurring contract.
    *
    * @param entityType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(EntityTypeEnum entityType) {
@@ -294,7 +287,6 @@ public class SubmitRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
    */
-  @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getFraudOffset() {
@@ -305,7 +297,7 @@ public class SubmitRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    *
    * @param fraudOffset
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
@@ -327,9 +319,8 @@ public class SubmitRequest {
    * The merchant account identifier you want to process the transaction request with.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier you want to process the transaction request with.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -338,9 +329,9 @@ public class SubmitRequest {
    * The merchant account identifier you want to process the transaction request with.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -360,7 +351,6 @@ public class SubmitRequest {
    * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).  &gt; This field is required to update the existing nationality that is associated with this recurring contract.
    * @return nationality
    */
-  @ApiModelProperty(value = "The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').  > This field is required to update the existing nationality that is associated with this recurring contract.")
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNationality() {
@@ -371,7 +361,7 @@ public class SubmitRequest {
    * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).  &gt; This field is required to update the existing nationality that is associated with this recurring contract.
    *
    * @param nationality
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
@@ -390,12 +380,11 @@ public class SubmitRequest {
   }
 
   /**
-   * recurring
+   * Get recurring
    * @return recurring
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Recurring getRecurring() {
     return recurring;
   }
@@ -404,9 +393,9 @@ public class SubmitRequest {
    * recurring
    *
    * @param recurring
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRecurring(Recurring recurring) {
     this.recurring = recurring;
   }
@@ -426,9 +415,8 @@ public class SubmitRequest {
    * The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
    * @return reference
    */
-  @ApiModelProperty(required = true, value = "The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getReference() {
     return reference;
   }
@@ -437,9 +425,9 @@ public class SubmitRequest {
    * The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReference(String reference) {
     this.reference = reference;
   }
@@ -459,9 +447,8 @@ public class SubmitRequest {
    * This is the &#x60;recurringDetailReference&#x60; you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.
    * @return selectedRecurringDetailReference
    */
-  @ApiModelProperty(required = true, value = "This is the `recurringDetailReference` you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.")
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSelectedRecurringDetailReference() {
     return selectedRecurringDetailReference;
   }
@@ -470,9 +457,9 @@ public class SubmitRequest {
    * This is the &#x60;recurringDetailReference&#x60; you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.
    *
    * @param selectedRecurringDetailReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
     this.selectedRecurringDetailReference = selectedRecurringDetailReference;
   }
@@ -492,9 +479,8 @@ public class SubmitRequest {
    * The shopper&#39;s email address.
    * @return shopperEmail
    */
-  @ApiModelProperty(required = true, value = "The shopper's email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getShopperEmail() {
     return shopperEmail;
   }
@@ -503,9 +489,9 @@ public class SubmitRequest {
    * The shopper&#39;s email address.
    *
    * @param shopperEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
@@ -522,10 +508,9 @@ public class SubmitRequest {
   }
 
   /**
-   * shopperName
+   * Get shopperName
    * @return shopperName
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getShopperName() {
@@ -536,7 +521,7 @@ public class SubmitRequest {
    * shopperName
    *
    * @param shopperName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -558,9 +543,8 @@ public class SubmitRequest {
    * The shopper&#39;s reference for the payout transaction.
    * @return shopperReference
    */
-  @ApiModelProperty(required = true, value = "The shopper's reference for the payout transaction.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getShopperReference() {
     return shopperReference;
   }
@@ -569,9 +553,9 @@ public class SubmitRequest {
    * The shopper&#39;s reference for the payout transaction.
    *
    * @param shopperReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
@@ -591,7 +575,6 @@ public class SubmitRequest {
    * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
    * @return shopperStatement
    */
-  @ApiModelProperty(value = "The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperStatement() {
@@ -602,7 +585,7 @@ public class SubmitRequest {
    * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
    *
    * @param shopperStatement
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
@@ -624,7 +607,6 @@ public class SubmitRequest {
    * The shopper&#39;s social security number.
    * @return socialSecurityNumber
    */
-  @ApiModelProperty(value = "The shopper's social security number.")
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSocialSecurityNumber() {
@@ -635,7 +617,7 @@ public class SubmitRequest {
    * The shopper&#39;s social security number.
    *
    * @param socialSecurityNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
