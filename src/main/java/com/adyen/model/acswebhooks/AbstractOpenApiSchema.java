@@ -14,7 +14,7 @@ package com.adyen.model.acswebhooks;
 
 import java.util.Objects;
 import java.util.Map;
-import jakarta.ws.rs.core.GenericType;
+import .ws.rs.core.GenericType;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

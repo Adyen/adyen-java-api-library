@@ -20,8 +20,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -40,22 +41,26 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ChallengeInfo {
   /**
-   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    */
   public enum ChallengeCancelEnum {
-    _01(String.valueOf("01")),
+    _00("00"),
     
-    _02(String.valueOf("02")),
+    _01("01"),
     
-    _03(String.valueOf("03")),
+    _02("02"),
     
-    _04(String.valueOf("04")),
+    _03("03"),
     
-    _05(String.valueOf("05")),
+    _04("04"),
     
-    _06(String.valueOf("06")),
+    _05("05"),
     
-    _07(String.valueOf("07"));
+    _06("06"),
+    
+    _07("07"),
+    
+    _08("08");
 
     private String value;
 
@@ -91,9 +96,9 @@ public class ChallengeInfo {
    * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
    */
   public enum FlowEnum {
-    OTP_SMS(String.valueOf("OTP_SMS")),
+    OTP_SMS("OTP_SMS"),
     
-    OOB(String.valueOf("OOB"));
+    OOB("OOB");
 
     private String value;
 
@@ -141,7 +146,7 @@ public class ChallengeInfo {
   }
 
   /**
-   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    *
    * @param challengeCancel
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
@@ -152,7 +157,7 @@ public class ChallengeInfo {
   }
 
   /**
-   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    * @return challengeCancel
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
@@ -162,7 +167,7 @@ public class ChallengeInfo {
   }
 
   /**
-   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    *
    * @param challengeCancel
    */
