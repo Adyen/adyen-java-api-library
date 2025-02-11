@@ -13,7 +13,6 @@
 package com.adyen.model.reportwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.reportwebhooks.ResourceReference;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -83,10 +81,9 @@ public class ReportNotificationData {
   }
 
   /**
-   * accountHolder
+   * Get accountHolder
    * @return accountHolder
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResourceReference getAccountHolder() {
@@ -97,7 +94,7 @@ public class ReportNotificationData {
    * accountHolder
    *
    * @param accountHolder
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
@@ -116,10 +113,9 @@ public class ReportNotificationData {
   }
 
   /**
-   * balanceAccount
+   * Get balanceAccount
    * @return balanceAccount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResourceReference getBalanceAccount() {
@@ -130,7 +126,7 @@ public class ReportNotificationData {
    * balanceAccount
    *
    * @param balanceAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
@@ -152,7 +148,6 @@ public class ReportNotificationData {
    * The unique identifier of the balance platform.
    * @return balancePlatform
    */
-  @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
@@ -163,7 +158,7 @@ public class ReportNotificationData {
    * The unique identifier of the balance platform.
    *
    * @param balancePlatform
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -185,7 +180,6 @@ public class ReportNotificationData {
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return creationDate
    */
-  @ApiModelProperty(value = "The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -196,7 +190,7 @@ public class ReportNotificationData {
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
    * @param creationDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -218,9 +212,8 @@ public class ReportNotificationData {
    * The URL at which you can download the report. To download, you must authenticate your GET request with your [API credentials](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/overview).
    * @return downloadUrl
    */
-  @ApiModelProperty(required = true, value = "The URL at which you can download the report. To download, you must authenticate your GET request with your [API credentials](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/overview).")
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDownloadUrl() {
     return downloadUrl;
   }
@@ -229,9 +222,9 @@ public class ReportNotificationData {
    * The URL at which you can download the report. To download, you must authenticate your GET request with your [API credentials](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/overview).
    *
    * @param downloadUrl
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
   }
@@ -251,9 +244,8 @@ public class ReportNotificationData {
    * The filename of the report.
    * @return fileName
    */
-  @ApiModelProperty(required = true, value = "The filename of the report.")
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFileName() {
     return fileName;
   }
@@ -262,9 +254,9 @@ public class ReportNotificationData {
    * The filename of the report.
    *
    * @param fileName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
@@ -284,7 +276,6 @@ public class ReportNotificationData {
    * The ID of the resource.
    * @return id
    */
-  @ApiModelProperty(value = "The ID of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -295,7 +286,7 @@ public class ReportNotificationData {
    * The ID of the resource.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -317,9 +308,8 @@ public class ReportNotificationData {
    * The type of report. Possible values:  - &#x60;balanceplatform_accounting_interactive_report&#x60; - &#x60;balanceplatform_accounting_report&#x60; - &#x60;balanceplatform_balance_report&#x60; - &#x60;balanceplatform_fee_report&#x60; - &#x60;balanceplatform_payment_instrument_report&#x60; - &#x60;balanceplatform_payout_report&#x60; - &#x60;balanceplatform_statement_report&#x60;  
    * @return reportType
    */
-  @ApiModelProperty(required = true, value = "The type of report. Possible values:  - `balanceplatform_accounting_interactive_report` - `balanceplatform_accounting_report` - `balanceplatform_balance_report` - `balanceplatform_fee_report` - `balanceplatform_payment_instrument_report` - `balanceplatform_payout_report` - `balanceplatform_statement_report`  ")
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getReportType() {
     return reportType;
   }
@@ -328,9 +318,9 @@ public class ReportNotificationData {
    * The type of report. Possible values:  - &#x60;balanceplatform_accounting_interactive_report&#x60; - &#x60;balanceplatform_accounting_report&#x60; - &#x60;balanceplatform_balance_report&#x60; - &#x60;balanceplatform_fee_report&#x60; - &#x60;balanceplatform_payment_instrument_report&#x60; - &#x60;balanceplatform_payout_report&#x60; - &#x60;balanceplatform_statement_report&#x60;  
    *
    * @param reportType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReportType(String reportType) {
     this.reportType = reportType;
   }

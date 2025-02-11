@@ -13,7 +13,6 @@
 package com.adyen.model.reportwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.reportwebhooks.ReportNotificationData;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,7 +51,7 @@ public class ReportNotificationRequest {
    * Type of webhook.
    */
   public enum TypeEnum {
-    BALANCEPLATFORM_REPORT_CREATED("balancePlatform.report.created");
+    BALANCEPLATFORM_REPORT_CREATED(String.valueOf("balancePlatform.report.created"));
 
     private String value;
 
@@ -100,12 +98,11 @@ public class ReportNotificationRequest {
   }
 
   /**
-   * data
+   * Get data
    * @return data
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ReportNotificationData getData() {
     return data;
   }
@@ -114,9 +111,9 @@ public class ReportNotificationRequest {
    * data
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(ReportNotificationData data) {
     this.data = data;
   }
@@ -136,9 +133,8 @@ public class ReportNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return environment
    */
-  @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEnvironment() {
     return environment;
   }
@@ -147,9 +143,9 @@ public class ReportNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
    * @param environment
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }
@@ -169,7 +165,6 @@ public class ReportNotificationRequest {
    * When the event was queued.
    * @return timestamp
    */
-  @ApiModelProperty(value = "When the event was queued.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {
@@ -180,7 +175,7 @@ public class ReportNotificationRequest {
    * When the event was queued.
    *
    * @param timestamp
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(OffsetDateTime timestamp) {
@@ -202,9 +197,8 @@ public class ReportNotificationRequest {
    * Type of webhook.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "Type of webhook.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -213,9 +207,9 @@ public class ReportNotificationRequest {
    * Type of webhook.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
