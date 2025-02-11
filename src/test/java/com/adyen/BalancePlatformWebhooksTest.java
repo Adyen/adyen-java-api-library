@@ -34,7 +34,8 @@ public class BalancePlatformWebhooksTest extends BaseTest {
         assertTrue(notificationRequest.isPresent());
 
         AccountHolderNotificationRequest accountHolderNotificationRequest = notificationRequest.get();
-        assertEquals(AccountHolderNotificationRequest.TypeEnum.CREATED, accountHolderNotificationRequest.getType());
+//        assertEquals(AccountHolderNotificationRequest.TypeEnum.CREATED, accountHolderNotificationRequest.getType());
+        assertEquals(AccountHolderNotificationRequest.TypeEnum.BALANCEPLATFORM_ACCOUNTHOLDER_CREATED, accountHolderNotificationRequest.getType());
         assertEquals("test", accountHolderNotificationRequest.getEnvironment());
         assertNotNull(accountHolderNotificationRequest.getTimestamp());
 
@@ -55,7 +56,8 @@ public class BalancePlatformWebhooksTest extends BaseTest {
         assertTrue(notificationRequest.isPresent());
 
         AccountHolderNotificationRequest accountHolderNotificationRequest = notificationRequest.get();
-        assertEquals(AccountHolderNotificationRequest.TypeEnum.CREATED, accountHolderNotificationRequest.getType());
+//        assertEquals(AccountHolderNotificationRequest.TypeEnum.CREATED, accountHolderNotificationRequest.getType());
+        assertEquals(AccountHolderNotificationRequest.TypeEnum.BALANCEPLATFORM_ACCOUNTHOLDER_CREATED, accountHolderNotificationRequest.getType());
         assertEquals("test", accountHolderNotificationRequest.getEnvironment());
         assertNotNull(accountHolderNotificationRequest.getTimestamp());
 
@@ -80,7 +82,8 @@ public class BalancePlatformWebhooksTest extends BaseTest {
         assertTrue(notificationRequest.isPresent());
 
         AccountHolderNotificationRequest accountHolderNotificationRequest = notificationRequest.get();
-        assertEquals(AccountHolderNotificationRequest.TypeEnum.UPDATED, accountHolderNotificationRequest.getType());
+//        assertEquals(AccountHolderNotificationRequest.TypeEnum.UPDATED, accountHolderNotificationRequest.getType());
+        assertEquals(AccountHolderNotificationRequest.TypeEnum.BALANCEPLATFORM_ACCOUNTHOLDER_UPDATED, accountHolderNotificationRequest.getType());
         assertEquals("test", accountHolderNotificationRequest.getEnvironment());
         assertNotNull(accountHolderNotificationRequest.getTimestamp());
 
