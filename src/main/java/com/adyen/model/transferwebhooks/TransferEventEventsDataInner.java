@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.Airline;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,9 +46,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -93,46 +89,33 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-
             // deserialize MerchantPurchaseData
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (MerchantPurchaseData.class.equals(Integer.class) || MerchantPurchaseData.class.equals(Long.class) || MerchantPurchaseData.class.equals(Float.class) || MerchantPurchaseData.class.equals(Double.class) || MerchantPurchaseData.class.equals(Boolean.class) || MerchantPurchaseData.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((MerchantPurchaseData.class.equals(Integer.class) || MerchantPurchaseData.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((MerchantPurchaseData.class.equals(Float.class) || MerchantPurchaseData.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (MerchantPurchaseData.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (MerchantPurchaseData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(MerchantPurchaseData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(MerchantPurchaseData.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'MerchantPurchaseData'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(MerchantPurchaseData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), MerchantPurchaseData.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'MerchantPurchaseData'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'MerchantPurchaseData'", e);
             }
 
-            // Throw error if there is no match
-            if (match == 0) {
-                throw new IOException(String.format("Failed deserialization for TransferEventEventsDataInner: %d classes match result, expected 1", match));
+            if (match == 1) {
+                TransferEventEventsDataInner ret = new TransferEventEventsDataInner();
+                ret.setActualInstance(deserialized);
+                return ret;
             }
-            // Log warning if there is more than one match
-            if (match > 1) {
-                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for TransferEventEventsDataInner: %d classes match result, expected 1", match));
-            }
-
-            TransferEventEventsDataInner ret = new TransferEventEventsDataInner();
-            ret.setActualInstance(deserialized);
-            return ret;
+            throw new IOException(String.format("Failed deserialization for TransferEventEventsDataInner: %d classes match result, expected 1", match));
         }
 
         /**
@@ -145,7 +128,7 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
     }
 
     // store a list of schema names defined in oneOf
-    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+    public static final Map<String, GenericType<?>> schemas = new HashMap<>();
 
     public TransferEventEventsDataInner() {
         super("oneOf", Boolean.FALSE);
@@ -163,7 +146,7 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
     }
 
     @Override
-    public Map<String, GenericType> getSchemas() {
+    public Map<String, GenericType<?>> getSchemas() {
         return TransferEventEventsDataInner.schemas;
     }
 
@@ -177,7 +160,7 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(MerchantPurchaseData.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(MerchantPurchaseData.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -207,6 +190,7 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
         return (MerchantPurchaseData)super.getActualInstance();
     }
 
+
     /**
     * Create an instance of TransferEventEventsDataInner given an JSON string
     *
@@ -226,5 +210,5 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
     public String toJson() throws JsonProcessingException {
         return JSON.getMapper().writeValueAsString(this);
     }
-}
 
+}

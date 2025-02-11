@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.TransferData;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,9 +51,9 @@ public class TransferNotificationRequest {
    * The type of webhook.
    */
   public enum TypeEnum {
-    CREATED("balancePlatform.transfer.created"),
+    BALANCEPLATFORM_TRANSFER_CREATED(String.valueOf("balancePlatform.transfer.created")),
     
-    UPDATED("balancePlatform.transfer.updated");
+    BALANCEPLATFORM_TRANSFER_UPDATED(String.valueOf("balancePlatform.transfer.updated"));
 
     private String value;
 
@@ -102,12 +100,11 @@ public class TransferNotificationRequest {
   }
 
   /**
-   * data
+   * Get data
    * @return data
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TransferData getData() {
     return data;
   }
@@ -116,9 +113,9 @@ public class TransferNotificationRequest {
    * data
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(TransferData data) {
     this.data = data;
   }
@@ -138,9 +135,8 @@ public class TransferNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return environment
    */
-  @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEnvironment() {
     return environment;
   }
@@ -149,9 +145,9 @@ public class TransferNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
    * @param environment
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }
@@ -171,7 +167,6 @@ public class TransferNotificationRequest {
    * When the event was queued.
    * @return timestamp
    */
-  @ApiModelProperty(value = "When the event was queued.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {
@@ -182,7 +177,7 @@ public class TransferNotificationRequest {
    * When the event was queued.
    *
    * @param timestamp
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(OffsetDateTime timestamp) {
@@ -204,7 +199,6 @@ public class TransferNotificationRequest {
    * The type of webhook.
    * @return type
    */
-  @ApiModelProperty(value = "The type of webhook.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -215,7 +209,7 @@ public class TransferNotificationRequest {
    * The type of webhook.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

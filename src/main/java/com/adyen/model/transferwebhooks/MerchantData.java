@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.NameLocation;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -73,7 +71,6 @@ public class MerchantData {
    * The unique identifier of the merchant&#39;s acquirer.
    * @return acquirerId
    */
-  @ApiModelProperty(value = "The unique identifier of the merchant's acquirer.")
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcquirerId() {
@@ -84,7 +81,7 @@ public class MerchantData {
    * The unique identifier of the merchant&#39;s acquirer.
    *
    * @param acquirerId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerId(String acquirerId) {
@@ -106,7 +103,6 @@ public class MerchantData {
    * The merchant category code.
    * @return mcc
    */
-  @ApiModelProperty(value = "The merchant category code.")
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMcc() {
@@ -117,7 +113,7 @@ public class MerchantData {
    * The merchant category code.
    *
    * @param mcc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
@@ -139,7 +135,6 @@ public class MerchantData {
    * The merchant identifier.
    * @return merchantId
    */
-  @ApiModelProperty(value = "The merchant identifier.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -150,7 +145,7 @@ public class MerchantData {
    * The merchant identifier.
    *
    * @param merchantId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -169,10 +164,9 @@ public class MerchantData {
   }
 
   /**
-   * nameLocation
+   * Get nameLocation
    * @return nameLocation
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NameLocation getNameLocation() {
@@ -183,7 +177,7 @@ public class MerchantData {
    * nameLocation
    *
    * @param nameLocation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNameLocation(NameLocation nameLocation) {
@@ -205,7 +199,6 @@ public class MerchantData {
    * The merchant postal code.
    * @return postalCode
    */
-  @ApiModelProperty(value = "The merchant postal code.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
@@ -216,7 +209,7 @@ public class MerchantData {
    * The merchant postal code.
    *
    * @param postalCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {

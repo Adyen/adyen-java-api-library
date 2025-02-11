@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -76,7 +74,6 @@ public class Leg {
    * The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.
    * @return arrivalAirportCode
    */
-  @ApiModelProperty(value = "The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.")
   @JsonProperty(JSON_PROPERTY_ARRIVAL_AIRPORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getArrivalAirportCode() {
@@ -87,7 +84,7 @@ public class Leg {
    * The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.
    *
    * @param arrivalAirportCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ARRIVAL_AIRPORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setArrivalAirportCode(String arrivalAirportCode) {
@@ -109,7 +106,6 @@ public class Leg {
    * The basic fare code for this leg.
    * @return basicFareCode
    */
-  @ApiModelProperty(value = "The basic fare code for this leg.")
   @JsonProperty(JSON_PROPERTY_BASIC_FARE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBasicFareCode() {
@@ -120,7 +116,7 @@ public class Leg {
    * The basic fare code for this leg.
    *
    * @param basicFareCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BASIC_FARE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasicFareCode(String basicFareCode) {
@@ -142,7 +138,6 @@ public class Leg {
    * IATA code of the carrier operating the flight.
    * @return carrierCode
    */
-  @ApiModelProperty(value = "IATA code of the carrier operating the flight.")
   @JsonProperty(JSON_PROPERTY_CARRIER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCarrierCode() {
@@ -153,7 +148,7 @@ public class Leg {
    * IATA code of the carrier operating the flight.
    *
    * @param carrierCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARRIER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarrierCode(String carrierCode) {
@@ -175,7 +170,6 @@ public class Leg {
    * The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details
    * @return departureAirportCode
    */
-  @ApiModelProperty(value = "The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details")
   @JsonProperty(JSON_PROPERTY_DEPARTURE_AIRPORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDepartureAirportCode() {
@@ -186,7 +180,7 @@ public class Leg {
    * The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details
    *
    * @param departureAirportCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEPARTURE_AIRPORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDepartureAirportCode(String departureAirportCode) {
@@ -208,7 +202,6 @@ public class Leg {
    * The flight departure date.
    * @return departureDate
    */
-  @ApiModelProperty(value = "The flight departure date.")
   @JsonProperty(JSON_PROPERTY_DEPARTURE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDepartureDate() {
@@ -219,7 +212,7 @@ public class Leg {
    * The flight departure date.
    *
    * @param departureDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEPARTURE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDepartureDate(String departureDate) {
@@ -241,7 +234,6 @@ public class Leg {
    * The flight identifier.
    * @return flightNumber
    */
-  @ApiModelProperty(value = "The flight identifier.")
   @JsonProperty(JSON_PROPERTY_FLIGHT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFlightNumber() {
@@ -252,7 +244,7 @@ public class Leg {
    * The flight identifier.
    *
    * @param flightNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FLIGHT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFlightNumber(String flightNumber) {

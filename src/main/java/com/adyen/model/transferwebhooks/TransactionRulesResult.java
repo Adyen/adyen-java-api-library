@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.TransactionEventViolation;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -51,7 +49,7 @@ public class TransactionRulesResult {
   private Integer score;
 
   public static final String JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES = "triggeredTransactionRules";
-  private List<TransactionEventViolation> triggeredTransactionRules = null;
+  private List<TransactionEventViolation> triggeredTransactionRules = new ArrayList<>();
 
   public TransactionRulesResult() { 
   }
@@ -71,7 +69,6 @@ public class TransactionRulesResult {
    * The advice given by the Risk analysis.
    * @return advice
    */
-  @ApiModelProperty(value = "The advice given by the Risk analysis.")
   @JsonProperty(JSON_PROPERTY_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAdvice() {
@@ -82,7 +79,7 @@ public class TransactionRulesResult {
    * The advice given by the Risk analysis.
    *
    * @param advice
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdvice(String advice) {
@@ -104,7 +101,6 @@ public class TransactionRulesResult {
    * Indicates whether the transaction passed the evaluation for all hardblock rules
    * @return allHardBlockRulesPassed
    */
-  @ApiModelProperty(value = "Indicates whether the transaction passed the evaluation for all hardblock rules")
   @JsonProperty(JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllHardBlockRulesPassed() {
@@ -115,7 +111,7 @@ public class TransactionRulesResult {
    * Indicates whether the transaction passed the evaluation for all hardblock rules
    *
    * @param allHardBlockRulesPassed
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllHardBlockRulesPassed(Boolean allHardBlockRulesPassed) {
@@ -137,7 +133,6 @@ public class TransactionRulesResult {
    * The score of the Risk analysis.
    * @return score
    */
-  @ApiModelProperty(value = "The score of the Risk analysis.")
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getScore() {
@@ -148,7 +143,7 @@ public class TransactionRulesResult {
    * The score of the Risk analysis.
    *
    * @param score
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {
@@ -178,7 +173,6 @@ public class TransactionRulesResult {
    * Array containing all the transaction rules that the transaction triggered.
    * @return triggeredTransactionRules
    */
-  @ApiModelProperty(value = "Array containing all the transaction rules that the transaction triggered.")
   @JsonProperty(JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TransactionEventViolation> getTriggeredTransactionRules() {
@@ -189,7 +183,7 @@ public class TransactionRulesResult {
    * Array containing all the transaction rules that the transaction triggered.
    *
    * @param triggeredTransactionRules
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTriggeredTransactionRules(List<TransactionEventViolation> triggeredTransactionRules) {

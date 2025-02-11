@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class EstimationTrackingData {
    * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    */
   public enum TypeEnum {
-    ESTIMATION("estimation");
+    ESTIMATION(String.valueOf("estimation"));
 
     private String value;
 
@@ -74,7 +72,7 @@ public class EstimationTrackingData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.ESTIMATION;
 
   public EstimationTrackingData() { 
   }
@@ -94,9 +92,8 @@ public class EstimationTrackingData {
    * The estimated time the beneficiary should have access to the funds.
    * @return estimatedArrivalTime
    */
-  @ApiModelProperty(required = true, value = "The estimated time the beneficiary should have access to the funds.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getEstimatedArrivalTime() {
     return estimatedArrivalTime;
   }
@@ -105,9 +102,9 @@ public class EstimationTrackingData {
    * The estimated time the beneficiary should have access to the funds.
    *
    * @param estimatedArrivalTime
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
   }
@@ -127,9 +124,8 @@ public class EstimationTrackingData {
    * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -138,9 +134,9 @@ public class EstimationTrackingData {
    * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.Airline;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class MerchantPurchaseData {
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    */
   public enum TypeEnum {
-    MERCHANTPURCHASEDATA("merchantPurchaseData");
+    MERCHANTPURCHASEDATA(String.valueOf("merchantPurchaseData"));
 
     private String value;
 
@@ -74,7 +72,7 @@ public class MerchantPurchaseData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.MERCHANTPURCHASEDATA;
 
   public MerchantPurchaseData() { 
   }
@@ -91,10 +89,9 @@ public class MerchantPurchaseData {
   }
 
   /**
-   * airline
+   * Get airline
    * @return airline
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AIRLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Airline getAirline() {
@@ -105,7 +102,7 @@ public class MerchantPurchaseData {
    * airline
    *
    * @param airline
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AIRLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirline(Airline airline) {
@@ -127,9 +124,8 @@ public class MerchantPurchaseData {
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -138,9 +134,9 @@ public class MerchantPurchaseData {
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

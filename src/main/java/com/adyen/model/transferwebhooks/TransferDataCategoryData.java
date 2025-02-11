@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.BankCategoryData;
@@ -27,9 +26,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -54,9 +52,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -99,130 +95,96 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-
             // deserialize BankCategoryData
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (BankCategoryData.class.equals(Integer.class) || BankCategoryData.class.equals(Long.class) || BankCategoryData.class.equals(Float.class) || BankCategoryData.class.equals(Double.class) || BankCategoryData.class.equals(Boolean.class) || BankCategoryData.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((BankCategoryData.class.equals(Integer.class) || BankCategoryData.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((BankCategoryData.class.equals(Float.class) || BankCategoryData.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (BankCategoryData.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (BankCategoryData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(BankCategoryData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(BankCategoryData.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'BankCategoryData'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(BankCategoryData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), BankCategoryData.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'BankCategoryData'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'BankCategoryData'", e);
             }
 
-
             // deserialize InternalCategoryData
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (InternalCategoryData.class.equals(Integer.class) || InternalCategoryData.class.equals(Long.class) || InternalCategoryData.class.equals(Float.class) || InternalCategoryData.class.equals(Double.class) || InternalCategoryData.class.equals(Boolean.class) || InternalCategoryData.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((InternalCategoryData.class.equals(Integer.class) || InternalCategoryData.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((InternalCategoryData.class.equals(Float.class) || InternalCategoryData.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (InternalCategoryData.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (InternalCategoryData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(InternalCategoryData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(InternalCategoryData.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'InternalCategoryData'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(InternalCategoryData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), InternalCategoryData.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'InternalCategoryData'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'InternalCategoryData'", e);
             }
 
-
             // deserialize IssuedCard
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (IssuedCard.class.equals(Integer.class) || IssuedCard.class.equals(Long.class) || IssuedCard.class.equals(Float.class) || IssuedCard.class.equals(Double.class) || IssuedCard.class.equals(Boolean.class) || IssuedCard.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((IssuedCard.class.equals(Integer.class) || IssuedCard.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((IssuedCard.class.equals(Float.class) || IssuedCard.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (IssuedCard.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (IssuedCard.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(IssuedCard.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(IssuedCard.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'IssuedCard'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(IssuedCard.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), IssuedCard.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'IssuedCard'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'IssuedCard'", e);
             }
 
-
             // deserialize PlatformPayment
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (PlatformPayment.class.equals(Integer.class) || PlatformPayment.class.equals(Long.class) || PlatformPayment.class.equals(Float.class) || PlatformPayment.class.equals(Double.class) || PlatformPayment.class.equals(Boolean.class) || PlatformPayment.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((PlatformPayment.class.equals(Integer.class) || PlatformPayment.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((PlatformPayment.class.equals(Float.class) || PlatformPayment.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (PlatformPayment.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (PlatformPayment.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(PlatformPayment.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(PlatformPayment.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PlatformPayment'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(PlatformPayment.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), PlatformPayment.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'PlatformPayment'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'PlatformPayment'", e);
             }
 
-            // Throw error if there is no match
-            if (match == 0) {
-                throw new IOException(String.format("Failed deserialization for TransferDataCategoryData: %d classes match result, expected 1", match));
+            if (match == 1) {
+                TransferDataCategoryData ret = new TransferDataCategoryData();
+                ret.setActualInstance(deserialized);
+                return ret;
             }
-            // Log warning if there is more than one match
-            if (match > 1) {
-                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for TransferDataCategoryData: %d classes match result, expected 1", match));
-            }
-
-            TransferDataCategoryData ret = new TransferDataCategoryData();
-            ret.setActualInstance(deserialized);
-            return ret;
+            throw new IOException(String.format("Failed deserialization for TransferDataCategoryData: %d classes match result, expected 1", match));
         }
 
         /**
@@ -235,7 +197,7 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
     }
 
     // store a list of schema names defined in oneOf
-    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+    public static final Map<String, GenericType<?>> schemas = new HashMap<>();
 
     public TransferDataCategoryData() {
         super("oneOf", Boolean.FALSE);
@@ -274,7 +236,7 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
     }
 
     @Override
-    public Map<String, GenericType> getSchemas() {
+    public Map<String, GenericType<?>> getSchemas() {
         return TransferDataCategoryData.schemas;
     }
 
@@ -288,22 +250,22 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(BankCategoryData.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(BankCategoryData.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(InternalCategoryData.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(InternalCategoryData.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(IssuedCard.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(IssuedCard.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(PlatformPayment.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(PlatformPayment.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -366,6 +328,7 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
         return (PlatformPayment)super.getActualInstance();
     }
 
+
     /**
     * Create an instance of TransferDataCategoryData given an JSON string
     *
@@ -385,5 +348,5 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
     public String toJson() throws JsonProcessingException {
         return JSON.getMapper().writeValueAsString(this);
     }
-}
 
+}

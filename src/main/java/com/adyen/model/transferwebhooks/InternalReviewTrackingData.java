@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -41,7 +39,7 @@ public class InternalReviewTrackingData {
    * The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
    */
   public enum ReasonEnum {
-    REFUSEDFORREGULATORYREASONS("refusedForRegulatoryReasons");
+    REFUSEDFORREGULATORYREASONS(String.valueOf("refusedForRegulatoryReasons"));
 
     private String value;
 
@@ -77,9 +75,9 @@ public class InternalReviewTrackingData {
    * The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
    */
   public enum StatusEnum {
-    PENDING("pending"),
+    PENDING(String.valueOf("pending")),
     
-    FAILED("failed");
+    FAILED(String.valueOf("failed"));
 
     private String value;
 
@@ -115,7 +113,7 @@ public class InternalReviewTrackingData {
    * The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
    */
   public enum TypeEnum {
-    INTERNALREVIEW("internalReview");
+    INTERNALREVIEW(String.valueOf("internalReview"));
 
     private String value;
 
@@ -145,7 +143,7 @@ public class InternalReviewTrackingData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.INTERNALREVIEW;
 
   public InternalReviewTrackingData() { 
   }
@@ -165,7 +163,6 @@ public class InternalReviewTrackingData {
    * The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
    * @return reason
    */
-  @ApiModelProperty(value = "The reason why the transfer failed Adyen's internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen's risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). ")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ReasonEnum getReason() {
@@ -176,7 +173,7 @@ public class InternalReviewTrackingData {
    * The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
    *
    * @param reason
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
@@ -198,9 +195,8 @@ public class InternalReviewTrackingData {
    * The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen's internal review. For details, see `reason`.  ")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -209,9 +205,9 @@ public class InternalReviewTrackingData {
    * The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
@@ -231,9 +227,8 @@ public class InternalReviewTrackingData {
    * The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen's risk policy.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -242,9 +237,9 @@ public class InternalReviewTrackingData {
    * The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

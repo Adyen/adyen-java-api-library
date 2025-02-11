@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -47,7 +45,7 @@ public class SELocalAccountIdentification {
    * **seLocal**
    */
   public enum TypeEnum {
-    SELOCAL("seLocal");
+    SELOCAL(String.valueOf("seLocal"));
 
     private String value;
 
@@ -77,7 +75,7 @@ public class SELocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.SELOCAL;
 
   public SELocalAccountIdentification() { 
   }
@@ -97,9 +95,8 @@ public class SELocalAccountIdentification {
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    * @return accountNumber
    */
-  @ApiModelProperty(required = true, value = "The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -108,9 +105,9 @@ public class SELocalAccountIdentification {
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    *
    * @param accountNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
@@ -130,9 +127,8 @@ public class SELocalAccountIdentification {
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    * @return clearingNumber
    */
-  @ApiModelProperty(required = true, value = "The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getClearingNumber() {
     return clearingNumber;
   }
@@ -141,9 +137,9 @@ public class SELocalAccountIdentification {
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    *
    * @param clearingNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setClearingNumber(String clearingNumber) {
     this.clearingNumber = clearingNumber;
   }
@@ -163,9 +159,8 @@ public class SELocalAccountIdentification {
    * **seLocal**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**seLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -174,9 +169,9 @@ public class SELocalAccountIdentification {
    * **seLocal**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

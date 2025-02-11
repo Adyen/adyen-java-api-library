@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -31,92 +29,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * TransferReview
  */
 @JsonPropertyOrder({
-  TransferReview.JSON_PROPERTY_NUMBER_OF_APPROVALS_COMPLETED,
-  TransferReview.JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED,
-  TransferReview.JSON_PROPERTY_SCA_ON_APPROVAL
+  TransferReview.JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED
 })
 
 public class TransferReview {
-  public static final String JSON_PROPERTY_NUMBER_OF_APPROVALS_COMPLETED = "numberOfApprovalsCompleted";
-  private Integer numberOfApprovalsCompleted;
-
   public static final String JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED = "numberOfApprovalsRequired";
   private Integer numberOfApprovalsRequired;
 
-  /**
-   * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **completed**, **notApplicable**.
-   */
-  public enum ScaOnApprovalEnum {
-    COMPLETED("completed"),
-    
-    NOTAPPLICABLE("notApplicable"),
-    
-    REQUIRED("required");
-
-    private String value;
-
-    ScaOnApprovalEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ScaOnApprovalEnum fromValue(String value) {
-      for (ScaOnApprovalEnum b : ScaOnApprovalEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_SCA_ON_APPROVAL = "scaOnApproval";
-  private ScaOnApprovalEnum scaOnApproval;
-
   public TransferReview() { 
-  }
-
-  /**
-   * Shows the number of approvals completed for the transfer.
-   *
-   * @param numberOfApprovalsCompleted
-   * @return the current {@code TransferReview} instance, allowing for method chaining
-   */
-  public TransferReview numberOfApprovalsCompleted(Integer numberOfApprovalsCompleted) {
-    this.numberOfApprovalsCompleted = numberOfApprovalsCompleted;
-    return this;
-  }
-
-  /**
-   * Shows the number of approvals completed for the transfer.
-   * @return numberOfApprovalsCompleted
-   */
-  @ApiModelProperty(value = "Shows the number of approvals completed for the transfer.")
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_COMPLETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getNumberOfApprovalsCompleted() {
-    return numberOfApprovalsCompleted;
-  }
-
-  /**
-   * Shows the number of approvals completed for the transfer.
-   *
-   * @param numberOfApprovalsCompleted
-   */ 
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_COMPLETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumberOfApprovalsCompleted(Integer numberOfApprovalsCompleted) {
-    this.numberOfApprovalsCompleted = numberOfApprovalsCompleted;
   }
 
   /**
@@ -134,7 +54,6 @@ public class TransferReview {
    * Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    * @return numberOfApprovalsRequired
    */
-  @ApiModelProperty(value = "Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getNumberOfApprovalsRequired() {
@@ -145,44 +64,11 @@ public class TransferReview {
    * Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    *
    * @param numberOfApprovalsRequired
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberOfApprovalsRequired(Integer numberOfApprovalsRequired) {
     this.numberOfApprovalsRequired = numberOfApprovalsRequired;
-  }
-
-  /**
-   * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **completed**, **notApplicable**.
-   *
-   * @param scaOnApproval
-   * @return the current {@code TransferReview} instance, allowing for method chaining
-   */
-  public TransferReview scaOnApproval(ScaOnApprovalEnum scaOnApproval) {
-    this.scaOnApproval = scaOnApproval;
-    return this;
-  }
-
-  /**
-   * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **completed**, **notApplicable**.
-   * @return scaOnApproval
-   */
-  @ApiModelProperty(value = "Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **completed**, **notApplicable**.")
-  @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScaOnApprovalEnum getScaOnApproval() {
-    return scaOnApproval;
-  }
-
-  /**
-   * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **completed**, **notApplicable**.
-   *
-   * @param scaOnApproval
-   */ 
-  @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setScaOnApproval(ScaOnApprovalEnum scaOnApproval) {
-    this.scaOnApproval = scaOnApproval;
   }
 
   /**
@@ -197,23 +83,19 @@ public class TransferReview {
       return false;
     }
     TransferReview transferReview = (TransferReview) o;
-    return Objects.equals(this.numberOfApprovalsCompleted, transferReview.numberOfApprovalsCompleted) &&
-        Objects.equals(this.numberOfApprovalsRequired, transferReview.numberOfApprovalsRequired) &&
-        Objects.equals(this.scaOnApproval, transferReview.scaOnApproval);
+    return Objects.equals(this.numberOfApprovalsRequired, transferReview.numberOfApprovalsRequired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfApprovalsCompleted, numberOfApprovalsRequired, scaOnApproval);
+    return Objects.hash(numberOfApprovalsRequired);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransferReview {\n");
-    sb.append("    numberOfApprovalsCompleted: ").append(toIndentedString(numberOfApprovalsCompleted)).append("\n");
     sb.append("    numberOfApprovalsRequired: ").append(toIndentedString(numberOfApprovalsRequired)).append("\n");
-    sb.append("    scaOnApproval: ").append(toIndentedString(scaOnApproval)).append("\n");
     sb.append("}");
     return sb.toString();
   }
