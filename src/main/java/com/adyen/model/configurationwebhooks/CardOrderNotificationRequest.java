@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.CardOrderItem;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,9 +51,9 @@ public class CardOrderNotificationRequest {
    * Type of webhook.
    */
   public enum TypeEnum {
-    CREATED("balancePlatform.cardorder.created"),
+    BALANCEPLATFORM_CARDORDER_CREATED(String.valueOf("balancePlatform.cardorder.created")),
     
-    UPDATED("balancePlatform.cardorder.updated");
+    BALANCEPLATFORM_CARDORDER_UPDATED(String.valueOf("balancePlatform.cardorder.updated"));
 
     private String value;
 
@@ -102,12 +100,11 @@ public class CardOrderNotificationRequest {
   }
 
   /**
-   * data
+   * Get data
    * @return data
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public CardOrderItem getData() {
     return data;
   }
@@ -116,9 +113,9 @@ public class CardOrderNotificationRequest {
    * data
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(CardOrderItem data) {
     this.data = data;
   }
@@ -138,9 +135,8 @@ public class CardOrderNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return environment
    */
-  @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEnvironment() {
     return environment;
   }
@@ -149,9 +145,9 @@ public class CardOrderNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
    * @param environment
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }
@@ -171,7 +167,6 @@ public class CardOrderNotificationRequest {
    * When the event was queued.
    * @return timestamp
    */
-  @ApiModelProperty(value = "When the event was queued.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {
@@ -182,7 +177,7 @@ public class CardOrderNotificationRequest {
    * When the event was queued.
    *
    * @param timestamp
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(OffsetDateTime timestamp) {
@@ -204,9 +199,8 @@ public class CardOrderNotificationRequest {
    * Type of webhook.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "Type of webhook.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -215,9 +209,9 @@ public class CardOrderNotificationRequest {
    * Type of webhook.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

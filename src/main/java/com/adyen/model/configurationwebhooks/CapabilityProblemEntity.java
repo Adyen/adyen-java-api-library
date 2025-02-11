@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.CapabilityProblemEntityRecursive;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,7 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CapabilityProblemEntity {
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
-  private List<String> documents = null;
+  private List<String> documents = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -54,11 +52,11 @@ public class CapabilityProblemEntity {
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    */
   public enum TypeEnum {
-    BANKACCOUNT("BankAccount"),
+    BANKACCOUNT(String.valueOf("BankAccount")),
     
-    DOCUMENT("Document"),
+    DOCUMENT(String.valueOf("Document")),
     
-    LEGALENTITY("LegalEntity");
+    LEGALENTITY(String.valueOf("LegalEntity"));
 
     private String value;
 
@@ -116,7 +114,6 @@ public class CapabilityProblemEntity {
    * List of document IDs to which the verification errors related to the capabilities correspond to.
    * @return documents
    */
-  @ApiModelProperty(value = "List of document IDs to which the verification errors related to the capabilities correspond to.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDocuments() {
@@ -127,7 +124,7 @@ public class CapabilityProblemEntity {
    * List of document IDs to which the verification errors related to the capabilities correspond to.
    *
    * @param documents
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(List<String> documents) {
@@ -149,7 +146,6 @@ public class CapabilityProblemEntity {
    * The ID of the entity.
    * @return id
    */
-  @ApiModelProperty(value = "The ID of the entity.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -160,7 +156,7 @@ public class CapabilityProblemEntity {
    * The ID of the entity.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -179,10 +175,9 @@ public class CapabilityProblemEntity {
   }
 
   /**
-   * owner
+   * Get owner
    * @return owner
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CapabilityProblemEntityRecursive getOwner() {
@@ -193,7 +188,7 @@ public class CapabilityProblemEntity {
    * owner
    *
    * @param owner
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwner(CapabilityProblemEntityRecursive owner) {
@@ -215,7 +210,6 @@ public class CapabilityProblemEntity {
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    * @return type
    */
-  @ApiModelProperty(value = "Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -226,7 +220,7 @@ public class CapabilityProblemEntity {
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
