@@ -14,7 +14,7 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 import java.util.Map;
-import .ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
