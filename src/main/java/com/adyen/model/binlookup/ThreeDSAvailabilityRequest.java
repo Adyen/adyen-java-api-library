@@ -20,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,7 +74,7 @@ public class ThreeDSAvailabilityRequest {
     return this;
   }
 
-  public ThreeDSAvailabilityRequest putItem(String key, String additionalDataItem) {
+  public ThreeDSAvailabilityRequest putAdditionalDataItem(String key, String additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
     }
@@ -115,7 +114,7 @@ public class ThreeDSAvailabilityRequest {
     return this;
   }
 
-  public ThreeDSAvailabilityRequest addItem(String brandsItem) {
+  public ThreeDSAvailabilityRequest addBrandsItem(String brandsItem) {
     if (this.brands == null) {
       this.brands = new ArrayList<>();
     }

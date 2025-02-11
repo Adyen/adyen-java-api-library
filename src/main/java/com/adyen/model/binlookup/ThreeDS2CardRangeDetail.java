@@ -20,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -73,7 +72,7 @@ public class ThreeDS2CardRangeDetail {
     return this;
   }
 
-  public ThreeDS2CardRangeDetail addItem(String acsInfoIndItem) {
+  public ThreeDS2CardRangeDetail addAcsInfoIndItem(String acsInfoIndItem) {
     if (this.acsInfoInd == null) {
       this.acsInfoInd = new ArrayList<>();
     }
@@ -209,7 +208,7 @@ public class ThreeDS2CardRangeDetail {
     return this;
   }
 
-  public ThreeDS2CardRangeDetail addItem(String threeDS2VersionsItem) {
+  public ThreeDS2CardRangeDetail addThreeDS2VersionsItem(String threeDS2VersionsItem) {
     if (this.threeDS2Versions == null) {
       this.threeDS2Versions = new ArrayList<>();
     }
