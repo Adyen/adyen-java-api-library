@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,6 @@ public class DisputeServiceResult {
    * The general error message.
    * @return errorMessage
    */
-  @ApiModelProperty(value = "The general error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorMessage() {
@@ -71,7 +68,7 @@ public class DisputeServiceResult {
    * The general error message.
    *
    * @param errorMessage
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
@@ -93,9 +90,8 @@ public class DisputeServiceResult {
    * Indicates whether the request succeeded.
    * @return success
    */
-  @ApiModelProperty(required = true, value = "Indicates whether the request succeeded.")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getSuccess() {
     return success;
   }
@@ -104,9 +100,9 @@ public class DisputeServiceResult {
    * Indicates whether the request succeeded.
    *
    * @param success
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSuccess(Boolean success) {
     this.success = success;
   }

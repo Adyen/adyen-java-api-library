@@ -51,7 +51,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_DATE_OF_BIRTH,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_FIRST_NAME,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME,
-  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER,
+  AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_PHONE_NUMBER,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_PASSENGER_NAME,
   AdditionalDataAirline.JSON_PROPERTY_AIRLINE_TICKET_ISSUE_ADDRESS,
@@ -127,8 +127,8 @@ public class AdditionalDataAirline {
   public static final String JSON_PROPERTY_AIRLINE_PASSENGER_LAST_NAME = "airline.passenger.last_name";
   private String airlinePassengerLastName;
 
-  public static final String JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER = "airline.passenger.telephone_number";
-  private String airlinePassengerTelephoneNumber;
+  public static final String JSON_PROPERTY_AIRLINE_PASSENGER_PHONE_NUMBER = "airline.passenger.phone_number";
+  private String airlinePassengerPhoneNumber;
 
   public static final String JSON_PROPERTY_AIRLINE_PASSENGER_TRAVELLER_TYPE = "airline.passenger.traveller_type";
   private String airlinePassengerTravellerType;
@@ -856,35 +856,35 @@ public class AdditionalDataAirline {
   }
 
   /**
-   * The passenger&#39;s telephone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
+   * The passenger&#39;s phone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
    *
-   * @param airlinePassengerTelephoneNumber
+   * @param airlinePassengerPhoneNumber
    * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
    */
-  public AdditionalDataAirline airlinePassengerTelephoneNumber(String airlinePassengerTelephoneNumber) {
-    this.airlinePassengerTelephoneNumber = airlinePassengerTelephoneNumber;
+  public AdditionalDataAirline airlinePassengerPhoneNumber(String airlinePassengerPhoneNumber) {
+    this.airlinePassengerPhoneNumber = airlinePassengerPhoneNumber;
     return this;
   }
 
   /**
-   * The passenger&#39;s telephone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
-   * @return airlinePassengerTelephoneNumber
+   * The passenger&#39;s phone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
+   * @return airlinePassengerPhoneNumber
    */
-  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER)
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAirlinePassengerTelephoneNumber() {
-    return airlinePassengerTelephoneNumber;
+  public String getAirlinePassengerPhoneNumber() {
+    return airlinePassengerPhoneNumber;
   }
 
   /**
-   * The passenger&#39;s telephone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
+   * The passenger&#39;s phone number, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
    *
-   * @param airlinePassengerTelephoneNumber
+   * @param airlinePassengerPhoneNumber
    */
-  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_TELEPHONE_NUMBER)
+  @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAirlinePassengerTelephoneNumber(String airlinePassengerTelephoneNumber) {
-    this.airlinePassengerTelephoneNumber = airlinePassengerTelephoneNumber;
+  public void setAirlinePassengerPhoneNumber(String airlinePassengerPhoneNumber) {
+    this.airlinePassengerPhoneNumber = airlinePassengerPhoneNumber;
   }
 
   /**
@@ -1113,7 +1113,7 @@ public class AdditionalDataAirline {
         Objects.equals(this.airlinePassengerDateOfBirth, additionalDataAirline.airlinePassengerDateOfBirth) &&
         Objects.equals(this.airlinePassengerFirstName, additionalDataAirline.airlinePassengerFirstName) &&
         Objects.equals(this.airlinePassengerLastName, additionalDataAirline.airlinePassengerLastName) &&
-        Objects.equals(this.airlinePassengerTelephoneNumber, additionalDataAirline.airlinePassengerTelephoneNumber) &&
+        Objects.equals(this.airlinePassengerPhoneNumber, additionalDataAirline.airlinePassengerPhoneNumber) &&
         Objects.equals(this.airlinePassengerTravellerType, additionalDataAirline.airlinePassengerTravellerType) &&
         Objects.equals(this.airlinePassengerName, additionalDataAirline.airlinePassengerName) &&
         Objects.equals(this.airlineTicketIssueAddress, additionalDataAirline.airlineTicketIssueAddress) &&
@@ -1124,7 +1124,7 @@ public class AdditionalDataAirline {
 
   @Override
   public int hashCode() {
-    return Objects.hash(airlineAgencyInvoiceNumber, airlineAgencyPlanName, airlineAirlineCode, airlineAirlineDesignatorCode, airlineBoardingFee, airlineComputerizedReservationSystem, airlineCustomerReferenceNumber, airlineDocumentType, airlineFlightDate, airlineIssueDate, airlineLegCarrierCode, airlineLegClassOfTravel, airlineLegDateOfTravel, airlineLegDepartAirport, airlineLegDepartTax, airlineLegDestinationCode, airlineLegFareBaseCode, airlineLegFlightNumber, airlineLegStopOverCode, airlinePassengerDateOfBirth, airlinePassengerFirstName, airlinePassengerLastName, airlinePassengerTelephoneNumber, airlinePassengerTravellerType, airlinePassengerName, airlineTicketIssueAddress, airlineTicketNumber, airlineTravelAgencyCode, airlineTravelAgencyName);
+    return Objects.hash(airlineAgencyInvoiceNumber, airlineAgencyPlanName, airlineAirlineCode, airlineAirlineDesignatorCode, airlineBoardingFee, airlineComputerizedReservationSystem, airlineCustomerReferenceNumber, airlineDocumentType, airlineFlightDate, airlineIssueDate, airlineLegCarrierCode, airlineLegClassOfTravel, airlineLegDateOfTravel, airlineLegDepartAirport, airlineLegDepartTax, airlineLegDestinationCode, airlineLegFareBaseCode, airlineLegFlightNumber, airlineLegStopOverCode, airlinePassengerDateOfBirth, airlinePassengerFirstName, airlinePassengerLastName, airlinePassengerPhoneNumber, airlinePassengerTravellerType, airlinePassengerName, airlineTicketIssueAddress, airlineTicketNumber, airlineTravelAgencyCode, airlineTravelAgencyName);
   }
 
   @Override
@@ -1153,7 +1153,7 @@ public class AdditionalDataAirline {
     sb.append("    airlinePassengerDateOfBirth: ").append(toIndentedString(airlinePassengerDateOfBirth)).append("\n");
     sb.append("    airlinePassengerFirstName: ").append(toIndentedString(airlinePassengerFirstName)).append("\n");
     sb.append("    airlinePassengerLastName: ").append(toIndentedString(airlinePassengerLastName)).append("\n");
-    sb.append("    airlinePassengerTelephoneNumber: ").append(toIndentedString(airlinePassengerTelephoneNumber)).append("\n");
+    sb.append("    airlinePassengerPhoneNumber: ").append(toIndentedString(airlinePassengerPhoneNumber)).append("\n");
     sb.append("    airlinePassengerTravellerType: ").append(toIndentedString(airlinePassengerTravellerType)).append("\n");
     sb.append("    airlinePassengerName: ").append(toIndentedString(airlinePassengerName)).append("\n");
     sb.append("    airlineTicketIssueAddress: ").append(toIndentedString(airlineTicketIssueAddress)).append("\n");

@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,7 +41,7 @@ public class AmountNonZeroDecimalsRequirement {
    * **amountNonZeroDecimalsRequirement**
    */
   public enum TypeEnum {
-    AMOUNTNONZERODECIMALSREQUIREMENT("amountNonZeroDecimalsRequirement");
+    AMOUNTNONZERODECIMALSREQUIREMENT(String.valueOf("amountNonZeroDecimalsRequirement"));
 
     private String value;
 
@@ -73,7 +71,7 @@ public class AmountNonZeroDecimalsRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.AMOUNTNONZERODECIMALSREQUIREMENT;
 
   public AmountNonZeroDecimalsRequirement() { 
   }
@@ -93,7 +91,6 @@ public class AmountNonZeroDecimalsRequirement {
    * Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.
    * @return description
    */
-  @ApiModelProperty(value = "Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -104,7 +101,7 @@ public class AmountNonZeroDecimalsRequirement {
    * Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -126,9 +123,8 @@ public class AmountNonZeroDecimalsRequirement {
    * **amountNonZeroDecimalsRequirement**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**amountNonZeroDecimalsRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -137,9 +133,9 @@ public class AmountNonZeroDecimalsRequirement {
    * **amountNonZeroDecimalsRequirement**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

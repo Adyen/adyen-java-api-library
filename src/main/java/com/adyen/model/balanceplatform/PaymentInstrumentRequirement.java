@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,7 +47,7 @@ public class PaymentInstrumentRequirement {
   private String issuingCountryCode;
 
   public static final String JSON_PROPERTY_ISSUING_COUNTRY_CODES = "issuingCountryCodes";
-  private List<String> issuingCountryCodes = null;
+  private List<String> issuingCountryCodes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM = "onlyForCrossBalancePlatform";
   private Boolean onlyForCrossBalancePlatform;
@@ -58,9 +56,9 @@ public class PaymentInstrumentRequirement {
    * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
    */
   public enum PaymentInstrumentTypeEnum {
-    BANKACCOUNT("BankAccount"),
+    BANKACCOUNT(String.valueOf("BankAccount")),
     
-    CARD("Card");
+    CARD(String.valueOf("Card"));
 
     private String value;
 
@@ -96,7 +94,7 @@ public class PaymentInstrumentRequirement {
    * **paymentInstrumentRequirement**
    */
   public enum TypeEnum {
-    PAYMENTINSTRUMENTREQUIREMENT("paymentInstrumentRequirement");
+    PAYMENTINSTRUMENTREQUIREMENT(String.valueOf("paymentInstrumentRequirement"));
 
     private String value;
 
@@ -126,7 +124,7 @@ public class PaymentInstrumentRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.PAYMENTINSTRUMENTREQUIREMENT;
 
   public PaymentInstrumentRequirement() { 
   }
@@ -146,7 +144,6 @@ public class PaymentInstrumentRequirement {
    * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
    * @return description
    */
-  @ApiModelProperty(value = "Specifies the requirements for the payment instrument that need to be included in the request for a particular route.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -157,7 +154,7 @@ public class PaymentInstrumentRequirement {
    * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -179,7 +176,6 @@ public class PaymentInstrumentRequirement {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    * @return issuingCountryCode
    */
-  @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.")
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuingCountryCode() {
@@ -190,7 +186,7 @@ public class PaymentInstrumentRequirement {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    *
    * @param issuingCountryCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
@@ -220,7 +216,6 @@ public class PaymentInstrumentRequirement {
    * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
    * @return issuingCountryCodes
    */
-  @ApiModelProperty(value = "The two-character ISO-3166-1 alpha-2 country code list for payment instruments.")
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIssuingCountryCodes() {
@@ -231,7 +226,7 @@ public class PaymentInstrumentRequirement {
    * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
    *
    * @param issuingCountryCodes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCodes(List<String> issuingCountryCodes) {
@@ -253,7 +248,6 @@ public class PaymentInstrumentRequirement {
    * Specifies if the requirement only applies to transfers to another balance platform.
    * @return onlyForCrossBalancePlatform
    */
-  @ApiModelProperty(value = "Specifies if the requirement only applies to transfers to another balance platform.")
   @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getOnlyForCrossBalancePlatform() {
@@ -264,7 +258,7 @@ public class PaymentInstrumentRequirement {
    * Specifies if the requirement only applies to transfers to another balance platform.
    *
    * @param onlyForCrossBalancePlatform
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOnlyForCrossBalancePlatform(Boolean onlyForCrossBalancePlatform) {
@@ -286,7 +280,6 @@ public class PaymentInstrumentRequirement {
    * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
    * @return paymentInstrumentType
    */
-  @ApiModelProperty(value = "The type of the payment instrument. For example, \"BankAccount\" or \"Card\".")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaymentInstrumentTypeEnum getPaymentInstrumentType() {
@@ -297,7 +290,7 @@ public class PaymentInstrumentRequirement {
    * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
    *
    * @param paymentInstrumentType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentType(PaymentInstrumentTypeEnum paymentInstrumentType) {
@@ -319,9 +312,8 @@ public class PaymentInstrumentRequirement {
    * **paymentInstrumentRequirement**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**paymentInstrumentRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -330,9 +322,9 @@ public class PaymentInstrumentRequirement {
    * **paymentInstrumentRequirement**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.CardOrder;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaginatedGetCardOrderResponse {
   public static final String JSON_PROPERTY_CARD_ORDERS = "cardOrders";
-  private List<CardOrder> cardOrders = null;
+  private List<CardOrder> cardOrders = new ArrayList<>();
 
   public static final String JSON_PROPERTY_HAS_NEXT = "hasNext";
   private Boolean hasNext;
@@ -75,7 +73,6 @@ public class PaginatedGetCardOrderResponse {
    * Contains objects with information about card orders.
    * @return cardOrders
    */
-  @ApiModelProperty(value = "Contains objects with information about card orders.")
   @JsonProperty(JSON_PROPERTY_CARD_ORDERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CardOrder> getCardOrders() {
@@ -86,7 +83,7 @@ public class PaginatedGetCardOrderResponse {
    * Contains objects with information about card orders.
    *
    * @param cardOrders
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_ORDERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardOrders(List<CardOrder> cardOrders) {
@@ -108,9 +105,8 @@ public class PaginatedGetCardOrderResponse {
    * Indicates whether there are more items on the next page.
    * @return hasNext
    */
-  @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getHasNext() {
     return hasNext;
   }
@@ -119,9 +115,9 @@ public class PaginatedGetCardOrderResponse {
    * Indicates whether there are more items on the next page.
    *
    * @param hasNext
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
@@ -141,9 +137,8 @@ public class PaginatedGetCardOrderResponse {
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
    */
-  @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
@@ -152,9 +147,9 @@ public class PaginatedGetCardOrderResponse {
    * Indicates whether there are more items on the previous page.
    *
    * @param hasPrevious
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }

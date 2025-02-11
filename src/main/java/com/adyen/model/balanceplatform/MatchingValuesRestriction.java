@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -45,15 +43,15 @@ public class MatchingValuesRestriction {
    * Gets or Sets value
    */
   public enum ValueEnum {
-    ACQUIRERID("acquirerId"),
+    ACQUIRERID(String.valueOf("acquirerId")),
     
-    AMOUNT("amount"),
+    AMOUNT(String.valueOf("amount")),
     
-    CURRENCY("currency"),
+    CURRENCY(String.valueOf("currency")),
     
-    MERCHANTID("merchantId"),
+    MERCHANTID(String.valueOf("merchantId")),
     
-    MERCHANTNAME("merchantName");
+    MERCHANTNAME(String.valueOf("merchantName"));
 
     private String value;
 
@@ -83,7 +81,7 @@ public class MatchingValuesRestriction {
   }
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<ValueEnum> value = null;
+  private List<ValueEnum> value = new ArrayList<>();
 
   public MatchingValuesRestriction() { 
   }
@@ -103,9 +101,8 @@ public class MatchingValuesRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
    */
-  @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getOperation() {
     return operation;
   }
@@ -114,9 +111,9 @@ public class MatchingValuesRestriction {
    * Defines how the condition must be evaluated.
    *
    * @param operation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OPERATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
@@ -141,10 +138,9 @@ public class MatchingValuesRestriction {
   }
 
   /**
-   * value
+   * Get value
    * @return value
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ValueEnum> getValue() {
@@ -155,7 +151,7 @@ public class MatchingValuesRestriction {
    * value
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {

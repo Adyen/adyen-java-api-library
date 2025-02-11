@@ -13,7 +13,6 @@
 package com.adyen.model.disputewebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.disputewebhooks.DisputeEventNotification;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,9 +42,9 @@ public class DisputeNotificationRequest {
    * Type of webhook.
    */
   public enum TypeEnum {
-    CREATED("balancePlatform.dispute.created"),
+    BALANCEPLATFORM_DISPUTE_CREATED(String.valueOf("balancePlatform.dispute.created")),
     
-    UPDATED("balancePlatform.dispute.updated");
+    BALANCEPLATFORM_DISPUTE_UPDATED(String.valueOf("balancePlatform.dispute.updated"));
 
     private String value;
 
@@ -93,12 +91,11 @@ public class DisputeNotificationRequest {
   }
 
   /**
-   * data
+   * Get data
    * @return data
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DisputeEventNotification getData() {
     return data;
   }
@@ -107,9 +104,9 @@ public class DisputeNotificationRequest {
    * data
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(DisputeEventNotification data) {
     this.data = data;
   }
@@ -129,9 +126,8 @@ public class DisputeNotificationRequest {
    * Type of webhook.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "Type of webhook.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -140,9 +136,9 @@ public class DisputeNotificationRequest {
    * Type of webhook.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

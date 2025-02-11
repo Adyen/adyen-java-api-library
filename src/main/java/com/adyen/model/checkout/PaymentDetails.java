@@ -51,8 +51,6 @@ public class PaymentDetails {
     
     PAYNOW(String.valueOf("paynow")),
     
-    AFFIRM(String.valueOf("affirm")),
-    
     AFFIRM_POS(String.valueOf("affirm_pos")),
     
     TRUSTLY(String.valueOf("trustly")),

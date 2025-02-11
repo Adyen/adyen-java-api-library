@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.disputes.DisputeServiceResult;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,12 +52,11 @@ public class DefendDisputeResponse {
   }
 
   /**
-   * disputeServiceResult
+   * Get disputeServiceResult
    * @return disputeServiceResult
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DisputeServiceResult getDisputeServiceResult() {
     return disputeServiceResult;
   }
@@ -68,9 +65,9 @@ public class DefendDisputeResponse {
    * disputeServiceResult
    *
    * @param disputeServiceResult
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDisputeServiceResult(DisputeServiceResult disputeServiceResult) {
     this.disputeServiceResult = disputeServiceResult;
   }

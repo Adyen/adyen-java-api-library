@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.disputes.DefenseDocumentType;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class DefenseReason {
   public static final String JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES = "defenseDocumentTypes";
-  private List<DefenseDocumentType> defenseDocumentTypes = null;
+  private List<DefenseDocumentType> defenseDocumentTypes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DEFENSE_REASON_CODE = "defenseReasonCode";
   private String defenseReasonCode;
@@ -75,7 +73,6 @@ public class DefenseReason {
    * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
    * @return defenseDocumentTypes
    */
-  @ApiModelProperty(value = "Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DefenseDocumentType> getDefenseDocumentTypes() {
@@ -86,7 +83,7 @@ public class DefenseReason {
    * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
    *
    * @param defenseDocumentTypes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypes(List<DefenseDocumentType> defenseDocumentTypes) {
@@ -108,9 +105,8 @@ public class DefenseReason {
    * The defense reason code that was selected to defend this dispute.
    * @return defenseReasonCode
    */
-  @ApiModelProperty(required = true, value = "The defense reason code that was selected to defend this dispute.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDefenseReasonCode() {
     return defenseReasonCode;
   }
@@ -119,9 +115,9 @@ public class DefenseReason {
    * The defense reason code that was selected to defend this dispute.
    *
    * @param defenseReasonCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDefenseReasonCode(String defenseReasonCode) {
     this.defenseReasonCode = defenseReasonCode;
   }
@@ -141,9 +137,8 @@ public class DefenseReason {
    * Indicates if sufficient defense material has been supplied.
    * @return satisfied
    */
-  @ApiModelProperty(required = true, value = "Indicates if sufficient defense material has been supplied.")
   @JsonProperty(JSON_PROPERTY_SATISFIED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getSatisfied() {
     return satisfied;
   }
@@ -152,9 +147,9 @@ public class DefenseReason {
    * Indicates if sufficient defense material has been supplied.
    *
    * @param satisfied
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SATISFIED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSatisfied(Boolean satisfied) {
     this.satisfied = satisfied;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,9 +62,8 @@ public class DefendDisputeRequest {
    * The defense reason code that was selected to defend this dispute.
    * @return defenseReasonCode
    */
-  @ApiModelProperty(required = true, value = "The defense reason code that was selected to defend this dispute.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDefenseReasonCode() {
     return defenseReasonCode;
   }
@@ -75,9 +72,9 @@ public class DefendDisputeRequest {
    * The defense reason code that was selected to defend this dispute.
    *
    * @param defenseReasonCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDefenseReasonCode(String defenseReasonCode) {
     this.defenseReasonCode = defenseReasonCode;
   }
@@ -97,9 +94,8 @@ public class DefendDisputeRequest {
    * The PSP reference assigned to the dispute.
    * @return disputePspReference
    */
-  @ApiModelProperty(required = true, value = "The PSP reference assigned to the dispute.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDisputePspReference() {
     return disputePspReference;
   }
@@ -108,9 +104,9 @@ public class DefendDisputeRequest {
    * The PSP reference assigned to the dispute.
    *
    * @param disputePspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDisputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
   }
@@ -130,9 +126,8 @@ public class DefendDisputeRequest {
    * The merchant account identifier, for which you want to process the dispute transaction.
    * @return merchantAccountCode
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, for which you want to process the dispute transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
@@ -141,9 +136,9 @@ public class DefendDisputeRequest {
    * The merchant account identifier, for which you want to process the dispute transaction.
    *
    * @param merchantAccountCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Expiry;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -65,9 +63,8 @@ public class PaymentInstrumentRevealInfo {
    * The CVC2 value of the card.
    * @return cvc
    */
-  @ApiModelProperty(required = true, value = "The CVC2 value of the card.")
   @JsonProperty(JSON_PROPERTY_CVC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCvc() {
     return cvc;
   }
@@ -76,9 +73,9 @@ public class PaymentInstrumentRevealInfo {
    * The CVC2 value of the card.
    *
    * @param cvc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CVC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
   }
@@ -95,12 +92,11 @@ public class PaymentInstrumentRevealInfo {
   }
 
   /**
-   * expiration
+   * Get expiration
    * @return expiration
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Expiry getExpiration() {
     return expiration;
   }
@@ -109,9 +105,9 @@ public class PaymentInstrumentRevealInfo {
    * expiration
    *
    * @param expiration
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpiration(Expiry expiration) {
     this.expiration = expiration;
   }
@@ -131,9 +127,8 @@ public class PaymentInstrumentRevealInfo {
    * The primary account number (PAN) of the card.
    * @return pan
    */
-  @ApiModelProperty(required = true, value = "The primary account number (PAN) of the card.")
   @JsonProperty(JSON_PROPERTY_PAN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPan() {
     return pan;
   }
@@ -142,9 +137,9 @@ public class PaymentInstrumentRevealInfo {
    * The primary account number (PAN) of the card.
    *
    * @param pan
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPan(String pan) {
     this.pan = pan;
   }

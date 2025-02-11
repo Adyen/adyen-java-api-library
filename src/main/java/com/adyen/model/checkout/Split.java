@@ -82,6 +82,8 @@ public class Split {
     
     TIP(String.valueOf("Tip")),
     
+    TOPUP(String.valueOf("TopUp")),
+    
     VAT(String.valueOf("VAT"));
 
     private String value;

@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,9 +54,8 @@ public class PaymentInstrumentRevealResponse {
    * The data encrypted using the &#x60;encryptedKey&#x60;.
    * @return encryptedData
    */
-  @ApiModelProperty(required = true, value = "The data encrypted using the `encryptedKey`.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEncryptedData() {
     return encryptedData;
   }
@@ -67,9 +64,9 @@ public class PaymentInstrumentRevealResponse {
    * The data encrypted using the &#x60;encryptedKey&#x60;.
    *
    * @param encryptedData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEncryptedData(String encryptedData) {
     this.encryptedData = encryptedData;
   }

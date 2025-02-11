@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -72,7 +70,7 @@ public class DeviceInfo {
   private String osVersion;
 
   public static final String JSON_PROPERTY_PAYMENT_TYPES = "paymentTypes";
-  private List<String> paymentTypes = null;
+  private List<String> paymentTypes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
   private String serialNumber;
@@ -98,7 +96,6 @@ public class DeviceInfo {
    * The technology used to capture the card details.
    * @return cardCaptureTechnology
    */
-  @ApiModelProperty(value = "The technology used to capture the card details.")
   @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardCaptureTechnology() {
@@ -109,7 +106,7 @@ public class DeviceInfo {
    * The technology used to capture the card details.
    *
    * @param cardCaptureTechnology
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardCaptureTechnology(String cardCaptureTechnology) {
@@ -131,7 +128,6 @@ public class DeviceInfo {
    * The name of the device.
    * @return deviceName
    */
-  @ApiModelProperty(value = "The name of the device.")
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeviceName() {
@@ -142,7 +138,7 @@ public class DeviceInfo {
    * The name of the device.
    *
    * @param deviceName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceName(String deviceName) {
@@ -164,7 +160,6 @@ public class DeviceInfo {
    * The form factor of the device to be provisioned.
    * @return formFactor
    */
-  @ApiModelProperty(value = "The form factor of the device to be provisioned.")
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFormFactor() {
@@ -175,7 +170,7 @@ public class DeviceInfo {
    * The form factor of the device to be provisioned.
    *
    * @param formFactor
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(String formFactor) {
@@ -197,7 +192,6 @@ public class DeviceInfo {
    * The IMEI number of the device being provisioned.
    * @return imei
    */
-  @ApiModelProperty(value = "The IMEI number of the device being provisioned.")
   @JsonProperty(JSON_PROPERTY_IMEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getImei() {
@@ -208,7 +202,7 @@ public class DeviceInfo {
    * The IMEI number of the device being provisioned.
    *
    * @param imei
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IMEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImei(String imei) {
@@ -230,7 +224,6 @@ public class DeviceInfo {
    * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
    * @return isoDeviceType
    */
-  @ApiModelProperty(value = "The 2-digit device type provided on the ISO messages that the token is being provisioned to.")
   @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIsoDeviceType() {
@@ -241,7 +234,7 @@ public class DeviceInfo {
    * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
    *
    * @param isoDeviceType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsoDeviceType(String isoDeviceType) {
@@ -263,7 +256,6 @@ public class DeviceInfo {
    * The MSISDN of the device being provisioned.
    * @return msisdn
    */
-  @ApiModelProperty(value = "The MSISDN of the device being provisioned.")
   @JsonProperty(JSON_PROPERTY_MSISDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMsisdn() {
@@ -274,7 +266,7 @@ public class DeviceInfo {
    * The MSISDN of the device being provisioned.
    *
    * @param msisdn
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MSISDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMsisdn(String msisdn) {
@@ -296,7 +288,6 @@ public class DeviceInfo {
    * The name of the device operating system.
    * @return osName
    */
-  @ApiModelProperty(value = "The name of the device operating system.")
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOsName() {
@@ -307,7 +298,7 @@ public class DeviceInfo {
    * The name of the device operating system.
    *
    * @param osName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsName(String osName) {
@@ -329,7 +320,6 @@ public class DeviceInfo {
    * The version of the device operating system.
    * @return osVersion
    */
-  @ApiModelProperty(value = "The version of the device operating system.")
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOsVersion() {
@@ -340,7 +330,7 @@ public class DeviceInfo {
    * The version of the device operating system.
    *
    * @param osVersion
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {
@@ -370,7 +360,6 @@ public class DeviceInfo {
    * Different types of payments supported for the network token.
    * @return paymentTypes
    */
-  @ApiModelProperty(value = "Different types of payments supported for the network token.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPaymentTypes() {
@@ -381,7 +370,7 @@ public class DeviceInfo {
    * Different types of payments supported for the network token.
    *
    * @param paymentTypes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentTypes(List<String> paymentTypes) {
@@ -403,7 +392,6 @@ public class DeviceInfo {
    * The serial number of the device.
    * @return serialNumber
    */
-  @ApiModelProperty(value = "The serial number of the device.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSerialNumber() {
@@ -414,7 +402,7 @@ public class DeviceInfo {
    * The serial number of the device.
    *
    * @param serialNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
@@ -436,7 +424,6 @@ public class DeviceInfo {
    * The architecture or technology used for network token storage.
    * @return storageTechnology
    */
-  @ApiModelProperty(value = "The architecture or technology used for network token storage.")
   @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStorageTechnology() {
@@ -447,7 +434,7 @@ public class DeviceInfo {
    * The architecture or technology used for network token storage.
    *
    * @param storageTechnology
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStorageTechnology(String storageTechnology) {

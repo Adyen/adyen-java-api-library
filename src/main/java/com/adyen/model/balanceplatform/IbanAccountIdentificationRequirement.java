@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,13 +41,13 @@ public class IbanAccountIdentificationRequirement {
   private String description;
 
   public static final String JSON_PROPERTY_IBAN_PREFIXES = "ibanPrefixes";
-  private List<String> ibanPrefixes = null;
+  private List<String> ibanPrefixes = new ArrayList<>();
 
   /**
    * **ibanAccountIdentificationRequirement**
    */
   public enum TypeEnum {
-    IBANACCOUNTIDENTIFICATIONREQUIREMENT("ibanAccountIdentificationRequirement");
+    IBANACCOUNTIDENTIFICATIONREQUIREMENT(String.valueOf("ibanAccountIdentificationRequirement"));
 
     private String value;
 
@@ -79,7 +77,7 @@ public class IbanAccountIdentificationRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.IBANACCOUNTIDENTIFICATIONREQUIREMENT;
 
   public IbanAccountIdentificationRequirement() { 
   }
@@ -99,7 +97,6 @@ public class IbanAccountIdentificationRequirement {
    * Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.
    * @return description
    */
-  @ApiModelProperty(value = "Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -110,7 +107,7 @@ public class IbanAccountIdentificationRequirement {
    * Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -140,7 +137,6 @@ public class IbanAccountIdentificationRequirement {
    * Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.
    * @return ibanPrefixes
    */
-  @ApiModelProperty(value = "Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.")
   @JsonProperty(JSON_PROPERTY_IBAN_PREFIXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIbanPrefixes() {
@@ -151,7 +147,7 @@ public class IbanAccountIdentificationRequirement {
    * Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.
    *
    * @param ibanPrefixes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IBAN_PREFIXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIbanPrefixes(List<String> ibanPrefixes) {
@@ -173,9 +169,8 @@ public class IbanAccountIdentificationRequirement {
    * **ibanAccountIdentificationRequirement**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**ibanAccountIdentificationRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -184,9 +179,9 @@ public class IbanAccountIdentificationRequirement {
    * **ibanAccountIdentificationRequirement**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

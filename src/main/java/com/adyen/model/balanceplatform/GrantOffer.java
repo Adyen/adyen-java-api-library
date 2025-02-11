@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Amount;
@@ -24,9 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,9 +54,9 @@ public class GrantOffer {
    * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    */
   public enum ContractTypeEnum {
-    CASHADVANCE("cashAdvance"),
+    CASHADVANCE(String.valueOf("cashAdvance")),
     
-    LOAN("loan");
+    LOAN(String.valueOf("loan"));
 
     private String value;
 
@@ -123,9 +121,8 @@ public class GrantOffer {
    * The identifier of the account holder to which the grant is offered.
    * @return accountHolderId
    */
-  @ApiModelProperty(required = true, value = "The identifier of the account holder to which the grant is offered.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAccountHolderId() {
     return accountHolderId;
   }
@@ -134,9 +131,9 @@ public class GrantOffer {
    * The identifier of the account holder to which the grant is offered.
    *
    * @param accountHolderId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
   }
@@ -153,10 +150,9 @@ public class GrantOffer {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -167,7 +163,7 @@ public class GrantOffer {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -189,7 +185,6 @@ public class GrantOffer {
    * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    * @return contractType
    */
-  @ApiModelProperty(value = "The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.")
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ContractTypeEnum getContractType() {
@@ -200,7 +195,7 @@ public class GrantOffer {
    * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    *
    * @param contractType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContractType(ContractTypeEnum contractType) {
@@ -222,7 +217,6 @@ public class GrantOffer {
    * The end date of the grant offer validity period.
    * @return expiresAt
    */
-  @ApiModelProperty(value = "The end date of the grant offer validity period.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getExpiresAt() {
@@ -233,7 +227,7 @@ public class GrantOffer {
    * The end date of the grant offer validity period.
    *
    * @param expiresAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {
@@ -252,10 +246,9 @@ public class GrantOffer {
   }
 
   /**
-   * fee
+   * Get fee
    * @return fee
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Fee getFee() {
@@ -266,7 +259,7 @@ public class GrantOffer {
    * fee
    *
    * @param fee
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Fee fee) {
@@ -288,7 +281,6 @@ public class GrantOffer {
    * The unique identifier of the grant offer.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the grant offer.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -299,7 +291,7 @@ public class GrantOffer {
    * The unique identifier of the grant offer.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -318,10 +310,9 @@ public class GrantOffer {
   }
 
   /**
-   * repayment
+   * Get repayment
    * @return repayment
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Repayment getRepayment() {
@@ -332,7 +323,7 @@ public class GrantOffer {
    * repayment
    *
    * @param repayment
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRepayment(Repayment repayment) {
@@ -354,7 +345,6 @@ public class GrantOffer {
    * The starting date of the grant offer validity period.
    * @return startsAt
    */
-  @ApiModelProperty(value = "The starting date of the grant offer validity period.")
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getStartsAt() {
@@ -365,7 +355,7 @@ public class GrantOffer {
    * The starting date of the grant offer validity period.
    *
    * @param startsAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(OffsetDateTime startsAt) {

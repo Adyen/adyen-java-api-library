@@ -40,6 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CardDonations.JSON_PROPERTY_ENCRYPTED_SECURITY_CODE,
   CardDonations.JSON_PROPERTY_EXPIRY_MONTH,
   CardDonations.JSON_PROPERTY_EXPIRY_YEAR,
+  CardDonations.JSON_PROPERTY_FASTLANE_DATA,
   CardDonations.JSON_PROPERTY_FUNDING_SOURCE,
   CardDonations.JSON_PROPERTY_HOLDER_NAME,
   CardDonations.JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE,
@@ -89,6 +90,9 @@ public class CardDonations {
 
   public static final String JSON_PROPERTY_EXPIRY_YEAR = "expiryYear";
   private String expiryYear;
+
+  public static final String JSON_PROPERTY_FASTLANE_DATA = "fastlaneData";
+  private String fastlaneData;
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
@@ -572,6 +576,38 @@ public class CardDonations {
   }
 
   /**
+   * The encoded fastlane data blob
+   *
+   * @param fastlaneData
+   * @return the current {@code CardDonations} instance, allowing for method chaining
+   */
+  public CardDonations fastlaneData(String fastlaneData) {
+    this.fastlaneData = fastlaneData;
+    return this;
+  }
+
+  /**
+   * The encoded fastlane data blob
+   * @return fastlaneData
+   */
+  @JsonProperty(JSON_PROPERTY_FASTLANE_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFastlaneData() {
+    return fastlaneData;
+  }
+
+  /**
+   * The encoded fastlane data blob
+   *
+   * @param fastlaneData
+   */
+  @JsonProperty(JSON_PROPERTY_FASTLANE_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFastlaneData(String fastlaneData) {
+    this.fastlaneData = fastlaneData;
+  }
+
+  /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
    * @param fundingSource
@@ -1020,6 +1056,7 @@ public class CardDonations {
         Objects.equals(this.encryptedSecurityCode, cardDonations.encryptedSecurityCode) &&
         Objects.equals(this.expiryMonth, cardDonations.expiryMonth) &&
         Objects.equals(this.expiryYear, cardDonations.expiryYear) &&
+        Objects.equals(this.fastlaneData, cardDonations.fastlaneData) &&
         Objects.equals(this.fundingSource, cardDonations.fundingSource) &&
         Objects.equals(this.holderName, cardDonations.holderName) &&
         Objects.equals(this.networkPaymentReference, cardDonations.networkPaymentReference) &&
@@ -1037,7 +1074,7 @@ public class CardDonations {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, checkoutAttemptId, cupsecureplusSmscode, cvc, encryptedCard, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, fundingSource, holderName, networkPaymentReference, number, recurringDetailReference, shopperNotificationReference, srcCorrelationId, srcDigitalCardId, srcScheme, srcTokenReference, storedPaymentMethodId, threeDS2SdkVersion, type);
+    return Objects.hash(brand, checkoutAttemptId, cupsecureplusSmscode, cvc, encryptedCard, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, fastlaneData, fundingSource, holderName, networkPaymentReference, number, recurringDetailReference, shopperNotificationReference, srcCorrelationId, srcDigitalCardId, srcScheme, srcTokenReference, storedPaymentMethodId, threeDS2SdkVersion, type);
   }
 
   @Override
@@ -1055,6 +1092,7 @@ public class CardDonations {
     sb.append("    encryptedSecurityCode: ").append(toIndentedString(encryptedSecurityCode)).append("\n");
     sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
+    sb.append("    fastlaneData: ").append(toIndentedString(fastlaneData)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    networkPaymentReference: ").append(toIndentedString(networkPaymentReference)).append("\n");

@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.SweepConfigurationV2;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -67,9 +65,8 @@ public class BalanceSweepConfigurationsResponse {
    * Indicates whether there are more items on the next page.
    * @return hasNext
    */
-  @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getHasNext() {
     return hasNext;
   }
@@ -78,9 +75,9 @@ public class BalanceSweepConfigurationsResponse {
    * Indicates whether there are more items on the next page.
    *
    * @param hasNext
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
@@ -100,9 +97,8 @@ public class BalanceSweepConfigurationsResponse {
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
    */
-  @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
@@ -111,9 +107,9 @@ public class BalanceSweepConfigurationsResponse {
    * Indicates whether there are more items on the previous page.
    *
    * @param hasPrevious
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }
@@ -130,6 +126,9 @@ public class BalanceSweepConfigurationsResponse {
   }
 
   public BalanceSweepConfigurationsResponse addSweepsItem(SweepConfigurationV2 sweepsItem) {
+    if (this.sweeps == null) {
+      this.sweeps = new ArrayList<>();
+    }
     this.sweeps.add(sweepsItem);
     return this;
   }
@@ -138,9 +137,8 @@ public class BalanceSweepConfigurationsResponse {
    * List of sweeps associated with the balance account.
    * @return sweeps
    */
-  @ApiModelProperty(required = true, value = "List of sweeps associated with the balance account.")
   @JsonProperty(JSON_PROPERTY_SWEEPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SweepConfigurationV2> getSweeps() {
     return sweeps;
   }
@@ -149,9 +147,9 @@ public class BalanceSweepConfigurationsResponse {
    * List of sweeps associated with the balance account.
    *
    * @param sweeps
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SWEEPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSweeps(List<SweepConfigurationV2> sweeps) {
     this.sweeps = sweeps;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,9 +54,8 @@ public class DelegatedAuthenticationData {
    * A base64-encoded block with the data required to register the SCA device. You obtain this information by using our authentication SDK.
    * @return sdkOutput
    */
-  @ApiModelProperty(required = true, value = "A base64-encoded block with the data required to register the SCA device. You obtain this information by using our authentication SDK.")
   @JsonProperty(JSON_PROPERTY_SDK_OUTPUT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSdkOutput() {
     return sdkOutput;
   }
@@ -67,9 +64,9 @@ public class DelegatedAuthenticationData {
    * A base64-encoded block with the data required to register the SCA device. You obtain this information by using our authentication SDK.
    *
    * @param sdkOutput
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SDK_OUTPUT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSdkOutput(String sdkOutput) {
     this.sdkOutput = sdkOutput;
   }

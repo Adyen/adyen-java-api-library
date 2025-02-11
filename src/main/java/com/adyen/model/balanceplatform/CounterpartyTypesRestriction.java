@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -45,13 +43,13 @@ public class CounterpartyTypesRestriction {
    * Gets or Sets value
    */
   public enum ValueEnum {
-    BALANCEACCOUNT("balanceAccount"),
+    BALANCEACCOUNT(String.valueOf("balanceAccount")),
     
-    BANKACCOUNT("bankAccount"),
+    BANKACCOUNT(String.valueOf("bankAccount")),
     
-    CARD("card"),
+    CARD(String.valueOf("card")),
     
-    TRANSFERINSTRUMENT("transferInstrument");
+    TRANSFERINSTRUMENT(String.valueOf("transferInstrument"));
 
     private String value;
 
@@ -81,7 +79,7 @@ public class CounterpartyTypesRestriction {
   }
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<ValueEnum> value = null;
+  private List<ValueEnum> value = new ArrayList<>();
 
   public CounterpartyTypesRestriction() { 
   }
@@ -101,9 +99,8 @@ public class CounterpartyTypesRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
    */
-  @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getOperation() {
     return operation;
   }
@@ -112,9 +109,9 @@ public class CounterpartyTypesRestriction {
    * Defines how the condition must be evaluated.
    *
    * @param operation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OPERATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
@@ -142,7 +139,6 @@ public class CounterpartyTypesRestriction {
    * The list of counterparty types to be evaluated.
    * @return value
    */
-  @ApiModelProperty(value = "The list of counterparty types to be evaluated.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ValueEnum> getValue() {
@@ -153,7 +149,7 @@ public class CounterpartyTypesRestriction {
    * The list of counterparty types to be evaluated.
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {

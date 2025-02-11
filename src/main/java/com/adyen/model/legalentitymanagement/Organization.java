@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
+import com.adyen.model.legalentitymanagement.FinancialReport;
 import com.adyen.model.legalentitymanagement.PhoneNumber;
 import com.adyen.model.legalentitymanagement.StockData;
 import com.adyen.model.legalentitymanagement.TaxInformation;
@@ -42,6 +43,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Organization.JSON_PROPERTY_DESCRIPTION,
   Organization.JSON_PROPERTY_DOING_BUSINESS_AS,
   Organization.JSON_PROPERTY_EMAIL,
+  Organization.JSON_PROPERTY_FINANCIAL_REPORTS,
   Organization.JSON_PROPERTY_LEGAL_NAME,
   Organization.JSON_PROPERTY_PHONE,
   Organization.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
@@ -71,6 +73,9 @@ public class Organization {
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
+
+  public static final String JSON_PROPERTY_FINANCIAL_REPORTS = "financialReports";
+  private List<FinancialReport> financialReports = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LEGAL_NAME = "legalName";
   private String legalName;
@@ -347,6 +352,46 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  /**
+   * The financial report information of the organization.
+   *
+   * @param financialReports
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization financialReports(List<FinancialReport> financialReports) {
+    this.financialReports = financialReports;
+    return this;
+  }
+
+  public Organization addFinancialReportsItem(FinancialReport financialReportsItem) {
+    if (this.financialReports == null) {
+      this.financialReports = new ArrayList<>();
+    }
+    this.financialReports.add(financialReportsItem);
+    return this;
+  }
+
+  /**
+   * The financial report information of the organization.
+   * @return financialReports
+   */
+  @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FinancialReport> getFinancialReports() {
+    return financialReports;
+  }
+
+  /**
+   * The financial report information of the organization.
+   *
+   * @param financialReports
+   */
+  @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinancialReports(List<FinancialReport> financialReports) {
+    this.financialReports = financialReports;
   }
 
   /**
@@ -758,6 +803,7 @@ public class Organization {
         Objects.equals(this.description, organization.description) &&
         Objects.equals(this.doingBusinessAs, organization.doingBusinessAs) &&
         Objects.equals(this.email, organization.email) &&
+        Objects.equals(this.financialReports, organization.financialReports) &&
         Objects.equals(this.legalName, organization.legalName) &&
         Objects.equals(this.phone, organization.phone) &&
         Objects.equals(this.principalPlaceOfBusiness, organization.principalPlaceOfBusiness) &&
@@ -774,7 +820,7 @@ public class Organization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, email, legalName, phone, principalPlaceOfBusiness, registeredAddress, registrationNumber, stockData, taxInformation, taxReportingClassification, type, vatAbsenceReason, vatNumber, webData);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, description, doingBusinessAs, email, financialReports, legalName, phone, principalPlaceOfBusiness, registeredAddress, registrationNumber, stockData, taxInformation, taxReportingClassification, type, vatAbsenceReason, vatNumber, webData);
   }
 
   @Override
@@ -786,6 +832,7 @@ public class Organization {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    financialReports: ").append(toIndentedString(financialReports)).append("\n");
     sb.append("    legalName: ").append(toIndentedString(legalName)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");

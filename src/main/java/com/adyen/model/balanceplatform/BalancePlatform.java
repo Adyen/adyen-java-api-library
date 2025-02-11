@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,6 @@ public class BalancePlatform {
    * Your description of the balance platform.
    * @return description
    */
-  @ApiModelProperty(value = "Your description of the balance platform.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -75,7 +72,7 @@ public class BalancePlatform {
    * Your description of the balance platform.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -97,9 +94,8 @@ public class BalancePlatform {
    * The unique identifier of the balance platform.
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -108,9 +104,9 @@ public class BalancePlatform {
    * The unique identifier of the balance platform.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(String id) {
     this.id = id;
   }
@@ -130,7 +126,6 @@ public class BalancePlatform {
    * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    * @return status
    */
-  @ApiModelProperty(value = "The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -141,7 +136,7 @@ public class BalancePlatform {
    * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {

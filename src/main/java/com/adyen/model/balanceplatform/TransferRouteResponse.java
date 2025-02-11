@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.TransferRoute;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class TransferRouteResponse {
   public static final String JSON_PROPERTY_TRANSFER_ROUTES = "transferRoutes";
-  private List<TransferRoute> transferRoutes = null;
+  private List<TransferRoute> transferRoutes = new ArrayList<>();
 
   public TransferRouteResponse() { 
   }
@@ -67,7 +65,6 @@ public class TransferRouteResponse {
    * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
    * @return transferRoutes
    */
-  @ApiModelProperty(value = "List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TransferRoute> getTransferRoutes() {
@@ -78,7 +75,7 @@ public class TransferRouteResponse {
    * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
    *
    * @param transferRoutes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSFER_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferRoutes(List<TransferRoute> transferRoutes) {

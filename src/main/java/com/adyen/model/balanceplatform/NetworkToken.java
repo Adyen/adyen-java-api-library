@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.DeviceInfo;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -63,13 +61,13 @@ public class NetworkToken {
    * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    */
   public enum StatusEnum {
-    ACTIVE("active"),
+    ACTIVE(String.valueOf("active")),
     
-    INACTIVE("inactive"),
+    INACTIVE(String.valueOf("inactive")),
     
-    SUSPENDED("suspended"),
+    SUSPENDED(String.valueOf("suspended")),
     
-    CLOSED("closed");
+    CLOSED(String.valueOf("closed"));
 
     private String value;
 
@@ -125,7 +123,6 @@ public class NetworkToken {
    * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
    * @return brandVariant
    */
-  @ApiModelProperty(value = "The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.")
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrandVariant() {
@@ -136,7 +133,7 @@ public class NetworkToken {
    * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
    *
    * @param brandVariant
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariant(String brandVariant) {
@@ -158,7 +155,6 @@ public class NetworkToken {
    * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
    * @return creationDate
    */
-  @ApiModelProperty(value = "Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -169,7 +165,7 @@ public class NetworkToken {
    * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
    *
    * @param creationDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -188,10 +184,9 @@ public class NetworkToken {
   }
 
   /**
-   * device
+   * Get device
    * @return device
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DeviceInfo getDevice() {
@@ -202,7 +197,7 @@ public class NetworkToken {
    * device
    *
    * @param device
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDevice(DeviceInfo device) {
@@ -224,7 +219,6 @@ public class NetworkToken {
    * The unique identifier of the network token.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the network token.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -235,7 +229,7 @@ public class NetworkToken {
    * The unique identifier of the network token.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -257,7 +251,6 @@ public class NetworkToken {
    * The unique identifier of the payment instrument to which this network token belongs to.
    * @return paymentInstrumentId
    */
-  @ApiModelProperty(value = "The unique identifier of the payment instrument to which this network token belongs to.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
@@ -268,7 +261,7 @@ public class NetworkToken {
    * The unique identifier of the payment instrument to which this network token belongs to.
    *
    * @param paymentInstrumentId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -290,7 +283,6 @@ public class NetworkToken {
    * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    * @return status
    */
-  @ApiModelProperty(value = "The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -301,7 +293,7 @@ public class NetworkToken {
    * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -323,7 +315,6 @@ public class NetworkToken {
    * The last four digits of the network token &#x60;id&#x60;.
    * @return tokenLastFour
    */
-  @ApiModelProperty(value = "The last four digits of the network token `id`.")
   @JsonProperty(JSON_PROPERTY_TOKEN_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTokenLastFour() {
@@ -334,7 +325,7 @@ public class NetworkToken {
    * The last four digits of the network token &#x60;id&#x60;.
    *
    * @param tokenLastFour
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenLastFour(String tokenLastFour) {
@@ -356,7 +347,6 @@ public class NetworkToken {
    * The type of wallet the network token is associated with. For example, **applePay**.
    * @return type
    */
-  @ApiModelProperty(value = "The type of wallet the network token is associated with. For example, **applePay**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -367,7 +357,7 @@ public class NetworkToken {
    * The type of wallet the network token is associated with. For example, **applePay**.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

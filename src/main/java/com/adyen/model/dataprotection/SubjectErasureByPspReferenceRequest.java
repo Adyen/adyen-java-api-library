@@ -13,7 +13,6 @@
 package com.adyen.model.dataprotection;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,6 @@ public class SubjectErasureByPspReferenceRequest {
    * Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.
    * @return forceErasure
    */
-  @ApiModelProperty(value = "Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.")
   @JsonProperty(JSON_PROPERTY_FORCE_ERASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getForceErasure() {
@@ -75,7 +72,7 @@ public class SubjectErasureByPspReferenceRequest {
    * Set this to **true** if you want to delete shopper-related data, even if the shopper has an existing recurring transaction. This only deletes the shopper-related data for the specific payment, but does not cancel the existing recurring transaction.
    *
    * @param forceErasure
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FORCE_ERASURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceErasure(Boolean forceErasure) {
@@ -97,7 +94,6 @@ public class SubjectErasureByPspReferenceRequest {
    * Your merchant account
    * @return merchantAccount
    */
-  @ApiModelProperty(value = "Your merchant account")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -108,7 +104,7 @@ public class SubjectErasureByPspReferenceRequest {
    * Your merchant account
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -130,7 +126,6 @@ public class SubjectErasureByPspReferenceRequest {
    * The PSP reference of the payment. We will delete all shopper-related data for this payment.
    * @return pspReference
    */
-  @ApiModelProperty(value = "The PSP reference of the payment. We will delete all shopper-related data for this payment.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -141,7 +136,7 @@ public class SubjectErasureByPspReferenceRequest {
    * The PSP reference of the payment. We will delete all shopper-related data for this payment.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {

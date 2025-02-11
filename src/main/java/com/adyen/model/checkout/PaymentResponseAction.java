@@ -561,8 +561,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     * @throws IOException if the JSON string is invalid with respect to PaymentResponseAction
     */
     public static PaymentResponseAction fromJson(String jsonString) throws IOException {
-//        return JSON.getMapper().readValue(jsonString, PaymentResponseAction.class);
-        return new JSON().getMapper().readValue(jsonString, PaymentResponseAction.class);
+        return JSON.getMapper().readValue(jsonString, PaymentResponseAction.class);
     }
 
     /**
@@ -571,8 +570,7 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     * @return JSON string
     */
     public String toJson() throws JsonProcessingException {
-//        return JSON.getMapper().writeValueAsString(this);
-        return new JSON().getMapper().writeValueAsString(this);
+        return JSON.getMapper().writeValueAsString(this);
     }
 
 }

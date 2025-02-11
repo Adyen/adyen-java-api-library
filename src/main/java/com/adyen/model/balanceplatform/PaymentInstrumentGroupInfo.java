@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,7 +46,7 @@ public class PaymentInstrumentGroupInfo {
   private String description;
 
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
-  private Map<String, String> properties = null;
+  private Map<String, String> properties = new HashMap<>();
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -75,9 +72,8 @@ public class PaymentInstrumentGroupInfo {
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.
    * @return balancePlatform
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getBalancePlatform() {
     return balancePlatform;
   }
@@ -86,9 +82,9 @@ public class PaymentInstrumentGroupInfo {
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.
    *
    * @param balancePlatform
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
@@ -108,7 +104,6 @@ public class PaymentInstrumentGroupInfo {
    * Your description for the payment instrument group.
    * @return description
    */
-  @ApiModelProperty(value = "Your description for the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -119,7 +114,7 @@ public class PaymentInstrumentGroupInfo {
    * Your description for the payment instrument group.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -149,7 +144,6 @@ public class PaymentInstrumentGroupInfo {
    * Properties of the payment instrument group.
    * @return properties
    */
-  @ApiModelProperty(value = "Properties of the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getProperties() {
@@ -160,7 +154,7 @@ public class PaymentInstrumentGroupInfo {
    * Properties of the payment instrument group.
    *
    * @param properties
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, String> properties) {
@@ -182,7 +176,6 @@ public class PaymentInstrumentGroupInfo {
    * Your reference for the payment instrument group.
    * @return reference
    */
-  @ApiModelProperty(value = "Your reference for the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -193,7 +186,7 @@ public class PaymentInstrumentGroupInfo {
    * Your reference for the payment instrument group.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -215,9 +208,8 @@ public class PaymentInstrumentGroupInfo {
    * The tx variant of the payment instrument group.
    * @return txVariant
    */
-  @ApiModelProperty(required = true, value = "The tx variant of the payment instrument group.")
   @JsonProperty(JSON_PROPERTY_TX_VARIANT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTxVariant() {
     return txVariant;
   }
@@ -226,9 +218,9 @@ public class PaymentInstrumentGroupInfo {
    * The tx variant of the payment instrument group.
    *
    * @param txVariant
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TX_VARIANT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTxVariant(String txVariant) {
     this.txVariant = txVariant;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Address;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -69,12 +67,11 @@ public class ContactDetails {
   }
 
   /**
-   * address
+   * Get address
    * @return address
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Address getAddress() {
     return address;
   }
@@ -83,9 +80,9 @@ public class ContactDetails {
    * address
    *
    * @param address
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAddress(Address address) {
     this.address = address;
   }
@@ -105,9 +102,8 @@ public class ContactDetails {
    * The email address of the account holder.
    * @return email
    */
-  @ApiModelProperty(required = true, value = "The email address of the account holder.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEmail() {
     return email;
   }
@@ -116,9 +112,9 @@ public class ContactDetails {
    * The email address of the account holder.
    *
    * @param email
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmail(String email) {
     this.email = email;
   }
@@ -135,12 +131,11 @@ public class ContactDetails {
   }
 
   /**
-   * phone
+   * Get phone
    * @return phone
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Phone getPhone() {
     return phone;
   }
@@ -149,9 +144,9 @@ public class ContactDetails {
    * phone
    *
    * @param phone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPhone(Phone phone) {
     this.phone = phone;
   }
@@ -171,7 +166,6 @@ public class ContactDetails {
    * The URL of the account holder&#39;s website.
    * @return webAddress
    */
-  @ApiModelProperty(value = "The URL of the account holder's website.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWebAddress() {
@@ -182,7 +176,7 @@ public class ContactDetails {
    * The URL of the account holder&#39;s website.
    *
    * @param webAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {

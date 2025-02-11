@@ -829,8 +829,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
     * @throws IOException if the JSON string is invalid with respect to BankAccountInfoAccountIdentification
     */
     public static BankAccountInfoAccountIdentification fromJson(String jsonString) throws IOException {
-//        return JSON.getMapper().readValue(jsonString, BankAccountInfoAccountIdentification.class);
-        return new JSON().getMapper().readValue(jsonString, BankAccountInfoAccountIdentification.class);
+        return JSON.getMapper().readValue(jsonString, BankAccountInfoAccountIdentification.class);
     }
 
     /**
@@ -839,8 +838,7 @@ public class BankAccountInfoAccountIdentification extends AbstractOpenApiSchema 
     * @return JSON string
     */
     public String toJson() throws JsonProcessingException {
-//        return JSON.getMapper().writeValueAsString(this);
-        return new JSON().getMapper().writeValueAsString(this);
+        return JSON.getMapper().writeValueAsString(this);
     }
 
 }

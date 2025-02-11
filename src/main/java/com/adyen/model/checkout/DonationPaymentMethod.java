@@ -378,8 +378,7 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     * @throws IOException if the JSON string is invalid with respect to DonationPaymentMethod
     */
     public static DonationPaymentMethod fromJson(String jsonString) throws IOException {
-//        return JSON.getMapper().readValue(jsonString, DonationPaymentMethod.class);
-        return new JSON().getMapper().readValue(jsonString, DonationPaymentMethod.class);
+        return JSON.getMapper().readValue(jsonString, DonationPaymentMethod.class);
     }
 
     /**
@@ -388,8 +387,7 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     * @return JSON string
     */
     public String toJson() throws JsonProcessingException {
-//        return JSON.getMapper().writeValueAsString(this);
-        return new JSON().getMapper().writeValueAsString(this);
+        return JSON.getMapper().writeValueAsString(this);
     }
 
 }

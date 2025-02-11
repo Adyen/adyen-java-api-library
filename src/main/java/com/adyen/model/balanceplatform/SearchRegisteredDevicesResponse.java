@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Device;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,7 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class SearchRegisteredDevicesResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Device> data = null;
+  private List<Device> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ITEMS_TOTAL = "itemsTotal";
   private Integer itemsTotal;
@@ -80,7 +78,6 @@ public class SearchRegisteredDevicesResponse {
    * Contains a list of registered SCA devices and their corresponding details.
    * @return data
    */
-  @ApiModelProperty(value = "Contains a list of registered SCA devices and their corresponding details.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Device> getData() {
@@ -91,7 +88,7 @@ public class SearchRegisteredDevicesResponse {
    * Contains a list of registered SCA devices and their corresponding details.
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Device> data) {
@@ -113,7 +110,6 @@ public class SearchRegisteredDevicesResponse {
    * The total amount of registered SCA devices that match the query parameters.
    * @return itemsTotal
    */
-  @ApiModelProperty(value = "The total amount of registered SCA devices that match the query parameters.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getItemsTotal() {
@@ -124,7 +120,7 @@ public class SearchRegisteredDevicesResponse {
    * The total amount of registered SCA devices that match the query parameters.
    *
    * @param itemsTotal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
@@ -143,10 +139,9 @@ public class SearchRegisteredDevicesResponse {
   }
 
   /**
-   * link
+   * Get link
    * @return link
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Link getLink() {
@@ -157,7 +152,7 @@ public class SearchRegisteredDevicesResponse {
    * link
    *
    * @param link
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLink(Link link) {
@@ -179,7 +174,6 @@ public class SearchRegisteredDevicesResponse {
    * The total amount of list pages.
    * @return pagesTotal
    */
-  @ApiModelProperty(value = "The total amount of list pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPagesTotal() {
@@ -190,7 +184,7 @@ public class SearchRegisteredDevicesResponse {
    * The total amount of list pages.
    *
    * @param pagesTotal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {

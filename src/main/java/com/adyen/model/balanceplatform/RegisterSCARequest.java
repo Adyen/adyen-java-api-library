@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.DelegatedAuthenticationData;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -65,7 +63,6 @@ public class RegisterSCARequest {
    * The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a &#x60;name&#x60;, Adyen automatically generates one.
    * @return name
    */
-  @ApiModelProperty(value = "The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a `name`, Adyen automatically generates one.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -76,7 +73,7 @@ public class RegisterSCARequest {
    * The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a &#x60;name&#x60;, Adyen automatically generates one.
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -98,9 +95,8 @@ public class RegisterSCARequest {
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    * @return paymentInstrumentId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the payment instrument for which you are registering the SCA device.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
@@ -109,9 +105,9 @@ public class RegisterSCARequest {
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    *
    * @param paymentInstrumentId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
@@ -128,12 +124,11 @@ public class RegisterSCARequest {
   }
 
   /**
-   * strongCustomerAuthentication
+   * Get strongCustomerAuthentication
    * @return strongCustomerAuthentication
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public DelegatedAuthenticationData getStrongCustomerAuthentication() {
     return strongCustomerAuthentication;
   }
@@ -142,9 +137,9 @@ public class RegisterSCARequest {
    * strongCustomerAuthentication
    *
    * @param strongCustomerAuthentication
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStrongCustomerAuthentication(DelegatedAuthenticationData strongCustomerAuthentication) {
     this.strongCustomerAuthentication = strongCustomerAuthentication;
   }

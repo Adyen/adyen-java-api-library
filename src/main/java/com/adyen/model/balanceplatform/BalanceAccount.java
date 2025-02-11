@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Balance;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +53,7 @@ public class BalanceAccount {
   private String accountHolderId;
 
   public static final String JSON_PROPERTY_BALANCES = "balances";
-  private List<Balance> balances = null;
+  private List<Balance> balances = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DEFAULT_CURRENCY_CODE = "defaultCurrencyCode";
   private String defaultCurrencyCode;
@@ -67,7 +65,7 @@ public class BalanceAccount {
   private String id;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = null;
+  private Map<String, String> metadata = new HashMap<>();
 
   public static final String JSON_PROPERTY_MIGRATED_ACCOUNT_CODE = "migratedAccountCode";
   private String migratedAccountCode;
@@ -82,13 +80,13 @@ public class BalanceAccount {
    * The status of the balance account, set to **active** by default.  
    */
   public enum StatusEnum {
-    ACTIVE("active"),
+    ACTIVE(String.valueOf("active")),
     
-    CLOSED("closed"),
+    CLOSED(String.valueOf("closed")),
     
-    INACTIVE("inactive"),
+    INACTIVE(String.valueOf("inactive")),
     
-    SUSPENDED("suspended");
+    SUSPENDED(String.valueOf("suspended"));
 
     private String value;
 
@@ -126,6 +124,14 @@ public class BalanceAccount {
   public BalanceAccount() { 
   }
 
+  @JsonCreator
+  public BalanceAccount(
+    @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_CODE) String migratedAccountCode
+  ) {
+    this();
+    this.migratedAccountCode = migratedAccountCode;
+  }
+
   /**
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    *
@@ -141,9 +147,8 @@ public class BalanceAccount {
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    * @return accountHolderId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getAccountHolderId() {
     return accountHolderId;
   }
@@ -152,9 +157,9 @@ public class BalanceAccount {
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    *
    * @param accountHolderId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
   }
@@ -182,7 +187,6 @@ public class BalanceAccount {
    * List of balances with the amount and currency.
    * @return balances
    */
-  @ApiModelProperty(value = "List of balances with the amount and currency.")
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Balance> getBalances() {
@@ -193,7 +197,7 @@ public class BalanceAccount {
    * List of balances with the amount and currency.
    *
    * @param balances
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(List<Balance> balances) {
@@ -215,7 +219,6 @@ public class BalanceAccount {
    * The default three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance account. The default value is **EUR**. &gt; After a balance account is created, you cannot change its default currency.
    * @return defaultCurrencyCode
    */
-  @ApiModelProperty(value = "The default three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance account. The default value is **EUR**. > After a balance account is created, you cannot change its default currency.")
   @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefaultCurrencyCode() {
@@ -226,7 +229,7 @@ public class BalanceAccount {
    * The default three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance account. The default value is **EUR**. &gt; After a balance account is created, you cannot change its default currency.
    *
    * @param defaultCurrencyCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultCurrencyCode(String defaultCurrencyCode) {
@@ -248,7 +251,6 @@ public class BalanceAccount {
    * A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    * @return description
    */
-  @ApiModelProperty(value = "A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -259,7 +261,7 @@ public class BalanceAccount {
    * A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -281,9 +283,8 @@ public class BalanceAccount {
    * The unique identifier of the balance account.
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the balance account.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -292,9 +293,9 @@ public class BalanceAccount {
    * The unique identifier of the balance account.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(String id) {
     this.id = id;
   }
@@ -322,7 +323,6 @@ public class BalanceAccount {
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return metadata
    */
-  @ApiModelProperty(value = "A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getMetadata() {
@@ -333,7 +333,7 @@ public class BalanceAccount {
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    *
    * @param metadata
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -342,36 +342,14 @@ public class BalanceAccount {
 
   /**
    * The unique identifier of the account of the migrated account holder in the classic integration.
-   *
-   * @param migratedAccountCode
-   * @return the current {@code BalanceAccount} instance, allowing for method chaining
-   */
-  public BalanceAccount migratedAccountCode(String migratedAccountCode) {
-    this.migratedAccountCode = migratedAccountCode;
-    return this;
-  }
-
-  /**
-   * The unique identifier of the account of the migrated account holder in the classic integration.
    * @return migratedAccountCode
    */
-  @ApiModelProperty(value = "The unique identifier of the account of the migrated account holder in the classic integration.")
   @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMigratedAccountCode() {
     return migratedAccountCode;
   }
 
-  /**
-   * The unique identifier of the account of the migrated account holder in the classic integration.
-   *
-   * @param migratedAccountCode
-   */ 
-  @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMigratedAccountCode(String migratedAccountCode) {
-    this.migratedAccountCode = migratedAccountCode;
-  }
 
   /**
    * platformPaymentConfiguration
@@ -385,10 +363,9 @@ public class BalanceAccount {
   }
 
   /**
-   * platformPaymentConfiguration
+   * Get platformPaymentConfiguration
    * @return platformPaymentConfiguration
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PlatformPaymentConfiguration getPlatformPaymentConfiguration() {
@@ -399,7 +376,7 @@ public class BalanceAccount {
    * platformPaymentConfiguration
    *
    * @param platformPaymentConfiguration
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
@@ -421,7 +398,6 @@ public class BalanceAccount {
    * Your reference for the balance account, maximum 150 characters.
    * @return reference
    */
-  @ApiModelProperty(value = "Your reference for the balance account, maximum 150 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -432,7 +408,7 @@ public class BalanceAccount {
    * Your reference for the balance account, maximum 150 characters.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -454,7 +430,6 @@ public class BalanceAccount {
    * The status of the balance account, set to **active** by default.  
    * @return status
    */
-  @ApiModelProperty(value = "The status of the balance account, set to **active** by default.  ")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -465,7 +440,7 @@ public class BalanceAccount {
    * The status of the balance account, set to **active** by default.  
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -487,7 +462,6 @@ public class BalanceAccount {
    * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return timeZone
    */
-  @ApiModelProperty(value = "The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeZone() {
@@ -498,7 +472,7 @@ public class BalanceAccount {
    * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    *
    * @param timeZone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {

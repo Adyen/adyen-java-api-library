@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Href;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -70,10 +68,9 @@ public class Link {
   }
 
   /**
-   * first
+   * Get first
    * @return first
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Href getFirst() {
@@ -84,7 +81,7 @@ public class Link {
    * first
    *
    * @param first
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirst(Href first) {
@@ -103,10 +100,9 @@ public class Link {
   }
 
   /**
-   * last
+   * Get last
    * @return last
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Href getLast() {
@@ -117,7 +113,7 @@ public class Link {
    * last
    *
    * @param last
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLast(Href last) {
@@ -136,10 +132,9 @@ public class Link {
   }
 
   /**
-   * next
+   * Get next
    * @return next
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Href getNext() {
@@ -150,7 +145,7 @@ public class Link {
    * next
    *
    * @param next
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(Href next) {
@@ -169,10 +164,9 @@ public class Link {
   }
 
   /**
-   * previous
+   * Get previous
    * @return previous
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Href getPrevious() {
@@ -183,7 +177,7 @@ public class Link {
    * previous
    *
    * @param previous
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrevious(Href previous) {
@@ -202,10 +196,9 @@ public class Link {
   }
 
   /**
-   * self
+   * Get self
    * @return self
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Href getSelf() {
@@ -216,7 +209,7 @@ public class Link {
    * self
    *
    * @param self
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(Href self) {

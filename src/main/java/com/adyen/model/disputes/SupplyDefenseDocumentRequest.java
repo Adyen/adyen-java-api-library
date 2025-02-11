@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.disputes.DefenseDocument;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -64,6 +62,9 @@ public class SupplyDefenseDocumentRequest {
   }
 
   public SupplyDefenseDocumentRequest addDefenseDocumentsItem(DefenseDocument defenseDocumentsItem) {
+    if (this.defenseDocuments == null) {
+      this.defenseDocuments = new ArrayList<>();
+    }
     this.defenseDocuments.add(defenseDocumentsItem);
     return this;
   }
@@ -72,9 +73,8 @@ public class SupplyDefenseDocumentRequest {
    * An array containing a list of the defense documents.
    * @return defenseDocuments
    */
-  @ApiModelProperty(required = true, value = "An array containing a list of the defense documents.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<DefenseDocument> getDefenseDocuments() {
     return defenseDocuments;
   }
@@ -83,9 +83,9 @@ public class SupplyDefenseDocumentRequest {
    * An array containing a list of the defense documents.
    *
    * @param defenseDocuments
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDefenseDocuments(List<DefenseDocument> defenseDocuments) {
     this.defenseDocuments = defenseDocuments;
   }
@@ -105,9 +105,8 @@ public class SupplyDefenseDocumentRequest {
    * The PSP reference assigned to the dispute.
    * @return disputePspReference
    */
-  @ApiModelProperty(required = true, value = "The PSP reference assigned to the dispute.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDisputePspReference() {
     return disputePspReference;
   }
@@ -116,9 +115,9 @@ public class SupplyDefenseDocumentRequest {
    * The PSP reference assigned to the dispute.
    *
    * @param disputePspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDisputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
   }
@@ -138,9 +137,8 @@ public class SupplyDefenseDocumentRequest {
    * The merchant account identifier, for which you want to process the dispute transaction.
    * @return merchantAccountCode
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, for which you want to process the dispute transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
@@ -149,9 +147,9 @@ public class SupplyDefenseDocumentRequest {
    * The merchant account identifier, for which you want to process the dispute transaction.
    *
    * @param merchantAccountCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }

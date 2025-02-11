@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -45,23 +43,23 @@ public class EntryModesRestriction {
    * Gets or Sets value
    */
   public enum ValueEnum {
-    BARCODE("barcode"),
+    BARCODE(String.valueOf("barcode")),
     
-    CHIP("chip"),
+    CHIP(String.valueOf("chip")),
     
-    COF("cof"),
+    COF(String.valueOf("cof")),
     
-    CONTACTLESS("contactless"),
+    CONTACTLESS(String.valueOf("contactless")),
     
-    MAGSTRIPE("magstripe"),
+    MAGSTRIPE(String.valueOf("magstripe")),
     
-    MANUAL("manual"),
+    MANUAL(String.valueOf("manual")),
     
-    OCR("ocr"),
+    OCR(String.valueOf("ocr")),
     
-    SERVER("server"),
+    SERVER(String.valueOf("server")),
     
-    UNKNOWN("unknown");
+    UNKNOWN(String.valueOf("unknown"));
 
     private String value;
 
@@ -91,7 +89,7 @@ public class EntryModesRestriction {
   }
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<ValueEnum> value = null;
+  private List<ValueEnum> value = new ArrayList<>();
 
   public EntryModesRestriction() { 
   }
@@ -111,9 +109,8 @@ public class EntryModesRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
    */
-  @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getOperation() {
     return operation;
   }
@@ -122,9 +119,9 @@ public class EntryModesRestriction {
    * Defines how the condition must be evaluated.
    *
    * @param operation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OPERATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOperation(String operation) {
     this.operation = operation;
   }
@@ -152,7 +149,6 @@ public class EntryModesRestriction {
    * List of point-of-sale entry modes.  Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**.  
    * @return value
    */
-  @ApiModelProperty(value = "List of point-of-sale entry modes.  Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**.  ")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ValueEnum> getValue() {
@@ -163,7 +159,7 @@ public class EntryModesRestriction {
    * List of point-of-sale entry modes.  Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**.  
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {

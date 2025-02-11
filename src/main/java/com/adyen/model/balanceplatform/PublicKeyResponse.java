@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,9 +58,8 @@ public class PublicKeyResponse {
    * The public key you need for encrypting a symmetric session key.
    * @return publicKey
    */
-  @ApiModelProperty(required = true, value = "The public key you need for encrypting a symmetric session key.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPublicKey() {
     return publicKey;
   }
@@ -71,9 +68,9 @@ public class PublicKeyResponse {
    * The public key you need for encrypting a symmetric session key.
    *
    * @param publicKey
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPublicKey(String publicKey) {
     this.publicKey = publicKey;
   }
@@ -93,9 +90,8 @@ public class PublicKeyResponse {
    * The expiry date of the public key.
    * @return publicKeyExpiryDate
    */
-  @ApiModelProperty(required = true, value = "The expiry date of the public key.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY_EXPIRY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPublicKeyExpiryDate() {
     return publicKeyExpiryDate;
   }
@@ -104,9 +100,9 @@ public class PublicKeyResponse {
    * The expiry date of the public key.
    *
    * @param publicKeyExpiryDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY_EXPIRY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPublicKeyExpiryDate(String publicKeyExpiryDate) {
     this.publicKeyExpiryDate = publicKeyExpiryDate;
   }

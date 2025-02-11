@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -51,7 +49,7 @@ public class AmountMinMaxRequirement {
    * **amountMinMaxRequirement**
    */
   public enum TypeEnum {
-    AMOUNTMINMAXREQUIREMENT("amountMinMaxRequirement");
+    AMOUNTMINMAXREQUIREMENT(String.valueOf("amountMinMaxRequirement"));
 
     private String value;
 
@@ -81,7 +79,7 @@ public class AmountMinMaxRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.AMOUNTMINMAXREQUIREMENT;
 
   public AmountMinMaxRequirement() { 
   }
@@ -101,7 +99,6 @@ public class AmountMinMaxRequirement {
    * Specifies the eligible amounts for a particular route.
    * @return description
    */
-  @ApiModelProperty(value = "Specifies the eligible amounts for a particular route.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -112,7 +109,7 @@ public class AmountMinMaxRequirement {
    * Specifies the eligible amounts for a particular route.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -134,7 +131,6 @@ public class AmountMinMaxRequirement {
    * Maximum amount.
    * @return max
    */
-  @ApiModelProperty(value = "Maximum amount.")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMax() {
@@ -145,7 +141,7 @@ public class AmountMinMaxRequirement {
    * Maximum amount.
    *
    * @param max
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMax(Long max) {
@@ -167,7 +163,6 @@ public class AmountMinMaxRequirement {
    * Minimum amount.
    * @return min
    */
-  @ApiModelProperty(value = "Minimum amount.")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMin() {
@@ -178,7 +173,7 @@ public class AmountMinMaxRequirement {
    * Minimum amount.
    *
    * @param min
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMin(Long min) {
@@ -200,9 +195,8 @@ public class AmountMinMaxRequirement {
    * **amountMinMaxRequirement**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**amountMinMaxRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -211,9 +205,9 @@ public class AmountMinMaxRequirement {
    * **amountMinMaxRequirement**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

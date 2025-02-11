@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,39 +41,39 @@ public class BankAccountIdentificationTypeRequirement {
    * Gets or Sets bankAccountIdentificationTypes
    */
   public enum BankAccountIdentificationTypesEnum {
-    AULOCAL("auLocal"),
+    AULOCAL(String.valueOf("auLocal")),
     
-    BRLOCAL("brLocal"),
+    BRLOCAL(String.valueOf("brLocal")),
     
-    CALOCAL("caLocal"),
+    CALOCAL(String.valueOf("caLocal")),
     
-    CZLOCAL("czLocal"),
+    CZLOCAL(String.valueOf("czLocal")),
     
-    DKLOCAL("dkLocal"),
+    DKLOCAL(String.valueOf("dkLocal")),
     
-    HKLOCAL("hkLocal"),
+    HKLOCAL(String.valueOf("hkLocal")),
     
-    HULOCAL("huLocal"),
+    HULOCAL(String.valueOf("huLocal")),
     
-    IBAN("iban"),
+    IBAN(String.valueOf("iban")),
     
-    LEGACY("legacy"),
+    LEGACY(String.valueOf("legacy")),
     
-    NOLOCAL("noLocal"),
+    NOLOCAL(String.valueOf("noLocal")),
     
-    NUMBERANDBIC("numberAndBic"),
+    NUMBERANDBIC(String.valueOf("numberAndBic")),
     
-    NZLOCAL("nzLocal"),
+    NZLOCAL(String.valueOf("nzLocal")),
     
-    PLLOCAL("plLocal"),
+    PLLOCAL(String.valueOf("plLocal")),
     
-    SELOCAL("seLocal"),
+    SELOCAL(String.valueOf("seLocal")),
     
-    SGLOCAL("sgLocal"),
+    SGLOCAL(String.valueOf("sgLocal")),
     
-    UKLOCAL("ukLocal"),
+    UKLOCAL(String.valueOf("ukLocal")),
     
-    USLOCAL("usLocal");
+    USLOCAL(String.valueOf("usLocal"));
 
     private String value;
 
@@ -105,7 +103,7 @@ public class BankAccountIdentificationTypeRequirement {
   }
 
   public static final String JSON_PROPERTY_BANK_ACCOUNT_IDENTIFICATION_TYPES = "bankAccountIdentificationTypes";
-  private List<BankAccountIdentificationTypesEnum> bankAccountIdentificationTypes = null;
+  private List<BankAccountIdentificationTypesEnum> bankAccountIdentificationTypes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -114,7 +112,7 @@ public class BankAccountIdentificationTypeRequirement {
    * **bankAccountIdentificationTypeRequirement**
    */
   public enum TypeEnum {
-    BANKACCOUNTIDENTIFICATIONTYPEREQUIREMENT("bankAccountIdentificationTypeRequirement");
+    BANKACCOUNTIDENTIFICATIONTYPEREQUIREMENT(String.valueOf("bankAccountIdentificationTypeRequirement"));
 
     private String value;
 
@@ -144,7 +142,7 @@ public class BankAccountIdentificationTypeRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.BANKACCOUNTIDENTIFICATIONTYPEREQUIREMENT;
 
   public BankAccountIdentificationTypeRequirement() { 
   }
@@ -172,7 +170,6 @@ public class BankAccountIdentificationTypeRequirement {
    * List of bank account identification types: eg.; [iban , numberAndBic]
    * @return bankAccountIdentificationTypes
    */
-  @ApiModelProperty(value = "List of bank account identification types: eg.; [iban , numberAndBic]")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_IDENTIFICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<BankAccountIdentificationTypesEnum> getBankAccountIdentificationTypes() {
@@ -183,7 +180,7 @@ public class BankAccountIdentificationTypeRequirement {
    * List of bank account identification types: eg.; [iban , numberAndBic]
    *
    * @param bankAccountIdentificationTypes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_IDENTIFICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountIdentificationTypes(List<BankAccountIdentificationTypesEnum> bankAccountIdentificationTypes) {
@@ -205,7 +202,6 @@ public class BankAccountIdentificationTypeRequirement {
    * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
    * @return description
    */
-  @ApiModelProperty(value = "Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -216,7 +212,7 @@ public class BankAccountIdentificationTypeRequirement {
    * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -238,9 +234,8 @@ public class BankAccountIdentificationTypeRequirement {
    * **bankAccountIdentificationTypeRequirement**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**bankAccountIdentificationTypeRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -249,9 +244,9 @@ public class BankAccountIdentificationTypeRequirement {
    * **bankAccountIdentificationTypeRequirement**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

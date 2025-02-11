@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,9 +62,8 @@ public class DefenseDocument {
    * The content of the defense document.
    * @return content
    */
-  @ApiModelProperty(required = true, value = "The content of the defense document.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public byte[] getContent() {
     return content;
   }
@@ -75,9 +72,9 @@ public class DefenseDocument {
    * The content of the defense document.
    *
    * @param content
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONTENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setContent(byte[] content) {
     this.content = content;
   }
@@ -97,9 +94,8 @@ public class DefenseDocument {
    * The content type of the defense document.
    * @return contentType
    */
-  @ApiModelProperty(required = true, value = "The content type of the defense document.")
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getContentType() {
     return contentType;
   }
@@ -108,9 +104,9 @@ public class DefenseDocument {
    * The content type of the defense document.
    *
    * @param contentType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setContentType(String contentType) {
     this.contentType = contentType;
   }
@@ -130,9 +126,8 @@ public class DefenseDocument {
    * The document type code of the defense document.
    * @return defenseDocumentTypeCode
    */
-  @ApiModelProperty(required = true, value = "The document type code of the defense document.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDefenseDocumentTypeCode() {
     return defenseDocumentTypeCode;
   }
@@ -141,9 +136,9 @@ public class DefenseDocument {
    * The document type code of the defense document.
    *
    * @param defenseDocumentTypeCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {
     this.defenseDocumentTypeCode = defenseDocumentTypeCode;
   }
