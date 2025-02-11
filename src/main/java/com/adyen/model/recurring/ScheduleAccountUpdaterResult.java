@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -60,9 +59,8 @@ public class ScheduleAccountUpdaterResult {
    * Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "Adyen's 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPspReference() {
     return pspReference;
   }
@@ -71,9 +69,9 @@ public class ScheduleAccountUpdaterResult {
    * Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -93,9 +91,8 @@ public class ScheduleAccountUpdaterResult {
    * The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
    * @return result
    */
-  @ApiModelProperty(required = true, value = "The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.")
   @JsonProperty(JSON_PROPERTY_RESULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getResult() {
     return result;
   }
@@ -104,9 +101,9 @@ public class ScheduleAccountUpdaterResult {
    * The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
    *
    * @param result
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResult(String result) {
     this.result = result;
   }

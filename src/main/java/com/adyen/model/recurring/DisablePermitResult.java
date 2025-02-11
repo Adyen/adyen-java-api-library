@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -60,7 +59,6 @@ public class DisablePermitResult {
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
    */
-  @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -71,7 +69,7 @@ public class DisablePermitResult {
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -93,7 +91,6 @@ public class DisablePermitResult {
    * Status of the disable request.
    * @return status
    */
-  @ApiModelProperty(value = "Status of the disable request.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -104,7 +101,7 @@ public class DisablePermitResult {
    * Status of the disable request.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {

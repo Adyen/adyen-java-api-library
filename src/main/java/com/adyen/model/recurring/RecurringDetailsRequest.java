@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.Recurring;
@@ -65,9 +64,8 @@ public class RecurringDetailsRequest {
    * The merchant account identifier you want to process the (transaction) request with.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier you want to process the (transaction) request with.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -76,9 +74,9 @@ public class RecurringDetailsRequest {
    * The merchant account identifier you want to process the (transaction) request with.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -95,10 +93,9 @@ public class RecurringDetailsRequest {
   }
 
   /**
-   * recurring
+   * Get recurring
    * @return recurring
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Recurring getRecurring() {
@@ -109,7 +106,7 @@ public class RecurringDetailsRequest {
    * recurring
    *
    * @param recurring
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
@@ -131,9 +128,8 @@ public class RecurringDetailsRequest {
    * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
    * @return shopperReference
    */
-  @ApiModelProperty(required = true, value = "The reference you use to uniquely identify the shopper (e.g. user ID or account ID).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getShopperReference() {
     return shopperReference;
   }
@@ -142,9 +138,9 @@ public class RecurringDetailsRequest {
    * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
    *
    * @param shopperReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }

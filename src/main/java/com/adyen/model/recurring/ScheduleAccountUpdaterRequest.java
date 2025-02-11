@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.Card;
@@ -45,7 +44,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ScheduleAccountUpdaterRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_CARD = "card";
   private Card card;
@@ -76,7 +75,7 @@ public class ScheduleAccountUpdaterRequest {
     return this;
   }
 
-  public ScheduleAccountUpdaterRequest putAdditionalDataItem(String key, String additionalDataItem) {
+  public ScheduleAccountUpdaterRequest putItem(String key, String additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
     }
@@ -88,7 +87,6 @@ public class ScheduleAccountUpdaterRequest {
    * This field contains additional data, which may be required for a particular request.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -99,7 +97,7 @@ public class ScheduleAccountUpdaterRequest {
    * This field contains additional data, which may be required for a particular request.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -118,10 +116,9 @@ public class ScheduleAccountUpdaterRequest {
   }
 
   /**
-   * card
+   * Get card
    * @return card
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Card getCard() {
@@ -132,7 +129,7 @@ public class ScheduleAccountUpdaterRequest {
    * card
    *
    * @param card
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -154,9 +151,8 @@ public class ScheduleAccountUpdaterRequest {
    * Account of the merchant.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "Account of the merchant.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -165,9 +161,9 @@ public class ScheduleAccountUpdaterRequest {
    * Account of the merchant.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -187,9 +183,8 @@ public class ScheduleAccountUpdaterRequest {
    * A reference that merchants can apply for the call.
    * @return reference
    */
-  @ApiModelProperty(required = true, value = "A reference that merchants can apply for the call.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getReference() {
     return reference;
   }
@@ -198,9 +193,9 @@ public class ScheduleAccountUpdaterRequest {
    * A reference that merchants can apply for the call.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReference(String reference) {
     this.reference = reference;
   }
@@ -220,7 +215,6 @@ public class ScheduleAccountUpdaterRequest {
    * The selected detail recurring reference.  Optional if &#x60;card&#x60; is provided.
    * @return selectedRecurringDetailReference
    */
-  @ApiModelProperty(value = "The selected detail recurring reference.  Optional if `card` is provided.")
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSelectedRecurringDetailReference() {
@@ -231,7 +225,7 @@ public class ScheduleAccountUpdaterRequest {
    * The selected detail recurring reference.  Optional if &#x60;card&#x60; is provided.
    *
    * @param selectedRecurringDetailReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -253,7 +247,6 @@ public class ScheduleAccountUpdaterRequest {
    * The reference of the shopper that owns the recurring contract.  Optional if &#x60;card&#x60; is provided.
    * @return shopperReference
    */
-  @ApiModelProperty(value = "The reference of the shopper that owns the recurring contract.  Optional if `card` is provided.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -264,7 +257,7 @@ public class ScheduleAccountUpdaterRequest {
    * The reference of the shopper that owns the recurring contract.  Optional if &#x60;card&#x60; is provided.
    *
    * @param shopperReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {

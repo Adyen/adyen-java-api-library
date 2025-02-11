@@ -13,9 +13,8 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.lang.reflect.Type;
 import java.util.Map;
-import jakarta.ws.rs.core.GenericType;
+import .ws.rs.core.GenericType;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -44,7 +43,7 @@ public abstract class AbstractOpenApiSchema {
      *
      * @return an instance of the actual schema/object
      */
-    public abstract Map<String, GenericType> getSchemas();
+    public abstract Map<String, GenericType<?>> getSchemas();
 
     /**
      * Get the actual instance

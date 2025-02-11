@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -60,7 +59,6 @@ public class PermitResult {
    * The key to link permit requests to permit results.
    * @return resultKey
    */
-  @ApiModelProperty(value = "The key to link permit requests to permit results.")
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultKey() {
@@ -71,7 +69,7 @@ public class PermitResult {
    * The key to link permit requests to permit results.
    *
    * @param resultKey
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
@@ -93,7 +91,6 @@ public class PermitResult {
    * The permit token which is used to make payments by the partner company.
    * @return token
    */
-  @ApiModelProperty(value = "The permit token which is used to make payments by the partner company.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToken() {
@@ -104,7 +101,7 @@ public class PermitResult {
    * The permit token which is used to make payments by the partner company.
    *
    * @param token
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {

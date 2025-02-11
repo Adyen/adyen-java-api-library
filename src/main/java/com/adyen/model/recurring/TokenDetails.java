@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -40,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class TokenDetails {
   public static final String JSON_PROPERTY_TOKEN_DATA = "tokenData";
-  private Map<String, String> tokenData = null;
+  private Map<String, String> tokenData = new HashMap<>();
 
   public static final String JSON_PROPERTY_TOKEN_DATA_TYPE = "tokenDataType";
   private String tokenDataType;
@@ -59,7 +58,7 @@ public class TokenDetails {
     return this;
   }
 
-  public TokenDetails putTokenDataItem(String key, String tokenDataItem) {
+  public TokenDetails putItem(String key, String tokenDataItem) {
     if (this.tokenData == null) {
       this.tokenData = new HashMap<>();
     }
@@ -68,10 +67,9 @@ public class TokenDetails {
   }
 
   /**
-   * tokenData
+   * Get tokenData
    * @return tokenData
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getTokenData() {
@@ -82,7 +80,7 @@ public class TokenDetails {
    * tokenData
    *
    * @param tokenData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenData(Map<String, String> tokenData) {
@@ -101,10 +99,9 @@ public class TokenDetails {
   }
 
   /**
-   * tokenDataType
+   * Get tokenDataType
    * @return tokenDataType
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTokenDataType() {
@@ -115,7 +112,7 @@ public class TokenDetails {
    * tokenDataType
    *
    * @param tokenDataType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDataType(String tokenDataType) {

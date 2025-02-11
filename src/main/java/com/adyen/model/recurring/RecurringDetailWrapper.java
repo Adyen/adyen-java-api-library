@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.RecurringDetail;
@@ -54,10 +53,9 @@ public class RecurringDetailWrapper {
   }
 
   /**
-   * recurringDetail
+   * Get recurringDetail
    * @return recurringDetail
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RecurringDetail getRecurringDetail() {
@@ -68,7 +66,7 @@ public class RecurringDetailWrapper {
    * recurringDetail
    *
    * @param recurringDetail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetail(RecurringDetail recurringDetail) {

@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -60,9 +59,8 @@ public class Amount {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    * @return currency
    */
-  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCurrency() {
     return currency;
   }
@@ -71,9 +69,9 @@ public class Amount {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    *
    * @param currency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -93,9 +91,8 @@ public class Amount {
    * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    * @return value
    */
-  @ApiModelProperty(required = true, value = "The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).")
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getValue() {
     return value;
   }
@@ -104,9 +101,9 @@ public class Amount {
    * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setValue(Long value) {
     this.value = value;
   }

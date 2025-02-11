@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -60,9 +59,8 @@ public class DisablePermitRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -71,9 +69,9 @@ public class DisablePermitRequest {
    * The merchant account identifier, with which you want to process the transaction.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -93,9 +91,8 @@ public class DisablePermitRequest {
    * The permit token to disable.
    * @return token
    */
-  @ApiModelProperty(required = true, value = "The permit token to disable.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getToken() {
     return token;
   }
@@ -104,9 +101,9 @@ public class DisablePermitRequest {
    * The permit token to disable.
    *
    * @param token
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setToken(String token) {
     this.token = token;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.Amount;
@@ -62,10 +61,9 @@ public class PermitRestriction {
   }
 
   /**
-   * maxAmount
+   * Get maxAmount
    * @return maxAmount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getMaxAmount() {
@@ -76,7 +74,7 @@ public class PermitRestriction {
    * maxAmount
    *
    * @param maxAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(Amount maxAmount) {
@@ -95,10 +93,9 @@ public class PermitRestriction {
   }
 
   /**
-   * singleTransactionLimit
+   * Get singleTransactionLimit
    * @return singleTransactionLimit
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SINGLE_TRANSACTION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getSingleTransactionLimit() {
@@ -109,7 +106,7 @@ public class PermitRestriction {
    * singleTransactionLimit
    *
    * @param singleTransactionLimit
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SINGLE_TRANSACTION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSingleTransactionLimit(Amount singleTransactionLimit) {
@@ -131,7 +128,6 @@ public class PermitRestriction {
    * Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.
    * @return singleUse
    */
-  @ApiModelProperty(value = "Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.")
   @JsonProperty(JSON_PROPERTY_SINGLE_USE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSingleUse() {
@@ -142,7 +138,7 @@ public class PermitRestriction {
    * Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.
    *
    * @param singleUse
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SINGLE_USE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSingleUse(Boolean singleUse) {

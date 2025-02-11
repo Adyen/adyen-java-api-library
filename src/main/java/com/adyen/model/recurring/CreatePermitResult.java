@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.PermitResult;
@@ -40,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CreatePermitResult {
   public static final String JSON_PROPERTY_PERMIT_RESULT_LIST = "permitResultList";
-  private List<PermitResult> permitResultList = null;
+  private List<PermitResult> permitResultList = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -59,7 +58,7 @@ public class CreatePermitResult {
     return this;
   }
 
-  public CreatePermitResult addPermitResultListItem(PermitResult permitResultListItem) {
+  public CreatePermitResult addItem(PermitResult permitResultListItem) {
     if (this.permitResultList == null) {
       this.permitResultList = new ArrayList<>();
     }
@@ -71,7 +70,6 @@ public class CreatePermitResult {
    * List of new permits.
    * @return permitResultList
    */
-  @ApiModelProperty(value = "List of new permits.")
   @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PermitResult> getPermitResultList() {
@@ -82,7 +80,7 @@ public class CreatePermitResult {
    * List of new permits.
    *
    * @param permitResultList
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermitResultList(List<PermitResult> permitResultList) {
@@ -104,7 +102,6 @@ public class CreatePermitResult {
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
    */
-  @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -115,7 +112,7 @@ public class CreatePermitResult {
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {

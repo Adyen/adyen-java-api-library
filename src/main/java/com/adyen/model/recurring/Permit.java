@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.PermitRestriction;
@@ -74,7 +73,6 @@ public class Permit {
    * Partner ID (when using the permit-per-partner token sharing model).
    * @return partnerId
    */
-  @ApiModelProperty(value = "Partner ID (when using the permit-per-partner token sharing model).")
   @JsonProperty(JSON_PROPERTY_PARTNER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPartnerId() {
@@ -85,7 +83,7 @@ public class Permit {
    * Partner ID (when using the permit-per-partner token sharing model).
    *
    * @param partnerId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PARTNER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPartnerId(String partnerId) {
@@ -107,7 +105,6 @@ public class Permit {
    * The profile to apply to this permit (when using the shared permits model).
    * @return profileReference
    */
-  @ApiModelProperty(value = "The profile to apply to this permit (when using the shared permits model).")
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProfileReference() {
@@ -118,7 +115,7 @@ public class Permit {
    * The profile to apply to this permit (when using the shared permits model).
    *
    * @param profileReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfileReference(String profileReference) {
@@ -137,10 +134,9 @@ public class Permit {
   }
 
   /**
-   * restriction
+   * Get restriction
    * @return restriction
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PermitRestriction getRestriction() {
@@ -151,7 +147,7 @@ public class Permit {
    * restriction
    *
    * @param restriction
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestriction(PermitRestriction restriction) {
@@ -173,7 +169,6 @@ public class Permit {
    * The key to link permit requests to permit results.
    * @return resultKey
    */
-  @ApiModelProperty(value = "The key to link permit requests to permit results.")
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultKey() {
@@ -184,7 +179,7 @@ public class Permit {
    * The key to link permit requests to permit results.
    *
    * @param resultKey
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
@@ -206,7 +201,6 @@ public class Permit {
    * The expiry date for this permit.
    * @return validTillDate
    */
-  @ApiModelProperty(value = "The expiry date for this permit.")
   @JsonProperty(JSON_PROPERTY_VALID_TILL_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValidTillDate() {
@@ -217,7 +211,7 @@ public class Permit {
    * The expiry date for this permit.
    *
    * @param validTillDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALID_TILL_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTillDate(OffsetDateTime validTillDate) {

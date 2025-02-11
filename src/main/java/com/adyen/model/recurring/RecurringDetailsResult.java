@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.RecurringDetailWrapper;
@@ -46,7 +45,7 @@ public class RecurringDetailsResult {
   private OffsetDateTime creationDate;
 
   public static final String JSON_PROPERTY_DETAILS = "details";
-  private List<RecurringDetailWrapper> details = null;
+  private List<RecurringDetailWrapper> details = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL = "lastKnownShopperEmail";
   private String lastKnownShopperEmail;
@@ -72,7 +71,6 @@ public class RecurringDetailsResult {
    * The date when the recurring details were created.
    * @return creationDate
    */
-  @ApiModelProperty(value = "The date when the recurring details were created.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -83,7 +81,7 @@ public class RecurringDetailsResult {
    * The date when the recurring details were created.
    *
    * @param creationDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -101,7 +99,7 @@ public class RecurringDetailsResult {
     return this;
   }
 
-  public RecurringDetailsResult addDetailsItem(RecurringDetailWrapper detailsItem) {
+  public RecurringDetailsResult addItem(RecurringDetailWrapper detailsItem) {
     if (this.details == null) {
       this.details = new ArrayList<>();
     }
@@ -113,7 +111,6 @@ public class RecurringDetailsResult {
    * Payment details stored for recurring payments.
    * @return details
    */
-  @ApiModelProperty(value = "Payment details stored for recurring payments.")
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RecurringDetailWrapper> getDetails() {
@@ -124,7 +121,7 @@ public class RecurringDetailsResult {
    * Payment details stored for recurring payments.
    *
    * @param details
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(List<RecurringDetailWrapper> details) {
@@ -146,7 +143,6 @@ public class RecurringDetailsResult {
    * The most recent email for this shopper (if available).
    * @return lastKnownShopperEmail
    */
-  @ApiModelProperty(value = "The most recent email for this shopper (if available).")
   @JsonProperty(JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLastKnownShopperEmail() {
@@ -157,7 +153,7 @@ public class RecurringDetailsResult {
    * The most recent email for this shopper (if available).
    *
    * @param lastKnownShopperEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LAST_KNOWN_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastKnownShopperEmail(String lastKnownShopperEmail) {
@@ -179,7 +175,6 @@ public class RecurringDetailsResult {
    * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
    * @return shopperReference
    */
-  @ApiModelProperty(value = "The reference you use to uniquely identify the shopper (e.g. user ID or account ID).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -190,7 +185,7 @@ public class RecurringDetailsResult {
    * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
    *
    * @param shopperReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
