@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -45,10 +44,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ThreeDSAvailabilityRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_BRANDS = "brands";
-  private List<String> brands = null;
+  private List<String> brands = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CARD_NUMBER = "cardNumber";
   private String cardNumber;
@@ -76,7 +75,7 @@ public class ThreeDSAvailabilityRequest {
     return this;
   }
 
-  public ThreeDSAvailabilityRequest putAdditionalDataItem(String key, String additionalDataItem) {
+  public ThreeDSAvailabilityRequest putItem(String key, String additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
     }
@@ -88,7 +87,6 @@ public class ThreeDSAvailabilityRequest {
    * This field contains additional data, which may be required for a particular request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.  The `additionalData` object consists of entries, each of which includes the key and value.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -99,7 +97,7 @@ public class ThreeDSAvailabilityRequest {
    * This field contains additional data, which may be required for a particular request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -117,7 +115,7 @@ public class ThreeDSAvailabilityRequest {
     return this;
   }
 
-  public ThreeDSAvailabilityRequest addBrandsItem(String brandsItem) {
+  public ThreeDSAvailabilityRequest addItem(String brandsItem) {
     if (this.brands == null) {
       this.brands = new ArrayList<>();
     }
@@ -129,7 +127,6 @@ public class ThreeDSAvailabilityRequest {
    * List of brands.
    * @return brands
    */
-  @ApiModelProperty(value = "List of brands.")
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getBrands() {
@@ -140,7 +137,7 @@ public class ThreeDSAvailabilityRequest {
    * List of brands.
    *
    * @param brands
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
@@ -162,7 +159,6 @@ public class ThreeDSAvailabilityRequest {
    * Card number or BIN.
    * @return cardNumber
    */
-  @ApiModelProperty(value = "Card number or BIN.")
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardNumber() {
@@ -173,7 +169,7 @@ public class ThreeDSAvailabilityRequest {
    * Card number or BIN.
    *
    * @param cardNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
@@ -195,9 +191,8 @@ public class ThreeDSAvailabilityRequest {
    * The merchant account identifier.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -206,9 +201,9 @@ public class ThreeDSAvailabilityRequest {
    * The merchant account identifier.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -228,7 +223,6 @@ public class ThreeDSAvailabilityRequest {
    * A recurring detail reference corresponding to a card.
    * @return recurringDetailReference
    */
-  @ApiModelProperty(value = "A recurring detail reference corresponding to a card.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -239,7 +233,7 @@ public class ThreeDSAvailabilityRequest {
    * A recurring detail reference corresponding to a card.
    *
    * @param recurringDetailReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -261,7 +255,6 @@ public class ThreeDSAvailabilityRequest {
    * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
    * @return shopperReference
    */
-  @ApiModelProperty(value = "The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID).")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -272,7 +265,7 @@ public class ThreeDSAvailabilityRequest {
    * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
    *
    * @param shopperReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {

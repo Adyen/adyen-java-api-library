@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.binlookup.BinDetail;
@@ -48,13 +47,13 @@ public class ThreeDSAvailabilityResponse {
   private BinDetail binDetails;
 
   public static final String JSON_PROPERTY_DS_PUBLIC_KEYS = "dsPublicKeys";
-  private List<DSPublicKeyDetail> dsPublicKeys = null;
+  private List<DSPublicKeyDetail> dsPublicKeys = new ArrayList<>();
 
   public static final String JSON_PROPERTY_THREE_D_S1_SUPPORTED = "threeDS1Supported";
   private Boolean threeDS1Supported;
 
   public static final String JSON_PROPERTY_THREE_D_S2_CARD_RANGE_DETAILS = "threeDS2CardRangeDetails";
-  private List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails = null;
+  private List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails = new ArrayList<>();
 
   public static final String JSON_PROPERTY_THREE_D_S2SUPPORTED = "threeDS2supported";
   private Boolean threeDS2supported;
@@ -74,10 +73,9 @@ public class ThreeDSAvailabilityResponse {
   }
 
   /**
-   * binDetails
+   * Get binDetails
    * @return binDetails
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BIN_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BinDetail getBinDetails() {
@@ -88,7 +86,7 @@ public class ThreeDSAvailabilityResponse {
    * binDetails
    *
    * @param binDetails
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BIN_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBinDetails(BinDetail binDetails) {
@@ -106,7 +104,7 @@ public class ThreeDSAvailabilityResponse {
     return this;
   }
 
-  public ThreeDSAvailabilityResponse addDsPublicKeysItem(DSPublicKeyDetail dsPublicKeysItem) {
+  public ThreeDSAvailabilityResponse addItem(DSPublicKeyDetail dsPublicKeysItem) {
     if (this.dsPublicKeys == null) {
       this.dsPublicKeys = new ArrayList<>();
     }
@@ -118,7 +116,6 @@ public class ThreeDSAvailabilityResponse {
    * List of Directory Server (DS) public keys.
    * @return dsPublicKeys
    */
-  @ApiModelProperty(value = "List of Directory Server (DS) public keys.")
   @JsonProperty(JSON_PROPERTY_DS_PUBLIC_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DSPublicKeyDetail> getDsPublicKeys() {
@@ -129,7 +126,7 @@ public class ThreeDSAvailabilityResponse {
    * List of Directory Server (DS) public keys.
    *
    * @param dsPublicKeys
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DS_PUBLIC_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsPublicKeys(List<DSPublicKeyDetail> dsPublicKeys) {
@@ -151,7 +148,6 @@ public class ThreeDSAvailabilityResponse {
    * Indicator if 3D Secure 1 is supported.
    * @return threeDS1Supported
    */
-  @ApiModelProperty(value = "Indicator if 3D Secure 1 is supported.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S1_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getThreeDS1Supported() {
@@ -162,7 +158,7 @@ public class ThreeDSAvailabilityResponse {
    * Indicator if 3D Secure 1 is supported.
    *
    * @param threeDS1Supported
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S1_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS1Supported(Boolean threeDS1Supported) {
@@ -180,7 +176,7 @@ public class ThreeDSAvailabilityResponse {
     return this;
   }
 
-  public ThreeDSAvailabilityResponse addThreeDS2CardRangeDetailsItem(ThreeDS2CardRangeDetail threeDS2CardRangeDetailsItem) {
+  public ThreeDSAvailabilityResponse addItem(ThreeDS2CardRangeDetail threeDS2CardRangeDetailsItem) {
     if (this.threeDS2CardRangeDetails == null) {
       this.threeDS2CardRangeDetails = new ArrayList<>();
     }
@@ -192,7 +188,6 @@ public class ThreeDSAvailabilityResponse {
    * List of brand and card range pairs.
    * @return threeDS2CardRangeDetails
    */
-  @ApiModelProperty(value = "List of brand and card range pairs.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_CARD_RANGE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ThreeDS2CardRangeDetail> getThreeDS2CardRangeDetails() {
@@ -203,7 +198,7 @@ public class ThreeDSAvailabilityResponse {
    * List of brand and card range pairs.
    *
    * @param threeDS2CardRangeDetails
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_CARD_RANGE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2CardRangeDetails(List<ThreeDS2CardRangeDetail> threeDS2CardRangeDetails) {
@@ -225,7 +220,6 @@ public class ThreeDSAvailabilityResponse {
    * Indicator if 3D Secure 2 is supported.
    * @return threeDS2supported
    */
-  @ApiModelProperty(value = "Indicator if 3D Secure 2 is supported.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S2SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getThreeDS2supported() {
@@ -236,7 +230,7 @@ public class ThreeDSAvailabilityResponse {
    * Indicator if 3D Secure 2 is supported.
    *
    * @param threeDS2supported
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDS2supported(Boolean threeDS2supported) {

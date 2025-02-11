@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -96,7 +95,6 @@ public class CardBin {
    * The first 6 digit of the card number. Enable this field via merchant account settings.
    * @return bin
    */
-  @ApiModelProperty(value = "The first 6 digit of the card number. Enable this field via merchant account settings.")
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBin() {
@@ -107,7 +105,7 @@ public class CardBin {
    * The first 6 digit of the card number. Enable this field via merchant account settings.
    *
    * @param bin
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
@@ -129,7 +127,6 @@ public class CardBin {
    * If true, it indicates a commercial card. Enable this field via merchant account settings.
    * @return commercial
    */
-  @ApiModelProperty(value = "If true, it indicates a commercial card. Enable this field via merchant account settings.")
   @JsonProperty(JSON_PROPERTY_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCommercial() {
@@ -140,7 +137,7 @@ public class CardBin {
    * If true, it indicates a commercial card. Enable this field via merchant account settings.
    *
    * @param commercial
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommercial(Boolean commercial) {
@@ -162,7 +159,6 @@ public class CardBin {
    * The card funding source. Valid values are: * CHARGE * CREDIT * DEBIT * DEFERRED_DEBIT * PREPAID * PREPAID_RELOADABLE * PREPAID_NONRELOADABLE &gt; Enable this field via merchant account settings.
    * @return fundingSource
    */
-  @ApiModelProperty(value = "The card funding source. Valid values are: * CHARGE * CREDIT * DEBIT * DEFERRED_DEBIT * PREPAID * PREPAID_RELOADABLE * PREPAID_NONRELOADABLE > Enable this field via merchant account settings.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFundingSource() {
@@ -173,7 +169,7 @@ public class CardBin {
    * The card funding source. Valid values are: * CHARGE * CREDIT * DEBIT * DEFERRED_DEBIT * PREPAID * PREPAID_RELOADABLE * PREPAID_NONRELOADABLE &gt; Enable this field via merchant account settings.
    *
    * @param fundingSource
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
@@ -195,7 +191,6 @@ public class CardBin {
    * Indicates availability of funds.  Visa: * \&quot;I\&quot; (fast funds are supported) * \&quot;N\&quot; (otherwise)  Mastercard: * \&quot;I\&quot; (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \&quot;N\&quot; (otherwise) &gt; Returned when you verify a card BIN or estimate costs, and only if &#x60;payoutEligible&#x60; is different from \&quot;N\&quot; or \&quot;U\&quot;.
    * @return fundsAvailability
    */
-  @ApiModelProperty(value = "Indicates availability of funds.  Visa: * \"I\" (fast funds are supported) * \"N\" (otherwise)  Mastercard: * \"I\" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \"N\" (otherwise) > Returned when you verify a card BIN or estimate costs, and only if `payoutEligible` is different from \"N\" or \"U\".")
   @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFundsAvailability() {
@@ -206,7 +201,7 @@ public class CardBin {
    * Indicates availability of funds.  Visa: * \&quot;I\&quot; (fast funds are supported) * \&quot;N\&quot; (otherwise)  Mastercard: * \&quot;I\&quot; (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \&quot;N\&quot; (otherwise) &gt; Returned when you verify a card BIN or estimate costs, and only if &#x60;payoutEligible&#x60; is different from \&quot;N\&quot; or \&quot;U\&quot;.
    *
    * @param fundsAvailability
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FUNDS_AVAILABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundsAvailability(String fundsAvailability) {
@@ -228,7 +223,6 @@ public class CardBin {
    * The first 8 digit of the card number. Enable this field via merchant account settings.
    * @return issuerBin
    */
-  @ApiModelProperty(value = "The first 8 digit of the card number. Enable this field via merchant account settings.")
   @JsonProperty(JSON_PROPERTY_ISSUER_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuerBin() {
@@ -239,7 +233,7 @@ public class CardBin {
    * The first 8 digit of the card number. Enable this field via merchant account settings.
    *
    * @param issuerBin
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUER_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerBin(String issuerBin) {
@@ -261,7 +255,6 @@ public class CardBin {
    * The issuing bank of the card.
    * @return issuingBank
    */
-  @ApiModelProperty(value = "The issuing bank of the card.")
   @JsonProperty(JSON_PROPERTY_ISSUING_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuingBank() {
@@ -272,7 +265,7 @@ public class CardBin {
    * The issuing bank of the card.
    *
    * @param issuingBank
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUING_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingBank(String issuingBank) {
@@ -294,7 +287,6 @@ public class CardBin {
    * The country where the card was issued from.
    * @return issuingCountry
    */
-  @ApiModelProperty(value = "The country where the card was issued from.")
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuingCountry() {
@@ -305,7 +297,7 @@ public class CardBin {
    * The country where the card was issued from.
    *
    * @param issuingCountry
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountry(String issuingCountry) {
@@ -327,7 +319,6 @@ public class CardBin {
    * The currency of the card.
    * @return issuingCurrency
    */
-  @ApiModelProperty(value = "The currency of the card.")
   @JsonProperty(JSON_PROPERTY_ISSUING_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuingCurrency() {
@@ -338,7 +329,7 @@ public class CardBin {
    * The currency of the card.
    *
    * @param issuingCurrency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUING_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCurrency(String issuingCurrency) {
@@ -360,7 +351,6 @@ public class CardBin {
    * The payment method associated with the card (e.g. visa, mc, or amex).
    * @return paymentMethod
    */
-  @ApiModelProperty(value = "The payment method associated with the card (e.g. visa, mc, or amex).")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethod() {
@@ -371,7 +361,7 @@ public class CardBin {
    * The payment method associated with the card (e.g. visa, mc, or amex).
    *
    * @param paymentMethod
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
@@ -393,7 +383,6 @@ public class CardBin {
    * Indicates whether a payout is eligible or not for this card.  Visa: * \&quot;Y\&quot; * \&quot;N\&quot;  Mastercard: * \&quot;Y\&quot; (domestic and cross-border) * \&quot;D\&quot; (only domestic) * \&quot;N\&quot; (no MoneySend) * \&quot;U\&quot; (unknown) &gt; Returned when you verify a card BIN or estimate costs, and only if &#x60;payoutEligible&#x60; is different from \&quot;N\&quot; or \&quot;U\&quot;.
    * @return payoutEligible
    */
-  @ApiModelProperty(value = "Indicates whether a payout is eligible or not for this card.  Visa: * \"Y\" * \"N\"  Mastercard: * \"Y\" (domestic and cross-border) * \"D\" (only domestic) * \"N\" (no MoneySend) * \"U\" (unknown) > Returned when you verify a card BIN or estimate costs, and only if `payoutEligible` is different from \"N\" or \"U\".")
   @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPayoutEligible() {
@@ -404,7 +393,7 @@ public class CardBin {
    * Indicates whether a payout is eligible or not for this card.  Visa: * \&quot;Y\&quot; * \&quot;N\&quot;  Mastercard: * \&quot;Y\&quot; (domestic and cross-border) * \&quot;D\&quot; (only domestic) * \&quot;N\&quot; (no MoneySend) * \&quot;U\&quot; (unknown) &gt; Returned when you verify a card BIN or estimate costs, and only if &#x60;payoutEligible&#x60; is different from \&quot;N\&quot; or \&quot;U\&quot;.
    *
    * @param payoutEligible
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYOUT_ELIGIBLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayoutEligible(String payoutEligible) {
@@ -426,7 +415,6 @@ public class CardBin {
    * The last four digits of the card number.
    * @return summary
    */
-  @ApiModelProperty(value = "The last four digits of the card number.")
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSummary() {
@@ -437,7 +425,7 @@ public class CardBin {
    * The last four digits of the card number.
    *
    * @param summary
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSummary(String summary) {

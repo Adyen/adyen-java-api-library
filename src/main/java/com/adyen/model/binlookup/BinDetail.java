@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -56,7 +55,6 @@ public class BinDetail {
    * The country where the card was issued.
    * @return issuerCountry
    */
-  @ApiModelProperty(value = "The country where the card was issued.")
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuerCountry() {
@@ -67,7 +65,7 @@ public class BinDetail {
    * The country where the card was issued.
    *
    * @param issuerCountry
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
