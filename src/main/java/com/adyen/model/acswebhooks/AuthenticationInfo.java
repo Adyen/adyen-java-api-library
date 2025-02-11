@@ -21,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,25 +59,25 @@ public class AuthenticationInfo {
    * Specifies a preference for receiving a challenge. Possible values:  * **01**: No preference * **02**: No challenge requested * **03**: Challenge requested (preference) * **04**: Challenge requested (mandate) * **05**: No challenge requested (transactional risk analysis is already performed) * **07**: No challenge requested (SCA is already performed) * **08**: No challenge requested (trusted beneficiaries exemption of no challenge required) * **09**: Challenge requested (trusted beneficiaries prompt requested if challenge required) * **80**: No challenge requested (secure corporate payment with Mastercard) * **82**: No challenge requested (secure corporate payment with Visa) 
    */
   public enum ChallengeIndicatorEnum {
-    _01("01"),
+    _01(String.valueOf("01")),
     
-    _02("02"),
+    _02(String.valueOf("02")),
     
-    _03("03"),
+    _03(String.valueOf("03")),
     
-    _04("04"),
+    _04(String.valueOf("04")),
     
-    _05("05"),
+    _05(String.valueOf("05")),
     
-    _07("07"),
+    _07(String.valueOf("07")),
     
-    _08("08"),
+    _08(String.valueOf("08")),
     
-    _09("09"),
+    _09(String.valueOf("09")),
     
-    _80("80"),
+    _80(String.valueOf("80")),
     
-    _82("82");
+    _82(String.valueOf("82"));
 
     private String value;
 
@@ -117,11 +116,11 @@ public class AuthenticationInfo {
    * Indicates the type of channel interface being used to initiate the transaction. Possible values:  * **app** * **browser** * **3DSRequestorInitiated** (initiated by a merchant when the cardholder is not available)
    */
   public enum DeviceChannelEnum {
-    APP("app"),
+    APP(String.valueOf("app")),
     
-    BROWSER("browser"),
+    BROWSER(String.valueOf("browser")),
     
-    THREEDSREQUESTORINITIATED("ThreeDSRequestorInitiated");
+    THREEDSREQUESTORINITIATED(String.valueOf("ThreeDSRequestorInitiated"));
 
     private String value;
 
@@ -160,19 +159,19 @@ public class AuthenticationInfo {
    * Indicates the exemption type that was applied to the authentication by the issuer, if exemption applied. Possible values:  * **lowValue** * **secureCorporate** * **trustedBeneficiary** * **transactionRiskAnalysis** * **acquirerExemption** * **noExemptionApplied** * **visaDAFExemption** 
    */
   public enum ExemptionIndicatorEnum {
-    LOWVALUE("lowValue"),
+    LOWVALUE(String.valueOf("lowValue")),
     
-    SECURECORPORATE("secureCorporate"),
+    SECURECORPORATE(String.valueOf("secureCorporate")),
     
-    TRUSTEDBENEFICIARY("trustedBeneficiary"),
+    TRUSTEDBENEFICIARY(String.valueOf("trustedBeneficiary")),
     
-    TRANSACTIONRISKANALYSIS("transactionRiskAnalysis"),
+    TRANSACTIONRISKANALYSIS(String.valueOf("transactionRiskAnalysis")),
     
-    ACQUIREREXEMPTION("acquirerExemption"),
+    ACQUIREREXEMPTION(String.valueOf("acquirerExemption")),
     
-    NOEXEMPTIONAPPLIED("noExemptionApplied"),
+    NOEXEMPTIONAPPLIED(String.valueOf("noExemptionApplied")),
     
-    VISADAFEXEMPTION("visaDAFExemption");
+    VISADAFEXEMPTION(String.valueOf("visaDAFExemption"));
 
     private String value;
 
@@ -211,9 +210,9 @@ public class AuthenticationInfo {
    * Identifies the category of the message for a specific use case. Possible values:  * **payment** * **nonPayment**
    */
   public enum MessageCategoryEnum {
-    PAYMENT("payment"),
+    PAYMENT(String.valueOf("payment")),
     
-    NONPAYMENT("nonPayment");
+    NONPAYMENT(String.valueOf("nonPayment"));
 
     private String value;
 
@@ -258,15 +257,15 @@ public class AuthenticationInfo {
    * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification. Possible values:  * **Y**: Authentication / Account verification successful. * **N**: Not Authenticated / Account not verified. Transaction denied. * **U**: Authentication / Account verification could not be performed. * **I**: Informational Only / 3D Secure Requestor challenge preference acknowledged. * **R**: Authentication / Account verification rejected by the Issuer. 
    */
   public enum TransStatusEnum {
-    Y("Y"),
+    Y(String.valueOf("Y")),
     
-    N("N"),
+    N(String.valueOf("N")),
     
-    R("R"),
+    R(String.valueOf("R")),
     
-    I("I"),
+    I(String.valueOf("I")),
     
-    U("U");
+    U(String.valueOf("U"));
 
     private String value;
 
@@ -302,75 +301,75 @@ public class AuthenticationInfo {
    * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    */
   public enum TransStatusReasonEnum {
-    _01("01"),
+    _01(String.valueOf("01")),
     
-    _02("02"),
+    _02(String.valueOf("02")),
     
-    _03("03"),
+    _03(String.valueOf("03")),
     
-    _04("04"),
+    _04(String.valueOf("04")),
     
-    _05("05"),
+    _05(String.valueOf("05")),
     
-    _06("06"),
+    _06(String.valueOf("06")),
     
-    _07("07"),
+    _07(String.valueOf("07")),
     
-    _08("08"),
+    _08(String.valueOf("08")),
     
-    _09("09"),
+    _09(String.valueOf("09")),
     
-    _10("10"),
+    _10(String.valueOf("10")),
     
-    _11("11"),
+    _11(String.valueOf("11")),
     
-    _12("12"),
+    _12(String.valueOf("12")),
     
-    _13("13"),
+    _13(String.valueOf("13")),
     
-    _14("14"),
+    _14(String.valueOf("14")),
     
-    _15("15"),
+    _15(String.valueOf("15")),
     
-    _16("16"),
+    _16(String.valueOf("16")),
     
-    _17("17"),
+    _17(String.valueOf("17")),
     
-    _18("18"),
+    _18(String.valueOf("18")),
     
-    _19("19"),
+    _19(String.valueOf("19")),
     
-    _20("20"),
+    _20(String.valueOf("20")),
     
-    _21("21"),
+    _21(String.valueOf("21")),
     
-    _22("22"),
+    _22(String.valueOf("22")),
     
-    _23("23"),
+    _23(String.valueOf("23")),
     
-    _24("24"),
+    _24(String.valueOf("24")),
     
-    _25("25"),
+    _25(String.valueOf("25")),
     
-    _26("26"),
+    _26(String.valueOf("26")),
     
-    _80("80"),
+    _80(String.valueOf("80")),
     
-    _81("81"),
+    _81(String.valueOf("81")),
     
-    _82("82"),
+    _82(String.valueOf("82")),
     
-    _83("83"),
+    _83(String.valueOf("83")),
     
-    _84("84"),
+    _84(String.valueOf("84")),
     
-    _85("85"),
+    _85(String.valueOf("85")),
     
-    _86("86"),
+    _86(String.valueOf("86")),
     
-    _87("87"),
+    _87(String.valueOf("87")),
     
-    _88("88");
+    _88(String.valueOf("88"));
 
     private String value;
 
@@ -406,9 +405,9 @@ public class AuthenticationInfo {
    * The type of authentication performed. Possible values:  * **frictionless** * **challenge**
    */
   public enum TypeEnum {
-    FRICTIONLESS("frictionless"),
+    FRICTIONLESS(String.valueOf("frictionless")),
     
-    CHALLENGE("challenge");
+    CHALLENGE(String.valueOf("challenge"));
 
     private String value;
 
