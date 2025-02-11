@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.OrderItem;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -50,7 +48,7 @@ public class TerminalOrderRequest {
   private String customerOrderReference;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  private List<OrderItem> items = null;
+  private List<OrderItem> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ORDER_TYPE = "orderType";
   private String orderType;
@@ -79,7 +77,6 @@ public class TerminalOrderRequest {
    * The identification of the billing entity to use for the order.    &gt; When ordering products in Brazil, you do not need to include the &#x60;billingEntityId&#x60; in the request.
    * @return billingEntityId
    */
-  @ApiModelProperty(value = "The identification of the billing entity to use for the order.    > When ordering products in Brazil, you do not need to include the `billingEntityId` in the request.")
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingEntityId() {
@@ -90,7 +87,7 @@ public class TerminalOrderRequest {
    * The identification of the billing entity to use for the order.    &gt; When ordering products in Brazil, you do not need to include the &#x60;billingEntityId&#x60; in the request.
    *
    * @param billingEntityId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntityId(String billingEntityId) {
@@ -112,7 +109,6 @@ public class TerminalOrderRequest {
    * The merchant-defined purchase order reference.
    * @return customerOrderReference
    */
-  @ApiModelProperty(value = "The merchant-defined purchase order reference.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomerOrderReference() {
@@ -123,7 +119,7 @@ public class TerminalOrderRequest {
    * The merchant-defined purchase order reference.
    *
    * @param customerOrderReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
@@ -153,7 +149,6 @@ public class TerminalOrderRequest {
    * The products included in the order.
    * @return items
    */
-  @ApiModelProperty(value = "The products included in the order.")
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<OrderItem> getItems() {
@@ -164,7 +159,7 @@ public class TerminalOrderRequest {
    * The products included in the order.
    *
    * @param items
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
@@ -186,7 +181,6 @@ public class TerminalOrderRequest {
    * Type of order
    * @return orderType
    */
-  @ApiModelProperty(value = "Type of order")
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrderType() {
@@ -197,7 +191,7 @@ public class TerminalOrderRequest {
    * Type of order
    *
    * @param orderType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderType(String orderType) {
@@ -219,7 +213,6 @@ public class TerminalOrderRequest {
    * The identification of the shipping location to use for the order.
    * @return shippingLocationId
    */
-  @ApiModelProperty(value = "The identification of the shipping location to use for the order.")
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShippingLocationId() {
@@ -230,7 +223,7 @@ public class TerminalOrderRequest {
    * The identification of the shipping location to use for the order.
    *
    * @param shippingLocationId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocationId(String shippingLocationId) {
@@ -252,7 +245,6 @@ public class TerminalOrderRequest {
    * The tax number of the billing entity.
    * @return taxId
    */
-  @ApiModelProperty(value = "The tax number of the billing entity.")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTaxId() {
@@ -263,7 +255,7 @@ public class TerminalOrderRequest {
    * The tax number of the billing entity.
    *
    * @param taxId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {

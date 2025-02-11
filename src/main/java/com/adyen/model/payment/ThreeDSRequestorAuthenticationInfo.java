@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,17 +42,17 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    */
   public enum ThreeDSReqAuthMethodEnum {
-    _01("01"),
+    _01(String.valueOf("01")),
     
-    _02("02"),
+    _02(String.valueOf("02")),
     
-    _03("03"),
+    _03(String.valueOf("03")),
     
-    _04("04"),
+    _04(String.valueOf("04")),
     
-    _05("05"),
+    _05(String.valueOf("05")),
     
-    _06("06");
+    _06(String.valueOf("06"));
 
     private String value;
 
@@ -107,7 +105,6 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    * @return threeDSReqAuthData
    */
-  @ApiModelProperty(value = "Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getThreeDSReqAuthData() {
@@ -118,7 +115,7 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    *
    * @param threeDSReqAuthData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthData(String threeDSReqAuthData) {
@@ -140,7 +137,6 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    * @return threeDSReqAuthMethod
    */
-  @ApiModelProperty(value = "Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ThreeDSReqAuthMethodEnum getThreeDSReqAuthMethod() {
@@ -151,7 +147,7 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    *
    * @param threeDSReqAuthMethod
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthMethod(ThreeDSReqAuthMethodEnum threeDSReqAuthMethod) {
@@ -173,7 +169,6 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
    * @return threeDSReqAuthTimestamp
    */
-  @ApiModelProperty(value = "Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getThreeDSReqAuthTimestamp() {
@@ -184,7 +179,7 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
    *
    * @param threeDSReqAuthTimestamp
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSReqAuthTimestamp(String threeDSReqAuthTimestamp) {

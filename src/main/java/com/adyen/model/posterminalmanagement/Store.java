@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.posterminalmanagement.Address;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -50,7 +48,7 @@ public class Store {
   private String description;
 
   public static final String JSON_PROPERTY_IN_STORE_TERMINALS = "inStoreTerminals";
-  private List<String> inStoreTerminals = null;
+  private List<String> inStoreTerminals = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT_CODE = "merchantAccountCode";
   private String merchantAccountCode;
@@ -76,10 +74,9 @@ public class Store {
   }
 
   /**
-   * address
+   * Get address
    * @return address
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getAddress() {
@@ -90,7 +87,7 @@ public class Store {
    * address
    *
    * @param address
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -112,7 +109,6 @@ public class Store {
    * The description of the store.
    * @return description
    */
-  @ApiModelProperty(value = "The description of the store.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -123,7 +119,7 @@ public class Store {
    * The description of the store.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -153,7 +149,6 @@ public class Store {
    * The list of terminals assigned to the store.
    * @return inStoreTerminals
    */
-  @ApiModelProperty(value = "The list of terminals assigned to the store.")
   @JsonProperty(JSON_PROPERTY_IN_STORE_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getInStoreTerminals() {
@@ -164,7 +159,7 @@ public class Store {
    * The list of terminals assigned to the store.
    *
    * @param inStoreTerminals
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IN_STORE_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInStoreTerminals(List<String> inStoreTerminals) {
@@ -186,7 +181,6 @@ public class Store {
    * The code of the merchant account.
    * @return merchantAccountCode
    */
-  @ApiModelProperty(value = "The code of the merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccountCode() {
@@ -197,7 +191,7 @@ public class Store {
    * The code of the merchant account.
    *
    * @param merchantAccountCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
@@ -219,7 +213,6 @@ public class Store {
    * The status of the store:  - &#x60;PreActive&#x60;: the store has been created, but not yet activated.   - &#x60;Active&#x60;: the store has been activated. This means you can process payments for this store.   - &#x60;Inactive&#x60;: the store is currently not active.   - &#x60;InactiveWithModifications&#x60;: the store is currently not active, but payment modifications such as refunds are possible.   - &#x60;Closed&#x60;: the store has been closed. 
    * @return status
    */
-  @ApiModelProperty(value = "The status of the store:  - `PreActive`: the store has been created, but not yet activated.   - `Active`: the store has been activated. This means you can process payments for this store.   - `Inactive`: the store is currently not active.   - `InactiveWithModifications`: the store is currently not active, but payment modifications such as refunds are possible.   - `Closed`: the store has been closed. ")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -230,7 +223,7 @@ public class Store {
    * The status of the store:  - &#x60;PreActive&#x60;: the store has been created, but not yet activated.   - &#x60;Active&#x60;: the store has been activated. This means you can process payments for this store.   - &#x60;Inactive&#x60;: the store is currently not active.   - &#x60;InactiveWithModifications&#x60;: the store is currently not active, but payment modifications such as refunds are possible.   - &#x60;Closed&#x60;: the store has been closed. 
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
@@ -252,9 +245,8 @@ public class Store {
    * The code of the store.
    * @return store
    */
-  @ApiModelProperty(required = true, value = "The code of the store.")
   @JsonProperty(JSON_PROPERTY_STORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getStore() {
     return store;
   }
@@ -263,9 +255,9 @@ public class Store {
    * The code of the store.
    *
    * @param store
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStore(String store) {
     this.store = store;
   }

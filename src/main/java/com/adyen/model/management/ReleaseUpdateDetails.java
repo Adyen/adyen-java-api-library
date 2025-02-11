@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -40,7 +38,7 @@ public class ReleaseUpdateDetails {
    * Type of terminal action: Update Release.
    */
   public enum TypeEnum {
-    RELEASEUPDATE("ReleaseUpdate");
+    RELEASEUPDATE(String.valueOf("ReleaseUpdate"));
 
     private String value;
 
@@ -70,7 +68,7 @@ public class ReleaseUpdateDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.RELEASEUPDATE;
 
   public static final String JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL = "updateAtFirstMaintenanceCall";
   private Boolean updateAtFirstMaintenanceCall;
@@ -93,7 +91,6 @@ public class ReleaseUpdateDetails {
    * Type of terminal action: Update Release.
    * @return type
    */
-  @ApiModelProperty(value = "Type of terminal action: Update Release.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -104,7 +101,7 @@ public class ReleaseUpdateDetails {
    * Type of terminal action: Update Release.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -126,7 +123,6 @@ public class ReleaseUpdateDetails {
    * Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
    * @return updateAtFirstMaintenanceCall
    */
-  @ApiModelProperty(value = "Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.")
   @JsonProperty(JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getUpdateAtFirstMaintenanceCall() {
@@ -137,7 +133,7 @@ public class ReleaseUpdateDetails {
    * Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
    *
    * @param updateAtFirstMaintenanceCall
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateAtFirstMaintenanceCall(Boolean updateAtFirstMaintenanceCall) {

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,16 +39,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CreateCompanyApiCredentialRequest {
   public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowedOrigins";
-  private List<String> allowedOrigins = null;
+  private List<String> allowedOrigins = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS = "associatedMerchantAccounts";
-  private List<String> associatedMerchantAccounts = null;
+  private List<String> associatedMerchantAccounts = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  private List<String> roles = null;
+  private List<String> roles = new ArrayList<>();
 
   public CreateCompanyApiCredentialRequest() { 
   }
@@ -78,7 +76,6 @@ public class CreateCompanyApiCredentialRequest {
    * List of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the new API credential.
    * @return allowedOrigins
    */
-  @ApiModelProperty(value = "List of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the new API credential.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAllowedOrigins() {
@@ -89,7 +86,7 @@ public class CreateCompanyApiCredentialRequest {
    * List of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the new API credential.
    *
    * @param allowedOrigins
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<String> allowedOrigins) {
@@ -119,7 +116,6 @@ public class CreateCompanyApiCredentialRequest {
    * List of merchant accounts that the API credential has access to.
    * @return associatedMerchantAccounts
    */
-  @ApiModelProperty(value = "List of merchant accounts that the API credential has access to.")
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAssociatedMerchantAccounts() {
@@ -130,7 +126,7 @@ public class CreateCompanyApiCredentialRequest {
    * List of merchant accounts that the API credential has access to.
    *
    * @param associatedMerchantAccounts
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -152,7 +148,6 @@ public class CreateCompanyApiCredentialRequest {
    * Description of the API credential.
    * @return description
    */
-  @ApiModelProperty(value = "Description of the API credential.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -163,7 +158,7 @@ public class CreateCompanyApiCredentialRequest {
    * Description of the API credential.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -193,7 +188,6 @@ public class CreateCompanyApiCredentialRequest {
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
    * @return roles
    */
-  @ApiModelProperty(value = "List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRoles() {
@@ -204,7 +198,7 @@ public class CreateCompanyApiCredentialRequest {
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
    *
    * @param roles
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {

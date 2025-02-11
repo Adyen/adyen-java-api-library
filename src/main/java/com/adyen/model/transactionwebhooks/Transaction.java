@@ -13,7 +13,6 @@
 package com.adyen.model.transactionwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transactionwebhooks.Amount;
@@ -25,9 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -86,9 +84,9 @@ public class Transaction {
    * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    */
   public enum StatusEnum {
-    BOOKED("booked"),
+    BOOKED(String.valueOf("booked")),
     
-    PENDING("pending");
+    PENDING(String.valueOf("pending"));
 
     private String value;
 
@@ -141,12 +139,11 @@ public class Transaction {
   }
 
   /**
-   * accountHolder
+   * Get accountHolder
    * @return accountHolder
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ResourceReference getAccountHolder() {
     return accountHolder;
   }
@@ -155,9 +152,9 @@ public class Transaction {
    * accountHolder
    *
    * @param accountHolder
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
   }
@@ -174,12 +171,11 @@ public class Transaction {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Amount getAmount() {
     return amount;
   }
@@ -188,9 +184,9 @@ public class Transaction {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -207,12 +203,11 @@ public class Transaction {
   }
 
   /**
-   * balanceAccount
+   * Get balanceAccount
    * @return balanceAccount
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ResourceReference getBalanceAccount() {
     return balanceAccount;
   }
@@ -221,9 +216,9 @@ public class Transaction {
    * balanceAccount
    *
    * @param balanceAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
   }
@@ -243,9 +238,8 @@ public class Transaction {
    * The unique identifier of the balance platform.
    * @return balancePlatform
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getBalancePlatform() {
     return balancePlatform;
   }
@@ -254,9 +248,9 @@ public class Transaction {
    * The unique identifier of the balance platform.
    *
    * @param balancePlatform
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
@@ -276,9 +270,8 @@ public class Transaction {
    * The date the transaction was booked into the balance account.
    * @return bookingDate
    */
-  @ApiModelProperty(required = true, value = "The date the transaction was booked into the balance account.")
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getBookingDate() {
     return bookingDate;
   }
@@ -287,9 +280,9 @@ public class Transaction {
    * The date the transaction was booked into the balance account.
    *
    * @param bookingDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
   }
@@ -309,7 +302,6 @@ public class Transaction {
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return creationDate
    */
-  @ApiModelProperty(value = "The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -320,7 +312,7 @@ public class Transaction {
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
    * @param creationDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -342,7 +334,6 @@ public class Transaction {
    * The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
    * @return description
    */
-  @ApiModelProperty(value = "The `description` from the `/transfers` request.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -353,7 +344,7 @@ public class Transaction {
    * The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -375,9 +366,8 @@ public class Transaction {
    * The unique identifier of the transaction.
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the transaction.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -386,9 +376,9 @@ public class Transaction {
    * The unique identifier of the transaction.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(String id) {
     this.id = id;
   }
@@ -405,10 +395,9 @@ public class Transaction {
   }
 
   /**
-   * paymentInstrument
+   * Get paymentInstrument
    * @return paymentInstrument
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaymentInstrument getPaymentInstrument() {
@@ -419,7 +408,7 @@ public class Transaction {
    * paymentInstrument
    *
    * @param paymentInstrument
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrument(PaymentInstrument paymentInstrument) {
@@ -441,7 +430,6 @@ public class Transaction {
    * The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
    * @return referenceForBeneficiary
    */
-  @ApiModelProperty(value = "The reference sent to or received from the counterparty.  * For outgoing funds, this is the [`referenceForBeneficiary`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [`/transfers`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.")
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReferenceForBeneficiary() {
@@ -452,7 +440,7 @@ public class Transaction {
    * The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
    *
    * @param referenceForBeneficiary
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
@@ -474,9 +462,8 @@ public class Transaction {
    * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  ")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -485,9 +472,9 @@ public class Transaction {
    * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
@@ -504,10 +491,9 @@ public class Transaction {
   }
 
   /**
-   * transfer
+   * Get transfer
    * @return transfer
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSFER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransferView getTransfer() {
@@ -518,7 +504,7 @@ public class Transaction {
    * transfer
    *
    * @param transfer
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSFER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransfer(TransferView transfer) {
@@ -540,9 +526,8 @@ public class Transaction {
    * The date the transfer amount becomes available in the balance account.
    * @return valueDate
    */
-  @ApiModelProperty(required = true, value = "The date the transfer amount becomes available in the balance account.")
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getValueDate() {
     return valueDate;
   }
@@ -551,9 +536,9 @@ public class Transaction {
    * The date the transfer amount becomes available in the balance account.
    *
    * @param valueDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setValueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
   }

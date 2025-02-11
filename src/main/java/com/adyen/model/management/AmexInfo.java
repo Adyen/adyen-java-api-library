@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -41,17 +39,17 @@ public class AmexInfo {
   private String midNumber;
 
   public static final String JSON_PROPERTY_REUSE_MID_NUMBER = "reuseMidNumber";
-  private Boolean reuseMidNumber;
+  private Boolean reuseMidNumber = false;
 
   /**
    * Specifies the service level (settlement type) of this payment method. Possible values: * **noContract**: Adyen holds the contract with American Express. * **gatewayContract**: American Express receives the settlement and handles disputes, then pays out to you or your sub-merchant directly. * **paymentDesignatorContract**: Adyen receives the settlement, and handles disputes and payouts.
    */
   public enum ServiceLevelEnum {
-    NOCONTRACT("noContract"),
+    NOCONTRACT(String.valueOf("noContract")),
     
-    GATEWAYCONTRACT("gatewayContract"),
+    GATEWAYCONTRACT(String.valueOf("gatewayContract")),
     
-    PAYMENTDESIGNATORCONTRACT("paymentDesignatorContract");
+    PAYMENTDESIGNATORCONTRACT(String.valueOf("paymentDesignatorContract"));
 
     private String value;
 
@@ -101,7 +99,6 @@ public class AmexInfo {
    * Merchant ID (MID) number. Format: 10 numeric characters.  You must provide this field when you request &#x60;gatewayContract&#x60; or &#x60;paymentDesignatorContract&#x60; service levels.
    * @return midNumber
    */
-  @ApiModelProperty(value = "Merchant ID (MID) number. Format: 10 numeric characters.  You must provide this field when you request `gatewayContract` or `paymentDesignatorContract` service levels.")
   @JsonProperty(JSON_PROPERTY_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMidNumber() {
@@ -112,7 +109,7 @@ public class AmexInfo {
    * Merchant ID (MID) number. Format: 10 numeric characters.  You must provide this field when you request &#x60;gatewayContract&#x60; or &#x60;paymentDesignatorContract&#x60; service levels.
    *
    * @param midNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMidNumber(String midNumber) {
@@ -134,7 +131,6 @@ public class AmexInfo {
    * Indicates whether the Amex Merchant ID is reused from a previously setup Amex payment method.  This is only applicable for &#x60;gatewayContract&#x60; and &#x60;paymentDesignatorContract&#x60; service levels.  The default value is **false**.
    * @return reuseMidNumber
    */
-  @ApiModelProperty(value = "Indicates whether the Amex Merchant ID is reused from a previously setup Amex payment method.  This is only applicable for `gatewayContract` and `paymentDesignatorContract` service levels.  The default value is **false**.")
   @JsonProperty(JSON_PROPERTY_REUSE_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getReuseMidNumber() {
@@ -145,7 +141,7 @@ public class AmexInfo {
    * Indicates whether the Amex Merchant ID is reused from a previously setup Amex payment method.  This is only applicable for &#x60;gatewayContract&#x60; and &#x60;paymentDesignatorContract&#x60; service levels.  The default value is **false**.
    *
    * @param reuseMidNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REUSE_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMidNumber(Boolean reuseMidNumber) {
@@ -167,9 +163,8 @@ public class AmexInfo {
    * Specifies the service level (settlement type) of this payment method. Possible values: * **noContract**: Adyen holds the contract with American Express. * **gatewayContract**: American Express receives the settlement and handles disputes, then pays out to you or your sub-merchant directly. * **paymentDesignatorContract**: Adyen receives the settlement, and handles disputes and payouts.
    * @return serviceLevel
    */
-  @ApiModelProperty(required = true, value = "Specifies the service level (settlement type) of this payment method. Possible values: * **noContract**: Adyen holds the contract with American Express. * **gatewayContract**: American Express receives the settlement and handles disputes, then pays out to you or your sub-merchant directly. * **paymentDesignatorContract**: Adyen receives the settlement, and handles disputes and payouts.")
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ServiceLevelEnum getServiceLevel() {
     return serviceLevel;
   }
@@ -178,9 +173,9 @@ public class AmexInfo {
    * Specifies the service level (settlement type) of this payment method. Possible values: * **noContract**: Adyen holds the contract with American Express. * **gatewayContract**: American Express receives the settlement and handles disputes, then pays out to you or your sub-merchant directly. * **paymentDesignatorContract**: Adyen receives the settlement, and handles disputes and payouts.
    *
    * @param serviceLevel
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setServiceLevel(ServiceLevelEnum serviceLevel) {
     this.serviceLevel = serviceLevel;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,6 @@ public class PayPalInfo {
    * Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.
    * @return directCapture
    */
-  @ApiModelProperty(value = "Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.")
   @JsonProperty(JSON_PROPERTY_DIRECT_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDirectCapture() {
@@ -75,7 +72,7 @@ public class PayPalInfo {
    * Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.
    *
    * @param directCapture
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DIRECT_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectCapture(Boolean directCapture) {
@@ -97,9 +94,8 @@ public class PayPalInfo {
    * PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.
    * @return payerId
    */
-  @ApiModelProperty(required = true, value = "PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.")
   @JsonProperty(JSON_PROPERTY_PAYER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPayerId() {
     return payerId;
   }
@@ -108,9 +104,9 @@ public class PayPalInfo {
    * PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.
    *
    * @param payerId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPayerId(String payerId) {
     this.payerId = payerId;
   }
@@ -130,9 +126,8 @@ public class PayPalInfo {
    * Your business email address.
    * @return subject
    */
-  @ApiModelProperty(required = true, value = "Your business email address.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSubject() {
     return subject;
   }
@@ -141,9 +136,9 @@ public class PayPalInfo {
    * Your business email address.
    *
    * @param subject
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSubject(String subject) {
     this.subject = subject;
   }

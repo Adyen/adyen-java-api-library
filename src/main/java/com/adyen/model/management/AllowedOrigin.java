@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Links;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,10 +60,9 @@ public class AllowedOrigin {
   }
 
   /**
-   * links
+   * Get links
    * @return links
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Links getLinks() {
@@ -76,7 +73,7 @@ public class AllowedOrigin {
    * links
    *
    * @param links
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
@@ -98,9 +95,8 @@ public class AllowedOrigin {
    * Domain of the allowed origin.
    * @return domain
    */
-  @ApiModelProperty(example = "https://adyen.com", required = true, value = "Domain of the allowed origin.")
   @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDomain() {
     return domain;
   }
@@ -109,9 +105,9 @@ public class AllowedOrigin {
    * Domain of the allowed origin.
    *
    * @param domain
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDomain(String domain) {
     this.domain = domain;
   }
@@ -131,7 +127,6 @@ public class AllowedOrigin {
    * Unique identifier of the allowed origin.
    * @return id
    */
-  @ApiModelProperty(value = "Unique identifier of the allowed origin.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -142,7 +137,7 @@ public class AllowedOrigin {
    * Unique identifier of the allowed origin.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {

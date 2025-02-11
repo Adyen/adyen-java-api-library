@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.LinksElement;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -66,10 +64,9 @@ public class CompanyLinks {
   }
 
   /**
-   * apiCredentials
+   * Get apiCredentials
    * @return apiCredentials
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_API_CREDENTIALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getApiCredentials() {
@@ -80,7 +77,7 @@ public class CompanyLinks {
    * apiCredentials
    *
    * @param apiCredentials
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_API_CREDENTIALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiCredentials(LinksElement apiCredentials) {
@@ -99,12 +96,11 @@ public class CompanyLinks {
   }
 
   /**
-   * self
+   * Get self
    * @return self
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LinksElement getSelf() {
     return self;
   }
@@ -113,9 +109,9 @@ public class CompanyLinks {
    * self
    *
    * @param self
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }
@@ -132,10 +128,9 @@ public class CompanyLinks {
   }
 
   /**
-   * users
+   * Get users
    * @return users
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getUsers() {
@@ -146,7 +141,7 @@ public class CompanyLinks {
    * users
    *
    * @param users
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsers(LinksElement users) {
@@ -165,10 +160,9 @@ public class CompanyLinks {
   }
 
   /**
-   * webhooks
+   * Get webhooks
    * @return webhooks
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getWebhooks() {
@@ -179,7 +173,7 @@ public class CompanyLinks {
    * webhooks
    *
    * @param webhooks
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebhooks(LinksElement webhooks) {

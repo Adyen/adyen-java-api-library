@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,9 +54,8 @@ public class GetTerminalDetailsRequest {
    * The unique terminal ID in the format &#x60;[Device model]-[Serial number]&#x60;.   For example, **V400m-324689776**.
    * @return terminal
    */
-  @ApiModelProperty(required = true, value = "The unique terminal ID in the format `[Device model]-[Serial number]`.   For example, **V400m-324689776**.")
   @JsonProperty(JSON_PROPERTY_TERMINAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTerminal() {
     return terminal;
   }
@@ -67,9 +64,9 @@ public class GetTerminalDetailsRequest {
    * The unique terminal ID in the format &#x60;[Device model]-[Serial number]&#x60;.   For example, **V400m-324689776**.
    *
    * @param terminal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }

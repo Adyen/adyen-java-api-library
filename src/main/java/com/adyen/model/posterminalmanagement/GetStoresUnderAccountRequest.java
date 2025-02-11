@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,9 +58,8 @@ public class GetStoresUnderAccountRequest {
    * The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.
    * @return companyAccount
    */
-  @ApiModelProperty(required = true, value = "The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCompanyAccount() {
     return companyAccount;
   }
@@ -71,9 +68,9 @@ public class GetStoresUnderAccountRequest {
    * The company account. If you only specify this parameter, the response includes the stores of all merchant accounts that are associated with the company account.
    *
    * @param companyAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
@@ -93,7 +90,6 @@ public class GetStoresUnderAccountRequest {
    * The merchant account. With this parameter, the response only includes the stores of the specified merchant account.
    * @return merchantAccount
    */
-  @ApiModelProperty(value = "The merchant account. With this parameter, the response only includes the stores of the specified merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -104,7 +100,7 @@ public class GetStoresUnderAccountRequest {
    * The merchant account. With this parameter, the response only includes the stores of the specified merchant account.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {

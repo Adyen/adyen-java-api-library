@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,6 @@ public class TerminalInstructions {
    * Indicates whether the Adyen app on the payment terminal restarts automatically when the configuration is updated.
    * @return adyenAppRestart
    */
-  @ApiModelProperty(value = "Indicates whether the Adyen app on the payment terminal restarts automatically when the configuration is updated.")
   @JsonProperty(JSON_PROPERTY_ADYEN_APP_RESTART)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAdyenAppRestart() {
@@ -67,7 +64,7 @@ public class TerminalInstructions {
    * Indicates whether the Adyen app on the payment terminal restarts automatically when the configuration is updated.
    *
    * @param adyenAppRestart
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADYEN_APP_RESTART)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenAppRestart(Boolean adyenAppRestart) {

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.PayoutSettings;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PayoutSettingsResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<PayoutSettings> data = null;
+  private List<PayoutSettings> data = new ArrayList<>();
 
   public PayoutSettingsResponse() { 
   }
@@ -67,7 +65,6 @@ public class PayoutSettingsResponse {
    * The list of payout accounts.
    * @return data
    */
-  @ApiModelProperty(value = "The list of payout accounts.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PayoutSettings> getData() {
@@ -78,7 +75,7 @@ public class PayoutSettingsResponse {
    * The list of payout accounts.
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PayoutSettings> data) {

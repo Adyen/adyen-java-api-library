@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Name2;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,13 +44,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class UpdateCompanyUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_GROUPS = "accountGroups";
-  private List<String> accountGroups = null;
+  private List<String> accountGroups = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
   public static final String JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS = "associatedMerchantAccounts";
-  private List<String> associatedMerchantAccounts = null;
+  private List<String> associatedMerchantAccounts = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -64,7 +62,7 @@ public class UpdateCompanyUserRequest {
   private Name2 name;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  private List<String> roles = null;
+  private List<String> roles = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TIME_ZONE_CODE = "timeZoneCode";
   private String timeZoneCode;
@@ -95,7 +93,6 @@ public class UpdateCompanyUserRequest {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
    */
-  @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAccountGroups() {
@@ -106,7 +103,7 @@ public class UpdateCompanyUserRequest {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    *
    * @param accountGroups
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
@@ -128,7 +125,6 @@ public class UpdateCompanyUserRequest {
    * Indicates whether this user is active.
    * @return active
    */
-  @ApiModelProperty(value = "Indicates whether this user is active.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
@@ -139,7 +135,7 @@ public class UpdateCompanyUserRequest {
    * Indicates whether this user is active.
    *
    * @param active
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -169,7 +165,6 @@ public class UpdateCompanyUserRequest {
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) to associate the user with.
    * @return associatedMerchantAccounts
    */
-  @ApiModelProperty(value = "The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) to associate the user with.")
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAssociatedMerchantAccounts() {
@@ -180,7 +175,7 @@ public class UpdateCompanyUserRequest {
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) to associate the user with.
    *
    * @param associatedMerchantAccounts
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -202,7 +197,6 @@ public class UpdateCompanyUserRequest {
    * The email address of the user.
    * @return email
    */
-  @ApiModelProperty(value = "The email address of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -213,7 +207,7 @@ public class UpdateCompanyUserRequest {
    * The email address of the user.
    *
    * @param email
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -235,7 +229,6 @@ public class UpdateCompanyUserRequest {
    * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
    * @return loginMethod
    */
-  @ApiModelProperty(value = "The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username & account**, **Email**, or **SSO** ")
   @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLoginMethod() {
@@ -246,7 +239,7 @@ public class UpdateCompanyUserRequest {
    * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
    *
    * @param loginMethod
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLoginMethod(String loginMethod) {
@@ -265,10 +258,9 @@ public class UpdateCompanyUserRequest {
   }
 
   /**
-   * name
+   * Get name
    * @return name
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name2 getName() {
@@ -279,7 +271,7 @@ public class UpdateCompanyUserRequest {
    * name
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name2 name) {
@@ -309,7 +301,6 @@ public class UpdateCompanyUserRequest {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
    */
-  @ApiModelProperty(value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRoles() {
@@ -320,7 +311,7 @@ public class UpdateCompanyUserRequest {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    *
    * @param roles
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
@@ -342,7 +333,6 @@ public class UpdateCompanyUserRequest {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
    */
-  @ApiModelProperty(value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeZoneCode() {
@@ -353,7 +343,7 @@ public class UpdateCompanyUserRequest {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    *
    * @param timeZoneCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {

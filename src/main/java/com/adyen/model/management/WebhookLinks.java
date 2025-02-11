@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.LinksElement;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -70,10 +68,9 @@ public class WebhookLinks {
   }
 
   /**
-   * company
+   * Get company
    * @return company
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getCompany() {
@@ -84,7 +81,7 @@ public class WebhookLinks {
    * company
    *
    * @param company
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
@@ -103,12 +100,11 @@ public class WebhookLinks {
   }
 
   /**
-   * generateHmac
+   * Get generateHmac
    * @return generateHmac
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LinksElement getGenerateHmac() {
     return generateHmac;
   }
@@ -117,9 +113,9 @@ public class WebhookLinks {
    * generateHmac
    *
    * @param generateHmac
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGenerateHmac(LinksElement generateHmac) {
     this.generateHmac = generateHmac;
   }
@@ -136,10 +132,9 @@ public class WebhookLinks {
   }
 
   /**
-   * merchant
+   * Get merchant
    * @return merchant
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getMerchant() {
@@ -150,7 +145,7 @@ public class WebhookLinks {
    * merchant
    *
    * @param merchant
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
@@ -169,12 +164,11 @@ public class WebhookLinks {
   }
 
   /**
-   * self
+   * Get self
    * @return self
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LinksElement getSelf() {
     return self;
   }
@@ -183,9 +177,9 @@ public class WebhookLinks {
    * self
    *
    * @param self
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }
@@ -202,12 +196,11 @@ public class WebhookLinks {
   }
 
   /**
-   * testWebhook
+   * Get testWebhook
    * @return testWebhook
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LinksElement getTestWebhook() {
     return testWebhook;
   }
@@ -216,9 +209,9 @@ public class WebhookLinks {
    * testWebhook
    *
    * @param testWebhook
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestWebhook(LinksElement testWebhook) {
     this.testWebhook = testWebhook;
   }

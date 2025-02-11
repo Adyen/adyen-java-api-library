@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -73,10 +71,9 @@ public class Address {
   }
 
   /**
-   * city
+   * Get city
    * @return city
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCity() {
@@ -87,7 +84,7 @@ public class Address {
    * city
    *
    * @param city
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -106,10 +103,9 @@ public class Address {
   }
 
   /**
-   * countryCode
+   * Get countryCode
    * @return countryCode
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountryCode() {
@@ -120,7 +116,7 @@ public class Address {
    * countryCode
    *
    * @param countryCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -139,10 +135,9 @@ public class Address {
   }
 
   /**
-   * postalCode
+   * Get postalCode
    * @return postalCode
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
@@ -153,7 +148,7 @@ public class Address {
    * postalCode
    *
    * @param postalCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -172,10 +167,9 @@ public class Address {
   }
 
   /**
-   * stateOrProvince
+   * Get stateOrProvince
    * @return stateOrProvince
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStateOrProvince() {
@@ -186,7 +180,7 @@ public class Address {
    * stateOrProvince
    *
    * @param stateOrProvince
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -205,10 +199,9 @@ public class Address {
   }
 
   /**
-   * streetAddress
+   * Get streetAddress
    * @return streetAddress
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStreetAddress() {
@@ -219,7 +212,7 @@ public class Address {
    * streetAddress
    *
    * @param streetAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress(String streetAddress) {
@@ -238,10 +231,9 @@ public class Address {
   }
 
   /**
-   * streetAddress2
+   * Get streetAddress2
    * @return streetAddress2
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStreetAddress2() {
@@ -252,7 +244,7 @@ public class Address {
    * streetAddress2
    *
    * @param streetAddress2
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STREET_ADDRESS2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreetAddress2(String streetAddress2) {

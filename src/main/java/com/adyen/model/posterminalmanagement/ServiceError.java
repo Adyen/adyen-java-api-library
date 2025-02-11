@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -72,7 +70,6 @@ public class ServiceError {
    * The error code mapped to the error message.
    * @return errorCode
    */
-  @ApiModelProperty(value = "The error code mapped to the error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorCode() {
@@ -83,7 +80,7 @@ public class ServiceError {
    * The error code mapped to the error message.
    *
    * @param errorCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -105,7 +102,6 @@ public class ServiceError {
    * The category of the error.
    * @return errorType
    */
-  @ApiModelProperty(value = "The category of the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorType() {
@@ -116,7 +112,7 @@ public class ServiceError {
    * The category of the error.
    *
    * @param errorType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorType(String errorType) {
@@ -138,7 +134,6 @@ public class ServiceError {
    * A short explanation of the issue.
    * @return message
    */
-  @ApiModelProperty(value = "A short explanation of the issue.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -149,7 +144,7 @@ public class ServiceError {
    * A short explanation of the issue.
    *
    * @param message
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -171,7 +166,6 @@ public class ServiceError {
    * The PSP reference of the payment.
    * @return pspReference
    */
-  @ApiModelProperty(value = "The PSP reference of the payment.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -182,7 +176,7 @@ public class ServiceError {
    * The PSP reference of the payment.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -204,7 +198,6 @@ public class ServiceError {
    * The HTTP response status.
    * @return status
    */
-  @ApiModelProperty(value = "The HTTP response status.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getStatus() {
@@ -215,7 +208,7 @@ public class ServiceError {
    * The HTTP response status.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {

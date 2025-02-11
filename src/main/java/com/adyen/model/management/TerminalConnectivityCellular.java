@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -47,15 +45,15 @@ public class TerminalConnectivityCellular {
    * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
    */
   public enum StatusEnum {
-    ACTIVATED("activated"),
+    ACTIVATED(String.valueOf("activated")),
     
-    DEACTIVATED("deactivated"),
+    DEACTIVATED(String.valueOf("deactivated")),
     
-    DEPRECATED("deprecated"),
+    DEPRECATED(String.valueOf("deprecated")),
     
-    INVENTORY("inventory"),
+    INVENTORY(String.valueOf("inventory")),
     
-    READYFORACTIVATION("readyForActivation");
+    READYFORACTIVATION(String.valueOf("readyForActivation"));
 
     private String value;
 
@@ -105,7 +103,6 @@ public class TerminalConnectivityCellular {
    * The integrated circuit card identifier (ICCID) of the primary SIM card in the terminal.
    * @return iccid
    */
-  @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the primary SIM card in the terminal.")
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIccid() {
@@ -116,7 +113,7 @@ public class TerminalConnectivityCellular {
    * The integrated circuit card identifier (ICCID) of the primary SIM card in the terminal.
    *
    * @param iccid
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ICCID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid(String iccid) {
@@ -138,7 +135,6 @@ public class TerminalConnectivityCellular {
    * The integrated circuit card identifier (ICCID) of the secondary SIM card in the terminal, typically used for a [third-party SIM card](https://docs.adyen.com/point-of-sale/design-your-integration/network-and-connectivity/cellular-failover/#using-a-third-party-sim-card).
    * @return iccid2
    */
-  @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the secondary SIM card in the terminal, typically used for a [third-party SIM card](https://docs.adyen.com/point-of-sale/design-your-integration/network-and-connectivity/cellular-failover/#using-a-third-party-sim-card).")
   @JsonProperty(JSON_PROPERTY_ICCID2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIccid2() {
@@ -149,7 +145,7 @@ public class TerminalConnectivityCellular {
    * The integrated circuit card identifier (ICCID) of the secondary SIM card in the terminal, typically used for a [third-party SIM card](https://docs.adyen.com/point-of-sale/design-your-integration/network-and-connectivity/cellular-failover/#using-a-third-party-sim-card).
    *
    * @param iccid2
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ICCID2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid2(String iccid2) {
@@ -171,7 +167,6 @@ public class TerminalConnectivityCellular {
    * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
    * @return status
    */
-  @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -182,7 +177,7 @@ public class TerminalConnectivityCellular {
    * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

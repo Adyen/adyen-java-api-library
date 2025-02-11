@@ -57,7 +57,10 @@ public class CapitalApi extends Service {
     *
     * @return {@link CapitalGrants }
     * @throws ApiException if fails to make API call
+    * @deprecated since Transfers API v4
+    * Use the `/grants` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grants) instead.
     */
+    @Deprecated
     public CapitalGrants getCapitalAccount() throws ApiException, IOException {
         return getCapitalAccount(null,  null);
     }
@@ -69,7 +72,10 @@ public class CapitalApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link CapitalGrants }
     * @throws ApiException if fails to make API call
+    * @deprecated since Transfers API v4
+    * Use the `/grants` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grants) instead.
     */
+   @Deprecated
     public CapitalGrants getCapitalAccount(String counterpartyAccountHolderId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
@@ -89,7 +95,10 @@ public class CapitalApi extends Service {
     * @param id {@link String } The unique identifier of the grant. (required)
     * @return {@link CapitalGrant }
     * @throws ApiException if fails to make API call
+    * @deprecated since Transfers API v4
+    * Use the `/grants/{grantId}` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grants/(grantId)) instead.
     */
+    @Deprecated
     public CapitalGrant getGrantReferenceDetails(String id) throws ApiException, IOException {
         return getGrantReferenceDetails(id, null);
     }
@@ -101,7 +110,10 @@ public class CapitalApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link CapitalGrant }
     * @throws ApiException if fails to make API call
+    * @deprecated since Transfers API v4
+    * Use the `/grants/{grantId}` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grants/(grantId)) instead.
     */
+   @Deprecated
     public CapitalGrant getGrantReferenceDetails(String id, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
@@ -122,7 +134,10 @@ public class CapitalApi extends Service {
     * @param capitalGrantInfo {@link CapitalGrantInfo }  (required)
     * @return {@link CapitalGrant }
     * @throws ApiException if fails to make API call
+    * @deprecated since Transfers API v4
+    * Use the `/grants` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/post/grants) instead.
     */
+    @Deprecated
     public CapitalGrant requestGrantPayout(CapitalGrantInfo capitalGrantInfo) throws ApiException, IOException {
         return requestGrantPayout(capitalGrantInfo, null);
     }
@@ -134,7 +149,10 @@ public class CapitalApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link CapitalGrant }
     * @throws ApiException if fails to make API call
+    * @deprecated since Transfers API v4
+    * Use the `/grants` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/post/grants) instead.
     */
+   @Deprecated
     public CapitalGrant requestGrantPayout(CapitalGrantInfo capitalGrantInfo, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = capitalGrantInfo.toJson();

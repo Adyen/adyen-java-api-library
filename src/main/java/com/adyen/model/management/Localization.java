@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,6 @@ public class Localization {
    * Language of the terminal.
    * @return language
    */
-  @ApiModelProperty(value = "Language of the terminal.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLanguage() {
@@ -75,7 +72,7 @@ public class Localization {
    * Language of the terminal.
    *
    * @param language
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
@@ -97,7 +94,6 @@ public class Localization {
    * Secondary language of the terminal.
    * @return secondaryLanguage
    */
-  @ApiModelProperty(value = "Secondary language of the terminal.")
   @JsonProperty(JSON_PROPERTY_SECONDARY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSecondaryLanguage() {
@@ -108,7 +104,7 @@ public class Localization {
    * Secondary language of the terminal.
    *
    * @param secondaryLanguage
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SECONDARY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSecondaryLanguage(String secondaryLanguage) {
@@ -130,7 +126,6 @@ public class Localization {
    * The time zone of the terminal.
    * @return timezone
    */
-  @ApiModelProperty(value = "The time zone of the terminal.")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {
@@ -141,7 +136,7 @@ public class Localization {
    * The time zone of the terminal.
    *
    * @param timezone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimezone(String timezone) {

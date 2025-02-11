@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -85,7 +83,6 @@ public class ExternalTerminalAction {
    * The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.
    * @return actionType
    */
-  @ApiModelProperty(value = "The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.")
   @JsonProperty(JSON_PROPERTY_ACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getActionType() {
@@ -96,7 +93,7 @@ public class ExternalTerminalAction {
    * The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.
    *
    * @param actionType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionType(String actionType) {
@@ -118,7 +115,6 @@ public class ExternalTerminalAction {
    * Technical information about the terminal action.
    * @return config
    */
-  @ApiModelProperty(value = "Technical information about the terminal action.")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getConfig() {
@@ -129,7 +125,7 @@ public class ExternalTerminalAction {
    * Technical information about the terminal action.
    *
    * @param config
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfig(String config) {
@@ -151,7 +147,6 @@ public class ExternalTerminalAction {
    * The date and time when the action was carried out.
    * @return confirmedAt
    */
-  @ApiModelProperty(value = "The date and time when the action was carried out.")
   @JsonProperty(JSON_PROPERTY_CONFIRMED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getConfirmedAt() {
@@ -162,7 +157,7 @@ public class ExternalTerminalAction {
    * The date and time when the action was carried out.
    *
    * @param confirmedAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONFIRMED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfirmedAt(OffsetDateTime confirmedAt) {
@@ -184,7 +179,6 @@ public class ExternalTerminalAction {
    * The unique ID of the terminal action.
    * @return id
    */
-  @ApiModelProperty(value = "The unique ID of the terminal action.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -195,7 +189,7 @@ public class ExternalTerminalAction {
    * The unique ID of the terminal action.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -217,7 +211,6 @@ public class ExternalTerminalAction {
    * The result message for the action.
    * @return result
    */
-  @ApiModelProperty(value = "The result message for the action.")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResult() {
@@ -228,7 +221,7 @@ public class ExternalTerminalAction {
    * The result message for the action.
    *
    * @param result
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
@@ -250,7 +243,6 @@ public class ExternalTerminalAction {
    * The date and time when the action was scheduled to happen.
    * @return scheduledAt
    */
-  @ApiModelProperty(value = "The date and time when the action was scheduled to happen.")
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getScheduledAt() {
@@ -261,7 +253,7 @@ public class ExternalTerminalAction {
    * The date and time when the action was scheduled to happen.
    *
    * @param scheduledAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheduledAt(OffsetDateTime scheduledAt) {
@@ -283,7 +275,6 @@ public class ExternalTerminalAction {
    * The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.
    * @return status
    */
-  @ApiModelProperty(value = "The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -294,7 +285,7 @@ public class ExternalTerminalAction {
    * The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
@@ -316,7 +307,6 @@ public class ExternalTerminalAction {
    * The unique ID of the terminal that the action applies to.
    * @return terminalId
    */
-  @ApiModelProperty(value = "The unique ID of the terminal that the action applies to.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTerminalId() {
@@ -327,7 +317,7 @@ public class ExternalTerminalAction {
    * The unique ID of the terminal that the action applies to.
    *
    * @param terminalId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.MinorUnitsMonetaryValue;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,7 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class StoreAndForward {
   public static final String JSON_PROPERTY_MAX_AMOUNT = "maxAmount";
-  private List<MinorUnitsMonetaryValue> maxAmount = null;
+  private List<MinorUnitsMonetaryValue> maxAmount = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MAX_PAYMENTS = "maxPayments";
   private Integer maxPayments;
@@ -76,7 +74,6 @@ public class StoreAndForward {
    * The maximum amount that the terminal accepts for a single store-and-forward payment.
    * @return maxAmount
    */
-  @ApiModelProperty(value = "The maximum amount that the terminal accepts for a single store-and-forward payment.")
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MinorUnitsMonetaryValue> getMaxAmount() {
@@ -87,7 +84,7 @@ public class StoreAndForward {
    * The maximum amount that the terminal accepts for a single store-and-forward payment.
    *
    * @param maxAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(List<MinorUnitsMonetaryValue> maxAmount) {
@@ -109,7 +106,6 @@ public class StoreAndForward {
    * The maximum number of store-and-forward transactions per terminal that you can process while offline.
    * @return maxPayments
    */
-  @ApiModelProperty(value = "The maximum number of store-and-forward transactions per terminal that you can process while offline.")
   @JsonProperty(JSON_PROPERTY_MAX_PAYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getMaxPayments() {
@@ -120,7 +116,7 @@ public class StoreAndForward {
    * The maximum number of store-and-forward transactions per terminal that you can process while offline.
    *
    * @param maxPayments
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAX_PAYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxPayments(Integer maxPayments) {
@@ -139,10 +135,9 @@ public class StoreAndForward {
   }
 
   /**
-   * supportedCardTypes
+   * Get supportedCardTypes
    * @return supportedCardTypes
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CARD_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SupportedCardTypes getSupportedCardTypes() {
@@ -153,7 +148,7 @@ public class StoreAndForward {
    * supportedCardTypes
    *
    * @param supportedCardTypes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CARD_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportedCardTypes(SupportedCardTypes supportedCardTypes) {

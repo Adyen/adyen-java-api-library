@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,7 +66,6 @@ public class TerminalReassignmentRequest {
    * The unique identifier of the company account to which the terminal is reassigned.
    * @return companyId
    */
-  @ApiModelProperty(value = "The unique identifier of the company account to which the terminal is reassigned.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
@@ -79,7 +76,7 @@ public class TerminalReassignmentRequest {
    * The unique identifier of the company account to which the terminal is reassigned.
    *
    * @param companyId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -101,7 +98,6 @@ public class TerminalReassignmentRequest {
    * Must be specified when reassigning terminals to a merchant account:  - If set to **true**, reassigns terminals to the inventory of the merchant account and the terminals cannot process transactions.  - If set to **false**, reassigns terminals directly to the merchant account and the terminals can process transactions.
    * @return inventory
    */
-  @ApiModelProperty(value = "Must be specified when reassigning terminals to a merchant account:  - If set to **true**, reassigns terminals to the inventory of the merchant account and the terminals cannot process transactions.  - If set to **false**, reassigns terminals directly to the merchant account and the terminals can process transactions.")
   @JsonProperty(JSON_PROPERTY_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getInventory() {
@@ -112,7 +108,7 @@ public class TerminalReassignmentRequest {
    * Must be specified when reassigning terminals to a merchant account:  - If set to **true**, reassigns terminals to the inventory of the merchant account and the terminals cannot process transactions.  - If set to **false**, reassigns terminals directly to the merchant account and the terminals can process transactions.
    *
    * @param inventory
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventory(Boolean inventory) {
@@ -134,7 +130,6 @@ public class TerminalReassignmentRequest {
    * The unique identifier of the merchant account to which the terminal is reassigned. When reassigning terminals to a merchant account, you must specify the &#x60;inventory&#x60; field.
    * @return merchantId
    */
-  @ApiModelProperty(value = "The unique identifier of the merchant account to which the terminal is reassigned. When reassigning terminals to a merchant account, you must specify the `inventory` field.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -145,7 +140,7 @@ public class TerminalReassignmentRequest {
    * The unique identifier of the merchant account to which the terminal is reassigned. When reassigning terminals to a merchant account, you must specify the &#x60;inventory&#x60; field.
    *
    * @param merchantId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -167,7 +162,6 @@ public class TerminalReassignmentRequest {
    * The unique identifier of the store to which the terminal is reassigned.
    * @return storeId
    */
-  @ApiModelProperty(value = "The unique identifier of the store to which the terminal is reassigned.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoreId() {
@@ -178,7 +172,7 @@ public class TerminalReassignmentRequest {
    * The unique identifier of the store to which the terminal is reassigned.
    *
    * @param storeId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {

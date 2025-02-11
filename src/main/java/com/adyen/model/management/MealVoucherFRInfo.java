@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -66,9 +64,8 @@ public class MealVoucherFRInfo {
    * Meal Voucher conecsId. Format: digits only
    * @return conecsId
    */
-  @ApiModelProperty(required = true, value = "Meal Voucher conecsId. Format: digits only")
   @JsonProperty(JSON_PROPERTY_CONECS_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getConecsId() {
     return conecsId;
   }
@@ -77,9 +74,9 @@ public class MealVoucherFRInfo {
    * Meal Voucher conecsId. Format: digits only
    *
    * @param conecsId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONECS_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setConecsId(String conecsId) {
     this.conecsId = conecsId;
   }
@@ -99,9 +96,8 @@ public class MealVoucherFRInfo {
    * Meal Voucher siret. Format: 14 digits.
    * @return siret
    */
-  @ApiModelProperty(required = true, value = "Meal Voucher siret. Format: 14 digits.")
   @JsonProperty(JSON_PROPERTY_SIRET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSiret() {
     return siret;
   }
@@ -110,9 +106,9 @@ public class MealVoucherFRInfo {
    * Meal Voucher siret. Format: 14 digits.
    *
    * @param siret
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SIRET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSiret(String siret) {
     this.siret = siret;
   }
@@ -129,6 +125,9 @@ public class MealVoucherFRInfo {
   }
 
   public MealVoucherFRInfo addSubTypesItem(String subTypesItem) {
+    if (this.subTypes == null) {
+      this.subTypes = new ArrayList<>();
+    }
     this.subTypes.add(subTypesItem);
     return this;
   }
@@ -137,9 +136,8 @@ public class MealVoucherFRInfo {
    * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    * @return subTypes
    */
-  @ApiModelProperty(required = true, value = "The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.")
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getSubTypes() {
     return subTypes;
   }
@@ -148,9 +146,9 @@ public class MealVoucherFRInfo {
    * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    *
    * @param subTypes
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSubTypes(List<String> subTypes) {
     this.subTypes = subTypes;
   }

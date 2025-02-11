@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TerminalProductPrice;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,7 +47,7 @@ public class TerminalProduct {
   private String id;
 
   public static final String JSON_PROPERTY_ITEMS_INCLUDED = "itemsIncluded";
-  private List<String> itemsIncluded = null;
+  private List<String> itemsIncluded = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -75,7 +73,6 @@ public class TerminalProduct {
    * Information about items included and integration options.
    * @return description
    */
-  @ApiModelProperty(value = "Information about items included and integration options.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -86,7 +83,7 @@ public class TerminalProduct {
    * Information about items included and integration options.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -108,7 +105,6 @@ public class TerminalProduct {
    * The unique identifier of the product.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the product.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -119,7 +115,7 @@ public class TerminalProduct {
    * The unique identifier of the product.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -149,7 +145,6 @@ public class TerminalProduct {
    * A list of parts included in the terminal package.
    * @return itemsIncluded
    */
-  @ApiModelProperty(value = "A list of parts included in the terminal package.")
   @JsonProperty(JSON_PROPERTY_ITEMS_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getItemsIncluded() {
@@ -160,7 +155,7 @@ public class TerminalProduct {
    * A list of parts included in the terminal package.
    *
    * @param itemsIncluded
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsIncluded(List<String> itemsIncluded) {
@@ -182,7 +177,6 @@ public class TerminalProduct {
    * The descriptive name of the product.
    * @return name
    */
-  @ApiModelProperty(value = "The descriptive name of the product.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -193,7 +187,7 @@ public class TerminalProduct {
    * The descriptive name of the product.
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -212,10 +206,9 @@ public class TerminalProduct {
   }
 
   /**
-   * price
+   * Get price
    * @return price
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalProductPrice getPrice() {
@@ -226,7 +219,7 @@ public class TerminalProduct {
    * price
    *
    * @param price
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrice(TerminalProductPrice price) {

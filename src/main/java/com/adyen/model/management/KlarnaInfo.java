@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,13 +46,13 @@ public class KlarnaInfo {
    * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
    */
   public enum RegionEnum {
-    NA("NA"),
+    NA(String.valueOf("NA")),
     
-    EU("EU"),
+    EU(String.valueOf("EU")),
     
-    CH("CH"),
+    CH(String.valueOf("CH")),
     
-    AU("AU");
+    AU(String.valueOf("AU"));
 
     private String value;
 
@@ -107,7 +105,6 @@ public class KlarnaInfo {
    * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
    * @return autoCapture
    */
-  @ApiModelProperty(value = "Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.")
   @JsonProperty(JSON_PROPERTY_AUTO_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAutoCapture() {
@@ -118,7 +115,7 @@ public class KlarnaInfo {
    * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
    *
    * @param autoCapture
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AUTO_CAPTURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoCapture(Boolean autoCapture) {
@@ -140,9 +137,8 @@ public class KlarnaInfo {
    * The email address for disputes.
    * @return disputeEmail
    */
-  @ApiModelProperty(required = true, value = "The email address for disputes.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDisputeEmail() {
     return disputeEmail;
   }
@@ -151,9 +147,9 @@ public class KlarnaInfo {
    * The email address for disputes.
    *
    * @param disputeEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DISPUTE_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDisputeEmail(String disputeEmail) {
     this.disputeEmail = disputeEmail;
   }
@@ -173,9 +169,8 @@ public class KlarnaInfo {
    * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
    * @return region
    */
-  @ApiModelProperty(required = true, value = "The region of operation. For example, **NA**, **EU**, **CH**, **AU**.")
   @JsonProperty(JSON_PROPERTY_REGION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public RegionEnum getRegion() {
     return region;
   }
@@ -184,9 +179,9 @@ public class KlarnaInfo {
    * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
    *
    * @param region
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REGION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRegion(RegionEnum region) {
     this.region = region;
   }
@@ -206,9 +201,8 @@ public class KlarnaInfo {
    * The email address of merchant support.
    * @return supportEmail
    */
-  @ApiModelProperty(required = true, value = "The email address of merchant support.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getSupportEmail() {
     return supportEmail;
   }
@@ -217,9 +211,9 @@ public class KlarnaInfo {
    * The email address of merchant support.
    *
    * @param supportEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSupportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.posterminalmanagement.Store;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GetStoresUnderAccountResponse {
   public static final String JSON_PROPERTY_STORES = "stores";
-  private List<Store> stores = null;
+  private List<Store> stores = new ArrayList<>();
 
   public GetStoresUnderAccountResponse() { 
   }
@@ -67,7 +65,6 @@ public class GetStoresUnderAccountResponse {
    * Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.
    * @return stores
    */
-  @ApiModelProperty(value = "Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.")
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Store> getStores() {
@@ -78,7 +75,7 @@ public class GetStoresUnderAccountResponse {
    * Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account.
    *
    * @param stores
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<Store> stores) {

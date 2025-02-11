@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Url;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,10 +38,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class EventUrl {
   public static final String JSON_PROPERTY_EVENT_LOCAL_URLS = "eventLocalUrls";
-  private List<Url> eventLocalUrls = null;
+  private List<Url> eventLocalUrls = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EVENT_PUBLIC_URLS = "eventPublicUrls";
-  private List<Url> eventPublicUrls = null;
+  private List<Url> eventPublicUrls = new ArrayList<>();
 
   public EventUrl() { 
   }
@@ -71,7 +69,6 @@ public class EventUrl {
    * One or more local URLs to send event notifications to when using Terminal API.
    * @return eventLocalUrls
    */
-  @ApiModelProperty(value = "One or more local URLs to send event notifications to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_EVENT_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Url> getEventLocalUrls() {
@@ -82,7 +79,7 @@ public class EventUrl {
    * One or more local URLs to send event notifications to when using Terminal API.
    *
    * @param eventLocalUrls
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EVENT_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventLocalUrls(List<Url> eventLocalUrls) {
@@ -112,7 +109,6 @@ public class EventUrl {
    * One or more public URLs to send event notifications to when using Terminal API.
    * @return eventPublicUrls
    */
-  @ApiModelProperty(value = "One or more public URLs to send event notifications to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_EVENT_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Url> getEventPublicUrls() {
@@ -123,7 +119,7 @@ public class EventUrl {
    * One or more public URLs to send event notifications to when using Terminal API.
    *
    * @param eventPublicUrls
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EVENT_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventPublicUrls(List<Url> eventPublicUrls) {

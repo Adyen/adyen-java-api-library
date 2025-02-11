@@ -25,10 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -125,7 +124,7 @@ public class RecurringDetail {
     return this;
   }
 
-  public RecurringDetail putItem(String key, String additionalDataItem) {
+  public RecurringDetail putAdditionalDataItem(String key, String additionalDataItem) {
     if (this.additionalData == null) {
       this.additionalData = new HashMap<>();
     }
@@ -325,7 +324,7 @@ public class RecurringDetail {
     return this;
   }
 
-  public RecurringDetail addItem(String contractTypesItem) {
+  public RecurringDetail addContractTypesItem(String contractTypesItem) {
     if (this.contractTypes == null) {
       this.contractTypes = new ArrayList<>();
     }

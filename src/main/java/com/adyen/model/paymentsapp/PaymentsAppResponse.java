@@ -13,7 +13,6 @@
 package com.adyen.model.paymentsapp;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.paymentsapp.PaymentsAppDto;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -56,6 +54,9 @@ public class PaymentsAppResponse {
   }
 
   public PaymentsAppResponse addPaymentsAppsItem(PaymentsAppDto paymentsAppsItem) {
+    if (this.paymentsApps == null) {
+      this.paymentsApps = new ArrayList<>();
+    }
     this.paymentsApps.add(paymentsAppsItem);
     return this;
   }
@@ -64,9 +65,8 @@ public class PaymentsAppResponse {
    * List of Payments Apps.
    * @return paymentsApps
    */
-  @ApiModelProperty(required = true, value = "List of Payments Apps.")
   @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<PaymentsAppDto> getPaymentsApps() {
     return paymentsApps;
   }
@@ -75,9 +75,9 @@ public class PaymentsAppResponse {
    * List of Payments Apps.
    *
    * @param paymentsApps
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPaymentsApps(List<PaymentsAppDto> paymentsApps) {
     this.paymentsApps = paymentsApps;
   }

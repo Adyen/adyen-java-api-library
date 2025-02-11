@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,6 @@ public class TicketInfo {
    * Ticket requestorId
    * @return requestorId
    */
-  @ApiModelProperty(value = "Ticket requestorId")
   @JsonProperty(JSON_PROPERTY_REQUESTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestorId() {
@@ -67,7 +64,7 @@ public class TicketInfo {
    * Ticket requestorId
    *
    * @param requestorId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REQUESTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestorId(String requestorId) {

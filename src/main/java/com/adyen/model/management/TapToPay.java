@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,6 @@ public class TapToPay {
    * The text shown on the screen during the Tap to Pay transaction.
    * @return merchantDisplayName
    */
-  @ApiModelProperty(value = "The text shown on the screen during the Tap to Pay transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantDisplayName() {
@@ -67,7 +64,7 @@ public class TapToPay {
    * The text shown on the screen during the Tap to Pay transaction.
    *
    * @param merchantDisplayName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantDisplayName(String merchantDisplayName) {

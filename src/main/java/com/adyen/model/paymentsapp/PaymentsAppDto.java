@@ -13,7 +13,6 @@
 package com.adyen.model.paymentsapp;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,9 +66,8 @@ public class PaymentsAppDto {
    * The unique identifier of the Payments App instance.
    * @return installationId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getInstallationId() {
     return installationId;
   }
@@ -79,9 +76,9 @@ public class PaymentsAppDto {
    * The unique identifier of the Payments App instance.
    *
    * @param installationId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInstallationId(String installationId) {
     this.installationId = installationId;
   }
@@ -101,9 +98,8 @@ public class PaymentsAppDto {
    * The account code associated with the Payments App instance.
    * @return merchantAccountCode
    */
-  @ApiModelProperty(required = true, value = "The account code associated with the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
@@ -112,9 +108,9 @@ public class PaymentsAppDto {
    * The account code associated with the Payments App instance.
    *
    * @param merchantAccountCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }
@@ -134,7 +130,6 @@ public class PaymentsAppDto {
    * The store code associated with the Payments App instance.
    * @return merchantStoreCode
    */
-  @ApiModelProperty(value = "The store code associated with the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_STORE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantStoreCode() {
@@ -145,7 +140,7 @@ public class PaymentsAppDto {
    * The store code associated with the Payments App instance.
    *
    * @param merchantStoreCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_STORE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantStoreCode(String merchantStoreCode) {
@@ -167,9 +162,8 @@ public class PaymentsAppDto {
    * The status of the Payments App instance.
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getStatus() {
     return status;
   }
@@ -178,9 +172,9 @@ public class PaymentsAppDto {
    * The status of the Payments App instance.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(String status) {
     this.status = status;
   }

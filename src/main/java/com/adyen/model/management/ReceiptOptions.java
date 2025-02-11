@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,6 @@ public class ReceiptOptions {
    * The receipt logo converted to a Base64-encoded string. The image must be a .bmp file of &lt; 256 KB, dimensions 240 (H) x 384 (W) px.
    * @return logo
    */
-  @ApiModelProperty(value = "The receipt logo converted to a Base64-encoded string. The image must be a .bmp file of < 256 KB, dimensions 240 (H) x 384 (W) px.")
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogo() {
@@ -75,7 +72,7 @@ public class ReceiptOptions {
    * The receipt logo converted to a Base64-encoded string. The image must be a .bmp file of &lt; 256 KB, dimensions 240 (H) x 384 (W) px.
    *
    * @param logo
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
@@ -97,7 +94,6 @@ public class ReceiptOptions {
    * Indicates whether a screen appears asking if you want to print the shopper receipt.
    * @return promptBeforePrinting
    */
-  @ApiModelProperty(value = "Indicates whether a screen appears asking if you want to print the shopper receipt.")
   @JsonProperty(JSON_PROPERTY_PROMPT_BEFORE_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPromptBeforePrinting() {
@@ -108,7 +104,7 @@ public class ReceiptOptions {
    * Indicates whether a screen appears asking if you want to print the shopper receipt.
    *
    * @param promptBeforePrinting
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PROMPT_BEFORE_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPromptBeforePrinting(Boolean promptBeforePrinting) {
@@ -130,7 +126,6 @@ public class ReceiptOptions {
    * Data to print on the receipt as a QR code. This can include static text and the following variables:  - &#x60;${merchantreference}&#x60;: the merchant reference of the transaction. - &#x60;${pspreference}&#x60;: the PSP reference of the transaction.   For example, **http://www.example.com/order/${pspreference}/${merchantreference}**.
    * @return qrCodeData
    */
-  @ApiModelProperty(value = "Data to print on the receipt as a QR code. This can include static text and the following variables:  - `${merchantreference}`: the merchant reference of the transaction. - `${pspreference}`: the PSP reference of the transaction.   For example, **http://www.example.com/order/${pspreference}/${merchantreference}**.")
   @JsonProperty(JSON_PROPERTY_QR_CODE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getQrCodeData() {
@@ -141,7 +136,7 @@ public class ReceiptOptions {
    * Data to print on the receipt as a QR code. This can include static text and the following variables:  - &#x60;${merchantreference}&#x60;: the merchant reference of the transaction. - &#x60;${pspreference}&#x60;: the PSP reference of the transaction.   For example, **http://www.example.com/order/${pspreference}/${merchantreference}**.
    *
    * @param qrCodeData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_QR_CODE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQrCodeData(String qrCodeData) {

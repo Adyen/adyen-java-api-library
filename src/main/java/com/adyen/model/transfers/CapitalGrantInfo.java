@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Counterparty;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,10 +60,9 @@ public class CapitalGrantInfo {
   }
 
   /**
-   * counterparty
+   * Get counterparty
    * @return counterparty
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Counterparty getCounterparty() {
@@ -76,7 +73,7 @@ public class CapitalGrantInfo {
    * counterparty
    *
    * @param counterparty
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
@@ -98,9 +95,8 @@ public class CapitalGrantInfo {
    * The identifier of the grant account used for the grant.
    * @return grantAccountId
    */
-  @ApiModelProperty(required = true, value = "The identifier of the grant account used for the grant.")
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getGrantAccountId() {
     return grantAccountId;
   }
@@ -109,9 +105,9 @@ public class CapitalGrantInfo {
    * The identifier of the grant account used for the grant.
    *
    * @param grantAccountId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGrantAccountId(String grantAccountId) {
     this.grantAccountId = grantAccountId;
   }
@@ -131,9 +127,8 @@ public class CapitalGrantInfo {
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    * @return grantOfferId
    */
-  @ApiModelProperty(required = true, value = "The identifier of the grant offer that has been selected and from which the grant details will be used.")
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getGrantOfferId() {
     return grantOfferId;
   }
@@ -142,9 +137,9 @@ public class CapitalGrantInfo {
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    *
    * @param grantOfferId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGrantOfferId(String grantOfferId) {
     this.grantOfferId = grantOfferId;
   }

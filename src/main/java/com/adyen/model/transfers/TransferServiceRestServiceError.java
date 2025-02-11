@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.InvalidField;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -58,7 +56,7 @@ public class TransferServiceRestServiceError {
   private String instance;
 
   public static final String JSON_PROPERTY_INVALID_FIELDS = "invalidFields";
-  private List<InvalidField> invalidFields = null;
+  private List<InvalidField> invalidFields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -67,7 +65,7 @@ public class TransferServiceRestServiceError {
   private Object response;
 
   public static final String JSON_PROPERTY_ROUTING_DETAILS = "routingDetails";
-  private List<RoutingDetails> routingDetails = null;
+  private List<RoutingDetails> routingDetails = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
@@ -96,9 +94,8 @@ public class TransferServiceRestServiceError {
    * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
    */
-  @ApiModelProperty(required = true, value = "A human-readable explanation specific to this occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDetail() {
     return detail;
   }
@@ -107,9 +104,9 @@ public class TransferServiceRestServiceError {
    * A human-readable explanation specific to this occurrence of the problem.
    *
    * @param detail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDetail(String detail) {
     this.detail = detail;
   }
@@ -129,9 +126,8 @@ public class TransferServiceRestServiceError {
    * A code that identifies the problem type.
    * @return errorCode
    */
-  @ApiModelProperty(required = true, value = "A code that identifies the problem type.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getErrorCode() {
     return errorCode;
   }
@@ -140,9 +136,9 @@ public class TransferServiceRestServiceError {
    * A code that identifies the problem type.
    *
    * @param errorCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setErrorCode(String errorCode) {
     this.errorCode = errorCode;
   }
@@ -162,7 +158,6 @@ public class TransferServiceRestServiceError {
    * A unique URI that identifies the specific occurrence of the problem.
    * @return instance
    */
-  @ApiModelProperty(value = "A unique URI that identifies the specific occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstance() {
@@ -173,7 +168,7 @@ public class TransferServiceRestServiceError {
    * A unique URI that identifies the specific occurrence of the problem.
    *
    * @param instance
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstance(String instance) {
@@ -203,7 +198,6 @@ public class TransferServiceRestServiceError {
    * Detailed explanation of each validation error, when applicable.
    * @return invalidFields
    */
-  @ApiModelProperty(value = "Detailed explanation of each validation error, when applicable.")
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<InvalidField> getInvalidFields() {
@@ -214,7 +208,7 @@ public class TransferServiceRestServiceError {
    * Detailed explanation of each validation error, when applicable.
    *
    * @param invalidFields
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvalidFields(List<InvalidField> invalidFields) {
@@ -236,7 +230,6 @@ public class TransferServiceRestServiceError {
    * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
    * @return requestId
    */
-  @ApiModelProperty(value = "A unique reference for the request, essentially the same as `pspReference`.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestId() {
@@ -247,7 +240,7 @@ public class TransferServiceRestServiceError {
    * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
    *
    * @param requestId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
@@ -266,10 +259,9 @@ public class TransferServiceRestServiceError {
   }
 
   /**
-   * response
+   * Get response
    * @return response
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getResponse() {
@@ -280,7 +272,7 @@ public class TransferServiceRestServiceError {
    * response
    *
    * @param response
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(Object response) {
@@ -310,7 +302,6 @@ public class TransferServiceRestServiceError {
    * Detailed explanation of each attempt to route the transfer with the priorities from the request.
    * @return routingDetails
    */
-  @ApiModelProperty(value = "Detailed explanation of each attempt to route the transfer with the priorities from the request.")
   @JsonProperty(JSON_PROPERTY_ROUTING_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RoutingDetails> getRoutingDetails() {
@@ -321,7 +312,7 @@ public class TransferServiceRestServiceError {
    * Detailed explanation of each attempt to route the transfer with the priorities from the request.
    *
    * @param routingDetails
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ROUTING_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingDetails(List<RoutingDetails> routingDetails) {
@@ -343,9 +334,8 @@ public class TransferServiceRestServiceError {
    * The HTTP status code.
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The HTTP status code.")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getStatus() {
     return status;
   }
@@ -354,9 +344,9 @@ public class TransferServiceRestServiceError {
    * The HTTP status code.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(Integer status) {
     this.status = status;
   }
@@ -376,9 +366,8 @@ public class TransferServiceRestServiceError {
    * A short, human-readable summary of the problem type.
    * @return title
    */
-  @ApiModelProperty(required = true, value = "A short, human-readable summary of the problem type.")
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTitle() {
     return title;
   }
@@ -387,9 +376,9 @@ public class TransferServiceRestServiceError {
    * A short, human-readable summary of the problem type.
    *
    * @param title
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(String title) {
     this.title = title;
   }
@@ -409,9 +398,8 @@ public class TransferServiceRestServiceError {
    * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "A URI that identifies the problem type, pointing to human-readable documentation on this problem type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getType() {
     return type;
   }
@@ -420,9 +408,9 @@ public class TransferServiceRestServiceError {
    * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(String type) {
     this.type = type;
   }

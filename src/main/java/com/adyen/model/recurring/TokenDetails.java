@@ -20,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -58,7 +56,7 @@ public class TokenDetails {
     return this;
   }
 
-  public TokenDetails putItem(String key, String tokenDataItem) {
+  public TokenDetails putTokenDataItem(String key, String tokenDataItem) {
     if (this.tokenData == null) {
       this.tokenData = new HashMap<>();
     }

@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,7 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ModificationResult {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -50,23 +47,23 @@ public class ModificationResult {
    * Indicates if the modification request has been received for processing.
    */
   public enum ResponseEnum {
-    _CAPTURE_RECEIVED_("[capture-received]"),
+    _CAPTURE_RECEIVED_(String.valueOf("[capture-received]")),
     
-    _CANCEL_RECEIVED_("[cancel-received]"),
+    _CANCEL_RECEIVED_(String.valueOf("[cancel-received]")),
     
-    _REFUND_RECEIVED_("[refund-received]"),
+    _REFUND_RECEIVED_(String.valueOf("[refund-received]")),
     
-    _CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]"),
+    _CANCELORREFUND_RECEIVED_(String.valueOf("[cancelOrRefund-received]")),
     
-    _ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]"),
+    _ADJUSTAUTHORISATION_RECEIVED_(String.valueOf("[adjustAuthorisation-received]")),
     
-    _DONATION_RECEIVED_("[donation-received]"),
+    _DONATION_RECEIVED_(String.valueOf("[donation-received]")),
     
-    _TECHNICAL_CANCEL_RECEIVED_("[technical-cancel-received]"),
+    _TECHNICAL_CANCEL_RECEIVED_(String.valueOf("[technical-cancel-received]")),
     
-    _VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]"),
+    _VOIDPENDINGREFUND_RECEIVED_(String.valueOf("[voidPendingRefund-received]")),
     
-    AUTHORISED("Authorised");
+    AUTHORISED(String.valueOf("Authorised"));
 
     private String value;
 
@@ -124,7 +121,6 @@ public class ModificationResult {
    * This field contains additional data, which may be returned in a particular modification response.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular modification response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -135,7 +131,7 @@ public class ModificationResult {
    * This field contains additional data, which may be returned in a particular modification response.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -157,9 +153,8 @@ public class ModificationResult {
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPspReference() {
     return pspReference;
   }
@@ -168,9 +163,9 @@ public class ModificationResult {
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -190,9 +185,8 @@ public class ModificationResult {
    * Indicates if the modification request has been received for processing.
    * @return response
    */
-  @ApiModelProperty(required = true, value = "Indicates if the modification request has been received for processing.")
   @JsonProperty(JSON_PROPERTY_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ResponseEnum getResponse() {
     return response;
   }
@@ -201,9 +195,9 @@ public class ModificationResult {
    * Indicates if the modification request has been received for processing.
    *
    * @param response
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResponse(ResponseEnum response) {
     this.response = response;
   }

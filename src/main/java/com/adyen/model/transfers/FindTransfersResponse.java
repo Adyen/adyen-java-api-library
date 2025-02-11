@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Links;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,7 +42,7 @@ public class FindTransfersResponse {
   private Links links;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<TransferData> data = null;
+  private List<TransferData> data = new ArrayList<>();
 
   public FindTransfersResponse() { 
   }
@@ -61,10 +59,9 @@ public class FindTransfersResponse {
   }
 
   /**
-   * links
+   * Get links
    * @return links
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Links getLinks() {
@@ -75,7 +72,7 @@ public class FindTransfersResponse {
    * links
    *
    * @param links
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
@@ -105,7 +102,6 @@ public class FindTransfersResponse {
    * Contains the transfers that match the query parameters.
    * @return data
    */
-  @ApiModelProperty(value = "Contains the transfers that match the query parameters.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TransferData> getData() {
@@ -116,7 +112,7 @@ public class FindTransfersResponse {
    * Contains the transfers that match the query parameters.
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TransferData> data) {

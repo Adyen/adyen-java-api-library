@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -72,9 +70,8 @@ public class FindTerminalResponse {
    * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
    * @return companyAccount
    */
-  @ApiModelProperty(required = true, value = "The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCompanyAccount() {
     return companyAccount;
   }
@@ -83,9 +80,9 @@ public class FindTerminalResponse {
    * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
    *
    * @param companyAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
@@ -105,7 +102,6 @@ public class FindTerminalResponse {
    * The merchant account that the terminal is associated with. If the response doesn&#39;t contain a &#x60;store&#x60; the terminal is assigned to this merchant account.
    * @return merchantAccount
    */
-  @ApiModelProperty(value = "The merchant account that the terminal is associated with. If the response doesn't contain a `store` the terminal is assigned to this merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -116,7 +112,7 @@ public class FindTerminalResponse {
    * The merchant account that the terminal is associated with. If the response doesn&#39;t contain a &#x60;store&#x60; the terminal is assigned to this merchant account.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -138,7 +134,6 @@ public class FindTerminalResponse {
    * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
    * @return merchantInventory
    */
-  @ApiModelProperty(value = "Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMerchantInventory() {
@@ -149,7 +144,7 @@ public class FindTerminalResponse {
    * Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.  - If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.  - If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded.
    *
    * @param merchantInventory
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantInventory(Boolean merchantInventory) {
@@ -171,7 +166,6 @@ public class FindTerminalResponse {
    * The store code of the store that the terminal is assigned to.
    * @return store
    */
-  @ApiModelProperty(value = "The store code of the store that the terminal is assigned to.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStore() {
@@ -182,7 +176,7 @@ public class FindTerminalResponse {
    * The store code of the store that the terminal is assigned to.
    *
    * @param store
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
@@ -204,9 +198,8 @@ public class FindTerminalResponse {
    * The unique terminal ID.
    * @return terminal
    */
-  @ApiModelProperty(required = true, value = "The unique terminal ID.")
   @JsonProperty(JSON_PROPERTY_TERMINAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTerminal() {
     return terminal;
   }
@@ -215,9 +208,9 @@ public class FindTerminalResponse {
    * The unique terminal ID.
    *
    * @param terminal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }

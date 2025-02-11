@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,7 +40,7 @@ public class Payment {
   private String contactlessCurrency;
 
   public static final String JSON_PROPERTY_HIDE_MINOR_UNITS_IN_CURRENCIES = "hideMinorUnitsInCurrencies";
-  private List<String> hideMinorUnitsInCurrencies = null;
+  private List<String> hideMinorUnitsInCurrencies = new ArrayList<>();
 
   public Payment() { 
   }
@@ -62,7 +60,6 @@ public class Payment {
    * The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
    * @return contactlessCurrency
    */
-  @ApiModelProperty(value = "The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.")
   @JsonProperty(JSON_PROPERTY_CONTACTLESS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContactlessCurrency() {
@@ -73,7 +70,7 @@ public class Payment {
    * The default currency for contactless payments on the payment terminal, as the three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code.
    *
    * @param contactlessCurrency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONTACTLESS_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactlessCurrency(String contactlessCurrency) {
@@ -103,7 +100,6 @@ public class Payment {
    * Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).
    * @return hideMinorUnitsInCurrencies
    */
-  @ApiModelProperty(value = "Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_HIDE_MINOR_UNITS_IN_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getHideMinorUnitsInCurrencies() {
@@ -114,7 +110,7 @@ public class Payment {
    * Hides the minor units for the listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).
    *
    * @param hideMinorUnitsInCurrencies
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HIDE_MINOR_UNITS_IN_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideMinorUnitsInCurrencies(List<String> hideMinorUnitsInCurrencies) {

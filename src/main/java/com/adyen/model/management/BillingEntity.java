@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Address;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -70,10 +68,9 @@ public class BillingEntity {
   }
 
   /**
-   * address
+   * Get address
    * @return address
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getAddress() {
@@ -84,7 +81,7 @@ public class BillingEntity {
    * address
    *
    * @param address
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -106,7 +103,6 @@ public class BillingEntity {
    * The email address of the billing entity.
    * @return email
    */
-  @ApiModelProperty(value = "The email address of the billing entity.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -117,7 +113,7 @@ public class BillingEntity {
    * The email address of the billing entity.
    *
    * @param email
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -139,7 +135,6 @@ public class BillingEntity {
    * The unique identifier of the billing entity, for use as &#x60;billingEntityId&#x60; when creating an order.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the billing entity, for use as `billingEntityId` when creating an order.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -150,7 +145,7 @@ public class BillingEntity {
    * The unique identifier of the billing entity, for use as &#x60;billingEntityId&#x60; when creating an order.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -172,7 +167,6 @@ public class BillingEntity {
    * The unique name of the billing entity.
    * @return name
    */
-  @ApiModelProperty(value = "The unique name of the billing entity.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -183,7 +177,7 @@ public class BillingEntity {
    * The unique name of the billing entity.
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -205,7 +199,6 @@ public class BillingEntity {
    * The tax number of the billing entity.
    * @return taxId
    */
-  @ApiModelProperty(value = "The tax number of the billing entity.")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTaxId() {
@@ -216,7 +209,7 @@ public class BillingEntity {
    * The tax number of the billing entity.
    *
    * @param taxId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {

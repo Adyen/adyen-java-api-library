@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.ModelConfiguration;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,7 +41,7 @@ public class Surcharge {
   private Boolean askConfirmation;
 
   public static final String JSON_PROPERTY_CONFIGURATIONS = "configurations";
-  private List<ModelConfiguration> configurations = null;
+  private List<ModelConfiguration> configurations = new ArrayList<>();
 
   public Surcharge() { 
   }
@@ -63,7 +61,6 @@ public class Surcharge {
    * Show the surcharge details on the terminal, so the shopper can confirm.
    * @return askConfirmation
    */
-  @ApiModelProperty(value = "Show the surcharge details on the terminal, so the shopper can confirm.")
   @JsonProperty(JSON_PROPERTY_ASK_CONFIRMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAskConfirmation() {
@@ -74,7 +71,7 @@ public class Surcharge {
    * Show the surcharge details on the terminal, so the shopper can confirm.
    *
    * @param askConfirmation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ASK_CONFIRMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAskConfirmation(Boolean askConfirmation) {
@@ -104,7 +101,6 @@ public class Surcharge {
    * Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.
    * @return configurations
    */
-  @ApiModelProperty(value = "Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ModelConfiguration> getConfigurations() {
@@ -115,7 +111,7 @@ public class Surcharge {
    * Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.
    *
    * @param configurations
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfigurations(List<ModelConfiguration> configurations) {

@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.ConfirmationTrackingData;
@@ -24,9 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -50,9 +48,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -95,102 +91,75 @@ public class TransferDataTracking extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-
             // deserialize ConfirmationTrackingData
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (ConfirmationTrackingData.class.equals(Integer.class) || ConfirmationTrackingData.class.equals(Long.class) || ConfirmationTrackingData.class.equals(Float.class) || ConfirmationTrackingData.class.equals(Double.class) || ConfirmationTrackingData.class.equals(Boolean.class) || ConfirmationTrackingData.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((ConfirmationTrackingData.class.equals(Integer.class) || ConfirmationTrackingData.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((ConfirmationTrackingData.class.equals(Float.class) || ConfirmationTrackingData.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (ConfirmationTrackingData.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (ConfirmationTrackingData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(ConfirmationTrackingData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(ConfirmationTrackingData.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ConfirmationTrackingData'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(ConfirmationTrackingData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), ConfirmationTrackingData.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'ConfirmationTrackingData'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'ConfirmationTrackingData'", e);
             }
 
-
             // deserialize EstimationTrackingData
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (EstimationTrackingData.class.equals(Integer.class) || EstimationTrackingData.class.equals(Long.class) || EstimationTrackingData.class.equals(Float.class) || EstimationTrackingData.class.equals(Double.class) || EstimationTrackingData.class.equals(Boolean.class) || EstimationTrackingData.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((EstimationTrackingData.class.equals(Integer.class) || EstimationTrackingData.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((EstimationTrackingData.class.equals(Float.class) || EstimationTrackingData.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (EstimationTrackingData.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (EstimationTrackingData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(EstimationTrackingData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(EstimationTrackingData.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EstimationTrackingData'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(EstimationTrackingData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), EstimationTrackingData.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'EstimationTrackingData'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'EstimationTrackingData'", e);
             }
 
-
             // deserialize InternalReviewTrackingData
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (InternalReviewTrackingData.class.equals(Integer.class) || InternalReviewTrackingData.class.equals(Long.class) || InternalReviewTrackingData.class.equals(Float.class) || InternalReviewTrackingData.class.equals(Double.class) || InternalReviewTrackingData.class.equals(Boolean.class) || InternalReviewTrackingData.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((InternalReviewTrackingData.class.equals(Integer.class) || InternalReviewTrackingData.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((InternalReviewTrackingData.class.equals(Float.class) || InternalReviewTrackingData.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (InternalReviewTrackingData.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (InternalReviewTrackingData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(InternalReviewTrackingData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(InternalReviewTrackingData.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'InternalReviewTrackingData'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(InternalReviewTrackingData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), InternalReviewTrackingData.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'InternalReviewTrackingData'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'InternalReviewTrackingData'", e);
             }
 
-            // Throw error if there is no match
-            if (match == 0) {
-                throw new IOException(String.format("Failed deserialization for TransferDataTracking: %d classes match result, expected 1", match));
+            if (match == 1) {
+                TransferDataTracking ret = new TransferDataTracking();
+                ret.setActualInstance(deserialized);
+                return ret;
             }
-            // Log warning if there is more than one match
-            if (match > 1) {
-                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for TransferDataTracking: %d classes match result, expected 1", match));
-            }
-
-            TransferDataTracking ret = new TransferDataTracking();
-            ret.setActualInstance(deserialized);
-            return ret;
+            throw new IOException(String.format("Failed deserialization for TransferDataTracking: %d classes match result, expected 1", match));
         }
 
         /**
@@ -203,7 +172,7 @@ public class TransferDataTracking extends AbstractOpenApiSchema {
     }
 
     // store a list of schema names defined in oneOf
-    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+    public static final Map<String, GenericType<?>> schemas = new HashMap<>();
 
     public TransferDataTracking() {
         super("oneOf", Boolean.FALSE);
@@ -235,7 +204,7 @@ public class TransferDataTracking extends AbstractOpenApiSchema {
     }
 
     @Override
-    public Map<String, GenericType> getSchemas() {
+    public Map<String, GenericType<?>> getSchemas() {
         return TransferDataTracking.schemas;
     }
 
@@ -249,17 +218,17 @@ public class TransferDataTracking extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(ConfirmationTrackingData.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(ConfirmationTrackingData.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(EstimationTrackingData.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(EstimationTrackingData.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(InternalReviewTrackingData.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(InternalReviewTrackingData.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -311,6 +280,7 @@ public class TransferDataTracking extends AbstractOpenApiSchema {
         return (InternalReviewTrackingData)super.getActualInstance();
     }
 
+
     /**
     * Create an instance of TransferDataTracking given an JSON string
     *
@@ -330,5 +300,5 @@ public class TransferDataTracking extends AbstractOpenApiSchema {
     public String toJson() throws JsonProcessingException {
         return JSON.getMapper().writeValueAsString(this);
     }
-}
 
+}

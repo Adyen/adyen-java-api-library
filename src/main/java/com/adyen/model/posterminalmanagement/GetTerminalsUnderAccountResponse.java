@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.posterminalmanagement.MerchantAccount;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,10 +42,10 @@ public class GetTerminalsUnderAccountResponse {
   private String companyAccount;
 
   public static final String JSON_PROPERTY_INVENTORY_TERMINALS = "inventoryTerminals";
-  private List<String> inventoryTerminals = null;
+  private List<String> inventoryTerminals = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNTS = "merchantAccounts";
-  private List<MerchantAccount> merchantAccounts = null;
+  private List<MerchantAccount> merchantAccounts = new ArrayList<>();
 
   public GetTerminalsUnderAccountResponse() { 
   }
@@ -67,9 +65,8 @@ public class GetTerminalsUnderAccountResponse {
    * Your company account.
    * @return companyAccount
    */
-  @ApiModelProperty(required = true, value = "Your company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCompanyAccount() {
     return companyAccount;
   }
@@ -78,9 +75,9 @@ public class GetTerminalsUnderAccountResponse {
    * Your company account.
    *
    * @param companyAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
@@ -108,7 +105,6 @@ public class GetTerminalsUnderAccountResponse {
    * Array that returns a list of all terminals that are in the inventory of the company account.
    * @return inventoryTerminals
    */
-  @ApiModelProperty(value = "Array that returns a list of all terminals that are in the inventory of the company account.")
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getInventoryTerminals() {
@@ -119,7 +115,7 @@ public class GetTerminalsUnderAccountResponse {
    * Array that returns a list of all terminals that are in the inventory of the company account.
    *
    * @param inventoryTerminals
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventoryTerminals(List<String> inventoryTerminals) {
@@ -149,7 +145,6 @@ public class GetTerminalsUnderAccountResponse {
    * Array that returns a list of all merchant accounts belonging to the company account.
    * @return merchantAccounts
    */
-  @ApiModelProperty(value = "Array that returns a list of all merchant accounts belonging to the company account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MerchantAccount> getMerchantAccounts() {
@@ -160,7 +155,7 @@ public class GetTerminalsUnderAccountResponse {
    * Array that returns a list of all merchant accounts belonging to the company account.
    *
    * @param merchantAccounts
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccounts(List<MerchantAccount> merchantAccounts) {

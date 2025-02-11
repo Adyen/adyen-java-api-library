@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TerminalReassignmentTarget;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,13 +51,13 @@ public class TerminalAssignment {
    * The status of the reassignment. Possible values:   * &#x60;reassignmentInProgress&#x60;: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * &#x60;deployed&#x60;: the terminal is deployed and reassigned.   * &#x60;inventory&#x60;: the terminal is in inventory and cannot process transactions.   * &#x60;boarded&#x60;: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.  
    */
   public enum StatusEnum {
-    BOARDED("boarded"),
+    BOARDED(String.valueOf("boarded")),
     
-    DEPLOYED("deployed"),
+    DEPLOYED(String.valueOf("deployed")),
     
-    INVENTORY("inventory"),
+    INVENTORY(String.valueOf("inventory")),
     
-    REASSIGNMENTINPROGRESS("reassignmentInProgress");
+    REASSIGNMENTINPROGRESS(String.valueOf("reassignmentInProgress"));
 
     private String value;
 
@@ -112,9 +110,8 @@ public class TerminalAssignment {
    * The unique identifier of the company account to which terminal is assigned.
    * @return companyId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the company account to which terminal is assigned.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCompanyId() {
     return companyId;
   }
@@ -123,9 +120,9 @@ public class TerminalAssignment {
    * The unique identifier of the company account to which terminal is assigned.
    *
    * @param companyId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }
@@ -145,7 +142,6 @@ public class TerminalAssignment {
    * The unique identifier of the merchant account to which terminal is assigned.
    * @return merchantId
    */
-  @ApiModelProperty(value = "The unique identifier of the merchant account to which terminal is assigned.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -156,7 +152,7 @@ public class TerminalAssignment {
    * The unique identifier of the merchant account to which terminal is assigned.
    *
    * @param merchantId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -175,10 +171,9 @@ public class TerminalAssignment {
   }
 
   /**
-   * reassignmentTarget
+   * Get reassignmentTarget
    * @return reassignmentTarget
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REASSIGNMENT_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalReassignmentTarget getReassignmentTarget() {
@@ -189,7 +184,7 @@ public class TerminalAssignment {
    * reassignmentTarget
    *
    * @param reassignmentTarget
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REASSIGNMENT_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReassignmentTarget(TerminalReassignmentTarget reassignmentTarget) {
@@ -211,9 +206,8 @@ public class TerminalAssignment {
    * The status of the reassignment. Possible values:   * &#x60;reassignmentInProgress&#x60;: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * &#x60;deployed&#x60;: the terminal is deployed and reassigned.   * &#x60;inventory&#x60;: the terminal is in inventory and cannot process transactions.   * &#x60;boarded&#x60;: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.  
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of the reassignment. Possible values:   * `reassignmentInProgress`: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * `deployed`: the terminal is deployed and reassigned.   * `inventory`: the terminal is in inventory and cannot process transactions.   * `boarded`: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.  ")
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -222,9 +216,9 @@ public class TerminalAssignment {
    * The status of the reassignment. Possible values:   * &#x60;reassignmentInProgress&#x60;: the terminal was boarded and is now scheduled to remove the configuration. Wait for the terminal to synchronize with the Adyen platform.  * &#x60;deployed&#x60;: the terminal is deployed and reassigned.   * &#x60;inventory&#x60;: the terminal is in inventory and cannot process transactions.   * &#x60;boarded&#x60;: the terminal is boarded to a store, or a merchant account representing a store, and can process transactions.  
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
@@ -244,7 +238,6 @@ public class TerminalAssignment {
    * The unique identifier of the store to which terminal is assigned.
    * @return storeId
    */
-  @ApiModelProperty(value = "The unique identifier of the store to which terminal is assigned.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoreId() {
@@ -255,7 +248,7 @@ public class TerminalAssignment {
    * The unique identifier of the store to which terminal is assigned.
    *
    * @param storeId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {

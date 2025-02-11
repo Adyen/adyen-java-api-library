@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TerminalOrder;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class TerminalOrdersResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<TerminalOrder> data = null;
+  private List<TerminalOrder> data = new ArrayList<>();
 
   public TerminalOrdersResponse() { 
   }
@@ -67,7 +65,6 @@ public class TerminalOrdersResponse {
    * List of orders for payment terminal packages and parts.
    * @return data
    */
-  @ApiModelProperty(value = "List of orders for payment terminal packages and parts.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TerminalOrder> getData() {
@@ -78,7 +75,7 @@ public class TerminalOrdersResponse {
    * List of orders for payment terminal packages and parts.
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TerminalOrder> data) {

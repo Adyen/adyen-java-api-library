@@ -21,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -58,7 +57,7 @@ public class CreatePermitResult {
     return this;
   }
 
-  public CreatePermitResult addItem(PermitResult permitResultListItem) {
+  public CreatePermitResult addPermitResultListItem(PermitResult permitResultListItem) {
     if (this.permitResultList == null) {
       this.permitResultList = new ArrayList<>();
     }

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,7 +40,7 @@ public class AndroidAppError {
   private String errorCode;
 
   public static final String JSON_PROPERTY_TERMINAL_MODELS = "terminalModels";
-  private List<String> terminalModels = null;
+  private List<String> terminalModels = new ArrayList<>();
 
   public AndroidAppError() { 
   }
@@ -62,7 +60,6 @@ public class AndroidAppError {
    * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
    * @return errorCode
    */
-  @ApiModelProperty(value = "The error code of the Android app with the `status` of either **error** or **invalid**.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorCode() {
@@ -73,7 +70,7 @@ public class AndroidAppError {
    * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
    *
    * @param errorCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -103,7 +100,6 @@ public class AndroidAppError {
    * The list of payment terminal models to which the returned &#x60;errorCode&#x60; applies.
    * @return terminalModels
    */
-  @ApiModelProperty(value = "The list of payment terminal models to which the returned `errorCode` applies.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTerminalModels() {
@@ -114,7 +110,7 @@ public class AndroidAppError {
    * The list of payment terminal models to which the returned &#x60;errorCode&#x60; applies.
    *
    * @param terminalModels
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalModels(List<String> terminalModels) {

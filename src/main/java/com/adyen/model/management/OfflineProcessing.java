@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.MinorUnitsMonetaryValue;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,7 +41,7 @@ public class OfflineProcessing {
   private Integer chipFloorLimit;
 
   public static final String JSON_PROPERTY_OFFLINE_SWIPE_LIMITS = "offlineSwipeLimits";
-  private List<MinorUnitsMonetaryValue> offlineSwipeLimits = null;
+  private List<MinorUnitsMonetaryValue> offlineSwipeLimits = new ArrayList<>();
 
   public OfflineProcessing() { 
   }
@@ -63,7 +61,6 @@ public class OfflineProcessing {
    * The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return chipFloorLimit
    */
-  @ApiModelProperty(value = "The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CHIP_FLOOR_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getChipFloorLimit() {
@@ -74,7 +71,7 @@ public class OfflineProcessing {
    * The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
    * @param chipFloorLimit
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHIP_FLOOR_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChipFloorLimit(Integer chipFloorLimit) {
@@ -104,7 +101,6 @@ public class OfflineProcessing {
    * The maximum offline transaction amount for swiped cards, in the specified currency.
    * @return offlineSwipeLimits
    */
-  @ApiModelProperty(value = "The maximum offline transaction amount for swiped cards, in the specified currency.")
   @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<MinorUnitsMonetaryValue> getOfflineSwipeLimits() {
@@ -115,7 +111,7 @@ public class OfflineProcessing {
    * The maximum offline transaction amount for swiped cards, in the specified currency.
    *
    * @param offlineSwipeLimits
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OFFLINE_SWIPE_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {

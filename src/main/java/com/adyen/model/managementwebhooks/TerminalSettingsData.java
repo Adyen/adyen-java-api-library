@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,9 +54,9 @@ public class TerminalSettingsData {
    * Indicates whether the terminal settings were updated using the Customer Area or the Management API.
    */
   public enum UpdateSourceEnum {
-    CUSTOMER_AREA("Customer Area"),
+    CUSTOMER_AREA(String.valueOf("Customer Area")),
     
-    MANAGEMENT_API("Management Api");
+    MANAGEMENT_API(String.valueOf("Management Api"));
 
     private String value;
 
@@ -111,7 +109,6 @@ public class TerminalSettingsData {
    * The unique identifier of the company account.
    * @return companyId
    */
-  @ApiModelProperty(value = "The unique identifier of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
@@ -122,7 +119,7 @@ public class TerminalSettingsData {
    * The unique identifier of the company account.
    *
    * @param companyId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -144,7 +141,6 @@ public class TerminalSettingsData {
    * The unique identifier of the merchant account.
    * @return merchantId
    */
-  @ApiModelProperty(value = "The unique identifier of the merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -155,7 +151,7 @@ public class TerminalSettingsData {
    * The unique identifier of the merchant account.
    *
    * @param merchantId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -177,7 +173,6 @@ public class TerminalSettingsData {
    * The unique identifier of the store.
    * @return storeId
    */
-  @ApiModelProperty(value = "The unique identifier of the store.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoreId() {
@@ -188,7 +183,7 @@ public class TerminalSettingsData {
    * The unique identifier of the store.
    *
    * @param storeId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
@@ -210,7 +205,6 @@ public class TerminalSettingsData {
    * The unique identifier of the terminal.
    * @return terminalId
    */
-  @ApiModelProperty(value = "The unique identifier of the terminal.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTerminalId() {
@@ -221,7 +215,7 @@ public class TerminalSettingsData {
    * The unique identifier of the terminal.
    *
    * @param terminalId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {
@@ -243,9 +237,8 @@ public class TerminalSettingsData {
    * Indicates whether the terminal settings were updated using the Customer Area or the Management API.
    * @return updateSource
    */
-  @ApiModelProperty(required = true, value = "Indicates whether the terminal settings were updated using the Customer Area or the Management API.")
   @JsonProperty(JSON_PROPERTY_UPDATE_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public UpdateSourceEnum getUpdateSource() {
     return updateSource;
   }
@@ -254,9 +247,9 @@ public class TerminalSettingsData {
    * Indicates whether the terminal settings were updated using the Customer Area or the Management API.
    *
    * @param updateSource
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_UPDATE_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUpdateSource(UpdateSourceEnum updateSource) {
     this.updateSource = updateSource;
   }
@@ -276,9 +269,8 @@ public class TerminalSettingsData {
    * The user that updated the terminal settings. Can be Adyen or your API credential username.
    * @return user
    */
-  @ApiModelProperty(required = true, value = "The user that updated the terminal settings. Can be Adyen or your API credential username.")
   @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getUser() {
     return user;
   }
@@ -287,9 +279,9 @@ public class TerminalSettingsData {
    * The user that updated the terminal settings. Can be Adyen or your API credential username.
    *
    * @param user
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUser(String user) {
     this.user = user;
   }

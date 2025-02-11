@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,7 +41,7 @@ public class UninstallAndroidAppDetails {
    * Type of terminal action: Uninstall an Android app.
    */
   public enum TypeEnum {
-    UNINSTALLANDROIDAPP("UninstallAndroidApp");
+    UNINSTALLANDROIDAPP(String.valueOf("UninstallAndroidApp"));
 
     private String value;
 
@@ -73,7 +71,7 @@ public class UninstallAndroidAppDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.UNINSTALLANDROIDAPP;
 
   public UninstallAndroidAppDetails() { 
   }
@@ -93,7 +91,6 @@ public class UninstallAndroidAppDetails {
    * The unique identifier of the app to be uninstalled.
    * @return appId
    */
-  @ApiModelProperty(value = "The unique identifier of the app to be uninstalled.")
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAppId() {
@@ -104,7 +101,7 @@ public class UninstallAndroidAppDetails {
    * The unique identifier of the app to be uninstalled.
    *
    * @param appId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
@@ -126,7 +123,6 @@ public class UninstallAndroidAppDetails {
    * Type of terminal action: Uninstall an Android app.
    * @return type
    */
-  @ApiModelProperty(value = "Type of terminal action: Uninstall an Android app.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -137,7 +133,7 @@ public class UninstallAndroidAppDetails {
    * Type of terminal action: Uninstall an Android app.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

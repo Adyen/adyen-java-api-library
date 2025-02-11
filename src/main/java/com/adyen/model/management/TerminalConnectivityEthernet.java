@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,6 @@ public class TerminalConnectivityEthernet {
    * The terminal&#39;s ethernet IP address.
    * @return ipAddress
    */
-  @ApiModelProperty(value = "The terminal's ethernet IP address.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIpAddress() {
@@ -75,7 +72,7 @@ public class TerminalConnectivityEthernet {
    * The terminal&#39;s ethernet IP address.
    *
    * @param ipAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
@@ -97,7 +94,6 @@ public class TerminalConnectivityEthernet {
    * The ethernet link negotiation that the terminal uses.
    * @return linkNegotiation
    */
-  @ApiModelProperty(value = "The ethernet link negotiation that the terminal uses.")
   @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLinkNegotiation() {
@@ -108,7 +104,7 @@ public class TerminalConnectivityEthernet {
    * The ethernet link negotiation that the terminal uses.
    *
    * @param linkNegotiation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LINK_NEGOTIATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkNegotiation(String linkNegotiation) {
@@ -130,7 +126,6 @@ public class TerminalConnectivityEthernet {
    * The terminal&#39;s ethernet MAC address.
    * @return macAddress
    */
-  @ApiModelProperty(value = "The terminal's ethernet MAC address.")
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMacAddress() {
@@ -141,7 +136,7 @@ public class TerminalConnectivityEthernet {
    * The terminal&#39;s ethernet MAC address.
    *
    * @param macAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {

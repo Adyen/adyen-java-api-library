@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.AccelInfo;
@@ -28,9 +27,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -76,16 +74,16 @@ public class UpdatePaymentMethodInfo {
   private CartesBancairesInfo cartesBancaires;
 
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
-  private List<String> countries = null;
+  private List<String> countries = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CUP = "cup";
   private GenericPmWithTdiInfo cup;
 
   public static final String JSON_PROPERTY_CURRENCIES = "currencies";
-  private List<String> currencies = null;
+  private List<String> currencies = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CUSTOM_ROUTING_FLAGS = "customRoutingFlags";
-  private List<String> customRoutingFlags = null;
+  private List<String> customRoutingFlags = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DINERS = "diners";
   private GenericPmWithTdiInfo diners;
@@ -131,7 +129,7 @@ public class UpdatePaymentMethodInfo {
 
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
   @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per payment method is allowed.
-  private List<String> storeIds = null;
+  private List<String> storeIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_VISA = "visa";
   private GenericPmWithTdiInfo visa;
@@ -151,10 +149,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * accel
+   * Get accel
    * @return accel
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AccelInfo getAccel() {
@@ -165,7 +162,7 @@ public class UpdatePaymentMethodInfo {
    * accel
    *
    * @param accel
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccel(AccelInfo accel) {
@@ -184,10 +181,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * bcmc
+   * Get bcmc
    * @return bcmc
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BcmcInfo getBcmc() {
@@ -198,7 +194,7 @@ public class UpdatePaymentMethodInfo {
    * bcmc
    *
    * @param bcmc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BCMC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBcmc(BcmcInfo bcmc) {
@@ -217,10 +213,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * cartesBancaires
+   * Get cartesBancaires
    * @return cartesBancaires
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CartesBancairesInfo getCartesBancaires() {
@@ -231,7 +226,7 @@ public class UpdatePaymentMethodInfo {
    * cartesBancaires
    *
    * @param cartesBancaires
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARTES_BANCAIRES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCartesBancaires(CartesBancairesInfo cartesBancaires) {
@@ -261,7 +256,6 @@ public class UpdatePaymentMethodInfo {
    * The list of countries where a payment method is available. By default, all countries supported by the payment method.
    * @return countries
    */
-  @ApiModelProperty(value = "The list of countries where a payment method is available. By default, all countries supported by the payment method.")
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getCountries() {
@@ -272,7 +266,7 @@ public class UpdatePaymentMethodInfo {
    * The list of countries where a payment method is available. By default, all countries supported by the payment method.
    *
    * @param countries
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountries(List<String> countries) {
@@ -291,10 +285,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * cup
+   * Get cup
    * @return cup
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getCup() {
@@ -305,7 +298,7 @@ public class UpdatePaymentMethodInfo {
    * cup
    *
    * @param cup
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCup(GenericPmWithTdiInfo cup) {
@@ -335,7 +328,6 @@ public class UpdatePaymentMethodInfo {
    * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
    * @return currencies
    */
-  @ApiModelProperty(value = "The list of currencies that a payment method supports. By default, all currencies supported by the payment method.")
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getCurrencies() {
@@ -346,7 +338,7 @@ public class UpdatePaymentMethodInfo {
    * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
    *
    * @param currencies
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<String> currencies) {
@@ -376,7 +368,6 @@ public class UpdatePaymentMethodInfo {
    * Custom routing flags for acquirer routing.
    * @return customRoutingFlags
    */
-  @ApiModelProperty(value = "Custom routing flags for acquirer routing.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getCustomRoutingFlags() {
@@ -387,7 +378,7 @@ public class UpdatePaymentMethodInfo {
    * Custom routing flags for acquirer routing.
    *
    * @param customRoutingFlags
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CUSTOM_ROUTING_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomRoutingFlags(List<String> customRoutingFlags) {
@@ -406,10 +397,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * diners
+   * Get diners
    * @return diners
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getDiners() {
@@ -420,7 +410,7 @@ public class UpdatePaymentMethodInfo {
    * diners
    *
    * @param diners
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DINERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiners(GenericPmWithTdiInfo diners) {
@@ -439,10 +429,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * discover
+   * Get discover
    * @return discover
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getDiscover() {
@@ -453,7 +442,7 @@ public class UpdatePaymentMethodInfo {
    * discover
    *
    * @param discover
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DISCOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiscover(GenericPmWithTdiInfo discover) {
@@ -472,10 +461,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * eftposAustralia
+   * Get eftposAustralia
    * @return eftposAustralia
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getEftposAustralia() {
@@ -486,7 +474,7 @@ public class UpdatePaymentMethodInfo {
    * eftposAustralia
    *
    * @param eftposAustralia
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EFTPOS_AUSTRALIA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEftposAustralia(GenericPmWithTdiInfo eftposAustralia) {
@@ -508,7 +496,6 @@ public class UpdatePaymentMethodInfo {
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    * @return enabled
    */
-  @ApiModelProperty(value = "Indicates whether the payment method is enabled (**true**) or disabled (**false**).")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {
@@ -519,7 +506,7 @@ public class UpdatePaymentMethodInfo {
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    *
    * @param enabled
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
@@ -538,10 +525,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * girocard
+   * Get girocard
    * @return girocard
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getGirocard() {
@@ -552,7 +538,7 @@ public class UpdatePaymentMethodInfo {
    * girocard
    *
    * @param girocard
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GIROCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGirocard(GenericPmWithTdiInfo girocard) {
@@ -571,10 +557,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * ideal
+   * Get ideal
    * @return ideal
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getIdeal() {
@@ -585,7 +570,7 @@ public class UpdatePaymentMethodInfo {
    * ideal
    *
    * @param ideal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IDEAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdeal(GenericPmWithTdiInfo ideal) {
@@ -604,10 +589,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * interacCard
+   * Get interacCard
    * @return interacCard
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getInteracCard() {
@@ -618,7 +602,7 @@ public class UpdatePaymentMethodInfo {
    * interacCard
    *
    * @param interacCard
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INTERAC_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInteracCard(GenericPmWithTdiInfo interacCard) {
@@ -637,10 +621,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * jcb
+   * Get jcb
    * @return jcb
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getJcb() {
@@ -651,7 +634,7 @@ public class UpdatePaymentMethodInfo {
    * jcb
    *
    * @param jcb
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_JCB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJcb(GenericPmWithTdiInfo jcb) {
@@ -670,10 +653,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * maestro
+   * Get maestro
    * @return maestro
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getMaestro() {
@@ -684,7 +666,7 @@ public class UpdatePaymentMethodInfo {
    * maestro
    *
    * @param maestro
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAESTRO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaestro(GenericPmWithTdiInfo maestro) {
@@ -703,10 +685,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * mc
+   * Get mc
    * @return mc
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getMc() {
@@ -717,7 +698,7 @@ public class UpdatePaymentMethodInfo {
    * mc
    *
    * @param mc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMc(GenericPmWithTdiInfo mc) {
@@ -736,10 +717,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * nyce
+   * Get nyce
    * @return nyce
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NYCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NyceInfo getNyce() {
@@ -750,7 +730,7 @@ public class UpdatePaymentMethodInfo {
    * nyce
    *
    * @param nyce
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NYCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNyce(NyceInfo nyce) {
@@ -769,10 +749,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * pulse
+   * Get pulse
    * @return pulse
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PULSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PulseInfo getPulse() {
@@ -783,7 +762,7 @@ public class UpdatePaymentMethodInfo {
    * pulse
    *
    * @param pulse
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PULSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPulse(PulseInfo pulse) {
@@ -802,10 +781,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * star
+   * Get star
    * @return star
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StarInfo getStar() {
@@ -816,7 +794,7 @@ public class UpdatePaymentMethodInfo {
    * star
    *
    * @param star
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStar(StarInfo star) {
@@ -838,7 +816,6 @@ public class UpdatePaymentMethodInfo {
    * The store for this payment method
    * @return storeId
    */
-  @ApiModelProperty(value = "The store for this payment method")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoreId() {
@@ -849,7 +826,7 @@ public class UpdatePaymentMethodInfo {
    * The store for this payment method
    *
    * @param storeId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
@@ -865,7 +842,7 @@ public class UpdatePaymentMethodInfo {
    * @deprecated since Management API v3
    * Use &#x60;storeId&#x60; instead. Only one store per payment method is allowed.
    */
-  @Deprecated
+  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per payment method is allowed.
   public UpdatePaymentMethodInfo storeIds(List<String> storeIds) {
     this.storeIds = storeIds;
     return this;
@@ -882,12 +859,9 @@ public class UpdatePaymentMethodInfo {
   /**
    * The list of stores for this payment method
    * @return storeIds
-   *
-   * @deprecated since Management API v3
-   * Use &#x60;storeId&#x60; instead. Only one store per payment method is allowed.
+   * @deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per payment method is allowed.
    */
-  @Deprecated
-  @ApiModelProperty(value = "The list of stores for this payment method")
+  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per payment method is allowed.
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getStoreIds() {
@@ -901,8 +875,8 @@ public class UpdatePaymentMethodInfo {
    *
    * @deprecated since Management API v3
    * Use &#x60;storeId&#x60; instead. Only one store per payment method is allowed.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Management API v3: Use `storeId` instead. Only one store per payment method is allowed.
   @JsonProperty(JSON_PROPERTY_STORE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreIds(List<String> storeIds) {
@@ -921,10 +895,9 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
-   * visa
+   * Get visa
    * @return visa
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public GenericPmWithTdiInfo getVisa() {
@@ -935,7 +908,7 @@ public class UpdatePaymentMethodInfo {
    * visa
    *
    * @param visa
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisa(GenericPmWithTdiInfo visa) {

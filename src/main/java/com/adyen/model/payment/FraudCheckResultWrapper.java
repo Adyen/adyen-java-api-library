@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payment.FraudCheckResult;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,10 +52,9 @@ public class FraudCheckResultWrapper {
   }
 
   /**
-   * fraudCheckResult
+   * Get fraudCheckResult
    * @return fraudCheckResult
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FraudCheckResult getFraudCheckResult() {
@@ -68,7 +65,7 @@ public class FraudCheckResultWrapper {
    * fraudCheckResult
    *
    * @param fraudCheckResult
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudCheckResult(FraudCheckResult fraudCheckResult) {

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.BillingEntity;
@@ -24,9 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -57,7 +55,7 @@ public class TerminalOrder {
   private String id;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  private List<OrderItem> items = null;
+  private List<OrderItem> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ORDER_DATE = "orderDate";
   private String orderDate;
@@ -86,10 +84,9 @@ public class TerminalOrder {
   }
 
   /**
-   * billingEntity
+   * Get billingEntity
    * @return billingEntity
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BillingEntity getBillingEntity() {
@@ -100,7 +97,7 @@ public class TerminalOrder {
    * billingEntity
    *
    * @param billingEntity
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntity(BillingEntity billingEntity) {
@@ -122,7 +119,6 @@ public class TerminalOrder {
    * The merchant-defined purchase order number. This will be printed on the packing list.
    * @return customerOrderReference
    */
-  @ApiModelProperty(value = "The merchant-defined purchase order number. This will be printed on the packing list.")
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCustomerOrderReference() {
@@ -133,7 +129,7 @@ public class TerminalOrder {
    * The merchant-defined purchase order number. This will be printed on the packing list.
    *
    * @param customerOrderReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
@@ -155,7 +151,6 @@ public class TerminalOrder {
    * The unique identifier of the order.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the order.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -166,7 +161,7 @@ public class TerminalOrder {
    * The unique identifier of the order.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -196,7 +191,6 @@ public class TerminalOrder {
    * The products included in the order.
    * @return items
    */
-  @ApiModelProperty(value = "The products included in the order.")
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<OrderItem> getItems() {
@@ -207,7 +201,7 @@ public class TerminalOrder {
    * The products included in the order.
    *
    * @param items
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
@@ -229,7 +223,6 @@ public class TerminalOrder {
    * The date and time that the order was placed, in UTC ISO 8601 format. For example, \&quot;2011-12-03T10:15:30Z\&quot;.
    * @return orderDate
    */
-  @ApiModelProperty(value = "The date and time that the order was placed, in UTC ISO 8601 format. For example, \"2011-12-03T10:15:30Z\".")
   @JsonProperty(JSON_PROPERTY_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrderDate() {
@@ -240,7 +233,7 @@ public class TerminalOrder {
    * The date and time that the order was placed, in UTC ISO 8601 format. For example, \&quot;2011-12-03T10:15:30Z\&quot;.
    *
    * @param orderDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderDate(String orderDate) {
@@ -259,10 +252,9 @@ public class TerminalOrder {
   }
 
   /**
-   * shippingLocation
+   * Get shippingLocation
    * @return shippingLocation
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ShippingLocation getShippingLocation() {
@@ -273,7 +265,7 @@ public class TerminalOrder {
    * shippingLocation
    *
    * @param shippingLocation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHIPPING_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocation(ShippingLocation shippingLocation) {
@@ -295,7 +287,6 @@ public class TerminalOrder {
    * The processing status of the order.
    * @return status
    */
-  @ApiModelProperty(value = "The processing status of the order.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -306,7 +297,7 @@ public class TerminalOrder {
    * The processing status of the order.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
@@ -328,7 +319,6 @@ public class TerminalOrder {
    * The URL, provided by the carrier company, where the shipment can be tracked.
    * @return trackingUrl
    */
-  @ApiModelProperty(value = "The URL, provided by the carrier company, where the shipment can be tracked.")
   @JsonProperty(JSON_PROPERTY_TRACKING_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTrackingUrl() {
@@ -339,7 +329,7 @@ public class TerminalOrder {
    * The URL, provided by the carrier company, where the shipment can be tracked.
    *
    * @param trackingUrl
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TRACKING_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingUrl(String trackingUrl) {

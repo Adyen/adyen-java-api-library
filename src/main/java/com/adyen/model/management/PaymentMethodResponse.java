@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.PaginationLinks;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,7 +45,7 @@ public class PaymentMethodResponse {
   private PaginationLinks links;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<PaymentMethod> data = null;
+  private List<PaymentMethod> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ITEMS_TOTAL = "itemsTotal";
   private Integer itemsTotal;
@@ -59,151 +57,151 @@ public class PaymentMethodResponse {
    * Gets or Sets typesWithErrors
    */
   public enum TypesWithErrorsEnum {
-    ACCEL("accel"),
+    ACCEL(String.valueOf("accel")),
     
-    AFFIRM("affirm"),
+    AFFIRM(String.valueOf("affirm")),
     
-    AFTERPAYTOUCH("afterpaytouch"),
+    AFTERPAYTOUCH(String.valueOf("afterpaytouch")),
     
-    ALELO("alelo"),
+    ALELO(String.valueOf("alelo")),
     
-    ALIPAY("alipay"),
+    ALIPAY(String.valueOf("alipay")),
     
-    ALIPAY_HK("alipay_hk"),
+    ALIPAY_HK(String.valueOf("alipay_hk")),
     
-    AMEX("amex"),
+    AMEX(String.valueOf("amex")),
     
-    APPLEPAY("applepay"),
+    APPLEPAY(String.valueOf("applepay")),
     
-    BANESE_CARD("banese_card"),
+    BANESE_CARD(String.valueOf("banese_card")),
     
-    BANESE_CARD_CREDIT("banese_card_credit"),
+    BANESE_CARD_CREDIT(String.valueOf("banese_card_credit")),
     
-    BANESE_CARD_DEBIT("banese_card_debit"),
+    BANESE_CARD_DEBIT(String.valueOf("banese_card_debit")),
     
-    BANESE_CARD_PREPAID("banese_card_prepaid"),
+    BANESE_CARD_PREPAID(String.valueOf("banese_card_prepaid")),
     
-    BCMC("bcmc"),
+    BCMC(String.valueOf("bcmc")),
     
-    BLIK("blik"),
+    BLIK(String.valueOf("blik")),
     
-    CARTEBANCAIRE("cartebancaire"),
+    CARTEBANCAIRE(String.valueOf("cartebancaire")),
     
-    CLEARPAY("clearpay"),
+    CLEARPAY(String.valueOf("clearpay")),
     
-    CLICKTOPAY("clicktopay"),
+    CLICKTOPAY(String.valueOf("clicktopay")),
     
-    CREDTODOS("credtodos"),
+    CREDTODOS(String.valueOf("credtodos")),
     
-    CREDTODOS_PRIVATE_CREDIT("credtodos_private_credit"),
+    CREDTODOS_PRIVATE_CREDIT(String.valueOf("credtodos_private_credit")),
     
-    CREDTODOS_PRIVATE_DEBIT("credtodos_private_debit"),
+    CREDTODOS_PRIVATE_DEBIT(String.valueOf("credtodos_private_debit")),
     
-    CUP("cup"),
+    CUP(String.valueOf("cup")),
     
-    DINERS("diners"),
+    DINERS(String.valueOf("diners")),
     
-    DIRECTDEBIT_GB("directdebit_GB"),
+    DIRECTDEBIT_GB(String.valueOf("directdebit_GB")),
     
-    DISCOVER("discover"),
+    DISCOVER(String.valueOf("discover")),
     
-    EBANKING_FI("ebanking_FI"),
+    EBANKING_FI(String.valueOf("ebanking_FI")),
     
-    EFTPOS_AUSTRALIA("eftpos_australia"),
+    EFTPOS_AUSTRALIA(String.valueOf("eftpos_australia")),
     
-    ELO("elo"),
+    ELO(String.valueOf("elo")),
     
-    ELOCREDIT("elocredit"),
+    ELOCREDIT(String.valueOf("elocredit")),
     
-    ELODEBIT("elodebit"),
+    ELODEBIT(String.valueOf("elodebit")),
     
-    GIROCARD("girocard"),
+    GIROCARD(String.valueOf("girocard")),
     
-    GOOGLEPAY("googlepay"),
+    GOOGLEPAY(String.valueOf("googlepay")),
     
-    HIPER("hiper"),
+    HIPER(String.valueOf("hiper")),
     
-    HIPERCARD("hipercard"),
+    HIPERCARD(String.valueOf("hipercard")),
     
-    IDEAL("ideal"),
+    IDEAL(String.valueOf("ideal")),
     
-    INTERAC_CARD("interac_card"),
+    INTERAC_CARD(String.valueOf("interac_card")),
     
-    JCB("jcb"),
+    JCB(String.valueOf("jcb")),
     
-    KLARNA("klarna"),
+    KLARNA(String.valueOf("klarna")),
     
-    KLARNA_ACCOUNT("klarna_account"),
+    KLARNA_ACCOUNT(String.valueOf("klarna_account")),
     
-    KLARNA_PAYNOW("klarna_paynow"),
+    KLARNA_PAYNOW(String.valueOf("klarna_paynow")),
     
-    MAESTRO("maestro"),
+    MAESTRO(String.valueOf("maestro")),
     
-    MBWAY("mbway"),
+    MBWAY(String.valueOf("mbway")),
     
-    MC("mc"),
+    MC(String.valueOf("mc")),
     
-    MCDEBIT("mcdebit"),
+    MCDEBIT(String.valueOf("mcdebit")),
     
-    MEALVOUCHER_FR("mealVoucher_FR"),
+    MEALVOUCHER_FR(String.valueOf("mealVoucher_FR")),
     
-    MOBILEPAY("mobilepay"),
+    MOBILEPAY(String.valueOf("mobilepay")),
     
-    MULTIBANCO("multibanco"),
+    MULTIBANCO(String.valueOf("multibanco")),
     
-    NYCE("nyce"),
+    NYCE(String.valueOf("nyce")),
     
-    ONLINEBANKING_PL("onlineBanking_PL"),
+    ONLINEBANKING_PL(String.valueOf("onlineBanking_PL")),
     
-    PAYBYBANK("paybybank"),
+    PAYBYBANK(String.valueOf("paybybank")),
     
-    PAYME("payme"),
+    PAYME(String.valueOf("payme")),
     
-    PAYME_POS("payme_pos"),
+    PAYME_POS(String.valueOf("payme_pos")),
     
-    PAYNOW("paynow"),
+    PAYNOW(String.valueOf("paynow")),
     
-    PAYNOW_POS("paynow_pos"),
+    PAYNOW_POS(String.valueOf("paynow_pos")),
     
-    PAYPAL("paypal"),
+    PAYPAL(String.valueOf("paypal")),
     
-    PAYSHOP("payshop"),
+    PAYSHOP(String.valueOf("payshop")),
     
-    PULSE("pulse"),
+    PULSE(String.valueOf("pulse")),
     
-    SODEXO("sodexo"),
+    SODEXO(String.valueOf("sodexo")),
     
-    STAR("star"),
+    STAR(String.valueOf("star")),
     
-    SWISH("swish"),
+    SWISH(String.valueOf("swish")),
     
-    TICKET("ticket"),
+    TICKET(String.valueOf("ticket")),
     
-    TODO_GIFTCARD("todo_giftcard"),
+    TODO_GIFTCARD(String.valueOf("todo_giftcard")),
     
-    TRUSTLY("trustly"),
+    TRUSTLY(String.valueOf("trustly")),
     
-    TWINT("twint"),
+    TWINT(String.valueOf("twint")),
     
-    TWINT_POS("twint_pos"),
+    TWINT_POS(String.valueOf("twint_pos")),
     
-    UP_BRAZIL_CREDIT("up_brazil_credit"),
+    UP_BRAZIL_CREDIT(String.valueOf("up_brazil_credit")),
     
-    VALE_REFEICAO("vale_refeicao"),
+    VALE_REFEICAO(String.valueOf("vale_refeicao")),
     
-    VALE_REFEICAO_PREPAID("vale_refeicao_prepaid"),
+    VALE_REFEICAO_PREPAID(String.valueOf("vale_refeicao_prepaid")),
     
-    VIPPS("vipps"),
+    VIPPS(String.valueOf("vipps")),
     
-    VISA("visa"),
+    VISA(String.valueOf("visa")),
     
-    VISADEBIT("visadebit"),
+    VISADEBIT(String.valueOf("visadebit")),
     
-    VPAY("vpay"),
+    VPAY(String.valueOf("vpay")),
     
-    WECHATPAY("wechatpay"),
+    WECHATPAY(String.valueOf("wechatpay")),
     
-    WECHATPAY_POS("wechatpay_pos");
+    WECHATPAY_POS(String.valueOf("wechatpay_pos"));
 
     private String value;
 
@@ -233,7 +231,7 @@ public class PaymentMethodResponse {
   }
 
   public static final String JSON_PROPERTY_TYPES_WITH_ERRORS = "typesWithErrors";
-  private List<TypesWithErrorsEnum> typesWithErrors = null;
+  private List<TypesWithErrorsEnum> typesWithErrors = new ArrayList<>();
 
   public PaymentMethodResponse() { 
   }
@@ -250,10 +248,9 @@ public class PaymentMethodResponse {
   }
 
   /**
-   * links
+   * Get links
    * @return links
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaginationLinks getLinks() {
@@ -264,7 +261,7 @@ public class PaymentMethodResponse {
    * links
    *
    * @param links
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
@@ -294,7 +291,6 @@ public class PaymentMethodResponse {
    * The list of supported payment methods and their details.
    * @return data
    */
-  @ApiModelProperty(value = "The list of supported payment methods and their details.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentMethod> getData() {
@@ -305,7 +301,7 @@ public class PaymentMethodResponse {
    * The list of supported payment methods and their details.
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PaymentMethod> data) {
@@ -327,9 +323,8 @@ public class PaymentMethodResponse {
    * Total number of items.
    * @return itemsTotal
    */
-  @ApiModelProperty(required = true, value = "Total number of items.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getItemsTotal() {
     return itemsTotal;
   }
@@ -338,9 +333,9 @@ public class PaymentMethodResponse {
    * Total number of items.
    *
    * @param itemsTotal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
@@ -360,9 +355,8 @@ public class PaymentMethodResponse {
    * Total number of pages.
    * @return pagesTotal
    */
-  @ApiModelProperty(required = true, value = "Total number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getPagesTotal() {
     return pagesTotal;
   }
@@ -371,9 +365,9 @@ public class PaymentMethodResponse {
    * Total number of pages.
    *
    * @param pagesTotal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }
@@ -401,7 +395,6 @@ public class PaymentMethodResponse {
    * Payment method types with errors.
    * @return typesWithErrors
    */
-  @ApiModelProperty(value = "Payment method types with errors.")
   @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TypesWithErrorsEnum> getTypesWithErrors() {
@@ -412,7 +405,7 @@ public class PaymentMethodResponse {
    * Payment method types with errors.
    *
    * @param typesWithErrors
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTypesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {

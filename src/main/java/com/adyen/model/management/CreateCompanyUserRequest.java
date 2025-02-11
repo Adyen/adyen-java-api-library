@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Name;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,10 +44,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CreateCompanyUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_GROUPS = "accountGroups";
-  private List<String> accountGroups = null;
+  private List<String> accountGroups = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS = "associatedMerchantAccounts";
-  private List<String> associatedMerchantAccounts = null;
+  private List<String> associatedMerchantAccounts = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -61,7 +59,7 @@ public class CreateCompanyUserRequest {
   private Name name;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  private List<String> roles = null;
+  private List<String> roles = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TIME_ZONE_CODE = "timeZoneCode";
   private String timeZoneCode;
@@ -95,7 +93,6 @@ public class CreateCompanyUserRequest {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
    */
-  @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAccountGroups() {
@@ -106,7 +103,7 @@ public class CreateCompanyUserRequest {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    *
    * @param accountGroups
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
@@ -136,7 +133,6 @@ public class CreateCompanyUserRequest {
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
    * @return associatedMerchantAccounts
    */
-  @ApiModelProperty(value = "The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.")
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAssociatedMerchantAccounts() {
@@ -147,7 +143,7 @@ public class CreateCompanyUserRequest {
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
    *
    * @param associatedMerchantAccounts
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -169,9 +165,8 @@ public class CreateCompanyUserRequest {
    * The email address of the user.
    * @return email
    */
-  @ApiModelProperty(required = true, value = "The email address of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEmail() {
     return email;
   }
@@ -180,9 +175,9 @@ public class CreateCompanyUserRequest {
    * The email address of the user.
    *
    * @param email
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmail(String email) {
     this.email = email;
   }
@@ -202,7 +197,6 @@ public class CreateCompanyUserRequest {
    * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
    * @return loginMethod
    */
-  @ApiModelProperty(value = "The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username & account**, **Email**, or **SSO** ")
   @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLoginMethod() {
@@ -213,7 +207,7 @@ public class CreateCompanyUserRequest {
    * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
    *
    * @param loginMethod
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLoginMethod(String loginMethod) {
@@ -232,12 +226,11 @@ public class CreateCompanyUserRequest {
   }
 
   /**
-   * name
+   * Get name
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Name getName() {
     return name;
   }
@@ -246,9 +239,9 @@ public class CreateCompanyUserRequest {
    * name
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(Name name) {
     this.name = name;
   }
@@ -276,7 +269,6 @@ public class CreateCompanyUserRequest {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
    */
-  @ApiModelProperty(value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRoles() {
@@ -287,7 +279,7 @@ public class CreateCompanyUserRequest {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    *
    * @param roles
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
@@ -309,7 +301,6 @@ public class CreateCompanyUserRequest {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
    */
-  @ApiModelProperty(value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeZoneCode() {
@@ -320,7 +311,7 @@ public class CreateCompanyUserRequest {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    *
    * @param timeZoneCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {
@@ -342,9 +333,8 @@ public class CreateCompanyUserRequest {
    * The user&#39;s email address that will be their username. Must be the same as the one in the &#x60;email&#x60; field.
    * @return username
    */
-  @ApiModelProperty(required = true, value = "The user's email address that will be their username. Must be the same as the one in the `email` field.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getUsername() {
     return username;
   }
@@ -353,9 +343,9 @@ public class CreateCompanyUserRequest {
    * The user&#39;s email address that will be their username. Must be the same as the one in the &#x60;email&#x60; field.
    *
    * @param username
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUsername(String username) {
     this.username = username;
   }

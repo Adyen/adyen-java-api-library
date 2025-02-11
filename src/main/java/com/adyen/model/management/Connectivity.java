@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.EventUrl;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -41,9 +39,9 @@ public class Connectivity {
    * Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can&#39;t use cellular connectivity.
    */
   public enum SimcardStatusEnum {
-    ACTIVATED("ACTIVATED"),
+    ACTIVATED(String.valueOf("ACTIVATED")),
     
-    INVENTORY("INVENTORY");
+    INVENTORY(String.valueOf("INVENTORY"));
 
     private String value;
 
@@ -96,7 +94,6 @@ public class Connectivity {
    * Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can&#39;t use cellular connectivity.
    * @return simcardStatus
    */
-  @ApiModelProperty(value = "Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can't use cellular connectivity.")
   @JsonProperty(JSON_PROPERTY_SIMCARD_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SimcardStatusEnum getSimcardStatus() {
@@ -107,7 +104,7 @@ public class Connectivity {
    * Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.  Possible values: * **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings. * **INVENTORY**: the SIM card is not activated. The terminal can&#39;t use cellular connectivity.
    *
    * @param simcardStatus
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SIMCARD_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSimcardStatus(SimcardStatusEnum simcardStatus) {
@@ -126,10 +123,9 @@ public class Connectivity {
   }
 
   /**
-   * terminalIPAddressURL
+   * Get terminalIPAddressURL
    * @return terminalIPAddressURL
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EventUrl getTerminalIPAddressURL() {
@@ -140,7 +136,7 @@ public class Connectivity {
    * terminalIPAddressURL
    *
    * @param terminalIPAddressURL
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL_I_P_ADDRESS_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalIPAddressURL(EventUrl terminalIPAddressURL) {

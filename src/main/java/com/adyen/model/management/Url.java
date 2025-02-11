@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,7 +66,6 @@ public class Url {
    * Indicates if the message sent to this URL should be encrypted.
    * @return encrypted
    */
-  @ApiModelProperty(value = "Indicates if the message sent to this URL should be encrypted.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEncrypted() {
@@ -79,7 +76,7 @@ public class Url {
    * Indicates if the message sent to this URL should be encrypted.
    *
    * @param encrypted
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncrypted(Boolean encrypted) {
@@ -101,7 +98,6 @@ public class Url {
    * The password for authentication of the notifications.
    * @return password
    */
-  @ApiModelProperty(value = "The password for authentication of the notifications.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPassword() {
@@ -112,7 +108,7 @@ public class Url {
    * The password for authentication of the notifications.
    *
    * @param password
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
@@ -134,7 +130,6 @@ public class Url {
    * The URL in the format: http(s)://domain.com.
    * @return url
    */
-  @ApiModelProperty(value = "The URL in the format: http(s)://domain.com.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -145,7 +140,7 @@ public class Url {
    * The URL in the format: http(s)://domain.com.
    *
    * @param url
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
@@ -167,7 +162,6 @@ public class Url {
    * The username for authentication of the notifications.
    * @return username
    */
-  @ApiModelProperty(value = "The username for authentication of the notifications.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsername() {
@@ -178,7 +172,7 @@ public class Url {
    * The username for authentication of the notifications.
    *
    * @param username
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {

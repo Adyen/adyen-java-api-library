@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.LinksElement;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -70,12 +68,11 @@ public class PaginationLinks {
   }
 
   /**
-   * first
+   * Get first
    * @return first
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FIRST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LinksElement getFirst() {
     return first;
   }
@@ -84,9 +81,9 @@ public class PaginationLinks {
    * first
    *
    * @param first
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FIRST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFirst(LinksElement first) {
     this.first = first;
   }
@@ -103,12 +100,11 @@ public class PaginationLinks {
   }
 
   /**
-   * last
+   * Get last
    * @return last
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LinksElement getLast() {
     return last;
   }
@@ -117,9 +113,9 @@ public class PaginationLinks {
    * last
    *
    * @param last
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LAST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLast(LinksElement last) {
     this.last = last;
   }
@@ -136,10 +132,9 @@ public class PaginationLinks {
   }
 
   /**
-   * next
+   * Get next
    * @return next
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getNext() {
@@ -150,7 +145,7 @@ public class PaginationLinks {
    * next
    *
    * @param next
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(LinksElement next) {
@@ -169,10 +164,9 @@ public class PaginationLinks {
   }
 
   /**
-   * prev
+   * Get prev
    * @return prev
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getPrev() {
@@ -183,7 +177,7 @@ public class PaginationLinks {
    * prev
    *
    * @param prev
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrev(LinksElement prev) {
@@ -202,12 +196,11 @@ public class PaginationLinks {
   }
 
   /**
-   * self
+   * Get self
    * @return self
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LinksElement getSelf() {
     return self;
   }
@@ -216,9 +209,9 @@ public class PaginationLinks {
    * self
    *
    * @param self
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -41,9 +39,9 @@ public class PayAtTable {
    * Allowed authentication methods: Magswipe, Manual Entry.
    */
   public enum AuthenticationMethodEnum {
-    MAGSWIPE("MAGSWIPE"),
+    MAGSWIPE(String.valueOf("MAGSWIPE")),
     
-    MKE("MKE");
+    MKE(String.valueOf("MKE"));
 
     private String value;
 
@@ -82,9 +80,9 @@ public class PayAtTable {
    * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
    */
   public enum PaymentInstrumentEnum {
-    CASH("Cash"),
+    CASH(String.valueOf("Cash")),
     
-    CARD("Card");
+    CARD(String.valueOf("Card"));
 
     private String value;
 
@@ -134,7 +132,6 @@ public class PayAtTable {
    * Allowed authentication methods: Magswipe, Manual Entry.
    * @return authenticationMethod
    */
-  @ApiModelProperty(value = "Allowed authentication methods: Magswipe, Manual Entry.")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthenticationMethodEnum getAuthenticationMethod() {
@@ -145,7 +142,7 @@ public class PayAtTable {
    * Allowed authentication methods: Magswipe, Manual Entry.
    *
    * @param authenticationMethod
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationMethod(AuthenticationMethodEnum authenticationMethod) {
@@ -167,7 +164,6 @@ public class PayAtTable {
    * Enable Pay at table.
    * @return enablePayAtTable
    */
-  @ApiModelProperty(value = "Enable Pay at table.")
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnablePayAtTable() {
@@ -178,7 +174,7 @@ public class PayAtTable {
    * Enable Pay at table.
    *
    * @param enablePayAtTable
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnablePayAtTable(Boolean enablePayAtTable) {
@@ -200,7 +196,6 @@ public class PayAtTable {
    * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
    * @return paymentInstrument
    */
-  @ApiModelProperty(value = "Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaymentInstrumentEnum getPaymentInstrument() {
@@ -211,7 +206,7 @@ public class PayAtTable {
    * Sets the allowed payment instrument for Pay at table transactions.  Can be: **cash** or **card**. If not set, the terminal presents both options.
    *
    * @param paymentInstrument
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrument(PaymentInstrumentEnum paymentInstrument) {

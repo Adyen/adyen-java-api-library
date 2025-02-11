@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,6 @@ public class Commission {
    * A fixed commission fee, in minor units.
    * @return fixedAmount
    */
-  @ApiModelProperty(value = "A fixed commission fee, in minor units.")
   @JsonProperty(JSON_PROPERTY_FIXED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFixedAmount() {
@@ -71,7 +68,7 @@ public class Commission {
    * A fixed commission fee, in minor units.
    *
    * @param fixedAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FIXED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFixedAmount(Long fixedAmount) {
@@ -93,7 +90,6 @@ public class Commission {
    * A variable commission fee, in basis points.
    * @return variablePercentage
    */
-  @ApiModelProperty(value = "A variable commission fee, in basis points.")
   @JsonProperty(JSON_PROPERTY_VARIABLE_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVariablePercentage() {
@@ -104,7 +100,7 @@ public class Commission {
    * A variable commission fee, in basis points.
    *
    * @param variablePercentage
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VARIABLE_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariablePercentage(Long variablePercentage) {

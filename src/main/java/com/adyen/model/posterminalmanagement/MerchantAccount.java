@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.posterminalmanagement.Store;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,16 +40,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class MerchantAccount {
   public static final String JSON_PROPERTY_IN_STORE_TERMINALS = "inStoreTerminals";
-  private List<String> inStoreTerminals = null;
+  private List<String> inStoreTerminals = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INVENTORY_TERMINALS = "inventoryTerminals";
-  private List<String> inventoryTerminals = null;
+  private List<String> inventoryTerminals = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
 
   public static final String JSON_PROPERTY_STORES = "stores";
-  private List<Store> stores = null;
+  private List<Store> stores = new ArrayList<>();
 
   public MerchantAccount() { 
   }
@@ -79,7 +77,6 @@ public class MerchantAccount {
    * List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.
    * @return inStoreTerminals
    */
-  @ApiModelProperty(value = "List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.")
   @JsonProperty(JSON_PROPERTY_IN_STORE_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getInStoreTerminals() {
@@ -90,7 +87,7 @@ public class MerchantAccount {
    * List of terminals assigned to this merchant account as in-store terminals. This means that the terminal is ready to be boarded, or is already boarded.
    *
    * @param inStoreTerminals
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IN_STORE_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInStoreTerminals(List<String> inStoreTerminals) {
@@ -120,7 +117,6 @@ public class MerchantAccount {
    * List of terminals assigned to the inventory of this merchant account.
    * @return inventoryTerminals
    */
-  @ApiModelProperty(value = "List of terminals assigned to the inventory of this merchant account.")
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getInventoryTerminals() {
@@ -131,7 +127,7 @@ public class MerchantAccount {
    * List of terminals assigned to the inventory of this merchant account.
    *
    * @param inventoryTerminals
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_INVENTORY_TERMINALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventoryTerminals(List<String> inventoryTerminals) {
@@ -153,9 +149,8 @@ public class MerchantAccount {
    * The merchant account.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -164,9 +159,9 @@ public class MerchantAccount {
    * The merchant account.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -194,7 +189,6 @@ public class MerchantAccount {
    * Array of stores under this merchant account.
    * @return stores
    */
-  @ApiModelProperty(value = "Array of stores under this merchant account.")
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Store> getStores() {
@@ -205,7 +199,7 @@ public class MerchantAccount {
    * Array of stores under this merchant account.
    *
    * @param stores
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStores(List<Store> stores) {

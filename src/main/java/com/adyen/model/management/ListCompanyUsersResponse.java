@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.CompanyUser;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,7 +44,7 @@ public class ListCompanyUsersResponse {
   private PaginationLinks links;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<CompanyUser> data = null;
+  private List<CompanyUser> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ITEMS_TOTAL = "itemsTotal";
   private Integer itemsTotal;
@@ -69,10 +67,9 @@ public class ListCompanyUsersResponse {
   }
 
   /**
-   * links
+   * Get links
    * @return links
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaginationLinks getLinks() {
@@ -83,7 +80,7 @@ public class ListCompanyUsersResponse {
    * links
    *
    * @param links
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
@@ -113,7 +110,6 @@ public class ListCompanyUsersResponse {
    * The list of users.
    * @return data
    */
-  @ApiModelProperty(value = "The list of users.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CompanyUser> getData() {
@@ -124,7 +120,7 @@ public class ListCompanyUsersResponse {
    * The list of users.
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<CompanyUser> data) {
@@ -146,9 +142,8 @@ public class ListCompanyUsersResponse {
    * Total number of items.
    * @return itemsTotal
    */
-  @ApiModelProperty(required = true, value = "Total number of items.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getItemsTotal() {
     return itemsTotal;
   }
@@ -157,9 +152,9 @@ public class ListCompanyUsersResponse {
    * Total number of items.
    *
    * @param itemsTotal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
@@ -179,9 +174,8 @@ public class ListCompanyUsersResponse {
    * Total number of pages.
    * @return pagesTotal
    */
-  @ApiModelProperty(required = true, value = "Total number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getPagesTotal() {
     return pagesTotal;
   }
@@ -190,9 +184,9 @@ public class ListCompanyUsersResponse {
    * Total number of pages.
    *
    * @param pagesTotal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }

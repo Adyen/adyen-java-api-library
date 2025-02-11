@@ -13,7 +13,6 @@
 package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -74,9 +72,8 @@ public class AssignTerminalsRequest {
    * Your company account. To return terminals to the company inventory, specify only this parameter and the &#x60;terminals&#x60;.
    * @return companyAccount
    */
-  @ApiModelProperty(required = true, value = "Your company account. To return terminals to the company inventory, specify only this parameter and the `terminals`.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCompanyAccount() {
     return companyAccount;
   }
@@ -85,9 +82,9 @@ public class AssignTerminalsRequest {
    * Your company account. To return terminals to the company inventory, specify only this parameter and the &#x60;terminals&#x60;.
    *
    * @param companyAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
@@ -107,7 +104,6 @@ public class AssignTerminalsRequest {
    * Name of the merchant account. Specify this parameter to assign terminals to this merchant account or to a store under this merchant account.
    * @return merchantAccount
    */
-  @ApiModelProperty(value = "Name of the merchant account. Specify this parameter to assign terminals to this merchant account or to a store under this merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -118,7 +114,7 @@ public class AssignTerminalsRequest {
    * Name of the merchant account. Specify this parameter to assign terminals to this merchant account or to a store under this merchant account.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -140,7 +136,6 @@ public class AssignTerminalsRequest {
    * Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.  - Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.  - Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account.
    * @return merchantInventory
    */
-  @ApiModelProperty(value = "Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.  - Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.  - Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getMerchantInventory() {
@@ -151,7 +146,7 @@ public class AssignTerminalsRequest {
    * Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.  - Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.  - Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account.
    *
    * @param merchantInventory
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_INVENTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantInventory(Boolean merchantInventory) {
@@ -173,7 +168,6 @@ public class AssignTerminalsRequest {
    * The store code of the store that you want to assign the terminals to.
    * @return store
    */
-  @ApiModelProperty(value = "The store code of the store that you want to assign the terminals to.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStore() {
@@ -184,7 +178,7 @@ public class AssignTerminalsRequest {
    * The store code of the store that you want to assign the terminals to.
    *
    * @param store
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
@@ -203,6 +197,9 @@ public class AssignTerminalsRequest {
   }
 
   public AssignTerminalsRequest addTerminalsItem(String terminalsItem) {
+    if (this.terminals == null) {
+      this.terminals = new ArrayList<>();
+    }
     this.terminals.add(terminalsItem);
     return this;
   }
@@ -211,9 +208,8 @@ public class AssignTerminalsRequest {
    * Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.  For example, &#x60;[\&quot;V400m-324689776\&quot;,\&quot;P400Plus-329127412\&quot;]&#x60;.
    * @return terminals
    */
-  @ApiModelProperty(required = true, value = "Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.  For example, `[\"V400m-324689776\",\"P400Plus-329127412\"]`.")
   @JsonProperty(JSON_PROPERTY_TERMINALS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getTerminals() {
     return terminals;
   }
@@ -222,9 +218,9 @@ public class AssignTerminalsRequest {
    * Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.  For example, &#x60;[\&quot;V400m-324689776\&quot;,\&quot;P400Plus-329127412\&quot;]&#x60;.
    *
    * @param terminals
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINALS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTerminals(List<String> terminals) {
     this.terminals = terminals;
   }

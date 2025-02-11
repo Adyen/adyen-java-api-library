@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,9 +58,8 @@ public class VippsInfo {
    * Vipps logo. Format: Base64-encoded string.
    * @return logo
    */
-  @ApiModelProperty(required = true, value = "Vipps logo. Format: Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLogo() {
     return logo;
   }
@@ -71,9 +68,9 @@ public class VippsInfo {
    * Vipps logo. Format: Base64-encoded string.
    *
    * @param logo
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLogo(String logo) {
     this.logo = logo;
   }
@@ -93,7 +90,6 @@ public class VippsInfo {
    * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
    * @return subscriptionCancelUrl
    */
-  @ApiModelProperty(value = "Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubscriptionCancelUrl() {
@@ -104,7 +100,7 @@ public class VippsInfo {
    * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
    *
    * @param subscriptionCancelUrl
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscriptionCancelUrl(String subscriptionCancelUrl) {

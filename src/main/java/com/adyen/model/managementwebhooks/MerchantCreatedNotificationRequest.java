@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.managementwebhooks.AccountCreateNotificationData;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,7 +51,7 @@ public class MerchantCreatedNotificationRequest {
    * Type of notification.
    */
   public enum TypeEnum {
-    MERCHANT_CREATED("merchant.created");
+    MERCHANT_CREATED(String.valueOf("merchant.created"));
 
     private String value;
 
@@ -103,9 +101,8 @@ public class MerchantCreatedNotificationRequest {
    * Timestamp for when the webhook was created.
    * @return createdAt
    */
-  @ApiModelProperty(required = true, value = "Timestamp for when the webhook was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -114,9 +111,9 @@ public class MerchantCreatedNotificationRequest {
    * Timestamp for when the webhook was created.
    *
    * @param createdAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -133,12 +130,11 @@ public class MerchantCreatedNotificationRequest {
   }
 
   /**
-   * data
+   * Get data
    * @return data
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public AccountCreateNotificationData getData() {
     return data;
   }
@@ -147,9 +143,9 @@ public class MerchantCreatedNotificationRequest {
    * data
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(AccountCreateNotificationData data) {
     this.data = data;
   }
@@ -169,9 +165,8 @@ public class MerchantCreatedNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return environment
    */
-  @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getEnvironment() {
     return environment;
   }
@@ -180,9 +175,9 @@ public class MerchantCreatedNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
    * @param environment
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }
@@ -202,9 +197,8 @@ public class MerchantCreatedNotificationRequest {
    * Type of notification.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "Type of notification.")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TypeEnum getType() {
     return type;
   }
@@ -213,9 +207,9 @@ public class MerchantCreatedNotificationRequest {
    * Type of notification.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

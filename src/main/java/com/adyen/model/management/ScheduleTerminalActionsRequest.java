@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.ScheduleTerminalActionsRequestActionDetails;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -51,7 +49,7 @@ public class ScheduleTerminalActionsRequest {
   private String storeId;
 
   public static final String JSON_PROPERTY_TERMINAL_IDS = "terminalIds";
-  private List<String> terminalIds = null;
+  private List<String> terminalIds = new ArrayList<>();
 
   public ScheduleTerminalActionsRequest() { 
   }
@@ -68,10 +66,9 @@ public class ScheduleTerminalActionsRequest {
   }
 
   /**
-   * actionDetails
+   * Get actionDetails
    * @return actionDetails
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACTION_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ScheduleTerminalActionsRequestActionDetails getActionDetails() {
@@ -82,7 +79,7 @@ public class ScheduleTerminalActionsRequest {
    * actionDetails
    *
    * @param actionDetails
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACTION_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionDetails(ScheduleTerminalActionsRequestActionDetails actionDetails) {
@@ -104,7 +101,6 @@ public class ScheduleTerminalActionsRequest {
    * The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
    * @return scheduledAt
    */
-  @ApiModelProperty(value = "The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.")
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScheduledAt() {
@@ -115,7 +111,7 @@ public class ScheduleTerminalActionsRequest {
    * The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
    *
    * @param scheduledAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheduledAt(String scheduledAt) {
@@ -137,7 +133,6 @@ public class ScheduleTerminalActionsRequest {
    * The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
    * @return storeId
    */
-  @ApiModelProperty(value = "The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the `terminalIds` list must be assigned to this store.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoreId() {
@@ -148,7 +143,7 @@ public class ScheduleTerminalActionsRequest {
    * The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
    *
    * @param storeId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
@@ -178,7 +173,6 @@ public class ScheduleTerminalActionsRequest {
    * A list of unique IDs of the terminals to apply the action to. You can extract the IDs from the [GET &#x60;/terminals&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/terminals) response. Maximum length: 100 IDs.
    * @return terminalIds
    */
-  @ApiModelProperty(value = "A list of unique IDs of the terminals to apply the action to. You can extract the IDs from the [GET `/terminals`](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/terminals) response. Maximum length: 100 IDs.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTerminalIds() {
@@ -189,7 +183,7 @@ public class ScheduleTerminalActionsRequest {
    * A list of unique IDs of the terminals to apply the action to. You can extract the IDs from the [GET &#x60;/terminals&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/terminals) response. Maximum length: 100 IDs.
    *
    * @param terminalIds
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalIds(List<String> terminalIds) {
