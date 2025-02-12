@@ -71,7 +71,7 @@ public class FindTerminalResponse {
    * @return companyAccount
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyAccount() {
     return companyAccount;
   }
@@ -82,7 +82,7 @@ public class FindTerminalResponse {
    * @param companyAccount
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
@@ -199,7 +199,7 @@ public class FindTerminalResponse {
    * @return terminal
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTerminal() {
     return terminal;
   }
@@ -210,7 +210,7 @@ public class FindTerminalResponse {
    * @param terminal
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }

@@ -164,7 +164,7 @@ public class StoredValueLoadRequest {
    * @return amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
     return amount;
   }
@@ -175,7 +175,7 @@ public class StoredValueLoadRequest {
    * @param amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -228,7 +228,7 @@ public class StoredValueLoadRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -239,7 +239,7 @@ public class StoredValueLoadRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -268,7 +268,7 @@ public class StoredValueLoadRequest {
    * @return paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getPaymentMethod() {
     return paymentMethod;
   }
@@ -279,7 +279,7 @@ public class StoredValueLoadRequest {
    * @param paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
@@ -332,7 +332,7 @@ public class StoredValueLoadRequest {
    * @return reference
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
     return reference;
   }
@@ -343,7 +343,7 @@ public class StoredValueLoadRequest {
    * @param reference
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }

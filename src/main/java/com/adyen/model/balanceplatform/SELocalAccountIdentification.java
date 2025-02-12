@@ -96,7 +96,7 @@ public class SELocalAccountIdentification {
    * @return accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -107,7 +107,7 @@ public class SELocalAccountIdentification {
    * @param accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
@@ -128,7 +128,7 @@ public class SELocalAccountIdentification {
    * @return clearingNumber
    */
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClearingNumber() {
     return clearingNumber;
   }
@@ -139,7 +139,7 @@ public class SELocalAccountIdentification {
    * @param clearingNumber
    */
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingNumber(String clearingNumber) {
     this.clearingNumber = clearingNumber;
   }
@@ -160,7 +160,7 @@ public class SELocalAccountIdentification {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -171,7 +171,7 @@ public class SELocalAccountIdentification {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

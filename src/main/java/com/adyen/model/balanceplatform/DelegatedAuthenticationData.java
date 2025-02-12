@@ -55,7 +55,7 @@ public class DelegatedAuthenticationData {
    * @return sdkOutput
    */
   @JsonProperty(JSON_PROPERTY_SDK_OUTPUT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSdkOutput() {
     return sdkOutput;
   }
@@ -66,7 +66,7 @@ public class DelegatedAuthenticationData {
    * @param sdkOutput
    */
   @JsonProperty(JSON_PROPERTY_SDK_OUTPUT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkOutput(String sdkOutput) {
     this.sdkOutput = sdkOutput;
   }

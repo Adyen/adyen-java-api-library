@@ -66,7 +66,7 @@ public class GrantOffers {
    * @return grantOffers
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<GrantOffer> getGrantOffers() {
     return grantOffers;
   }
@@ -77,7 +77,7 @@ public class GrantOffers {
    * @param grantOffers
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOffers(List<GrantOffer> grantOffers) {
     this.grantOffers = grantOffers;
   }

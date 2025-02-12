@@ -63,7 +63,7 @@ public class ApplePaySessionRequest {
    * @return displayName
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
     return displayName;
   }
@@ -74,7 +74,7 @@ public class ApplePaySessionRequest {
    * @param displayName
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
@@ -95,7 +95,7 @@ public class ApplePaySessionRequest {
    * @return domainName
    */
   @JsonProperty(JSON_PROPERTY_DOMAIN_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDomainName() {
     return domainName;
   }
@@ -106,7 +106,7 @@ public class ApplePaySessionRequest {
    * @param domainName
    */
   @JsonProperty(JSON_PROPERTY_DOMAIN_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomainName(String domainName) {
     this.domainName = domainName;
   }
@@ -127,7 +127,7 @@ public class ApplePaySessionRequest {
    * @return merchantIdentifier
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantIdentifier() {
     return merchantIdentifier;
   }
@@ -138,7 +138,7 @@ public class ApplePaySessionRequest {
    * @param merchantIdentifier
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantIdentifier(String merchantIdentifier) {
     this.merchantIdentifier = merchantIdentifier;
   }

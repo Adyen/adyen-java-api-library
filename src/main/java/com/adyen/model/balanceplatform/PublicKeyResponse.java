@@ -59,7 +59,7 @@ public class PublicKeyResponse {
    * @return publicKey
    */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicKey() {
     return publicKey;
   }
@@ -70,7 +70,7 @@ public class PublicKeyResponse {
    * @param publicKey
    */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicKey(String publicKey) {
     this.publicKey = publicKey;
   }
@@ -91,7 +91,7 @@ public class PublicKeyResponse {
    * @return publicKeyExpiryDate
    */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY_EXPIRY_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicKeyExpiryDate() {
     return publicKeyExpiryDate;
   }
@@ -102,7 +102,7 @@ public class PublicKeyResponse {
    * @param publicKeyExpiryDate
    */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY_EXPIRY_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicKeyExpiryDate(String publicKeyExpiryDate) {
     this.publicKeyExpiryDate = publicKeyExpiryDate;
   }

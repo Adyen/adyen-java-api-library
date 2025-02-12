@@ -113,7 +113,7 @@ public class UpiCollectDetails {
    * @return billingSequenceNumber
    */
   @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingSequenceNumber() {
     return billingSequenceNumber;
   }
@@ -124,7 +124,7 @@ public class UpiCollectDetails {
    * @param billingSequenceNumber
    */
   @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingSequenceNumber(String billingSequenceNumber) {
     this.billingSequenceNumber = billingSequenceNumber;
   }
@@ -283,7 +283,7 @@ public class UpiCollectDetails {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -294,7 +294,7 @@ public class UpiCollectDetails {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

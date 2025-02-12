@@ -104,7 +104,7 @@ public class WebhookLinks {
    * @return generateHmac
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getGenerateHmac() {
     return generateHmac;
   }
@@ -115,7 +115,7 @@ public class WebhookLinks {
    * @param generateHmac
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateHmac(LinksElement generateHmac) {
     this.generateHmac = generateHmac;
   }
@@ -168,7 +168,7 @@ public class WebhookLinks {
    * @return self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getSelf() {
     return self;
   }
@@ -179,7 +179,7 @@ public class WebhookLinks {
    * @param self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }
@@ -200,7 +200,7 @@ public class WebhookLinks {
    * @return testWebhook
    */
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getTestWebhook() {
     return testWebhook;
   }
@@ -211,7 +211,7 @@ public class WebhookLinks {
    * @param testWebhook
    */
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestWebhook(LinksElement testWebhook) {
     this.testWebhook = testWebhook;
   }

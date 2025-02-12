@@ -59,7 +59,7 @@ public class VippsInfo {
    * @return logo
    */
   @JsonProperty(JSON_PROPERTY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogo() {
     return logo;
   }
@@ -70,7 +70,7 @@ public class VippsInfo {
    * @param logo
    */
   @JsonProperty(JSON_PROPERTY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
   }

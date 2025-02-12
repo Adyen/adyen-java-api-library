@@ -105,7 +105,7 @@ public class ModifyResponse {
    * @return pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
     return pspReference;
   }
@@ -116,7 +116,7 @@ public class ModifyResponse {
    * @param pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -137,7 +137,7 @@ public class ModifyResponse {
    * @return response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResponse() {
     return response;
   }
@@ -148,7 +148,7 @@ public class ModifyResponse {
    * @param response
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(String response) {
     this.response = response;
   }

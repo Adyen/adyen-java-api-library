@@ -108,7 +108,7 @@ public class PseDetails {
    * @return bank
    */
   @JsonProperty(JSON_PROPERTY_BANK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBank() {
     return bank;
   }
@@ -119,7 +119,7 @@ public class PseDetails {
    * @param bank
    */
   @JsonProperty(JSON_PROPERTY_BANK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(String bank) {
     this.bank = bank;
   }
@@ -172,7 +172,7 @@ public class PseDetails {
    * @return clientType
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientType() {
     return clientType;
   }
@@ -183,7 +183,7 @@ public class PseDetails {
    * @param clientType
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientType(String clientType) {
     this.clientType = clientType;
   }
@@ -204,7 +204,7 @@ public class PseDetails {
    * @return identification
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIdentification() {
     return identification;
   }
@@ -215,7 +215,7 @@ public class PseDetails {
    * @param identification
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentification(String identification) {
     this.identification = identification;
   }
@@ -236,7 +236,7 @@ public class PseDetails {
    * @return identificationType
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIdentificationType() {
     return identificationType;
   }
@@ -247,7 +247,7 @@ public class PseDetails {
    * @param identificationType
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationType(String identificationType) {
     this.identificationType = identificationType;
   }

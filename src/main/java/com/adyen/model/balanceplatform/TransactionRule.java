@@ -294,7 +294,7 @@ public class TransactionRule {
    * @return description
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
@@ -305,7 +305,7 @@ public class TransactionRule {
    * @param description
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -358,7 +358,7 @@ public class TransactionRule {
    * @return entityKey
    */
   @JsonProperty(JSON_PROPERTY_ENTITY_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransactionRuleEntityKey getEntityKey() {
     return entityKey;
   }
@@ -369,7 +369,7 @@ public class TransactionRule {
    * @param entityKey
    */
   @JsonProperty(JSON_PROPERTY_ENTITY_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityKey(TransactionRuleEntityKey entityKey) {
     this.entityKey = entityKey;
   }
@@ -422,7 +422,7 @@ public class TransactionRule {
    * @return interval
    */
   @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransactionRuleInterval getInterval() {
     return interval;
   }
@@ -433,7 +433,7 @@ public class TransactionRule {
    * @param interval
    */
   @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterval(TransactionRuleInterval interval) {
     this.interval = interval;
   }
@@ -486,7 +486,7 @@ public class TransactionRule {
    * @return reference
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
     return reference;
   }
@@ -497,7 +497,7 @@ public class TransactionRule {
    * @param reference
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
@@ -550,7 +550,7 @@ public class TransactionRule {
    * @return ruleRestrictions
    */
   @JsonProperty(JSON_PROPERTY_RULE_RESTRICTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransactionRuleRestrictions getRuleRestrictions() {
     return ruleRestrictions;
   }
@@ -561,7 +561,7 @@ public class TransactionRule {
    * @param ruleRestrictions
    */
   @JsonProperty(JSON_PROPERTY_RULE_RESTRICTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRuleRestrictions(TransactionRuleRestrictions ruleRestrictions) {
     this.ruleRestrictions = ruleRestrictions;
   }
@@ -678,7 +678,7 @@ public class TransactionRule {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -689,7 +689,7 @@ public class TransactionRule {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

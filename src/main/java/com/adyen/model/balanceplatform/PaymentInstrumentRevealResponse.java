@@ -55,7 +55,7 @@ public class PaymentInstrumentRevealResponse {
    * @return encryptedData
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedData() {
     return encryptedData;
   }
@@ -66,7 +66,7 @@ public class PaymentInstrumentRevealResponse {
    * @param encryptedData
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedData(String encryptedData) {
     this.encryptedData = encryptedData;
   }

@@ -65,7 +65,7 @@ public class AssignTerminalsResponse {
    * @return results
    */
   @JsonProperty(JSON_PROPERTY_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getResults() {
     return results;
   }
@@ -76,7 +76,7 @@ public class AssignTerminalsResponse {
    * @param results
    */
   @JsonProperty(JSON_PROPERTY_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResults(Map<String, String> results) {
     this.results = results;
   }

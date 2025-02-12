@@ -65,7 +65,7 @@ public class Repayment {
    * @return basisPoints
    */
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getBasisPoints() {
     return basisPoints;
   }
@@ -76,7 +76,7 @@ public class Repayment {
    * @param basisPoints
    */
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasisPoints(Integer basisPoints) {
     this.basisPoints = basisPoints;
   }

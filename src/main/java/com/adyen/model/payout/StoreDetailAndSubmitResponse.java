@@ -109,7 +109,7 @@ public class StoreDetailAndSubmitResponse {
    * @return pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
     return pspReference;
   }
@@ -120,7 +120,7 @@ public class StoreDetailAndSubmitResponse {
    * @param pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -173,7 +173,7 @@ public class StoreDetailAndSubmitResponse {
    * @return resultCode
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultCode() {
     return resultCode;
   }
@@ -184,7 +184,7 @@ public class StoreDetailAndSubmitResponse {
    * @param resultCode
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }

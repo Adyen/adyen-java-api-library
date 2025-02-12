@@ -114,7 +114,7 @@ public class AuthenticationNotificationData {
    * @return authentication
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthenticationInfo getAuthentication() {
     return authentication;
   }
@@ -125,7 +125,7 @@ public class AuthenticationNotificationData {
    * @param authentication
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(AuthenticationInfo authentication) {
     this.authentication = authentication;
   }
@@ -178,7 +178,7 @@ public class AuthenticationNotificationData {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -189,7 +189,7 @@ public class AuthenticationNotificationData {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
@@ -210,7 +210,7 @@ public class AuthenticationNotificationData {
    * @return paymentInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
@@ -221,7 +221,7 @@ public class AuthenticationNotificationData {
    * @param paymentInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
@@ -242,7 +242,7 @@ public class AuthenticationNotificationData {
    * @return purchase
    */
   @JsonProperty(JSON_PROPERTY_PURCHASE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PurchaseInfo getPurchase() {
     return purchase;
   }
@@ -253,7 +253,7 @@ public class AuthenticationNotificationData {
    * @param purchase
    */
   @JsonProperty(JSON_PROPERTY_PURCHASE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchase(PurchaseInfo purchase) {
     this.purchase = purchase;
   }
@@ -274,7 +274,7 @@ public class AuthenticationNotificationData {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -285,7 +285,7 @@ public class AuthenticationNotificationData {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }

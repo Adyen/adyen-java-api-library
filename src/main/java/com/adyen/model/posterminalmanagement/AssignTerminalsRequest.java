@@ -73,7 +73,7 @@ public class AssignTerminalsRequest {
    * @return companyAccount
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyAccount() {
     return companyAccount;
   }
@@ -84,7 +84,7 @@ public class AssignTerminalsRequest {
    * @param companyAccount
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }
@@ -209,7 +209,7 @@ public class AssignTerminalsRequest {
    * @return terminals
    */
   @JsonProperty(JSON_PROPERTY_TERMINALS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTerminals() {
     return terminals;
   }
@@ -220,7 +220,7 @@ public class AssignTerminalsRequest {
    * @param terminals
    */
   @JsonProperty(JSON_PROPERTY_TERMINALS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminals(List<String> terminals) {
     this.terminals = terminals;
   }

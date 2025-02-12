@@ -385,7 +385,7 @@ public class CreateSweepConfigurationV2 {
    * @return counterparty
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SweepCounterparty getCounterparty() {
     return counterparty;
   }
@@ -396,7 +396,7 @@ public class CreateSweepConfigurationV2 {
    * @param counterparty
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(SweepCounterparty counterparty) {
     this.counterparty = counterparty;
   }
@@ -417,7 +417,7 @@ public class CreateSweepConfigurationV2 {
    * @return currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
     return currency;
   }
@@ -428,7 +428,7 @@ public class CreateSweepConfigurationV2 {
    * @param currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -607,7 +607,7 @@ public class CreateSweepConfigurationV2 {
    * @return schedule
    */
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SweepSchedule getSchedule() {
     return schedule;
   }
@@ -618,7 +618,7 @@ public class CreateSweepConfigurationV2 {
    * @param schedule
    */
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchedule(SweepSchedule schedule) {
     this.schedule = schedule;
   }

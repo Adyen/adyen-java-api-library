@@ -162,7 +162,7 @@ public class SplitConfigurationRule {
    * @return currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
     return currency;
   }
@@ -173,7 +173,7 @@ public class SplitConfigurationRule {
    * @param currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -226,7 +226,7 @@ public class SplitConfigurationRule {
    * @return paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethod() {
     return paymentMethod;
   }
@@ -237,7 +237,7 @@ public class SplitConfigurationRule {
    * @param paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
@@ -269,7 +269,7 @@ public class SplitConfigurationRule {
    * @return shopperInteraction
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ShopperInteractionEnum getShopperInteraction() {
     return shopperInteraction;
   }
@@ -280,7 +280,7 @@ public class SplitConfigurationRule {
    * @param shopperInteraction
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
@@ -301,7 +301,7 @@ public class SplitConfigurationRule {
    * @return splitLogic
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_LOGIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SplitConfigurationLogic getSplitLogic() {
     return splitLogic;
   }
@@ -312,7 +312,7 @@ public class SplitConfigurationRule {
    * @param splitLogic
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_LOGIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitLogic(SplitConfigurationLogic splitLogic) {
     this.splitLogic = splitLogic;
   }

@@ -139,7 +139,7 @@ public class CALocalAccountIdentification {
    * @return accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -150,7 +150,7 @@ public class CALocalAccountIdentification {
    * @param accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
@@ -203,7 +203,7 @@ public class CALocalAccountIdentification {
    * @return institutionNumber
    */
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstitutionNumber() {
     return institutionNumber;
   }
@@ -214,7 +214,7 @@ public class CALocalAccountIdentification {
    * @param institutionNumber
    */
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstitutionNumber(String institutionNumber) {
     this.institutionNumber = institutionNumber;
   }
@@ -235,7 +235,7 @@ public class CALocalAccountIdentification {
    * @return transitNumber
    */
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransitNumber() {
     return transitNumber;
   }
@@ -246,7 +246,7 @@ public class CALocalAccountIdentification {
    * @param transitNumber
    */
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransitNumber(String transitNumber) {
     this.transitNumber = transitNumber;
   }
@@ -267,7 +267,7 @@ public class CALocalAccountIdentification {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -278,7 +278,7 @@ public class CALocalAccountIdentification {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

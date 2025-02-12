@@ -106,7 +106,7 @@ public class DefenseReason {
    * @return defenseReasonCode
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefenseReasonCode() {
     return defenseReasonCode;
   }
@@ -117,7 +117,7 @@ public class DefenseReason {
    * @param defenseReasonCode
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasonCode(String defenseReasonCode) {
     this.defenseReasonCode = defenseReasonCode;
   }
@@ -138,7 +138,7 @@ public class DefenseReason {
    * @return satisfied
    */
   @JsonProperty(JSON_PROPERTY_SATISFIED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSatisfied() {
     return satisfied;
   }
@@ -149,7 +149,7 @@ public class DefenseReason {
    * @param satisfied
    */
   @JsonProperty(JSON_PROPERTY_SATISFIED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSatisfied(Boolean satisfied) {
     this.satisfied = satisfied;
   }

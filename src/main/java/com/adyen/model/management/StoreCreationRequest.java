@@ -87,7 +87,7 @@ public class StoreCreationRequest {
    * @return address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StoreLocation getAddress() {
     return address;
   }
@@ -98,7 +98,7 @@ public class StoreCreationRequest {
    * @param address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(StoreLocation address) {
     this.address = address;
   }
@@ -159,7 +159,7 @@ public class StoreCreationRequest {
    * @return description
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
@@ -170,7 +170,7 @@ public class StoreCreationRequest {
    * @param description
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -223,7 +223,7 @@ public class StoreCreationRequest {
    * @return phoneNumber
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -234,7 +234,7 @@ public class StoreCreationRequest {
    * @param phoneNumber
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
@@ -287,7 +287,7 @@ public class StoreCreationRequest {
    * @return shopperStatement
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperStatement() {
     return shopperStatement;
   }
@@ -298,7 +298,7 @@ public class StoreCreationRequest {
    * @param shopperStatement
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
   }

@@ -55,7 +55,7 @@ public class GenerateApiKeyResponse {
    * @return apiKey
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getApiKey() {
     return apiKey;
   }
@@ -66,7 +66,7 @@ public class GenerateApiKeyResponse {
    * @param apiKey
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }

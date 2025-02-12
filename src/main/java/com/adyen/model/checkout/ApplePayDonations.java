@@ -144,7 +144,7 @@ public class ApplePayDonations {
    * @return applePayToken
    */
   @JsonProperty(JSON_PROPERTY_APPLE_PAY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getApplePayToken() {
     return applePayToken;
   }
@@ -155,7 +155,7 @@ public class ApplePayDonations {
    * @param applePayToken
    */
   @JsonProperty(JSON_PROPERTY_APPLE_PAY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplePayToken(String applePayToken) {
     this.applePayToken = applePayToken;
   }

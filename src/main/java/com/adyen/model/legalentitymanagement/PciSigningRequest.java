@@ -69,7 +69,7 @@ public class PciSigningRequest {
    * @return pciTemplateReferences
    */
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPciTemplateReferences() {
     return pciTemplateReferences;
   }
@@ -80,7 +80,7 @@ public class PciSigningRequest {
    * @param pciTemplateReferences
    */
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciTemplateReferences(List<String> pciTemplateReferences) {
     this.pciTemplateReferences = pciTemplateReferences;
   }
@@ -101,7 +101,7 @@ public class PciSigningRequest {
    * @return signedBy
    */
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSignedBy() {
     return signedBy;
   }
@@ -112,7 +112,7 @@ public class PciSigningRequest {
    * @param signedBy
    */
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignedBy(String signedBy) {
     this.signedBy = signedBy;
   }

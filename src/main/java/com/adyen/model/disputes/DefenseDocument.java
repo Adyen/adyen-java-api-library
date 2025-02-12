@@ -63,7 +63,7 @@ public class DefenseDocument {
    * @return content
    */
   @JsonProperty(JSON_PROPERTY_CONTENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getContent() {
     return content;
   }
@@ -74,7 +74,7 @@ public class DefenseDocument {
    * @param content
    */
   @JsonProperty(JSON_PROPERTY_CONTENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
     this.content = content;
   }
@@ -95,7 +95,7 @@ public class DefenseDocument {
    * @return contentType
    */
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContentType() {
     return contentType;
   }
@@ -106,7 +106,7 @@ public class DefenseDocument {
    * @param contentType
    */
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(String contentType) {
     this.contentType = contentType;
   }
@@ -127,7 +127,7 @@ public class DefenseDocument {
    * @return defenseDocumentTypeCode
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefenseDocumentTypeCode() {
     return defenseDocumentTypeCode;
   }
@@ -138,7 +138,7 @@ public class DefenseDocument {
    * @param defenseDocumentTypeCode
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {
     this.defenseDocumentTypeCode = defenseDocumentTypeCode;
   }

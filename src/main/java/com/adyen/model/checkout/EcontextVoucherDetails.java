@@ -148,7 +148,7 @@ public class EcontextVoucherDetails {
    * @return firstName
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFirstName() {
     return firstName;
   }
@@ -159,7 +159,7 @@ public class EcontextVoucherDetails {
    * @param firstName
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
@@ -180,7 +180,7 @@ public class EcontextVoucherDetails {
    * @return lastName
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLastName() {
     return lastName;
   }
@@ -191,7 +191,7 @@ public class EcontextVoucherDetails {
    * @param lastName
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
@@ -212,7 +212,7 @@ public class EcontextVoucherDetails {
    * @return shopperEmail
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
     return shopperEmail;
   }
@@ -223,7 +223,7 @@ public class EcontextVoucherDetails {
    * @param shopperEmail
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
@@ -244,7 +244,7 @@ public class EcontextVoucherDetails {
    * @return telephoneNumber
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
     return telephoneNumber;
   }
@@ -255,7 +255,7 @@ public class EcontextVoucherDetails {
    * @param telephoneNumber
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
   }
@@ -276,7 +276,7 @@ public class EcontextVoucherDetails {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -287,7 +287,7 @@ public class EcontextVoucherDetails {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

@@ -171,7 +171,7 @@ public class BalanceTransferResponse {
    * @return amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
     return amount;
   }
@@ -182,7 +182,7 @@ public class BalanceTransferResponse {
    * @param amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -203,7 +203,7 @@ public class BalanceTransferResponse {
    * @return createdAt
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -214,7 +214,7 @@ public class BalanceTransferResponse {
    * @param createdAt
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -267,7 +267,7 @@ public class BalanceTransferResponse {
    * @return fromMerchant
    */
   @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFromMerchant() {
     return fromMerchant;
   }
@@ -278,7 +278,7 @@ public class BalanceTransferResponse {
    * @param fromMerchant
    */
   @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromMerchant(String fromMerchant) {
     this.fromMerchant = fromMerchant;
   }
@@ -299,7 +299,7 @@ public class BalanceTransferResponse {
    * @return pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
     return pspReference;
   }
@@ -310,7 +310,7 @@ public class BalanceTransferResponse {
    * @param pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -363,7 +363,7 @@ public class BalanceTransferResponse {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -374,7 +374,7 @@ public class BalanceTransferResponse {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
@@ -395,7 +395,7 @@ public class BalanceTransferResponse {
    * @return toMerchant
    */
   @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToMerchant() {
     return toMerchant;
   }
@@ -406,7 +406,7 @@ public class BalanceTransferResponse {
    * @param toMerchant
    */
   @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToMerchant(String toMerchant) {
     this.toMerchant = toMerchant;
   }
@@ -427,7 +427,7 @@ public class BalanceTransferResponse {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -438,7 +438,7 @@ public class BalanceTransferResponse {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

@@ -64,7 +64,7 @@ public class PaymentInstrumentRevealInfo {
    * @return cvc
    */
   @JsonProperty(JSON_PROPERTY_CVC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCvc() {
     return cvc;
   }
@@ -75,7 +75,7 @@ public class PaymentInstrumentRevealInfo {
    * @param cvc
    */
   @JsonProperty(JSON_PROPERTY_CVC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
   }
@@ -96,7 +96,7 @@ public class PaymentInstrumentRevealInfo {
    * @return expiration
    */
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Expiry getExpiration() {
     return expiration;
   }
@@ -107,7 +107,7 @@ public class PaymentInstrumentRevealInfo {
    * @param expiration
    */
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiration(Expiry expiration) {
     this.expiration = expiration;
   }
@@ -128,7 +128,7 @@ public class PaymentInstrumentRevealInfo {
    * @return pan
    */
   @JsonProperty(JSON_PROPERTY_PAN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPan() {
     return pan;
   }
@@ -139,7 +139,7 @@ public class PaymentInstrumentRevealInfo {
    * @param pan
    */
   @JsonProperty(JSON_PROPERTY_PAN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPan(String pan) {
     this.pan = pan;
   }

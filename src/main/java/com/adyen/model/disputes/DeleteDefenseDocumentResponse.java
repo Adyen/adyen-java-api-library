@@ -56,7 +56,7 @@ public class DeleteDefenseDocumentResponse {
    * @return disputeServiceResult
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DisputeServiceResult getDisputeServiceResult() {
     return disputeServiceResult;
   }
@@ -67,7 +67,7 @@ public class DeleteDefenseDocumentResponse {
    * @param disputeServiceResult
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeServiceResult(DisputeServiceResult disputeServiceResult) {
     this.disputeServiceResult = disputeServiceResult;
   }

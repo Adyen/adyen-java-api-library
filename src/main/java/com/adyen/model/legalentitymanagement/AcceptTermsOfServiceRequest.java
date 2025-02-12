@@ -59,7 +59,7 @@ public class AcceptTermsOfServiceRequest {
    * @return acceptedBy
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcceptedBy() {
     return acceptedBy;
   }
@@ -70,7 +70,7 @@ public class AcceptTermsOfServiceRequest {
    * @param acceptedBy
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
     this.acceptedBy = acceptedBy;
   }

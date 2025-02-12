@@ -102,7 +102,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * @return createdAt
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -113,7 +113,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * @param createdAt
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -134,7 +134,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MidServiceNotificationData getData() {
     return data;
   }
@@ -145,7 +145,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * @param data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(MidServiceNotificationData data) {
     this.data = data;
   }
@@ -166,7 +166,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * @return environment
    */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnvironment() {
     return environment;
   }
@@ -177,7 +177,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * @param environment
    */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }
@@ -198,7 +198,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -209,7 +209,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

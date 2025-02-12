@@ -69,7 +69,7 @@ public class Donation {
    * @return currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
     return currency;
   }
@@ -80,7 +80,7 @@ public class Donation {
    * @param currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -101,7 +101,7 @@ public class Donation {
    * @return donationType
    */
   @JsonProperty(JSON_PROPERTY_DONATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDonationType() {
     return donationType;
   }
@@ -112,7 +112,7 @@ public class Donation {
    * @param donationType
    */
   @JsonProperty(JSON_PROPERTY_DONATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationType(String donationType) {
     this.donationType = donationType;
   }

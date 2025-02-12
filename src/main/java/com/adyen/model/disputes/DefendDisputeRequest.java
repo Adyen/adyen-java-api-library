@@ -63,7 +63,7 @@ public class DefendDisputeRequest {
    * @return defenseReasonCode
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefenseReasonCode() {
     return defenseReasonCode;
   }
@@ -74,7 +74,7 @@ public class DefendDisputeRequest {
    * @param defenseReasonCode
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasonCode(String defenseReasonCode) {
     this.defenseReasonCode = defenseReasonCode;
   }
@@ -95,7 +95,7 @@ public class DefendDisputeRequest {
    * @return disputePspReference
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisputePspReference() {
     return disputePspReference;
   }
@@ -106,7 +106,7 @@ public class DefendDisputeRequest {
    * @param disputePspReference
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
   }
@@ -127,7 +127,7 @@ public class DefendDisputeRequest {
    * @return merchantAccountCode
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
@@ -138,7 +138,7 @@ public class DefendDisputeRequest {
    * @param merchantAccountCode
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }

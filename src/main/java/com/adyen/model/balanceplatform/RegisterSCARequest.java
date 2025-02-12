@@ -96,7 +96,7 @@ public class RegisterSCARequest {
    * @return paymentInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
@@ -107,7 +107,7 @@ public class RegisterSCARequest {
    * @param paymentInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
@@ -128,7 +128,7 @@ public class RegisterSCARequest {
    * @return strongCustomerAuthentication
    */
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DelegatedAuthenticationData getStrongCustomerAuthentication() {
     return strongCustomerAuthentication;
   }
@@ -139,7 +139,7 @@ public class RegisterSCARequest {
    * @param strongCustomerAuthentication
    */
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStrongCustomerAuthentication(DelegatedAuthenticationData strongCustomerAuthentication) {
     this.strongCustomerAuthentication = strongCustomerAuthentication;
   }

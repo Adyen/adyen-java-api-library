@@ -91,7 +91,7 @@ public class SplitAmount {
    * @return value
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getValue() {
     return value;
   }
@@ -102,7 +102,7 @@ public class SplitAmount {
    * @param value
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {
     this.value = value;
   }

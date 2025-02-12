@@ -67,7 +67,7 @@ public class UpdateSplitConfigurationRuleRequest {
    * @return currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
     return currency;
   }
@@ -78,7 +78,7 @@ public class UpdateSplitConfigurationRuleRequest {
    * @param currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -131,7 +131,7 @@ public class UpdateSplitConfigurationRuleRequest {
    * @return paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethod() {
     return paymentMethod;
   }
@@ -142,7 +142,7 @@ public class UpdateSplitConfigurationRuleRequest {
    * @param paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
@@ -163,7 +163,7 @@ public class UpdateSplitConfigurationRuleRequest {
    * @return shopperInteraction
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperInteraction() {
     return shopperInteraction;
   }
@@ -174,7 +174,7 @@ public class UpdateSplitConfigurationRuleRequest {
    * @param shopperInteraction
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }

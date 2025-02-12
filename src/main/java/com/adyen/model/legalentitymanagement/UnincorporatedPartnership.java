@@ -233,7 +233,7 @@ public class UnincorporatedPartnership {
    * @return countryOfGoverningLaw
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountryOfGoverningLaw() {
     return countryOfGoverningLaw;
   }
@@ -244,7 +244,7 @@ public class UnincorporatedPartnership {
    * @param countryOfGoverningLaw
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
   }
@@ -361,7 +361,7 @@ public class UnincorporatedPartnership {
    * @return name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
@@ -372,7 +372,7 @@ public class UnincorporatedPartnership {
    * @param name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
@@ -425,7 +425,7 @@ public class UnincorporatedPartnership {
    * @return registeredAddress
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getRegisteredAddress() {
     return registeredAddress;
   }
@@ -436,7 +436,7 @@ public class UnincorporatedPartnership {
    * @param registeredAddress
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
   }

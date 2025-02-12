@@ -143,7 +143,7 @@ public class CaptureRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -154,7 +154,7 @@ public class CaptureRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -175,7 +175,7 @@ public class CaptureRequest {
    * @return modificationAmount
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getModificationAmount() {
     return modificationAmount;
   }
@@ -186,7 +186,7 @@ public class CaptureRequest {
    * @param modificationAmount
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
   }
@@ -271,7 +271,7 @@ public class CaptureRequest {
    * @return originalReference
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOriginalReference() {
     return originalReference;
   }
@@ -282,7 +282,7 @@ public class CaptureRequest {
    * @param originalReference
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
     this.originalReference = originalReference;
   }

@@ -73,7 +73,7 @@ public class PaymentInstrumentGroupInfo {
    * @return balancePlatform
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
     return balancePlatform;
   }
@@ -84,7 +84,7 @@ public class PaymentInstrumentGroupInfo {
    * @param balancePlatform
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
@@ -209,7 +209,7 @@ public class PaymentInstrumentGroupInfo {
    * @return txVariant
    */
   @JsonProperty(JSON_PROPERTY_TX_VARIANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTxVariant() {
     return txVariant;
   }
@@ -220,7 +220,7 @@ public class PaymentInstrumentGroupInfo {
    * @param txVariant
    */
   @JsonProperty(JSON_PROPERTY_TX_VARIANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxVariant(String txVariant) {
     this.txVariant = txVariant;
   }

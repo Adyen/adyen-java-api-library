@@ -59,7 +59,7 @@ public class SofortInfo {
    * @return currencyCode
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrencyCode() {
     return currencyCode;
   }
@@ -70,7 +70,7 @@ public class SofortInfo {
    * @param currencyCode
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
   }
@@ -91,7 +91,7 @@ public class SofortInfo {
    * @return logo
    */
   @JsonProperty(JSON_PROPERTY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogo() {
     return logo;
   }
@@ -102,7 +102,7 @@ public class SofortInfo {
    * @param logo
    */
   @JsonProperty(JSON_PROPERTY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
   }

@@ -313,7 +313,7 @@ public class CreateMerchantWebhookRequest {
    * @return active
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
     return active;
   }
@@ -324,7 +324,7 @@ public class CreateMerchantWebhookRequest {
    * @param active
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
@@ -377,7 +377,7 @@ public class CreateMerchantWebhookRequest {
    * @return communicationFormat
    */
   @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CommunicationFormatEnum getCommunicationFormat() {
     return communicationFormat;
   }
@@ -388,7 +388,7 @@ public class CreateMerchantWebhookRequest {
    * @param communicationFormat
    */
   @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommunicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
   }
@@ -569,7 +569,7 @@ public class CreateMerchantWebhookRequest {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
     return type;
   }
@@ -580,7 +580,7 @@ public class CreateMerchantWebhookRequest {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
@@ -601,7 +601,7 @@ public class CreateMerchantWebhookRequest {
    * @return url
    */
   @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
     return url;
   }
@@ -612,7 +612,7 @@ public class CreateMerchantWebhookRequest {
    * @param url
    */
   @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }

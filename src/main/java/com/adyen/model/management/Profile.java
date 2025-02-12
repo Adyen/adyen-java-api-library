@@ -124,7 +124,7 @@ public class Profile {
    * @return authType
    */
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthType() {
     return authType;
   }
@@ -135,7 +135,7 @@ public class Profile {
    * @param authType
    */
   @JsonProperty(JSON_PROPERTY_AUTH_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthType(String authType) {
     this.authType = authType;
   }
@@ -188,7 +188,7 @@ public class Profile {
    * @return bssType
    */
   @JsonProperty(JSON_PROPERTY_BSS_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBssType() {
     return bssType;
   }
@@ -199,7 +199,7 @@ public class Profile {
    * @param bssType
    */
   @JsonProperty(JSON_PROPERTY_BSS_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBssType(String bssType) {
     this.bssType = bssType;
   }
@@ -636,7 +636,7 @@ public class Profile {
    * @return ssid
    */
   @JsonProperty(JSON_PROPERTY_SSID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSsid() {
     return ssid;
   }
@@ -647,7 +647,7 @@ public class Profile {
    * @param ssid
    */
   @JsonProperty(JSON_PROPERTY_SSID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsid(String ssid) {
     this.ssid = ssid;
   }
@@ -668,7 +668,7 @@ public class Profile {
    * @return wsec
    */
   @JsonProperty(JSON_PROPERTY_WSEC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWsec() {
     return wsec;
   }
@@ -679,7 +679,7 @@ public class Profile {
    * @param wsec
    */
   @JsonProperty(JSON_PROPERTY_WSEC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWsec(String wsec) {
     this.wsec = wsec;
   }

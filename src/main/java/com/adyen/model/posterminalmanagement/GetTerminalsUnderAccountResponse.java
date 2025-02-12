@@ -66,7 +66,7 @@ public class GetTerminalsUnderAccountResponse {
    * @return companyAccount
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyAccount() {
     return companyAccount;
   }
@@ -77,7 +77,7 @@ public class GetTerminalsUnderAccountResponse {
    * @param companyAccount
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }

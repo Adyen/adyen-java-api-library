@@ -131,7 +131,7 @@ public class CancelOrRefundRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -142,7 +142,7 @@ public class CancelOrRefundRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -227,7 +227,7 @@ public class CancelOrRefundRequest {
    * @return originalReference
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOriginalReference() {
     return originalReference;
   }
@@ -238,7 +238,7 @@ public class CancelOrRefundRequest {
    * @param originalReference
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
     this.originalReference = originalReference;
   }

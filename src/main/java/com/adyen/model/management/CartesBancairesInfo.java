@@ -60,7 +60,7 @@ public class CartesBancairesInfo {
    * @return siret
    */
   @JsonProperty(JSON_PROPERTY_SIRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSiret() {
     return siret;
   }
@@ -71,7 +71,7 @@ public class CartesBancairesInfo {
    * @param siret
    */
   @JsonProperty(JSON_PROPERTY_SIRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiret(String siret) {
     this.siret = siret;
   }

@@ -140,7 +140,7 @@ public class BalanceAccount {
    * @return accountHolderId
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountHolderId() {
     return accountHolderId;
   }
@@ -151,7 +151,7 @@ public class BalanceAccount {
    * @param accountHolderId
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
   }
@@ -276,7 +276,7 @@ public class BalanceAccount {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -287,7 +287,7 @@ public class BalanceAccount {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }

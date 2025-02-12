@@ -199,7 +199,7 @@ public class MasterpassDetails {
    * @return masterpassTransactionId
    */
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMasterpassTransactionId() {
     return masterpassTransactionId;
   }
@@ -210,7 +210,7 @@ public class MasterpassDetails {
    * @param masterpassTransactionId
    */
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMasterpassTransactionId(String masterpassTransactionId) {
     this.masterpassTransactionId = masterpassTransactionId;
   }

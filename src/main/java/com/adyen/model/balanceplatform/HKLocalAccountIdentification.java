@@ -96,7 +96,7 @@ public class HKLocalAccountIdentification {
    * @return accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -107,7 +107,7 @@ public class HKLocalAccountIdentification {
    * @param accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
@@ -128,7 +128,7 @@ public class HKLocalAccountIdentification {
    * @return clearingCode
    */
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClearingCode() {
     return clearingCode;
   }
@@ -139,7 +139,7 @@ public class HKLocalAccountIdentification {
    * @param clearingCode
    */
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingCode(String clearingCode) {
     this.clearingCode = clearingCode;
   }
@@ -160,7 +160,7 @@ public class HKLocalAccountIdentification {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -171,7 +171,7 @@ public class HKLocalAccountIdentification {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

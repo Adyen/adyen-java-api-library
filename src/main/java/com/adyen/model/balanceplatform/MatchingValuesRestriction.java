@@ -102,7 +102,7 @@ public class MatchingValuesRestriction {
    * @return operation
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOperation() {
     return operation;
   }
@@ -113,7 +113,7 @@ public class MatchingValuesRestriction {
    * @param operation
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
     this.operation = operation;
   }

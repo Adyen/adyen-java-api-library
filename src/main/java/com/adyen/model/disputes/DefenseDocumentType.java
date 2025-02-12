@@ -63,7 +63,7 @@ public class DefenseDocumentType {
    * @return available
    */
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAvailable() {
     return available;
   }
@@ -74,7 +74,7 @@ public class DefenseDocumentType {
    * @param available
    */
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Boolean available) {
     this.available = available;
   }
@@ -95,7 +95,7 @@ public class DefenseDocumentType {
    * @return defenseDocumentTypeCode
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefenseDocumentTypeCode() {
     return defenseDocumentTypeCode;
   }
@@ -106,7 +106,7 @@ public class DefenseDocumentType {
    * @param defenseDocumentTypeCode
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {
     this.defenseDocumentTypeCode = defenseDocumentTypeCode;
   }
@@ -127,7 +127,7 @@ public class DefenseDocumentType {
    * @return requirementLevel
    */
   @JsonProperty(JSON_PROPERTY_REQUIREMENT_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequirementLevel() {
     return requirementLevel;
   }
@@ -138,7 +138,7 @@ public class DefenseDocumentType {
    * @param requirementLevel
    */
   @JsonProperty(JSON_PROPERTY_REQUIREMENT_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirementLevel(String requirementLevel) {
     this.requirementLevel = requirementLevel;
   }

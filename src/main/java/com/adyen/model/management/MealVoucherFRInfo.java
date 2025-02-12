@@ -65,7 +65,7 @@ public class MealVoucherFRInfo {
    * @return conecsId
    */
   @JsonProperty(JSON_PROPERTY_CONECS_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getConecsId() {
     return conecsId;
   }
@@ -76,7 +76,7 @@ public class MealVoucherFRInfo {
    * @param conecsId
    */
   @JsonProperty(JSON_PROPERTY_CONECS_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConecsId(String conecsId) {
     this.conecsId = conecsId;
   }
@@ -97,7 +97,7 @@ public class MealVoucherFRInfo {
    * @return siret
    */
   @JsonProperty(JSON_PROPERTY_SIRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSiret() {
     return siret;
   }
@@ -108,7 +108,7 @@ public class MealVoucherFRInfo {
    * @param siret
    */
   @JsonProperty(JSON_PROPERTY_SIRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiret(String siret) {
     this.siret = siret;
   }
@@ -137,7 +137,7 @@ public class MealVoucherFRInfo {
    * @return subTypes
    */
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSubTypes() {
     return subTypes;
   }
@@ -148,7 +148,7 @@ public class MealVoucherFRInfo {
    * @param subTypes
    */
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubTypes(List<String> subTypes) {
     this.subTypes = subTypes;
   }

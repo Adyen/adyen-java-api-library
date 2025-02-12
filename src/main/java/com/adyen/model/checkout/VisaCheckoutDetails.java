@@ -231,7 +231,7 @@ public class VisaCheckoutDetails {
    * @return visaCheckoutCallId
    */
   @JsonProperty(JSON_PROPERTY_VISA_CHECKOUT_CALL_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVisaCheckoutCallId() {
     return visaCheckoutCallId;
   }
@@ -242,7 +242,7 @@ public class VisaCheckoutDetails {
    * @param visaCheckoutCallId
    */
   @JsonProperty(JSON_PROPERTY_VISA_CHECKOUT_CALL_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVisaCheckoutCallId(String visaCheckoutCallId) {
     this.visaCheckoutCallId = visaCheckoutCallId;
   }

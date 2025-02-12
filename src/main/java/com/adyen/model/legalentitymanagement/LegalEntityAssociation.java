@@ -222,7 +222,7 @@ public class LegalEntityAssociation {
    * @return legalEntityId
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalEntityId() {
     return legalEntityId;
   }
@@ -233,7 +233,7 @@ public class LegalEntityAssociation {
    * @param legalEntityId
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
@@ -369,7 +369,7 @@ public class LegalEntityAssociation {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -380,7 +380,7 @@ public class LegalEntityAssociation {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

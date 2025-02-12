@@ -162,7 +162,7 @@ public class PaymentAmountUpdateResponse {
    * @return amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
     return amount;
   }
@@ -173,7 +173,7 @@ public class PaymentAmountUpdateResponse {
    * @param amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -266,7 +266,7 @@ public class PaymentAmountUpdateResponse {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -277,7 +277,7 @@ public class PaymentAmountUpdateResponse {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -298,7 +298,7 @@ public class PaymentAmountUpdateResponse {
    * @return paymentPspReference
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentPspReference() {
     return paymentPspReference;
   }
@@ -309,7 +309,7 @@ public class PaymentAmountUpdateResponse {
    * @param paymentPspReference
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentPspReference(String paymentPspReference) {
     this.paymentPspReference = paymentPspReference;
   }
@@ -330,7 +330,7 @@ public class PaymentAmountUpdateResponse {
    * @return pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
     return pspReference;
   }
@@ -341,7 +341,7 @@ public class PaymentAmountUpdateResponse {
    * @param pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -362,7 +362,7 @@ public class PaymentAmountUpdateResponse {
    * @return reference
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
     return reference;
   }
@@ -373,7 +373,7 @@ public class PaymentAmountUpdateResponse {
    * @param reference
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
@@ -434,7 +434,7 @@ public class PaymentAmountUpdateResponse {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -445,7 +445,7 @@ public class PaymentAmountUpdateResponse {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }

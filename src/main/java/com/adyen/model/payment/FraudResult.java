@@ -62,7 +62,7 @@ public class FraudResult {
    * @return accountScore
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_SCORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getAccountScore() {
     return accountScore;
   }
@@ -73,7 +73,7 @@ public class FraudResult {
    * @param accountScore
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_SCORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountScore(Integer accountScore) {
     this.accountScore = accountScore;
   }

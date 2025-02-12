@@ -223,7 +223,7 @@ public class AccountCapabilityData {
    * @return requested
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRequested() {
     return requested;
   }
@@ -234,7 +234,7 @@ public class AccountCapabilityData {
    * @param requested
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
     this.requested = requested;
   }
@@ -255,7 +255,7 @@ public class AccountCapabilityData {
    * @return requestedLevel
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestedLevel() {
     return requestedLevel;
   }
@@ -266,7 +266,7 @@ public class AccountCapabilityData {
    * @param requestedLevel
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(String requestedLevel) {
     this.requestedLevel = requestedLevel;
   }

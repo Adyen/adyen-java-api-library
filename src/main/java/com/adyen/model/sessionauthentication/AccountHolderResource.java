@@ -66,7 +66,7 @@ public class AccountHolderResource extends Resource {
    * @return accountHolderId
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountHolderId() {
     return accountHolderId;
   }
@@ -77,7 +77,7 @@ public class AccountHolderResource extends Resource {
    * @param accountHolderId
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
   }

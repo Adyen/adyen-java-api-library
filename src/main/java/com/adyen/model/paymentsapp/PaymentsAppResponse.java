@@ -66,7 +66,7 @@ public class PaymentsAppResponse {
    * @return paymentsApps
    */
   @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentsAppDto> getPaymentsApps() {
     return paymentsApps;
   }
@@ -77,7 +77,7 @@ public class PaymentsAppResponse {
    * @param paymentsApps
    */
   @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentsApps(List<PaymentsAppDto> paymentsApps) {
     this.paymentsApps = paymentsApps;
   }

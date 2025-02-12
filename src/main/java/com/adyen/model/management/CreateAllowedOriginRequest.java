@@ -96,7 +96,7 @@ public class CreateAllowedOriginRequest {
    * @return domain
    */
   @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDomain() {
     return domain;
   }
@@ -107,7 +107,7 @@ public class CreateAllowedOriginRequest {
    * @param domain
    */
   @JsonProperty(JSON_PROPERTY_DOMAIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomain(String domain) {
     this.domain = domain;
   }

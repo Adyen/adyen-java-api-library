@@ -78,7 +78,7 @@ public class AccountUpdateNotificationData {
    * @return capabilities
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, AccountCapabilityData> getCapabilities() {
     return capabilities;
   }
@@ -89,7 +89,7 @@ public class AccountUpdateNotificationData {
    * @param capabilities
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, AccountCapabilityData> capabilities) {
     this.capabilities = capabilities;
   }
@@ -142,7 +142,7 @@ public class AccountUpdateNotificationData {
    * @return merchantId
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
     return merchantId;
   }
@@ -153,7 +153,7 @@ public class AccountUpdateNotificationData {
    * @param merchantId
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
@@ -174,7 +174,7 @@ public class AccountUpdateNotificationData {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
     return status;
   }
@@ -185,7 +185,7 @@ public class AccountUpdateNotificationData {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }

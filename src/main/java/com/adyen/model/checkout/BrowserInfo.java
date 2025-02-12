@@ -87,7 +87,7 @@ public class BrowserInfo {
    * @return acceptHeader
    */
   @JsonProperty(JSON_PROPERTY_ACCEPT_HEADER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcceptHeader() {
     return acceptHeader;
   }
@@ -98,7 +98,7 @@ public class BrowserInfo {
    * @param acceptHeader
    */
   @JsonProperty(JSON_PROPERTY_ACCEPT_HEADER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptHeader(String acceptHeader) {
     this.acceptHeader = acceptHeader;
   }
@@ -119,7 +119,7 @@ public class BrowserInfo {
    * @return colorDepth
    */
   @JsonProperty(JSON_PROPERTY_COLOR_DEPTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getColorDepth() {
     return colorDepth;
   }
@@ -130,7 +130,7 @@ public class BrowserInfo {
    * @param colorDepth
    */
   @JsonProperty(JSON_PROPERTY_COLOR_DEPTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setColorDepth(Integer colorDepth) {
     this.colorDepth = colorDepth;
   }
@@ -151,7 +151,7 @@ public class BrowserInfo {
    * @return javaEnabled
    */
   @JsonProperty(JSON_PROPERTY_JAVA_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getJavaEnabled() {
     return javaEnabled;
   }
@@ -162,7 +162,7 @@ public class BrowserInfo {
    * @param javaEnabled
    */
   @JsonProperty(JSON_PROPERTY_JAVA_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setJavaEnabled(Boolean javaEnabled) {
     this.javaEnabled = javaEnabled;
   }
@@ -215,7 +215,7 @@ public class BrowserInfo {
    * @return language
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLanguage() {
     return language;
   }
@@ -226,7 +226,7 @@ public class BrowserInfo {
    * @param language
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
     this.language = language;
   }
@@ -247,7 +247,7 @@ public class BrowserInfo {
    * @return screenHeight
    */
   @JsonProperty(JSON_PROPERTY_SCREEN_HEIGHT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getScreenHeight() {
     return screenHeight;
   }
@@ -258,7 +258,7 @@ public class BrowserInfo {
    * @param screenHeight
    */
   @JsonProperty(JSON_PROPERTY_SCREEN_HEIGHT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenHeight(Integer screenHeight) {
     this.screenHeight = screenHeight;
   }
@@ -279,7 +279,7 @@ public class BrowserInfo {
    * @return screenWidth
    */
   @JsonProperty(JSON_PROPERTY_SCREEN_WIDTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getScreenWidth() {
     return screenWidth;
   }
@@ -290,7 +290,7 @@ public class BrowserInfo {
    * @param screenWidth
    */
   @JsonProperty(JSON_PROPERTY_SCREEN_WIDTH)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenWidth(Integer screenWidth) {
     this.screenWidth = screenWidth;
   }
@@ -311,7 +311,7 @@ public class BrowserInfo {
    * @return timeZoneOffset
    */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getTimeZoneOffset() {
     return timeZoneOffset;
   }
@@ -322,7 +322,7 @@ public class BrowserInfo {
    * @param timeZoneOffset
    */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_OFFSET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneOffset(Integer timeZoneOffset) {
     this.timeZoneOffset = timeZoneOffset;
   }
@@ -343,7 +343,7 @@ public class BrowserInfo {
    * @return userAgent
    */
   @JsonProperty(JSON_PROPERTY_USER_AGENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUserAgent() {
     return userAgent;
   }
@@ -354,7 +354,7 @@ public class BrowserInfo {
    * @param userAgent
    */
   @JsonProperty(JSON_PROPERTY_USER_AGENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUserAgent(String userAgent) {
     this.userAgent = userAgent;
   }

@@ -123,7 +123,7 @@ public class ApiCredential {
    * @return active
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
     return active;
   }
@@ -134,7 +134,7 @@ public class ApiCredential {
    * @param active
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
@@ -163,7 +163,7 @@ public class ApiCredential {
    * @return allowedIpAddresses
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAllowedIpAddresses() {
     return allowedIpAddresses;
   }
@@ -174,7 +174,7 @@ public class ApiCredential {
    * @param allowedIpAddresses
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedIpAddresses(List<String> allowedIpAddresses) {
     this.allowedIpAddresses = allowedIpAddresses;
   }
@@ -235,7 +235,7 @@ public class ApiCredential {
    * @return clientKey
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientKey() {
     return clientKey;
   }
@@ -246,7 +246,7 @@ public class ApiCredential {
    * @param clientKey
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {
     this.clientKey = clientKey;
   }
@@ -299,7 +299,7 @@ public class ApiCredential {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -310,7 +310,7 @@ public class ApiCredential {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
@@ -339,7 +339,7 @@ public class ApiCredential {
    * @return roles
    */
   @JsonProperty(JSON_PROPERTY_ROLES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRoles() {
     return roles;
   }
@@ -350,7 +350,7 @@ public class ApiCredential {
    * @param roles
    */
   @JsonProperty(JSON_PROPERTY_ROLES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
@@ -371,7 +371,7 @@ public class ApiCredential {
    * @return username
    */
   @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsername() {
     return username;
   }
@@ -382,7 +382,7 @@ public class ApiCredential {
    * @param username
    */
   @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }

@@ -74,7 +74,7 @@ public class PaginatedGetCardOrderItemResponse {
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CardOrderItem> getData() {
     return data;
   }
@@ -85,7 +85,7 @@ public class PaginatedGetCardOrderItemResponse {
    * @param data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<CardOrderItem> data) {
     this.data = data;
   }
@@ -106,7 +106,7 @@ public class PaginatedGetCardOrderItemResponse {
    * @return hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasNext() {
     return hasNext;
   }
@@ -117,7 +117,7 @@ public class PaginatedGetCardOrderItemResponse {
    * @param hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
@@ -138,7 +138,7 @@ public class PaginatedGetCardOrderItemResponse {
    * @return hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
@@ -149,7 +149,7 @@ public class PaginatedGetCardOrderItemResponse {
    * @param hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }

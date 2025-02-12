@@ -63,7 +63,7 @@ public class PayMeInfo {
    * @return displayName
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
     return displayName;
   }
@@ -74,7 +74,7 @@ public class PayMeInfo {
    * @param displayName
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
@@ -95,7 +95,7 @@ public class PayMeInfo {
    * @return logo
    */
   @JsonProperty(JSON_PROPERTY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogo() {
     return logo;
   }
@@ -106,7 +106,7 @@ public class PayMeInfo {
    * @param logo
    */
   @JsonProperty(JSON_PROPERTY_LOGO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
   }
@@ -127,7 +127,7 @@ public class PayMeInfo {
    * @return supportEmail
    */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSupportEmail() {
     return supportEmail;
   }
@@ -138,7 +138,7 @@ public class PayMeInfo {
    * @param supportEmail
    */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
   }

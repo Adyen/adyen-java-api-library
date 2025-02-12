@@ -300,7 +300,7 @@ public class CardConfiguration {
    * @return configurationProfileId
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_PROFILE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getConfigurationProfileId() {
     return configurationProfileId;
   }
@@ -311,7 +311,7 @@ public class CardConfiguration {
    * @param configurationProfileId
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_PROFILE_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfigurationProfileId(String configurationProfileId) {
     this.configurationProfileId = configurationProfileId;
   }

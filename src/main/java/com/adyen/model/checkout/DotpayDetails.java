@@ -128,7 +128,7 @@ public class DotpayDetails {
    * @return issuer
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuer() {
     return issuer;
   }
@@ -139,7 +139,7 @@ public class DotpayDetails {
    * @param issuer
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }

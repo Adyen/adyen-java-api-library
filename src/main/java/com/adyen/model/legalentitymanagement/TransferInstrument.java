@@ -130,7 +130,7 @@ public class TransferInstrument {
    * @return bankAccount
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccountInfo getBankAccount() {
     return bankAccount;
   }
@@ -141,7 +141,7 @@ public class TransferInstrument {
    * @param bankAccount
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountInfo bankAccount) {
     this.bankAccount = bankAccount;
   }
@@ -231,7 +231,7 @@ public class TransferInstrument {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -253,7 +253,7 @@ public class TransferInstrument {
    * @return legalEntityId
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalEntityId() {
     return legalEntityId;
   }
@@ -264,7 +264,7 @@ public class TransferInstrument {
    * @param legalEntityId
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
@@ -325,7 +325,7 @@ public class TransferInstrument {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -336,7 +336,7 @@ public class TransferInstrument {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

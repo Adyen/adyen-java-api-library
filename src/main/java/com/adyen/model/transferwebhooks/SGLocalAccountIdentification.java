@@ -96,7 +96,7 @@ public class SGLocalAccountIdentification {
    * @return accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -107,7 +107,7 @@ public class SGLocalAccountIdentification {
    * @param accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
@@ -128,7 +128,7 @@ public class SGLocalAccountIdentification {
    * @return bic
    */
   @JsonProperty(JSON_PROPERTY_BIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBic() {
     return bic;
   }
@@ -139,7 +139,7 @@ public class SGLocalAccountIdentification {
    * @param bic
    */
   @JsonProperty(JSON_PROPERTY_BIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
   }

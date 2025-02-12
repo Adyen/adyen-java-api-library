@@ -197,7 +197,7 @@ public class ForexQuote {
    * @return basePoints
    */
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getBasePoints() {
     return basePoints;
   }
@@ -208,7 +208,7 @@ public class ForexQuote {
    * @param basePoints
    */
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasePoints(Integer basePoints) {
     this.basePoints = basePoints;
   }
@@ -453,7 +453,7 @@ public class ForexQuote {
    * @return validTill
    */
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValidTill() {
     return validTill;
   }
@@ -464,7 +464,7 @@ public class ForexQuote {
    * @param validTill
    */
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTill(OffsetDateTime validTill) {
     this.validTill = validTill;
   }

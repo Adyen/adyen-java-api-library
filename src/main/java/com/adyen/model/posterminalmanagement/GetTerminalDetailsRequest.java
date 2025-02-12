@@ -55,7 +55,7 @@ public class GetTerminalDetailsRequest {
    * @return terminal
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTerminal() {
     return terminal;
   }
@@ -66,7 +66,7 @@ public class GetTerminalDetailsRequest {
    * @param terminal
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminal(String terminal) {
     this.terminal = terminal;
   }

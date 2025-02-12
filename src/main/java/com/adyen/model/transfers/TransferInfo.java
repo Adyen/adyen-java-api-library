@@ -275,7 +275,7 @@ public class TransferInfo {
    * @return amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
     return amount;
   }
@@ -286,7 +286,7 @@ public class TransferInfo {
    * @param amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -339,7 +339,7 @@ public class TransferInfo {
    * @return category
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CategoryEnum getCategory() {
     return category;
   }
@@ -350,7 +350,7 @@ public class TransferInfo {
    * @param category
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
   }
@@ -371,7 +371,7 @@ public class TransferInfo {
    * @return counterparty
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CounterpartyInfoV3 getCounterparty() {
     return counterparty;
   }
@@ -382,7 +382,7 @@ public class TransferInfo {
    * @param counterparty
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(CounterpartyInfoV3 counterparty) {
     this.counterparty = counterparty;
   }

@@ -61,7 +61,7 @@ public class Amounts {
    * @return currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
     return currency;
   }
@@ -72,7 +72,7 @@ public class Amounts {
    * @param currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -101,7 +101,7 @@ public class Amounts {
    * @return values
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getValues() {
     return values;
   }
@@ -112,7 +112,7 @@ public class Amounts {
    * @param values
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Long> values) {
     this.values = values;
   }

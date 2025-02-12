@@ -176,7 +176,7 @@ public class Installments {
    * @return value
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getValue() {
     return value;
   }
@@ -187,7 +187,7 @@ public class Installments {
    * @param value
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {
     this.value = value;
   }

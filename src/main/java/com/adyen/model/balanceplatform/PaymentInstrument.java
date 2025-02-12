@@ -282,7 +282,7 @@ public class PaymentInstrument {
    * @return balanceAccountId
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
@@ -293,7 +293,7 @@ public class PaymentInstrument {
    * @param balanceAccountId
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
@@ -410,7 +410,7 @@ public class PaymentInstrument {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -421,7 +421,7 @@ public class PaymentInstrument {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
@@ -442,7 +442,7 @@ public class PaymentInstrument {
    * @return issuingCountryCode
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuingCountryCode() {
     return issuingCountryCode;
   }
@@ -453,7 +453,7 @@ public class PaymentInstrument {
    * @param issuingCountryCode
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
   }
@@ -634,7 +634,7 @@ public class PaymentInstrument {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -645,7 +645,7 @@ public class PaymentInstrument {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

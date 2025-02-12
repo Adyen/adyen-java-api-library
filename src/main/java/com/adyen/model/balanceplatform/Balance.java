@@ -71,7 +71,7 @@ public class Balance {
    * @return available
    */
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvailable() {
     return available;
   }
@@ -82,7 +82,7 @@ public class Balance {
    * @param available
    */
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Long available) {
     this.available = available;
   }
@@ -103,7 +103,7 @@ public class Balance {
    * @return balance
    */
   @JsonProperty(JSON_PROPERTY_BALANCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBalance() {
     return balance;
   }
@@ -114,7 +114,7 @@ public class Balance {
    * @param balance
    */
   @JsonProperty(JSON_PROPERTY_BALANCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
     this.balance = balance;
   }
@@ -135,7 +135,7 @@ public class Balance {
    * @return currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
     return currency;
   }
@@ -146,7 +146,7 @@ public class Balance {
    * @param currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -199,7 +199,7 @@ public class Balance {
    * @return reserved
    */
   @JsonProperty(JSON_PROPERTY_RESERVED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReserved() {
     return reserved;
   }
@@ -210,7 +210,7 @@ public class Balance {
    * @param reserved
    */
   @JsonProperty(JSON_PROPERTY_RESERVED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {
     this.reserved = reserved;
   }

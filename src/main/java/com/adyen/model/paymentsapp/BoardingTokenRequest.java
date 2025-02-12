@@ -55,7 +55,7 @@ public class BoardingTokenRequest {
    * @return boardingRequestToken
    */
   @JsonProperty(JSON_PROPERTY_BOARDING_REQUEST_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBoardingRequestToken() {
     return boardingRequestToken;
   }
@@ -66,7 +66,7 @@ public class BoardingTokenRequest {
    * @param boardingRequestToken
    */
   @JsonProperty(JSON_PROPERTY_BOARDING_REQUEST_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBoardingRequestToken(String boardingRequestToken) {
     this.boardingRequestToken = boardingRequestToken;
   }

@@ -238,7 +238,7 @@ public class TerminalSettingsData {
    * @return updateSource
    */
   @JsonProperty(JSON_PROPERTY_UPDATE_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UpdateSourceEnum getUpdateSource() {
     return updateSource;
   }
@@ -249,7 +249,7 @@ public class TerminalSettingsData {
    * @param updateSource
    */
   @JsonProperty(JSON_PROPERTY_UPDATE_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateSource(UpdateSourceEnum updateSource) {
     this.updateSource = updateSource;
   }
@@ -270,7 +270,7 @@ public class TerminalSettingsData {
    * @return user
    */
   @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUser() {
     return user;
   }
@@ -281,7 +281,7 @@ public class TerminalSettingsData {
    * @param user
    */
   @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUser(String user) {
     this.user = user;
   }

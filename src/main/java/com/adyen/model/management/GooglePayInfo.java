@@ -59,7 +59,7 @@ public class GooglePayInfo {
    * @return merchantId
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
     return merchantId;
   }
@@ -70,7 +70,7 @@ public class GooglePayInfo {
    * @param merchantId
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }

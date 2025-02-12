@@ -97,7 +97,7 @@ public class NyceInfo {
    * @return processingType
    */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProcessingTypeEnum getProcessingType() {
     return processingType;
   }
@@ -108,7 +108,7 @@ public class NyceInfo {
    * @param processingType
    */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProcessingType(ProcessingTypeEnum processingType) {
     this.processingType = processingType;
   }

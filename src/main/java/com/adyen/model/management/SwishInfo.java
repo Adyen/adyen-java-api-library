@@ -55,7 +55,7 @@ public class SwishInfo {
    * @return swishNumber
    */
   @JsonProperty(JSON_PROPERTY_SWISH_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSwishNumber() {
     return swishNumber;
   }
@@ -66,7 +66,7 @@ public class SwishInfo {
    * @param swishNumber
    */
   @JsonProperty(JSON_PROPERTY_SWISH_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSwishNumber(String swishNumber) {
     this.swishNumber = swishNumber;
   }

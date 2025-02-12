@@ -360,7 +360,7 @@ public class CreateCompanyWebhookRequest {
    * @return active
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
     return active;
   }
@@ -371,7 +371,7 @@ public class CreateCompanyWebhookRequest {
    * @param active
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
@@ -424,7 +424,7 @@ public class CreateCompanyWebhookRequest {
    * @return communicationFormat
    */
   @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CommunicationFormatEnum getCommunicationFormat() {
     return communicationFormat;
   }
@@ -435,7 +435,7 @@ public class CreateCompanyWebhookRequest {
    * @param communicationFormat
    */
   @JsonProperty(JSON_PROPERTY_COMMUNICATION_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommunicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
   }
@@ -520,7 +520,7 @@ public class CreateCompanyWebhookRequest {
    * @return filterMerchantAccountType
    */
   @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FilterMerchantAccountTypeEnum getFilterMerchantAccountType() {
     return filterMerchantAccountType;
   }
@@ -531,7 +531,7 @@ public class CreateCompanyWebhookRequest {
    * @param filterMerchantAccountType
    */
   @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilterMerchantAccountType(FilterMerchantAccountTypeEnum filterMerchantAccountType) {
     this.filterMerchantAccountType = filterMerchantAccountType;
   }
@@ -560,7 +560,7 @@ public class CreateCompanyWebhookRequest {
    * @return filterMerchantAccounts
    */
   @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getFilterMerchantAccounts() {
     return filterMerchantAccounts;
   }
@@ -571,7 +571,7 @@ public class CreateCompanyWebhookRequest {
    * @param filterMerchantAccounts
    */
   @JsonProperty(JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilterMerchantAccounts(List<String> filterMerchantAccounts) {
     this.filterMerchantAccounts = filterMerchantAccounts;
   }
@@ -688,7 +688,7 @@ public class CreateCompanyWebhookRequest {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
     return type;
   }
@@ -699,7 +699,7 @@ public class CreateCompanyWebhookRequest {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
   }
@@ -720,7 +720,7 @@ public class CreateCompanyWebhookRequest {
    * @return url
    */
   @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
     return url;
   }
@@ -731,7 +731,7 @@ public class CreateCompanyWebhookRequest {
    * @param url
    */
   @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
   }

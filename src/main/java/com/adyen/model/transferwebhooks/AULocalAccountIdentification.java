@@ -96,7 +96,7 @@ public class AULocalAccountIdentification {
    * @return accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -107,7 +107,7 @@ public class AULocalAccountIdentification {
    * @param accountNumber
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
@@ -128,7 +128,7 @@ public class AULocalAccountIdentification {
    * @return bsbCode
    */
   @JsonProperty(JSON_PROPERTY_BSB_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBsbCode() {
     return bsbCode;
   }
@@ -139,7 +139,7 @@ public class AULocalAccountIdentification {
    * @param bsbCode
    */
   @JsonProperty(JSON_PROPERTY_BSB_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBsbCode(String bsbCode) {
     this.bsbCode = bsbCode;
   }
@@ -160,7 +160,7 @@ public class AULocalAccountIdentification {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -171,7 +171,7 @@ public class AULocalAccountIdentification {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

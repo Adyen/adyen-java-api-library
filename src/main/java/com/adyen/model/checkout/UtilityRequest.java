@@ -65,7 +65,7 @@ public class UtilityRequest {
    * @return originDomains
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getOriginDomains() {
     return originDomains;
   }
@@ -76,7 +76,7 @@ public class UtilityRequest {
    * @param originDomains
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginDomains(List<String> originDomains) {
     this.originDomains = originDomains;
   }

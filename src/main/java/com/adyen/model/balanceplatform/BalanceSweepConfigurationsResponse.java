@@ -66,7 +66,7 @@ public class BalanceSweepConfigurationsResponse {
    * @return hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasNext() {
     return hasNext;
   }
@@ -77,7 +77,7 @@ public class BalanceSweepConfigurationsResponse {
    * @param hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
@@ -98,7 +98,7 @@ public class BalanceSweepConfigurationsResponse {
    * @return hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
@@ -109,7 +109,7 @@ public class BalanceSweepConfigurationsResponse {
    * @param hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }
@@ -138,7 +138,7 @@ public class BalanceSweepConfigurationsResponse {
    * @return sweeps
    */
   @JsonProperty(JSON_PROPERTY_SWEEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SweepConfigurationV2> getSweeps() {
     return sweeps;
   }
@@ -149,7 +149,7 @@ public class BalanceSweepConfigurationsResponse {
    * @param sweeps
    */
   @JsonProperty(JSON_PROPERTY_SWEEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSweeps(List<SweepConfigurationV2> sweeps) {
     this.sweeps = sweeps;
   }

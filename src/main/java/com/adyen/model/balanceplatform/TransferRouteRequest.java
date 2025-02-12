@@ -190,7 +190,7 @@ public class TransferRouteRequest {
    * @return balancePlatform
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
     return balancePlatform;
   }
@@ -201,7 +201,7 @@ public class TransferRouteRequest {
    * @param balancePlatform
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
@@ -222,7 +222,7 @@ public class TransferRouteRequest {
    * @return category
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CategoryEnum getCategory() {
     return category;
   }
@@ -233,7 +233,7 @@ public class TransferRouteRequest {
    * @param category
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
   }
@@ -318,7 +318,7 @@ public class TransferRouteRequest {
    * @return currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
     return currency;
   }
@@ -329,7 +329,7 @@ public class TransferRouteRequest {
    * @param currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }

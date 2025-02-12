@@ -102,7 +102,7 @@ public class TransactionNotificationRequestV4 {
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Transaction getData() {
     return data;
   }
@@ -113,7 +113,7 @@ public class TransactionNotificationRequestV4 {
    * @param data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(Transaction data) {
     this.data = data;
   }
@@ -134,7 +134,7 @@ public class TransactionNotificationRequestV4 {
    * @return environment
    */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnvironment() {
     return environment;
   }
@@ -145,7 +145,7 @@ public class TransactionNotificationRequestV4 {
    * @param environment
    */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }

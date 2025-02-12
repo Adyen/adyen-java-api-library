@@ -74,7 +74,7 @@ public class PaginatedBalanceAccountsResponse {
    * @return balanceAccounts
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<BalanceAccountBase> getBalanceAccounts() {
     return balanceAccounts;
   }
@@ -85,7 +85,7 @@ public class PaginatedBalanceAccountsResponse {
    * @param balanceAccounts
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccounts(List<BalanceAccountBase> balanceAccounts) {
     this.balanceAccounts = balanceAccounts;
   }
@@ -106,7 +106,7 @@ public class PaginatedBalanceAccountsResponse {
    * @return hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasNext() {
     return hasNext;
   }
@@ -117,7 +117,7 @@ public class PaginatedBalanceAccountsResponse {
    * @param hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
@@ -138,7 +138,7 @@ public class PaginatedBalanceAccountsResponse {
    * @return hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
@@ -149,7 +149,7 @@ public class PaginatedBalanceAccountsResponse {
    * @param hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }

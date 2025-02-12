@@ -93,7 +93,7 @@ public class EstimationTrackingData {
    * @return estimatedArrivalTime
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getEstimatedArrivalTime() {
     return estimatedArrivalTime;
   }
@@ -104,7 +104,7 @@ public class EstimationTrackingData {
    * @param estimatedArrivalTime
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
     this.estimatedArrivalTime = estimatedArrivalTime;
   }
@@ -125,7 +125,7 @@ public class EstimationTrackingData {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -136,7 +136,7 @@ public class EstimationTrackingData {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

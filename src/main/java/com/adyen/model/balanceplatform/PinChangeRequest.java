@@ -67,7 +67,7 @@ public class PinChangeRequest {
    * @return encryptedKey
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedKey() {
     return encryptedKey;
   }
@@ -78,7 +78,7 @@ public class PinChangeRequest {
    * @param encryptedKey
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedKey(String encryptedKey) {
     this.encryptedKey = encryptedKey;
   }
@@ -99,7 +99,7 @@ public class PinChangeRequest {
    * @return encryptedPinBlock
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedPinBlock() {
     return encryptedPinBlock;
   }
@@ -110,7 +110,7 @@ public class PinChangeRequest {
    * @param encryptedPinBlock
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedPinBlock(String encryptedPinBlock) {
     this.encryptedPinBlock = encryptedPinBlock;
   }
@@ -131,7 +131,7 @@ public class PinChangeRequest {
    * @return paymentInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
@@ -142,7 +142,7 @@ public class PinChangeRequest {
    * @param paymentInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }
@@ -163,7 +163,7 @@ public class PinChangeRequest {
    * @return token
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToken() {
     return token;
   }
@@ -174,7 +174,7 @@ public class PinChangeRequest {
    * @param token
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
   }

@@ -251,7 +251,7 @@ public class PayoutSettings {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -262,7 +262,7 @@ public class PayoutSettings {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
@@ -315,7 +315,7 @@ public class PayoutSettings {
    * @return transferInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransferInstrumentId() {
     return transferInstrumentId;
   }
@@ -326,7 +326,7 @@ public class PayoutSettings {
    * @param transferInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
   }

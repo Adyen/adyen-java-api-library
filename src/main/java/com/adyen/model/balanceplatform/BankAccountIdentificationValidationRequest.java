@@ -56,7 +56,7 @@ public class BankAccountIdentificationValidationRequest {
    * @return accountIdentification
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccountIdentificationValidationRequestAccountIdentification getAccountIdentification() {
     return accountIdentification;
   }
@@ -67,7 +67,7 @@ public class BankAccountIdentificationValidationRequest {
    * @param accountIdentification
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountIdentificationValidationRequestAccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
   }

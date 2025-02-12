@@ -61,7 +61,7 @@ public class Card {
    * @return cardHolder
    */
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PartyIdentification getCardHolder() {
     return cardHolder;
   }
@@ -72,7 +72,7 @@ public class Card {
    * @param cardHolder
    */
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolder(PartyIdentification cardHolder) {
     this.cardHolder = cardHolder;
   }
@@ -93,7 +93,7 @@ public class Card {
    * @return cardIdentification
    */
   @JsonProperty(JSON_PROPERTY_CARD_IDENTIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardIdentification getCardIdentification() {
     return cardIdentification;
   }
@@ -104,7 +104,7 @@ public class Card {
    * @param cardIdentification
    */
   @JsonProperty(JSON_PROPERTY_CARD_IDENTIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIdentification(CardIdentification cardIdentification) {
     this.cardIdentification = cardIdentification;
   }

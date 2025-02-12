@@ -59,7 +59,7 @@ public class RevealPinRequest {
    * @return encryptedKey
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedKey() {
     return encryptedKey;
   }
@@ -70,7 +70,7 @@ public class RevealPinRequest {
    * @param encryptedKey
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedKey(String encryptedKey) {
     this.encryptedKey = encryptedKey;
   }
@@ -91,7 +91,7 @@ public class RevealPinRequest {
    * @return paymentInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
     return paymentInstrumentId;
   }
@@ -102,7 +102,7 @@ public class RevealPinRequest {
    * @param paymentInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
   }

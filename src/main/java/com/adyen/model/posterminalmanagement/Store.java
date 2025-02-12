@@ -246,7 +246,7 @@ public class Store {
    * @return store
    */
   @JsonProperty(JSON_PROPERTY_STORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStore() {
     return store;
   }
@@ -257,7 +257,7 @@ public class Store {
    * @param store
    */
   @JsonProperty(JSON_PROPERTY_STORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
     this.store = store;
   }

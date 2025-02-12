@@ -139,7 +139,7 @@ public class TechnicalCancelRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -150,7 +150,7 @@ public class TechnicalCancelRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -235,7 +235,7 @@ public class TechnicalCancelRequest {
    * @return originalMerchantReference
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOriginalMerchantReference() {
     return originalMerchantReference;
   }
@@ -246,7 +246,7 @@ public class TechnicalCancelRequest {
    * @param originalMerchantReference
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalMerchantReference(String originalMerchantReference) {
     this.originalMerchantReference = originalMerchantReference;
   }

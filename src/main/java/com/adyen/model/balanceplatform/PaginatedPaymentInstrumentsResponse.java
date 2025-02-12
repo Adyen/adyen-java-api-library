@@ -66,7 +66,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * @return hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasNext() {
     return hasNext;
   }
@@ -77,7 +77,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * @param hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
@@ -98,7 +98,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * @return hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
@@ -109,7 +109,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * @param hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }
@@ -138,7 +138,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * @return paymentInstruments
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentInstrument> getPaymentInstruments() {
     return paymentInstruments;
   }
@@ -149,7 +149,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * @param paymentInstruments
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstruments(List<PaymentInstrument> paymentInstruments) {
     this.paymentInstruments = paymentInstruments;
   }

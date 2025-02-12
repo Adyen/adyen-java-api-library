@@ -135,7 +135,7 @@ public class DinersInfo {
    * @return reuseMidNumber
    */
   @JsonProperty(JSON_PROPERTY_REUSE_MID_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getReuseMidNumber() {
     return reuseMidNumber;
   }
@@ -146,7 +146,7 @@ public class DinersInfo {
    * @param reuseMidNumber
    */
   @JsonProperty(JSON_PROPERTY_REUSE_MID_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMidNumber(Boolean reuseMidNumber) {
     this.reuseMidNumber = reuseMidNumber;
   }

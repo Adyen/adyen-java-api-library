@@ -64,7 +64,7 @@ public class PurchaseInfo {
    * @return date
    */
   @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDate() {
     return date;
   }
@@ -75,7 +75,7 @@ public class PurchaseInfo {
    * @param date
    */
   @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(String date) {
     this.date = date;
   }
@@ -96,7 +96,7 @@ public class PurchaseInfo {
    * @return merchantName
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantName() {
     return merchantName;
   }
@@ -107,7 +107,7 @@ public class PurchaseInfo {
    * @param merchantName
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
     this.merchantName = merchantName;
   }
@@ -128,7 +128,7 @@ public class PurchaseInfo {
    * @return originalAmount
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getOriginalAmount() {
     return originalAmount;
   }
@@ -139,7 +139,7 @@ public class PurchaseInfo {
    * @param originalAmount
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
   }

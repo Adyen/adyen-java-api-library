@@ -59,7 +59,7 @@ public class GetStoresUnderAccountRequest {
    * @return companyAccount
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyAccount() {
     return companyAccount;
   }
@@ -70,7 +70,7 @@ public class GetStoresUnderAccountRequest {
    * @param companyAccount
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyAccount(String companyAccount) {
     this.companyAccount = companyAccount;
   }

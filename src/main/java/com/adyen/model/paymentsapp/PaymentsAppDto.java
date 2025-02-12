@@ -67,7 +67,7 @@ public class PaymentsAppDto {
    * @return installationId
    */
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstallationId() {
     return installationId;
   }
@@ -78,7 +78,7 @@ public class PaymentsAppDto {
    * @param installationId
    */
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallationId(String installationId) {
     this.installationId = installationId;
   }
@@ -99,7 +99,7 @@ public class PaymentsAppDto {
    * @return merchantAccountCode
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
@@ -110,7 +110,7 @@ public class PaymentsAppDto {
    * @param merchantAccountCode
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }
@@ -163,7 +163,7 @@ public class PaymentsAppDto {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
     return status;
   }
@@ -174,7 +174,7 @@ public class PaymentsAppDto {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }

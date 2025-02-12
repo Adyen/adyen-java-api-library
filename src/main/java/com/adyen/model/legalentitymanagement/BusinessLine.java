@@ -209,7 +209,7 @@ public class BusinessLine {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -231,7 +231,7 @@ public class BusinessLine {
    * @return industryCode
    */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIndustryCode() {
     return industryCode;
   }
@@ -242,7 +242,7 @@ public class BusinessLine {
    * @param industryCode
    */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndustryCode(String industryCode) {
     this.industryCode = industryCode;
   }
@@ -263,7 +263,7 @@ public class BusinessLine {
    * @return legalEntityId
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalEntityId() {
     return legalEntityId;
   }
@@ -274,7 +274,7 @@ public class BusinessLine {
    * @param legalEntityId
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
@@ -375,7 +375,7 @@ public class BusinessLine {
    * @return service
    */
   @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ServiceEnum getService() {
     return service;
   }
@@ -386,7 +386,7 @@ public class BusinessLine {
    * @param service
    */
   @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setService(ServiceEnum service) {
     this.service = service;
   }

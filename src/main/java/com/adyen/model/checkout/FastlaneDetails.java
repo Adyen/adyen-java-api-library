@@ -137,7 +137,7 @@ public class FastlaneDetails {
    * @return fastlaneData
    */
   @JsonProperty(JSON_PROPERTY_FASTLANE_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFastlaneData() {
     return fastlaneData;
   }
@@ -148,7 +148,7 @@ public class FastlaneDetails {
    * @param fastlaneData
    */
   @JsonProperty(JSON_PROPERTY_FASTLANE_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFastlaneData(String fastlaneData) {
     this.fastlaneData = fastlaneData;
   }
@@ -243,7 +243,7 @@ public class FastlaneDetails {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -254,7 +254,7 @@ public class FastlaneDetails {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

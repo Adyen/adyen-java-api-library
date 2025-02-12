@@ -95,7 +95,7 @@ public class PayPalInfo {
    * @return payerId
    */
   @JsonProperty(JSON_PROPERTY_PAYER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPayerId() {
     return payerId;
   }
@@ -106,7 +106,7 @@ public class PayPalInfo {
    * @param payerId
    */
   @JsonProperty(JSON_PROPERTY_PAYER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayerId(String payerId) {
     this.payerId = payerId;
   }
@@ -127,7 +127,7 @@ public class PayPalInfo {
    * @return subject
    */
   @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubject() {
     return subject;
   }
@@ -138,7 +138,7 @@ public class PayPalInfo {
    * @param subject
    */
   @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubject(String subject) {
     this.subject = subject;
   }

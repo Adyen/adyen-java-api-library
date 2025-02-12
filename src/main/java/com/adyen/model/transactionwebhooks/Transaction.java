@@ -143,7 +143,7 @@ public class Transaction {
    * @return accountHolder
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResourceReference getAccountHolder() {
     return accountHolder;
   }
@@ -154,7 +154,7 @@ public class Transaction {
    * @param accountHolder
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
   }
@@ -175,7 +175,7 @@ public class Transaction {
    * @return amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
     return amount;
   }
@@ -186,7 +186,7 @@ public class Transaction {
    * @param amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -207,7 +207,7 @@ public class Transaction {
    * @return balanceAccount
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResourceReference getBalanceAccount() {
     return balanceAccount;
   }
@@ -218,7 +218,7 @@ public class Transaction {
    * @param balanceAccount
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
   }
@@ -239,7 +239,7 @@ public class Transaction {
    * @return balancePlatform
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
     return balancePlatform;
   }
@@ -250,7 +250,7 @@ public class Transaction {
    * @param balancePlatform
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
     this.balancePlatform = balancePlatform;
   }
@@ -271,7 +271,7 @@ public class Transaction {
    * @return bookingDate
    */
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getBookingDate() {
     return bookingDate;
   }
@@ -282,7 +282,7 @@ public class Transaction {
    * @param bookingDate
    */
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBookingDate(OffsetDateTime bookingDate) {
     this.bookingDate = bookingDate;
   }
@@ -367,7 +367,7 @@ public class Transaction {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -378,7 +378,7 @@ public class Transaction {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
@@ -463,7 +463,7 @@ public class Transaction {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -474,7 +474,7 @@ public class Transaction {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
@@ -527,7 +527,7 @@ public class Transaction {
    * @return valueDate
    */
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValueDate() {
     return valueDate;
   }
@@ -538,7 +538,7 @@ public class Transaction {
    * @param valueDate
    */
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {
     this.valueDate = valueDate;
   }

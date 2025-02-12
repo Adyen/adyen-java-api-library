@@ -410,7 +410,7 @@ public class Organization {
    * @return legalName
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalName() {
     return legalName;
   }
@@ -421,7 +421,7 @@ public class Organization {
    * @param legalName
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalName(String legalName) {
     this.legalName = legalName;
   }
@@ -506,7 +506,7 @@ public class Organization {
    * @return registeredAddress
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getRegisteredAddress() {
     return registeredAddress;
   }
@@ -517,7 +517,7 @@ public class Organization {
    * @param registeredAddress
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
     this.registeredAddress = registeredAddress;
   }

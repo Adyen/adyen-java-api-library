@@ -206,7 +206,7 @@ public class Mandate {
    * @return amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAmount() {
     return amount;
   }
@@ -217,7 +217,7 @@ public class Mandate {
    * @param amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(String amount) {
     this.amount = amount;
   }
@@ -366,7 +366,7 @@ public class Mandate {
    * @return endsAt
    */
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEndsAt() {
     return endsAt;
   }
@@ -377,7 +377,7 @@ public class Mandate {
    * @param endsAt
    */
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(String endsAt) {
     this.endsAt = endsAt;
   }
@@ -398,7 +398,7 @@ public class Mandate {
    * @return frequency
    */
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FrequencyEnum getFrequency() {
     return frequency;
   }
@@ -409,7 +409,7 @@ public class Mandate {
    * @param frequency
    */
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrequency(FrequencyEnum frequency) {
     this.frequency = frequency;
   }

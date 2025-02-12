@@ -56,7 +56,7 @@ public class GetNetworkTokenResponse {
    * @return token
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NetworkToken getToken() {
     return token;
   }
@@ -67,7 +67,7 @@ public class GetNetworkTokenResponse {
    * @param token
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(NetworkToken token) {
     this.token = token;
   }

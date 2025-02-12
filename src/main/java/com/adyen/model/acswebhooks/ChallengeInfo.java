@@ -192,7 +192,7 @@ public class ChallengeInfo {
    * @return flow
    */
   @JsonProperty(JSON_PROPERTY_FLOW)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FlowEnum getFlow() {
     return flow;
   }
@@ -203,7 +203,7 @@ public class ChallengeInfo {
    * @param flow
    */
   @JsonProperty(JSON_PROPERTY_FLOW)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFlow(FlowEnum flow) {
     this.flow = flow;
   }
@@ -224,7 +224,7 @@ public class ChallengeInfo {
    * @return lastInteraction
    */
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getLastInteraction() {
     return lastInteraction;
   }
@@ -235,7 +235,7 @@ public class ChallengeInfo {
    * @param lastInteraction
    */
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastInteraction(OffsetDateTime lastInteraction) {
     this.lastInteraction = lastInteraction;
   }

@@ -695,7 +695,7 @@ public class ThreeDS2RequestData {
    * @return deviceChannel
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeviceChannel() {
     return deviceChannel;
   }
@@ -706,7 +706,7 @@ public class ThreeDS2RequestData {
    * @param deviceChannel
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceChannel(String deviceChannel) {
     this.deviceChannel = deviceChannel;
   }

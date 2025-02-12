@@ -70,7 +70,7 @@ public class CreatePermitRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -81,7 +81,7 @@ public class CreatePermitRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -110,7 +110,7 @@ public class CreatePermitRequest {
    * @return permits
    */
   @JsonProperty(JSON_PROPERTY_PERMITS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Permit> getPermits() {
     return permits;
   }
@@ -121,7 +121,7 @@ public class CreatePermitRequest {
    * @param permits
    */
   @JsonProperty(JSON_PROPERTY_PERMITS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermits(List<Permit> permits) {
     this.permits = permits;
   }
@@ -142,7 +142,7 @@ public class CreatePermitRequest {
    * @return recurringDetailReference
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
@@ -153,7 +153,7 @@ public class CreatePermitRequest {
    * @param recurringDetailReference
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
@@ -174,7 +174,7 @@ public class CreatePermitRequest {
    * @return shopperReference
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
     return shopperReference;
   }
@@ -185,7 +185,7 @@ public class CreatePermitRequest {
    * @param shopperReference
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }

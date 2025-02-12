@@ -885,7 +885,7 @@ public class PaymentRequest3d {
    * @return md
    */
   @JsonProperty(JSON_PROPERTY_MD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMd() {
     return md;
   }
@@ -896,7 +896,7 @@ public class PaymentRequest3d {
    * @param md
    */
   @JsonProperty(JSON_PROPERTY_MD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMd(String md) {
     this.md = md;
   }
@@ -917,7 +917,7 @@ public class PaymentRequest3d {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -928,7 +928,7 @@ public class PaymentRequest3d {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -1085,7 +1085,7 @@ public class PaymentRequest3d {
    * @return paResponse
    */
   @JsonProperty(JSON_PROPERTY_PA_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaResponse() {
     return paResponse;
   }
@@ -1096,7 +1096,7 @@ public class PaymentRequest3d {
    * @param paResponse
    */
   @JsonProperty(JSON_PROPERTY_PA_RESPONSE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaResponse(String paResponse) {
     this.paResponse = paResponse;
   }

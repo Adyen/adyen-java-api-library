@@ -59,7 +59,7 @@ public class AcceptDisputeRequest {
    * @return disputePspReference
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisputePspReference() {
     return disputePspReference;
   }
@@ -70,7 +70,7 @@ public class AcceptDisputeRequest {
    * @param disputePspReference
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
   }
@@ -91,7 +91,7 @@ public class AcceptDisputeRequest {
    * @return merchantAccountCode
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
@@ -102,7 +102,7 @@ public class AcceptDisputeRequest {
    * @param merchantAccountCode
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }

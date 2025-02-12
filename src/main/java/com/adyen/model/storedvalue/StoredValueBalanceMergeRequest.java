@@ -161,7 +161,7 @@ public class StoredValueBalanceMergeRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -172,7 +172,7 @@ public class StoredValueBalanceMergeRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -201,7 +201,7 @@ public class StoredValueBalanceMergeRequest {
    * @return paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getPaymentMethod() {
     return paymentMethod;
   }
@@ -212,7 +212,7 @@ public class StoredValueBalanceMergeRequest {
    * @param paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(Map<String, String> paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
@@ -265,7 +265,7 @@ public class StoredValueBalanceMergeRequest {
    * @return reference
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
     return reference;
   }
@@ -276,7 +276,7 @@ public class StoredValueBalanceMergeRequest {
    * @param reference
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
   }
@@ -369,7 +369,7 @@ public class StoredValueBalanceMergeRequest {
    * @return sourcePaymentMethod
    */
   @JsonProperty(JSON_PROPERTY_SOURCE_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getSourcePaymentMethod() {
     return sourcePaymentMethod;
   }
@@ -380,7 +380,7 @@ public class StoredValueBalanceMergeRequest {
    * @param sourcePaymentMethod
    */
   @JsonProperty(JSON_PROPERTY_SOURCE_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSourcePaymentMethod(Map<String, String> sourcePaymentMethod) {
     this.sourcePaymentMethod = sourcePaymentMethod;
   }

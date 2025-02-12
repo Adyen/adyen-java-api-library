@@ -138,7 +138,7 @@ public class OnboardingThemes {
    * @return themes
    */
   @JsonProperty(JSON_PROPERTY_THEMES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<OnboardingTheme> getThemes() {
     return themes;
   }
@@ -149,7 +149,7 @@ public class OnboardingThemes {
    * @param themes
    */
   @JsonProperty(JSON_PROPERTY_THEMES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemes(List<OnboardingTheme> themes) {
     this.themes = themes;
   }

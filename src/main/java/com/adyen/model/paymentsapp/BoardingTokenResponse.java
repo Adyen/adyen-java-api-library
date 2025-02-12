@@ -59,7 +59,7 @@ public class BoardingTokenResponse {
    * @return boardingToken
    */
   @JsonProperty(JSON_PROPERTY_BOARDING_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBoardingToken() {
     return boardingToken;
   }
@@ -70,7 +70,7 @@ public class BoardingTokenResponse {
    * @param boardingToken
    */
   @JsonProperty(JSON_PROPERTY_BOARDING_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBoardingToken(String boardingToken) {
     this.boardingToken = boardingToken;
   }
@@ -91,7 +91,7 @@ public class BoardingTokenResponse {
    * @return installationId
    */
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstallationId() {
     return installationId;
   }
@@ -102,7 +102,7 @@ public class BoardingTokenResponse {
    * @param installationId
    */
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallationId(String installationId) {
     this.installationId = installationId;
   }

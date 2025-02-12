@@ -65,7 +65,7 @@ public class AuthenticationSessionRequest {
    * @return allowOrigin
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_ORIGIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAllowOrigin() {
     return allowOrigin;
   }
@@ -76,7 +76,7 @@ public class AuthenticationSessionRequest {
    * @param allowOrigin
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_ORIGIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowOrigin(String allowOrigin) {
     this.allowOrigin = allowOrigin;
   }
@@ -97,7 +97,7 @@ public class AuthenticationSessionRequest {
    * @return policy
    */
   @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Policy getPolicy() {
     return policy;
   }
@@ -108,7 +108,7 @@ public class AuthenticationSessionRequest {
    * @param policy
    */
   @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPolicy(Policy policy) {
     this.policy = policy;
   }
@@ -129,7 +129,7 @@ public class AuthenticationSessionRequest {
    * @return product
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProductType getProduct() {
     return product;
   }
@@ -140,7 +140,7 @@ public class AuthenticationSessionRequest {
    * @param product
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProduct(ProductType product) {
     this.product = product;
   }

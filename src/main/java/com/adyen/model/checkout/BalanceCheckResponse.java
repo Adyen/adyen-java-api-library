@@ -160,7 +160,7 @@ public class BalanceCheckResponse {
    * @return balance
    */
   @JsonProperty(JSON_PROPERTY_BALANCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getBalance() {
     return balance;
   }
@@ -171,7 +171,7 @@ public class BalanceCheckResponse {
    * @param balance
    */
   @JsonProperty(JSON_PROPERTY_BALANCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Amount balance) {
     this.balance = balance;
   }
@@ -288,7 +288,7 @@ public class BalanceCheckResponse {
    * @return resultCode
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResultCodeEnum getResultCode() {
     return resultCode;
   }
@@ -299,7 +299,7 @@ public class BalanceCheckResponse {
    * @param resultCode
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
   }

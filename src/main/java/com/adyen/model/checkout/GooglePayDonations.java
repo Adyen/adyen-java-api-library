@@ -248,7 +248,7 @@ public class GooglePayDonations {
    * @return googlePayToken
    */
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGooglePayToken() {
     return googlePayToken;
   }
@@ -259,7 +259,7 @@ public class GooglePayDonations {
    * @param googlePayToken
    */
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGooglePayToken(String googlePayToken) {
     this.googlePayToken = googlePayToken;
   }

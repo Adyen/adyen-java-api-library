@@ -66,7 +66,7 @@ public class CapitalGrants {
    * @return grants
    */
   @JsonProperty(JSON_PROPERTY_GRANTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CapitalGrant> getGrants() {
     return grants;
   }
@@ -77,7 +77,7 @@ public class CapitalGrants {
    * @param grants
    */
   @JsonProperty(JSON_PROPERTY_GRANTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrants(List<CapitalGrant> grants) {
     this.grants = grants;
   }

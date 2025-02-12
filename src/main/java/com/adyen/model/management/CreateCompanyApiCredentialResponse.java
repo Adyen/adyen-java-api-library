@@ -135,7 +135,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return active
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
     return active;
   }
@@ -146,7 +146,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param active
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
   }
@@ -175,7 +175,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return allowedIpAddresses
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAllowedIpAddresses() {
     return allowedIpAddresses;
   }
@@ -186,7 +186,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param allowedIpAddresses
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_IP_ADDRESSES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedIpAddresses(List<String> allowedIpAddresses) {
     this.allowedIpAddresses = allowedIpAddresses;
   }
@@ -247,7 +247,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return apiKey
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getApiKey() {
     return apiKey;
   }
@@ -258,7 +258,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param apiKey
    */
   @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }
@@ -287,7 +287,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return associatedMerchantAccounts
    */
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAssociatedMerchantAccounts() {
     return associatedMerchantAccounts;
   }
@@ -298,7 +298,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param associatedMerchantAccounts
    */
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
   }
@@ -319,7 +319,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return clientKey
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientKey() {
     return clientKey;
   }
@@ -330,7 +330,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param clientKey
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {
     this.clientKey = clientKey;
   }
@@ -383,7 +383,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -394,7 +394,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
@@ -415,7 +415,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return password
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPassword() {
     return password;
   }
@@ -426,7 +426,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param password
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
   }
@@ -455,7 +455,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return roles
    */
   @JsonProperty(JSON_PROPERTY_ROLES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRoles() {
     return roles;
   }
@@ -466,7 +466,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param roles
    */
   @JsonProperty(JSON_PROPERTY_ROLES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
@@ -487,7 +487,7 @@ public class CreateCompanyApiCredentialResponse {
    * @return username
    */
   @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsername() {
     return username;
   }
@@ -498,7 +498,7 @@ public class CreateCompanyApiCredentialResponse {
    * @param username
    */
   @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
   }

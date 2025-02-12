@@ -104,7 +104,7 @@ public class TransferNotificationRequest {
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransferData getData() {
     return data;
   }
@@ -115,7 +115,7 @@ public class TransferNotificationRequest {
    * @param data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(TransferData data) {
     this.data = data;
   }
@@ -136,7 +136,7 @@ public class TransferNotificationRequest {
    * @return environment
    */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnvironment() {
     return environment;
   }
@@ -147,7 +147,7 @@ public class TransferNotificationRequest {
    * @param environment
    */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
     this.environment = environment;
   }

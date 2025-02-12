@@ -55,7 +55,7 @@ public class SodexoInfo {
    * @return merchantContactPhone
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_CONTACT_PHONE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantContactPhone() {
     return merchantContactPhone;
   }
@@ -66,7 +66,7 @@ public class SodexoInfo {
    * @param merchantContactPhone
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_CONTACT_PHONE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantContactPhone(String merchantContactPhone) {
     this.merchantContactPhone = merchantContactPhone;
   }

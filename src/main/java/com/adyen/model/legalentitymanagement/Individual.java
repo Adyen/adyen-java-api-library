@@ -192,7 +192,7 @@ public class Individual {
    * @return name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getName() {
     return name;
   }
@@ -203,7 +203,7 @@ public class Individual {
    * @param name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
   }
@@ -288,7 +288,7 @@ public class Individual {
    * @return residentialAddress
    */
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getResidentialAddress() {
     return residentialAddress;
   }
@@ -299,7 +299,7 @@ public class Individual {
    * @param residentialAddress
    */
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResidentialAddress(Address residentialAddress) {
     this.residentialAddress = residentialAddress;
   }

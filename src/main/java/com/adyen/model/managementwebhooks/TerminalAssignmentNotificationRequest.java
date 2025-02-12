@@ -71,7 +71,7 @@ public class TerminalAssignmentNotificationRequest {
    * @return assignedToAccount
    */
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAssignedToAccount() {
     return assignedToAccount;
   }
@@ -82,7 +82,7 @@ public class TerminalAssignmentNotificationRequest {
    * @param assignedToAccount
    */
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignedToAccount(String assignedToAccount) {
     this.assignedToAccount = assignedToAccount;
   }
@@ -135,7 +135,7 @@ public class TerminalAssignmentNotificationRequest {
    * @return eventDate
    */
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEventDate() {
     return eventDate;
   }
@@ -146,7 +146,7 @@ public class TerminalAssignmentNotificationRequest {
    * @param eventDate
    */
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventDate(String eventDate) {
     this.eventDate = eventDate;
   }
@@ -167,7 +167,7 @@ public class TerminalAssignmentNotificationRequest {
    * @return pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
     return pspReference;
   }
@@ -178,7 +178,7 @@ public class TerminalAssignmentNotificationRequest {
    * @param pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -199,7 +199,7 @@ public class TerminalAssignmentNotificationRequest {
    * @return uniqueTerminalId
    */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUniqueTerminalId() {
     return uniqueTerminalId;
   }
@@ -210,7 +210,7 @@ public class TerminalAssignmentNotificationRequest {
    * @param uniqueTerminalId
    */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {
     this.uniqueTerminalId = uniqueTerminalId;
   }

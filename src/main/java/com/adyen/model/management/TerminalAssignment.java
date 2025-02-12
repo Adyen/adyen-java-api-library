@@ -111,7 +111,7 @@ public class TerminalAssignment {
    * @return companyId
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
     return companyId;
   }
@@ -122,7 +122,7 @@ public class TerminalAssignment {
    * @param companyId
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }
@@ -207,7 +207,7 @@ public class TerminalAssignment {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -218,7 +218,7 @@ public class TerminalAssignment {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }

@@ -847,7 +847,7 @@ public class UpdateSplitConfigurationLogicRequest {
    * @return commission
    */
   @JsonProperty(JSON_PROPERTY_COMMISSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Commission getCommission() {
     return commission;
   }
@@ -858,7 +858,7 @@ public class UpdateSplitConfigurationLogicRequest {
    * @param commission
    */
   @JsonProperty(JSON_PROPERTY_COMMISSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommission(Commission commission) {
     this.commission = commission;
   }

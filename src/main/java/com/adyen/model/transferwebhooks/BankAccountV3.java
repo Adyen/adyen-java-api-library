@@ -61,7 +61,7 @@ public class BankAccountV3 {
    * @return accountHolder
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PartyIdentification getAccountHolder() {
     return accountHolder;
   }
@@ -72,7 +72,7 @@ public class BankAccountV3 {
    * @param accountHolder
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(PartyIdentification accountHolder) {
     this.accountHolder = accountHolder;
   }
@@ -93,7 +93,7 @@ public class BankAccountV3 {
    * @return accountIdentification
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccountV3AccountIdentification getAccountIdentification() {
     return accountIdentification;
   }
@@ -104,7 +104,7 @@ public class BankAccountV3 {
    * @param accountIdentification
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountV3AccountIdentification accountIdentification) {
     this.accountIdentification = accountIdentification;
   }

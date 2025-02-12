@@ -66,7 +66,7 @@ public class BusinessLines {
    * @return businessLines
    */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<BusinessLine> getBusinessLines() {
     return businessLines;
   }
@@ -77,7 +77,7 @@ public class BusinessLines {
    * @param businessLines
    */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLines(List<BusinessLine> businessLines) {
     this.businessLines = businessLines;
   }

@@ -529,7 +529,7 @@ public class RecurringDetail {
    * @return recurringDetailReference
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
@@ -540,7 +540,7 @@ public class RecurringDetail {
    * @param recurringDetailReference
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
@@ -657,7 +657,7 @@ public class RecurringDetail {
    * @return variant
    */
   @JsonProperty(JSON_PROPERTY_VARIANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVariant() {
     return variant;
   }
@@ -668,7 +668,7 @@ public class RecurringDetail {
    * @param variant
    */
   @JsonProperty(JSON_PROPERTY_VARIANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVariant(String variant) {
     this.variant = variant;
   }

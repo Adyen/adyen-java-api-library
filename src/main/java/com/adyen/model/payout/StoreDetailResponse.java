@@ -109,7 +109,7 @@ public class StoreDetailResponse {
    * @return pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
     return pspReference;
   }
@@ -120,7 +120,7 @@ public class StoreDetailResponse {
    * @param pspReference
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
@@ -141,7 +141,7 @@ public class StoreDetailResponse {
    * @return recurringDetailReference
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
     return recurringDetailReference;
   }
@@ -152,7 +152,7 @@ public class StoreDetailResponse {
    * @param recurringDetailReference
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
   }
@@ -173,7 +173,7 @@ public class StoreDetailResponse {
    * @return resultCode
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultCode() {
     return resultCode;
   }
@@ -184,7 +184,7 @@ public class StoreDetailResponse {
    * @param resultCode
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
     this.resultCode = resultCode;
   }

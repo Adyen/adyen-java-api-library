@@ -67,7 +67,7 @@ public class CapitalBalance {
    * @return currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
     return currency;
   }
@@ -78,7 +78,7 @@ public class CapitalBalance {
    * @param currency
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
   }
@@ -99,7 +99,7 @@ public class CapitalBalance {
    * @return fee
    */
   @JsonProperty(JSON_PROPERTY_FEE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFee() {
     return fee;
   }
@@ -110,7 +110,7 @@ public class CapitalBalance {
    * @param fee
    */
   @JsonProperty(JSON_PROPERTY_FEE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Long fee) {
     this.fee = fee;
   }
@@ -131,7 +131,7 @@ public class CapitalBalance {
    * @return principal
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPrincipal() {
     return principal;
   }
@@ -142,7 +142,7 @@ public class CapitalBalance {
    * @param principal
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipal(Long principal) {
     this.principal = principal;
   }
@@ -163,7 +163,7 @@ public class CapitalBalance {
    * @return total
    */
   @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotal() {
     return total;
   }
@@ -174,7 +174,7 @@ public class CapitalBalance {
    * @param total
    */
   @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotal(Long total) {
     this.total = total;
   }

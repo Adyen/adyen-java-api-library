@@ -168,7 +168,7 @@ public class CreateOrderResponse {
    * @return amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
     return amount;
   }
@@ -179,7 +179,7 @@ public class CreateOrderResponse {
    * @param amount
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
@@ -200,7 +200,7 @@ public class CreateOrderResponse {
    * @return expiresAt
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiresAt() {
     return expiresAt;
   }
@@ -211,7 +211,7 @@ public class CreateOrderResponse {
    * @param expiresAt
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
     this.expiresAt = expiresAt;
   }
@@ -264,7 +264,7 @@ public class CreateOrderResponse {
    * @return orderData
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrderData() {
     return orderData;
   }
@@ -275,7 +275,7 @@ public class CreateOrderResponse {
    * @param orderData
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
     this.orderData = orderData;
   }
@@ -392,7 +392,7 @@ public class CreateOrderResponse {
    * @return remainingAmount
    */
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getRemainingAmount() {
     return remainingAmount;
   }
@@ -403,7 +403,7 @@ public class CreateOrderResponse {
    * @param remainingAmount
    */
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {
     this.remainingAmount = remainingAmount;
   }
@@ -424,7 +424,7 @@ public class CreateOrderResponse {
    * @return resultCode
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResultCodeEnum getResultCode() {
     return resultCode;
   }
@@ -435,7 +435,7 @@ public class CreateOrderResponse {
    * @param resultCode
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
   }

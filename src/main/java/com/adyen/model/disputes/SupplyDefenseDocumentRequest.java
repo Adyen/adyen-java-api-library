@@ -74,7 +74,7 @@ public class SupplyDefenseDocumentRequest {
    * @return defenseDocuments
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DefenseDocument> getDefenseDocuments() {
     return defenseDocuments;
   }
@@ -85,7 +85,7 @@ public class SupplyDefenseDocumentRequest {
    * @param defenseDocuments
    */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocuments(List<DefenseDocument> defenseDocuments) {
     this.defenseDocuments = defenseDocuments;
   }
@@ -106,7 +106,7 @@ public class SupplyDefenseDocumentRequest {
    * @return disputePspReference
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisputePspReference() {
     return disputePspReference;
   }
@@ -117,7 +117,7 @@ public class SupplyDefenseDocumentRequest {
    * @param disputePspReference
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
     this.disputePspReference = disputePspReference;
   }
@@ -138,7 +138,7 @@ public class SupplyDefenseDocumentRequest {
    * @return merchantAccountCode
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccountCode() {
     return merchantAccountCode;
   }
@@ -149,7 +149,7 @@ public class SupplyDefenseDocumentRequest {
    * @param merchantAccountCode
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {
     this.merchantAccountCode = merchantAccountCode;
   }

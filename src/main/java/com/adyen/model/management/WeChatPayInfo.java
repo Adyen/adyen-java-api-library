@@ -59,7 +59,7 @@ public class WeChatPayInfo {
    * @return contactPersonName
    */
   @JsonProperty(JSON_PROPERTY_CONTACT_PERSON_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContactPersonName() {
     return contactPersonName;
   }
@@ -70,7 +70,7 @@ public class WeChatPayInfo {
    * @param contactPersonName
    */
   @JsonProperty(JSON_PROPERTY_CONTACT_PERSON_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactPersonName(String contactPersonName) {
     this.contactPersonName = contactPersonName;
   }
@@ -91,7 +91,7 @@ public class WeChatPayInfo {
    * @return email
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
     return email;
   }
@@ -102,7 +102,7 @@ public class WeChatPayInfo {
    * @param email
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
   }

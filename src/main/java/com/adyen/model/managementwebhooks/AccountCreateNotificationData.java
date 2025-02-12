@@ -82,7 +82,7 @@ public class AccountCreateNotificationData {
    * @return capabilities
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, AccountCapabilityData> getCapabilities() {
     return capabilities;
   }
@@ -93,7 +93,7 @@ public class AccountCreateNotificationData {
    * @param capabilities
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, AccountCapabilityData> capabilities) {
     this.capabilities = capabilities;
   }
@@ -114,7 +114,7 @@ public class AccountCreateNotificationData {
    * @return companyId
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
     return companyId;
   }
@@ -125,7 +125,7 @@ public class AccountCreateNotificationData {
    * @param companyId
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }
@@ -178,7 +178,7 @@ public class AccountCreateNotificationData {
    * @return merchantId
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
     return merchantId;
   }
@@ -189,7 +189,7 @@ public class AccountCreateNotificationData {
    * @param merchantId
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
@@ -210,7 +210,7 @@ public class AccountCreateNotificationData {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
     return status;
   }
@@ -221,7 +221,7 @@ public class AccountCreateNotificationData {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {
     this.status = status;
   }

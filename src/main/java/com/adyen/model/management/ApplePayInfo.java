@@ -65,7 +65,7 @@ public class ApplePayInfo {
    * @return domains
    */
   @JsonProperty(JSON_PROPERTY_DOMAINS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDomains() {
     return domains;
   }
@@ -76,7 +76,7 @@ public class ApplePayInfo {
    * @param domains
    */
   @JsonProperty(JSON_PROPERTY_DOMAINS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomains(List<String> domains) {
     this.domains = domains;
   }

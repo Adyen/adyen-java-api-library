@@ -138,7 +138,7 @@ public class DragonpayDetails {
    * @return issuer
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuer() {
     return issuer;
   }
@@ -149,7 +149,7 @@ public class DragonpayDetails {
    * @param issuer
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
     this.issuer = issuer;
   }
@@ -202,7 +202,7 @@ public class DragonpayDetails {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -213,7 +213,7 @@ public class DragonpayDetails {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

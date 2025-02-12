@@ -55,7 +55,7 @@ public class GenerateClientKeyResponse {
    * @return clientKey
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientKey() {
     return clientKey;
   }
@@ -66,7 +66,7 @@ public class GenerateClientKeyResponse {
    * @param clientKey
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {
     this.clientKey = clientKey;
   }

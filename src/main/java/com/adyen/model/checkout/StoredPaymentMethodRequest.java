@@ -113,7 +113,7 @@ public class StoredPaymentMethodRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -124,7 +124,7 @@ public class StoredPaymentMethodRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -145,7 +145,7 @@ public class StoredPaymentMethodRequest {
    * @return paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaymentMethodToStore getPaymentMethod() {
     return paymentMethod;
   }
@@ -156,7 +156,7 @@ public class StoredPaymentMethodRequest {
    * @param paymentMethod
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(PaymentMethodToStore paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
@@ -177,7 +177,7 @@ public class StoredPaymentMethodRequest {
    * @return recurringProcessingModel
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
     return recurringProcessingModel;
   }
@@ -188,7 +188,7 @@ public class StoredPaymentMethodRequest {
    * @param recurringProcessingModel
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
     this.recurringProcessingModel = recurringProcessingModel;
   }
@@ -273,7 +273,7 @@ public class StoredPaymentMethodRequest {
    * @return shopperReference
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
     return shopperReference;
   }
@@ -284,7 +284,7 @@ public class StoredPaymentMethodRequest {
    * @param shopperReference
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }

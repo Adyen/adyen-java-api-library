@@ -99,7 +99,7 @@ public class Currency {
    * @return currencyCode
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrencyCode() {
     return currencyCode;
   }
@@ -110,7 +110,7 @@ public class Currency {
    * @param currencyCode
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
   }

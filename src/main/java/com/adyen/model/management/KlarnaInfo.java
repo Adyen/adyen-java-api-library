@@ -138,7 +138,7 @@ public class KlarnaInfo {
    * @return disputeEmail
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisputeEmail() {
     return disputeEmail;
   }
@@ -149,7 +149,7 @@ public class KlarnaInfo {
    * @param disputeEmail
    */
   @JsonProperty(JSON_PROPERTY_DISPUTE_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeEmail(String disputeEmail) {
     this.disputeEmail = disputeEmail;
   }
@@ -170,7 +170,7 @@ public class KlarnaInfo {
    * @return region
    */
   @JsonProperty(JSON_PROPERTY_REGION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RegionEnum getRegion() {
     return region;
   }
@@ -181,7 +181,7 @@ public class KlarnaInfo {
    * @param region
    */
   @JsonProperty(JSON_PROPERTY_REGION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegion(RegionEnum region) {
     this.region = region;
   }
@@ -202,7 +202,7 @@ public class KlarnaInfo {
    * @return supportEmail
    */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSupportEmail() {
     return supportEmail;
   }
@@ -213,7 +213,7 @@ public class KlarnaInfo {
    * @param supportEmail
    */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
   }

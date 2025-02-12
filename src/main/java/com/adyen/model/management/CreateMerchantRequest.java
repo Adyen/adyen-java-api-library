@@ -113,7 +113,7 @@ public class CreateMerchantRequest {
    * @return companyId
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
     return companyId;
   }
@@ -124,7 +124,7 @@ public class CreateMerchantRequest {
    * @param companyId
    */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
   }

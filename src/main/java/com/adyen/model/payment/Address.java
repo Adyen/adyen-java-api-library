@@ -75,7 +75,7 @@ public class Address {
    * @return city
    */
   @JsonProperty(JSON_PROPERTY_CITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCity() {
     return city;
   }
@@ -86,7 +86,7 @@ public class Address {
    * @param city
    */
   @JsonProperty(JSON_PROPERTY_CITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }
@@ -107,7 +107,7 @@ public class Address {
    * @return country
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountry() {
     return country;
   }
@@ -118,7 +118,7 @@ public class Address {
    * @param country
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
   }
@@ -139,7 +139,7 @@ public class Address {
    * @return houseNumberOrName
    */
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHouseNumberOrName() {
     return houseNumberOrName;
   }
@@ -150,7 +150,7 @@ public class Address {
    * @param houseNumberOrName
    */
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHouseNumberOrName(String houseNumberOrName) {
     this.houseNumberOrName = houseNumberOrName;
   }
@@ -171,7 +171,7 @@ public class Address {
    * @return postalCode
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
     return postalCode;
   }
@@ -182,7 +182,7 @@ public class Address {
    * @param postalCode
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
   }
@@ -235,7 +235,7 @@ public class Address {
    * @return street
    */
   @JsonProperty(JSON_PROPERTY_STREET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStreet() {
     return street;
   }
@@ -246,7 +246,7 @@ public class Address {
    * @param street
    */
   @JsonProperty(JSON_PROPERTY_STREET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {
     this.street = street;
   }

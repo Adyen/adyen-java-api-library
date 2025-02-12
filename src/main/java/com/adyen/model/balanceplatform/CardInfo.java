@@ -155,7 +155,7 @@ public class CardInfo {
    * @return brand
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
     return brand;
   }
@@ -166,7 +166,7 @@ public class CardInfo {
    * @param brand
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
@@ -187,7 +187,7 @@ public class CardInfo {
    * @return brandVariant
    */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrandVariant() {
     return brandVariant;
   }
@@ -198,7 +198,7 @@ public class CardInfo {
    * @param brandVariant
    */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariant(String brandVariant) {
     this.brandVariant = brandVariant;
   }
@@ -219,7 +219,7 @@ public class CardInfo {
    * @return cardholderName
    */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardholderName() {
     return cardholderName;
   }
@@ -230,7 +230,7 @@ public class CardInfo {
    * @param cardholderName
    */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderName(String cardholderName) {
     this.cardholderName = cardholderName;
   }
@@ -315,7 +315,7 @@ public class CardInfo {
    * @return formFactor
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormFactorEnum getFormFactor() {
     return formFactor;
   }
@@ -326,7 +326,7 @@ public class CardInfo {
    * @param formFactor
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(FormFactorEnum formFactor) {
     this.formFactor = formFactor;
   }

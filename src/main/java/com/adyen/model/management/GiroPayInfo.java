@@ -55,7 +55,7 @@ public class GiroPayInfo {
    * @return supportEmail
    */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSupportEmail() {
     return supportEmail;
   }
@@ -66,7 +66,7 @@ public class GiroPayInfo {
    * @param supportEmail
    */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {
     this.supportEmail = supportEmail;
   }

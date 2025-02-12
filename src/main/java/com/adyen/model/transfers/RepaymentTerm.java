@@ -59,7 +59,7 @@ public class RepaymentTerm {
    * @return estimatedDays
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_DAYS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getEstimatedDays() {
     return estimatedDays;
   }
@@ -70,7 +70,7 @@ public class RepaymentTerm {
    * @param estimatedDays
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_DAYS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedDays(Integer estimatedDays) {
     this.estimatedDays = estimatedDays;
   }

@@ -75,7 +75,7 @@ public class ModelConfiguration {
    * @return brand
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
     return brand;
   }
@@ -86,7 +86,7 @@ public class ModelConfiguration {
    * @param brand
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
   }
@@ -187,7 +187,7 @@ public class ModelConfiguration {
    * @return currencies
    */
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Currency> getCurrencies() {
     return currencies;
   }
@@ -198,7 +198,7 @@ public class ModelConfiguration {
    * @param currencies
    */
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<Currency> currencies) {
     this.currencies = currencies;
   }

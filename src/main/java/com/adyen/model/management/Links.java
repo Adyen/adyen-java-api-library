@@ -56,7 +56,7 @@ public class Links {
    * @return self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getSelf() {
     return self;
   }
@@ -67,7 +67,7 @@ public class Links {
    * @param self
    */
   @JsonProperty(JSON_PROPERTY_SELF)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
   }

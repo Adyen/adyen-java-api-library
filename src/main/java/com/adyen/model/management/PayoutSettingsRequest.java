@@ -127,7 +127,7 @@ public class PayoutSettingsRequest {
    * @return transferInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransferInstrumentId() {
     return transferInstrumentId;
   }
@@ -138,7 +138,7 @@ public class PayoutSettingsRequest {
    * @param transferInstrumentId
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
   }

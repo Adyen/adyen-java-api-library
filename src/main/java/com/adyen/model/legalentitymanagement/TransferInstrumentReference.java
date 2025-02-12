@@ -75,7 +75,7 @@ public class TransferInstrumentReference {
    * @return accountIdentifier
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountIdentifier() {
     return accountIdentifier;
   }
@@ -86,7 +86,7 @@ public class TransferInstrumentReference {
    * @param accountIdentifier
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentifier(String accountIdentifier) {
     this.accountIdentifier = accountIdentifier;
   }
@@ -107,7 +107,7 @@ public class TransferInstrumentReference {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -118,7 +118,7 @@ public class TransferInstrumentReference {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }

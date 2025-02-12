@@ -77,7 +77,7 @@ public class DonationRequest {
    * @return donationAccount
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDonationAccount() {
     return donationAccount;
   }
@@ -88,7 +88,7 @@ public class DonationRequest {
    * @param donationAccount
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationAccount(String donationAccount) {
     this.donationAccount = donationAccount;
   }
@@ -109,7 +109,7 @@ public class DonationRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -120,7 +120,7 @@ public class DonationRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -141,7 +141,7 @@ public class DonationRequest {
    * @return modificationAmount
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getModificationAmount() {
     return modificationAmount;
   }
@@ -152,7 +152,7 @@ public class DonationRequest {
    * @param modificationAmount
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationAmount(Amount modificationAmount) {
     this.modificationAmount = modificationAmount;
   }

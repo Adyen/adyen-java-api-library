@@ -458,7 +458,7 @@ public class AuthenticationInfo {
    * @return acsTransId
    */
   @JsonProperty(JSON_PROPERTY_ACS_TRANS_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcsTransId() {
     return acsTransId;
   }
@@ -469,7 +469,7 @@ public class AuthenticationInfo {
    * @param acsTransId
    */
   @JsonProperty(JSON_PROPERTY_ACS_TRANS_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcsTransId(String acsTransId) {
     this.acsTransId = acsTransId;
   }
@@ -522,7 +522,7 @@ public class AuthenticationInfo {
    * @return challengeIndicator
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ChallengeIndicatorEnum getChallengeIndicator() {
     return challengeIndicator;
   }
@@ -533,7 +533,7 @@ public class AuthenticationInfo {
    * @param challengeIndicator
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
     this.challengeIndicator = challengeIndicator;
   }
@@ -554,7 +554,7 @@ public class AuthenticationInfo {
    * @return createdAt
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -565,7 +565,7 @@ public class AuthenticationInfo {
    * @param createdAt
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
@@ -586,7 +586,7 @@ public class AuthenticationInfo {
    * @return deviceChannel
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DeviceChannelEnum getDeviceChannel() {
     return deviceChannel;
   }
@@ -597,7 +597,7 @@ public class AuthenticationInfo {
    * @param deviceChannel
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceChannel(DeviceChannelEnum deviceChannel) {
     this.deviceChannel = deviceChannel;
   }
@@ -618,7 +618,7 @@ public class AuthenticationInfo {
    * @return dsTransID
    */
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDsTransID() {
     return dsTransID;
   }
@@ -629,7 +629,7 @@ public class AuthenticationInfo {
    * @param dsTransID
    */
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
     this.dsTransID = dsTransID;
   }
@@ -682,7 +682,7 @@ public class AuthenticationInfo {
    * @return inPSD2Scope
    */
   @JsonProperty(JSON_PROPERTY_IN_P_S_D2_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getInPSD2Scope() {
     return inPSD2Scope;
   }
@@ -693,7 +693,7 @@ public class AuthenticationInfo {
    * @param inPSD2Scope
    */
   @JsonProperty(JSON_PROPERTY_IN_P_S_D2_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInPSD2Scope(Boolean inPSD2Scope) {
     this.inPSD2Scope = inPSD2Scope;
   }
@@ -714,7 +714,7 @@ public class AuthenticationInfo {
    * @return messageCategory
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MessageCategoryEnum getMessageCategory() {
     return messageCategory;
   }
@@ -725,7 +725,7 @@ public class AuthenticationInfo {
    * @param messageCategory
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageCategory(MessageCategoryEnum messageCategory) {
     this.messageCategory = messageCategory;
   }
@@ -746,7 +746,7 @@ public class AuthenticationInfo {
    * @return messageVersion
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessageVersion() {
     return messageVersion;
   }
@@ -757,7 +757,7 @@ public class AuthenticationInfo {
    * @param messageVersion
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessageVersion(String messageVersion) {
     this.messageVersion = messageVersion;
   }
@@ -810,7 +810,7 @@ public class AuthenticationInfo {
    * @return threeDSServerTransID
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getThreeDSServerTransID() {
     return threeDSServerTransID;
   }
@@ -821,7 +821,7 @@ public class AuthenticationInfo {
    * @param threeDSServerTransID
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSServerTransID(String threeDSServerTransID) {
     this.threeDSServerTransID = threeDSServerTransID;
   }
@@ -842,7 +842,7 @@ public class AuthenticationInfo {
    * @return transStatus
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransStatusEnum getTransStatus() {
     return transStatus;
   }
@@ -853,7 +853,7 @@ public class AuthenticationInfo {
    * @param transStatus
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatus(TransStatusEnum transStatus) {
     this.transStatus = transStatus;
   }
@@ -906,7 +906,7 @@ public class AuthenticationInfo {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -917,7 +917,7 @@ public class AuthenticationInfo {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

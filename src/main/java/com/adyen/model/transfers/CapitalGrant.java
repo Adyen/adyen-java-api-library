@@ -161,7 +161,7 @@ public class CapitalGrant {
    * @return balances
    */
   @JsonProperty(JSON_PROPERTY_BALANCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CapitalBalance getBalances() {
     return balances;
   }
@@ -172,7 +172,7 @@ public class CapitalGrant {
    * @param balances
    */
   @JsonProperty(JSON_PROPERTY_BALANCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(CapitalBalance balances) {
     this.balances = balances;
   }
@@ -257,7 +257,7 @@ public class CapitalGrant {
    * @return grantAccountId
    */
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGrantAccountId() {
     return grantAccountId;
   }
@@ -268,7 +268,7 @@ public class CapitalGrant {
    * @param grantAccountId
    */
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantAccountId(String grantAccountId) {
     this.grantAccountId = grantAccountId;
   }
@@ -289,7 +289,7 @@ public class CapitalGrant {
    * @return grantOfferId
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGrantOfferId() {
     return grantOfferId;
   }
@@ -300,7 +300,7 @@ public class CapitalGrant {
    * @param grantOfferId
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOfferId(String grantOfferId) {
     this.grantOfferId = grantOfferId;
   }
@@ -321,7 +321,7 @@ public class CapitalGrant {
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -332,7 +332,7 @@ public class CapitalGrant {
    * @param id
    */
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
   }
@@ -385,7 +385,7 @@ public class CapitalGrant {
    * @return status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
     return status;
   }
@@ -396,7 +396,7 @@ public class CapitalGrant {
    * @param status
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
   }

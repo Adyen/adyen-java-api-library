@@ -164,7 +164,7 @@ public class AmexInfo {
    * @return serviceLevel
    */
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ServiceLevelEnum getServiceLevel() {
     return serviceLevel;
   }
@@ -175,7 +175,7 @@ public class AmexInfo {
    * @param serviceLevel
    */
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setServiceLevel(ServiceLevelEnum serviceLevel) {
     this.serviceLevel = serviceLevel;
   }

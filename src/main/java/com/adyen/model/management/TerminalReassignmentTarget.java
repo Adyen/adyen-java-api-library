@@ -99,7 +99,7 @@ public class TerminalReassignmentTarget {
    * @return inventory
    */
   @JsonProperty(JSON_PROPERTY_INVENTORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getInventory() {
     return inventory;
   }
@@ -110,7 +110,7 @@ public class TerminalReassignmentTarget {
    * @param inventory
    */
   @JsonProperty(JSON_PROPERTY_INVENTORY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInventory(Boolean inventory) {
     this.inventory = inventory;
   }

@@ -935,7 +935,7 @@ public class AdditionalDataAirline {
    * @return airlinePassengerName
    */
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAirlinePassengerName() {
     return airlinePassengerName;
   }
@@ -946,7 +946,7 @@ public class AdditionalDataAirline {
    * @param airlinePassengerName
    */
   @JsonProperty(JSON_PROPERTY_AIRLINE_PASSENGER_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirlinePassengerName(String airlinePassengerName) {
     this.airlinePassengerName = airlinePassengerName;
   }

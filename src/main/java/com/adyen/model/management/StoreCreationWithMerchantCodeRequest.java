@@ -91,7 +91,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StoreLocation getAddress() {
     return address;
   }
@@ -102,7 +102,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @param address
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(StoreLocation address) {
     this.address = address;
   }
@@ -163,7 +163,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return description
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
@@ -174,7 +174,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @param description
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -227,7 +227,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return merchantId
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
     return merchantId;
   }
@@ -238,7 +238,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @param merchantId
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
   }
@@ -259,7 +259,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return phoneNumber
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -270,7 +270,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @param phoneNumber
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
@@ -323,7 +323,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @return shopperStatement
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperStatement() {
     return shopperStatement;
   }
@@ -334,7 +334,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * @param shopperStatement
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
   }

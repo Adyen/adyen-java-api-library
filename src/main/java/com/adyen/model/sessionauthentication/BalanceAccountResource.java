@@ -66,7 +66,7 @@ public class BalanceAccountResource extends Resource {
    * @return balanceAccountId
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
@@ -77,7 +77,7 @@ public class BalanceAccountResource extends Resource {
    * @param balanceAccountId
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }

@@ -74,7 +74,7 @@ public class PaginatedAccountHoldersResponse {
    * @return accountHolders
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AccountHolder> getAccountHolders() {
     return accountHolders;
   }
@@ -85,7 +85,7 @@ public class PaginatedAccountHoldersResponse {
    * @param accountHolders
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolders(List<AccountHolder> accountHolders) {
     this.accountHolders = accountHolders;
   }
@@ -106,7 +106,7 @@ public class PaginatedAccountHoldersResponse {
    * @return hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasNext() {
     return hasNext;
   }
@@ -117,7 +117,7 @@ public class PaginatedAccountHoldersResponse {
    * @param hasNext
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
   }
@@ -138,7 +138,7 @@ public class PaginatedAccountHoldersResponse {
    * @return hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasPrevious() {
     return hasPrevious;
   }
@@ -149,7 +149,7 @@ public class PaginatedAccountHoldersResponse {
    * @param hasPrevious
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
   }

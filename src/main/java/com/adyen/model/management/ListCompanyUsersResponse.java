@@ -143,7 +143,7 @@ public class ListCompanyUsersResponse {
    * @return itemsTotal
    */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getItemsTotal() {
     return itemsTotal;
   }
@@ -154,7 +154,7 @@ public class ListCompanyUsersResponse {
    * @param itemsTotal
    */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
     this.itemsTotal = itemsTotal;
   }
@@ -175,7 +175,7 @@ public class ListCompanyUsersResponse {
    * @return pagesTotal
    */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPagesTotal() {
     return pagesTotal;
   }
@@ -186,7 +186,7 @@ public class ListCompanyUsersResponse {
    * @param pagesTotal
    */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {
     this.pagesTotal = pagesTotal;
   }

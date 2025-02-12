@@ -74,7 +74,7 @@ public class SplitConfiguration {
    * @return description
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
@@ -85,7 +85,7 @@ public class SplitConfiguration {
    * @param description
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -114,7 +114,7 @@ public class SplitConfiguration {
    * @return rules
    */
   @JsonProperty(JSON_PROPERTY_RULES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SplitConfigurationRule> getRules() {
     return rules;
   }
@@ -125,7 +125,7 @@ public class SplitConfiguration {
    * @param rules
    */
   @JsonProperty(JSON_PROPERTY_RULES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRules(List<SplitConfigurationRule> rules) {
     this.rules = rules;
   }

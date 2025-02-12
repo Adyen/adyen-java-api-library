@@ -220,7 +220,7 @@ public class PaymentInstrumentInfo {
    * @return balanceAccountId
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalanceAccountId() {
     return balanceAccountId;
   }
@@ -231,7 +231,7 @@ public class PaymentInstrumentInfo {
    * @param balanceAccountId
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccountId(String balanceAccountId) {
     this.balanceAccountId = balanceAccountId;
   }
@@ -348,7 +348,7 @@ public class PaymentInstrumentInfo {
    * @return issuingCountryCode
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuingCountryCode() {
     return issuingCountryCode;
   }
@@ -359,7 +359,7 @@ public class PaymentInstrumentInfo {
    * @param issuingCountryCode
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {
     this.issuingCountryCode = issuingCountryCode;
   }
@@ -540,7 +540,7 @@ public class PaymentInstrumentInfo {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -551,7 +551,7 @@ public class PaymentInstrumentInfo {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

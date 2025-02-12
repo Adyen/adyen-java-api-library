@@ -63,7 +63,7 @@ public class CreateSessionRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -74,7 +74,7 @@ public class CreateSessionRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -95,7 +95,7 @@ public class CreateSessionRequest {
    * @return setupToken
    */
   @JsonProperty(JSON_PROPERTY_SETUP_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSetupToken() {
     return setupToken;
   }
@@ -106,7 +106,7 @@ public class CreateSessionRequest {
    * @param setupToken
    */
   @JsonProperty(JSON_PROPERTY_SETUP_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSetupToken(String setupToken) {
     this.setupToken = setupToken;
   }

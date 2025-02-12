@@ -99,7 +99,7 @@ public class TransferInstrumentInfo {
    * @return bankAccount
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccountInfo getBankAccount() {
     return bankAccount;
   }
@@ -110,7 +110,7 @@ public class TransferInstrumentInfo {
    * @param bankAccount
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountInfo bankAccount) {
     this.bankAccount = bankAccount;
   }
@@ -131,7 +131,7 @@ public class TransferInstrumentInfo {
    * @return legalEntityId
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalEntityId() {
     return legalEntityId;
   }
@@ -142,7 +142,7 @@ public class TransferInstrumentInfo {
    * @param legalEntityId
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
   }
@@ -163,7 +163,7 @@ public class TransferInstrumentInfo {
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
@@ -174,7 +174,7 @@ public class TransferInstrumentInfo {
    * @param type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }

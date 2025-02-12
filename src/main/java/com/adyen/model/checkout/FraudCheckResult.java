@@ -63,7 +63,7 @@ public class FraudCheckResult {
    * @return accountScore
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_SCORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getAccountScore() {
     return accountScore;
   }
@@ -74,7 +74,7 @@ public class FraudCheckResult {
    * @param accountScore
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_SCORE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountScore(Integer accountScore) {
     this.accountScore = accountScore;
   }
@@ -95,7 +95,7 @@ public class FraudCheckResult {
    * @return checkId
    */
   @JsonProperty(JSON_PROPERTY_CHECK_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getCheckId() {
     return checkId;
   }
@@ -106,7 +106,7 @@ public class FraudCheckResult {
    * @param checkId
    */
   @JsonProperty(JSON_PROPERTY_CHECK_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckId(Integer checkId) {
     this.checkId = checkId;
   }
@@ -127,7 +127,7 @@ public class FraudCheckResult {
    * @return name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
@@ -138,7 +138,7 @@ public class FraudCheckResult {
    * @param name
    */
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }

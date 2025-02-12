@@ -59,7 +59,7 @@ public class RevealPinResponse {
    * @return encryptedPinBlock
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedPinBlock() {
     return encryptedPinBlock;
   }
@@ -70,7 +70,7 @@ public class RevealPinResponse {
    * @param encryptedPinBlock
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedPinBlock(String encryptedPinBlock) {
     this.encryptedPinBlock = encryptedPinBlock;
   }
@@ -91,7 +91,7 @@ public class RevealPinResponse {
    * @return token
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToken() {
     return token;
   }
@@ -102,7 +102,7 @@ public class RevealPinResponse {
    * @param token
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
     this.token = token;
   }

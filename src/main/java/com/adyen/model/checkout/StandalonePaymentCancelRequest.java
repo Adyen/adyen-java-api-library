@@ -100,7 +100,7 @@ public class StandalonePaymentCancelRequest {
    * @return merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
     return merchantAccount;
   }
@@ -111,7 +111,7 @@ public class StandalonePaymentCancelRequest {
    * @param merchantAccount
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
@@ -132,7 +132,7 @@ public class StandalonePaymentCancelRequest {
    * @return paymentReference
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentReference() {
     return paymentReference;
   }
@@ -143,7 +143,7 @@ public class StandalonePaymentCancelRequest {
    * @param paymentReference
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentReference(String paymentReference) {
     this.paymentReference = paymentReference;
   }

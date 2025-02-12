@@ -213,7 +213,7 @@ public class ReportNotificationData {
    * @return downloadUrl
    */
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDownloadUrl() {
     return downloadUrl;
   }
@@ -224,7 +224,7 @@ public class ReportNotificationData {
    * @param downloadUrl
    */
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
   }
@@ -245,7 +245,7 @@ public class ReportNotificationData {
    * @return fileName
    */
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFileName() {
     return fileName;
   }
@@ -256,7 +256,7 @@ public class ReportNotificationData {
    * @param fileName
    */
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
@@ -309,7 +309,7 @@ public class ReportNotificationData {
    * @return reportType
    */
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReportType() {
     return reportType;
   }
@@ -320,7 +320,7 @@ public class ReportNotificationData {
    * @param reportType
    */
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReportType(String reportType) {
     this.reportType = reportType;
   }
