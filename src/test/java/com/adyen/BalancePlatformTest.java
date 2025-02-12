@@ -306,7 +306,7 @@ public class BalancePlatformTest extends BaseTest {
         // request to json
         String json = request.toJson();
         
-        assertEquals("{\"schedule\":{\"cronExpression\":\"6 6 6\",\"type\":\"cron\"},\"type\":\"pull\"}", json);
+        assertEquals("{\"priorities\":[],\"schedule\":{\"cronExpression\":\"6 6 6\",\"type\":\"cron\"},\"type\":\"pull\"}", json);
     }
 
     @Test
@@ -320,7 +320,7 @@ public class BalancePlatformTest extends BaseTest {
         // request to json
         String json = request.toJson();
 
-        assertEquals("{\"schedule\":{\"type\":\"daily\"},\"type\":\"push\"}", json);
+        assertEquals("{\"priorities\":[],\"schedule\":{\"type\":\"daily\"},\"type\":\"push\"}", json);
     }
 
     @Test

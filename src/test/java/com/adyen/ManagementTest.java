@@ -94,7 +94,7 @@ public class ManagementTest extends BaseTest {
         assertEquals("YOUR_STORE_ID", store.getId());
         verify(client.getHttpClient()).request(
                 "https://management-test.adyen.com/v3/merchants/YOUR_MERCHANT_ACCOUNT_ID/stores",
-                "{\"description\":\"City centre store\"}",
+                "{\"businessLineIds\":[],\"description\":\"City centre store\"}",
                 client.getConfig(),
                 false,
                 null,
