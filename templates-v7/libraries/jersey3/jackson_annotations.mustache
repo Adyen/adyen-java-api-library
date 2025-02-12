@@ -7,8 +7,7 @@
   @JsonProperty(JSON_PROPERTY_{{nameInSnakeCase}})
 {{!
   // the original templates use JsonInclude.Include.ALWAYS for required fields, resulting for example in ` "amount" : null`
-  // our custom templates use JsonInclude.Include.USE_DEFAULTS we discard fields with null
-  @JsonInclude({{#isMap}}{{#items.isNullable}}content = JsonInclude.Include.ALWAYS, {{/items.isNullable}}{{/isMap}}value = JsonInclude.Include.{{#required}}ALWAYS{{/required}}{{^required}}USE_DEFAULTS{{/required}}){{#withXml}}
+  // our custom templates use JsonInclude.Include.USE_DEFAULTS as we want to exclude fields with null
  }}
   @JsonInclude({{#isMap}}{{#items.isNullable}}content = JsonInclude.Include.ALWAYS, {{/items.isNullable}}{{/isMap}}value = JsonInclude.Include.USE_DEFAULTS){{#withXml}}
   @JacksonXmlProperty(localName = "{{items.xmlName}}{{^items.xmlName}}{{xmlName}}{{^xmlName}}{{baseName}}{{/xmlName}}{{/items.xmlName}}"{{#isXmlAttribute}}, isAttribute = true{{/isXmlAttribute}}{{#xmlNamespace}}, namespace = "{{.}}"{{/xmlNamespace}})
