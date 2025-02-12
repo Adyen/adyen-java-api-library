@@ -250,7 +250,7 @@ public class LegalEntityAssociation {
 
 
   /**
-   * Default value: **false**Indicates if the &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is a nominee. Only applicable to New Zealand.
+   * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
    *
    * @param nominee
    * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
@@ -261,7 +261,7 @@ public class LegalEntityAssociation {
   }
 
   /**
-   * Default value: **false**Indicates if the &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is a nominee. Only applicable to New Zealand.
+   * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
    * @return nominee
    */
   @JsonProperty(JSON_PROPERTY_NOMINEE)
@@ -271,7 +271,7 @@ public class LegalEntityAssociation {
   }
 
   /**
-   * Default value: **false**Indicates if the &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is a nominee. Only applicable to New Zealand.
+   * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
    *
    * @param nominee
    */

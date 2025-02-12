@@ -86,7 +86,7 @@ public class SourceOfFunds {
   }
 
   /**
-   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+   * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    *
    * @param acquiringBusinessLineId
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
@@ -101,7 +101,7 @@ public class SourceOfFunds {
   }
 
   /**
-   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+   * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    * @return acquiringBusinessLineId
    * @deprecated // deprecated since Legal Entity Management API v3: This field will be removed in v4.
    */
@@ -113,7 +113,7 @@ public class SourceOfFunds {
   }
 
   /**
-   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+   * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    *
    * @param acquiringBusinessLineId
    *
