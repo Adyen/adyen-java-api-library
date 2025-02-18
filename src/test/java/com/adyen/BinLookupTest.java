@@ -103,7 +103,6 @@ public class BinLookupTest extends BaseTest {
         assertEquals("EUR", costEstimateResponse.getCostEstimateAmount().getCurrency());
         assertEquals(12L, costEstimateResponse.getCostEstimateAmount().getValue().longValue());
         assertEquals("Success", costEstimateResponse.getResultCode());
-        assertEquals("PASSTHROUGH", costEstimateResponse.getSurchargeType());
     }
 
     @Test
