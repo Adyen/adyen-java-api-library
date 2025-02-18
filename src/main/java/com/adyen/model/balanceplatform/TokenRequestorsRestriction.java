@@ -30,71 +30,30 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PriorityRestriction
+ * TokenRequestorsRestriction
  */
 @JsonPropertyOrder({
-  PriorityRestriction.JSON_PROPERTY_OPERATION,
-  PriorityRestriction.JSON_PROPERTY_VALUE
+  TokenRequestorsRestriction.JSON_PROPERTY_OPERATION,
+  TokenRequestorsRestriction.JSON_PROPERTY_VALUE
 })
 
-public class PriorityRestriction {
+public class TokenRequestorsRestriction {
   public static final String JSON_PROPERTY_OPERATION = "operation";
   private String operation;
 
-  /**
-   * Gets or Sets value
-   */
-  public enum ValueEnum {
-    CROSSBORDER("crossBorder"),
-    
-    FAST("fast"),
-    
-    INSTANT("instant"),
-    
-    INTRABANK("intraBank"),
-    
-    REGULAR("regular");
-
-    private String value;
-
-    ValueEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ValueEnum fromValue(String value) {
-      for (ValueEnum b : ValueEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<ValueEnum> value = null;
+  private List<String> value = null;
 
-  public PriorityRestriction() { 
+  public TokenRequestorsRestriction() { 
   }
 
   /**
    * Defines how the condition must be evaluated.
    *
    * @param operation
-   * @return the current {@code PriorityRestriction} instance, allowing for method chaining
+   * @return the current {@code TokenRequestorsRestriction} instance, allowing for method chaining
    */
-  public PriorityRestriction operation(String operation) {
+  public TokenRequestorsRestriction operation(String operation) {
     this.operation = operation;
     return this;
   }
@@ -125,14 +84,14 @@ public class PriorityRestriction {
    * value
    *
    * @param value
-   * @return the current {@code PriorityRestriction} instance, allowing for method chaining
+   * @return the current {@code TokenRequestorsRestriction} instance, allowing for method chaining
    */
-  public PriorityRestriction value(List<ValueEnum> value) {
+  public TokenRequestorsRestriction value(List<String> value) {
     this.value = value;
     return this;
   }
 
-  public PriorityRestriction addValueItem(ValueEnum valueItem) {
+  public TokenRequestorsRestriction addValueItem(String valueItem) {
     if (this.value == null) {
       this.value = new ArrayList<>();
     }
@@ -147,7 +106,7 @@ public class PriorityRestriction {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ValueEnum> getValue() {
+  public List<String> getValue() {
     return value;
   }
 
@@ -158,12 +117,12 @@ public class PriorityRestriction {
    */ 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(List<ValueEnum> value) {
+  public void setValue(List<String> value) {
     this.value = value;
   }
 
   /**
-   * Return true if this PriorityRestriction object is equal to o.
+   * Return true if this TokenRequestorsRestriction object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -173,9 +132,9 @@ public class PriorityRestriction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PriorityRestriction priorityRestriction = (PriorityRestriction) o;
-    return Objects.equals(this.operation, priorityRestriction.operation) &&
-        Objects.equals(this.value, priorityRestriction.value);
+    TokenRequestorsRestriction tokenRequestorsRestriction = (TokenRequestorsRestriction) o;
+    return Objects.equals(this.operation, tokenRequestorsRestriction.operation) &&
+        Objects.equals(this.value, tokenRequestorsRestriction.value);
   }
 
   @Override
@@ -186,7 +145,7 @@ public class PriorityRestriction {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PriorityRestriction {\n");
+    sb.append("class TokenRequestorsRestriction {\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -205,17 +164,17 @@ public class PriorityRestriction {
   }
 
 /**
-   * Create an instance of PriorityRestriction given an JSON string
+   * Create an instance of TokenRequestorsRestriction given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PriorityRestriction
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PriorityRestriction
+   * @return An instance of TokenRequestorsRestriction
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TokenRequestorsRestriction
    */
-  public static PriorityRestriction fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PriorityRestriction.class);
+  public static TokenRequestorsRestriction fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TokenRequestorsRestriction.class);
   }
 /**
-  * Convert an instance of PriorityRestriction to an JSON string
+  * Convert an instance of TokenRequestorsRestriction to an JSON string
   *
   * @return JSON string
   */

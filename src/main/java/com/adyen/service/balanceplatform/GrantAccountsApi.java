@@ -56,7 +56,10 @@ public class GrantAccountsApi extends Service {
     * @param id {@link String } The unique identifier of the grant account. (required)
     * @return {@link CapitalGrantAccount }
     * @throws ApiException if fails to make API call
+    * @deprecated since Configuration API v2
+    * Use the `/grantAccounts/{id}` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grantAccounts/(id)) instead.
     */
+    @Deprecated
     public CapitalGrantAccount getGrantAccount(String id) throws ApiException, IOException {
         return getGrantAccount(id, null);
     }
@@ -68,7 +71,10 @@ public class GrantAccountsApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link CapitalGrantAccount }
     * @throws ApiException if fails to make API call
+    * @deprecated since Configuration API v2
+    * Use the `/grantAccounts/{id}` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grantAccounts/(id)) instead.
     */
+   @Deprecated
     public CapitalGrantAccount getGrantAccount(String id, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();

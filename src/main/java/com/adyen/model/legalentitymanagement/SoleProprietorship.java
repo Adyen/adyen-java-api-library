@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
+import com.adyen.model.legalentitymanagement.FinancialReport;
 import com.adyen.model.legalentitymanagement.TaxInformation;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,6 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   SoleProprietorship.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
   SoleProprietorship.JSON_PROPERTY_DATE_OF_INCORPORATION,
   SoleProprietorship.JSON_PROPERTY_DOING_BUSINESS_AS,
+  SoleProprietorship.JSON_PROPERTY_FINANCIAL_REPORTS,
   SoleProprietorship.JSON_PROPERTY_NAME,
   SoleProprietorship.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
   SoleProprietorship.JSON_PROPERTY_REGISTERED_ADDRESS,
@@ -57,6 +59,9 @@ public class SoleProprietorship {
 
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
+
+  public static final String JSON_PROPERTY_FINANCIAL_REPORTS = "financialReports";
+  private List<FinancialReport> financialReports = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -217,6 +222,47 @@ public class SoleProprietorship {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
+  }
+
+  /**
+   * The information from the financial report of the sole proprietorship.
+   *
+   * @param financialReports
+   * @return the current {@code SoleProprietorship} instance, allowing for method chaining
+   */
+  public SoleProprietorship financialReports(List<FinancialReport> financialReports) {
+    this.financialReports = financialReports;
+    return this;
+  }
+
+  public SoleProprietorship addFinancialReportsItem(FinancialReport financialReportsItem) {
+    if (this.financialReports == null) {
+      this.financialReports = new ArrayList<>();
+    }
+    this.financialReports.add(financialReportsItem);
+    return this;
+  }
+
+  /**
+   * The information from the financial report of the sole proprietorship.
+   * @return financialReports
+   */
+  @ApiModelProperty(value = "The information from the financial report of the sole proprietorship.")
+  @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FinancialReport> getFinancialReports() {
+    return financialReports;
+  }
+
+  /**
+   * The information from the financial report of the sole proprietorship.
+   *
+   * @param financialReports
+   */ 
+  @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinancialReports(List<FinancialReport> financialReports) {
+    this.financialReports = financialReports;
   }
 
   /**
@@ -506,6 +552,7 @@ public class SoleProprietorship {
     return Objects.equals(this.countryOfGoverningLaw, soleProprietorship.countryOfGoverningLaw) &&
         Objects.equals(this.dateOfIncorporation, soleProprietorship.dateOfIncorporation) &&
         Objects.equals(this.doingBusinessAs, soleProprietorship.doingBusinessAs) &&
+        Objects.equals(this.financialReports, soleProprietorship.financialReports) &&
         Objects.equals(this.name, soleProprietorship.name) &&
         Objects.equals(this.principalPlaceOfBusiness, soleProprietorship.principalPlaceOfBusiness) &&
         Objects.equals(this.registeredAddress, soleProprietorship.registeredAddress) &&
@@ -518,7 +565,7 @@ public class SoleProprietorship {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxAbsent, taxInformation, vatAbsenceReason, vatNumber);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, financialReports, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, taxAbsent, taxInformation, vatAbsenceReason, vatNumber);
   }
 
   @Override
@@ -528,6 +575,7 @@ public class SoleProprietorship {
     sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
     sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
+    sb.append("    financialReports: ").append(toIndentedString(financialReports)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");
     sb.append("    registeredAddress: ").append(toIndentedString(registeredAddress)).append("\n");
