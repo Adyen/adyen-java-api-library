@@ -14,6 +14,10 @@ package com.adyen.service.balanceplatform;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.balanceplatform.AssociationFinaliseRequest;
+import com.adyen.model.balanceplatform.AssociationFinaliseResponse;
+import com.adyen.model.balanceplatform.AssociationInitiateRequest;
+import com.adyen.model.balanceplatform.AssociationInitiateResponse;
 import com.adyen.model.balanceplatform.RegisterSCAFinalResponse;
 import com.adyen.model.balanceplatform.RegisterSCARequest;
 import com.adyen.model.balanceplatform.RegisterSCAResponse;
@@ -51,6 +55,41 @@ public class ManageScaDevicesApi extends Service {
     public ManageScaDevicesApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
+    }
+
+    /**
+    * Complete an association between an SCA device and a resource
+    *
+    * @param deviceId {@link String } The unique identifier of the SCA device that you are associating with a resource. (required)
+    * @param associationFinaliseRequest {@link AssociationFinaliseRequest }  (required)
+    * @return {@link AssociationFinaliseResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public AssociationFinaliseResponse completeAssociationBetweenScaDeviceAndResource(String deviceId, AssociationFinaliseRequest associationFinaliseRequest) throws ApiException, IOException {
+        return completeAssociationBetweenScaDeviceAndResource(deviceId, associationFinaliseRequest, null);
+    }
+
+    /**
+    * Complete an association between an SCA device and a resource
+    *
+    * @param deviceId {@link String } The unique identifier of the SCA device that you are associating with a resource. (required)
+    * @param associationFinaliseRequest {@link AssociationFinaliseRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link AssociationFinaliseResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public AssociationFinaliseResponse completeAssociationBetweenScaDeviceAndResource(String deviceId, AssociationFinaliseRequest associationFinaliseRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (deviceId == null) {
+            throw new IllegalArgumentException("Please provide the deviceId path parameter");
+        }
+        pathParams.put("deviceId", deviceId);
+
+        String requestBody = associationFinaliseRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/registeredDevices/{deviceId}/associations", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
+        return AssociationFinaliseResponse.fromJson(jsonResult);
     }
 
     /**
@@ -123,6 +162,41 @@ public class ManageScaDevicesApi extends Service {
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/registeredDevices/{id}", null);
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams, queryParams);
+    }
+
+    /**
+    * Initiate an association between an SCA device and a resource
+    *
+    * @param deviceId {@link String } The unique identifier of the SCA device that you are associating with a resource. (required)
+    * @param associationInitiateRequest {@link AssociationInitiateRequest }  (required)
+    * @return {@link AssociationInitiateResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public AssociationInitiateResponse initiateAssociationBetweenScaDeviceAndResource(String deviceId, AssociationInitiateRequest associationInitiateRequest) throws ApiException, IOException {
+        return initiateAssociationBetweenScaDeviceAndResource(deviceId, associationInitiateRequest, null);
+    }
+
+    /**
+    * Initiate an association between an SCA device and a resource
+    *
+    * @param deviceId {@link String } The unique identifier of the SCA device that you are associating with a resource. (required)
+    * @param associationInitiateRequest {@link AssociationInitiateRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link AssociationInitiateResponse }
+    * @throws ApiException if fails to make API call
+    */
+    public AssociationInitiateResponse initiateAssociationBetweenScaDeviceAndResource(String deviceId, AssociationInitiateRequest associationInitiateRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        //Add path params
+        Map<String, String> pathParams = new HashMap<>();
+        if (deviceId == null) {
+            throw new IllegalArgumentException("Please provide the deviceId path parameter");
+        }
+        pathParams.put("deviceId", deviceId);
+
+        String requestBody = associationInitiateRequest.toJson();
+        Resource resource = new Resource(this, this.baseURL + "/registeredDevices/{deviceId}/associations", null);
+        String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+        return AssociationInitiateResponse.fromJson(jsonResult);
     }
 
     /**

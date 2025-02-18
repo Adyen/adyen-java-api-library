@@ -38,6 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   LegalEntityAssociation.JSON_PROPERTY_JOB_TITLE,
   LegalEntityAssociation.JSON_PROPERTY_LEGAL_ENTITY_ID,
   LegalEntityAssociation.JSON_PROPERTY_NAME,
+  LegalEntityAssociation.JSON_PROPERTY_NOMINEE,
   LegalEntityAssociation.JSON_PROPERTY_RELATIONSHIP,
   LegalEntityAssociation.JSON_PROPERTY_SETTLOR_EXEMPTION_REASON,
   LegalEntityAssociation.JSON_PROPERTY_TYPE
@@ -58,6 +59,9 @@ public class LegalEntityAssociation {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_NOMINEE = "nominee";
+  private Boolean nominee;
 
   public static final String JSON_PROPERTY_RELATIONSHIP = "relationship";
   private String relationship;
@@ -304,6 +308,39 @@ public class LegalEntityAssociation {
   }
 
   /**
+   * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
+   *
+   * @param nominee
+   * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
+   */
+  public LegalEntityAssociation nominee(Boolean nominee) {
+    this.nominee = nominee;
+    return this;
+  }
+
+  /**
+   * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
+   * @return nominee
+   */
+  @ApiModelProperty(value = "Default value: **false** Set to **true** if the entity association `type` **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.")
+  @JsonProperty(JSON_PROPERTY_NOMINEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getNominee() {
+    return nominee;
+  }
+
+  /**
+   * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
+   *
+   * @param nominee
+   */ 
+  @JsonProperty(JSON_PROPERTY_NOMINEE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNominee(Boolean nominee) {
+    this.nominee = nominee;
+  }
+
+  /**
    * The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
    *
    * @param relationship
@@ -427,6 +464,7 @@ public class LegalEntityAssociation {
         Objects.equals(this.jobTitle, legalEntityAssociation.jobTitle) &&
         Objects.equals(this.legalEntityId, legalEntityAssociation.legalEntityId) &&
         Objects.equals(this.name, legalEntityAssociation.name) &&
+        Objects.equals(this.nominee, legalEntityAssociation.nominee) &&
         Objects.equals(this.relationship, legalEntityAssociation.relationship) &&
         Objects.equals(this.settlorExemptionReason, legalEntityAssociation.settlorExemptionReason) &&
         Objects.equals(this.type, legalEntityAssociation.type);
@@ -434,7 +472,7 @@ public class LegalEntityAssociation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(associatorId, entityType, jobTitle, legalEntityId, name, relationship, settlorExemptionReason, type);
+    return Objects.hash(associatorId, entityType, jobTitle, legalEntityId, name, nominee, relationship, settlorExemptionReason, type);
   }
 
   @Override
@@ -446,6 +484,7 @@ public class LegalEntityAssociation {
     sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
     sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nominee: ").append(toIndentedString(nominee)).append("\n");
     sb.append("    relationship: ").append(toIndentedString(relationship)).append("\n");
     sb.append("    settlorExemptionReason: ").append(toIndentedString(settlorExemptionReason)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
