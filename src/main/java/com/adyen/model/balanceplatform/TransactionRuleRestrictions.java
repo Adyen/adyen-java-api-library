@@ -30,13 +30,13 @@ import com.adyen.model.balanceplatform.MatchingValuesRestriction;
 import com.adyen.model.balanceplatform.MccsRestriction;
 import com.adyen.model.balanceplatform.MerchantNamesRestriction;
 import com.adyen.model.balanceplatform.MerchantsRestriction;
-import com.adyen.model.balanceplatform.PriorityRestriction;
 import com.adyen.model.balanceplatform.ProcessingTypesRestriction;
 import com.adyen.model.balanceplatform.RiskScoresRestriction;
 import com.adyen.model.balanceplatform.SameAmountRestriction;
 import com.adyen.model.balanceplatform.SameCounterpartyRestriction;
 import com.adyen.model.balanceplatform.SourceAccountTypesRestriction;
 import com.adyen.model.balanceplatform.TimeOfDayRestriction;
+import com.adyen.model.balanceplatform.TokenRequestorsRestriction;
 import com.adyen.model.balanceplatform.TotalAmountRestriction;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -67,13 +67,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransactionRuleRestrictions.JSON_PROPERTY_MCCS,
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANT_NAMES,
   TransactionRuleRestrictions.JSON_PROPERTY_MERCHANTS,
-  TransactionRuleRestrictions.JSON_PROPERTY_PRIORITY,
   TransactionRuleRestrictions.JSON_PROPERTY_PROCESSING_TYPES,
   TransactionRuleRestrictions.JSON_PROPERTY_RISK_SCORES,
   TransactionRuleRestrictions.JSON_PROPERTY_SAME_AMOUNT_RESTRICTION,
   TransactionRuleRestrictions.JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION,
   TransactionRuleRestrictions.JSON_PROPERTY_SOURCE_ACCOUNT_TYPES,
   TransactionRuleRestrictions.JSON_PROPERTY_TIME_OF_DAY,
+  TransactionRuleRestrictions.JSON_PROPERTY_TOKEN_REQUESTORS,
   TransactionRuleRestrictions.JSON_PROPERTY_TOTAL_AMOUNT
 })
 
@@ -120,9 +120,6 @@ public class TransactionRuleRestrictions {
   public static final String JSON_PROPERTY_MERCHANTS = "merchants";
   private MerchantsRestriction merchants;
 
-  public static final String JSON_PROPERTY_PRIORITY = "priority";
-  private PriorityRestriction priority;
-
   public static final String JSON_PROPERTY_PROCESSING_TYPES = "processingTypes";
   private ProcessingTypesRestriction processingTypes;
 
@@ -140,6 +137,9 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_TIME_OF_DAY = "timeOfDay";
   private TimeOfDayRestriction timeOfDay;
+
+  public static final String JSON_PROPERTY_TOKEN_REQUESTORS = "tokenRequestors";
+  private TokenRequestorsRestriction tokenRequestors;
 
   public static final String JSON_PROPERTY_TOTAL_AMOUNT = "totalAmount";
   private TotalAmountRestriction totalAmount;
@@ -610,39 +610,6 @@ public class TransactionRuleRestrictions {
   }
 
   /**
-   * priority
-   *
-   * @param priority
-   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
-   */
-  public TransactionRuleRestrictions priority(PriorityRestriction priority) {
-    this.priority = priority;
-    return this;
-  }
-
-  /**
-   * priority
-   * @return priority
-   */
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PriorityRestriction getPriority() {
-    return priority;
-  }
-
-  /**
-   * priority
-   *
-   * @param priority
-   */ 
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriority(PriorityRestriction priority) {
-    this.priority = priority;
-  }
-
-  /**
    * processingTypes
    *
    * @param processingTypes
@@ -841,6 +808,39 @@ public class TransactionRuleRestrictions {
   }
 
   /**
+   * tokenRequestors
+   *
+   * @param tokenRequestors
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
+  public TransactionRuleRestrictions tokenRequestors(TokenRequestorsRestriction tokenRequestors) {
+    this.tokenRequestors = tokenRequestors;
+    return this;
+  }
+
+  /**
+   * tokenRequestors
+   * @return tokenRequestors
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TokenRequestorsRestriction getTokenRequestors() {
+    return tokenRequestors;
+  }
+
+  /**
+   * tokenRequestors
+   *
+   * @param tokenRequestors
+   */ 
+  @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTokenRequestors(TokenRequestorsRestriction tokenRequestors) {
+    this.tokenRequestors = tokenRequestors;
+  }
+
+  /**
    * totalAmount
    *
    * @param totalAmount
@@ -899,19 +899,19 @@ public class TransactionRuleRestrictions {
         Objects.equals(this.mccs, transactionRuleRestrictions.mccs) &&
         Objects.equals(this.merchantNames, transactionRuleRestrictions.merchantNames) &&
         Objects.equals(this.merchants, transactionRuleRestrictions.merchants) &&
-        Objects.equals(this.priority, transactionRuleRestrictions.priority) &&
         Objects.equals(this.processingTypes, transactionRuleRestrictions.processingTypes) &&
         Objects.equals(this.riskScores, transactionRuleRestrictions.riskScores) &&
         Objects.equals(this.sameAmountRestriction, transactionRuleRestrictions.sameAmountRestriction) &&
         Objects.equals(this.sameCounterpartyRestriction, transactionRuleRestrictions.sameCounterpartyRestriction) &&
         Objects.equals(this.sourceAccountTypes, transactionRuleRestrictions.sourceAccountTypes) &&
         Objects.equals(this.timeOfDay, transactionRuleRestrictions.timeOfDay) &&
+        Objects.equals(this.tokenRequestors, transactionRuleRestrictions.tokenRequestors) &&
         Objects.equals(this.totalAmount, transactionRuleRestrictions.totalAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, counterpartyTypes, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, priority, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, sourceAccountTypes, timeOfDay, totalAmount);
+    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, counterpartyTypes, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, sourceAccountTypes, timeOfDay, tokenRequestors, totalAmount);
   }
 
   @Override
@@ -932,13 +932,13 @@ public class TransactionRuleRestrictions {
     sb.append("    mccs: ").append(toIndentedString(mccs)).append("\n");
     sb.append("    merchantNames: ").append(toIndentedString(merchantNames)).append("\n");
     sb.append("    merchants: ").append(toIndentedString(merchants)).append("\n");
-    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    processingTypes: ").append(toIndentedString(processingTypes)).append("\n");
     sb.append("    riskScores: ").append(toIndentedString(riskScores)).append("\n");
     sb.append("    sameAmountRestriction: ").append(toIndentedString(sameAmountRestriction)).append("\n");
     sb.append("    sameCounterpartyRestriction: ").append(toIndentedString(sameCounterpartyRestriction)).append("\n");
     sb.append("    sourceAccountTypes: ").append(toIndentedString(sourceAccountTypes)).append("\n");
     sb.append("    timeOfDay: ").append(toIndentedString(timeOfDay)).append("\n");
+    sb.append("    tokenRequestors: ").append(toIndentedString(tokenRequestors)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("}");
     return sb.toString();

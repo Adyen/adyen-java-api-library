@@ -342,7 +342,7 @@ public class NetworkToken {
   }
 
   /**
-   * The type of wallet the network token is associated with. For example, **applePay**.
+   * The type of network token. For example, **wallet**, **cof**.
    *
    * @param type
    * @return the current {@code NetworkToken} instance, allowing for method chaining
@@ -353,10 +353,10 @@ public class NetworkToken {
   }
 
   /**
-   * The type of wallet the network token is associated with. For example, **applePay**.
+   * The type of network token. For example, **wallet**, **cof**.
    * @return type
    */
-  @ApiModelProperty(value = "The type of wallet the network token is associated with. For example, **applePay**.")
+  @ApiModelProperty(value = "The type of network token. For example, **wallet**, **cof**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -364,7 +364,7 @@ public class NetworkToken {
   }
 
   /**
-   * The type of wallet the network token is associated with. For example, **applePay**.
+   * The type of network token. For example, **wallet**, **cof**.
    *
    * @param type
    */ 

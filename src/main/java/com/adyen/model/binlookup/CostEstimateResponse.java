@@ -36,8 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   CostEstimateResponse.JSON_PROPERTY_CARD_BIN,
   CostEstimateResponse.JSON_PROPERTY_COST_ESTIMATE_AMOUNT,
   CostEstimateResponse.JSON_PROPERTY_COST_ESTIMATE_REFERENCE,
-  CostEstimateResponse.JSON_PROPERTY_RESULT_CODE,
-  CostEstimateResponse.JSON_PROPERTY_SURCHARGE_TYPE
+  CostEstimateResponse.JSON_PROPERTY_RESULT_CODE
 })
 
 public class CostEstimateResponse {
@@ -52,9 +51,6 @@ public class CostEstimateResponse {
 
   public static final String JSON_PROPERTY_RESULT_CODE = "resultCode";
   private String resultCode;
-
-  public static final String JSON_PROPERTY_SURCHARGE_TYPE = "surchargeType";
-  private String surchargeType;
 
   public CostEstimateResponse() { 
   }
@@ -192,39 +188,6 @@ public class CostEstimateResponse {
   }
 
   /**
-   * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
-   *
-   * @param surchargeType
-   * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
-   */
-  public CostEstimateResponse surchargeType(String surchargeType) {
-    this.surchargeType = surchargeType;
-    return this;
-  }
-
-  /**
-   * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
-   * @return surchargeType
-   */
-  @ApiModelProperty(value = "Indicates the way the charges can be passed on to the cardholder. The following values are possible: * `ZERO` - the charges are not allowed to pass on * `PASSTHROUGH` - the charges can be passed on * `UNLIMITED` - there is no limit on how much surcharge is passed on")
-  @JsonProperty(JSON_PROPERTY_SURCHARGE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSurchargeType() {
-    return surchargeType;
-  }
-
-  /**
-   * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
-   *
-   * @param surchargeType
-   */ 
-  @JsonProperty(JSON_PROPERTY_SURCHARGE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSurchargeType(String surchargeType) {
-    this.surchargeType = surchargeType;
-  }
-
-  /**
    * Return true if this CostEstimateResponse object is equal to o.
    */
   @Override
@@ -239,13 +202,12 @@ public class CostEstimateResponse {
     return Objects.equals(this.cardBin, costEstimateResponse.cardBin) &&
         Objects.equals(this.costEstimateAmount, costEstimateResponse.costEstimateAmount) &&
         Objects.equals(this.costEstimateReference, costEstimateResponse.costEstimateReference) &&
-        Objects.equals(this.resultCode, costEstimateResponse.resultCode) &&
-        Objects.equals(this.surchargeType, costEstimateResponse.surchargeType);
+        Objects.equals(this.resultCode, costEstimateResponse.resultCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardBin, costEstimateAmount, costEstimateReference, resultCode, surchargeType);
+    return Objects.hash(cardBin, costEstimateAmount, costEstimateReference, resultCode);
   }
 
   @Override
@@ -256,7 +218,6 @@ public class CostEstimateResponse {
     sb.append("    costEstimateAmount: ").append(toIndentedString(costEstimateAmount)).append("\n");
     sb.append("    costEstimateReference: ").append(toIndentedString(costEstimateReference)).append("\n");
     sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-    sb.append("    surchargeType: ").append(toIndentedString(surchargeType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

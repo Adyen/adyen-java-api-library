@@ -57,7 +57,10 @@ public class GrantOffersApi extends Service {
     * @param accountHolderId {@link String } The unique identifier of the grant account. (required)
     * @return {@link GrantOffers }
     * @throws ApiException if fails to make API call
+    * @deprecated since Configuration API v2
+    * Use the `/grantOffers` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grantOffers) instead.
     */
+    @Deprecated
     public GrantOffers getAllAvailableGrantOffers(String accountHolderId) throws ApiException, IOException {
         return getAllAvailableGrantOffers(accountHolderId,  null);
     }
@@ -69,7 +72,10 @@ public class GrantOffersApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link GrantOffers }
     * @throws ApiException if fails to make API call
+    * @deprecated since Configuration API v2
+    * Use the `/grantOffers` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grantOffers) instead.
     */
+   @Deprecated
     public GrantOffers getAllAvailableGrantOffers(String accountHolderId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
@@ -89,7 +95,10 @@ public class GrantOffersApi extends Service {
     * @param grantOfferId {@link String } The unique identifier of the grant offer. (required)
     * @return {@link GrantOffer }
     * @throws ApiException if fails to make API call
+    * @deprecated since Configuration API v2
+    * Use the `/grantOffers/{id}` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grantOffers/(id)) instead.
     */
+    @Deprecated
     public GrantOffer getGrantOffer(String grantOfferId) throws ApiException, IOException {
         return getGrantOffer(grantOfferId, null);
     }
@@ -101,7 +110,10 @@ public class GrantOffersApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link GrantOffer }
     * @throws ApiException if fails to make API call
+    * @deprecated since Configuration API v2
+    * Use the `/grantOffers/{id}` endpoint from the [Capital API](https://docs.adyen.com/api-explorer/capital/latest/get/grantOffers/(id)) instead.
     */
+   @Deprecated
     public GrantOffer getGrantOffer(String grantOfferId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();

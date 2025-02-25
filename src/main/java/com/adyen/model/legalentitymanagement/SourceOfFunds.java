@@ -88,7 +88,7 @@ public class SourceOfFunds {
   }
 
   /**
-   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+   * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    *
    * @param acquiringBusinessLineId
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
@@ -103,14 +103,14 @@ public class SourceOfFunds {
   }
 
   /**
-   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+   * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    * @return acquiringBusinessLineId
    *
    * @deprecated since Legal Entity Management API v3
    * This field will be removed in v4.
    */
   @Deprecated
-  @ApiModelProperty(value = "The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.")
+  @ApiModelProperty(value = "The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.")
   @JsonProperty(JSON_PROPERTY_ACQUIRING_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcquiringBusinessLineId() {
@@ -118,7 +118,7 @@ public class SourceOfFunds {
   }
 
   /**
-   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
+   * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    *
    * @param acquiringBusinessLineId
    *
