@@ -1,14 +1,15 @@
 package com.adyen;
 
+import com.adyen.model.acswebhooks.AcsWebhooksHandler;
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
-import com.adyen.model.configurationwebhooks.AccountHolder;
-import com.adyen.model.configurationwebhooks.AccountHolderCapability;
-import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
-import com.adyen.model.configurationwebhooks.VerificationDeadline;
+import com.adyen.model.configurationwebhooks.*;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensationWarningNotificationData;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensationWarningNotificationRequest;
+import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceWarningWebhooksHandler;
 import com.adyen.model.reportwebhooks.ReportNotificationRequest;
+import com.adyen.model.reportwebhooks.ReportWebhooksHandler;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
+import com.adyen.model.transactionwebhooks.TransactionWebhooksHandler;
 import com.adyen.notification.BankingWebhookHandler;
 import com.adyen.util.HMACValidator;
 import org.junit.Assert;
@@ -52,7 +53,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     public void testAccountHolderCreated() throws Exception {
         String json = getFileContents("mocks/balancePlatform-webhooks/configuration-accountHolder-created.json");
 
-        Optional<AccountHolderNotificationRequest> notificationRequest = new  BankingWebhookHandler(json).getAccountHolderNotificationRequest();
+        Optional<AccountHolderNotificationRequest> notificationRequest = new ConfigurationWebhooksHandler(json).getAccountHolderNotificationRequest();
         assertTrue(notificationRequest.isPresent());
 
         AccountHolderNotificationRequest accountHolderNotificationRequest = notificationRequest.get();
@@ -78,7 +79,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     public void testAccountHolderUpdated() throws Exception {
         String json = getFileContents("mocks/balancePlatform-webhooks/configuration-accountHolder-updated.json");
 
-        Optional<AccountHolderNotificationRequest> notificationRequest = new  BankingWebhookHandler(json).getAccountHolderNotificationRequest();
+        Optional<AccountHolderNotificationRequest> notificationRequest = new  ConfigurationWebhooksHandler(json).getAccountHolderNotificationRequest();
         assertTrue(notificationRequest.isPresent());
 
         AccountHolderNotificationRequest accountHolderNotificationRequest = notificationRequest.get();
@@ -103,7 +104,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     public void testReportCreated() throws Exception {
         String json = getFileContents("mocks/balancePlatform-webhooks/balanceplatform-report-created.json");
 
-        Optional<ReportNotificationRequest> notificationRequest = new  BankingWebhookHandler(json).getReportNotificationRequest();
+        Optional<ReportNotificationRequest> notificationRequest = new ReportWebhooksHandler(json).getReportNotificationRequest();
         assertTrue(notificationRequest.isPresent());
 
         ReportNotificationRequest reportNotificationRequest = notificationRequest.get();
@@ -122,7 +123,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     @Test
     public void testBankingWebhook() {
         String jsonRequest = "{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}";
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(jsonRequest);
+        ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(jsonRequest);
         AccountHolderNotificationRequest accountHolderNotificationRequest = webhookHandler.getAccountHolderNotificationRequest().get();
         Assert.assertEquals("AH00000000000000000000001", accountHolderNotificationRequest.getData().getAccountHolder().getId());
     }
@@ -130,7 +131,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     @Test
     public void testBankingWebhookCastException() {
         String json = getFileContents("mocks/balancePlatform-webhooks/configuration-accountHolder-created-castexception.json");
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(json);
+        ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(json);
         Assert.assertTrue(webhookHandler.getAccountHolderNotificationRequest().isPresent());
         // access missing object causes deserialization error
         Assert.assertFalse(webhookHandler.getCardOrderNotificationRequest().isPresent());
@@ -152,7 +153,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     public void testBankingWebhookAcsParsing() throws Exception {
         String json = getFileContents("mocks/balancePlatform-webhooks/balanceplatform-authentication-created.json");
 
-        Optional<AuthenticationNotificationRequest> notificationRequest = new  BankingWebhookHandler(json).getAuthenticationNotificationRequest();
+        Optional<AuthenticationNotificationRequest> notificationRequest = new AcsWebhooksHandler(json).getAuthenticationNotificationRequest();
         assertTrue(notificationRequest.isPresent());
 
         AuthenticationNotificationRequest authenticationNotificationRequest = notificationRequest.get();
@@ -166,18 +167,17 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     @Test
     public void testTransactionWebhookParsing() {
         String json = getFileContents("mocks/notification/balancePlatform-transaction-created.json");
-        BankingWebhookHandler webhookHandler = new BankingWebhookHandler(json);
-        Assert.assertTrue(webhookHandler.getTransactionNotificationRequest().isPresent());
-        TransactionNotificationRequestV4 request = webhookHandler.getTransactionNotificationRequest().get();
+        TransactionWebhooksHandler webhookHandler = new TransactionWebhooksHandler(json);
+        Assert.assertTrue(webhookHandler.getTransactionNotificationRequestV4().isPresent());
+        TransactionNotificationRequestV4 request = webhookHandler.getTransactionNotificationRequestV4().get();
         Assert.assertEquals("EVJN42272224222B5JB8BRC84N686ZEUR", request.getData().getId());
-        Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
     }
 
     @Test
     public void testNegativeBalanceCompensationWarning() throws Exception {
         String json = getFileContents("mocks/balancePlatform-webhooks/balanceplatform-negativeBalanceCompensationWarning-scheduled.json");
 
-        Optional<NegativeBalanceCompensationWarningNotificationRequest> notificationRequest = new  BankingWebhookHandler(json).getNegativeBalanceCompensationWarningNotificationRequest();
+        Optional<NegativeBalanceCompensationWarningNotificationRequest> notificationRequest = new NegativeBalanceWarningWebhooksHandler(json).getNegativeBalanceCompensationWarningNotificationRequest();
         assertTrue(notificationRequest.isPresent());
 
         NegativeBalanceCompensationWarningNotificationRequest negativeBalanceCompensationWarningNotificationRequest = notificationRequest.get();
