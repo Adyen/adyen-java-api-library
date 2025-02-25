@@ -9,6 +9,12 @@ import com.adyen.model.managementwebhooks.JSON;
 
 import java.util.Optional;
 
+/**
+ *
+ * @deprecated use instead the WebhookHandler in the corresponding Webhook models folder
+ * - com.adyen.model.managementwebhooks.ManagementWebhooksHandler
+ */
+@Deprecated
 public class ManagementWebhookHandler {
     private final String payload;
 

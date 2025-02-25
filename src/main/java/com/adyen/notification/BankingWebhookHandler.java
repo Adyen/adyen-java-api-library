@@ -14,6 +14,15 @@ import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @deprecated use instead the WebhookHandler in the corresponding Webhook models folder
+ * - com.adyen.model.acswebhooks.AcsWebhooksHandler
+ * - com.adyen.model.configurationwebhooks.ConfigurationWebhooksHandler
+ * - com.adyen.model.transactionwebhooks.TransactionWebhooksHandler
+ * - com.adyen.model.transferwebhooks.TransferWebhooksHandler
+ */
+@Deprecated
 public class BankingWebhookHandler {
 
     private static final Logger LOG = Logger.getLogger(BankingWebhookHandler.class.getName());
