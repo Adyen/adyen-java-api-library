@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.AccelInfo;
+import com.adyen.model.management.AffirmInfo;
 import com.adyen.model.management.AfterpayTouchInfo;
 import com.adyen.model.management.AmexInfo;
 import com.adyen.model.management.ApplePayInfo;
@@ -33,6 +34,7 @@ import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.NyceInfo;
 import com.adyen.model.management.PayMeInfo;
 import com.adyen.model.management.PayPalInfo;
+import com.adyen.model.management.PayToInfo;
 import com.adyen.model.management.PulseInfo;
 import com.adyen.model.management.SodexoInfo;
 import com.adyen.model.management.SofortInfo;
@@ -61,6 +63,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   PaymentMethodSetupInfo.JSON_PROPERTY_ACCEL,
+  PaymentMethodSetupInfo.JSON_PROPERTY_AFFIRM,
   PaymentMethodSetupInfo.JSON_PROPERTY_AFTERPAY_TOUCH,
   PaymentMethodSetupInfo.JSON_PROPERTY_AMEX,
   PaymentMethodSetupInfo.JSON_PROPERTY_APPLE_PAY,
@@ -74,6 +77,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodSetupInfo.JSON_PROPERTY_CUSTOM_ROUTING_FLAGS,
   PaymentMethodSetupInfo.JSON_PROPERTY_DINERS,
   PaymentMethodSetupInfo.JSON_PROPERTY_DISCOVER,
+  PaymentMethodSetupInfo.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   PaymentMethodSetupInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   PaymentMethodSetupInfo.JSON_PROPERTY_GIRO_PAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_GIROCARD,
@@ -88,6 +92,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodSetupInfo.JSON_PROPERTY_NYCE,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYME,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYPAL,
+  PaymentMethodSetupInfo.JSON_PROPERTY_PAYTO,
   PaymentMethodSetupInfo.JSON_PROPERTY_PULSE,
   PaymentMethodSetupInfo.JSON_PROPERTY_REFERENCE,
   PaymentMethodSetupInfo.JSON_PROPERTY_SHOPPER_INTERACTION,
@@ -108,6 +113,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_ACCEL = "accel";
   private AccelInfo accel;
+
+  public static final String JSON_PROPERTY_AFFIRM = "affirm";
+  private AffirmInfo affirm;
 
   public static final String JSON_PROPERTY_AFTERPAY_TOUCH = "afterpayTouch";
   private AfterpayTouchInfo afterpayTouch;
@@ -147,6 +155,9 @@ public class PaymentMethodSetupInfo {
 
   public static final String JSON_PROPERTY_DISCOVER = "discover";
   private GenericPmWithTdiInfo discover;
+
+  public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
+  private GenericPmWithTdiInfo eftDirectdebitCA;
 
   public static final String JSON_PROPERTY_EFTPOS_AUSTRALIA = "eftpos_australia";
   private GenericPmWithTdiInfo eftposAustralia;
@@ -189,6 +200,9 @@ public class PaymentMethodSetupInfo {
 
   public static final String JSON_PROPERTY_PAYPAL = "paypal";
   private PayPalInfo paypal;
+
+  public static final String JSON_PROPERTY_PAYTO = "payto";
+  private PayToInfo payto;
 
   public static final String JSON_PROPERTY_PULSE = "pulse";
   private PulseInfo pulse;
@@ -265,6 +279,8 @@ public class PaymentMethodSetupInfo {
   public enum TypeEnum {
     ACCEL("accel"),
     
+    ACH("ach"),
+    
     AFFIRM("affirm"),
     
     AFTERPAYTOUCH("afterpaytouch"),
@@ -274,6 +290,8 @@ public class PaymentMethodSetupInfo {
     ALIPAY("alipay"),
     
     ALIPAY_HK("alipay_hk"),
+    
+    ALIPAY_WAP("alipay_wap"),
     
     AMEX("amex"),
     
@@ -312,6 +330,8 @@ public class PaymentMethodSetupInfo {
     DISCOVER("discover"),
     
     EBANKING_FI("ebanking_FI"),
+    
+    EFT_DIRECTDEBIT_CA("eft_directdebit_CA"),
     
     EFTPOS_AUSTRALIA("eftpos_australia"),
     
@@ -372,6 +392,8 @@ public class PaymentMethodSetupInfo {
     PAYPAL("paypal"),
     
     PAYSHOP("payshop"),
+    
+    PAYTO("payto"),
     
     PULSE("pulse"),
     
@@ -485,6 +507,39 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccel(AccelInfo accel) {
     this.accel = accel;
+  }
+
+  /**
+   * affirm
+   *
+   * @param affirm
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo affirm(AffirmInfo affirm) {
+    this.affirm = affirm;
+    return this;
+  }
+
+  /**
+   * affirm
+   * @return affirm
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AFFIRM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AffirmInfo getAffirm() {
+    return affirm;
+  }
+
+  /**
+   * affirm
+   *
+   * @param affirm
+   */ 
+  @JsonProperty(JSON_PROPERTY_AFFIRM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAffirm(AffirmInfo affirm) {
+    this.affirm = affirm;
   }
 
   /**
@@ -938,6 +993,39 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiscover(GenericPmWithTdiInfo discover) {
     this.discover = discover;
+  }
+
+  /**
+   * eftDirectdebitCA
+   *
+   * @param eftDirectdebitCA
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo eftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
+    this.eftDirectdebitCA = eftDirectdebitCA;
+    return this;
+  }
+
+  /**
+   * eftDirectdebitCA
+   * @return eftDirectdebitCA
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EFT_DIRECTDEBIT_C_A)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GenericPmWithTdiInfo getEftDirectdebitCA() {
+    return eftDirectdebitCA;
+  }
+
+  /**
+   * eftDirectdebitCA
+   *
+   * @param eftDirectdebitCA
+   */ 
+  @JsonProperty(JSON_PROPERTY_EFT_DIRECTDEBIT_C_A)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
+    this.eftDirectdebitCA = eftDirectdebitCA;
   }
 
   /**
@@ -1400,6 +1488,39 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaypal(PayPalInfo paypal) {
     this.paypal = paypal;
+  }
+
+  /**
+   * payto
+   *
+   * @param payto
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo payto(PayToInfo payto) {
+    this.payto = payto;
+    return this;
+  }
+
+  /**
+   * payto
+   * @return payto
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAYTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PayToInfo getPayto() {
+    return payto;
+  }
+
+  /**
+   * payto
+   *
+   * @param payto
+   */ 
+  @JsonProperty(JSON_PROPERTY_PAYTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPayto(PayToInfo payto) {
+    this.payto = payto;
   }
 
   /**
@@ -1918,6 +2039,7 @@ public class PaymentMethodSetupInfo {
     }
     PaymentMethodSetupInfo paymentMethodSetupInfo = (PaymentMethodSetupInfo) o;
     return Objects.equals(this.accel, paymentMethodSetupInfo.accel) &&
+        Objects.equals(this.affirm, paymentMethodSetupInfo.affirm) &&
         Objects.equals(this.afterpayTouch, paymentMethodSetupInfo.afterpayTouch) &&
         Objects.equals(this.amex, paymentMethodSetupInfo.amex) &&
         Objects.equals(this.applePay, paymentMethodSetupInfo.applePay) &&
@@ -1931,6 +2053,7 @@ public class PaymentMethodSetupInfo {
         Objects.equals(this.customRoutingFlags, paymentMethodSetupInfo.customRoutingFlags) &&
         Objects.equals(this.diners, paymentMethodSetupInfo.diners) &&
         Objects.equals(this.discover, paymentMethodSetupInfo.discover) &&
+        Objects.equals(this.eftDirectdebitCA, paymentMethodSetupInfo.eftDirectdebitCA) &&
         Objects.equals(this.eftposAustralia, paymentMethodSetupInfo.eftposAustralia) &&
         Objects.equals(this.giroPay, paymentMethodSetupInfo.giroPay) &&
         Objects.equals(this.girocard, paymentMethodSetupInfo.girocard) &&
@@ -1945,6 +2068,7 @@ public class PaymentMethodSetupInfo {
         Objects.equals(this.nyce, paymentMethodSetupInfo.nyce) &&
         Objects.equals(this.payme, paymentMethodSetupInfo.payme) &&
         Objects.equals(this.paypal, paymentMethodSetupInfo.paypal) &&
+        Objects.equals(this.payto, paymentMethodSetupInfo.payto) &&
         Objects.equals(this.pulse, paymentMethodSetupInfo.pulse) &&
         Objects.equals(this.reference, paymentMethodSetupInfo.reference) &&
         Objects.equals(this.shopperInteraction, paymentMethodSetupInfo.shopperInteraction) &&
@@ -1964,7 +2088,7 @@ public class PaymentMethodSetupInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accel, afterpayTouch, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, giroPay, girocard, googlePay, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, nyce, payme, paypal, pulse, reference, shopperInteraction, sodexo, sofort, star, storeIds, swish, ticket, twint, type, vipps, visa, wechatpay, wechatpayPos);
+    return Objects.hash(accel, affirm, afterpayTouch, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftDirectdebitCA, eftposAustralia, giroPay, girocard, googlePay, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, nyce, payme, paypal, payto, pulse, reference, shopperInteraction, sodexo, sofort, star, storeIds, swish, ticket, twint, type, vipps, visa, wechatpay, wechatpayPos);
   }
 
   @Override
@@ -1972,6 +2096,7 @@ public class PaymentMethodSetupInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentMethodSetupInfo {\n");
     sb.append("    accel: ").append(toIndentedString(accel)).append("\n");
+    sb.append("    affirm: ").append(toIndentedString(affirm)).append("\n");
     sb.append("    afterpayTouch: ").append(toIndentedString(afterpayTouch)).append("\n");
     sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
@@ -1985,6 +2110,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    diners: ").append(toIndentedString(diners)).append("\n");
     sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
+    sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    giroPay: ").append(toIndentedString(giroPay)).append("\n");
     sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");
@@ -1999,6 +2125,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
     sb.append("    payme: ").append(toIndentedString(payme)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
+    sb.append("    payto: ").append(toIndentedString(payto)).append("\n");
     sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");

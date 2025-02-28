@@ -107,8 +107,6 @@ public class PaymentDetails {
     
     SWISH("swish"),
     
-    PIX("pix"),
-    
     BIZUM("bizum"),
     
     WALLEY("walley"),
