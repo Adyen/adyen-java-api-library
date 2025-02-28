@@ -87,7 +87,7 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
   /**
-   * The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.
+   * The funding source of the payment method. This only applies to card transactions.  Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
    *
    * @param fundingSource
    * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method chaining
@@ -98,10 +98,10 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
   /**
-   * The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.
+   * The funding source of the payment method. This only applies to card transactions.  Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
    * @return fundingSource
    */
-  @ApiModelProperty(value = "The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.")
+  @ApiModelProperty(value = "The funding source of the payment method. This only applies to card transactions.  Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFundingSource() {
@@ -109,7 +109,7 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
   /**
-   * The funding source condition of the payment method (only for cards).  Possible values: **credit**, **debit**, or **ANY**.
+   * The funding source of the payment method. This only applies to card transactions.  Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
    *
    * @param fundingSource
    */ 

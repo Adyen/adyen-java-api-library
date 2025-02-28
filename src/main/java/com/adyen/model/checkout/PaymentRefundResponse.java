@@ -37,6 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   PaymentRefundResponse.JSON_PROPERTY_AMOUNT,
+  PaymentRefundResponse.JSON_PROPERTY_CAPTURE_PSP_REFERENCE,
   PaymentRefundResponse.JSON_PROPERTY_LINE_ITEMS,
   PaymentRefundResponse.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentRefundResponse.JSON_PROPERTY_MERCHANT_REFUND_REASON,
@@ -51,6 +52,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class PaymentRefundResponse {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  public static final String JSON_PROPERTY_CAPTURE_PSP_REFERENCE = "capturePspReference";
+  private String capturePspReference;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems = null;
@@ -187,6 +191,39 @@ public class PaymentRefundResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+  }
+
+  /**
+   * This is only available for PayPal refunds. The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the specific capture to refund.
+   *
+   * @param capturePspReference
+   * @return the current {@code PaymentRefundResponse} instance, allowing for method chaining
+   */
+  public PaymentRefundResponse capturePspReference(String capturePspReference) {
+    this.capturePspReference = capturePspReference;
+    return this;
+  }
+
+  /**
+   * This is only available for PayPal refunds. The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the specific capture to refund.
+   * @return capturePspReference
+   */
+  @ApiModelProperty(value = "This is only available for PayPal refunds. The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the specific capture to refund.")
+  @JsonProperty(JSON_PROPERTY_CAPTURE_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCapturePspReference() {
+    return capturePspReference;
+  }
+
+  /**
+   * This is only available for PayPal refunds. The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the specific capture to refund.
+   *
+   * @param capturePspReference
+   */ 
+  @JsonProperty(JSON_PROPERTY_CAPTURE_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCapturePspReference(String capturePspReference) {
+    this.capturePspReference = capturePspReference;
   }
 
   /**
@@ -515,6 +552,7 @@ public class PaymentRefundResponse {
     }
     PaymentRefundResponse paymentRefundResponse = (PaymentRefundResponse) o;
     return Objects.equals(this.amount, paymentRefundResponse.amount) &&
+        Objects.equals(this.capturePspReference, paymentRefundResponse.capturePspReference) &&
         Objects.equals(this.lineItems, paymentRefundResponse.lineItems) &&
         Objects.equals(this.merchantAccount, paymentRefundResponse.merchantAccount) &&
         Objects.equals(this.merchantRefundReason, paymentRefundResponse.merchantRefundReason) &&
@@ -528,7 +566,7 @@ public class PaymentRefundResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, lineItems, merchantAccount, merchantRefundReason, paymentPspReference, pspReference, reference, splits, status, store);
+    return Objects.hash(amount, capturePspReference, lineItems, merchantAccount, merchantRefundReason, paymentPspReference, pspReference, reference, splits, status, store);
   }
 
   @Override
@@ -536,6 +574,7 @@ public class PaymentRefundResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentRefundResponse {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    capturePspReference: ").append(toIndentedString(capturePspReference)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    merchantRefundReason: ").append(toIndentedString(merchantRefundReason)).append("\n");

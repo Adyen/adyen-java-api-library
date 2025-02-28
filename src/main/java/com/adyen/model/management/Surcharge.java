@@ -35,7 +35,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   Surcharge.JSON_PROPERTY_ASK_CONFIRMATION,
-  Surcharge.JSON_PROPERTY_CONFIGURATIONS
+  Surcharge.JSON_PROPERTY_CONFIGURATIONS,
+  Surcharge.JSON_PROPERTY_EXCLUDE_GRATUITY_FROM_SURCHARGE
 })
 
 public class Surcharge {
@@ -44,6 +45,9 @@ public class Surcharge {
 
   public static final String JSON_PROPERTY_CONFIGURATIONS = "configurations";
   private List<ModelConfiguration> configurations = null;
+
+  public static final String JSON_PROPERTY_EXCLUDE_GRATUITY_FROM_SURCHARGE = "excludeGratuityFromSurcharge";
+  private Boolean excludeGratuityFromSurcharge;
 
   public Surcharge() { 
   }
@@ -123,6 +127,39 @@ public class Surcharge {
   }
 
   /**
+   * Exclude the tip amount from the surcharge calculation.
+   *
+   * @param excludeGratuityFromSurcharge
+   * @return the current {@code Surcharge} instance, allowing for method chaining
+   */
+  public Surcharge excludeGratuityFromSurcharge(Boolean excludeGratuityFromSurcharge) {
+    this.excludeGratuityFromSurcharge = excludeGratuityFromSurcharge;
+    return this;
+  }
+
+  /**
+   * Exclude the tip amount from the surcharge calculation.
+   * @return excludeGratuityFromSurcharge
+   */
+  @ApiModelProperty(value = "Exclude the tip amount from the surcharge calculation.")
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_GRATUITY_FROM_SURCHARGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExcludeGratuityFromSurcharge() {
+    return excludeGratuityFromSurcharge;
+  }
+
+  /**
+   * Exclude the tip amount from the surcharge calculation.
+   *
+   * @param excludeGratuityFromSurcharge
+   */ 
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_GRATUITY_FROM_SURCHARGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExcludeGratuityFromSurcharge(Boolean excludeGratuityFromSurcharge) {
+    this.excludeGratuityFromSurcharge = excludeGratuityFromSurcharge;
+  }
+
+  /**
    * Return true if this Surcharge object is equal to o.
    */
   @Override
@@ -135,12 +172,13 @@ public class Surcharge {
     }
     Surcharge surcharge = (Surcharge) o;
     return Objects.equals(this.askConfirmation, surcharge.askConfirmation) &&
-        Objects.equals(this.configurations, surcharge.configurations);
+        Objects.equals(this.configurations, surcharge.configurations) &&
+        Objects.equals(this.excludeGratuityFromSurcharge, surcharge.excludeGratuityFromSurcharge);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(askConfirmation, configurations);
+    return Objects.hash(askConfirmation, configurations, excludeGratuityFromSurcharge);
   }
 
   @Override
@@ -149,6 +187,7 @@ public class Surcharge {
     sb.append("class Surcharge {\n");
     sb.append("    askConfirmation: ").append(toIndentedString(askConfirmation)).append("\n");
     sb.append("    configurations: ").append(toIndentedString(configurations)).append("\n");
+    sb.append("    excludeGratuityFromSurcharge: ").append(toIndentedString(excludeGratuityFromSurcharge)).append("\n");
     sb.append("}");
     return sb.toString();
   }

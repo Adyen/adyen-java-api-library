@@ -53,7 +53,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * Type of notification.
    */
   public enum TypeEnum {
-    PAYMENTMETHOD_REQUESTSCHEDULEDFORREMOVAL("paymentMethod.requestScheduledForRemoval");
+    PAYMENTMETHODREQUEST_SCHEDULEDFORREMOVAL("paymentMethodRequest.scheduledForRemoval");
 
     private String value;
 

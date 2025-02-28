@@ -61,6 +61,8 @@ public class PaymentMethodResponse {
   public enum TypesWithErrorsEnum {
     ACCEL("accel"),
     
+    ACH("ach"),
+    
     AFFIRM("affirm"),
     
     AFTERPAYTOUCH("afterpaytouch"),
@@ -70,6 +72,8 @@ public class PaymentMethodResponse {
     ALIPAY("alipay"),
     
     ALIPAY_HK("alipay_hk"),
+    
+    ALIPAY_WAP("alipay_wap"),
     
     AMEX("amex"),
     
@@ -108,6 +112,8 @@ public class PaymentMethodResponse {
     DISCOVER("discover"),
     
     EBANKING_FI("ebanking_FI"),
+    
+    EFT_DIRECTDEBIT_CA("eft_directdebit_CA"),
     
     EFTPOS_AUSTRALIA("eftpos_australia"),
     
@@ -168,6 +174,8 @@ public class PaymentMethodResponse {
     PAYPAL("paypal"),
     
     PAYSHOP("payshop"),
+    
+    PAYTO("payto"),
     
     PULSE("pulse"),
     

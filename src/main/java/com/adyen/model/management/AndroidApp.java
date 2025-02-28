@@ -65,8 +65,49 @@ public class AndroidApp {
   public static final String JSON_PROPERTY_PACKAGE_NAME = "packageName";
   private String packageName;
 
+  /**
+   * The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
+   */
+  public enum StatusEnum {
+    ARCHIVED("archived"),
+    
+    ERROR("error"),
+    
+    INVALID("invalid"),
+    
+    PROCESSING("processing"),
+    
+    READY("ready");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_STATUS = "status";
-  private String status;
+  private StatusEnum status;
 
   public static final String JSON_PROPERTY_VERSION_CODE = "versionCode";
   private Integer versionCode;
@@ -301,7 +342,7 @@ public class AndroidApp {
    * @param status
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
-  public AndroidApp status(String status) {
+  public AndroidApp status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -313,7 +354,7 @@ public class AndroidApp {
   @ApiModelProperty(required = true, value = "The status of the app. Possible values:  * `processing`: the app is being signed and converted to a format that the terminal can handle. * `error`: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * `invalid`: there is something wrong with the APK file of the app. * `ready`: the app has been signed and converted. * `archived`: the app is no longer available.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
@@ -324,7 +365,7 @@ public class AndroidApp {
    */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 

@@ -39,7 +39,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   MeApiCredential.JSON_PROPERTY_ACTIVE,
   MeApiCredential.JSON_PROPERTY_ALLOWED_IP_ADDRESSES,
   MeApiCredential.JSON_PROPERTY_ALLOWED_ORIGINS,
-  MeApiCredential.JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS,
   MeApiCredential.JSON_PROPERTY_CLIENT_KEY,
   MeApiCredential.JSON_PROPERTY_COMPANY_NAME,
   MeApiCredential.JSON_PROPERTY_DESCRIPTION,
@@ -60,9 +59,6 @@ public class MeApiCredential {
 
   public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowedOrigins";
   private List<AllowedOrigin> allowedOrigins = null;
-
-  public static final String JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS = "associatedMerchantAccounts";
-  private List<String> associatedMerchantAccounts = null;
 
   public static final String JSON_PROPERTY_CLIENT_KEY = "clientKey";
   private String clientKey;
@@ -228,47 +224,6 @@ public class MeApiCredential {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<AllowedOrigin> allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
-  }
-
-  /**
-   * List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.
-   *
-   * @param associatedMerchantAccounts
-   * @return the current {@code MeApiCredential} instance, allowing for method chaining
-   */
-  public MeApiCredential associatedMerchantAccounts(List<String> associatedMerchantAccounts) {
-    this.associatedMerchantAccounts = associatedMerchantAccounts;
-    return this;
-  }
-
-  public MeApiCredential addAssociatedMerchantAccountsItem(String associatedMerchantAccountsItem) {
-    if (this.associatedMerchantAccounts == null) {
-      this.associatedMerchantAccounts = new ArrayList<>();
-    }
-    this.associatedMerchantAccounts.add(associatedMerchantAccountsItem);
-    return this;
-  }
-
-  /**
-   * List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.
-   * @return associatedMerchantAccounts
-   */
-  @ApiModelProperty(value = "List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.")
-  @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getAssociatedMerchantAccounts() {
-    return associatedMerchantAccounts;
-  }
-
-  /**
-   * List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.
-   *
-   * @param associatedMerchantAccounts
-   */ 
-  @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
-    this.associatedMerchantAccounts = associatedMerchantAccounts;
   }
 
   /**
@@ -490,7 +445,6 @@ public class MeApiCredential {
         Objects.equals(this.active, meApiCredential.active) &&
         Objects.equals(this.allowedIpAddresses, meApiCredential.allowedIpAddresses) &&
         Objects.equals(this.allowedOrigins, meApiCredential.allowedOrigins) &&
-        Objects.equals(this.associatedMerchantAccounts, meApiCredential.associatedMerchantAccounts) &&
         Objects.equals(this.clientKey, meApiCredential.clientKey) &&
         Objects.equals(this.companyName, meApiCredential.companyName) &&
         Objects.equals(this.description, meApiCredential.description) &&
@@ -501,7 +455,7 @@ public class MeApiCredential {
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, active, allowedIpAddresses, allowedOrigins, associatedMerchantAccounts, clientKey, companyName, description, id, roles, username);
+    return Objects.hash(links, active, allowedIpAddresses, allowedOrigins, clientKey, companyName, description, id, roles, username);
   }
 
   @Override
@@ -512,7 +466,6 @@ public class MeApiCredential {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    allowedIpAddresses: ").append(toIndentedString(allowedIpAddresses)).append("\n");
     sb.append("    allowedOrigins: ").append(toIndentedString(allowedOrigins)).append("\n");
-    sb.append("    associatedMerchantAccounts: ").append(toIndentedString(associatedMerchantAccounts)).append("\n");
     sb.append("    clientKey: ").append(toIndentedString(clientKey)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
