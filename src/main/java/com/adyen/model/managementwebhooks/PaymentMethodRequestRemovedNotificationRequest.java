@@ -53,7 +53,7 @@ public class PaymentMethodRequestRemovedNotificationRequest {
    * Type of notification.
    */
   public enum TypeEnum {
-    PAYMENTMETHOD_REQUESTREMOVED("paymentMethod.requestRemoved");
+    PAYMENTMETHODREQUEST_REMOVED("paymentMethodRequest.removed");
 
     private String value;
 

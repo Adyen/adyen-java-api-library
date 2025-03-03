@@ -88,6 +88,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   ResponseAdditionalDataCommon.JSON_PROPERTY_THREE_D_OFFERED,
   ResponseAdditionalDataCommon.JSON_PROPERTY_THREE_D_OFFERED_RESPONSE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_THREE_D_S_VERSION,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_TOKENIZATION_SHOPPER_REFERENCE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_TOKENIZATION_STORE_OPERATION_TYPE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_TOKENIZATION_STORED_PAYMENT_METHOD_ID,
   ResponseAdditionalDataCommon.JSON_PROPERTY_VISA_TRANSACTION_ID,
   ResponseAdditionalDataCommon.JSON_PROPERTY_XID
 })
@@ -335,6 +338,52 @@ public class ResponseAdditionalDataCommon {
 
   public static final String JSON_PROPERTY_THREE_D_S_VERSION = "threeDSVersion";
   private String threeDSVersion;
+
+  public static final String JSON_PROPERTY_TOKENIZATION_SHOPPER_REFERENCE = "tokenization.shopperReference";
+  private String tokenizationShopperReference;
+
+  /**
+   * The store operation performed on the token.
+   */
+  public enum TokenizationStoreOperationTypeEnum {
+    CREATED("created"),
+    
+    UPDATED("updated"),
+    
+    ALREADYSTORED("alreadyStored");
+
+    private String value;
+
+    TokenizationStoreOperationTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TokenizationStoreOperationTypeEnum fromValue(String value) {
+      for (TokenizationStoreOperationTypeEnum b : TokenizationStoreOperationTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TOKENIZATION_STORE_OPERATION_TYPE = "tokenization.store.operationType";
+  private TokenizationStoreOperationTypeEnum tokenizationStoreOperationType;
+
+  public static final String JSON_PROPERTY_TOKENIZATION_STORED_PAYMENT_METHOD_ID = "tokenization.storedPaymentMethodId";
+  private String tokenizationStoredPaymentMethodId;
 
   public static final String JSON_PROPERTY_VISA_TRANSACTION_ID = "visaTransactionId";
   private String visaTransactionId;
@@ -2227,6 +2276,105 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
+   * The provided reference of the shopper.
+   *
+   * @param tokenizationShopperReference
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCommon tokenizationShopperReference(String tokenizationShopperReference) {
+    this.tokenizationShopperReference = tokenizationShopperReference;
+    return this;
+  }
+
+  /**
+   * The provided reference of the shopper.
+   * @return tokenizationShopperReference
+   */
+  @ApiModelProperty(value = "The provided reference of the shopper.")
+  @JsonProperty(JSON_PROPERTY_TOKENIZATION_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTokenizationShopperReference() {
+    return tokenizationShopperReference;
+  }
+
+  /**
+   * The provided reference of the shopper.
+   *
+   * @param tokenizationShopperReference
+   */ 
+  @JsonProperty(JSON_PROPERTY_TOKENIZATION_SHOPPER_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTokenizationShopperReference(String tokenizationShopperReference) {
+    this.tokenizationShopperReference = tokenizationShopperReference;
+  }
+
+  /**
+   * The store operation performed on the token.
+   *
+   * @param tokenizationStoreOperationType
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCommon tokenizationStoreOperationType(TokenizationStoreOperationTypeEnum tokenizationStoreOperationType) {
+    this.tokenizationStoreOperationType = tokenizationStoreOperationType;
+    return this;
+  }
+
+  /**
+   * The store operation performed on the token.
+   * @return tokenizationStoreOperationType
+   */
+  @ApiModelProperty(value = "The store operation performed on the token.")
+  @JsonProperty(JSON_PROPERTY_TOKENIZATION_STORE_OPERATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TokenizationStoreOperationTypeEnum getTokenizationStoreOperationType() {
+    return tokenizationStoreOperationType;
+  }
+
+  /**
+   * The store operation performed on the token.
+   *
+   * @param tokenizationStoreOperationType
+   */ 
+  @JsonProperty(JSON_PROPERTY_TOKENIZATION_STORE_OPERATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTokenizationStoreOperationType(TokenizationStoreOperationTypeEnum tokenizationStoreOperationType) {
+    this.tokenizationStoreOperationType = tokenizationStoreOperationType;
+  }
+
+  /**
+   * The reference that uniquely identifies tokenized payment details.
+   *
+   * @param tokenizationStoredPaymentMethodId
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCommon tokenizationStoredPaymentMethodId(String tokenizationStoredPaymentMethodId) {
+    this.tokenizationStoredPaymentMethodId = tokenizationStoredPaymentMethodId;
+    return this;
+  }
+
+  /**
+   * The reference that uniquely identifies tokenized payment details.
+   * @return tokenizationStoredPaymentMethodId
+   */
+  @ApiModelProperty(value = "The reference that uniquely identifies tokenized payment details.")
+  @JsonProperty(JSON_PROPERTY_TOKENIZATION_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTokenizationStoredPaymentMethodId() {
+    return tokenizationStoredPaymentMethodId;
+  }
+
+  /**
+   * The reference that uniquely identifies tokenized payment details.
+   *
+   * @param tokenizationStoredPaymentMethodId
+   */ 
+  @JsonProperty(JSON_PROPERTY_TOKENIZATION_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTokenizationStoredPaymentMethodId(String tokenizationStoredPaymentMethodId) {
+    this.tokenizationStoredPaymentMethodId = tokenizationStoredPaymentMethodId;
+  }
+
+  /**
    * The &#x60;visaTransactionId&#x60;, has a fixed length of 15 numeric characters.  &gt; Contact Support Team to enable this field.
    *
    * @param visaTransactionId
@@ -2260,7 +2408,7 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;. If you want to submit the xid in your 3D Secure 1 request, use the &#x60;mpiData.xid&#x60;, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
+   * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;.   Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
    *
    * @param xid
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
@@ -2271,10 +2419,10 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;. If you want to submit the xid in your 3D Secure 1 request, use the &#x60;mpiData.xid&#x60;, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
+   * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;.   Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
    * @return xid
    */
-  @ApiModelProperty(value = "The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse 'N' or 'Y'. If you want to submit the xid in your 3D Secure 1 request, use the `mpiData.xid`, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA=")
+  @ApiModelProperty(value = "The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse 'N' or 'Y'.   Example: ODgxNDc2MDg2MDExODk5MAAAAAA=")
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getXid() {
@@ -2282,7 +2430,7 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;. If you want to submit the xid in your 3D Secure 1 request, use the &#x60;mpiData.xid&#x60;, field.  Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
+   * The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse &#39;N&#39; or &#39;Y&#39;.   Example: ODgxNDc2MDg2MDExODk5MAAAAAA&#x3D;
    *
    * @param xid
    */ 
@@ -2361,13 +2509,16 @@ public class ResponseAdditionalDataCommon {
         Objects.equals(this.threeDOffered, responseAdditionalDataCommon.threeDOffered) &&
         Objects.equals(this.threeDOfferedResponse, responseAdditionalDataCommon.threeDOfferedResponse) &&
         Objects.equals(this.threeDSVersion, responseAdditionalDataCommon.threeDSVersion) &&
+        Objects.equals(this.tokenizationShopperReference, responseAdditionalDataCommon.tokenizationShopperReference) &&
+        Objects.equals(this.tokenizationStoreOperationType, responseAdditionalDataCommon.tokenizationStoreOperationType) &&
+        Objects.equals(this.tokenizationStoredPaymentMethodId, responseAdditionalDataCommon.tokenizationStoredPaymentMethodId) &&
         Objects.equals(this.visaTransactionId, responseAdditionalDataCommon.visaTransactionId) &&
         Objects.equals(this.xid, responseAdditionalDataCommon.xid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acquirerAccountCode, acquirerCode, acquirerReference, alias, aliasType, authCode, authorisationMid, authorisedAmountCurrency, authorisedAmountValue, avsResult, avsResultRaw, bic, coBrandedWith, cvcResult, cvcResultRaw, dsTransID, eci, expiryDate, extraCostsCurrency, extraCostsValue, fraudCheckItemNrFraudCheckname, fraudManualReview, fraudResultType, fundingSource, fundsAvailability, inferredRefusalReason, isCardCommercial, issuerCountry, liabilityShift, mcBankNetReferenceNumber, merchantAdviceCode, merchantReference, networkTxReference, ownerName, paymentAccountReference, paymentMethod, paymentMethodVariant, payoutEligible, realtimeAccountUpdaterStatus, receiptFreeText, recurringContractTypes, recurringFirstPspReference, recurringRecurringDetailReference, recurringShopperReference, recurringProcessingModel, referred, refusalReasonRaw, requestAmount, requestCurrencyCode, shopperInteraction, shopperReference, terminalId, threeDAuthenticated, threeDAuthenticatedResponse, threeDOffered, threeDOfferedResponse, threeDSVersion, visaTransactionId, xid);
+    return Objects.hash(acquirerAccountCode, acquirerCode, acquirerReference, alias, aliasType, authCode, authorisationMid, authorisedAmountCurrency, authorisedAmountValue, avsResult, avsResultRaw, bic, coBrandedWith, cvcResult, cvcResultRaw, dsTransID, eci, expiryDate, extraCostsCurrency, extraCostsValue, fraudCheckItemNrFraudCheckname, fraudManualReview, fraudResultType, fundingSource, fundsAvailability, inferredRefusalReason, isCardCommercial, issuerCountry, liabilityShift, mcBankNetReferenceNumber, merchantAdviceCode, merchantReference, networkTxReference, ownerName, paymentAccountReference, paymentMethod, paymentMethodVariant, payoutEligible, realtimeAccountUpdaterStatus, receiptFreeText, recurringContractTypes, recurringFirstPspReference, recurringRecurringDetailReference, recurringShopperReference, recurringProcessingModel, referred, refusalReasonRaw, requestAmount, requestCurrencyCode, shopperInteraction, shopperReference, terminalId, threeDAuthenticated, threeDAuthenticatedResponse, threeDOffered, threeDOfferedResponse, threeDSVersion, tokenizationShopperReference, tokenizationStoreOperationType, tokenizationStoredPaymentMethodId, visaTransactionId, xid);
   }
 
   @Override
@@ -2431,6 +2582,9 @@ public class ResponseAdditionalDataCommon {
     sb.append("    threeDOffered: ").append(toIndentedString(threeDOffered)).append("\n");
     sb.append("    threeDOfferedResponse: ").append(toIndentedString(threeDOfferedResponse)).append("\n");
     sb.append("    threeDSVersion: ").append(toIndentedString(threeDSVersion)).append("\n");
+    sb.append("    tokenizationShopperReference: ").append(toIndentedString(tokenizationShopperReference)).append("\n");
+    sb.append("    tokenizationStoreOperationType: ").append(toIndentedString(tokenizationStoreOperationType)).append("\n");
+    sb.append("    tokenizationStoredPaymentMethodId: ").append(toIndentedString(tokenizationStoredPaymentMethodId)).append("\n");
     sb.append("    visaTransactionId: ").append(toIndentedString(visaTransactionId)).append("\n");
     sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
     sb.append("}");

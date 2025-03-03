@@ -49,6 +49,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdatePaymentMethodInfo.JSON_PROPERTY_CUSTOM_ROUTING_FLAGS,
   UpdatePaymentMethodInfo.JSON_PROPERTY_DINERS,
   UpdatePaymentMethodInfo.JSON_PROPERTY_DISCOVER,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   UpdatePaymentMethodInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   UpdatePaymentMethodInfo.JSON_PROPERTY_ENABLED,
   UpdatePaymentMethodInfo.JSON_PROPERTY_GIROCARD,
@@ -92,6 +93,9 @@ public class UpdatePaymentMethodInfo {
 
   public static final String JSON_PROPERTY_DISCOVER = "discover";
   private GenericPmWithTdiInfo discover;
+
+  public static final String JSON_PROPERTY_EFT_DIRECTDEBIT_C_A = "eft_directdebit_CA";
+  private GenericPmWithTdiInfo eftDirectdebitCA;
 
   public static final String JSON_PROPERTY_EFTPOS_AUSTRALIA = "eftpos_australia";
   private GenericPmWithTdiInfo eftposAustralia;
@@ -458,6 +462,39 @@ public class UpdatePaymentMethodInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiscover(GenericPmWithTdiInfo discover) {
     this.discover = discover;
+  }
+
+  /**
+   * eftDirectdebitCA
+   *
+   * @param eftDirectdebitCA
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo eftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
+    this.eftDirectdebitCA = eftDirectdebitCA;
+    return this;
+  }
+
+  /**
+   * eftDirectdebitCA
+   * @return eftDirectdebitCA
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EFT_DIRECTDEBIT_C_A)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GenericPmWithTdiInfo getEftDirectdebitCA() {
+    return eftDirectdebitCA;
+  }
+
+  /**
+   * eftDirectdebitCA
+   *
+   * @param eftDirectdebitCA
+   */ 
+  @JsonProperty(JSON_PROPERTY_EFT_DIRECTDEBIT_C_A)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEftDirectdebitCA(GenericPmWithTdiInfo eftDirectdebitCA) {
+    this.eftDirectdebitCA = eftDirectdebitCA;
   }
 
   /**
@@ -963,6 +1000,7 @@ public class UpdatePaymentMethodInfo {
         Objects.equals(this.customRoutingFlags, updatePaymentMethodInfo.customRoutingFlags) &&
         Objects.equals(this.diners, updatePaymentMethodInfo.diners) &&
         Objects.equals(this.discover, updatePaymentMethodInfo.discover) &&
+        Objects.equals(this.eftDirectdebitCA, updatePaymentMethodInfo.eftDirectdebitCA) &&
         Objects.equals(this.eftposAustralia, updatePaymentMethodInfo.eftposAustralia) &&
         Objects.equals(this.enabled, updatePaymentMethodInfo.enabled) &&
         Objects.equals(this.girocard, updatePaymentMethodInfo.girocard) &&
@@ -981,7 +1019,7 @@ public class UpdatePaymentMethodInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accel, bcmc, cartesBancaires, countries, cup, currencies, customRoutingFlags, diners, discover, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, nyce, pulse, star, storeId, storeIds, visa);
+    return Objects.hash(accel, bcmc, cartesBancaires, countries, cup, currencies, customRoutingFlags, diners, discover, eftDirectdebitCA, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, nyce, pulse, star, storeId, storeIds, visa);
   }
 
   @Override
@@ -997,6 +1035,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    diners: ").append(toIndentedString(diners)).append("\n");
     sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
+    sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");

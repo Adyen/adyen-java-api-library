@@ -47,7 +47,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ThreeDSecureData {
   /**
-   * In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.
+   * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.  
    */
   public enum AuthenticationResponseEnum {
     Y("Y"),
@@ -143,7 +143,7 @@ public class ThreeDSecureData {
   private ChallengeCancelEnum challengeCancel;
 
   /**
-   * In 3D Secure 1, this is the enrollment response from the 3D directory server.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.
+   * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.  
    */
   public enum DirectoryResponseEnum {
     A("A"),
@@ -217,7 +217,7 @@ public class ThreeDSecureData {
   }
 
   /**
-   * In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.
+   * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.  
    *
    * @param authenticationResponse
    * @return the current {@code ThreeDSecureData} instance, allowing for method chaining
@@ -228,10 +228,10 @@ public class ThreeDSecureData {
   }
 
   /**
-   * In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.
+   * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.  
    * @return authenticationResponse
    */
-  @ApiModelProperty(value = "In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the `transStatus` from the challenge result. If the transaction was frictionless, omit this parameter.")
+  @ApiModelProperty(value = "In 3D Secure 2, this is the `transStatus` from the challenge result. If the transaction was frictionless, omit this parameter.  ")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthenticationResponseEnum getAuthenticationResponse() {
@@ -239,7 +239,7 @@ public class ThreeDSecureData {
   }
 
   /**
-   * In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.
+   * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.  
    *
    * @param authenticationResponse
    */ 
@@ -349,7 +349,7 @@ public class ThreeDSecureData {
   }
 
   /**
-   * In 3D Secure 1, this is the enrollment response from the 3D directory server.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.
+   * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.  
    *
    * @param directoryResponse
    * @return the current {@code ThreeDSecureData} instance, allowing for method chaining
@@ -360,10 +360,10 @@ public class ThreeDSecureData {
   }
 
   /**
-   * In 3D Secure 1, this is the enrollment response from the 3D directory server.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.
+   * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.  
    * @return directoryResponse
    */
-  @ApiModelProperty(value = "In 3D Secure 1, this is the enrollment response from the 3D directory server.  In 3D Secure 2, this is the `transStatus` from the `ARes`.")
+  @ApiModelProperty(value = "In 3D Secure 2, this is the `transStatus` from the `ARes`.  ")
   @JsonProperty(JSON_PROPERTY_DIRECTORY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DirectoryResponseEnum getDirectoryResponse() {
@@ -371,7 +371,7 @@ public class ThreeDSecureData {
   }
 
   /**
-   * In 3D Secure 1, this is the enrollment response from the 3D directory server.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.
+   * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.  
    *
    * @param directoryResponse
    */ 
