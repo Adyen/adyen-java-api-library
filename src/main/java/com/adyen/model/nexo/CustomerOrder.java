@@ -25,6 +25,7 @@ import java.math.BigDecimal;
  *         &lt;element name="AdditionalInformation" type="{}AdditionalInformation" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="CustomerOrderID" use="required" type="{}CustomerOrderID" /&gt;
+ *       &lt;attribute name="SaleReferenceID" use="required" type="{}SaleReferenceID" /&gt;
  *       &lt;attribute name="OpenOrderState" type="{}OpenOrderState" default="false" /&gt;
  *       &lt;attribute name="StartDate" use="required" type="{}StartDate" /&gt;
  *       &lt;attribute name="EndDate" type="{}EndDate" /&gt;
@@ -55,6 +56,12 @@ public class CustomerOrder {
     @XmlElement(name = "CustomerOrderID", required = true)
     @Schema(description = "Identification of a customer order.")
     protected String customerOrderID;
+    /**
+     * The Sale reference id.
+     */
+    @XmlElement(name = "SaleReferenceID", required = true)
+    @Schema(description = "Identification of a Sale global transaction for a sequence of related POI transactions.")
+    protected String saleReferenceID;
     /**
      * The Open order state.
      */
@@ -132,6 +139,24 @@ public class CustomerOrder {
      */
     public void setCustomerOrderID(String value) {
         this.customerOrderID = value;
+    }
+
+    /**
+     * Gets the value of the saleReferenceID property.
+     *
+     * @return possible      object is     {@link String }
+     */
+    public String getSaleReferenceID() {
+        return saleReferenceID;
+    }
+
+    /**
+     * Sets the value of the saleReferenceID property.
+     *
+     * @param value allowed object is     {@link String }
+     */
+    public void setSaleReferenceID(String value) {
+        this.saleReferenceID = saleReferenceID;
     }
 
     /**
@@ -263,5 +288,6 @@ public class CustomerOrder {
     public void setAccessedBy(String value) {
         this.accessedBy = value;
     }
+
 
 }
