@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.Airline;
+import com.adyen.model.transferwebhooks.Lodging;
 import com.adyen.model.transferwebhooks.MerchantPurchaseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 

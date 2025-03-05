@@ -31,6 +31,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * AchDetails
  */
 @JsonPropertyOrder({
+  AchDetails.JSON_PROPERTY_ACCOUNT_HOLDER_TYPE,
   AchDetails.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
   AchDetails.JSON_PROPERTY_BANK_ACCOUNT_TYPE,
   AchDetails.JSON_PROPERTY_BANK_LOCATION_ID,
@@ -45,6 +46,44 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class AchDetails {
+  /**
+   * The account holder type (personal or business).
+   */
+  public enum AccountHolderTypeEnum {
+    BUSINESS("business"),
+    
+    PERSONAL("personal");
+
+    private String value;
+
+    AccountHolderTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static AccountHolderTypeEnum fromValue(String value) {
+      for (AccountHolderTypeEnum b : AccountHolderTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ACCOUNT_HOLDER_TYPE = "accountHolderType";
+  private AccountHolderTypeEnum accountHolderType;
+
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
 
@@ -160,6 +199,39 @@ public class AchDetails {
   private TypeEnum type;
 
   public AchDetails() { 
+  }
+
+  /**
+   * The account holder type (personal or business).
+   *
+   * @param accountHolderType
+   * @return the current {@code AchDetails} instance, allowing for method chaining
+   */
+  public AchDetails accountHolderType(AccountHolderTypeEnum accountHolderType) {
+    this.accountHolderType = accountHolderType;
+    return this;
+  }
+
+  /**
+   * The account holder type (personal or business).
+   * @return accountHolderType
+   */
+  @ApiModelProperty(value = "The account holder type (personal or business).")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AccountHolderTypeEnum getAccountHolderType() {
+    return accountHolderType;
+  }
+
+  /**
+   * The account holder type (personal or business).
+   *
+   * @param accountHolderType
+   */ 
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccountHolderType(AccountHolderTypeEnum accountHolderType) {
+    this.accountHolderType = accountHolderType;
   }
 
   /**
@@ -549,7 +621,8 @@ public class AchDetails {
       return false;
     }
     AchDetails achDetails = (AchDetails) o;
-    return Objects.equals(this.bankAccountNumber, achDetails.bankAccountNumber) &&
+    return Objects.equals(this.accountHolderType, achDetails.accountHolderType) &&
+        Objects.equals(this.bankAccountNumber, achDetails.bankAccountNumber) &&
         Objects.equals(this.bankAccountType, achDetails.bankAccountType) &&
         Objects.equals(this.bankLocationId, achDetails.bankLocationId) &&
         Objects.equals(this.checkoutAttemptId, achDetails.checkoutAttemptId) &&
@@ -564,13 +637,14 @@ public class AchDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccountNumber, bankAccountType, bankLocationId, checkoutAttemptId, encryptedBankAccountNumber, encryptedBankLocationId, ownerName, recurringDetailReference, storedPaymentMethodId, transferInstrumentId, type);
+    return Objects.hash(accountHolderType, bankAccountNumber, bankAccountType, bankLocationId, checkoutAttemptId, encryptedBankAccountNumber, encryptedBankLocationId, ownerName, recurringDetailReference, storedPaymentMethodId, transferInstrumentId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AchDetails {\n");
+    sb.append("    accountHolderType: ").append(toIndentedString(accountHolderType)).append("\n");
     sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
     sb.append("    bankAccountType: ").append(toIndentedString(bankAccountType)).append("\n");
     sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
