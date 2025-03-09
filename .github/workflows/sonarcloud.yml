@@ -1,15 +1,16 @@
 name: Sonarcloud CI
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [ opened, synchronize, reopened ]
+  schedule:
+    - cron: '0 0 * * 4'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
-  SonarCloud-Build:
-    name: SonarCloud Build
+  java-sonarqube:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,8 +41,6 @@ jobs:
         run: mvn test jacoco:report
 
       - name: Run SonarCloud Analysis
-        if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn sonar:sonar -Dsonar.projectKey=Adyen_adyen-java-api-library
