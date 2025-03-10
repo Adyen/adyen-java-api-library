@@ -66,7 +66,9 @@ public class RecurringApi extends Service {
     * @param createPermitRequest {@link CreatePermitRequest }  (required)
     * @return {@link CreatePermitResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+    @Deprecated
     public CreatePermitResult createPermit(CreatePermitRequest createPermitRequest) throws ApiException, IOException {
         return createPermit(createPermitRequest, null);
     }
@@ -78,7 +80,9 @@ public class RecurringApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link CreatePermitResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+   @Deprecated
     public CreatePermitResult createPermit(CreatePermitRequest createPermitRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = createPermitRequest.toJson();
@@ -93,7 +97,9 @@ public class RecurringApi extends Service {
     * @param disableRequest {@link DisableRequest }  (required)
     * @return {@link DisableResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+    @Deprecated
     public DisableResult disable(DisableRequest disableRequest) throws ApiException, IOException {
         return disable(disableRequest, null);
     }
@@ -105,7 +111,9 @@ public class RecurringApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link DisableResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+   @Deprecated
     public DisableResult disable(DisableRequest disableRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = disableRequest.toJson();
@@ -120,7 +128,9 @@ public class RecurringApi extends Service {
     * @param disablePermitRequest {@link DisablePermitRequest }  (required)
     * @return {@link DisablePermitResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+    @Deprecated
     public DisablePermitResult disablePermit(DisablePermitRequest disablePermitRequest) throws ApiException, IOException {
         return disablePermit(disablePermitRequest, null);
     }
@@ -132,7 +142,9 @@ public class RecurringApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link DisablePermitResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+   @Deprecated
     public DisablePermitResult disablePermit(DisablePermitRequest disablePermitRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = disablePermitRequest.toJson();
@@ -147,7 +159,9 @@ public class RecurringApi extends Service {
     * @param recurringDetailsRequest {@link RecurringDetailsRequest }  (required)
     * @return {@link RecurringDetailsResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+    @Deprecated
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest recurringDetailsRequest) throws ApiException, IOException {
         return listRecurringDetails(recurringDetailsRequest, null);
     }
@@ -159,7 +173,9 @@ public class RecurringApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link RecurringDetailsResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+   @Deprecated
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest recurringDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = recurringDetailsRequest.toJson();
@@ -174,7 +190,9 @@ public class RecurringApi extends Service {
     * @param notifyShopperRequest {@link NotifyShopperRequest }  (required)
     * @return {@link NotifyShopperResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+    @Deprecated
     public NotifyShopperResult notifyShopper(NotifyShopperRequest notifyShopperRequest) throws ApiException, IOException {
         return notifyShopper(notifyShopperRequest, null);
     }
@@ -186,7 +204,9 @@ public class RecurringApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link NotifyShopperResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+   @Deprecated
     public NotifyShopperResult notifyShopper(NotifyShopperRequest notifyShopperRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = notifyShopperRequest.toJson();
@@ -201,7 +221,9 @@ public class RecurringApi extends Service {
     * @param scheduleAccountUpdaterRequest {@link ScheduleAccountUpdaterRequest }  (required)
     * @return {@link ScheduleAccountUpdaterResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+    @Deprecated
     public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest scheduleAccountUpdaterRequest) throws ApiException, IOException {
         return scheduleAccountUpdater(scheduleAccountUpdaterRequest, null);
     }
@@ -213,7 +235,9 @@ public class RecurringApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link ScheduleAccountUpdaterResult }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Recurring API (deprecated) v68
     */
+   @Deprecated
     public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest scheduleAccountUpdaterRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = scheduleAccountUpdaterRequest.toJson();

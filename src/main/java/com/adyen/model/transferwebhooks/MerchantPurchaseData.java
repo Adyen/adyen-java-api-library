@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.Airline;
+import com.adyen.model.transferwebhooks.Lodging;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -33,12 +36,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   MerchantPurchaseData.JSON_PROPERTY_AIRLINE,
+  MerchantPurchaseData.JSON_PROPERTY_LODGING,
   MerchantPurchaseData.JSON_PROPERTY_TYPE
 })
 
 public class MerchantPurchaseData {
   public static final String JSON_PROPERTY_AIRLINE = "airline";
   private Airline airline;
+
+  public static final String JSON_PROPERTY_LODGING = "lodging";
+  private List<Lodging> lodging = null;
 
   /**
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
@@ -113,6 +120,47 @@ public class MerchantPurchaseData {
   }
 
   /**
+   * Lodging information.
+   *
+   * @param lodging
+   * @return the current {@code MerchantPurchaseData} instance, allowing for method chaining
+   */
+  public MerchantPurchaseData lodging(List<Lodging> lodging) {
+    this.lodging = lodging;
+    return this;
+  }
+
+  public MerchantPurchaseData addLodgingItem(Lodging lodgingItem) {
+    if (this.lodging == null) {
+      this.lodging = new ArrayList<>();
+    }
+    this.lodging.add(lodgingItem);
+    return this;
+  }
+
+  /**
+   * Lodging information.
+   * @return lodging
+   */
+  @ApiModelProperty(value = "Lodging information.")
+  @JsonProperty(JSON_PROPERTY_LODGING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Lodging> getLodging() {
+    return lodging;
+  }
+
+  /**
+   * Lodging information.
+   *
+   * @param lodging
+   */ 
+  @JsonProperty(JSON_PROPERTY_LODGING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLodging(List<Lodging> lodging) {
+    this.lodging = lodging;
+  }
+
+  /**
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    *
    * @param type
@@ -158,12 +206,13 @@ public class MerchantPurchaseData {
     }
     MerchantPurchaseData merchantPurchaseData = (MerchantPurchaseData) o;
     return Objects.equals(this.airline, merchantPurchaseData.airline) &&
+        Objects.equals(this.lodging, merchantPurchaseData.lodging) &&
         Objects.equals(this.type, merchantPurchaseData.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(airline, type);
+    return Objects.hash(airline, lodging, type);
   }
 
   @Override
@@ -171,6 +220,7 @@ public class MerchantPurchaseData {
     StringBuilder sb = new StringBuilder();
     sb.append("class MerchantPurchaseData {\n");
     sb.append("    airline: ").append(toIndentedString(airline)).append("\n");
+    sb.append("    lodging: ").append(toIndentedString(lodging)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
