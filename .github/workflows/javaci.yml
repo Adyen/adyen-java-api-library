@@ -13,10 +13,6 @@ on:
       - promote/main
   workflow_dispatch: {}
 
-permissions:
-  contents: read
-  pull-requests: write
-
 jobs:
   java-check:
     runs-on: ubuntu-latest
