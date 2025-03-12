@@ -13,11 +13,9 @@ on:
       - promote/main
   workflow_dispatch: {}
 
-permissions:
-  contents: read
-
 jobs:
   java-check:
+    name: Java Code Check
     runs-on: ubuntu-latest
 
     steps:
@@ -38,6 +36,7 @@ jobs:
         run: mvn -B checkstyle:check --no-transfer-progress
 
   java-test:
+    name: Build and Test
     runs-on: ubuntu-latest
     needs: java-check
 
