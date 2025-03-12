@@ -5,7 +5,6 @@
   },
   "merchantAccount":"myMerchantAccount",
   "paymentMethod":{
-    "issuer":"issuerName",
     "type":"ideal"
   },
   "reference":"merchantReference",
