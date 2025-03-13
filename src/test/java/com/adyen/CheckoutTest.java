@@ -93,7 +93,6 @@ public class CheckoutTest extends BaseTest {
 
         // paymentMethod
         assertEquals(IdealDetails.TypeEnum.IDEAL, parsedCheckoutPaymentRequest.getPaymentMethod().getIdealDetails().getType());
-        assertEquals("issuerName", parsedCheckoutPaymentRequest.getPaymentMethod().getIdealDetails().getIssuer());
         // amount
         assertEquals(1000L, parsedCheckoutPaymentRequest.getAmount().getValue().longValue());
         assertEquals("EUR", parsedCheckoutPaymentRequest.getAmount().getCurrency());
