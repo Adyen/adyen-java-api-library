@@ -430,7 +430,7 @@ public class TransferEvent {
   }
 
   /**
-   * The amount adjustments in this transfer.
+   * The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    *
    * @param amountAdjustments
    * @return the current {@code TransferEvent} instance, allowing for method chaining
@@ -449,10 +449,10 @@ public class TransferEvent {
   }
 
   /**
-   * The amount adjustments in this transfer.
+   * The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    * @return amountAdjustments
    */
-  @ApiModelProperty(value = "The amount adjustments in this transfer.")
+  @ApiModelProperty(value = "The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AmountAdjustment> getAmountAdjustments() {
@@ -460,7 +460,7 @@ public class TransferEvent {
   }
 
   /**
-   * The amount adjustments in this transfer.
+   * The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    *
    * @param amountAdjustments
    */ 

@@ -258,9 +258,11 @@ public class ResponseAdditionalDataCommon {
   private String recurringFirstPspReference;
 
   public static final String JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE = "recurring.recurringDetailReference";
+  @Deprecated // deprecated since Adyen Payment API v68: Use tokenization.storedPaymentMethodId instead.
   private String recurringRecurringDetailReference;
 
   public static final String JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE = "recurring.shopperReference";
+  @Deprecated // deprecated since Adyen Payment API v68: Use tokenization.shopperReference instead.
   private String recurringShopperReference;
 
   /**
@@ -343,14 +345,14 @@ public class ResponseAdditionalDataCommon {
   private String tokenizationShopperReference;
 
   /**
-   * The store operation performed on the token.
+   * The operation performed on the token. Possible values:  * **created**: the token has been created. * **updated**: the existing token has been updated. * **alreadyExisting**: the details have already been stored. 
    */
   public enum TokenizationStoreOperationTypeEnum {
     CREATED("created"),
     
     UPDATED("updated"),
     
-    ALREADYSTORED("alreadyStored");
+    ALREADYEXISTING("alreadyExisting");
 
     private String value;
 
@@ -1785,7 +1787,11 @@ public class ResponseAdditionalDataCommon {
    *
    * @param recurringRecurringDetailReference
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Payment API v68
+   * Use tokenization.storedPaymentMethodId instead.
    */
+  @Deprecated
   public ResponseAdditionalDataCommon recurringRecurringDetailReference(String recurringRecurringDetailReference) {
     this.recurringRecurringDetailReference = recurringRecurringDetailReference;
     return this;
@@ -1794,7 +1800,11 @@ public class ResponseAdditionalDataCommon {
   /**
    * The reference that uniquely identifies the recurring transaction.
    * @return recurringRecurringDetailReference
+   *
+   * @deprecated since Adyen Payment API v68
+   * Use tokenization.storedPaymentMethodId instead.
    */
+  @Deprecated
   @ApiModelProperty(value = "The reference that uniquely identifies the recurring transaction.")
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1806,7 +1816,11 @@ public class ResponseAdditionalDataCommon {
    * The reference that uniquely identifies the recurring transaction.
    *
    * @param recurringRecurringDetailReference
+   *
+   * @deprecated since Adyen Payment API v68
+   * Use tokenization.storedPaymentMethodId instead.
    */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringRecurringDetailReference(String recurringRecurringDetailReference) {
@@ -1818,7 +1832,11 @@ public class ResponseAdditionalDataCommon {
    *
    * @param recurringShopperReference
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   *
+   * @deprecated since Adyen Payment API v68
+   * Use tokenization.shopperReference instead.
    */
+  @Deprecated
   public ResponseAdditionalDataCommon recurringShopperReference(String recurringShopperReference) {
     this.recurringShopperReference = recurringShopperReference;
     return this;
@@ -1827,7 +1845,11 @@ public class ResponseAdditionalDataCommon {
   /**
    * The provided reference of the shopper for a recurring transaction.
    * @return recurringShopperReference
+   *
+   * @deprecated since Adyen Payment API v68
+   * Use tokenization.shopperReference instead.
    */
+  @Deprecated
   @ApiModelProperty(value = "The provided reference of the shopper for a recurring transaction.")
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1839,7 +1861,11 @@ public class ResponseAdditionalDataCommon {
    * The provided reference of the shopper for a recurring transaction.
    *
    * @param recurringShopperReference
+   *
+   * @deprecated since Adyen Payment API v68
+   * Use tokenization.shopperReference instead.
    */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringShopperReference(String recurringShopperReference) {
@@ -2276,7 +2302,7 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The provided reference of the shopper.
+   * The reference for the shopper that you sent when tokenizing the payment details.
    *
    * @param tokenizationShopperReference
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
@@ -2287,10 +2313,10 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The provided reference of the shopper.
+   * The reference for the shopper that you sent when tokenizing the payment details.
    * @return tokenizationShopperReference
    */
-  @ApiModelProperty(value = "The provided reference of the shopper.")
+  @ApiModelProperty(value = "The reference for the shopper that you sent when tokenizing the payment details.")
   @JsonProperty(JSON_PROPERTY_TOKENIZATION_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTokenizationShopperReference() {
@@ -2298,7 +2324,7 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The provided reference of the shopper.
+   * The reference for the shopper that you sent when tokenizing the payment details.
    *
    * @param tokenizationShopperReference
    */ 
@@ -2309,7 +2335,7 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The store operation performed on the token.
+   * The operation performed on the token. Possible values:  * **created**: the token has been created. * **updated**: the existing token has been updated. * **alreadyExisting**: the details have already been stored. 
    *
    * @param tokenizationStoreOperationType
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
@@ -2320,10 +2346,10 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The store operation performed on the token.
+   * The operation performed on the token. Possible values:  * **created**: the token has been created. * **updated**: the existing token has been updated. * **alreadyExisting**: the details have already been stored. 
    * @return tokenizationStoreOperationType
    */
-  @ApiModelProperty(value = "The store operation performed on the token.")
+  @ApiModelProperty(value = "The operation performed on the token. Possible values:  * **created**: the token has been created. * **updated**: the existing token has been updated. * **alreadyExisting**: the details have already been stored. ")
   @JsonProperty(JSON_PROPERTY_TOKENIZATION_STORE_OPERATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TokenizationStoreOperationTypeEnum getTokenizationStoreOperationType() {
@@ -2331,7 +2357,7 @@ public class ResponseAdditionalDataCommon {
   }
 
   /**
-   * The store operation performed on the token.
+   * The operation performed on the token. Possible values:  * **created**: the token has been created. * **updated**: the existing token has been updated. * **alreadyExisting**: the details have already been stored. 
    *
    * @param tokenizationStoreOperationType
    */ 
