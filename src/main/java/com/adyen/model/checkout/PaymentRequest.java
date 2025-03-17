@@ -127,6 +127,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRequest.JSON_PROPERTY_STORE,
   PaymentRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD,
   PaymentRequest.JSON_PROPERTY_SUB_MERCHANTS,
+  PaymentRequest.JSON_PROPERTY_SURCHARGE,
   PaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
   PaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   PaymentRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
@@ -518,6 +519,9 @@ public class PaymentRequest {
 
   public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
   private List<SubMerchantInfo> subMerchants = null;
+
+  public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
+  private Surcharge surcharge;
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
@@ -2786,6 +2790,39 @@ public class PaymentRequest {
   }
 
   /**
+   * shopperName
+   *
+   * @param surcharge
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest surcharge(Surcharge surcharge) {
+    this.surcharge = surcharge;
+    return this;
+  }
+
+  /**
+   * shopperName
+   * @return shopperName
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SURCHARGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Surcharge getSurcharge() {
+    return surcharge;
+  }
+
+  /**
+   * shopperName
+   *
+   * @param surcharge
+   */
+  @JsonProperty(JSON_PROPERTY_SURCHARGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSurcharge(Surcharge surcharge) {
+    this.surcharge = surcharge;
+  }
+
+  /**
    * The shopper&#39;s telephone number.
    *
    * @param telephoneNumber
@@ -3007,6 +3044,7 @@ public class PaymentRequest {
         Objects.equals(this.store, paymentRequest.store) &&
         Objects.equals(this.storePaymentMethod, paymentRequest.storePaymentMethod) &&
         Objects.equals(this.subMerchants, paymentRequest.subMerchants) &&
+        Objects.equals(this.surcharge, paymentRequest.surcharge) &&
         Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber) &&
         Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData) &&
         Objects.equals(this.threeDSAuthenticationOnly, paymentRequest.threeDSAuthenticationOnly) &&
@@ -3015,7 +3053,7 @@ public class PaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, bankAccount, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperConversionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, subMerchants, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, bankAccount, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperConversionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, subMerchants, surcharge, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -3088,6 +3126,7 @@ public class PaymentRequest {
     sb.append("    store: ").append(toIndentedString(store)).append("\n");
     sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
     sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
+    sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
     sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
