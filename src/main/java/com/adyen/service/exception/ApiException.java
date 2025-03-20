@@ -25,16 +25,19 @@ import java.util.Map;
 import com.adyen.model.ApiError;
 
 /**
- * API Exception class
+ * API Exception thrown when there is an API error
+ *
+ * Check ApiError object to obtain the information about the error
  */
 public class ApiException extends Exception {
-    //Describes the error
+    // Object with the information about the error
     private ApiError error;
 
-    //HTTP status code
+    // HTTP status code
     private int statusCode;
 
     private Map<String, List<String>> responseHeaders;
+    // error JSON response
     private String responseBody;
 
     public ApiException(String message, int statusCode) {

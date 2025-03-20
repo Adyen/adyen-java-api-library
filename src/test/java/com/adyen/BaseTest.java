@@ -304,7 +304,7 @@ public class BaseTest {
     }
 
     /**
-     * Returns a Client that has a mocked error response from fileName
+     * Returns a Client that throws an exception with a given status and response
      */
     protected Client createMockClientForErrors(int status, String fileName) {
         String response = getFileContents(fileName);
@@ -312,7 +312,8 @@ public class BaseTest {
         AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<>(), response);
         try {
-            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any(), any())).thenThrow(httpClientException);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any(), any()))
+                    .thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }
