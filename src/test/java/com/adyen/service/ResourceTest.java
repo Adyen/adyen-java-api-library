@@ -142,6 +142,7 @@ public class ResourceTest extends BaseTest {
             fail("Expected exception");
         } catch (ApiException e) {
             assertEquals(422, e.getStatusCode());
+            assertEquals("Required field 'reference' is not provided. ErrorCode: 130", e.getMessage());
             assertNotNull(e.getError());
             assertEquals("validation", e.getError().getErrorType());
             assertEquals("Required field 'reference' is not provided.", e.getError().getMessage());
@@ -160,10 +161,28 @@ public class ResourceTest extends BaseTest {
             fail("Expected exception");
         } catch (ApiException e) {
             assertEquals(422, e.getStatusCode());
+            assertEquals("Invalid legal entity information provided ErrorCode: 30_102", e.getMessage());
             assertNotNull(e.getError());
             assertEquals("https://docs.adyen.com/errors/validation", e.getError().getErrorType());
             assertEquals("Invalid legal entity information provided", e.getError().getMessage());
             assertEquals(1, e.getError().getInvalidFields().size());
+        }
+    }
+
+    // test error parsing when the JSON response is invalid
+    @Test
+    public void testValidationExceptionWithInvalidJsonResponse() throws IOException {
+        Client client = createMockClientForErrors(422, "mocks/response-validation-error-invalid-json.json");
+
+        when(serviceMock.getClient()).thenReturn(client);
+        try {
+            Resource resource = new Resource(serviceMock, "", null);
+            resource.request("request");
+
+            fail("Expected exception");
+        } catch (ApiException e) {
+            assertEquals(422, e.getStatusCode());
+            assertNull(e.getError());
         }
     }
 }

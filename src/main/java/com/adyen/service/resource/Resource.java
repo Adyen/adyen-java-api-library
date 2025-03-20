@@ -23,15 +23,11 @@ package com.adyen.service.resource;
 import com.adyen.Config;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.enums.Environment;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.ApiError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.databind.exc.MismatchedInputException;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.List;
@@ -97,14 +93,14 @@ public class Resource {
     /**
      * Request using json String with additional request parameters like idempotency-key
      *
-     * @param json   json
+     * @param json body of the request
      * @param requestOptions request options
      * @param httpMethod http method
      * @param pathParams path parameters
      * @param queryString query string parameters
-     * @throws ApiException apiException
-     * @throws IOException  IOException
-     * @return request
+     * @throws ApiException apiException when an API error is returned
+     * @throws IOException IOException when an unexpected error occurs
+     * @return JSON response
      */
     public String request(String json, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> pathParams, Map<String, String> queryString) throws ApiException, IOException {
         ClientInterface clientInterface = service.getClient().getHttpClient();
@@ -113,12 +109,19 @@ public class Resource {
         try {
             return clientInterface.request(resolve(pathParams), json, config, service.isApiKeyRequired(), requestOptions, httpMethod, queryString);
         } catch (HTTPClientException e) {
-            apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
-            apiException.setResponseBody(e.getResponseBody());
             try {
-                apiException.setError(ApiError.fromJson(e.getResponseBody()));
+                // build ApiException
+                ApiError apiError = ApiError.fromJson(e.getResponseBody());
+                String message = apiError.getMessage() + " ErrorCode: "+ apiError.getErrorCode();
+
+                apiException = new ApiException(message, e.getCode(), e.getResponseHeaders());
+                apiException.setResponseBody(e.getResponseBody());
+                apiException.setError(apiError);
+
             } catch (Exception ignore) {
                 // Response body could not be parsed (e.g. not JSON), raw response body available in ApiException#responseBody
+                apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
+                apiException.setResponseBody(e.getResponseBody());
             }
         }
         throw apiException;
