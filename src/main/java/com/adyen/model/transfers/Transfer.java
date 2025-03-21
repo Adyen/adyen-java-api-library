@@ -208,6 +208,8 @@ public class Transfer {
     
     NOTENOUGHBALANCE("notEnoughBalance"),
     
+    PENDING("pending"),
+    
     PENDINGAPPROVAL("pendingApproval"),
     
     PENDINGEXECUTION("pendingExecution"),

@@ -30,29 +30,29 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * StoredPaymentMethod
+ * PixStoredPaymentMethod
  */
 @JsonPropertyOrder({
-  StoredPaymentMethod.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
-  StoredPaymentMethod.JSON_PROPERTY_BANK_LOCATION_ID,
-  StoredPaymentMethod.JSON_PROPERTY_BRAND,
-  StoredPaymentMethod.JSON_PROPERTY_EXPIRY_MONTH,
-  StoredPaymentMethod.JSON_PROPERTY_EXPIRY_YEAR,
-  StoredPaymentMethod.JSON_PROPERTY_HOLDER_NAME,
-  StoredPaymentMethod.JSON_PROPERTY_IBAN,
-  StoredPaymentMethod.JSON_PROPERTY_ID,
-  StoredPaymentMethod.JSON_PROPERTY_LABEL,
-  StoredPaymentMethod.JSON_PROPERTY_LAST_FOUR,
-  StoredPaymentMethod.JSON_PROPERTY_NAME,
-  StoredPaymentMethod.JSON_PROPERTY_NETWORK_TX_REFERENCE,
-  StoredPaymentMethod.JSON_PROPERTY_OWNER_NAME,
-  StoredPaymentMethod.JSON_PROPERTY_SHOPPER_EMAIL,
-  StoredPaymentMethod.JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS,
-  StoredPaymentMethod.JSON_PROPERTY_SUPPORTED_SHOPPER_INTERACTIONS,
-  StoredPaymentMethod.JSON_PROPERTY_TYPE
+  PixStoredPaymentMethod.JSON_PROPERTY_BANK_ACCOUNT_NUMBER,
+  PixStoredPaymentMethod.JSON_PROPERTY_BANK_LOCATION_ID,
+  PixStoredPaymentMethod.JSON_PROPERTY_BRAND,
+  PixStoredPaymentMethod.JSON_PROPERTY_EXPIRY_MONTH,
+  PixStoredPaymentMethod.JSON_PROPERTY_EXPIRY_YEAR,
+  PixStoredPaymentMethod.JSON_PROPERTY_HOLDER_NAME,
+  PixStoredPaymentMethod.JSON_PROPERTY_IBAN,
+  PixStoredPaymentMethod.JSON_PROPERTY_ID,
+  PixStoredPaymentMethod.JSON_PROPERTY_LABEL,
+  PixStoredPaymentMethod.JSON_PROPERTY_LAST_FOUR,
+  PixStoredPaymentMethod.JSON_PROPERTY_NAME,
+  PixStoredPaymentMethod.JSON_PROPERTY_NETWORK_TX_REFERENCE,
+  PixStoredPaymentMethod.JSON_PROPERTY_OWNER_NAME,
+  PixStoredPaymentMethod.JSON_PROPERTY_SHOPPER_EMAIL,
+  PixStoredPaymentMethod.JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS,
+  PixStoredPaymentMethod.JSON_PROPERTY_SUPPORTED_SHOPPER_INTERACTIONS,
+  PixStoredPaymentMethod.JSON_PROPERTY_TYPE
 })
 
-public class StoredPaymentMethod {
+public class PixStoredPaymentMethod {
   public static final String JSON_PROPERTY_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   private String bankAccountNumber;
 
@@ -101,19 +101,52 @@ public class StoredPaymentMethod {
   public static final String JSON_PROPERTY_SUPPORTED_SHOPPER_INTERACTIONS = "supportedShopperInteractions";
   private List<String> supportedShopperInteractions = null;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  /**
+   * The type of payment method.
+   */
+  public enum TypeEnum {
+    PIX("pix");
 
-  public StoredPaymentMethod() { 
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TypeEnum type;
+
+  public PixStoredPaymentMethod() { 
   }
 
   /**
    * The bank account number (without separators).
    *
    * @param bankAccountNumber
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod bankAccountNumber(String bankAccountNumber) {
+  public PixStoredPaymentMethod bankAccountNumber(String bankAccountNumber) {
     this.bankAccountNumber = bankAccountNumber;
     return this;
   }
@@ -144,9 +177,9 @@ public class StoredPaymentMethod {
    * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
    *
    * @param bankLocationId
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod bankLocationId(String bankLocationId) {
+  public PixStoredPaymentMethod bankLocationId(String bankLocationId) {
     this.bankLocationId = bankLocationId;
     return this;
   }
@@ -177,9 +210,9 @@ public class StoredPaymentMethod {
    * The brand of the card.
    *
    * @param brand
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod brand(String brand) {
+  public PixStoredPaymentMethod brand(String brand) {
     this.brand = brand;
     return this;
   }
@@ -210,9 +243,9 @@ public class StoredPaymentMethod {
    * The two-digit month when the card expires
    *
    * @param expiryMonth
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod expiryMonth(String expiryMonth) {
+  public PixStoredPaymentMethod expiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
     return this;
   }
@@ -243,9 +276,9 @@ public class StoredPaymentMethod {
    * The last two digits of the year the card expires. For example, **22** for the year 2022.
    *
    * @param expiryYear
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod expiryYear(String expiryYear) {
+  public PixStoredPaymentMethod expiryYear(String expiryYear) {
     this.expiryYear = expiryYear;
     return this;
   }
@@ -276,9 +309,9 @@ public class StoredPaymentMethod {
    * The unique payment method code.
    *
    * @param holderName
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod holderName(String holderName) {
+  public PixStoredPaymentMethod holderName(String holderName) {
     this.holderName = holderName;
     return this;
   }
@@ -309,9 +342,9 @@ public class StoredPaymentMethod {
    * The IBAN of the bank account.
    *
    * @param iban
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod iban(String iban) {
+  public PixStoredPaymentMethod iban(String iban) {
     this.iban = iban;
     return this;
   }
@@ -342,9 +375,9 @@ public class StoredPaymentMethod {
    * A unique identifier of this stored payment method.
    *
    * @param id
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod id(String id) {
+  public PixStoredPaymentMethod id(String id) {
     this.id = id;
     return this;
   }
@@ -375,9 +408,9 @@ public class StoredPaymentMethod {
    * The shopper’s issuer account label
    *
    * @param label
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod label(String label) {
+  public PixStoredPaymentMethod label(String label) {
     this.label = label;
     return this;
   }
@@ -408,9 +441,9 @@ public class StoredPaymentMethod {
    * The last four digits of the PAN.
    *
    * @param lastFour
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod lastFour(String lastFour) {
+  public PixStoredPaymentMethod lastFour(String lastFour) {
     this.lastFour = lastFour;
     return this;
   }
@@ -441,9 +474,9 @@ public class StoredPaymentMethod {
    * The display name of the stored payment method.
    *
    * @param name
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod name(String name) {
+  public PixStoredPaymentMethod name(String name) {
     this.name = name;
     return this;
   }
@@ -474,9 +507,9 @@ public class StoredPaymentMethod {
    * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    *
    * @param networkTxReference
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod networkTxReference(String networkTxReference) {
+  public PixStoredPaymentMethod networkTxReference(String networkTxReference) {
     this.networkTxReference = networkTxReference;
     return this;
   }
@@ -507,9 +540,9 @@ public class StoredPaymentMethod {
    * The name of the bank account holder.
    *
    * @param ownerName
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod ownerName(String ownerName) {
+  public PixStoredPaymentMethod ownerName(String ownerName) {
     this.ownerName = ownerName;
     return this;
   }
@@ -540,9 +573,9 @@ public class StoredPaymentMethod {
    * The shopper’s email address.
    *
    * @param shopperEmail
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod shopperEmail(String shopperEmail) {
+  public PixStoredPaymentMethod shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -573,14 +606,14 @@ public class StoredPaymentMethod {
    * The supported recurring processing models for this stored payment method.
    *
    * @param supportedRecurringProcessingModels
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod supportedRecurringProcessingModels(List<String> supportedRecurringProcessingModels) {
+  public PixStoredPaymentMethod supportedRecurringProcessingModels(List<String> supportedRecurringProcessingModels) {
     this.supportedRecurringProcessingModels = supportedRecurringProcessingModels;
     return this;
   }
 
-  public StoredPaymentMethod addSupportedRecurringProcessingModelsItem(String supportedRecurringProcessingModelsItem) {
+  public PixStoredPaymentMethod addSupportedRecurringProcessingModelsItem(String supportedRecurringProcessingModelsItem) {
     if (this.supportedRecurringProcessingModels == null) {
       this.supportedRecurringProcessingModels = new ArrayList<>();
     }
@@ -614,14 +647,14 @@ public class StoredPaymentMethod {
    * The supported shopper interactions for this stored payment method.
    *
    * @param supportedShopperInteractions
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod supportedShopperInteractions(List<String> supportedShopperInteractions) {
+  public PixStoredPaymentMethod supportedShopperInteractions(List<String> supportedShopperInteractions) {
     this.supportedShopperInteractions = supportedShopperInteractions;
     return this;
   }
 
-  public StoredPaymentMethod addSupportedShopperInteractionsItem(String supportedShopperInteractionsItem) {
+  public PixStoredPaymentMethod addSupportedShopperInteractionsItem(String supportedShopperInteractionsItem) {
     if (this.supportedShopperInteractions == null) {
       this.supportedShopperInteractions = new ArrayList<>();
     }
@@ -655,9 +688,9 @@ public class StoredPaymentMethod {
    * The type of payment method.
    *
    * @param type
-   * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
+   * @return the current {@code PixStoredPaymentMethod} instance, allowing for method chaining
    */
-  public StoredPaymentMethod type(String type) {
+  public PixStoredPaymentMethod type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -669,7 +702,7 @@ public class StoredPaymentMethod {
   @ApiModelProperty(value = "The type of payment method.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
@@ -680,12 +713,12 @@ public class StoredPaymentMethod {
    */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
   /**
-   * Return true if this StoredPaymentMethod object is equal to o.
+   * Return true if this PixStoredPaymentMethod object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -695,24 +728,24 @@ public class StoredPaymentMethod {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredPaymentMethod storedPaymentMethod = (StoredPaymentMethod) o;
-    return Objects.equals(this.bankAccountNumber, storedPaymentMethod.bankAccountNumber) &&
-        Objects.equals(this.bankLocationId, storedPaymentMethod.bankLocationId) &&
-        Objects.equals(this.brand, storedPaymentMethod.brand) &&
-        Objects.equals(this.expiryMonth, storedPaymentMethod.expiryMonth) &&
-        Objects.equals(this.expiryYear, storedPaymentMethod.expiryYear) &&
-        Objects.equals(this.holderName, storedPaymentMethod.holderName) &&
-        Objects.equals(this.iban, storedPaymentMethod.iban) &&
-        Objects.equals(this.id, storedPaymentMethod.id) &&
-        Objects.equals(this.label, storedPaymentMethod.label) &&
-        Objects.equals(this.lastFour, storedPaymentMethod.lastFour) &&
-        Objects.equals(this.name, storedPaymentMethod.name) &&
-        Objects.equals(this.networkTxReference, storedPaymentMethod.networkTxReference) &&
-        Objects.equals(this.ownerName, storedPaymentMethod.ownerName) &&
-        Objects.equals(this.shopperEmail, storedPaymentMethod.shopperEmail) &&
-        Objects.equals(this.supportedRecurringProcessingModels, storedPaymentMethod.supportedRecurringProcessingModels) &&
-        Objects.equals(this.supportedShopperInteractions, storedPaymentMethod.supportedShopperInteractions) &&
-        Objects.equals(this.type, storedPaymentMethod.type);
+    PixStoredPaymentMethod pixStoredPaymentMethod = (PixStoredPaymentMethod) o;
+    return Objects.equals(this.bankAccountNumber, pixStoredPaymentMethod.bankAccountNumber) &&
+        Objects.equals(this.bankLocationId, pixStoredPaymentMethod.bankLocationId) &&
+        Objects.equals(this.brand, pixStoredPaymentMethod.brand) &&
+        Objects.equals(this.expiryMonth, pixStoredPaymentMethod.expiryMonth) &&
+        Objects.equals(this.expiryYear, pixStoredPaymentMethod.expiryYear) &&
+        Objects.equals(this.holderName, pixStoredPaymentMethod.holderName) &&
+        Objects.equals(this.iban, pixStoredPaymentMethod.iban) &&
+        Objects.equals(this.id, pixStoredPaymentMethod.id) &&
+        Objects.equals(this.label, pixStoredPaymentMethod.label) &&
+        Objects.equals(this.lastFour, pixStoredPaymentMethod.lastFour) &&
+        Objects.equals(this.name, pixStoredPaymentMethod.name) &&
+        Objects.equals(this.networkTxReference, pixStoredPaymentMethod.networkTxReference) &&
+        Objects.equals(this.ownerName, pixStoredPaymentMethod.ownerName) &&
+        Objects.equals(this.shopperEmail, pixStoredPaymentMethod.shopperEmail) &&
+        Objects.equals(this.supportedRecurringProcessingModels, pixStoredPaymentMethod.supportedRecurringProcessingModels) &&
+        Objects.equals(this.supportedShopperInteractions, pixStoredPaymentMethod.supportedShopperInteractions) &&
+        Objects.equals(this.type, pixStoredPaymentMethod.type);
   }
 
   @Override
@@ -723,7 +756,7 @@ public class StoredPaymentMethod {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredPaymentMethod {\n");
+    sb.append("class PixStoredPaymentMethod {\n");
     sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
     sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
@@ -757,17 +790,17 @@ public class StoredPaymentMethod {
   }
 
 /**
-   * Create an instance of StoredPaymentMethod given an JSON string
+   * Create an instance of PixStoredPaymentMethod given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StoredPaymentMethod
-   * @throws JsonProcessingException if the JSON string is invalid with respect to StoredPaymentMethod
+   * @return An instance of PixStoredPaymentMethod
+   * @throws JsonProcessingException if the JSON string is invalid with respect to PixStoredPaymentMethod
    */
-  public static StoredPaymentMethod fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, StoredPaymentMethod.class);
+  public static PixStoredPaymentMethod fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, PixStoredPaymentMethod.class);
   }
 /**
-  * Convert an instance of StoredPaymentMethod to an JSON string
+  * Convert an instance of PixStoredPaymentMethod to an JSON string
   *
   * @return JSON string
   */

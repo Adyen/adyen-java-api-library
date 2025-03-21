@@ -22,6 +22,7 @@ import com.adyen.model.balanceplatform.AmountNonZeroDecimalsRequirement;
 import com.adyen.model.balanceplatform.BankAccountIdentificationTypeRequirement;
 import com.adyen.model.balanceplatform.IbanAccountIdentificationRequirement;
 import com.adyen.model.balanceplatform.PaymentInstrumentRequirement;
+import com.adyen.model.balanceplatform.USInstantPayoutAddressRequirement;
 import com.adyen.model.balanceplatform.USInternationalAchAddressRequirement;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -269,6 +270,34 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
             }
 
 
+            // deserialize USInstantPayoutAddressRequirement
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (USInstantPayoutAddressRequirement.class.equals(Integer.class) || USInstantPayoutAddressRequirement.class.equals(Long.class) || USInstantPayoutAddressRequirement.class.equals(Float.class) || USInstantPayoutAddressRequirement.class.equals(Double.class) || USInstantPayoutAddressRequirement.class.equals(Boolean.class) || USInstantPayoutAddressRequirement.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((USInstantPayoutAddressRequirement.class.equals(Integer.class) || USInstantPayoutAddressRequirement.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((USInstantPayoutAddressRequirement.class.equals(Float.class) || USInstantPayoutAddressRequirement.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (USInstantPayoutAddressRequirement.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (USInstantPayoutAddressRequirement.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(USInstantPayoutAddressRequirement.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), USInstantPayoutAddressRequirement.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'USInstantPayoutAddressRequirement'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'USInstantPayoutAddressRequirement'", e);
+            }
+
+
             // deserialize USInternationalAchAddressRequirement
             try {
                 boolean attemptParsing = true;
@@ -356,6 +385,11 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public TransferRouteRequirementsInner(USInstantPayoutAddressRequirement o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public TransferRouteRequirementsInner(USInternationalAchAddressRequirement o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -374,6 +408,8 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
         });
         schemas.put("PaymentInstrumentRequirement", new GenericType<PaymentInstrumentRequirement>() {
         });
+        schemas.put("USInstantPayoutAddressRequirement", new GenericType<USInstantPayoutAddressRequirement>() {
+        });
         schemas.put("USInternationalAchAddressRequirement", new GenericType<USInternationalAchAddressRequirement>() {
         });
         JSON.registerDescendants(TransferRouteRequirementsInner.class, Collections.unmodifiableMap(schemas));
@@ -387,7 +423,7 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInternationalAchAddressRequirement
+     * AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -424,19 +460,24 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
             return;
         }
 
+        if (JSON.isInstanceOf(USInstantPayoutAddressRequirement.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (JSON.isInstanceOf(USInternationalAchAddressRequirement.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInternationalAchAddressRequirement");
+        throw new RuntimeException("Invalid instance type. Must be AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInternationalAchAddressRequirement
+     * AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement
      *
-     * @return The actual instance (AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInternationalAchAddressRequirement)
+     * @return The actual instance (AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement)
      */
     @Override
     public Object getActualInstance() {
@@ -507,6 +548,17 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
      */
     public PaymentInstrumentRequirement getPaymentInstrumentRequirement() throws ClassCastException {
         return (PaymentInstrumentRequirement)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `USInstantPayoutAddressRequirement`. If the actual instance is not `USInstantPayoutAddressRequirement`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `USInstantPayoutAddressRequirement`
+     * @throws ClassCastException if the instance is not `USInstantPayoutAddressRequirement`
+     */
+    public USInstantPayoutAddressRequirement getUSInstantPayoutAddressRequirement() throws ClassCastException {
+        return (USInstantPayoutAddressRequirement)super.getActualInstance();
     }
 
     /**

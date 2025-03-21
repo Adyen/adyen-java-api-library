@@ -55,7 +55,9 @@ public class BalanceControlApi extends Service {
     * @param balanceTransferRequest {@link BalanceTransferRequest }  (required)
     * @return {@link BalanceTransferResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Balance Control API v1
     */
+    @Deprecated
     public BalanceTransferResponse balanceTransfer(BalanceTransferRequest balanceTransferRequest) throws ApiException, IOException {
         return balanceTransfer(balanceTransferRequest, null);
     }
@@ -67,7 +69,9 @@ public class BalanceControlApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link BalanceTransferResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Balance Control API v1
     */
+   @Deprecated
     public BalanceTransferResponse balanceTransfer(BalanceTransferRequest balanceTransferRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = balanceTransferRequest.toJson();

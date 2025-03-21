@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.PaymentMethod;
-import com.adyen.model.checkout.StoredPaymentMethod;
+import com.adyen.model.checkout.PaymentMethodsResponseStoredPaymentMethodsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -44,7 +44,7 @@ public class PaymentMethodsResponse {
   private List<PaymentMethod> paymentMethods = null;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHODS = "storedPaymentMethods";
-  private List<StoredPaymentMethod> storedPaymentMethods = null;
+  private List<PaymentMethodsResponseStoredPaymentMethodsInner> storedPaymentMethods = null;
 
   public PaymentMethodsResponse() { 
   }
@@ -96,12 +96,12 @@ public class PaymentMethodsResponse {
    * @param storedPaymentMethods
    * @return the current {@code PaymentMethodsResponse} instance, allowing for method chaining
    */
-  public PaymentMethodsResponse storedPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
+  public PaymentMethodsResponse storedPaymentMethods(List<PaymentMethodsResponseStoredPaymentMethodsInner> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
     return this;
   }
 
-  public PaymentMethodsResponse addStoredPaymentMethodsItem(StoredPaymentMethod storedPaymentMethodsItem) {
+  public PaymentMethodsResponse addStoredPaymentMethodsItem(PaymentMethodsResponseStoredPaymentMethodsInner storedPaymentMethodsItem) {
     if (this.storedPaymentMethods == null) {
       this.storedPaymentMethods = new ArrayList<>();
     }
@@ -116,7 +116,7 @@ public class PaymentMethodsResponse {
   @ApiModelProperty(value = "List of all stored payment methods.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<StoredPaymentMethod> getStoredPaymentMethods() {
+  public List<PaymentMethodsResponseStoredPaymentMethodsInner> getStoredPaymentMethods() {
     return storedPaymentMethods;
   }
 
@@ -127,7 +127,7 @@ public class PaymentMethodsResponse {
    */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStoredPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
+  public void setStoredPaymentMethods(List<PaymentMethodsResponseStoredPaymentMethodsInner> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
   }
 

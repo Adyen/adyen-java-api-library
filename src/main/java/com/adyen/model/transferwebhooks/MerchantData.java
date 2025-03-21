@@ -125,7 +125,7 @@ public class MerchantData {
   }
 
   /**
-   * The merchant identifier.
+   * The unique identifier of the merchant.
    *
    * @param merchantId
    * @return the current {@code MerchantData} instance, allowing for method chaining
@@ -136,10 +136,10 @@ public class MerchantData {
   }
 
   /**
-   * The merchant identifier.
+   * The unique identifier of the merchant.
    * @return merchantId
    */
-  @ApiModelProperty(value = "The merchant identifier.")
+  @ApiModelProperty(value = "The unique identifier of the merchant.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -147,7 +147,7 @@ public class MerchantData {
   }
 
   /**
-   * The merchant identifier.
+   * The unique identifier of the merchant.
    *
    * @param merchantId
    */ 
@@ -191,7 +191,7 @@ public class MerchantData {
   }
 
   /**
-   * The merchant postal code.
+   * The postal code of the merchant.
    *
    * @param postalCode
    * @return the current {@code MerchantData} instance, allowing for method chaining
@@ -202,10 +202,10 @@ public class MerchantData {
   }
 
   /**
-   * The merchant postal code.
+   * The postal code of the merchant.
    * @return postalCode
    */
-  @ApiModelProperty(value = "The merchant postal code.")
+  @ApiModelProperty(value = "The postal code of the merchant.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
@@ -213,7 +213,7 @@ public class MerchantData {
   }
 
   /**
-   * The merchant postal code.
+   * The postal code of the merchant.
    *
    * @param postalCode
    */ 
