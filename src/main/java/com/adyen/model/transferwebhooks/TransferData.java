@@ -233,6 +233,8 @@ public class TransferData {
     
     NOTENOUGHBALANCE("notEnoughBalance"),
     
+    PENDING("pending"),
+    
     PENDINGAPPROVAL("pendingApproval"),
     
     PENDINGEXECUTION("pendingExecution"),
@@ -983,7 +985,7 @@ public class TransferData {
   }
 
   /**
-   * The event id listed under events, that triggered the notification.
+   * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    *
    * @param eventId
    * @return the current {@code TransferData} instance, allowing for method chaining
@@ -994,10 +996,10 @@ public class TransferData {
   }
 
   /**
-   * The event id listed under events, that triggered the notification.
+   * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    * @return eventId
    */
-  @ApiModelProperty(value = "The event id listed under events, that triggered the notification.")
+  @ApiModelProperty(value = "The unique identifier of the latest transfer event. Included only when the `category` is **issuedCard**.")
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEventId() {
@@ -1005,7 +1007,7 @@ public class TransferData {
   }
 
   /**
-   * The event id listed under events, that triggered the notification.
+   * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    *
    * @param eventId
    */ 

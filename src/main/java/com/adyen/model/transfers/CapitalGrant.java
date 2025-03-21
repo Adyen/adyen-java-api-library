@@ -73,14 +73,20 @@ public class CapitalGrant {
   private Repayment repayment;
 
   /**
-   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    */
   public enum StatusEnum {
     PENDING("Pending"),
     
     ACTIVE("Active"),
     
-    REPAID("Repaid");
+    REPAID("Repaid"),
+    
+    FAILED("Failed"),
+    
+    WRITTENOFF("WrittenOff"),
+    
+    REVOKED("Revoked");
 
     private String value;
 
@@ -380,7 +386,7 @@ public class CapitalGrant {
   }
 
   /**
-   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    *
    * @param status
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
@@ -391,10 +397,10 @@ public class CapitalGrant {
   }
 
   /**
-   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.")
+  @ApiModelProperty(required = true, value = "The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -402,7 +408,7 @@ public class CapitalGrant {
   }
 
   /**
-   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    *
    * @param status
    */ 

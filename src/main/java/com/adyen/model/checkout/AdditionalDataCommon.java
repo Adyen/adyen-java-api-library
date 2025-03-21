@@ -31,6 +31,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * AdditionalDataCommon
  */
 @JsonPropertyOrder({
+  AdditionalDataCommon.JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE,
   AdditionalDataCommon.JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE,
   AdditionalDataCommon.JSON_PROPERTY_ALLOW_PARTIAL_AUTH,
   AdditionalDataCommon.JSON_PROPERTY_AUTHORISATION_TYPE,
@@ -52,6 +53,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class AdditionalDataCommon {
+  public static final String JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE = "RequestedTestAcquirerResponseCode";
+  private String requestedTestAcquirerResponseCode;
+
   public static final String JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE = "RequestedTestErrorResponseCode";
   private String requestedTestErrorResponseCode;
 
@@ -142,6 +146,39 @@ public class AdditionalDataCommon {
   private String subMerchantTaxId;
 
   public AdditionalDataCommon() { 
+  }
+
+  /**
+   * Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the &#x60;refusalReason&#x60; values you can trigger. 
+   *
+   * @param requestedTestAcquirerResponseCode
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
+  public AdditionalDataCommon requestedTestAcquirerResponseCode(String requestedTestAcquirerResponseCode) {
+    this.requestedTestAcquirerResponseCode = requestedTestAcquirerResponseCode;
+    return this;
+  }
+
+  /**
+   * Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the &#x60;refusalReason&#x60; values you can trigger. 
+   * @return requestedTestAcquirerResponseCode
+   */
+  @ApiModelProperty(value = "Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the `refusalReason` values you can trigger. ")
+  @JsonProperty(JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRequestedTestAcquirerResponseCode() {
+    return requestedTestAcquirerResponseCode;
+  }
+
+  /**
+   * Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the &#x60;refusalReason&#x60; values you can trigger. 
+   *
+   * @param requestedTestAcquirerResponseCode
+   */ 
+  @JsonProperty(JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRequestedTestAcquirerResponseCode(String requestedTestAcquirerResponseCode) {
+    this.requestedTestAcquirerResponseCode = requestedTestAcquirerResponseCode;
   }
 
   /**
@@ -750,7 +787,8 @@ public class AdditionalDataCommon {
       return false;
     }
     AdditionalDataCommon additionalDataCommon = (AdditionalDataCommon) o;
-    return Objects.equals(this.requestedTestErrorResponseCode, additionalDataCommon.requestedTestErrorResponseCode) &&
+    return Objects.equals(this.requestedTestAcquirerResponseCode, additionalDataCommon.requestedTestAcquirerResponseCode) &&
+        Objects.equals(this.requestedTestErrorResponseCode, additionalDataCommon.requestedTestErrorResponseCode) &&
         Objects.equals(this.allowPartialAuth, additionalDataCommon.allowPartialAuth) &&
         Objects.equals(this.authorisationType, additionalDataCommon.authorisationType) &&
         Objects.equals(this.autoRescue, additionalDataCommon.autoRescue) &&
@@ -772,13 +810,14 @@ public class AdditionalDataCommon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedTestErrorResponseCode, allowPartialAuth, authorisationType, autoRescue, customRoutingFlag, industryUsage, manualCapture, maxDaysToRescue, networkTxReference, overwriteBrand, subMerchantCity, subMerchantCountry, subMerchantID, subMerchantName, subMerchantPostalCode, subMerchantState, subMerchantStreet, subMerchantTaxId);
+    return Objects.hash(requestedTestAcquirerResponseCode, requestedTestErrorResponseCode, allowPartialAuth, authorisationType, autoRescue, customRoutingFlag, industryUsage, manualCapture, maxDaysToRescue, networkTxReference, overwriteBrand, subMerchantCity, subMerchantCountry, subMerchantID, subMerchantName, subMerchantPostalCode, subMerchantState, subMerchantStreet, subMerchantTaxId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdditionalDataCommon {\n");
+    sb.append("    requestedTestAcquirerResponseCode: ").append(toIndentedString(requestedTestAcquirerResponseCode)).append("\n");
     sb.append("    requestedTestErrorResponseCode: ").append(toIndentedString(requestedTestErrorResponseCode)).append("\n");
     sb.append("    allowPartialAuth: ").append(toIndentedString(allowPartialAuth)).append("\n");
     sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");

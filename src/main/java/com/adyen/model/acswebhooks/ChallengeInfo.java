@@ -94,12 +94,14 @@ public class ChallengeInfo {
   private ChallengeCancelEnum challengeCancel;
 
   /**
-   * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+   * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    */
   public enum FlowEnum {
-    OTP_SMS("OTP_SMS"),
+    PWD_OTP_PHONE_FL("PWD_OTP_PHONE_FL"),
     
-    OOB("OOB");
+    PWD_OTP_EMAIL_FL("PWD_OTP_EMAIL_FL"),
+    
+    OOB_TRIGGER_FL("OOB_TRIGGER_FL");
 
     private String value;
 
@@ -180,7 +182,7 @@ public class ChallengeInfo {
   }
 
   /**
-   * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+   * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    *
    * @param flow
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
@@ -191,10 +193,10 @@ public class ChallengeInfo {
   }
 
   /**
-   * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+   * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    * @return flow
    */
-  @ApiModelProperty(required = true, value = "The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow")
+  @ApiModelProperty(required = true, value = "The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow")
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FlowEnum getFlow() {
@@ -202,7 +204,7 @@ public class ChallengeInfo {
   }
 
   /**
-   * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+   * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    *
    * @param flow
    */ 
