@@ -65,6 +65,7 @@ public class {{classname}} extends Service {
         }
         pathParams.put("{{baseName}}", {{{paramName}}});
         {{/pathParams}}
+
         {{/hasPathParams}}
         {{#hasQueryParams}}
         //Add query params
@@ -74,8 +75,8 @@ public class {{classname}} extends Service {
         queryParams.put("{{baseName}}", {{{paramName}}}{{^isString}}.toString(){{/isString}});
         }
         {{/queryParams}}
-        {{/hasQueryParams}}
 
+        {{/hasQueryParams}}
         String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
         Resource resource = new Resource(this, this.baseURL + "{{{path}}}", null);
         {{#returnType}}
