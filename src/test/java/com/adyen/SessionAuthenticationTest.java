@@ -17,7 +17,7 @@ public class SessionAuthenticationTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/sessionauthentication/response/SessionAuthenticationCreated.json");
         SessionAuthenticationApi sessionAuthenticationApi = new SessionAuthenticationApi(client);
         AuthenticationSessionRequest request = new AuthenticationSessionRequest()
-                .allowOrigin("https://www.your-website.com")
+                .allowOrigin("https://your-company.example.com")
                 .product(ProductType.PLATFORM)
                 .policy(new Policy()
                         .addResourcesItem(new AccountHolderResource()

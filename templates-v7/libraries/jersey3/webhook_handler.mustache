@@ -1,0 +1,33 @@
+{{>licenseInfo}}
+package {{modelPackage}};
+
+import java.util.Optional;
+import java.util.logging.Logger;
+
+public class {{serviceName}}Handler {
+
+    private static final Logger LOG = Logger.getLogger({{serviceName}}Handler.class.getName());
+
+    private final String payload;
+
+    public {{serviceName}}Handler(String payload) {
+        this.payload = payload;
+    }
+{{#models}}{{#model.vendorExtensions.x-webhook-root}}
+    public Optional<{{model.name}}> get{{model.name}}() {
+        return getOptionalField({{model.name}}.class);
+    }
+{{/model.vendorExtensions.x-webhook-root}}{{/models}}
+    private <T> Optional<T> getOptionalField(Class<T> clazz) {
+        try {
+            T val = JSON.getMapper().readValue(payload, clazz);
+            return Optional.ofNullable(val);
+        } catch (Exception e) {
+            // an error has occurred during deserialization (object not found, deserialization error)
+            LOG.warning("Object not found or unexpected error trying to access:  " + clazz.getName());
+            LOG.warning("Deserialization error: " + e.getMessage());
+            return Optional.empty();
+        }
+    }
+
+}
