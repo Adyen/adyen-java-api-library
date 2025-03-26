@@ -1,0 +1,28 @@
+{
+  "accountHolderId": "AH000000001",
+  "amount": {
+    "currency": "EUR",
+    "value": 20000
+  },
+  "balanceAccountId": "BA0000001",
+  "balances": {
+    "currency": "EUR",
+    "fee": 10,
+    "principal": 19990,
+    "total": 20000
+  },
+  "fee": {
+    "amount": {
+      "currency": "EUR",
+      "value": 10
+    }
+  },
+  "fundsCollections": [
+    {
+      "fundsCollectionType": "UnscheduledRepayment",
+      "accountIdentification": {
+        "type": "n/a"
+      }
+    }
+  ]
+}
