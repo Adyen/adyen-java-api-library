@@ -1,6 +1,8 @@
 package com.adyen;
 
 import com.adyen.model.capital.*;import com.adyen.service.BinLookupApi;
+import com.adyen.service.capital.GrantAccountsApi;
+import com.adyen.service.capital.GrantOffersApi;
 import com.adyen.service.capital.GrantsApi;
 import org.junit.Test;
 
@@ -63,6 +65,31 @@ public class CapitalServiceTest extends BaseTest {
         Grant grant = grantsApi.requestGrant(grantInfo);
         assertNotNull(grant);
         assertEquals("GR00000000000000000000001", grant.getId());
+    }
+
+    @Test
+    public void testGetAllGrantOffers() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/capital/get-grant-offers-200.json");
+        GrantOffersApi grantOffersApi = new GrantOffersApi(client);
+
+        GrantOffers grantOffers = grantOffersApi.getAllGrantOffers();
+        assertNotNull(grantOffers);
+        assertEquals(1, grantOffers.getGrantOffers().size());
+
+    }
+
+    @Test
+    public void testGetAllGrantAccounts() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/capital/get-grant-accounts-200.json");
+        GrantAccountsApi grantAccountsApi = new GrantAccountsApi(client);
+
+        GrantAccount grantAccount = grantAccountsApi.getGrantAccount("0000000001");
+        assertNotNull(grantAccount);
+        assertEquals("00000000789", grantAccount.getFundingBalanceAccountId());
+        assertEquals(2, grantAccount.getLimits().size());
+
     }
 
 }

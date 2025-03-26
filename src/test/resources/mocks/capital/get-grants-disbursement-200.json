@@ -21,7 +21,7 @@
     {
       "fundsCollectionType": "UnscheduledRepayment",
       "accountIdentification": {
-        "type": "n/a"
+        "type": "numberAndBic"
       }
     }
   ]

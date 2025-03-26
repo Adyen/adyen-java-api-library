@@ -1,0 +1,33 @@
+{
+  "grantOffers": [
+    {
+      "accountHolderId": "AH00000001",
+      "amount": {
+        "currency": "EUR",
+        "value": 20000
+      },
+      "contractType": "cashAdvance",
+      "fee": {
+        "amount": {
+          "currency": "EUR",
+          "value": 10
+        }
+      },
+      "id": "0000001",
+      "repayment": {
+        "basisPoints": 0,
+        "term": {
+          "estimatedDays": 0,
+          "maximumDays": 0
+        },
+        "threshold": {
+          "amount": {
+            "currency": "str",
+            "value": 0
+          }
+        }
+      },
+      "startsAt": "2025-04-09T14:16:46Z"
+    }
+  ]
+}
