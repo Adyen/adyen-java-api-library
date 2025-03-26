@@ -1,11 +1,7 @@
 package com.adyen;
 
-import com.adyen.model.binlookup.ThreeDSAvailabilityRequest;
-import com.adyen.model.binlookup.ThreeDSAvailabilityResponse;
-import com.adyen.model.capital.*;
-import com.adyen.service.BinLookupApi;
+import com.adyen.model.capital.*;import com.adyen.service.BinLookupApi;
 import com.adyen.service.capital.GrantsApi;
-import com.adyen.service.transfers.CapitalApi;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -21,6 +17,18 @@ public class CapitalServiceTest extends BaseTest {
         Grants grants = grantsApi.getAllGrants("AH000000001");
         assertNotNull(grants);
         assertEquals(1, grants.getGrants().size());
+
+    }
+
+    @Test
+    public void getGetGrant() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/capital/get-grant-200.json");
+        GrantsApi grantsApi = new GrantsApi(client);
+
+        Grant grant = grantsApi.getGrant("AH000000001");
+        assertNotNull(grant);
+        assertEquals("EUR",grant.getAmount().getCurrency());
 
     }
 
