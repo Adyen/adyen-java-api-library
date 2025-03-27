@@ -29,54 +29,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * InvalidField
  */
 @JsonPropertyOrder({
-  InvalidField.JSON_PROPERTY_MESSAGE,
   InvalidField.JSON_PROPERTY_NAME,
-  InvalidField.JSON_PROPERTY_VALUE
+  InvalidField.JSON_PROPERTY_VALUE,
+  InvalidField.JSON_PROPERTY_MESSAGE
 })
 
 public class InvalidField {
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
+
   public InvalidField() { 
-  }
-
-  /**
-   * Description of the validation error.
-   *
-   * @param message
-   * @return the current {@code InvalidField} instance, allowing for method chaining
-   */
-  public InvalidField message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Description of the validation error.
-   * @return message
-   */
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMessage() {
-    return message;
-  }
-
-  /**
-   * Description of the validation error.
-   *
-   * @param message
-   */
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
-    this.message = message;
   }
 
   /**
@@ -144,6 +112,38 @@ public class InvalidField {
   }
 
   /**
+   * Description of the validation error.
+   *
+   * @param message
+   * @return the current {@code InvalidField} instance, allowing for method chaining
+   */
+  public InvalidField message(String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Description of the validation error.
+   * @return message
+   */
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * Description of the validation error.
+   *
+   * @param message
+   */
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  /**
    * Return true if this InvalidField object is equal to o.
    */
   @Override
@@ -155,23 +155,23 @@ public class InvalidField {
       return false;
     }
     InvalidField invalidField = (InvalidField) o;
-    return Objects.equals(this.message, invalidField.message) &&
-        Objects.equals(this.name, invalidField.name) &&
-        Objects.equals(this.value, invalidField.value);
+    return Objects.equals(this.name, invalidField.name) &&
+        Objects.equals(this.value, invalidField.value) &&
+        Objects.equals(this.message, invalidField.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, name, value);
+    return Objects.hash(name, value, message);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InvalidField {\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
