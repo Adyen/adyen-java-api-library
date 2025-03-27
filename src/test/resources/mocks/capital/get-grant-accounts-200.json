@@ -1,0 +1,22 @@
+{
+  "balances": [
+    {
+      "currency": "EUR",
+      "fee": 10,
+      "principal": 19990,
+      "total": 20000
+    }
+  ],
+  "fundingBalanceAccountId": "00000000789",
+  "id": "0000000001",
+  "limits": [
+    {
+      "currency": "EUR",
+      "value": 20000
+    },
+    {
+      "currency": "USD",
+      "value": 22000
+    }
+  ]
+}
