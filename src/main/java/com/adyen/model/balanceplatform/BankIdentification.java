@@ -44,9 +44,11 @@ public class BankIdentification {
   private String identification;
 
   /**
-   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    */
   public enum IdentificationTypeEnum {
+    BIC("bic"),
+    
     IBAN("iban"),
     
     ROUTINGNUMBER("routingNumber"),
@@ -153,7 +155,7 @@ public class BankIdentification {
   }
 
   /**
-   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    *
    * @param identificationType
    * @return the current {@code BankIdentification} instance, allowing for method chaining
@@ -164,10 +166,10 @@ public class BankIdentification {
   }
 
   /**
-   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    * @return identificationType
    */
-  @ApiModelProperty(value = "The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.")
+  @ApiModelProperty(value = "The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IdentificationTypeEnum getIdentificationType() {
@@ -175,7 +177,7 @@ public class BankIdentification {
   }
 
   /**
-   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    *
    * @param identificationType
    */ 

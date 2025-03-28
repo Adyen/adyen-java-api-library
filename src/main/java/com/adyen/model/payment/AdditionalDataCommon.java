@@ -31,6 +31,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * AdditionalDataCommon
  */
 @JsonPropertyOrder({
+  AdditionalDataCommon.JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE,
   AdditionalDataCommon.JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE,
   AdditionalDataCommon.JSON_PROPERTY_ALLOW_PARTIAL_AUTH,
   AdditionalDataCommon.JSON_PROPERTY_AUTHORISATION_TYPE,
@@ -43,8 +44,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AdditionalDataCommon.JSON_PROPERTY_OVERWRITE_BRAND,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_CITY,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_COUNTRY,
+  AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_EMAIL,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_I_D,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_NAME,
+  AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_PHONE_NUMBER,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_POSTAL_CODE,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_STATE,
   AdditionalDataCommon.JSON_PROPERTY_SUB_MERCHANT_STREET,
@@ -52,6 +55,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 })
 
 public class AdditionalDataCommon {
+  public static final String JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE = "RequestedTestAcquirerResponseCode";
+  private String requestedTestAcquirerResponseCode;
+
   public static final String JSON_PROPERTY_REQUESTED_TEST_ERROR_RESPONSE_CODE = "RequestedTestErrorResponseCode";
   private String requestedTestErrorResponseCode;
 
@@ -123,11 +129,17 @@ public class AdditionalDataCommon {
   public static final String JSON_PROPERTY_SUB_MERCHANT_COUNTRY = "subMerchantCountry";
   private String subMerchantCountry;
 
+  public static final String JSON_PROPERTY_SUB_MERCHANT_EMAIL = "subMerchantEmail";
+  private String subMerchantEmail;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_I_D = "subMerchantID";
   private String subMerchantID;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_NAME = "subMerchantName";
   private String subMerchantName;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANT_PHONE_NUMBER = "subMerchantPhoneNumber";
+  private String subMerchantPhoneNumber;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_POSTAL_CODE = "subMerchantPostalCode";
   private String subMerchantPostalCode;
@@ -142,6 +154,39 @@ public class AdditionalDataCommon {
   private String subMerchantTaxId;
 
   public AdditionalDataCommon() { 
+  }
+
+  /**
+   * Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the &#x60;refusalReason&#x60; values you can trigger. 
+   *
+   * @param requestedTestAcquirerResponseCode
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
+  public AdditionalDataCommon requestedTestAcquirerResponseCode(String requestedTestAcquirerResponseCode) {
+    this.requestedTestAcquirerResponseCode = requestedTestAcquirerResponseCode;
+    return this;
+  }
+
+  /**
+   * Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the &#x60;refusalReason&#x60; values you can trigger. 
+   * @return requestedTestAcquirerResponseCode
+   */
+  @ApiModelProperty(value = "Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the `refusalReason` values you can trigger. ")
+  @JsonProperty(JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRequestedTestAcquirerResponseCode() {
+    return requestedTestAcquirerResponseCode;
+  }
+
+  /**
+   * Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the &#x60;refusalReason&#x60; values you can trigger. 
+   *
+   * @param requestedTestAcquirerResponseCode
+   */ 
+  @JsonProperty(JSON_PROPERTY_REQUESTED_TEST_ACQUIRER_RESPONSE_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRequestedTestAcquirerResponseCode(String requestedTestAcquirerResponseCode) {
+    this.requestedTestAcquirerResponseCode = requestedTestAcquirerResponseCode;
   }
 
   /**
@@ -541,6 +586,39 @@ public class AdditionalDataCommon {
   }
 
   /**
+   * This field is required for transactions performed by registered payment facilitators. This field contains the email address of the sub-merchant. * Format: Alphanumeric * Maximum length: 40 characters
+   *
+   * @param subMerchantEmail
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
+  public AdditionalDataCommon subMerchantEmail(String subMerchantEmail) {
+    this.subMerchantEmail = subMerchantEmail;
+    return this;
+  }
+
+  /**
+   * This field is required for transactions performed by registered payment facilitators. This field contains the email address of the sub-merchant. * Format: Alphanumeric * Maximum length: 40 characters
+   * @return subMerchantEmail
+   */
+  @ApiModelProperty(value = "This field is required for transactions performed by registered payment facilitators. This field contains the email address of the sub-merchant. * Format: Alphanumeric * Maximum length: 40 characters")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubMerchantEmail() {
+    return subMerchantEmail;
+  }
+
+  /**
+   * This field is required for transactions performed by registered payment facilitators. This field contains the email address of the sub-merchant. * Format: Alphanumeric * Maximum length: 40 characters
+   *
+   * @param subMerchantEmail
+   */ 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantEmail(String subMerchantEmail) {
+    this.subMerchantEmail = subMerchantEmail;
+  }
+
+  /**
    * This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID.  A unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator. * Format: alpha-numeric. * Fixed length: 15 characters.
    *
    * @param subMerchantID
@@ -604,6 +682,39 @@ public class AdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantName(String subMerchantName) {
     this.subMerchantName = subMerchantName;
+  }
+
+  /**
+   * This field is required for transactions performed by registered payment facilitators. This field contains the phone number of the sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   *
+   * @param subMerchantPhoneNumber
+   * @return the current {@code AdditionalDataCommon} instance, allowing for method chaining
+   */
+  public AdditionalDataCommon subMerchantPhoneNumber(String subMerchantPhoneNumber) {
+    this.subMerchantPhoneNumber = subMerchantPhoneNumber;
+    return this;
+  }
+
+  /**
+   * This field is required for transactions performed by registered payment facilitators. This field contains the phone number of the sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   * @return subMerchantPhoneNumber
+   */
+  @ApiModelProperty(value = "This field is required for transactions performed by registered payment facilitators. This field contains the phone number of the sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters")
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubMerchantPhoneNumber() {
+    return subMerchantPhoneNumber;
+  }
+
+  /**
+   * This field is required for transactions performed by registered payment facilitators. This field contains the phone number of the sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   *
+   * @param subMerchantPhoneNumber
+   */ 
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantPhoneNumber(String subMerchantPhoneNumber) {
+    this.subMerchantPhoneNumber = subMerchantPhoneNumber;
   }
 
   /**
@@ -750,7 +861,8 @@ public class AdditionalDataCommon {
       return false;
     }
     AdditionalDataCommon additionalDataCommon = (AdditionalDataCommon) o;
-    return Objects.equals(this.requestedTestErrorResponseCode, additionalDataCommon.requestedTestErrorResponseCode) &&
+    return Objects.equals(this.requestedTestAcquirerResponseCode, additionalDataCommon.requestedTestAcquirerResponseCode) &&
+        Objects.equals(this.requestedTestErrorResponseCode, additionalDataCommon.requestedTestErrorResponseCode) &&
         Objects.equals(this.allowPartialAuth, additionalDataCommon.allowPartialAuth) &&
         Objects.equals(this.authorisationType, additionalDataCommon.authorisationType) &&
         Objects.equals(this.autoRescue, additionalDataCommon.autoRescue) &&
@@ -762,8 +874,10 @@ public class AdditionalDataCommon {
         Objects.equals(this.overwriteBrand, additionalDataCommon.overwriteBrand) &&
         Objects.equals(this.subMerchantCity, additionalDataCommon.subMerchantCity) &&
         Objects.equals(this.subMerchantCountry, additionalDataCommon.subMerchantCountry) &&
+        Objects.equals(this.subMerchantEmail, additionalDataCommon.subMerchantEmail) &&
         Objects.equals(this.subMerchantID, additionalDataCommon.subMerchantID) &&
         Objects.equals(this.subMerchantName, additionalDataCommon.subMerchantName) &&
+        Objects.equals(this.subMerchantPhoneNumber, additionalDataCommon.subMerchantPhoneNumber) &&
         Objects.equals(this.subMerchantPostalCode, additionalDataCommon.subMerchantPostalCode) &&
         Objects.equals(this.subMerchantState, additionalDataCommon.subMerchantState) &&
         Objects.equals(this.subMerchantStreet, additionalDataCommon.subMerchantStreet) &&
@@ -772,13 +886,14 @@ public class AdditionalDataCommon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedTestErrorResponseCode, allowPartialAuth, authorisationType, autoRescue, customRoutingFlag, industryUsage, manualCapture, maxDaysToRescue, networkTxReference, overwriteBrand, subMerchantCity, subMerchantCountry, subMerchantID, subMerchantName, subMerchantPostalCode, subMerchantState, subMerchantStreet, subMerchantTaxId);
+    return Objects.hash(requestedTestAcquirerResponseCode, requestedTestErrorResponseCode, allowPartialAuth, authorisationType, autoRescue, customRoutingFlag, industryUsage, manualCapture, maxDaysToRescue, networkTxReference, overwriteBrand, subMerchantCity, subMerchantCountry, subMerchantEmail, subMerchantID, subMerchantName, subMerchantPhoneNumber, subMerchantPostalCode, subMerchantState, subMerchantStreet, subMerchantTaxId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdditionalDataCommon {\n");
+    sb.append("    requestedTestAcquirerResponseCode: ").append(toIndentedString(requestedTestAcquirerResponseCode)).append("\n");
     sb.append("    requestedTestErrorResponseCode: ").append(toIndentedString(requestedTestErrorResponseCode)).append("\n");
     sb.append("    allowPartialAuth: ").append(toIndentedString(allowPartialAuth)).append("\n");
     sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
@@ -791,8 +906,10 @@ public class AdditionalDataCommon {
     sb.append("    overwriteBrand: ").append(toIndentedString(overwriteBrand)).append("\n");
     sb.append("    subMerchantCity: ").append(toIndentedString(subMerchantCity)).append("\n");
     sb.append("    subMerchantCountry: ").append(toIndentedString(subMerchantCountry)).append("\n");
+    sb.append("    subMerchantEmail: ").append(toIndentedString(subMerchantEmail)).append("\n");
     sb.append("    subMerchantID: ").append(toIndentedString(subMerchantID)).append("\n");
     sb.append("    subMerchantName: ").append(toIndentedString(subMerchantName)).append("\n");
+    sb.append("    subMerchantPhoneNumber: ").append(toIndentedString(subMerchantPhoneNumber)).append("\n");
     sb.append("    subMerchantPostalCode: ").append(toIndentedString(subMerchantPostalCode)).append("\n");
     sb.append("    subMerchantState: ").append(toIndentedString(subMerchantState)).append("\n");
     sb.append("    subMerchantStreet: ").append(toIndentedString(subMerchantStreet)).append("\n");

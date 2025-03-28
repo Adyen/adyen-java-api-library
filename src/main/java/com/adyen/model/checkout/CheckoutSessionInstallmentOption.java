@@ -43,6 +43,8 @@ public class CheckoutSessionInstallmentOption {
    * Gets or Sets plans
    */
   public enum PlansEnum {
+    BONUS("bonus"),
+    
     BUYNOW_PAYLATER("buynow_paylater"),
     
     INTERES_REFUND_PRCTG("interes_refund_prctg"),
@@ -101,7 +103,7 @@ public class CheckoutSessionInstallmentOption {
   }
 
   /**
-   * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
+   * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
    *
    * @param plans
    * @return the current {@code CheckoutSessionInstallmentOption} instance, allowing for method chaining
@@ -120,10 +122,10 @@ public class CheckoutSessionInstallmentOption {
   }
 
   /**
-   * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
+   * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
    * @return plans
    */
-  @ApiModelProperty(value = "Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**")
+  @ApiModelProperty(value = "Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**")
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PlansEnum> getPlans() {
@@ -131,7 +133,7 @@ public class CheckoutSessionInstallmentOption {
   }
 
   /**
-   * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
+   * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
    *
    * @param plans
    */ 

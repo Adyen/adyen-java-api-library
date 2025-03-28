@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   OnboardingLinkSettings.JSON_PROPERTY_ACCEPTED_COUNTRIES,
   OnboardingLinkSettings.JSON_PROPERTY_ALLOW_BANK_ACCOUNT_FORMAT_SELECTION,
+  OnboardingLinkSettings.JSON_PROPERTY_ALLOW_DEBUG_UI,
   OnboardingLinkSettings.JSON_PROPERTY_ALLOW_INTRA_REGION_CROSS_BORDER_PAYOUT,
   OnboardingLinkSettings.JSON_PROPERTY_CHANGE_LEGAL_ENTITY_TYPE,
   OnboardingLinkSettings.JSON_PROPERTY_EDIT_PREFILLED_COUNTRY,
@@ -57,6 +58,9 @@ public class OnboardingLinkSettings {
 
   public static final String JSON_PROPERTY_ALLOW_BANK_ACCOUNT_FORMAT_SELECTION = "allowBankAccountFormatSelection";
   private Boolean allowBankAccountFormatSelection;
+
+  public static final String JSON_PROPERTY_ALLOW_DEBUG_UI = "allowDebugUi";
+  private Boolean allowDebugUi;
 
   public static final String JSON_PROPERTY_ALLOW_INTRA_REGION_CROSS_BORDER_PAYOUT = "allowIntraRegionCrossBorderPayout";
   private Boolean allowIntraRegionCrossBorderPayout;
@@ -175,6 +179,39 @@ public class OnboardingLinkSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowBankAccountFormatSelection(Boolean allowBankAccountFormatSelection) {
     this.allowBankAccountFormatSelection = allowBankAccountFormatSelection;
+  }
+
+  /**
+   * Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
+   *
+   * @param allowDebugUi
+   * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
+   */
+  public OnboardingLinkSettings allowDebugUi(Boolean allowDebugUi) {
+    this.allowDebugUi = allowDebugUi;
+    return this;
+  }
+
+  /**
+   * Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
+   * @return allowDebugUi
+   */
+  @ApiModelProperty(value = "Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.")
+  @JsonProperty(JSON_PROPERTY_ALLOW_DEBUG_UI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowDebugUi() {
+    return allowDebugUi;
+  }
+
+  /**
+   * Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
+   *
+   * @param allowDebugUi
+   */ 
+  @JsonProperty(JSON_PROPERTY_ALLOW_DEBUG_UI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowDebugUi(Boolean allowDebugUi) {
+    this.allowDebugUi = allowDebugUi;
   }
 
   /**
@@ -653,6 +690,7 @@ public class OnboardingLinkSettings {
     OnboardingLinkSettings onboardingLinkSettings = (OnboardingLinkSettings) o;
     return Objects.equals(this.acceptedCountries, onboardingLinkSettings.acceptedCountries) &&
         Objects.equals(this.allowBankAccountFormatSelection, onboardingLinkSettings.allowBankAccountFormatSelection) &&
+        Objects.equals(this.allowDebugUi, onboardingLinkSettings.allowDebugUi) &&
         Objects.equals(this.allowIntraRegionCrossBorderPayout, onboardingLinkSettings.allowIntraRegionCrossBorderPayout) &&
         Objects.equals(this.changeLegalEntityType, onboardingLinkSettings.changeLegalEntityType) &&
         Objects.equals(this.editPrefilledCountry, onboardingLinkSettings.editPrefilledCountry) &&
@@ -671,7 +709,7 @@ public class OnboardingLinkSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedCountries, allowBankAccountFormatSelection, allowIntraRegionCrossBorderPayout, changeLegalEntityType, editPrefilledCountry, enforceLegalAge, hideOnboardingIntroductionIndividual, hideOnboardingIntroductionOrganization, hideOnboardingIntroductionSoleProprietor, hideOnboardingIntroductionTrust, instantBankVerification, requirePciSignEcomMoto, requirePciSignEcommerce, requirePciSignPos, requirePciSignPosMoto, transferInstrumentLimit);
+    return Objects.hash(acceptedCountries, allowBankAccountFormatSelection, allowDebugUi, allowIntraRegionCrossBorderPayout, changeLegalEntityType, editPrefilledCountry, enforceLegalAge, hideOnboardingIntroductionIndividual, hideOnboardingIntroductionOrganization, hideOnboardingIntroductionSoleProprietor, hideOnboardingIntroductionTrust, instantBankVerification, requirePciSignEcomMoto, requirePciSignEcommerce, requirePciSignPos, requirePciSignPosMoto, transferInstrumentLimit);
   }
 
   @Override
@@ -680,6 +718,7 @@ public class OnboardingLinkSettings {
     sb.append("class OnboardingLinkSettings {\n");
     sb.append("    acceptedCountries: ").append(toIndentedString(acceptedCountries)).append("\n");
     sb.append("    allowBankAccountFormatSelection: ").append(toIndentedString(allowBankAccountFormatSelection)).append("\n");
+    sb.append("    allowDebugUi: ").append(toIndentedString(allowDebugUi)).append("\n");
     sb.append("    allowIntraRegionCrossBorderPayout: ").append(toIndentedString(allowIntraRegionCrossBorderPayout)).append("\n");
     sb.append("    changeLegalEntityType: ").append(toIndentedString(changeLegalEntityType)).append("\n");
     sb.append("    editPrefilledCountry: ").append(toIndentedString(editPrefilledCountry)).append("\n");
