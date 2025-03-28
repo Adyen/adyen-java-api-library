@@ -207,7 +207,7 @@ public class StoredPaymentMethod {
   }
 
   /**
-   * The month the card expires.
+   * The two-digit month when the card expires
    *
    * @param expiryMonth
    * @return the current {@code StoredPaymentMethod} instance, allowing for method chaining
@@ -218,10 +218,10 @@ public class StoredPaymentMethod {
   }
 
   /**
-   * The month the card expires.
+   * The two-digit month when the card expires
    * @return expiryMonth
    */
-  @ApiModelProperty(value = "The month the card expires.")
+  @ApiModelProperty(value = "The two-digit month when the card expires")
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryMonth() {
@@ -229,7 +229,7 @@ public class StoredPaymentMethod {
   }
 
   /**
-   * The month the card expires.
+   * The two-digit month when the card expires
    *
    * @param expiryMonth
    */ 

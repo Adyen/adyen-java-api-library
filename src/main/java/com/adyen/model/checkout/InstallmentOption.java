@@ -47,6 +47,8 @@ public class InstallmentOption {
    * Gets or Sets plans
    */
   public enum PlansEnum {
+    BONUS("bonus"),
+    
     BUYNOW_PAYLATER("buynow_paylater"),
     
     INTERES_REFUND_PRCTG("interes_refund_prctg"),

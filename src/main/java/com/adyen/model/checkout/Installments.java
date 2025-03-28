@@ -44,6 +44,8 @@ public class Installments {
    * The installment plan, used for [card installments in Japan](https://docs.adyen.com/payment-methods/cards/credit-card-installments#make-a-payment-japan). and [Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico). By default, this is set to **regular**. 
    */
   public enum PlanEnum {
+    BONUS("bonus"),
+    
     BUYNOW_PAYLATER("buynow_paylater"),
     
     INTERES_REFUND_PRCTG("interes_refund_prctg"),

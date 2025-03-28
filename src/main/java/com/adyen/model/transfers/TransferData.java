@@ -19,6 +19,7 @@ import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.BalanceMutation;
 import com.adyen.model.transfers.DirectDebitInformation;
+import com.adyen.model.transfers.ExternalReason;
 import com.adyen.model.transfers.PaymentInstrument;
 import com.adyen.model.transfers.ResourceReference;
 import com.adyen.model.transfers.TransactionRulesResult;
@@ -59,6 +60,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferData.JSON_PROPERTY_DIRECTION,
   TransferData.JSON_PROPERTY_EVENT_ID,
   TransferData.JSON_PROPERTY_EVENTS,
+  TransferData.JSON_PROPERTY_EXTERNAL_REASON,
   TransferData.JSON_PROPERTY_ID,
   TransferData.JSON_PROPERTY_PAYMENT_INSTRUMENT,
   TransferData.JSON_PROPERTY_REASON,
@@ -193,6 +195,9 @@ public class TransferData {
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<TransferEvent> events = null;
 
+  public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
+  private ExternalReason externalReason;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -232,6 +237,8 @@ public class TransferData {
     ERROR("error"),
     
     NOTENOUGHBALANCE("notEnoughBalance"),
+    
+    PENDING("pending"),
     
     PENDINGAPPROVAL("pendingApproval"),
     
@@ -983,7 +990,7 @@ public class TransferData {
   }
 
   /**
-   * The event id listed under events, that triggered the notification.
+   * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    *
    * @param eventId
    * @return the current {@code TransferData} instance, allowing for method chaining
@@ -994,10 +1001,10 @@ public class TransferData {
   }
 
   /**
-   * The event id listed under events, that triggered the notification.
+   * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    * @return eventId
    */
-  @ApiModelProperty(value = "The event id listed under events, that triggered the notification.")
+  @ApiModelProperty(value = "The unique identifier of the latest transfer event. Included only when the `category` is **issuedCard**.")
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEventId() {
@@ -1005,7 +1012,7 @@ public class TransferData {
   }
 
   /**
-   * The event id listed under events, that triggered the notification.
+   * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    *
    * @param eventId
    */ 
@@ -1054,6 +1061,39 @@ public class TransferData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEvents(List<TransferEvent> events) {
     this.events = events;
+  }
+
+  /**
+   * externalReason
+   *
+   * @param externalReason
+   * @return the current {@code TransferData} instance, allowing for method chaining
+   */
+  public TransferData externalReason(ExternalReason externalReason) {
+    this.externalReason = externalReason;
+    return this;
+  }
+
+  /**
+   * externalReason
+   * @return externalReason
+   */
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExternalReason getExternalReason() {
+    return externalReason;
+  }
+
+  /**
+   * externalReason
+   *
+   * @param externalReason
+   */ 
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExternalReason(ExternalReason externalReason) {
+    this.externalReason = externalReason;
   }
 
   /**
@@ -1445,6 +1485,7 @@ public class TransferData {
         Objects.equals(this.direction, transferData.direction) &&
         Objects.equals(this.eventId, transferData.eventId) &&
         Objects.equals(this.events, transferData.events) &&
+        Objects.equals(this.externalReason, transferData.externalReason) &&
         Objects.equals(this.id, transferData.id) &&
         Objects.equals(this.paymentInstrument, transferData.paymentInstrument) &&
         Objects.equals(this.reason, transferData.reason) &&
@@ -1460,7 +1501,7 @@ public class TransferData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, balances, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, eventId, events, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, sequenceNumber, status, tracking, transactionRulesResult, type);
+    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, balances, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, eventId, events, externalReason, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, sequenceNumber, status, tracking, transactionRulesResult, type);
   }
 
   @Override
@@ -1481,6 +1522,7 @@ public class TransferData {
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    externalReason: ").append(toIndentedString(externalReason)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");

@@ -33,6 +33,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   PaymentMethodToStore.JSON_PROPERTY_BRAND,
   PaymentMethodToStore.JSON_PROPERTY_CVC,
+  PaymentMethodToStore.JSON_PROPERTY_ENCRYPTED_CARD,
   PaymentMethodToStore.JSON_PROPERTY_ENCRYPTED_CARD_NUMBER,
   PaymentMethodToStore.JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH,
   PaymentMethodToStore.JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR,
@@ -50,6 +51,9 @@ public class PaymentMethodToStore {
 
   public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
+
+  public static final String JSON_PROPERTY_ENCRYPTED_CARD = "encryptedCard";
+  private String encryptedCard;
 
   public static final String JSON_PROPERTY_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
   private String encryptedCardNumber;
@@ -145,6 +149,39 @@ public class PaymentMethodToStore {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
+  }
+
+  /**
+   * The encrypted card.
+   *
+   * @param encryptedCard
+   * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
+   */
+  public PaymentMethodToStore encryptedCard(String encryptedCard) {
+    this.encryptedCard = encryptedCard;
+    return this;
+  }
+
+  /**
+   * The encrypted card.
+   * @return encryptedCard
+   */
+  @ApiModelProperty(value = "The encrypted card.")
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEncryptedCard() {
+    return encryptedCard;
+  }
+
+  /**
+   * The encrypted card.
+   *
+   * @param encryptedCard
+   */ 
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEncryptedCard(String encryptedCard) {
+    this.encryptedCard = encryptedCard;
   }
 
   /**
@@ -458,6 +495,7 @@ public class PaymentMethodToStore {
     PaymentMethodToStore paymentMethodToStore = (PaymentMethodToStore) o;
     return Objects.equals(this.brand, paymentMethodToStore.brand) &&
         Objects.equals(this.cvc, paymentMethodToStore.cvc) &&
+        Objects.equals(this.encryptedCard, paymentMethodToStore.encryptedCard) &&
         Objects.equals(this.encryptedCardNumber, paymentMethodToStore.encryptedCardNumber) &&
         Objects.equals(this.encryptedExpiryMonth, paymentMethodToStore.encryptedExpiryMonth) &&
         Objects.equals(this.encryptedExpiryYear, paymentMethodToStore.encryptedExpiryYear) &&
@@ -471,7 +509,7 @@ public class PaymentMethodToStore {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, holderName, number, type);
+    return Objects.hash(brand, cvc, encryptedCard, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, holderName, number, type);
   }
 
   @Override
@@ -480,6 +518,7 @@ public class PaymentMethodToStore {
     sb.append("class PaymentMethodToStore {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
+    sb.append("    encryptedCard: ").append(toIndentedString(encryptedCard)).append("\n");
     sb.append("    encryptedCardNumber: ").append(toIndentedString(encryptedCardNumber)).append("\n");
     sb.append("    encryptedExpiryMonth: ").append(toIndentedString(encryptedExpiryMonth)).append("\n");
     sb.append("    encryptedExpiryYear: ").append(toIndentedString(encryptedExpiryYear)).append("\n");
