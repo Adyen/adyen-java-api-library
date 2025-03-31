@@ -6,15 +6,17 @@
 
     <groupId>com.adyen</groupId>
     <artifactId>hmac-troubleshooting</artifactId>
-    <version>1..00-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <name>HMAC Troubleshooting - Adyen Java library</name>
+    <description>Scripts to troubleshoot the HMAC validation</description>
+
     <dependencies>
-        <!-- JSON dependency (for parsing JSON payload) -->
         <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20210307</version>
+            <groupId>com.adyen</groupId>
+            <artifactId>adyen-java-api-library</artifactId>
+            <version>35.0.0</version>
         </dependency>
     </dependencies>
 
@@ -30,14 +32,18 @@
                     <target>11</target>
                 </configuration>
             </plugin>
+            <!-- Run with mvn exec:java-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.5.0</version>
+
                 <configuration>
+                    <executable>maven</executable>
                     <mainClass>CalculateHmacPayments</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>
