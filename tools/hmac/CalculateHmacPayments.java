@@ -5,12 +5,22 @@ import com.adyen.util.HMACValidator;
 import com.adyen.model.notification.NotificationRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ Script to calculate the HMAC signature of Payments webhooks (where the signature is calculated considering
+ a subset of the fields in the payload - i.e. NotificationRequestItem object)
+
+ Run with: mvn clean compile exec:java -Dexec.mainClass=CalculateHmacPayments -Dexec.args= "{hmacKey} {path_to_JSON_file}"
+
+ cd tools/hmac
+ mvn clean compile exec:java -Dexec.mainClass=CalculateHmacPayments -Dexec.args="11223344D785FBAE710E7F943F307971BB61B21281C98C9129B3D4018A57B2EB payload.json"
+
+ */
 public class CalculateHmacPayments {
 
     public static void main(String[] args) {
         if (args.length != 2) {
             System.err.println("‼️Error running the script");
-            System.err.println("Usage: java CalculateHmacPayments <hmacKey> <payloadFile>");
+            System.err.println("Usage: mvn clean compile exec:java -Dexec.mainClass=CalculateHmacPayments -Dexec.args= \"{hmacKey} {path_to_JSON_file}\"");
             System.exit(1);
         }
 
