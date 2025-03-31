@@ -154,7 +154,7 @@ public class HMACValidatorTest extends BaseTest {
         try {
             new HMACValidator().calculateHMAC((String)null, HMAC_KEY);
         } catch (IllegalArgumentException e) {
-            assertEquals("Missing data or key.", e.getMessage());
+            assertEquals("Missing data or key: payload data is not provided", e.getMessage());
         } catch (SignatureException e) {
             fail();
         }
@@ -165,7 +165,7 @@ public class HMACValidatorTest extends BaseTest {
         try {
             new HMACValidator().calculateHMAC("TestPayload", null);
         } catch (IllegalArgumentException e) {
-            assertEquals("Missing data or key.", e.getMessage());
+            assertEquals("Missing data or key: HMAC key is not provided", e.getMessage());
         } catch (SignatureException e) {
             fail();
         }
