@@ -154,7 +154,6 @@ public class CapitalApi extends Service {
     */
    @Deprecated
     public CapitalGrant requestGrantPayout(CapitalGrantInfo capitalGrantInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = capitalGrantInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/grants", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -47,7 +45,7 @@ public class DKLocalAccountIdentification {
    * **dkLocal**
    */
   public enum TypeEnum {
-    DKLOCAL("dkLocal");
+    DKLOCAL(String.valueOf("dkLocal"));
 
     private String value;
 
@@ -77,7 +75,7 @@ public class DKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.DKLOCAL;
 
   public DKLocalAccountIdentification() { 
   }
@@ -97,7 +95,6 @@ public class DKLocalAccountIdentification {
    * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
    * @return accountNumber
    */
-  @ApiModelProperty(required = true, value = "The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -108,7 +105,7 @@ public class DKLocalAccountIdentification {
    * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
    *
    * @param accountNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -130,7 +127,6 @@ public class DKLocalAccountIdentification {
    * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
    * @return bankCode
    */
-  @ApiModelProperty(required = true, value = "The 4-digit bank code (Registreringsnummer) (without separators or whitespace).")
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankCode() {
@@ -141,7 +137,7 @@ public class DKLocalAccountIdentification {
    * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
    *
    * @param bankCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
@@ -163,7 +159,6 @@ public class DKLocalAccountIdentification {
    * **dkLocal**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**dkLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -174,7 +169,7 @@ public class DKLocalAccountIdentification {
    * **dkLocal**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

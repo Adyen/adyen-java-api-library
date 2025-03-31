@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.BankAccountV3AccountIdentification;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -59,10 +57,9 @@ public class BankAccountV3 {
   }
 
   /**
-   * accountHolder
+   * Get accountHolder
    * @return accountHolder
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PartyIdentification getAccountHolder() {
@@ -73,7 +70,7 @@ public class BankAccountV3 {
    * accountHolder
    *
    * @param accountHolder
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(PartyIdentification accountHolder) {
@@ -92,10 +89,9 @@ public class BankAccountV3 {
   }
 
   /**
-   * accountIdentification
+   * Get accountIdentification
    * @return accountIdentification
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccountV3AccountIdentification getAccountIdentification() {
@@ -106,7 +102,7 @@ public class BankAccountV3 {
    * accountIdentification
    *
    * @param accountIdentification
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountV3AccountIdentification accountIdentification) {

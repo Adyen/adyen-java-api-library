@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -38,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CancelTransfersRequest {
   public static final String JSON_PROPERTY_TRANSFER_IDS = "transferIds";
-  private List<String> transferIds = null;
+  private List<String> transferIds = new ArrayList<>();
 
   public CancelTransfersRequest() { 
   }
@@ -66,7 +64,6 @@ public class CancelTransfersRequest {
    * Contains the unique identifiers of the transfers that you want to cancel.
    * @return transferIds
    */
-  @ApiModelProperty(value = "Contains the unique identifiers of the transfers that you want to cancel.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTransferIds() {
@@ -77,7 +74,7 @@ public class CancelTransfersRequest {
    * Contains the unique identifiers of the transfers that you want to cancel.
    *
    * @param transferIds
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSFER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferIds(List<String> transferIds) {

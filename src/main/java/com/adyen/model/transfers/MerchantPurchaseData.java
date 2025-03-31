@@ -13,17 +13,18 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Airline;
+import com.adyen.model.transfers.Lodging;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -33,6 +34,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   MerchantPurchaseData.JSON_PROPERTY_AIRLINE,
+  MerchantPurchaseData.JSON_PROPERTY_LODGING,
   MerchantPurchaseData.JSON_PROPERTY_TYPE
 })
 
@@ -40,11 +42,14 @@ public class MerchantPurchaseData {
   public static final String JSON_PROPERTY_AIRLINE = "airline";
   private Airline airline;
 
+  public static final String JSON_PROPERTY_LODGING = "lodging";
+  private List<Lodging> lodging = new ArrayList<>();
+
   /**
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    */
   public enum TypeEnum {
-    MERCHANTPURCHASEDATA("merchantPurchaseData");
+    MERCHANTPURCHASEDATA(String.valueOf("merchantPurchaseData"));
 
     private String value;
 
@@ -74,7 +79,7 @@ public class MerchantPurchaseData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.MERCHANTPURCHASEDATA;
 
   public MerchantPurchaseData() { 
   }
@@ -91,10 +96,9 @@ public class MerchantPurchaseData {
   }
 
   /**
-   * airline
+   * Get airline
    * @return airline
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AIRLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Airline getAirline() {
@@ -105,11 +109,51 @@ public class MerchantPurchaseData {
    * airline
    *
    * @param airline
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AIRLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirline(Airline airline) {
     this.airline = airline;
+  }
+
+  /**
+   * Lodging information.
+   *
+   * @param lodging
+   * @return the current {@code MerchantPurchaseData} instance, allowing for method chaining
+   */
+  public MerchantPurchaseData lodging(List<Lodging> lodging) {
+    this.lodging = lodging;
+    return this;
+  }
+
+  public MerchantPurchaseData addLodgingItem(Lodging lodgingItem) {
+    if (this.lodging == null) {
+      this.lodging = new ArrayList<>();
+    }
+    this.lodging.add(lodgingItem);
+    return this;
+  }
+
+  /**
+   * Lodging information.
+   * @return lodging
+   */
+  @JsonProperty(JSON_PROPERTY_LODGING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Lodging> getLodging() {
+    return lodging;
+  }
+
+  /**
+   * Lodging information.
+   *
+   * @param lodging
+   */
+  @JsonProperty(JSON_PROPERTY_LODGING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLodging(List<Lodging> lodging) {
+    this.lodging = lodging;
   }
 
   /**
@@ -127,7 +171,6 @@ public class MerchantPurchaseData {
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -138,7 +181,7 @@ public class MerchantPurchaseData {
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -158,12 +201,13 @@ public class MerchantPurchaseData {
     }
     MerchantPurchaseData merchantPurchaseData = (MerchantPurchaseData) o;
     return Objects.equals(this.airline, merchantPurchaseData.airline) &&
+        Objects.equals(this.lodging, merchantPurchaseData.lodging) &&
         Objects.equals(this.type, merchantPurchaseData.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(airline, type);
+    return Objects.hash(airline, lodging, type);
   }
 
   @Override
@@ -171,6 +215,7 @@ public class MerchantPurchaseData {
     StringBuilder sb = new StringBuilder();
     sb.append("class MerchantPurchaseData {\n");
     sb.append("    airline: ").append(toIndentedString(airline)).append("\n");
+    sb.append("    lodging: ").append(toIndentedString(lodging)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
