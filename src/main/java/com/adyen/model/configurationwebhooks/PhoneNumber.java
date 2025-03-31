@@ -13,6 +13,7 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,13 +47,13 @@ public class PhoneNumber {
    * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    */
   public enum PhoneTypeEnum {
-    FAX(String.valueOf("Fax")),
+    FAX("Fax"),
     
-    LANDLINE(String.valueOf("Landline")),
+    LANDLINE("Landline"),
     
-    MOBILE(String.valueOf("Mobile")),
+    MOBILE("Mobile"),
     
-    SIP(String.valueOf("SIP"));
+    SIP("SIP");
 
     private String value;
 
@@ -101,6 +103,7 @@ public class PhoneNumber {
    * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    * @return phoneCountryCode
    */
+  @ApiModelProperty(value = "The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.")
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneCountryCode() {
@@ -111,7 +114,7 @@ public class PhoneNumber {
    * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    *
    * @param phoneCountryCode
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneCountryCode(String phoneCountryCode) {
@@ -133,6 +136,7 @@ public class PhoneNumber {
    * The phone number. The inclusion of the phone number country code is not necessary.
    * @return phoneNumber
    */
+  @ApiModelProperty(value = "The phone number. The inclusion of the phone number country code is not necessary.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneNumber() {
@@ -143,7 +147,7 @@ public class PhoneNumber {
    * The phone number. The inclusion of the phone number country code is not necessary.
    *
    * @param phoneNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -165,6 +169,7 @@ public class PhoneNumber {
    * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    * @return phoneType
    */
+  @ApiModelProperty(value = "The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.")
   @JsonProperty(JSON_PROPERTY_PHONE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PhoneTypeEnum getPhoneType() {
@@ -175,7 +180,7 @@ public class PhoneNumber {
    * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    *
    * @param phoneType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PHONE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneType(PhoneTypeEnum phoneType) {

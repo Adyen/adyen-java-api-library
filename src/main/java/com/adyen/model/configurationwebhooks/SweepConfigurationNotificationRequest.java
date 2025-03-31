@@ -13,6 +13,7 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.SweepConfigurationNotificationData;
@@ -21,8 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -51,11 +53,11 @@ public class SweepConfigurationNotificationRequest {
    * Type of webhook.
    */
   public enum TypeEnum {
-    BALANCEPLATFORM_BALANCEACCOUNTSWEEP_CREATED(String.valueOf("balancePlatform.balanceAccountSweep.created")),
+    CREATED("balancePlatform.balanceAccountSweep.created"),
     
-    BALANCEPLATFORM_BALANCEACCOUNTSWEEP_UPDATED(String.valueOf("balancePlatform.balanceAccountSweep.updated")),
+    UPDATED("balancePlatform.balanceAccountSweep.updated"),
     
-    BALANCEPLATFORM_BALANCEACCOUNTSWEEP_DELETED(String.valueOf("balancePlatform.balanceAccountSweep.deleted"));
+    DELETED("balancePlatform.balanceAccountSweep.deleted");
 
     private String value;
 
@@ -102,9 +104,10 @@ public class SweepConfigurationNotificationRequest {
   }
 
   /**
-   * Get data
+   * data
    * @return data
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SweepConfigurationNotificationData getData() {
@@ -115,7 +118,7 @@ public class SweepConfigurationNotificationRequest {
    * data
    *
    * @param data
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(SweepConfigurationNotificationData data) {
@@ -137,6 +140,7 @@ public class SweepConfigurationNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return environment
    */
+  @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnvironment() {
@@ -147,7 +151,7 @@ public class SweepConfigurationNotificationRequest {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
    * @param environment
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
@@ -169,6 +173,7 @@ public class SweepConfigurationNotificationRequest {
    * When the event was queued.
    * @return timestamp
    */
+  @ApiModelProperty(value = "When the event was queued.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {
@@ -179,7 +184,7 @@ public class SweepConfigurationNotificationRequest {
    * When the event was queued.
    *
    * @param timestamp
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(OffsetDateTime timestamp) {
@@ -201,6 +206,7 @@ public class SweepConfigurationNotificationRequest {
    * Type of webhook.
    * @return type
    */
+  @ApiModelProperty(required = true, value = "Type of webhook.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -211,7 +217,7 @@ public class SweepConfigurationNotificationRequest {
    * Type of webhook.
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

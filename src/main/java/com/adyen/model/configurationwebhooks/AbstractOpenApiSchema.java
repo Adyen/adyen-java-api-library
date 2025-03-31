@@ -13,6 +13,7 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
+import java.lang.reflect.Type;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
@@ -43,7 +44,7 @@ public abstract class AbstractOpenApiSchema {
      *
      * @return an instance of the actual schema/object
      */
-    public abstract Map<String, GenericType<?>> getSchemas();
+    public abstract Map<String, GenericType> getSchemas();
 
     /**
      * Get the actual instance

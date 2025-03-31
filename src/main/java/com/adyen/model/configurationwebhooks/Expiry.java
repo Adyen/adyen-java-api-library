@@ -13,6 +13,7 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -58,6 +60,7 @@ public class Expiry {
    * The month in which the card will expire.
    * @return month
    */
+  @ApiModelProperty(value = "The month in which the card will expire.")
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMonth() {
@@ -68,7 +71,7 @@ public class Expiry {
    * The month in which the card will expire.
    *
    * @param month
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMonth(String month) {
@@ -90,6 +93,7 @@ public class Expiry {
    * The year in which the card will expire.
    * @return year
    */
+  @ApiModelProperty(value = "The year in which the card will expire.")
   @JsonProperty(JSON_PROPERTY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getYear() {
@@ -100,7 +104,7 @@ public class Expiry {
    * The year in which the card will expire.
    *
    * @param year
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setYear(String year) {

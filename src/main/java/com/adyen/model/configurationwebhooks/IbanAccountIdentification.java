@@ -13,6 +13,7 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -41,7 +43,7 @@ public class IbanAccountIdentification {
    * **iban**
    */
   public enum TypeEnum {
-    IBAN(String.valueOf("iban"));
+    IBAN("iban");
 
     private String value;
 
@@ -71,7 +73,7 @@ public class IbanAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.IBAN;
+  private TypeEnum type;
 
   public IbanAccountIdentification() { 
   }
@@ -91,6 +93,7 @@ public class IbanAccountIdentification {
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    * @return iban
    */
+  @ApiModelProperty(required = true, value = "The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIban() {
@@ -101,7 +104,7 @@ public class IbanAccountIdentification {
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    *
    * @param iban
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -123,6 +126,7 @@ public class IbanAccountIdentification {
    * **iban**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**iban**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -133,7 +137,7 @@ public class IbanAccountIdentification {
    * **iban**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

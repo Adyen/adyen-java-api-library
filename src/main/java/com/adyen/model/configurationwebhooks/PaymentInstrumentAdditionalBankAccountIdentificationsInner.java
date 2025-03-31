@@ -13,6 +13,7 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.IbanAccountIdentification;
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,7 +47,9 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -88,33 +92,46 @@ public class PaymentInstrumentAdditionalBankAccountIdentificationsInner extends 
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+
             // deserialize IbanAccountIdentification
             try {
                 boolean attemptParsing = true;
-                if (attemptParsing) {
-                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                    boolean typeMatch = Arrays.stream(IbanAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-
-                    if(typeMatch) {
-                        deserialized = tree.traverse(jp.getCodec()).readValueAs(IbanAccountIdentification.class);
-                        // TODO: there is no validation against JSON schema constraints
-                        // (min, max, enum, pattern...), this does not perform a strict JSON
-                        // validation, which means the 'match' count may be higher than it should be.
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentification'");
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (IbanAccountIdentification.class.equals(Integer.class) || IbanAccountIdentification.class.equals(Long.class) || IbanAccountIdentification.class.equals(Float.class) || IbanAccountIdentification.class.equals(Double.class) || IbanAccountIdentification.class.equals(Boolean.class) || IbanAccountIdentification.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((IbanAccountIdentification.class.equals(Integer.class) || IbanAccountIdentification.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((IbanAccountIdentification.class.equals(Float.class) || IbanAccountIdentification.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (IbanAccountIdentification.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (IbanAccountIdentification.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
+                }
+                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                boolean typeMatch = Arrays.stream(IbanAccountIdentification.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+                if (attemptParsing || typeMatch) {
+                    // Strict deserialization for oneOf models
+                    deserialized = JSON.getMapper().readValue(tree.toString(), IbanAccountIdentification.class);
+                    // typeMatch should enforce proper deserialization
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'IbanAccountIdentification'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'IbanAccountIdentification'", e);
             }
 
-            if (match == 1) {
-                PaymentInstrumentAdditionalBankAccountIdentificationsInner ret = new PaymentInstrumentAdditionalBankAccountIdentificationsInner();
-                ret.setActualInstance(deserialized);
-                return ret;
+            // Throw error if there is no match
+            if (match == 0) {
+                throw new IOException(String.format("Failed deserialization for PaymentInstrumentAdditionalBankAccountIdentificationsInner: %d classes match result, expected 1", match));
             }
-            throw new IOException(String.format("Failed deserialization for PaymentInstrumentAdditionalBankAccountIdentificationsInner: %d classes match result, expected 1", match));
+            // Log warning if there is more than one match
+            if (match > 1) {
+                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for PaymentInstrumentAdditionalBankAccountIdentificationsInner: %d classes match result, expected 1", match));
+            }
+
+            PaymentInstrumentAdditionalBankAccountIdentificationsInner ret = new PaymentInstrumentAdditionalBankAccountIdentificationsInner();
+            ret.setActualInstance(deserialized);
+            return ret;
         }
 
         /**
@@ -127,7 +144,7 @@ public class PaymentInstrumentAdditionalBankAccountIdentificationsInner extends 
     }
 
     // store a list of schema names defined in oneOf
-    public static final Map<String, GenericType<?>> schemas = new HashMap<>();
+    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
     public PaymentInstrumentAdditionalBankAccountIdentificationsInner() {
         super("oneOf", Boolean.FALSE);
@@ -145,7 +162,7 @@ public class PaymentInstrumentAdditionalBankAccountIdentificationsInner extends 
     }
 
     @Override
-    public Map<String, GenericType<?>> getSchemas() {
+    public Map<String, GenericType> getSchemas() {
         return PaymentInstrumentAdditionalBankAccountIdentificationsInner.schemas;
     }
 
@@ -159,7 +176,7 @@ public class PaymentInstrumentAdditionalBankAccountIdentificationsInner extends 
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(IbanAccountIdentification.class, instance, new HashSet<>())) {
+        if (JSON.isInstanceOf(IbanAccountIdentification.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -189,7 +206,6 @@ public class PaymentInstrumentAdditionalBankAccountIdentificationsInner extends 
         return (IbanAccountIdentification)super.getActualInstance();
     }
 
-
     /**
     * Create an instance of PaymentInstrumentAdditionalBankAccountIdentificationsInner given an JSON string
     *
@@ -209,5 +225,5 @@ public class PaymentInstrumentAdditionalBankAccountIdentificationsInner extends 
     public String toJson() throws JsonProcessingException {
         return JSON.getMapper().writeValueAsString(this);
     }
-
 }
+
