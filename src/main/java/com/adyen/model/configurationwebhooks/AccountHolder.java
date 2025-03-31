@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.AccountHolderCapability;
@@ -24,9 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +56,7 @@ public class AccountHolder {
   private String balancePlatform;
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private Map<String, AccountHolderCapability> capabilities = null;
+  private Map<String, AccountHolderCapability> capabilities = new HashMap<>();
 
   public static final String JSON_PROPERTY_CONTACT_DETAILS = "contactDetails";
   @Deprecated // deprecated 
@@ -74,7 +72,7 @@ public class AccountHolder {
   private String legalEntityId;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = null;
+  private Map<String, String> metadata = new HashMap<>();
 
   public static final String JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE = "migratedAccountHolderCode";
   private String migratedAccountHolderCode;
@@ -89,11 +87,11 @@ public class AccountHolder {
    * The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
    */
   public enum StatusEnum {
-    ACTIVE("active"),
+    ACTIVE(String.valueOf("active")),
     
-    CLOSED("closed"),
+    CLOSED(String.valueOf("closed")),
     
-    SUSPENDED("suspended");
+    SUSPENDED(String.valueOf("suspended"));
 
     private String value;
 
@@ -129,7 +127,7 @@ public class AccountHolder {
   private String timeZone;
 
   public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
-  private List<VerificationDeadline> verificationDeadlines = null;
+  private List<VerificationDeadline> verificationDeadlines = new ArrayList<>();
 
   public AccountHolder() { 
   }
@@ -149,7 +147,6 @@ public class AccountHolder {
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    * @return balancePlatform
    */
-  @ApiModelProperty(value = "The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
@@ -160,7 +157,7 @@ public class AccountHolder {
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    *
    * @param balancePlatform
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -190,7 +187,6 @@ public class AccountHolder {
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    * @return capabilities
    */
-  @ApiModelProperty(value = "Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, AccountHolderCapability> getCapabilities() {
@@ -201,7 +197,7 @@ public class AccountHolder {
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    *
    * @param capabilities
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(Map<String, AccountHolderCapability> capabilities) {
@@ -216,20 +212,18 @@ public class AccountHolder {
    *
    * @deprecated 
    */
-  @Deprecated
+  @Deprecated // deprecated 
   public AccountHolder contactDetails(ContactDetails contactDetails) {
     this.contactDetails = contactDetails;
     return this;
   }
 
   /**
-   * contactDetails
+   * Get contactDetails
    * @return contactDetails
-   *
-   * @deprecated 
+   * @deprecated // deprecated 
    */
-  @Deprecated
-  @ApiModelProperty(value = "")
+  @Deprecated // deprecated 
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ContactDetails getContactDetails() {
@@ -242,8 +236,8 @@ public class AccountHolder {
    * @param contactDetails
    *
    * @deprecated 
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated 
   @JsonProperty(JSON_PROPERTY_CONTACT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactDetails(ContactDetails contactDetails) {
@@ -265,7 +259,6 @@ public class AccountHolder {
    * Your description for the account holder.
    * @return description
    */
-  @ApiModelProperty(value = "Your description for the account holder.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -276,7 +269,7 @@ public class AccountHolder {
    * Your description for the account holder.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -298,7 +291,6 @@ public class AccountHolder {
    * The unique identifier of the account holder.
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the account holder.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -309,7 +301,7 @@ public class AccountHolder {
    * The unique identifier of the account holder.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -331,7 +323,6 @@ public class AccountHolder {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    * @return legalEntityId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalEntityId() {
@@ -342,7 +333,7 @@ public class AccountHolder {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    *
    * @param legalEntityId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
@@ -372,7 +363,6 @@ public class AccountHolder {
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return metadata
    */
-  @ApiModelProperty(value = "A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. > Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getMetadata() {
@@ -383,7 +373,7 @@ public class AccountHolder {
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    *
    * @param metadata
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -405,7 +395,6 @@ public class AccountHolder {
    * The unique identifier of the migrated account holder in the classic integration.
    * @return migratedAccountHolderCode
    */
-  @ApiModelProperty(value = "The unique identifier of the migrated account holder in the classic integration.")
   @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMigratedAccountHolderCode() {
@@ -416,7 +405,7 @@ public class AccountHolder {
    * The unique identifier of the migrated account holder in the classic integration.
    *
    * @param migratedAccountHolderCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMigratedAccountHolderCode(String migratedAccountHolderCode) {
@@ -438,7 +427,6 @@ public class AccountHolder {
    * The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
    * @return primaryBalanceAccount
    */
-  @ApiModelProperty(value = "The ID of the account holder's primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrimaryBalanceAccount() {
@@ -449,7 +437,7 @@ public class AccountHolder {
    * The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
    *
    * @param primaryBalanceAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimaryBalanceAccount(String primaryBalanceAccount) {
@@ -471,7 +459,6 @@ public class AccountHolder {
    * Your reference for the account holder.
    * @return reference
    */
-  @ApiModelProperty(value = "Your reference for the account holder.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -482,7 +469,7 @@ public class AccountHolder {
    * Your reference for the account holder.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -504,7 +491,6 @@ public class AccountHolder {
    * The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
    * @return status
    */
-  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -515,7 +501,7 @@ public class AccountHolder {
    * The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -537,7 +523,6 @@ public class AccountHolder {
    * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return timeZone
    */
-  @ApiModelProperty(value = "The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeZone() {
@@ -548,7 +533,7 @@ public class AccountHolder {
    * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    *
    * @param timeZone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {
@@ -578,7 +563,6 @@ public class AccountHolder {
    * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
    * @return verificationDeadlines
    */
-  @ApiModelProperty(value = "List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<VerificationDeadline> getVerificationDeadlines() {
@@ -589,7 +573,7 @@ public class AccountHolder {
    * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
    *
    * @param verificationDeadlines
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationDeadlines(List<VerificationDeadline> verificationDeadlines) {

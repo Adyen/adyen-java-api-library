@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.CapabilityProblemEntity;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,7 +42,7 @@ public class CapabilityProblem {
   private CapabilityProblemEntity entity;
 
   public static final String JSON_PROPERTY_VERIFICATION_ERRORS = "verificationErrors";
-  private List<VerificationError> verificationErrors = null;
+  private List<VerificationError> verificationErrors = new ArrayList<>();
 
   public CapabilityProblem() { 
   }
@@ -61,10 +59,9 @@ public class CapabilityProblem {
   }
 
   /**
-   * entity
+   * Get entity
    * @return entity
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CapabilityProblemEntity getEntity() {
@@ -75,7 +72,7 @@ public class CapabilityProblem {
    * entity
    *
    * @param entity
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntity(CapabilityProblemEntity entity) {
@@ -105,7 +102,6 @@ public class CapabilityProblem {
    * Contains information about the verification error.
    * @return verificationErrors
    */
-  @ApiModelProperty(value = "Contains information about the verification error.")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<VerificationError> getVerificationErrors() {
@@ -116,7 +112,7 @@ public class CapabilityProblem {
    * Contains information about the verification error.
    *
    * @param verificationErrors
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationErrors(List<VerificationError> verificationErrors) {

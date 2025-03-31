@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.Authentication;
@@ -25,8 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -82,11 +80,11 @@ public class Card {
    * The form factor of the card. Possible values: **virtual**, **physical**.
    */
   public enum FormFactorEnum {
-    PHYSICAL("physical"),
+    PHYSICAL(String.valueOf("physical")),
     
-    UNKNOWN("unknown"),
+    UNKNOWN(String.valueOf("unknown")),
     
-    VIRTUAL("virtual");
+    VIRTUAL(String.valueOf("virtual"));
 
     private String value;
 
@@ -142,10 +140,9 @@ public class Card {
   }
 
   /**
-   * authentication
+   * Get authentication
    * @return authentication
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Authentication getAuthentication() {
@@ -156,7 +153,7 @@ public class Card {
    * authentication
    *
    * @param authentication
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(Authentication authentication) {
@@ -178,7 +175,6 @@ public class Card {
    * The bank identification number (BIN) of the card number.
    * @return bin
    */
-  @ApiModelProperty(value = "The bank identification number (BIN) of the card number.")
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBin() {
@@ -189,7 +185,7 @@ public class Card {
    * The bank identification number (BIN) of the card number.
    *
    * @param bin
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBin(String bin) {
@@ -211,7 +207,6 @@ public class Card {
    * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    * @return brand
    */
-  @ApiModelProperty(required = true, value = "The brand of the physical or the virtual card. Possible values: **visa**, **mc**.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
@@ -222,7 +217,7 @@ public class Card {
    * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    *
    * @param brand
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -244,7 +239,6 @@ public class Card {
    * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    * @return brandVariant
    */
-  @ApiModelProperty(required = true, value = "The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. >Reach out to your Adyen contact to get the values relevant for your integration.")
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrandVariant() {
@@ -255,7 +249,7 @@ public class Card {
    * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    *
    * @param brandVariant
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrandVariant(String brandVariant) {
@@ -277,7 +271,6 @@ public class Card {
    * The name of the cardholder.  Maximum length: 26 characters.
    * @return cardholderName
    */
-  @ApiModelProperty(required = true, value = "The name of the cardholder.  Maximum length: 26 characters.")
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardholderName() {
@@ -288,7 +281,7 @@ public class Card {
    * The name of the cardholder.  Maximum length: 26 characters.
    *
    * @param cardholderName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderName(String cardholderName) {
@@ -307,10 +300,9 @@ public class Card {
   }
 
   /**
-   * configuration
+   * Get configuration
    * @return configuration
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardConfiguration getConfiguration() {
@@ -321,7 +313,7 @@ public class Card {
    * configuration
    *
    * @param configuration
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(CardConfiguration configuration) {
@@ -343,7 +335,6 @@ public class Card {
    * The CVC2 value of the card. &gt; The CVC2 is not sent by default. This is only returned in the &#x60;POST&#x60; response for single-use virtual cards.
    * @return cvc
    */
-  @ApiModelProperty(value = "The CVC2 value of the card. > The CVC2 is not sent by default. This is only returned in the `POST` response for single-use virtual cards.")
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCvc() {
@@ -354,7 +345,7 @@ public class Card {
    * The CVC2 value of the card. &gt; The CVC2 is not sent by default. This is only returned in the &#x60;POST&#x60; response for single-use virtual cards.
    *
    * @param cvc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
@@ -373,10 +364,9 @@ public class Card {
   }
 
   /**
-   * deliveryContact
+   * Get deliveryContact
    * @return deliveryContact
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DELIVERY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DeliveryContact getDeliveryContact() {
@@ -387,7 +377,7 @@ public class Card {
    * deliveryContact
    *
    * @param deliveryContact
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DELIVERY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryContact(DeliveryContact deliveryContact) {
@@ -406,10 +396,9 @@ public class Card {
   }
 
   /**
-   * expiration
+   * Get expiration
    * @return expiration
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Expiry getExpiration() {
@@ -420,7 +409,7 @@ public class Card {
    * expiration
    *
    * @param expiration
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiration(Expiry expiration) {
@@ -442,7 +431,6 @@ public class Card {
    * The form factor of the card. Possible values: **virtual**, **physical**.
    * @return formFactor
    */
-  @ApiModelProperty(required = true, value = "The form factor of the card. Possible values: **virtual**, **physical**.")
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FormFactorEnum getFormFactor() {
@@ -453,7 +441,7 @@ public class Card {
    * The form factor of the card. Possible values: **virtual**, **physical**.
    *
    * @param formFactor
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(FormFactorEnum formFactor) {
@@ -475,7 +463,6 @@ public class Card {
    * Last last four digits of the card number.
    * @return lastFour
    */
-  @ApiModelProperty(value = "Last last four digits of the card number.")
   @JsonProperty(JSON_PROPERTY_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLastFour() {
@@ -486,7 +473,7 @@ public class Card {
    * Last last four digits of the card number.
    *
    * @param lastFour
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastFour(String lastFour) {
@@ -508,7 +495,6 @@ public class Card {
    * The primary account number (PAN) of the card. &gt; The PAN is masked by default and returned only for single-use virtual cards.
    * @return number
    */
-  @ApiModelProperty(required = true, value = "The primary account number (PAN) of the card. > The PAN is masked by default and returned only for single-use virtual cards.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNumber() {
@@ -519,7 +505,7 @@ public class Card {
    * The primary account number (PAN) of the card. &gt; The PAN is masked by default and returned only for single-use virtual cards.
    *
    * @param number
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -541,7 +527,6 @@ public class Card {
    * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    * @return threeDSecure
    */
-  @ApiModelProperty(value = "Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. >Reach out to your Adyen contact to get the values relevant for your integration.")
   @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getThreeDSecure() {
@@ -552,7 +537,7 @@ public class Card {
    * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    *
    * @param threeDSecure
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSecure(String threeDSecure) {

@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -46,13 +44,13 @@ public class BankAccountDetails {
   private String accountNumber;
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  private String accountType;
+  private String accountType = "checking";
 
   public static final String JSON_PROPERTY_BRANCH_NUMBER = "branchNumber";
   private String branchNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor;
+  private String formFactor = "physical";
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
@@ -64,7 +62,7 @@ public class BankAccountDetails {
   private String sortCode;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private String type = "iban";
 
   public BankAccountDetails() { 
   }
@@ -84,7 +82,6 @@ public class BankAccountDetails {
    * The bank account number, without separators or whitespace.
    * @return accountNumber
    */
-  @ApiModelProperty(value = "The bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -95,7 +92,7 @@ public class BankAccountDetails {
    * The bank account number, without separators or whitespace.
    *
    * @param accountNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -117,7 +114,6 @@ public class BankAccountDetails {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return accountType
    */
-  @ApiModelProperty(value = "The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountType() {
@@ -128,7 +124,7 @@ public class BankAccountDetails {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    *
    * @param accountType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
@@ -150,7 +146,6 @@ public class BankAccountDetails {
    * The bank account branch number, without separators or whitespace
    * @return branchNumber
    */
-  @ApiModelProperty(value = "The bank account branch number, without separators or whitespace")
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBranchNumber() {
@@ -161,7 +156,7 @@ public class BankAccountDetails {
    * The bank account branch number, without separators or whitespace
    *
    * @param branchNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBranchNumber(String branchNumber) {
@@ -183,7 +178,6 @@ public class BankAccountDetails {
    * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
    * @return formFactor
    */
-  @ApiModelProperty(value = "Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the `formFactor` value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.")
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFormFactor() {
@@ -194,7 +188,7 @@ public class BankAccountDetails {
    * Business accounts with a &#x60;formFactor&#x60; value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.   Adyen creates a local IBAN for business accounts when the &#x60;formFactor&#x60; value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.
    *
    * @param formFactor
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(String formFactor) {
@@ -216,7 +210,6 @@ public class BankAccountDetails {
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    * @return iban
    */
-  @ApiModelProperty(value = "The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIban() {
@@ -227,7 +220,7 @@ public class BankAccountDetails {
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    *
    * @param iban
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -249,7 +242,6 @@ public class BankAccountDetails {
    * The [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    * @return routingNumber
    */
-  @ApiModelProperty(value = "The [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRoutingNumber() {
@@ -260,7 +252,7 @@ public class BankAccountDetails {
    * The [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    *
    * @param routingNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
@@ -282,7 +274,6 @@ public class BankAccountDetails {
    * The [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    * @return sortCode
    */
-  @ApiModelProperty(value = "The [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSortCode() {
@@ -293,7 +284,7 @@ public class BankAccountDetails {
    * The [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    *
    * @param sortCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSortCode(String sortCode) {
@@ -315,7 +306,6 @@ public class BankAccountDetails {
    * **iban** or **usLocal** or **ukLocal**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**iban** or **usLocal** or **ukLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -326,7 +316,7 @@ public class BankAccountDetails {
    * **iban** or **usLocal** or **ukLocal**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

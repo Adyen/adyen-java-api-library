@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.CardOrderItemDeliveryStatus;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -86,7 +84,6 @@ public class CardOrderItem {
    * The unique identifier of the balance platform.
    * @return balancePlatform
    */
-  @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
@@ -97,7 +94,7 @@ public class CardOrderItem {
    * The unique identifier of the balance platform.
    *
    * @param balancePlatform
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -116,10 +113,9 @@ public class CardOrderItem {
   }
 
   /**
-   * card
+   * Get card
    * @return card
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardOrderItemDeliveryStatus getCard() {
@@ -130,7 +126,7 @@ public class CardOrderItem {
    * card
    *
    * @param card
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(CardOrderItemDeliveryStatus card) {
@@ -152,7 +148,6 @@ public class CardOrderItem {
    * The unique identifier of the card order item.
    * @return cardOrderItemId
    */
-  @ApiModelProperty(value = "The unique identifier of the card order item.")
   @JsonProperty(JSON_PROPERTY_CARD_ORDER_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardOrderItemId() {
@@ -163,7 +158,7 @@ public class CardOrderItem {
    * The unique identifier of the card order item.
    *
    * @param cardOrderItemId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_ORDER_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardOrderItemId(String cardOrderItemId) {
@@ -185,7 +180,6 @@ public class CardOrderItem {
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return creationDate
    */
-  @ApiModelProperty(value = "The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.")
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -196,7 +190,7 @@ public class CardOrderItem {
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
    * @param creationDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -218,7 +212,6 @@ public class CardOrderItem {
    * The ID of the resource.
    * @return id
    */
-  @ApiModelProperty(value = "The ID of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -229,7 +222,7 @@ public class CardOrderItem {
    * The ID of the resource.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -251,7 +244,6 @@ public class CardOrderItem {
    * The unique identifier of the payment instrument related to the card order item.
    * @return paymentInstrumentId
    */
-  @ApiModelProperty(value = "The unique identifier of the payment instrument related to the card order item.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
@@ -262,7 +254,7 @@ public class CardOrderItem {
    * The unique identifier of the payment instrument related to the card order item.
    *
    * @param paymentInstrumentId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -281,10 +273,9 @@ public class CardOrderItem {
   }
 
   /**
-   * pin
+   * Get pin
    * @return pin
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardOrderItemDeliveryStatus getPin() {
@@ -295,7 +286,7 @@ public class CardOrderItem {
    * pin
    *
    * @param pin
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPin(CardOrderItemDeliveryStatus pin) {
@@ -317,7 +308,6 @@ public class CardOrderItem {
    * The shipping method used to deliver the card or the PIN.
    * @return shippingMethod
    */
-  @ApiModelProperty(value = "The shipping method used to deliver the card or the PIN.")
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShippingMethod() {
@@ -328,7 +318,7 @@ public class CardOrderItem {
    * The shipping method used to deliver the card or the PIN.
    *
    * @param shippingMethod
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingMethod(String shippingMethod) {

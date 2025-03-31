@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -72,7 +70,6 @@ public class Balance {
    * The balance available for use.
    * @return available
    */
-  @ApiModelProperty(required = true, value = "The balance available for use.")
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAvailable() {
@@ -83,7 +80,7 @@ public class Balance {
    * The balance available for use.
    *
    * @param available
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Long available) {
@@ -105,7 +102,6 @@ public class Balance {
    * The sum of the transactions that have already been settled.
    * @return balance
    */
-  @ApiModelProperty(required = true, value = "The sum of the transactions that have already been settled.")
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBalance() {
@@ -116,7 +112,7 @@ public class Balance {
    * The sum of the transactions that have already been settled.
    *
    * @param balance
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
@@ -138,7 +134,6 @@ public class Balance {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    * @return currency
    */
-  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -149,7 +144,7 @@ public class Balance {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    *
    * @param currency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -171,7 +166,6 @@ public class Balance {
    * The sum of the transactions that will be settled in the future.
    * @return pending
    */
-  @ApiModelProperty(value = "The sum of the transactions that will be settled in the future.")
   @JsonProperty(JSON_PROPERTY_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPending() {
@@ -182,7 +176,7 @@ public class Balance {
    * The sum of the transactions that will be settled in the future.
    *
    * @param pending
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPending(Long pending) {
@@ -204,7 +198,6 @@ public class Balance {
    * The balance currently held in reserve.
    * @return reserved
    */
-  @ApiModelProperty(required = true, value = "The balance currently held in reserve.")
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReserved() {
@@ -215,7 +208,7 @@ public class Balance {
    * The balance currently held in reserve.
    *
    * @param reserved
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {
