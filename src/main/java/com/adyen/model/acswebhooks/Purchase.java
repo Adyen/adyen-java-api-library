@@ -21,23 +21,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PurchaseInfo
+ * Purchase
  */
 @JsonPropertyOrder({
-  PurchaseInfo.JSON_PROPERTY_DATE,
-  PurchaseInfo.JSON_PROPERTY_MERCHANT_NAME,
-  PurchaseInfo.JSON_PROPERTY_ORIGINAL_AMOUNT
+  Purchase.JSON_PROPERTY_DATE,
+  Purchase.JSON_PROPERTY_MERCHANT_NAME,
+  Purchase.JSON_PROPERTY_ORIGINAL_AMOUNT
 })
 
-public class PurchaseInfo {
+public class Purchase {
   public static final String JSON_PROPERTY_DATE = "date";
-  private String date;
+  private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_MERCHANT_NAME = "merchantName";
   private String merchantName;
@@ -45,54 +46,54 @@ public class PurchaseInfo {
   public static final String JSON_PROPERTY_ORIGINAL_AMOUNT = "originalAmount";
   private Amount originalAmount;
 
-  public PurchaseInfo() { 
+  public Purchase() { 
   }
 
   /**
-   * Date of the purchase.
+   * The time of the purchase.
    *
    * @param date
-   * @return the current {@code PurchaseInfo} instance, allowing for method chaining
+   * @return the current {@code Purchase} instance, allowing for method chaining
    */
-  public PurchaseInfo date(String date) {
+  public Purchase date(OffsetDateTime date) {
     this.date = date;
     return this;
   }
 
   /**
-   * Date of the purchase.
+   * The time of the purchase.
    * @return date
    */
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDate() {
+  public OffsetDateTime getDate() {
     return date;
   }
 
   /**
-   * Date of the purchase.
+   * The time of the purchase.
    *
    * @param date
    */
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(String date) {
+  public void setDate(OffsetDateTime date) {
     this.date = date;
   }
 
   /**
-   * Name of the merchant.
+   * The name of the merchant.
    *
    * @param merchantName
-   * @return the current {@code PurchaseInfo} instance, allowing for method chaining
+   * @return the current {@code Purchase} instance, allowing for method chaining
    */
-  public PurchaseInfo merchantName(String merchantName) {
+  public Purchase merchantName(String merchantName) {
     this.merchantName = merchantName;
     return this;
   }
 
   /**
-   * Name of the merchant.
+   * The name of the merchant.
    * @return merchantName
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
@@ -102,7 +103,7 @@ public class PurchaseInfo {
   }
 
   /**
-   * Name of the merchant.
+   * The name of the merchant.
    *
    * @param merchantName
    */
@@ -116,9 +117,9 @@ public class PurchaseInfo {
    * originalAmount
    *
    * @param originalAmount
-   * @return the current {@code PurchaseInfo} instance, allowing for method chaining
+   * @return the current {@code Purchase} instance, allowing for method chaining
    */
-  public PurchaseInfo originalAmount(Amount originalAmount) {
+  public Purchase originalAmount(Amount originalAmount) {
     this.originalAmount = originalAmount;
     return this;
   }
@@ -145,7 +146,7 @@ public class PurchaseInfo {
   }
 
   /**
-   * Return true if this PurchaseInfo object is equal to o.
+   * Return true if this Purchase object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -155,10 +156,10 @@ public class PurchaseInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PurchaseInfo purchaseInfo = (PurchaseInfo) o;
-    return Objects.equals(this.date, purchaseInfo.date) &&
-        Objects.equals(this.merchantName, purchaseInfo.merchantName) &&
-        Objects.equals(this.originalAmount, purchaseInfo.originalAmount);
+    Purchase purchase = (Purchase) o;
+    return Objects.equals(this.date, purchase.date) &&
+        Objects.equals(this.merchantName, purchase.merchantName) &&
+        Objects.equals(this.originalAmount, purchase.originalAmount);
   }
 
   @Override
@@ -169,7 +170,7 @@ public class PurchaseInfo {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PurchaseInfo {\n");
+    sb.append("class Purchase {\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
@@ -189,17 +190,17 @@ public class PurchaseInfo {
   }
 
 /**
-   * Create an instance of PurchaseInfo given an JSON string
+   * Create an instance of Purchase given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PurchaseInfo
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PurchaseInfo
+   * @return An instance of Purchase
+   * @throws JsonProcessingException if the JSON string is invalid with respect to Purchase
    */
-  public static PurchaseInfo fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PurchaseInfo.class);
+  public static Purchase fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, Purchase.class);
   }
 /**
-  * Convert an instance of PurchaseInfo to an JSON string
+  * Convert an instance of Purchase to an JSON string
   *
   * @return JSON string
   */

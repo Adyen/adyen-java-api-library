@@ -1,6 +1,7 @@
 package com.adyen.notification;
 
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
+import com.adyen.model.acswebhooks.RelayedAuthenticationRequest;
 import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
 import com.adyen.model.configurationwebhooks.BalanceAccountNotificationRequest;
 import com.adyen.model.configurationwebhooks.CardOrderNotificationRequest;
@@ -26,6 +27,9 @@ public class BankingWebhookHandler {
 
     public Optional<AuthenticationNotificationRequest> getAuthenticationNotificationRequest() {
         return getOptionalField(AuthenticationNotificationRequest.class);
+    }
+    public Optional<RelayedAuthenticationRequest> getRelayedAuthenticationRequest() {
+        return getOptionalField(RelayedAuthenticationRequest.class);
     }
     public Optional<AccountHolderNotificationRequest> getAccountHolderNotificationRequest() {
         return getOptionalField(AccountHolderNotificationRequest.class);
