@@ -13,7 +13,6 @@
 package com.adyen.model.acswebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,23 +43,23 @@ public class ChallengeInfo {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    */
   public enum ChallengeCancelEnum {
-    _00("00"),
+    _00(String.valueOf("00")),
     
-    _01("01"),
+    _01(String.valueOf("01")),
     
-    _02("02"),
+    _02(String.valueOf("02")),
     
-    _03("03"),
+    _03(String.valueOf("03")),
     
-    _04("04"),
+    _04(String.valueOf("04")),
     
-    _05("05"),
+    _05(String.valueOf("05")),
     
-    _06("06"),
+    _06(String.valueOf("06")),
     
-    _07("07"),
+    _07(String.valueOf("07")),
     
-    _08("08");
+    _08(String.valueOf("08"));
 
     private String value;
 
@@ -94,12 +92,14 @@ public class ChallengeInfo {
   private ChallengeCancelEnum challengeCancel;
 
   /**
-   * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+   * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    */
   public enum FlowEnum {
-    OTP_SMS("OTP_SMS"),
+    PWD_OTP_PHONE_FL(String.valueOf("PWD_OTP_PHONE_FL")),
     
-    OOB("OOB");
+    PWD_OTP_EMAIL_FL(String.valueOf("PWD_OTP_EMAIL_FL")),
+    
+    OOB_TRIGGER_FL(String.valueOf("OOB_TRIGGER_FL"));
 
     private String value;
 
@@ -161,7 +161,6 @@ public class ChallengeInfo {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    * @return challengeCancel
    */
-  @ApiModelProperty(value = "Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key `challengeCancel`. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.")
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ChallengeCancelEnum getChallengeCancel() {
@@ -172,7 +171,7 @@ public class ChallengeInfo {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    *
    * @param challengeCancel
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
@@ -180,7 +179,7 @@ public class ChallengeInfo {
   }
 
   /**
-   * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+   * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    *
    * @param flow
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
@@ -191,10 +190,9 @@ public class ChallengeInfo {
   }
 
   /**
-   * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+   * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    * @return flow
    */
-  @ApiModelProperty(required = true, value = "The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow")
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FlowEnum getFlow() {
@@ -202,10 +200,10 @@ public class ChallengeInfo {
   }
 
   /**
-   * The flow used in the challenge. Possible values:  * **OTP_SMS**: one-time password (OTP) flow * **OOB**: out-of-band (OOB) flow
+   * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    *
    * @param flow
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFlow(FlowEnum flow) {
@@ -227,7 +225,6 @@ public class ChallengeInfo {
    * The last time of interaction with the challenge.
    * @return lastInteraction
    */
-  @ApiModelProperty(required = true, value = "The last time of interaction with the challenge.")
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getLastInteraction() {
@@ -238,7 +235,7 @@ public class ChallengeInfo {
    * The last time of interaction with the challenge.
    *
    * @param lastInteraction
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastInteraction(OffsetDateTime lastInteraction) {
@@ -260,7 +257,6 @@ public class ChallengeInfo {
    * The last four digits of the phone number used in the challenge.
    * @return phoneNumber
    */
-  @ApiModelProperty(value = "The last four digits of the phone number used in the challenge.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneNumber() {
@@ -271,7 +267,7 @@ public class ChallengeInfo {
    * The last four digits of the phone number used in the challenge.
    *
    * @param phoneNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -293,7 +289,6 @@ public class ChallengeInfo {
    * The number of times the one-time password (OTP) was resent during the challenge.
    * @return resends
    */
-  @ApiModelProperty(value = "The number of times the one-time password (OTP) was resent during the challenge.")
   @JsonProperty(JSON_PROPERTY_RESENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getResends() {
@@ -304,7 +299,7 @@ public class ChallengeInfo {
    * The number of times the one-time password (OTP) was resent during the challenge.
    *
    * @param resends
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResends(Integer resends) {
@@ -326,7 +321,6 @@ public class ChallengeInfo {
    * The number of retries used in the challenge.
    * @return retries
    */
-  @ApiModelProperty(value = "The number of retries used in the challenge.")
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getRetries() {
@@ -337,7 +331,7 @@ public class ChallengeInfo {
    * The number of retries used in the challenge.
    *
    * @param retries
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetries(Integer retries) {
