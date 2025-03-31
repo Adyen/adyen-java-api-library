@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,181 +41,181 @@ public class PaymentDetails {
    * The payment method type.
    */
   public enum TypeEnum {
-    ALIPAY("alipay"),
+    ALIPAY(String.valueOf("alipay")),
     
-    MULTIBANCO("multibanco"),
+    MULTIBANCO(String.valueOf("multibanco")),
     
-    BANKTRANSFER_IBAN("bankTransfer_IBAN"),
+    BANKTRANSFER_IBAN(String.valueOf("bankTransfer_IBAN")),
     
-    PAYBRIGHT("paybright"),
+    PAYBRIGHT(String.valueOf("paybright")),
     
-    PAYNOW("paynow"),
+    PAYNOW(String.valueOf("paynow")),
     
-    AFFIRM_POS("affirm_pos"),
+    AFFIRM_POS(String.valueOf("affirm_pos")),
     
-    TRUSTLY("trustly"),
+    TRUSTLY(String.valueOf("trustly")),
     
-    TRUSTLYVECTOR("trustlyvector"),
+    TRUSTLYVECTOR(String.valueOf("trustlyvector")),
     
-    ONEY("oney"),
+    ONEY(String.valueOf("oney")),
     
-    FACILYPAY("facilypay"),
+    FACILYPAY(String.valueOf("facilypay")),
     
-    FACILYPAY_3X("facilypay_3x"),
+    FACILYPAY_3X(String.valueOf("facilypay_3x")),
     
-    FACILYPAY_4X("facilypay_4x"),
+    FACILYPAY_4X(String.valueOf("facilypay_4x")),
     
-    FACILYPAY_6X("facilypay_6x"),
+    FACILYPAY_6X(String.valueOf("facilypay_6x")),
     
-    FACILYPAY_10X("facilypay_10x"),
+    FACILYPAY_10X(String.valueOf("facilypay_10x")),
     
-    FACILYPAY_12X("facilypay_12x"),
+    FACILYPAY_12X(String.valueOf("facilypay_12x")),
     
-    UNIONPAY("unionpay"),
+    UNIONPAY(String.valueOf("unionpay")),
     
-    KCP_BANKTRANSFER("kcp_banktransfer"),
+    KCP_BANKTRANSFER(String.valueOf("kcp_banktransfer")),
     
-    KCP_PAYCO("kcp_payco"),
+    KCP_PAYCO(String.valueOf("kcp_payco")),
     
-    KCP_CREDITCARD("kcp_creditcard"),
+    KCP_CREDITCARD(String.valueOf("kcp_creditcard")),
     
-    WECHATPAYSDK("wechatpaySDK"),
+    WECHATPAYSDK(String.valueOf("wechatpaySDK")),
     
-    WECHATPAYQR("wechatpayQR"),
+    WECHATPAYQR(String.valueOf("wechatpayQR")),
     
-    WECHATPAYWEB("wechatpayWeb"),
+    WECHATPAYWEB(String.valueOf("wechatpayWeb")),
     
-    MOLPAY_BOOST("molpay_boost"),
+    MOLPAY_BOOST(String.valueOf("molpay_boost")),
     
-    WALLET_IN("wallet_IN"),
+    WALLET_IN(String.valueOf("wallet_IN")),
     
-    PAYU_IN_CASHCARD("payu_IN_cashcard"),
+    PAYU_IN_CASHCARD(String.valueOf("payu_IN_cashcard")),
     
-    PAYU_IN_NB("payu_IN_nb"),
+    PAYU_IN_NB(String.valueOf("payu_IN_nb")),
     
-    UPI_QR("upi_qr"),
+    UPI_QR(String.valueOf("upi_qr")),
     
-    PAYTM("paytm"),
+    PAYTM(String.valueOf("paytm")),
     
-    MOLPAY_EBANKING_VN("molpay_ebanking_VN"),
+    MOLPAY_EBANKING_VN(String.valueOf("molpay_ebanking_VN")),
     
-    MOLPAY_EBANKING_MY("molpay_ebanking_MY"),
+    MOLPAY_EBANKING_MY(String.valueOf("molpay_ebanking_MY")),
     
-    MOLPAY_EBANKING_DIRECT_MY("molpay_ebanking_direct_MY"),
+    MOLPAY_EBANKING_DIRECT_MY(String.valueOf("molpay_ebanking_direct_MY")),
     
-    SWISH("swish"),
+    SWISH(String.valueOf("swish")),
     
-    BIZUM("bizum"),
+    BIZUM(String.valueOf("bizum")),
     
-    WALLEY("walley"),
+    WALLEY(String.valueOf("walley")),
     
-    WALLEY_B2B("walley_b2b"),
+    WALLEY_B2B(String.valueOf("walley_b2b")),
     
-    ALMA("alma"),
+    ALMA(String.valueOf("alma")),
     
-    PAYPO("paypo"),
+    PAYPO(String.valueOf("paypo")),
     
-    SCALAPAY("scalapay"),
+    SCALAPAY(String.valueOf("scalapay")),
     
-    SCALAPAY_3X("scalapay_3x"),
+    SCALAPAY_3X(String.valueOf("scalapay_3x")),
     
-    SCALAPAY_4X("scalapay_4x"),
+    SCALAPAY_4X(String.valueOf("scalapay_4x")),
     
-    MOLPAY_FPX("molpay_fpx"),
+    MOLPAY_FPX(String.valueOf("molpay_fpx")),
     
-    KONBINI("konbini"),
+    KONBINI(String.valueOf("konbini")),
     
-    DIRECTEBANKING("directEbanking"),
+    DIRECTEBANKING(String.valueOf("directEbanking")),
     
-    BOLETOBANCARIO("boletobancario"),
+    BOLETOBANCARIO(String.valueOf("boletobancario")),
     
-    NETELLER("neteller"),
+    NETELLER(String.valueOf("neteller")),
     
-    PAYSAFECARD("paysafecard"),
+    PAYSAFECARD(String.valueOf("paysafecard")),
     
-    CASHTICKET("cashticket"),
+    CASHTICKET(String.valueOf("cashticket")),
     
-    IKANO("ikano"),
+    IKANO(String.valueOf("ikano")),
     
-    KARENMILLEN("karenmillen"),
+    KARENMILLEN(String.valueOf("karenmillen")),
     
-    OASIS("oasis"),
+    OASIS(String.valueOf("oasis")),
     
-    WAREHOUSE("warehouse"),
+    WAREHOUSE(String.valueOf("warehouse")),
     
-    PRIMEIROPAY_BOLETO("primeiropay_boleto"),
+    PRIMEIROPAY_BOLETO(String.valueOf("primeiropay_boleto")),
     
-    MADA("mada"),
+    MADA(String.valueOf("mada")),
     
-    BENEFIT("benefit"),
+    BENEFIT(String.valueOf("benefit")),
     
-    KNET("knet"),
+    KNET(String.valueOf("knet")),
     
-    OMANNET("omannet"),
+    OMANNET(String.valueOf("omannet")),
     
-    GOPAY_WALLET("gopay_wallet"),
+    GOPAY_WALLET(String.valueOf("gopay_wallet")),
     
-    KCP_NAVERPAY("kcp_naverpay"),
+    KCP_NAVERPAY(String.valueOf("kcp_naverpay")),
     
-    ONLINEBANKING_IN("onlinebanking_IN"),
+    ONLINEBANKING_IN(String.valueOf("onlinebanking_IN")),
     
-    FAWRY("fawry"),
+    FAWRY(String.valueOf("fawry")),
     
-    ATOME("atome"),
+    ATOME(String.valueOf("atome")),
     
-    MONEYBOOKERS("moneybookers"),
+    MONEYBOOKERS(String.valueOf("moneybookers")),
     
-    NAPS("naps"),
+    NAPS(String.valueOf("naps")),
     
-    NORDEA("nordea"),
+    NORDEA(String.valueOf("nordea")),
     
-    BOLETOBANCARIO_BRADESCO("boletobancario_bradesco"),
+    BOLETOBANCARIO_BRADESCO(String.valueOf("boletobancario_bradesco")),
     
-    BOLETOBANCARIO_ITAU("boletobancario_itau"),
+    BOLETOBANCARIO_ITAU(String.valueOf("boletobancario_itau")),
     
-    BOLETOBANCARIO_SANTANDER("boletobancario_santander"),
+    BOLETOBANCARIO_SANTANDER(String.valueOf("boletobancario_santander")),
     
-    BOLETOBANCARIO_BANCODOBRASIL("boletobancario_bancodobrasil"),
+    BOLETOBANCARIO_BANCODOBRASIL(String.valueOf("boletobancario_bancodobrasil")),
     
-    BOLETOBANCARIO_HSBC("boletobancario_hsbc"),
+    BOLETOBANCARIO_HSBC(String.valueOf("boletobancario_hsbc")),
     
-    MOLPAY_MAYBANK2U("molpay_maybank2u"),
+    MOLPAY_MAYBANK2U(String.valueOf("molpay_maybank2u")),
     
-    MOLPAY_CIMB("molpay_cimb"),
+    MOLPAY_CIMB(String.valueOf("molpay_cimb")),
     
-    MOLPAY_RHB("molpay_rhb"),
+    MOLPAY_RHB(String.valueOf("molpay_rhb")),
     
-    MOLPAY_AMB("molpay_amb"),
+    MOLPAY_AMB(String.valueOf("molpay_amb")),
     
-    MOLPAY_HLB("molpay_hlb"),
+    MOLPAY_HLB(String.valueOf("molpay_hlb")),
     
-    MOLPAY_AFFIN_EPG("molpay_affin_epg"),
+    MOLPAY_AFFIN_EPG(String.valueOf("molpay_affin_epg")),
     
-    MOLPAY_BANKISLAM("molpay_bankislam"),
+    MOLPAY_BANKISLAM(String.valueOf("molpay_bankislam")),
     
-    MOLPAY_PUBLICBANK("molpay_publicbank"),
+    MOLPAY_PUBLICBANK(String.valueOf("molpay_publicbank")),
     
-    FPX_AGROBANK("fpx_agrobank"),
+    FPX_AGROBANK(String.valueOf("fpx_agrobank")),
     
-    TOUCHNGO("touchngo"),
+    TOUCHNGO(String.valueOf("touchngo")),
     
-    MAYBANK2U_MAE("maybank2u_mae"),
+    MAYBANK2U_MAE(String.valueOf("maybank2u_mae")),
     
-    DUITNOW("duitnow"),
+    DUITNOW(String.valueOf("duitnow")),
     
-    PROMPTPAY("promptpay"),
+    PROMPTPAY(String.valueOf("promptpay")),
     
-    TWINT_POS("twint_pos"),
+    TWINT_POS(String.valueOf("twint_pos")),
     
-    ALIPAY_HK("alipay_hk"),
+    ALIPAY_HK(String.valueOf("alipay_hk")),
     
-    ALIPAY_HK_WEB("alipay_hk_web"),
+    ALIPAY_HK_WEB(String.valueOf("alipay_hk_web")),
     
-    ALIPAY_HK_WAP("alipay_hk_wap"),
+    ALIPAY_HK_WAP(String.valueOf("alipay_hk_wap")),
     
-    ALIPAY_WAP("alipay_wap"),
+    ALIPAY_WAP(String.valueOf("alipay_wap")),
     
-    BALANCEPLATFORM("balanceplatform");
+    BALANCEPLATFORM(String.valueOf("balanceplatform"));
 
     private String value;
 
@@ -267,7 +265,6 @@ public class PaymentDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -278,7 +275,7 @@ public class PaymentDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -300,7 +297,6 @@ public class PaymentDetails {
    * The payment method type.
    * @return type
    */
-  @ApiModelProperty(value = "The payment method type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -311,7 +307,7 @@ public class PaymentDetails {
    * The payment method type.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

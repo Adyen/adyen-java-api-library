@@ -26,30 +26,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * OpenInvoiceDetails
+ * RakutenPayDetails
  */
 @JsonPropertyOrder({
-  OpenInvoiceDetails.JSON_PROPERTY_BILLING_ADDRESS,
-  OpenInvoiceDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  OpenInvoiceDetails.JSON_PROPERTY_DELIVERY_ADDRESS,
-  OpenInvoiceDetails.JSON_PROPERTY_PERSONAL_DETAILS,
-  OpenInvoiceDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  OpenInvoiceDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  OpenInvoiceDetails.JSON_PROPERTY_TYPE
+  RakutenPayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  RakutenPayDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  RakutenPayDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  RakutenPayDetails.JSON_PROPERTY_TYPE
 })
 
-public class OpenInvoiceDetails {
-  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
-  private String billingAddress;
-
+public class RakutenPayDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
-
-  public static final String JSON_PROPERTY_DELIVERY_ADDRESS = "deliveryAddress";
-  private String deliveryAddress;
-
-  public static final String JSON_PROPERTY_PERSONAL_DETAILS = "personalDetails";
-  private String personalDetails;
 
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -59,14 +47,10 @@ public class OpenInvoiceDetails {
   private String storedPaymentMethodId;
 
   /**
-   * **openinvoice**
+   * **rakutenpay**
    */
   public enum TypeEnum {
-    OPENINVOICE(String.valueOf("openinvoice")),
-    
-    AFTERPAY_DIRECTDEBIT(String.valueOf("afterpay_directdebit")),
-    
-    ATOME_POS(String.valueOf("atome_pos"));
+    RAKUTENPAY(String.valueOf("rakutenpay"));
 
     private String value;
 
@@ -96,50 +80,18 @@ public class OpenInvoiceDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.OPENINVOICE;
+  private TypeEnum type = TypeEnum.RAKUTENPAY;
 
-  public OpenInvoiceDetails() { 
-  }
-
-  /**
-   * The address where to send the invoice.
-   *
-   * @param billingAddress
-   * @return the current {@code OpenInvoiceDetails} instance, allowing for method chaining
-   */
-  public OpenInvoiceDetails billingAddress(String billingAddress) {
-    this.billingAddress = billingAddress;
-    return this;
-  }
-
-  /**
-   * The address where to send the invoice.
-   * @return billingAddress
-   */
-  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getBillingAddress() {
-    return billingAddress;
-  }
-
-  /**
-   * The address where to send the invoice.
-   *
-   * @param billingAddress
-   */
-  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(String billingAddress) {
-    this.billingAddress = billingAddress;
+  public RakutenPayDetails() { 
   }
 
   /**
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   * @return the current {@code OpenInvoiceDetails} instance, allowing for method chaining
+   * @return the current {@code RakutenPayDetails} instance, allowing for method chaining
    */
-  public OpenInvoiceDetails checkoutAttemptId(String checkoutAttemptId) {
+  public RakutenPayDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
@@ -166,80 +118,16 @@ public class OpenInvoiceDetails {
   }
 
   /**
-   * The address where the goods should be delivered.
-   *
-   * @param deliveryAddress
-   * @return the current {@code OpenInvoiceDetails} instance, allowing for method chaining
-   */
-  public OpenInvoiceDetails deliveryAddress(String deliveryAddress) {
-    this.deliveryAddress = deliveryAddress;
-    return this;
-  }
-
-  /**
-   * The address where the goods should be delivered.
-   * @return deliveryAddress
-   */
-  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDeliveryAddress() {
-    return deliveryAddress;
-  }
-
-  /**
-   * The address where the goods should be delivered.
-   *
-   * @param deliveryAddress
-   */
-  @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeliveryAddress(String deliveryAddress) {
-    this.deliveryAddress = deliveryAddress;
-  }
-
-  /**
-   * Shopper name, date of birth, phone number, and email address.
-   *
-   * @param personalDetails
-   * @return the current {@code OpenInvoiceDetails} instance, allowing for method chaining
-   */
-  public OpenInvoiceDetails personalDetails(String personalDetails) {
-    this.personalDetails = personalDetails;
-    return this;
-  }
-
-  /**
-   * Shopper name, date of birth, phone number, and email address.
-   * @return personalDetails
-   */
-  @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPersonalDetails() {
-    return personalDetails;
-  }
-
-  /**
-   * Shopper name, date of birth, phone number, and email address.
-   *
-   * @param personalDetails
-   */
-  @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPersonalDetails(String personalDetails) {
-    this.personalDetails = personalDetails;
-  }
-
-  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param recurringDetailReference
-   * @return the current {@code OpenInvoiceDetails} instance, allowing for method chaining
+   * @return the current {@code RakutenPayDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
-  public OpenInvoiceDetails recurringDetailReference(String recurringDetailReference) {
+  public RakutenPayDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
@@ -275,9 +163,9 @@ public class OpenInvoiceDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   * @return the current {@code OpenInvoiceDetails} instance, allowing for method chaining
+   * @return the current {@code RakutenPayDetails} instance, allowing for method chaining
    */
-  public OpenInvoiceDetails storedPaymentMethodId(String storedPaymentMethodId) {
+  public RakutenPayDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
@@ -304,18 +192,18 @@ public class OpenInvoiceDetails {
   }
 
   /**
-   * **openinvoice**
+   * **rakutenpay**
    *
    * @param type
-   * @return the current {@code OpenInvoiceDetails} instance, allowing for method chaining
+   * @return the current {@code RakutenPayDetails} instance, allowing for method chaining
    */
-  public OpenInvoiceDetails type(TypeEnum type) {
+  public RakutenPayDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
   /**
-   * **openinvoice**
+   * **rakutenpay**
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -325,7 +213,7 @@ public class OpenInvoiceDetails {
   }
 
   /**
-   * **openinvoice**
+   * **rakutenpay**
    *
    * @param type
    */
@@ -336,7 +224,7 @@ public class OpenInvoiceDetails {
   }
 
   /**
-   * Return true if this OpenInvoiceDetails object is equal to o.
+   * Return true if this RakutenPayDetails object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -346,29 +234,23 @@ public class OpenInvoiceDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OpenInvoiceDetails openInvoiceDetails = (OpenInvoiceDetails) o;
-    return Objects.equals(this.billingAddress, openInvoiceDetails.billingAddress) &&
-        Objects.equals(this.checkoutAttemptId, openInvoiceDetails.checkoutAttemptId) &&
-        Objects.equals(this.deliveryAddress, openInvoiceDetails.deliveryAddress) &&
-        Objects.equals(this.personalDetails, openInvoiceDetails.personalDetails) &&
-        Objects.equals(this.recurringDetailReference, openInvoiceDetails.recurringDetailReference) &&
-        Objects.equals(this.storedPaymentMethodId, openInvoiceDetails.storedPaymentMethodId) &&
-        Objects.equals(this.type, openInvoiceDetails.type);
+    RakutenPayDetails rakutenPayDetails = (RakutenPayDetails) o;
+    return Objects.equals(this.checkoutAttemptId, rakutenPayDetails.checkoutAttemptId) &&
+        Objects.equals(this.recurringDetailReference, rakutenPayDetails.recurringDetailReference) &&
+        Objects.equals(this.storedPaymentMethodId, rakutenPayDetails.storedPaymentMethodId) &&
+        Objects.equals(this.type, rakutenPayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, checkoutAttemptId, deliveryAddress, personalDetails, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(checkoutAttemptId, recurringDetailReference, storedPaymentMethodId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OpenInvoiceDetails {\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("class RakutenPayDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
-    sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-    sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -388,17 +270,17 @@ public class OpenInvoiceDetails {
   }
 
 /**
-   * Create an instance of OpenInvoiceDetails given an JSON string
+   * Create an instance of RakutenPayDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of OpenInvoiceDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to OpenInvoiceDetails
+   * @return An instance of RakutenPayDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to RakutenPayDetails
    */
-  public static OpenInvoiceDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, OpenInvoiceDetails.class);
+  public static RakutenPayDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, RakutenPayDetails.class);
   }
 /**
-  * Convert an instance of OpenInvoiceDetails to an JSON string
+  * Convert an instance of RakutenPayDetails to an JSON string
   *
   * @return JSON string
   */

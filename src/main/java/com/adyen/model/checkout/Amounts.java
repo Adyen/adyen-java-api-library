@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -62,7 +60,6 @@ public class Amounts {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    * @return currency
    */
-  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -73,7 +70,7 @@ public class Amounts {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    *
    * @param currency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -92,6 +89,9 @@ public class Amounts {
   }
 
   public Amounts addValuesItem(Long valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<>();
+    }
     this.values.add(valuesItem);
     return this;
   }
@@ -100,7 +100,6 @@ public class Amounts {
    * The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).
    * @return values
    */
-  @ApiModelProperty(required = true, value = "The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getValues() {
@@ -111,7 +110,7 @@ public class Amounts {
    * The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).
    *
    * @param values
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Long> values) {

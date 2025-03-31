@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,9 +41,9 @@ public class PaypalUpdateOrderResponse {
    * The status of the request. This indicates whether the order was successfully updated with PayPal.
    */
   public enum StatusEnum {
-    ERROR("error"),
+    ERROR(String.valueOf("error")),
     
-    SUCCESS("success");
+    SUCCESS(String.valueOf("success"));
 
     private String value;
 
@@ -95,7 +93,6 @@ public class PaypalUpdateOrderResponse {
    * The updated paymentData.
    * @return paymentData
    */
-  @ApiModelProperty(required = true, value = "The updated paymentData.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentData() {
@@ -106,7 +103,7 @@ public class PaypalUpdateOrderResponse {
    * The updated paymentData.
    *
    * @param paymentData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -128,7 +125,6 @@ public class PaypalUpdateOrderResponse {
    * The status of the request. This indicates whether the order was successfully updated with PayPal.
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of the request. This indicates whether the order was successfully updated with PayPal.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -139,7 +135,7 @@ public class PaypalUpdateOrderResponse {
    * The status of the request. This indicates whether the order was successfully updated with PayPal.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

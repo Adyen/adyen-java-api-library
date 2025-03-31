@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -33,6 +31,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   PaymentMethodToStore.JSON_PROPERTY_BRAND,
   PaymentMethodToStore.JSON_PROPERTY_CVC,
+  PaymentMethodToStore.JSON_PROPERTY_ENCRYPTED_CARD,
   PaymentMethodToStore.JSON_PROPERTY_ENCRYPTED_CARD_NUMBER,
   PaymentMethodToStore.JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH,
   PaymentMethodToStore.JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR,
@@ -50,6 +49,9 @@ public class PaymentMethodToStore {
 
   public static final String JSON_PROPERTY_CVC = "cvc";
   private String cvc;
+
+  public static final String JSON_PROPERTY_ENCRYPTED_CARD = "encryptedCard";
+  private String encryptedCard;
 
   public static final String JSON_PROPERTY_ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
   private String encryptedCardNumber;
@@ -96,7 +98,6 @@ public class PaymentMethodToStore {
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
    * @return brand
    */
-  @ApiModelProperty(value = "Secondary brand of the card. For example: **plastix**, **hmclub**.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
@@ -107,7 +108,7 @@ public class PaymentMethodToStore {
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
    *
    * @param brand
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -129,7 +130,6 @@ public class PaymentMethodToStore {
    * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return cvc
    */
-  @ApiModelProperty(value = "The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCvc() {
@@ -140,11 +140,43 @@ public class PaymentMethodToStore {
    * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
    * @param cvc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCvc(String cvc) {
     this.cvc = cvc;
+  }
+
+  /**
+   * The encrypted card.
+   *
+   * @param encryptedCard
+   * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
+   */
+  public PaymentMethodToStore encryptedCard(String encryptedCard) {
+    this.encryptedCard = encryptedCard;
+    return this;
+  }
+
+  /**
+   * The encrypted card.
+   * @return encryptedCard
+   */
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEncryptedCard() {
+    return encryptedCard;
+  }
+
+  /**
+   * The encrypted card.
+   *
+   * @param encryptedCard
+   */
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEncryptedCard(String encryptedCard) {
+    this.encryptedCard = encryptedCard;
   }
 
   /**
@@ -162,7 +194,6 @@ public class PaymentMethodToStore {
    * The encrypted card number.
    * @return encryptedCardNumber
    */
-  @ApiModelProperty(value = "The encrypted card number.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedCardNumber() {
@@ -173,7 +204,7 @@ public class PaymentMethodToStore {
    * The encrypted card number.
    *
    * @param encryptedCardNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
@@ -195,7 +226,6 @@ public class PaymentMethodToStore {
    * The encrypted card expiry month.
    * @return encryptedExpiryMonth
    */
-  @ApiModelProperty(value = "The encrypted card expiry month.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedExpiryMonth() {
@@ -206,7 +236,7 @@ public class PaymentMethodToStore {
    * The encrypted card expiry month.
    *
    * @param encryptedExpiryMonth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryMonth(String encryptedExpiryMonth) {
@@ -228,7 +258,6 @@ public class PaymentMethodToStore {
    * The encrypted card expiry year.
    * @return encryptedExpiryYear
    */
-  @ApiModelProperty(value = "The encrypted card expiry year.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedExpiryYear() {
@@ -239,7 +268,7 @@ public class PaymentMethodToStore {
    * The encrypted card expiry year.
    *
    * @param encryptedExpiryYear
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedExpiryYear(String encryptedExpiryYear) {
@@ -261,7 +290,6 @@ public class PaymentMethodToStore {
    * The encrypted card verification code.
    * @return encryptedSecurityCode
    */
-  @ApiModelProperty(value = "The encrypted card verification code.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedSecurityCode() {
@@ -272,7 +300,7 @@ public class PaymentMethodToStore {
    * The encrypted card verification code.
    *
    * @param encryptedSecurityCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedSecurityCode(String encryptedSecurityCode) {
@@ -294,7 +322,6 @@ public class PaymentMethodToStore {
    * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return expiryMonth
    */
-  @ApiModelProperty(value = "The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryMonth() {
@@ -305,7 +332,7 @@ public class PaymentMethodToStore {
    * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
    * @param expiryMonth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
@@ -327,7 +354,6 @@ public class PaymentMethodToStore {
    * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return expiryYear
    */
-  @ApiModelProperty(value = "The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryYear() {
@@ -338,7 +364,7 @@ public class PaymentMethodToStore {
    * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
    * @param expiryYear
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
@@ -360,7 +386,6 @@ public class PaymentMethodToStore {
    * The name of the card holder.
    * @return holderName
    */
-  @ApiModelProperty(value = "The name of the card holder.")
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHolderName() {
@@ -371,7 +396,7 @@ public class PaymentMethodToStore {
    * The name of the card holder.
    *
    * @param holderName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
@@ -393,7 +418,6 @@ public class PaymentMethodToStore {
    * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return number
    */
-  @ApiModelProperty(value = "The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNumber() {
@@ -404,7 +428,7 @@ public class PaymentMethodToStore {
    * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
    * @param number
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -426,7 +450,6 @@ public class PaymentMethodToStore {
    * Set to **scheme**.
    * @return type
    */
-  @ApiModelProperty(value = "Set to **scheme**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -437,7 +460,7 @@ public class PaymentMethodToStore {
    * Set to **scheme**.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
@@ -458,6 +481,7 @@ public class PaymentMethodToStore {
     PaymentMethodToStore paymentMethodToStore = (PaymentMethodToStore) o;
     return Objects.equals(this.brand, paymentMethodToStore.brand) &&
         Objects.equals(this.cvc, paymentMethodToStore.cvc) &&
+        Objects.equals(this.encryptedCard, paymentMethodToStore.encryptedCard) &&
         Objects.equals(this.encryptedCardNumber, paymentMethodToStore.encryptedCardNumber) &&
         Objects.equals(this.encryptedExpiryMonth, paymentMethodToStore.encryptedExpiryMonth) &&
         Objects.equals(this.encryptedExpiryYear, paymentMethodToStore.encryptedExpiryYear) &&
@@ -471,7 +495,7 @@ public class PaymentMethodToStore {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, cvc, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, holderName, number, type);
+    return Objects.hash(brand, cvc, encryptedCard, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, expiryMonth, expiryYear, holderName, number, type);
   }
 
   @Override
@@ -480,6 +504,7 @@ public class PaymentMethodToStore {
     sb.append("class PaymentMethodToStore {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
+    sb.append("    encryptedCard: ").append(toIndentedString(encryptedCard)).append("\n");
     sb.append("    encryptedCardNumber: ").append(toIndentedString(encryptedCardNumber)).append("\n");
     sb.append("    encryptedExpiryMonth: ").append(toIndentedString(encryptedExpiryMonth)).append("\n");
     sb.append("    encryptedExpiryYear: ").append(toIndentedString(encryptedExpiryYear)).append("\n");

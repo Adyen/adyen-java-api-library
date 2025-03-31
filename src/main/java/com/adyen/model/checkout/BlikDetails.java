@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class BlikDetails {
    * **blik**
    */
   public enum TypeEnum {
-    BLIK("blik");
+    BLIK(String.valueOf("blik"));
 
     private String value;
 
@@ -106,7 +104,6 @@ public class BlikDetails {
    * BLIK code consisting of 6 digits.
    * @return blikCode
    */
-  @ApiModelProperty(value = "BLIK code consisting of 6 digits.")
   @JsonProperty(JSON_PROPERTY_BLIK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBlikCode() {
@@ -117,7 +114,7 @@ public class BlikDetails {
    * BLIK code consisting of 6 digits.
    *
    * @param blikCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BLIK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlikCode(String blikCode) {
@@ -139,7 +136,6 @@ public class BlikDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -150,7 +146,7 @@ public class BlikDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -166,7 +162,7 @@ public class BlikDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public BlikDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -175,12 +171,9 @@ public class BlikDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   *
-   * @deprecated since Adyen Checkout API v49
-   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
-  @Deprecated
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -194,8 +187,8 @@ public class BlikDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -217,7 +210,6 @@ public class BlikDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -228,7 +220,7 @@ public class BlikDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -250,7 +242,6 @@ public class BlikDetails {
    * **blik**
    * @return type
    */
-  @ApiModelProperty(value = "**blik**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -261,7 +252,7 @@ public class BlikDetails {
    * **blik**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

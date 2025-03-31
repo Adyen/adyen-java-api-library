@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,6 @@ public class DonationCampaignsRequest {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    * @return currency
    */
-  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -75,7 +72,7 @@ public class DonationCampaignsRequest {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    *
    * @param currency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -97,7 +94,6 @@ public class DonationCampaignsRequest {
    * Locale on the shopper interaction device.
    * @return locale
    */
-  @ApiModelProperty(value = "Locale on the shopper interaction device.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLocale() {
@@ -108,7 +104,7 @@ public class DonationCampaignsRequest {
    * Locale on the shopper interaction device.
    *
    * @param locale
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
@@ -130,7 +126,6 @@ public class DonationCampaignsRequest {
    * Your merchant account identifier.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "Your merchant account identifier.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -141,7 +136,7 @@ public class DonationCampaignsRequest {
    * Your merchant account identifier.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {

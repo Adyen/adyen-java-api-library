@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,7 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CheckoutRedirectAction {
   public static final String JSON_PROPERTY_DATA = "data";
-  private Map<String, String> data = null;
+  private Map<String, String> data = new HashMap<>();
 
   public static final String JSON_PROPERTY_METHOD = "method";
   private String method;
@@ -55,7 +52,7 @@ public class CheckoutRedirectAction {
    * **redirect**
    */
   public enum TypeEnum {
-    REDIRECT("redirect");
+    REDIRECT(String.valueOf("redirect"));
 
     private String value;
 
@@ -116,7 +113,6 @@ public class CheckoutRedirectAction {
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    * @return data
    */
-  @ApiModelProperty(value = "When the redirect URL must be accessed via POST, use this data to post to the redirect URL.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getData() {
@@ -127,7 +123,7 @@ public class CheckoutRedirectAction {
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(Map<String, String> data) {
@@ -149,7 +145,6 @@ public class CheckoutRedirectAction {
    * Specifies the HTTP method, for example GET or POST.
    * @return method
    */
-  @ApiModelProperty(value = "Specifies the HTTP method, for example GET or POST.")
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMethod() {
@@ -160,7 +155,7 @@ public class CheckoutRedirectAction {
    * Specifies the HTTP method, for example GET or POST.
    *
    * @param method
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMethod(String method) {
@@ -182,7 +177,6 @@ public class CheckoutRedirectAction {
    * Specifies the payment method.
    * @return paymentMethodType
    */
-  @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethodType() {
@@ -193,7 +187,7 @@ public class CheckoutRedirectAction {
    * Specifies the payment method.
    *
    * @param paymentMethodType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -215,7 +209,6 @@ public class CheckoutRedirectAction {
    * **redirect**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**redirect**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -226,7 +219,7 @@ public class CheckoutRedirectAction {
    * **redirect**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -248,7 +241,6 @@ public class CheckoutRedirectAction {
    * Specifies the URL to redirect to.
    * @return url
    */
-  @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -259,7 +251,7 @@ public class CheckoutRedirectAction {
    * Specifies the URL to redirect to.
    *
    * @param url
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

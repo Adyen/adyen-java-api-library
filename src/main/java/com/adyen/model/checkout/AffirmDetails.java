@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,7 +41,7 @@ public class AffirmDetails {
    * **affirm**
    */
   public enum TypeEnum {
-    AFFIRM("affirm");
+    AFFIRM(String.valueOf("affirm"));
 
     private String value;
 
@@ -73,7 +71,7 @@ public class AffirmDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.AFFIRM;
 
   public AffirmDetails() { 
   }
@@ -93,7 +91,6 @@ public class AffirmDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -104,7 +101,7 @@ public class AffirmDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -126,7 +123,6 @@ public class AffirmDetails {
    * **affirm**
    * @return type
    */
-  @ApiModelProperty(value = "**affirm**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -137,7 +133,7 @@ public class AffirmDetails {
    * **affirm**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

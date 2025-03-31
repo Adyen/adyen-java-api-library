@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,7 @@ public class UpiIntentDetails {
    * **upi_intent**
    */
   public enum TypeEnum {
-    UPI_INTENT("upi_intent");
+    UPI_INTENT(String.valueOf("upi_intent"));
 
     private String value;
 
@@ -90,7 +88,7 @@ public class UpiIntentDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.UPI_INTENT;
 
   public UpiIntentDetails() { 
   }
@@ -110,7 +108,6 @@ public class UpiIntentDetails {
    * TPAP (Third Party Application) Id that is being used to make the UPI payment
    * @return appId
    */
-  @ApiModelProperty(value = "TPAP (Third Party Application) Id that is being used to make the UPI payment")
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAppId() {
@@ -121,7 +118,7 @@ public class UpiIntentDetails {
    * TPAP (Third Party Application) Id that is being used to make the UPI payment
    *
    * @param appId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
@@ -143,7 +140,6 @@ public class UpiIntentDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -154,7 +150,7 @@ public class UpiIntentDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -170,7 +166,7 @@ public class UpiIntentDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public UpiIntentDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -179,12 +175,9 @@ public class UpiIntentDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   *
-   * @deprecated since Adyen Checkout API v49
-   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
-  @Deprecated
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -198,8 +191,8 @@ public class UpiIntentDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -221,7 +214,6 @@ public class UpiIntentDetails {
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    * @return shopperNotificationReference
    */
-  @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperNotificationReference() {
@@ -232,7 +224,7 @@ public class UpiIntentDetails {
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    *
    * @param shopperNotificationReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperNotificationReference(String shopperNotificationReference) {
@@ -254,7 +246,6 @@ public class UpiIntentDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -265,7 +256,7 @@ public class UpiIntentDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -287,7 +278,6 @@ public class UpiIntentDetails {
    * **upi_intent**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**upi_intent**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -298,7 +288,7 @@ public class UpiIntentDetails {
    * **upi_intent**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

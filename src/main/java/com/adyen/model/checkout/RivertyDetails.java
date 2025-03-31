@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -72,11 +70,11 @@ public class RivertyDetails {
    * **riverty**
    */
   public enum TypeEnum {
-    RIVERTY("riverty"),
+    RIVERTY(String.valueOf("riverty")),
     
-    RIVERTY_ACCOUNT("riverty_account"),
+    RIVERTY_ACCOUNT(String.valueOf("riverty_account")),
     
-    SEPADIRECTDEBIT_RIVERTY("sepadirectdebit_riverty");
+    SEPADIRECTDEBIT_RIVERTY(String.valueOf("sepadirectdebit_riverty"));
 
     private String value;
 
@@ -106,7 +104,7 @@ public class RivertyDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.RIVERTY;
 
   public RivertyDetails() { 
   }
@@ -126,7 +124,6 @@ public class RivertyDetails {
    * The address where to send the invoice.
    * @return billingAddress
    */
-  @ApiModelProperty(value = "The address where to send the invoice.")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingAddress() {
@@ -137,7 +134,7 @@ public class RivertyDetails {
    * The address where to send the invoice.
    *
    * @param billingAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(String billingAddress) {
@@ -159,7 +156,6 @@ public class RivertyDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -170,7 +166,7 @@ public class RivertyDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -192,7 +188,6 @@ public class RivertyDetails {
    * The address where the goods should be delivered.
    * @return deliveryAddress
    */
-  @ApiModelProperty(value = "The address where the goods should be delivered.")
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeliveryAddress() {
@@ -203,7 +198,7 @@ public class RivertyDetails {
    * The address where the goods should be delivered.
    *
    * @param deliveryAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(String deliveryAddress) {
@@ -225,7 +220,6 @@ public class RivertyDetails {
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    * @return deviceFingerprint
    */
-  @ApiModelProperty(value = "A string containing the shopper's device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).")
   @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeviceFingerprint() {
@@ -236,7 +230,7 @@ public class RivertyDetails {
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    *
    * @param deviceFingerprint
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceFingerprint(String deviceFingerprint) {
@@ -258,7 +252,6 @@ public class RivertyDetails {
    * The iban number of the customer 
    * @return iban
    */
-  @ApiModelProperty(value = "The iban number of the customer ")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIban() {
@@ -269,7 +262,7 @@ public class RivertyDetails {
    * The iban number of the customer 
    *
    * @param iban
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -291,7 +284,6 @@ public class RivertyDetails {
    * Shopper name, date of birth, phone number, and email address.
    * @return personalDetails
    */
-  @ApiModelProperty(value = "Shopper name, date of birth, phone number, and email address.")
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPersonalDetails() {
@@ -302,7 +294,7 @@ public class RivertyDetails {
    * Shopper name, date of birth, phone number, and email address.
    *
    * @param personalDetails
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPersonalDetails(String personalDetails) {
@@ -318,7 +310,7 @@ public class RivertyDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public RivertyDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -327,12 +319,9 @@ public class RivertyDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   *
-   * @deprecated since Adyen Checkout API v49
-   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
-  @Deprecated
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -346,8 +335,8 @@ public class RivertyDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -369,7 +358,6 @@ public class RivertyDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -380,7 +368,7 @@ public class RivertyDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -402,7 +390,6 @@ public class RivertyDetails {
    * **riverty**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**riverty**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -413,7 +400,7 @@ public class RivertyDetails {
    * **riverty**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

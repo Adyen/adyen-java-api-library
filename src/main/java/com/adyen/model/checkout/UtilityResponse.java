@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class UtilityResponse {
   public static final String JSON_PROPERTY_ORIGIN_KEYS = "originKeys";
-  private Map<String, String> originKeys = null;
+  private Map<String, String> originKeys = new HashMap<>();
 
   public UtilityResponse() { 
   }
@@ -67,7 +64,6 @@ public class UtilityResponse {
    * The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.
    * @return originKeys
    */
-  @ApiModelProperty(value = "The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.")
   @JsonProperty(JSON_PROPERTY_ORIGIN_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getOriginKeys() {
@@ -78,7 +74,7 @@ public class UtilityResponse {
    * The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.
    *
    * @param originKeys
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORIGIN_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginKeys(Map<String, String> originKeys) {

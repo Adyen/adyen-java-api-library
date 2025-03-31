@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class CheckoutAwaitAction {
    * **await**
    */
   public enum TypeEnum {
-    AWAIT("await");
+    AWAIT(String.valueOf("await"));
 
     private String value;
 
@@ -101,7 +99,6 @@ public class CheckoutAwaitAction {
    * Encoded payment data.
    * @return paymentData
    */
-  @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentData() {
@@ -112,7 +109,7 @@ public class CheckoutAwaitAction {
    * Encoded payment data.
    *
    * @param paymentData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -134,7 +131,6 @@ public class CheckoutAwaitAction {
    * Specifies the payment method.
    * @return paymentMethodType
    */
-  @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethodType() {
@@ -145,7 +141,7 @@ public class CheckoutAwaitAction {
    * Specifies the payment method.
    *
    * @param paymentMethodType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -167,7 +163,6 @@ public class CheckoutAwaitAction {
    * **await**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**await**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -178,7 +173,7 @@ public class CheckoutAwaitAction {
    * **await**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -200,7 +195,6 @@ public class CheckoutAwaitAction {
    * Specifies the URL to redirect to.
    * @return url
    */
-  @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -211,7 +205,7 @@ public class CheckoutAwaitAction {
    * Specifies the URL to redirect to.
    *
    * @param url
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
