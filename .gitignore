@@ -1,5 +1,5 @@
 .idea
 *.iml
-/target/**
+**/target/**
 .DS_Store
 .vscode
