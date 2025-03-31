@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -34,9 +32,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS,
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY,
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_EMAIL,
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID,
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC,
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME,
+  AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_PHONE_NUMBER,
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE,
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE,
   AdditionalDataSubMerchant.JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET,
@@ -53,6 +53,9 @@ public class AdditionalDataSubMerchant {
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY = "subMerchant.subSeller[subSellerNr].country";
   private String subMerchantSubSellerSubSellerNrCountry;
 
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_EMAIL = "subMerchant.subSeller[subSellerNr].email";
+  private String subMerchantSubSellerSubSellerNrEmail;
+
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID = "subMerchant.subSeller[subSellerNr].id";
   private String subMerchantSubSellerSubSellerNrId;
 
@@ -61,6 +64,9 @@ public class AdditionalDataSubMerchant {
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME = "subMerchant.subSeller[subSellerNr].name";
   private String subMerchantSubSellerSubSellerNrName;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_PHONE_NUMBER = "subMerchant.subSeller[subSellerNr].phoneNumber";
+  private String subMerchantSubSellerSubSellerNrPhoneNumber;
 
   public static final String JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE = "subMerchant.subSeller[subSellerNr].postalCode";
   private String subMerchantSubSellerSubSellerNrPostalCode;
@@ -92,7 +98,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. Indicates the number of sub-merchants contained in the request. For example, **3**.
    * @return subMerchantNumberOfSubSellers
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. Indicates the number of sub-merchants contained in the request. For example, **3**.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantNumberOfSubSellers() {
@@ -103,7 +108,7 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. Indicates the number of sub-merchants contained in the request. For example, **3**.
    *
    * @param subMerchantNumberOfSubSellers
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_NUMBER_OF_SUB_SELLERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantNumberOfSubSellers(String subMerchantNumberOfSubSellers) {
@@ -125,7 +130,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The city of the sub-merchant&#39;s address. * Format: Alphanumeric * Maximum length: 13 characters
    * @return subMerchantSubSellerSubSellerNrCity
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The city of the sub-merchant's address. * Format: Alphanumeric * Maximum length: 13 characters")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrCity() {
@@ -136,7 +140,7 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The city of the sub-merchant&#39;s address. * Format: Alphanumeric * Maximum length: 13 characters
    *
    * @param subMerchantSubSellerSubSellerNrCity
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrCity(String subMerchantSubSellerSubSellerNrCity) {
@@ -158,7 +162,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The three-letter country code of the sub-merchant&#39;s address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters
    * @return subMerchantSubSellerSubSellerNrCountry
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The three-letter country code of the sub-merchant's address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrCountry() {
@@ -169,11 +172,43 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The three-letter country code of the sub-merchant&#39;s address. For example, **BRA** for Brazil.  * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) * Fixed length: 3 characters
    *
    * @param subMerchantSubSellerSubSellerNrCountry
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrCountry(String subMerchantSubSellerSubSellerNrCountry) {
     this.subMerchantSubSellerSubSellerNrCountry = subMerchantSubSellerSubSellerNrCountry;
+  }
+
+  /**
+   * Required for transactions performed by registered payment facilitators. The email address of the sub-merchant. * Format: Alphanumeric * Maximum length: 40 characters
+   *
+   * @param subMerchantSubSellerSubSellerNrEmail
+   * @return the current {@code AdditionalDataSubMerchant} instance, allowing for method chaining
+   */
+  public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrEmail(String subMerchantSubSellerSubSellerNrEmail) {
+    this.subMerchantSubSellerSubSellerNrEmail = subMerchantSubSellerSubSellerNrEmail;
+    return this;
+  }
+
+  /**
+   * Required for transactions performed by registered payment facilitators. The email address of the sub-merchant. * Format: Alphanumeric * Maximum length: 40 characters
+   * @return subMerchantSubSellerSubSellerNrEmail
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubMerchantSubSellerSubSellerNrEmail() {
+    return subMerchantSubSellerSubSellerNrEmail;
+  }
+
+  /**
+   * Required for transactions performed by registered payment facilitators. The email address of the sub-merchant. * Format: Alphanumeric * Maximum length: 40 characters
+   *
+   * @param subMerchantSubSellerSubSellerNrEmail
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantSubSellerSubSellerNrEmail(String subMerchantSubSellerSubSellerNrEmail) {
+    this.subMerchantSubSellerSubSellerNrEmail = subMerchantSubSellerSubSellerNrEmail;
   }
 
   /**
@@ -191,7 +226,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
    * @return subMerchantSubSellerSubSellerNrId
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrId() {
@@ -202,7 +236,7 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
    *
    * @param subMerchantSubSellerSubSellerNrId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrId(String subMerchantSubSellerSubSellerNrId) {
@@ -224,7 +258,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    * @return subMerchantSubSellerSubSellerNrMcc
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The sub-merchant's 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrMcc() {
@@ -235,7 +268,7 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    *
    * @param subMerchantSubSellerSubSellerNrMcc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrMcc(String subMerchantSubSellerSubSellerNrMcc) {
@@ -257,7 +290,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    * @return subMerchantSubSellerSubSellerNrName
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrName() {
@@ -268,11 +300,43 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    *
    * @param subMerchantSubSellerSubSellerNrName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrName(String subMerchantSubSellerSubSellerNrName) {
     this.subMerchantSubSellerSubSellerNrName = subMerchantSubSellerSubSellerNrName;
+  }
+
+  /**
+   * Required for transactions performed by registered payment facilitators. The phone number of the sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   *
+   * @param subMerchantSubSellerSubSellerNrPhoneNumber
+   * @return the current {@code AdditionalDataSubMerchant} instance, allowing for method chaining
+   */
+  public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrPhoneNumber(String subMerchantSubSellerSubSellerNrPhoneNumber) {
+    this.subMerchantSubSellerSubSellerNrPhoneNumber = subMerchantSubSellerSubSellerNrPhoneNumber;
+    return this;
+  }
+
+  /**
+   * Required for transactions performed by registered payment facilitators. The phone number of the sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   * @return subMerchantSubSellerSubSellerNrPhoneNumber
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubMerchantSubSellerSubSellerNrPhoneNumber() {
+    return subMerchantSubSellerSubSellerNrPhoneNumber;
+  }
+
+  /**
+   * Required for transactions performed by registered payment facilitators. The phone number of the sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   *
+   * @param subMerchantSubSellerSubSellerNrPhoneNumber
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantSubSellerSubSellerNrPhoneNumber(String subMerchantSubSellerSubSellerNrPhoneNumber) {
+    this.subMerchantSubSellerSubSellerNrPhoneNumber = subMerchantSubSellerSubSellerNrPhoneNumber;
   }
 
   /**
@@ -290,7 +354,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The postal code of the sub-merchant&#39;s address, without dashes. * Format: Numeric * Fixed length: 8 digits
    * @return subMerchantSubSellerSubSellerNrPostalCode
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The postal code of the sub-merchant's address, without dashes. * Format: Numeric * Fixed length: 8 digits")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrPostalCode() {
@@ -301,7 +364,7 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The postal code of the sub-merchant&#39;s address, without dashes. * Format: Numeric * Fixed length: 8 digits
    *
    * @param subMerchantSubSellerSubSellerNrPostalCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrPostalCode(String subMerchantSubSellerSubSellerNrPostalCode) {
@@ -323,7 +386,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The state code of the sub-merchant&#39;s address, if applicable to the country. * Format: Alphanumeric * Maximum length: 2 characters
    * @return subMerchantSubSellerSubSellerNrState
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The state code of the sub-merchant's address, if applicable to the country. * Format: Alphanumeric * Maximum length: 2 characters")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrState() {
@@ -334,7 +396,7 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The state code of the sub-merchant&#39;s address, if applicable to the country. * Format: Alphanumeric * Maximum length: 2 characters
    *
    * @param subMerchantSubSellerSubSellerNrState
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrState(String subMerchantSubSellerSubSellerNrState) {
@@ -356,7 +418,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The street name and house number of the sub-merchant&#39;s address. * Format: Alphanumeric * Maximum length: 60 characters
    * @return subMerchantSubSellerSubSellerNrStreet
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The street name and house number of the sub-merchant's address. * Format: Alphanumeric * Maximum length: 60 characters")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrStreet() {
@@ -367,7 +428,7 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The street name and house number of the sub-merchant&#39;s address. * Format: Alphanumeric * Maximum length: 60 characters
    *
    * @param subMerchantSubSellerSubSellerNrStreet
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrStreet(String subMerchantSubSellerSubSellerNrStreet) {
@@ -389,7 +450,6 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    * @return subMerchantSubSellerSubSellerNrTaxId
    */
-  @ApiModelProperty(value = "Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubMerchantSubSellerSubSellerNrTaxId() {
@@ -400,7 +460,7 @@ public class AdditionalDataSubMerchant {
    * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    *
    * @param subMerchantSubSellerSubSellerNrTaxId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchantSubSellerSubSellerNrTaxId(String subMerchantSubSellerSubSellerNrTaxId) {
@@ -422,9 +482,11 @@ public class AdditionalDataSubMerchant {
     return Objects.equals(this.subMerchantNumberOfSubSellers, additionalDataSubMerchant.subMerchantNumberOfSubSellers) &&
         Objects.equals(this.subMerchantSubSellerSubSellerNrCity, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrCity) &&
         Objects.equals(this.subMerchantSubSellerSubSellerNrCountry, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrCountry) &&
+        Objects.equals(this.subMerchantSubSellerSubSellerNrEmail, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrEmail) &&
         Objects.equals(this.subMerchantSubSellerSubSellerNrId, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrId) &&
         Objects.equals(this.subMerchantSubSellerSubSellerNrMcc, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrMcc) &&
         Objects.equals(this.subMerchantSubSellerSubSellerNrName, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrName) &&
+        Objects.equals(this.subMerchantSubSellerSubSellerNrPhoneNumber, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrPhoneNumber) &&
         Objects.equals(this.subMerchantSubSellerSubSellerNrPostalCode, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrPostalCode) &&
         Objects.equals(this.subMerchantSubSellerSubSellerNrState, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrState) &&
         Objects.equals(this.subMerchantSubSellerSubSellerNrStreet, additionalDataSubMerchant.subMerchantSubSellerSubSellerNrStreet) &&
@@ -433,7 +495,7 @@ public class AdditionalDataSubMerchant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subMerchantNumberOfSubSellers, subMerchantSubSellerSubSellerNrCity, subMerchantSubSellerSubSellerNrCountry, subMerchantSubSellerSubSellerNrId, subMerchantSubSellerSubSellerNrMcc, subMerchantSubSellerSubSellerNrName, subMerchantSubSellerSubSellerNrPostalCode, subMerchantSubSellerSubSellerNrState, subMerchantSubSellerSubSellerNrStreet, subMerchantSubSellerSubSellerNrTaxId);
+    return Objects.hash(subMerchantNumberOfSubSellers, subMerchantSubSellerSubSellerNrCity, subMerchantSubSellerSubSellerNrCountry, subMerchantSubSellerSubSellerNrEmail, subMerchantSubSellerSubSellerNrId, subMerchantSubSellerSubSellerNrMcc, subMerchantSubSellerSubSellerNrName, subMerchantSubSellerSubSellerNrPhoneNumber, subMerchantSubSellerSubSellerNrPostalCode, subMerchantSubSellerSubSellerNrState, subMerchantSubSellerSubSellerNrStreet, subMerchantSubSellerSubSellerNrTaxId);
   }
 
   @Override
@@ -443,9 +505,11 @@ public class AdditionalDataSubMerchant {
     sb.append("    subMerchantNumberOfSubSellers: ").append(toIndentedString(subMerchantNumberOfSubSellers)).append("\n");
     sb.append("    subMerchantSubSellerSubSellerNrCity: ").append(toIndentedString(subMerchantSubSellerSubSellerNrCity)).append("\n");
     sb.append("    subMerchantSubSellerSubSellerNrCountry: ").append(toIndentedString(subMerchantSubSellerSubSellerNrCountry)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrEmail: ").append(toIndentedString(subMerchantSubSellerSubSellerNrEmail)).append("\n");
     sb.append("    subMerchantSubSellerSubSellerNrId: ").append(toIndentedString(subMerchantSubSellerSubSellerNrId)).append("\n");
     sb.append("    subMerchantSubSellerSubSellerNrMcc: ").append(toIndentedString(subMerchantSubSellerSubSellerNrMcc)).append("\n");
     sb.append("    subMerchantSubSellerSubSellerNrName: ").append(toIndentedString(subMerchantSubSellerSubSellerNrName)).append("\n");
+    sb.append("    subMerchantSubSellerSubSellerNrPhoneNumber: ").append(toIndentedString(subMerchantSubSellerSubSellerNrPhoneNumber)).append("\n");
     sb.append("    subMerchantSubSellerSubSellerNrPostalCode: ").append(toIndentedString(subMerchantSubSellerSubSellerNrPostalCode)).append("\n");
     sb.append("    subMerchantSubSellerSubSellerNrState: ").append(toIndentedString(subMerchantSubSellerSubSellerNrState)).append("\n");
     sb.append("    subMerchantSubSellerSubSellerNrStreet: ").append(toIndentedString(subMerchantSubSellerSubSellerNrStreet)).append("\n");

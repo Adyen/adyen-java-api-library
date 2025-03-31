@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payment.PlatformChargebackLogic;
@@ -23,10 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,7 +46,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CancelOrRefundRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -101,7 +98,6 @@ public class CancelOrRefundRequest {
    * This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    * @return additionalData
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -112,7 +108,7 @@ public class CancelOrRefundRequest {
    * This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -134,7 +130,6 @@ public class CancelOrRefundRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -145,7 +140,7 @@ public class CancelOrRefundRequest {
    * The merchant account that is used to process the payment.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -164,10 +159,9 @@ public class CancelOrRefundRequest {
   }
 
   /**
-   * mpiData
+   * Get mpiData
    * @return mpiData
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MPI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ThreeDSecureData getMpiData() {
@@ -178,7 +172,7 @@ public class CancelOrRefundRequest {
    * mpiData
    *
    * @param mpiData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MPI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMpiData(ThreeDSecureData mpiData) {
@@ -200,7 +194,6 @@ public class CancelOrRefundRequest {
    * The original merchant reference to cancel.
    * @return originalMerchantReference
    */
-  @ApiModelProperty(value = "The original merchant reference to cancel.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOriginalMerchantReference() {
@@ -211,7 +204,7 @@ public class CancelOrRefundRequest {
    * The original merchant reference to cancel.
    *
    * @param originalMerchantReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalMerchantReference(String originalMerchantReference) {
@@ -233,7 +226,6 @@ public class CancelOrRefundRequest {
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    * @return originalReference
    */
-  @ApiModelProperty(required = true, value = "The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  ")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOriginalReference() {
@@ -244,7 +236,7 @@ public class CancelOrRefundRequest {
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    *
    * @param originalReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
@@ -263,10 +255,9 @@ public class CancelOrRefundRequest {
   }
 
   /**
-   * platformChargebackLogic
+   * Get platformChargebackLogic
    * @return platformChargebackLogic
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PlatformChargebackLogic getPlatformChargebackLogic() {
@@ -277,7 +268,7 @@ public class CancelOrRefundRequest {
    * platformChargebackLogic
    *
    * @param platformChargebackLogic
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
@@ -299,7 +290,6 @@ public class CancelOrRefundRequest {
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return reference
    */
-  @ApiModelProperty(value = "Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -310,7 +300,7 @@ public class CancelOrRefundRequest {
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -332,7 +322,6 @@ public class CancelOrRefundRequest {
    * The transaction reference provided by the PED. For point-of-sale integrations only.
    * @return tenderReference
    */
-  @ApiModelProperty(value = "The transaction reference provided by the PED. For point-of-sale integrations only.")
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTenderReference() {
@@ -343,7 +332,7 @@ public class CancelOrRefundRequest {
    * The transaction reference provided by the PED. For point-of-sale integrations only.
    *
    * @param tenderReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenderReference(String tenderReference) {
@@ -365,7 +354,6 @@ public class CancelOrRefundRequest {
    * Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    * @return uniqueTerminalId
    */
-  @ApiModelProperty(value = "Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.")
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUniqueTerminalId() {
@@ -376,7 +364,7 @@ public class CancelOrRefundRequest {
    * Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    *
    * @param uniqueTerminalId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {

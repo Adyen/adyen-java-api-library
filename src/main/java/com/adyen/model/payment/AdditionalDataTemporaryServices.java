@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -88,7 +86,6 @@ public class AdditionalDataTemporaryServices {
    * The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    * @return enhancedSchemeDataCustomerReference
    */
-  @ApiModelProperty(value = "The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataCustomerReference() {
@@ -99,7 +96,7 @@ public class AdditionalDataTemporaryServices {
    * The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    *
    * @param enhancedSchemeDataCustomerReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataCustomerReference(String enhancedSchemeDataCustomerReference) {
@@ -121,7 +118,6 @@ public class AdditionalDataTemporaryServices {
    * The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
    * @return enhancedSchemeDataEmployeeName
    */
-  @ApiModelProperty(value = "The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_EMPLOYEE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataEmployeeName() {
@@ -132,7 +128,7 @@ public class AdditionalDataTemporaryServices {
    * The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
    *
    * @param enhancedSchemeDataEmployeeName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_EMPLOYEE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataEmployeeName(String enhancedSchemeDataEmployeeName) {
@@ -154,7 +150,6 @@ public class AdditionalDataTemporaryServices {
    * The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
    * @return enhancedSchemeDataJobDescription
    */
-  @ApiModelProperty(value = "The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_JOB_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataJobDescription() {
@@ -165,7 +160,7 @@ public class AdditionalDataTemporaryServices {
    * The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
    *
    * @param enhancedSchemeDataJobDescription
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_JOB_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataJobDescription(String enhancedSchemeDataJobDescription) {
@@ -187,7 +182,6 @@ public class AdditionalDataTemporaryServices {
    * The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
    * @return enhancedSchemeDataRegularHoursRate
    */
-  @ApiModelProperty(value = "The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataRegularHoursRate() {
@@ -198,7 +192,7 @@ public class AdditionalDataTemporaryServices {
    * The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
    *
    * @param enhancedSchemeDataRegularHoursRate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRegularHoursRate(String enhancedSchemeDataRegularHoursRate) {
@@ -220,7 +214,6 @@ public class AdditionalDataTemporaryServices {
    * The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
    * @return enhancedSchemeDataRegularHoursWorked
    */
-  @ApiModelProperty(value = "The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_WORKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataRegularHoursWorked() {
@@ -231,7 +224,7 @@ public class AdditionalDataTemporaryServices {
    * The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
    *
    * @param enhancedSchemeDataRegularHoursWorked
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_WORKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRegularHoursWorked(String enhancedSchemeDataRegularHoursWorked) {
@@ -253,7 +246,6 @@ public class AdditionalDataTemporaryServices {
    * The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    * @return enhancedSchemeDataRequestName
    */
-  @ApiModelProperty(value = "The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REQUEST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataRequestName() {
@@ -264,7 +256,7 @@ public class AdditionalDataTemporaryServices {
    * The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    *
    * @param enhancedSchemeDataRequestName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REQUEST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataRequestName(String enhancedSchemeDataRequestName) {
@@ -286,7 +278,6 @@ public class AdditionalDataTemporaryServices {
    * The billing period start date. * Format: ddMMyy * maxLength: 6
    * @return enhancedSchemeDataTempStartDate
    */
-  @ApiModelProperty(value = "The billing period start date. * Format: ddMMyy * maxLength: 6")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataTempStartDate() {
@@ -297,7 +288,7 @@ public class AdditionalDataTemporaryServices {
    * The billing period start date. * Format: ddMMyy * maxLength: 6
    *
    * @param enhancedSchemeDataTempStartDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTempStartDate(String enhancedSchemeDataTempStartDate) {
@@ -319,7 +310,6 @@ public class AdditionalDataTemporaryServices {
    * The billing period end date. * Format: ddMMyy * maxLength: 6
    * @return enhancedSchemeDataTempWeekEnding
    */
-  @ApiModelProperty(value = "The billing period end date. * Format: ddMMyy * maxLength: 6")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_WEEK_ENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataTempWeekEnding() {
@@ -330,7 +320,7 @@ public class AdditionalDataTemporaryServices {
    * The billing period end date. * Format: ddMMyy * maxLength: 6
    *
    * @param enhancedSchemeDataTempWeekEnding
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_WEEK_ENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTempWeekEnding(String enhancedSchemeDataTempWeekEnding) {
@@ -352,7 +342,6 @@ public class AdditionalDataTemporaryServices {
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
    * @return enhancedSchemeDataTotalTaxAmount
    */
-  @ApiModelProperty(value = "The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12")
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnhancedSchemeDataTotalTaxAmount() {
@@ -363,7 +352,7 @@ public class AdditionalDataTemporaryServices {
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
    *
    * @param enhancedSchemeDataTotalTaxAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnhancedSchemeDataTotalTaxAmount(String enhancedSchemeDataTotalTaxAmount) {

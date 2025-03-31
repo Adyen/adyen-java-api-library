@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -65,27 +63,27 @@ public class ResponseAdditionalDataCard {
    * The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
    */
   public enum CardProductIdEnum {
-    A("A"),
+    A(String.valueOf("A")),
     
-    B("B"),
+    B(String.valueOf("B")),
     
-    C("C"),
+    C(String.valueOf("C")),
     
-    D("D"),
+    D(String.valueOf("D")),
     
-    F("F"),
+    F(String.valueOf("F")),
     
-    MCC("MCC"),
+    MCC(String.valueOf("MCC")),
     
-    MCE("MCE"),
+    MCE(String.valueOf("MCE")),
     
-    MCF("MCF"),
+    MCF(String.valueOf("MCF")),
     
-    MCG("MCG"),
+    MCG(String.valueOf("MCG")),
     
-    MCH("MCH"),
+    MCH(String.valueOf("MCH")),
     
-    MCI("MCI");
+    MCI(String.valueOf("MCI"));
 
     private String value;
 
@@ -141,7 +139,6 @@ public class ResponseAdditionalDataCard {
    * The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
    * @return cardBin
    */
-  @ApiModelProperty(value = "The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234")
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardBin() {
@@ -152,7 +149,7 @@ public class ResponseAdditionalDataCard {
    * The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
    *
    * @param cardBin
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(String cardBin) {
@@ -174,7 +171,6 @@ public class ResponseAdditionalDataCard {
    * The cardholder name passed in the payment request.
    * @return cardHolderName
    */
-  @ApiModelProperty(value = "The cardholder name passed in the payment request.")
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardHolderName() {
@@ -185,7 +181,7 @@ public class ResponseAdditionalDataCard {
    * The cardholder name passed in the payment request.
    *
    * @param cardHolderName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderName(String cardHolderName) {
@@ -207,7 +203,6 @@ public class ResponseAdditionalDataCard {
    * The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.
    * @return cardIssuingBank
    */
-  @ApiModelProperty(value = "The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.")
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardIssuingBank() {
@@ -218,7 +213,7 @@ public class ResponseAdditionalDataCard {
    * The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.
    *
    * @param cardIssuingBank
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingBank(String cardIssuingBank) {
@@ -240,7 +235,6 @@ public class ResponseAdditionalDataCard {
    * The country where the card was issued.  Example: US
    * @return cardIssuingCountry
    */
-  @ApiModelProperty(value = "The country where the card was issued.  Example: US")
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardIssuingCountry() {
@@ -251,7 +245,7 @@ public class ResponseAdditionalDataCard {
    * The country where the card was issued.  Example: US
    *
    * @param cardIssuingCountry
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingCountry(String cardIssuingCountry) {
@@ -273,7 +267,6 @@ public class ResponseAdditionalDataCard {
    * The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD
    * @return cardIssuingCurrency
    */
-  @ApiModelProperty(value = "The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD")
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardIssuingCurrency() {
@@ -284,7 +277,7 @@ public class ResponseAdditionalDataCard {
    * The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD
    *
    * @param cardIssuingCurrency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_ISSUING_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIssuingCurrency(String cardIssuingCurrency) {
@@ -306,7 +299,6 @@ public class ResponseAdditionalDataCard {
    * The card payment method used for the transaction.  Example: amex
    * @return cardPaymentMethod
    */
-  @ApiModelProperty(value = "The card payment method used for the transaction.  Example: amex")
   @JsonProperty(JSON_PROPERTY_CARD_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardPaymentMethod() {
@@ -317,7 +309,7 @@ public class ResponseAdditionalDataCard {
    * The card payment method used for the transaction.  Example: amex
    *
    * @param cardPaymentMethod
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardPaymentMethod(String cardPaymentMethod) {
@@ -339,7 +331,6 @@ public class ResponseAdditionalDataCard {
    * The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
    * @return cardProductId
    */
-  @ApiModelProperty(value = "The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit ")
   @JsonProperty(JSON_PROPERTY_CARD_PRODUCT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardProductIdEnum getCardProductId() {
@@ -350,7 +341,7 @@ public class ResponseAdditionalDataCard {
    * The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
    *
    * @param cardProductId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_PRODUCT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardProductId(CardProductIdEnum cardProductId) {
@@ -372,7 +363,6 @@ public class ResponseAdditionalDataCard {
    * The last four digits of a card number.  &gt; Returned only in case of a card payment.
    * @return cardSummary
    */
-  @ApiModelProperty(value = "The last four digits of a card number.  > Returned only in case of a card payment.")
   @JsonProperty(JSON_PROPERTY_CARD_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardSummary() {
@@ -383,7 +373,7 @@ public class ResponseAdditionalDataCard {
    * The last four digits of a card number.  &gt; Returned only in case of a card payment.
    *
    * @param cardSummary
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardSummary(String cardSummary) {
@@ -405,7 +395,6 @@ public class ResponseAdditionalDataCard {
    * The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423
    * @return issuerBin
    */
-  @ApiModelProperty(value = "The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423")
   @JsonProperty(JSON_PROPERTY_ISSUER_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuerBin() {
@@ -416,7 +405,7 @@ public class ResponseAdditionalDataCard {
    * The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423
    *
    * @param issuerBin
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUER_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerBin(String issuerBin) {

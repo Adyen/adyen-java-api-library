@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,6 @@ public class AuthenticationResultRequest {
    * The merchant account identifier, with which the authentication was processed.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, with which the authentication was processed.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -71,7 +68,7 @@ public class AuthenticationResultRequest {
    * The merchant account identifier, with which the authentication was processed.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -93,7 +90,6 @@ public class AuthenticationResultRequest {
    * The pspReference identifier for the transaction.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "The pspReference identifier for the transaction.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -104,7 +100,7 @@ public class AuthenticationResultRequest {
    * The pspReference identifier for the transaction.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {

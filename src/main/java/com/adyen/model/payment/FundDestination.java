@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payment.Address;
@@ -25,10 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -56,7 +53,7 @@ public class FundDestination {
   private String IBAN;
 
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData = new HashMap<>();
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
@@ -103,7 +100,6 @@ public class FundDestination {
    * Bank Account Number of the recipient
    * @return IBAN
    */
-  @ApiModelProperty(value = "Bank Account Number of the recipient")
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIBAN() {
@@ -114,7 +110,7 @@ public class FundDestination {
    * Bank Account Number of the recipient
    *
    * @param IBAN
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIBAN(String IBAN) {
@@ -144,7 +140,6 @@ public class FundDestination {
    * a map of name/value pairs for passing in additional/industry-specific data
    * @return additionalData
    */
-  @ApiModelProperty(value = "a map of name/value pairs for passing in additional/industry-specific data")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -155,7 +150,7 @@ public class FundDestination {
    * a map of name/value pairs for passing in additional/industry-specific data
    *
    * @param additionalData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -174,10 +169,9 @@ public class FundDestination {
   }
 
   /**
-   * billingAddress
+   * Get billingAddress
    * @return billingAddress
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getBillingAddress() {
@@ -188,7 +182,7 @@ public class FundDestination {
    * billingAddress
    *
    * @param billingAddress
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -207,10 +201,9 @@ public class FundDestination {
   }
 
   /**
-   * card
+   * Get card
    * @return card
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Card getCard() {
@@ -221,7 +214,7 @@ public class FundDestination {
    * card
    *
    * @param card
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -243,7 +236,6 @@ public class FundDestination {
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    * @return selectedRecurringDetailReference
    */
-  @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSelectedRecurringDetailReference() {
@@ -254,7 +246,7 @@ public class FundDestination {
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    *
    * @param selectedRecurringDetailReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -276,7 +268,6 @@ public class FundDestination {
    * the email address of the person
    * @return shopperEmail
    */
-  @ApiModelProperty(value = "the email address of the person")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -287,7 +278,7 @@ public class FundDestination {
    * the email address of the person
    *
    * @param shopperEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -306,10 +297,9 @@ public class FundDestination {
   }
 
   /**
-   * shopperName
+   * Get shopperName
    * @return shopperName
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getShopperName() {
@@ -320,7 +310,7 @@ public class FundDestination {
    * shopperName
    *
    * @param shopperName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -342,7 +332,6 @@ public class FundDestination {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    * @return shopperReference
    */
-  @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. > Your reference must not include personally identifiable information (PII) such as name or email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -353,7 +342,7 @@ public class FundDestination {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
    * @param shopperReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -372,10 +361,9 @@ public class FundDestination {
   }
 
   /**
-   * subMerchant
+   * Get subMerchant
    * @return subMerchant
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SubMerchant getSubMerchant() {
@@ -386,7 +374,7 @@ public class FundDestination {
    * subMerchant
    *
    * @param subMerchant
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchant(SubMerchant subMerchant) {
@@ -408,7 +396,6 @@ public class FundDestination {
    * the telephone number of the person
    * @return telephoneNumber
    */
-  @ApiModelProperty(value = "the telephone number of the person")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
@@ -419,7 +406,7 @@ public class FundDestination {
    * the telephone number of the person
    *
    * @param telephoneNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
@@ -441,7 +428,6 @@ public class FundDestination {
    * The purpose of a digital wallet transaction.
    * @return walletPurpose
    */
-  @ApiModelProperty(value = "The purpose of a digital wallet transaction.")
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWalletPurpose() {
@@ -452,7 +438,7 @@ public class FundDestination {
    * The purpose of a digital wallet transaction.
    *
    * @param walletPurpose
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletPurpose(String walletPurpose) {
