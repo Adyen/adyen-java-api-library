@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,115 +42,115 @@ public class VerificationDeadline {
    * Gets or Sets capabilities
    */
   public enum CapabilitiesEnum {
-    ACCEPTEXTERNALFUNDING("acceptExternalFunding"),
+    ACCEPTEXTERNALFUNDING(String.valueOf("acceptExternalFunding")),
     
-    ACCEPTPSPFUNDING("acceptPspFunding"),
+    ACCEPTPSPFUNDING(String.valueOf("acceptPspFunding")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIES("acceptTransactionInRestrictedCountries"),
+    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIES(String.valueOf("acceptTransactionInRestrictedCountries")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIESCOMMERCIAL("acceptTransactionInRestrictedCountriesCommercial"),
+    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIESCOMMERCIAL(String.valueOf("acceptTransactionInRestrictedCountriesCommercial")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIESCONSUMER("acceptTransactionInRestrictedCountriesConsumer"),
+    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIESCONSUMER(String.valueOf("acceptTransactionInRestrictedCountriesConsumer")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIES("acceptTransactionInRestrictedIndustries"),
+    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIES(String.valueOf("acceptTransactionInRestrictedIndustries")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIESCOMMERCIAL("acceptTransactionInRestrictedIndustriesCommercial"),
+    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIESCOMMERCIAL(String.valueOf("acceptTransactionInRestrictedIndustriesCommercial")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIESCONSUMER("acceptTransactionInRestrictedIndustriesConsumer"),
+    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIESCONSUMER(String.valueOf("acceptTransactionInRestrictedIndustriesConsumer")),
     
-    ACQUIRING("acquiring"),
+    ACQUIRING(String.valueOf("acquiring")),
     
-    ATMWITHDRAWAL("atmWithdrawal"),
+    ATMWITHDRAWAL(String.valueOf("atmWithdrawal")),
     
-    ATMWITHDRAWALCOMMERCIAL("atmWithdrawalCommercial"),
+    ATMWITHDRAWALCOMMERCIAL(String.valueOf("atmWithdrawalCommercial")),
     
-    ATMWITHDRAWALCONSUMER("atmWithdrawalConsumer"),
+    ATMWITHDRAWALCONSUMER(String.valueOf("atmWithdrawalConsumer")),
     
-    ATMWITHDRAWALINRESTRICTEDCOUNTRIES("atmWithdrawalInRestrictedCountries"),
+    ATMWITHDRAWALINRESTRICTEDCOUNTRIES(String.valueOf("atmWithdrawalInRestrictedCountries")),
     
-    ATMWITHDRAWALINRESTRICTEDCOUNTRIESCOMMERCIAL("atmWithdrawalInRestrictedCountriesCommercial"),
+    ATMWITHDRAWALINRESTRICTEDCOUNTRIESCOMMERCIAL(String.valueOf("atmWithdrawalInRestrictedCountriesCommercial")),
     
-    ATMWITHDRAWALINRESTRICTEDCOUNTRIESCONSUMER("atmWithdrawalInRestrictedCountriesConsumer"),
+    ATMWITHDRAWALINRESTRICTEDCOUNTRIESCONSUMER(String.valueOf("atmWithdrawalInRestrictedCountriesConsumer")),
     
-    AUTHORISEDPAYMENTINSTRUMENTUSER("authorisedPaymentInstrumentUser"),
+    AUTHORISEDPAYMENTINSTRUMENTUSER(String.valueOf("authorisedPaymentInstrumentUser")),
     
-    GETGRANTOFFERS("getGrantOffers"),
+    GETGRANTOFFERS(String.valueOf("getGrantOffers")),
     
-    ISSUEBANKACCOUNT("issueBankAccount"),
+    ISSUEBANKACCOUNT(String.valueOf("issueBankAccount")),
     
-    ISSUECARD("issueCard"),
+    ISSUECARD(String.valueOf("issueCard")),
     
-    ISSUECARDCOMMERCIAL("issueCardCommercial"),
+    ISSUECARDCOMMERCIAL(String.valueOf("issueCardCommercial")),
     
-    ISSUECARDCONSUMER("issueCardConsumer"),
+    ISSUECARDCONSUMER(String.valueOf("issueCardConsumer")),
     
-    ISSUECHARGECARD("issueChargeCard"),
+    ISSUECHARGECARD(String.valueOf("issueChargeCard")),
     
-    ISSUECHARGECARDCOMMERCIAL("issueChargeCardCommercial"),
+    ISSUECHARGECARDCOMMERCIAL(String.valueOf("issueChargeCardCommercial")),
     
-    ISSUECREDITLIMIT("issueCreditLimit"),
+    ISSUECREDITLIMIT(String.valueOf("issueCreditLimit")),
     
-    LOCALACCEPTANCE("localAcceptance"),
+    LOCALACCEPTANCE(String.valueOf("localAcceptance")),
     
-    PAYOUT("payout"),
+    PAYOUT(String.valueOf("payout")),
     
-    PAYOUTTOTRANSFERINSTRUMENT("payoutToTransferInstrument"),
+    PAYOUTTOTRANSFERINSTRUMENT(String.valueOf("payoutToTransferInstrument")),
     
-    PROCESSING("processing"),
+    PROCESSING(String.valueOf("processing")),
     
-    RECEIVEFROMBALANCEACCOUNT("receiveFromBalanceAccount"),
+    RECEIVEFROMBALANCEACCOUNT(String.valueOf("receiveFromBalanceAccount")),
     
-    RECEIVEFROMPLATFORMPAYMENTS("receiveFromPlatformPayments"),
+    RECEIVEFROMPLATFORMPAYMENTS(String.valueOf("receiveFromPlatformPayments")),
     
-    RECEIVEFROMTHIRDPARTY("receiveFromThirdParty"),
+    RECEIVEFROMTHIRDPARTY(String.valueOf("receiveFromThirdParty")),
     
-    RECEIVEFROMTRANSFERINSTRUMENT("receiveFromTransferInstrument"),
+    RECEIVEFROMTRANSFERINSTRUMENT(String.valueOf("receiveFromTransferInstrument")),
     
-    RECEIVEGRANTS("receiveGrants"),
+    RECEIVEGRANTS(String.valueOf("receiveGrants")),
     
-    RECEIVEPAYMENTS("receivePayments"),
+    RECEIVEPAYMENTS(String.valueOf("receivePayments")),
     
-    SENDTOBALANCEACCOUNT("sendToBalanceAccount"),
+    SENDTOBALANCEACCOUNT(String.valueOf("sendToBalanceAccount")),
     
-    SENDTOTHIRDPARTY("sendToThirdParty"),
+    SENDTOTHIRDPARTY(String.valueOf("sendToThirdParty")),
     
-    SENDTOTRANSFERINSTRUMENT("sendToTransferInstrument"),
+    SENDTOTRANSFERINSTRUMENT(String.valueOf("sendToTransferInstrument")),
     
-    THIRDPARTYFUNDING("thirdPartyFunding"),
+    THIRDPARTYFUNDING(String.valueOf("thirdPartyFunding")),
     
-    USECARD("useCard"),
+    USECARD(String.valueOf("useCard")),
     
-    USECARDCOMMERCIAL("useCardCommercial"),
+    USECARDCOMMERCIAL(String.valueOf("useCardCommercial")),
     
-    USECARDCONSUMER("useCardConsumer"),
+    USECARDCONSUMER(String.valueOf("useCardConsumer")),
     
-    USECARDINRESTRICTEDCOUNTRIES("useCardInRestrictedCountries"),
+    USECARDINRESTRICTEDCOUNTRIES(String.valueOf("useCardInRestrictedCountries")),
     
-    USECARDINRESTRICTEDCOUNTRIESCOMMERCIAL("useCardInRestrictedCountriesCommercial"),
+    USECARDINRESTRICTEDCOUNTRIESCOMMERCIAL(String.valueOf("useCardInRestrictedCountriesCommercial")),
     
-    USECARDINRESTRICTEDCOUNTRIESCONSUMER("useCardInRestrictedCountriesConsumer"),
+    USECARDINRESTRICTEDCOUNTRIESCONSUMER(String.valueOf("useCardInRestrictedCountriesConsumer")),
     
-    USECARDINRESTRICTEDINDUSTRIES("useCardInRestrictedIndustries"),
+    USECARDINRESTRICTEDINDUSTRIES(String.valueOf("useCardInRestrictedIndustries")),
     
-    USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL("useCardInRestrictedIndustriesCommercial"),
+    USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL(String.valueOf("useCardInRestrictedIndustriesCommercial")),
     
-    USECARDINRESTRICTEDINDUSTRIESCONSUMER("useCardInRestrictedIndustriesConsumer"),
+    USECARDINRESTRICTEDINDUSTRIESCONSUMER(String.valueOf("useCardInRestrictedIndustriesConsumer")),
     
-    USECHARGECARD("useChargeCard"),
+    USECHARGECARD(String.valueOf("useChargeCard")),
     
-    USECHARGECARDCOMMERCIAL("useChargeCardCommercial"),
+    USECHARGECARDCOMMERCIAL(String.valueOf("useChargeCardCommercial")),
     
-    WITHDRAWFROMATM("withdrawFromAtm"),
+    WITHDRAWFROMATM(String.valueOf("withdrawFromAtm")),
     
-    WITHDRAWFROMATMCOMMERCIAL("withdrawFromAtmCommercial"),
+    WITHDRAWFROMATMCOMMERCIAL(String.valueOf("withdrawFromAtmCommercial")),
     
-    WITHDRAWFROMATMCONSUMER("withdrawFromAtmConsumer"),
+    WITHDRAWFROMATMCONSUMER(String.valueOf("withdrawFromAtmConsumer")),
     
-    WITHDRAWFROMATMINRESTRICTEDCOUNTRIES("withdrawFromAtmInRestrictedCountries"),
+    WITHDRAWFROMATMINRESTRICTEDCOUNTRIES(String.valueOf("withdrawFromAtmInRestrictedCountries")),
     
-    WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCOMMERCIAL("withdrawFromAtmInRestrictedCountriesCommercial"),
+    WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCOMMERCIAL(String.valueOf("withdrawFromAtmInRestrictedCountriesCommercial")),
     
-    WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCONSUMER("withdrawFromAtmInRestrictedCountriesConsumer");
+    WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCONSUMER(String.valueOf("withdrawFromAtmInRestrictedCountriesConsumer"));
 
     private String value;
 
@@ -185,7 +183,7 @@ public class VerificationDeadline {
   private List<CapabilitiesEnum> capabilities = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ENTITY_IDS = "entityIds";
-  private List<String> entityIds = null;
+  private List<String> entityIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
@@ -193,117 +191,50 @@ public class VerificationDeadline {
   public VerificationDeadline() { 
   }
 
-  /**
-   * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
-   *
-   * @param capabilities
-   * @return the current {@code VerificationDeadline} instance, allowing for method chaining
-   */
-  public VerificationDeadline capabilities(List<CapabilitiesEnum> capabilities) {
+  @JsonCreator
+  public VerificationDeadline(
+    @JsonProperty(JSON_PROPERTY_CAPABILITIES) List<CapabilitiesEnum> capabilities, 
+    @JsonProperty(JSON_PROPERTY_ENTITY_IDS) List<String> entityIds, 
+    @JsonProperty(JSON_PROPERTY_EXPIRES_AT) OffsetDateTime expiresAt
+  ) {
+    this();
     this.capabilities = capabilities;
-    return this;
-  }
-
-  public VerificationDeadline addCapabilitiesItem(CapabilitiesEnum capabilitiesItem) {
-    this.capabilities.add(capabilitiesItem);
-    return this;
+    this.entityIds = entityIds;
+    this.expiresAt = expiresAt;
   }
 
   /**
    * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
    * @return capabilities
    */
-  @ApiModelProperty(required = true, value = "The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CapabilitiesEnum> getCapabilities() {
     return capabilities;
   }
 
-  /**
-   * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
-   *
-   * @param capabilities
-   */ 
-  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCapabilities(List<CapabilitiesEnum> capabilities) {
-    this.capabilities = capabilities;
-  }
-
-  /**
-   * The unique identifiers of the legal entity or supporting entities that the deadline applies to
-   *
-   * @param entityIds
-   * @return the current {@code VerificationDeadline} instance, allowing for method chaining
-   */
-  public VerificationDeadline entityIds(List<String> entityIds) {
-    this.entityIds = entityIds;
-    return this;
-  }
-
-  public VerificationDeadline addEntityIdsItem(String entityIdsItem) {
-    if (this.entityIds == null) {
-      this.entityIds = new ArrayList<>();
-    }
-    this.entityIds.add(entityIdsItem);
-    return this;
-  }
 
   /**
    * The unique identifiers of the legal entity or supporting entities that the deadline applies to
    * @return entityIds
    */
-  @ApiModelProperty(value = "The unique identifiers of the legal entity or supporting entities that the deadline applies to")
   @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getEntityIds() {
     return entityIds;
   }
 
-  /**
-   * The unique identifiers of the legal entity or supporting entities that the deadline applies to
-   *
-   * @param entityIds
-   */ 
-  @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityIds(List<String> entityIds) {
-    this.entityIds = entityIds;
-  }
-
-  /**
-   * The date that verification is due by before capabilities are disallowed.
-   *
-   * @param expiresAt
-   * @return the current {@code VerificationDeadline} instance, allowing for method chaining
-   */
-  public VerificationDeadline expiresAt(OffsetDateTime expiresAt) {
-    this.expiresAt = expiresAt;
-    return this;
-  }
 
   /**
    * The date that verification is due by before capabilities are disallowed.
    * @return expiresAt
    */
-  @ApiModelProperty(required = true, value = "The date that verification is due by before capabilities are disallowed.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
 
-  /**
-   * The date that verification is due by before capabilities are disallowed.
-   *
-   * @param expiresAt
-   */ 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(OffsetDateTime expiresAt) {
-    this.expiresAt = expiresAt;
-  }
 
   /**
    * Return true if this VerificationDeadline object is equal to o.

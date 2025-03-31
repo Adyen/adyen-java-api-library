@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,7 +41,7 @@ public class NOLocalAccountIdentification {
    * **noLocal**
    */
   public enum TypeEnum {
-    NOLOCAL("noLocal");
+    NOLOCAL(String.valueOf("noLocal"));
 
     private String value;
 
@@ -73,7 +71,7 @@ public class NOLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.NOLOCAL;
 
   public NOLocalAccountIdentification() { 
   }
@@ -93,7 +91,6 @@ public class NOLocalAccountIdentification {
    * The 11-digit bank account number, without separators or whitespace.
    * @return accountNumber
    */
-  @ApiModelProperty(required = true, value = "The 11-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -104,7 +101,7 @@ public class NOLocalAccountIdentification {
    * The 11-digit bank account number, without separators or whitespace.
    *
    * @param accountNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -126,7 +123,6 @@ public class NOLocalAccountIdentification {
    * **noLocal**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**noLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -137,7 +133,7 @@ public class NOLocalAccountIdentification {
    * **noLocal**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

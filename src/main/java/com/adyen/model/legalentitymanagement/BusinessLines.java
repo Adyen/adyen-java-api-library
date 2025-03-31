@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.BusinessLine;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -56,6 +54,9 @@ public class BusinessLines {
   }
 
   public BusinessLines addBusinessLinesItem(BusinessLine businessLinesItem) {
+    if (this.businessLines == null) {
+      this.businessLines = new ArrayList<>();
+    }
     this.businessLines.add(businessLinesItem);
     return this;
   }
@@ -64,7 +65,6 @@ public class BusinessLines {
    * List of business lines.
    * @return businessLines
    */
-  @ApiModelProperty(required = true, value = "List of business lines.")
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<BusinessLine> getBusinessLines() {
@@ -75,7 +75,7 @@ public class BusinessLines {
    * List of business lines.
    *
    * @param businessLines
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLines(List<BusinessLine> businessLines) {

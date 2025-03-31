@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -69,7 +67,6 @@ public class GetPciQuestionnaireResponse {
    * The generated questionnaire in a base64 encoded format.
    * @return content
    */
-  @ApiModelProperty(value = "The generated questionnaire in a base64 encoded format.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getContent() {
@@ -80,7 +77,7 @@ public class GetPciQuestionnaireResponse {
    * The generated questionnaire in a base64 encoded format.
    *
    * @param content
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
@@ -102,7 +99,6 @@ public class GetPciQuestionnaireResponse {
    * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    * @return createdAt
    */
-  @ApiModelProperty(value = "The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -113,7 +109,7 @@ public class GetPciQuestionnaireResponse {
    * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    *
    * @param createdAt
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -135,7 +131,6 @@ public class GetPciQuestionnaireResponse {
    * The unique identifier of the signed questionnaire.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the signed questionnaire.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -146,7 +141,7 @@ public class GetPciQuestionnaireResponse {
    * The unique identifier of the signed questionnaire.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -168,7 +163,6 @@ public class GetPciQuestionnaireResponse {
    * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    * @return validUntil
    */
-  @ApiModelProperty(value = "The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00")
   @JsonProperty(JSON_PROPERTY_VALID_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValidUntil() {
@@ -179,7 +173,7 @@ public class GetPciQuestionnaireResponse {
    * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    *
    * @param validUntil
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALID_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidUntil(OffsetDateTime validUntil) {

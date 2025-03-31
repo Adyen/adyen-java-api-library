@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -76,7 +74,6 @@ public class FinancialReport {
    * The annual turnover of the business.
    * @return annualTurnover
    */
-  @ApiModelProperty(value = "The annual turnover of the business.")
   @JsonProperty(JSON_PROPERTY_ANNUAL_TURNOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAnnualTurnover() {
@@ -87,7 +84,7 @@ public class FinancialReport {
    * The annual turnover of the business.
    *
    * @param annualTurnover
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ANNUAL_TURNOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAnnualTurnover(String annualTurnover) {
@@ -109,7 +106,6 @@ public class FinancialReport {
    * The balance sheet total of the business.
    * @return balanceSheetTotal
    */
-  @ApiModelProperty(value = "The balance sheet total of the business.")
   @JsonProperty(JSON_PROPERTY_BALANCE_SHEET_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalanceSheetTotal() {
@@ -120,7 +116,7 @@ public class FinancialReport {
    * The balance sheet total of the business.
    *
    * @param balanceSheetTotal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_SHEET_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceSheetTotal(String balanceSheetTotal) {
@@ -142,7 +138,6 @@ public class FinancialReport {
    * The currency used for the net assets and balance sheet total.
    * @return currencyOfFinancialData
    */
-  @ApiModelProperty(value = "The currency used for the net assets and balance sheet total.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrencyOfFinancialData() {
@@ -153,7 +148,7 @@ public class FinancialReport {
    * The currency used for the net assets and balance sheet total.
    *
    * @param currencyOfFinancialData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyOfFinancialData(String currencyOfFinancialData) {
@@ -175,7 +170,6 @@ public class FinancialReport {
    * The date the financial data were provided, in YYYY-MM-DD format.
    * @return dateOfFinancialData
    */
-  @ApiModelProperty(value = "The date the financial data were provided, in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDateOfFinancialData() {
@@ -186,7 +180,7 @@ public class FinancialReport {
    * The date the financial data were provided, in YYYY-MM-DD format.
    *
    * @param dateOfFinancialData
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATE_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfFinancialData(String dateOfFinancialData) {
@@ -208,7 +202,6 @@ public class FinancialReport {
    * The number of employees of the business.
    * @return employeeCount
    */
-  @ApiModelProperty(value = "The number of employees of the business.")
   @JsonProperty(JSON_PROPERTY_EMPLOYEE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmployeeCount() {
@@ -219,7 +212,7 @@ public class FinancialReport {
    * The number of employees of the business.
    *
    * @param employeeCount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EMPLOYEE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmployeeCount(String employeeCount) {
@@ -241,7 +234,6 @@ public class FinancialReport {
    * The net assets of the business.
    * @return netAssets
    */
-  @ApiModelProperty(value = "The net assets of the business.")
   @JsonProperty(JSON_PROPERTY_NET_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNetAssets() {
@@ -252,7 +244,7 @@ public class FinancialReport {
    * The net assets of the business.
    *
    * @param netAssets
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NET_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetAssets(String netAssets) {

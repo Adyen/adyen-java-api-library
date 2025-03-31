@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,137 +51,63 @@ public class SupportingEntityCapability {
   public SupportingEntityCapability() { 
   }
 
-  /**
-   * Indicates whether the capability is allowed for the supporting entity.  If a capability is allowed for a supporting entity but not for the parent legal entity, this means the legal entity has other supporting entities that failed verification.  **You can use the allowed supporting entity** regardless of the verification status of other supporting entities.
-   *
-   * @param allowed
-   * @return the current {@code SupportingEntityCapability} instance, allowing for method chaining
-   */
-  public SupportingEntityCapability allowed(Boolean allowed) {
+  @JsonCreator
+  public SupportingEntityCapability(
+    @JsonProperty(JSON_PROPERTY_ALLOWED) Boolean allowed, 
+    @JsonProperty(JSON_PROPERTY_ID) String id, 
+    @JsonProperty(JSON_PROPERTY_REQUESTED) Boolean requested, 
+    @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS) String verificationStatus
+  ) {
+    this();
     this.allowed = allowed;
-    return this;
+    this.id = id;
+    this.requested = requested;
+    this.verificationStatus = verificationStatus;
   }
 
   /**
    * Indicates whether the capability is allowed for the supporting entity.  If a capability is allowed for a supporting entity but not for the parent legal entity, this means the legal entity has other supporting entities that failed verification.  **You can use the allowed supporting entity** regardless of the verification status of other supporting entities.
    * @return allowed
    */
-  @ApiModelProperty(value = "Indicates whether the capability is allowed for the supporting entity.  If a capability is allowed for a supporting entity but not for the parent legal entity, this means the legal entity has other supporting entities that failed verification.  **You can use the allowed supporting entity** regardless of the verification status of other supporting entities.")
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowed() {
     return allowed;
   }
 
-  /**
-   * Indicates whether the capability is allowed for the supporting entity.  If a capability is allowed for a supporting entity but not for the parent legal entity, this means the legal entity has other supporting entities that failed verification.  **You can use the allowed supporting entity** regardless of the verification status of other supporting entities.
-   *
-   * @param allowed
-   */ 
-  @JsonProperty(JSON_PROPERTY_ALLOWED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowed(Boolean allowed) {
-    this.allowed = allowed;
-  }
-
-  /**
-   * Supporting entity reference 
-   *
-   * @param id
-   * @return the current {@code SupportingEntityCapability} instance, allowing for method chaining
-   */
-  public SupportingEntityCapability id(String id) {
-    this.id = id;
-    return this;
-  }
 
   /**
    * Supporting entity reference 
    * @return id
    */
-  @ApiModelProperty(value = "Supporting entity reference ")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
 
-  /**
-   * Supporting entity reference 
-   *
-   * @param id
-   */ 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  /**
-   * Indicates whether the supporting entity capability is requested. 
-   *
-   * @param requested
-   * @return the current {@code SupportingEntityCapability} instance, allowing for method chaining
-   */
-  public SupportingEntityCapability requested(Boolean requested) {
-    this.requested = requested;
-    return this;
-  }
 
   /**
    * Indicates whether the supporting entity capability is requested. 
    * @return requested
    */
-  @ApiModelProperty(value = "Indicates whether the supporting entity capability is requested. ")
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRequested() {
     return requested;
   }
 
-  /**
-   * Indicates whether the supporting entity capability is requested. 
-   *
-   * @param requested
-   */ 
-  @JsonProperty(JSON_PROPERTY_REQUESTED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequested(Boolean requested) {
-    this.requested = requested;
-  }
-
-  /**
-   * The status of the verification checks for the capability of the supporting entity.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
-   *
-   * @param verificationStatus
-   * @return the current {@code SupportingEntityCapability} instance, allowing for method chaining
-   */
-  public SupportingEntityCapability verificationStatus(String verificationStatus) {
-    this.verificationStatus = verificationStatus;
-    return this;
-  }
 
   /**
    * The status of the verification checks for the capability of the supporting entity.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
    * @return verificationStatus
    */
-  @ApiModelProperty(value = "The status of the verification checks for the capability of the supporting entity.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the `errors` array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. ")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVerificationStatus() {
     return verificationStatus;
   }
 
-  /**
-   * The status of the verification checks for the capability of the supporting entity.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
-   *
-   * @param verificationStatus
-   */ 
-  @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVerificationStatus(String verificationStatus) {
-    this.verificationStatus = verificationStatus;
-  }
 
   /**
    * Return true if this SupportingEntityCapability object is equal to o.
