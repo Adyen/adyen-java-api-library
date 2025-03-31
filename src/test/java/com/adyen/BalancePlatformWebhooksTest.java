@@ -1,6 +1,7 @@
 package com.adyen;
 
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
+import com.adyen.model.acswebhooks.RelayedAuthenticationRequest;
 import com.adyen.model.configurationwebhooks.AccountHolder;
 import com.adyen.model.configurationwebhooks.AccountHolderCapability;
 import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
@@ -186,6 +187,20 @@ public class BalancePlatformWebhooksTest extends BaseTest {
         assertEquals("YOUR_BALANCE_PLATFORM", negativeBalanceCompensationWarningNotificationRequest.getData().getBalancePlatform());
         assertEquals("BA00000000000000000001", negativeBalanceCompensationWarningNotificationRequest.getData().getId());
         assertEquals("2024-07-02T02:01:08+02:00", negativeBalanceCompensationWarningNotificationRequest.getData().getCreationDate().toString());
+    }
+
+    @Test
+    public void testRelayedAuthenticationRequest() throws Exception {
+        String json = getFileContents("mocks/balancePlatform-webhooks/balanceplatform-relayed-authentication-request.json");
+
+        Optional<RelayedAuthenticationRequest> relayedAuthenticationRequestOptional = new  BankingWebhookHandler(json).getRelayedAuthenticationRequest();
+        assertTrue(relayedAuthenticationRequestOptional.isPresent());
+
+        RelayedAuthenticationRequest relayedAuthenticationRequest = relayedAuthenticationRequestOptional.get();
+
+        assertEquals("PI123ABCDEFGHIJKLMN45678", relayedAuthenticationRequest.getPaymentInstrumentId());
+        assertNotNull(relayedAuthenticationRequest.getPurchase());
+
     }
 
 }
