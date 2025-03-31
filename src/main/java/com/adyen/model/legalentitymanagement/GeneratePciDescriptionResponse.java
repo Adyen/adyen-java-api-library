@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,7 +44,7 @@ public class GeneratePciDescriptionResponse {
   private String language;
 
   public static final String JSON_PROPERTY_PCI_TEMPLATE_REFERENCES = "pciTemplateReferences";
-  private List<String> pciTemplateReferences = null;
+  private List<String> pciTemplateReferences = new ArrayList<>();
 
   public GeneratePciDescriptionResponse() { 
   }
@@ -66,7 +64,6 @@ public class GeneratePciDescriptionResponse {
    * The generated questionnaires in a base64 encoded format.
    * @return content
    */
-  @ApiModelProperty(value = "The generated questionnaires in a base64 encoded format.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getContent() {
@@ -77,7 +74,7 @@ public class GeneratePciDescriptionResponse {
    * The generated questionnaires in a base64 encoded format.
    *
    * @param content
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
@@ -99,7 +96,6 @@ public class GeneratePciDescriptionResponse {
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
    * @return language
    */
-  @ApiModelProperty(value = "The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLanguage() {
@@ -110,7 +106,7 @@ public class GeneratePciDescriptionResponse {
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
    *
    * @param language
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
@@ -140,7 +136,6 @@ public class GeneratePciDescriptionResponse {
    * The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    * @return pciTemplateReferences
    */
-  @ApiModelProperty(value = "The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.")
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getPciTemplateReferences() {
@@ -151,7 +146,7 @@ public class GeneratePciDescriptionResponse {
    * The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    *
    * @param pciTemplateReferences
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPciTemplateReferences(List<String> pciTemplateReferences) {

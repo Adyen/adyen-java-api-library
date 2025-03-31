@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -42,17 +40,17 @@ public class TaxReportingClassification {
    * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    */
   public enum BusinessTypeEnum {
-    OTHER("other"),
+    OTHER(String.valueOf("other")),
     
-    LISTEDPUBLICCOMPANY("listedPublicCompany"),
+    LISTEDPUBLICCOMPANY(String.valueOf("listedPublicCompany")),
     
-    SUBSIDIARYOFLISTEDPUBLICCOMPANY("subsidiaryOfListedPublicCompany"),
+    SUBSIDIARYOFLISTEDPUBLICCOMPANY(String.valueOf("subsidiaryOfListedPublicCompany")),
     
-    GOVERNMENTALORGANIZATION("governmentalOrganization"),
+    GOVERNMENTALORGANIZATION(String.valueOf("governmentalOrganization")),
     
-    INTERNATIONALORGANIZATION("internationalOrganization"),
+    INTERNATIONALORGANIZATION(String.valueOf("internationalOrganization")),
     
-    FINANCIALINSTITUTION("financialInstitution");
+    FINANCIALINSTITUTION(String.valueOf("financialInstitution"));
 
     private String value;
 
@@ -91,15 +89,15 @@ public class TaxReportingClassification {
    * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    */
   public enum MainSourceOfIncomeEnum {
-    BUSINESSOPERATION("businessOperation"),
+    BUSINESSOPERATION(String.valueOf("businessOperation")),
     
-    REALESTATESALES("realEstateSales"),
+    REALESTATESALES(String.valueOf("realEstateSales")),
     
-    INVESTMENTINTERESTORROYALTY("investmentInterestOrRoyalty"),
+    INVESTMENTINTERESTORROYALTY(String.valueOf("investmentInterestOrRoyalty")),
     
-    PROPERTYRENTAL("propertyRental"),
+    PROPERTYRENTAL(String.valueOf("propertyRental")),
     
-    OTHER("other");
+    OTHER(String.valueOf("other"));
 
     private String value;
 
@@ -135,13 +133,13 @@ public class TaxReportingClassification {
    * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    */
   public enum TypeEnum {
-    NONFINANCIALNONREPORTABLE("nonFinancialNonReportable"),
+    NONFINANCIALNONREPORTABLE(String.valueOf("nonFinancialNonReportable")),
     
-    FINANCIALNONREPORTABLE("financialNonReportable"),
+    FINANCIALNONREPORTABLE(String.valueOf("financialNonReportable")),
     
-    NONFINANCIALACTIVE("nonFinancialActive"),
+    NONFINANCIALACTIVE(String.valueOf("nonFinancialActive")),
     
-    NONFINANCIALPASSIVE("nonFinancialPassive");
+    NONFINANCIALPASSIVE(String.valueOf("nonFinancialPassive"));
 
     private String value;
 
@@ -191,7 +189,6 @@ public class TaxReportingClassification {
    * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    * @return businessType
    */
-  @ApiModelProperty(value = "The organization's business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.")
   @JsonProperty(JSON_PROPERTY_BUSINESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BusinessTypeEnum getBusinessType() {
@@ -202,7 +199,7 @@ public class TaxReportingClassification {
    * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    *
    * @param businessType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BUSINESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessType(BusinessTypeEnum businessType) {
@@ -224,7 +221,6 @@ public class TaxReportingClassification {
    * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    * @return financialInstitutionNumber
    */
-  @ApiModelProperty(value = "The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the `businessType` is **financialInstitution**.")
   @JsonProperty(JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFinancialInstitutionNumber() {
@@ -235,7 +231,7 @@ public class TaxReportingClassification {
    * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    *
    * @param financialInstitutionNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinancialInstitutionNumber(String financialInstitutionNumber) {
@@ -257,7 +253,6 @@ public class TaxReportingClassification {
    * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    * @return mainSourceOfIncome
    */
-  @ApiModelProperty(value = "The organization's main source of income. Only required if `businessType` is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.")
   @JsonProperty(JSON_PROPERTY_MAIN_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MainSourceOfIncomeEnum getMainSourceOfIncome() {
@@ -268,7 +263,7 @@ public class TaxReportingClassification {
    * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    *
    * @param mainSourceOfIncome
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAIN_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMainSourceOfIncome(MainSourceOfIncomeEnum mainSourceOfIncome) {
@@ -290,7 +285,6 @@ public class TaxReportingClassification {
    * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    * @return type
    */
-  @ApiModelProperty(value = "The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -301,7 +295,7 @@ public class TaxReportingClassification {
    * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

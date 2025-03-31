@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.PciDocumentInfo;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GetPciQuestionnaireInfosResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<PciDocumentInfo> data = null;
+  private List<PciDocumentInfo> data = new ArrayList<>();
 
   public GetPciQuestionnaireInfosResponse() { 
   }
@@ -67,7 +65,6 @@ public class GetPciQuestionnaireInfosResponse {
    * Information about the signed PCI questionnaires.
    * @return data
    */
-  @ApiModelProperty(value = "Information about the signed PCI questionnaires.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PciDocumentInfo> getData() {
@@ -78,7 +75,7 @@ public class GetPciQuestionnaireInfosResponse {
    * Information about the signed PCI questionnaires.
    *
    * @param data
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<PciDocumentInfo> data) {

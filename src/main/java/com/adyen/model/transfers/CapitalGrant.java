@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
@@ -26,8 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -73,14 +71,20 @@ public class CapitalGrant {
   private Repayment repayment;
 
   /**
-   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    */
   public enum StatusEnum {
-    PENDING("Pending"),
+    PENDING(String.valueOf("Pending")),
     
-    ACTIVE("Active"),
+    ACTIVE(String.valueOf("Active")),
     
-    REPAID("Repaid");
+    REPAID(String.valueOf("Repaid")),
+    
+    FAILED(String.valueOf("Failed")),
+    
+    WRITTENOFF(String.valueOf("WrittenOff")),
+    
+    REVOKED(String.valueOf("Revoked"));
 
     private String value;
 
@@ -127,10 +131,9 @@ public class CapitalGrant {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -141,7 +144,7 @@ public class CapitalGrant {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -160,10 +163,9 @@ public class CapitalGrant {
   }
 
   /**
-   * balances
+   * Get balances
    * @return balances
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CapitalBalance getBalances() {
@@ -174,7 +176,7 @@ public class CapitalGrant {
    * balances
    *
    * @param balances
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(CapitalBalance balances) {
@@ -193,10 +195,9 @@ public class CapitalGrant {
   }
 
   /**
-   * counterparty
+   * Get counterparty
    * @return counterparty
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Counterparty getCounterparty() {
@@ -207,7 +208,7 @@ public class CapitalGrant {
    * counterparty
    *
    * @param counterparty
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(Counterparty counterparty) {
@@ -226,10 +227,9 @@ public class CapitalGrant {
   }
 
   /**
-   * fee
+   * Get fee
    * @return fee
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Fee getFee() {
@@ -240,7 +240,7 @@ public class CapitalGrant {
    * fee
    *
    * @param fee
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Fee fee) {
@@ -262,7 +262,6 @@ public class CapitalGrant {
    * The identifier of the grant account used for the grant.
    * @return grantAccountId
    */
-  @ApiModelProperty(required = true, value = "The identifier of the grant account used for the grant.")
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGrantAccountId() {
@@ -273,7 +272,7 @@ public class CapitalGrant {
    * The identifier of the grant account used for the grant.
    *
    * @param grantAccountId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantAccountId(String grantAccountId) {
@@ -295,7 +294,6 @@ public class CapitalGrant {
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    * @return grantOfferId
    */
-  @ApiModelProperty(required = true, value = "The identifier of the grant offer that has been selected and from which the grant details will be used.")
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGrantOfferId() {
@@ -306,7 +304,7 @@ public class CapitalGrant {
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    *
    * @param grantOfferId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOfferId(String grantOfferId) {
@@ -328,7 +326,6 @@ public class CapitalGrant {
    * The identifier of the grant reference.
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The identifier of the grant reference.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -339,7 +336,7 @@ public class CapitalGrant {
    * The identifier of the grant reference.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -358,10 +355,9 @@ public class CapitalGrant {
   }
 
   /**
-   * repayment
+   * Get repayment
    * @return repayment
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Repayment getRepayment() {
@@ -372,7 +368,7 @@ public class CapitalGrant {
    * repayment
    *
    * @param repayment
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRepayment(Repayment repayment) {
@@ -380,7 +376,7 @@ public class CapitalGrant {
   }
 
   /**
-   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    *
    * @param status
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
@@ -391,10 +387,9 @@ public class CapitalGrant {
   }
 
   /**
-   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -402,10 +397,10 @@ public class CapitalGrant {
   }
 
   /**
-   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**.
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -31,12 +29,53 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * TransferReview
  */
 @JsonPropertyOrder({
-  TransferReview.JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED
+  TransferReview.JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED,
+  TransferReview.JSON_PROPERTY_SCA_ON_APPROVAL
 })
 
 public class TransferReview {
   public static final String JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED = "numberOfApprovalsRequired";
   private Integer numberOfApprovalsRequired;
+
+  /**
+   * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
+   */
+  public enum ScaOnApprovalEnum {
+    COMPLETED(String.valueOf("completed")),
+    
+    NOTAPPLICABLE(String.valueOf("notApplicable")),
+    
+    REQUIRED(String.valueOf("required"));
+
+    private String value;
+
+    ScaOnApprovalEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ScaOnApprovalEnum fromValue(String value) {
+      for (ScaOnApprovalEnum b : ScaOnApprovalEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_SCA_ON_APPROVAL = "scaOnApproval";
+  private ScaOnApprovalEnum scaOnApproval;
 
   public TransferReview() { 
   }
@@ -56,7 +95,6 @@ public class TransferReview {
    * Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    * @return numberOfApprovalsRequired
    */
-  @ApiModelProperty(value = "Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getNumberOfApprovalsRequired() {
@@ -67,11 +105,43 @@ public class TransferReview {
    * Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    *
    * @param numberOfApprovalsRequired
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberOfApprovalsRequired(Integer numberOfApprovalsRequired) {
     this.numberOfApprovalsRequired = numberOfApprovalsRequired;
+  }
+
+  /**
+   * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
+   *
+   * @param scaOnApproval
+   * @return the current {@code TransferReview} instance, allowing for method chaining
+   */
+  public TransferReview scaOnApproval(ScaOnApprovalEnum scaOnApproval) {
+    this.scaOnApproval = scaOnApproval;
+    return this;
+  }
+
+  /**
+   * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
+   * @return scaOnApproval
+   */
+  @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScaOnApprovalEnum getScaOnApproval() {
+    return scaOnApproval;
+  }
+
+  /**
+   * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
+   *
+   * @param scaOnApproval
+   */
+  @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setScaOnApproval(ScaOnApprovalEnum scaOnApproval) {
+    this.scaOnApproval = scaOnApproval;
   }
 
   /**
@@ -86,12 +156,13 @@ public class TransferReview {
       return false;
     }
     TransferReview transferReview = (TransferReview) o;
-    return Objects.equals(this.numberOfApprovalsRequired, transferReview.numberOfApprovalsRequired);
+    return Objects.equals(this.numberOfApprovalsRequired, transferReview.numberOfApprovalsRequired) &&
+        Objects.equals(this.scaOnApproval, transferReview.scaOnApproval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfApprovalsRequired);
+    return Objects.hash(numberOfApprovalsRequired, scaOnApproval);
   }
 
   @Override
@@ -99,6 +170,7 @@ public class TransferReview {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransferReview {\n");
     sb.append("    numberOfApprovalsRequired: ").append(toIndentedString(numberOfApprovalsRequired)).append("\n");
+    sb.append("    scaOnApproval: ").append(toIndentedString(scaOnApproval)).append("\n");
     sb.append("}");
     return sb.toString();
   }

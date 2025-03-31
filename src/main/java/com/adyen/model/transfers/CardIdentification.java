@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -80,7 +78,6 @@ public class CardIdentification {
    * The expiry month of the card.  Format: two digits. Add a leading zero for single-digit months. For example: * 03 &#x3D; March * 11 &#x3D; November
    * @return expiryMonth
    */
-  @ApiModelProperty(value = "The expiry month of the card.  Format: two digits. Add a leading zero for single-digit months. For example: * 03 = March * 11 = November")
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryMonth() {
@@ -91,7 +88,7 @@ public class CardIdentification {
    * The expiry month of the card.  Format: two digits. Add a leading zero for single-digit months. For example: * 03 &#x3D; March * 11 &#x3D; November
    *
    * @param expiryMonth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryMonth(String expiryMonth) {
@@ -113,7 +110,6 @@ public class CardIdentification {
    * The expiry year of the card.  Format: four digits. For example: 2020
    * @return expiryYear
    */
-  @ApiModelProperty(value = "The expiry year of the card.  Format: four digits. For example: 2020")
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryYear() {
@@ -124,7 +120,7 @@ public class CardIdentification {
    * The expiry year of the card.  Format: four digits. For example: 2020
    *
    * @param expiryYear
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryYear(String expiryYear) {
@@ -146,7 +142,6 @@ public class CardIdentification {
    * The issue number of the card. Applies only to some UK debit cards.
    * @return issueNumber
    */
-  @ApiModelProperty(value = "The issue number of the card. Applies only to some UK debit cards.")
   @JsonProperty(JSON_PROPERTY_ISSUE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssueNumber() {
@@ -157,7 +152,7 @@ public class CardIdentification {
    * The issue number of the card. Applies only to some UK debit cards.
    *
    * @param issueNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssueNumber(String issueNumber) {
@@ -179,7 +174,6 @@ public class CardIdentification {
    * The card number without any separators.  For security, the response only includes the last four digits of the card number.
    * @return number
    */
-  @ApiModelProperty(value = "The card number without any separators.  For security, the response only includes the last four digits of the card number.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNumber() {
@@ -190,7 +184,7 @@ public class CardIdentification {
    * The card number without any separators.  For security, the response only includes the last four digits of the card number.
    *
    * @param number
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -212,7 +206,6 @@ public class CardIdentification {
    * The month when the card was issued. Applies only to some UK debit cards.  Format: two digits. Add a leading zero for single-digit months. For example: * 03 &#x3D; March * 11 &#x3D; November
    * @return startMonth
    */
-  @ApiModelProperty(value = "The month when the card was issued. Applies only to some UK debit cards.  Format: two digits. Add a leading zero for single-digit months. For example: * 03 = March * 11 = November")
   @JsonProperty(JSON_PROPERTY_START_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartMonth() {
@@ -223,7 +216,7 @@ public class CardIdentification {
    * The month when the card was issued. Applies only to some UK debit cards.  Format: two digits. Add a leading zero for single-digit months. For example: * 03 &#x3D; March * 11 &#x3D; November
    *
    * @param startMonth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_START_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartMonth(String startMonth) {
@@ -245,7 +238,6 @@ public class CardIdentification {
    * The year when the card was issued. Applies only to some UK debit cards.  Format: four digits. For example: 2020
    * @return startYear
    */
-  @ApiModelProperty(value = "The year when the card was issued. Applies only to some UK debit cards.  Format: four digits. For example: 2020")
   @JsonProperty(JSON_PROPERTY_START_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartYear() {
@@ -256,7 +248,7 @@ public class CardIdentification {
    * The year when the card was issued. Applies only to some UK debit cards.  Format: four digits. For example: 2020
    *
    * @param startYear
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_START_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartYear(String startYear) {
@@ -278,7 +270,6 @@ public class CardIdentification {
    * The unique [token](/payouts/payout-service/pay-out-to-cards/manage-card-information#save-card-details) created to identify the counterparty.  
    * @return storedPaymentMethodId
    */
-  @ApiModelProperty(value = "The unique [token](/payouts/payout-service/pay-out-to-cards/manage-card-information#save-card-details) created to identify the counterparty.  ")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -289,7 +280,7 @@ public class CardIdentification {
    * The unique [token](/payouts/payout-service/pay-out-to-cards/manage-card-information#save-card-details) created to identify the counterparty.  
    *
    * @param storedPaymentMethodId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {

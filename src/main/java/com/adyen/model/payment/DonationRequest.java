@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payment.Amount;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -78,7 +76,6 @@ public class DonationRequest {
    * The Adyen account name of the charity.
    * @return donationAccount
    */
-  @ApiModelProperty(required = true, value = "The Adyen account name of the charity.")
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDonationAccount() {
@@ -89,7 +86,7 @@ public class DonationRequest {
    * The Adyen account name of the charity.
    *
    * @param donationAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationAccount(String donationAccount) {
@@ -111,7 +108,6 @@ public class DonationRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -122,7 +118,7 @@ public class DonationRequest {
    * The merchant account that is used to process the payment.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -141,10 +137,9 @@ public class DonationRequest {
   }
 
   /**
-   * modificationAmount
+   * Get modificationAmount
    * @return modificationAmount
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getModificationAmount() {
@@ -155,7 +150,7 @@ public class DonationRequest {
    * modificationAmount
    *
    * @param modificationAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationAmount(Amount modificationAmount) {
@@ -177,7 +172,6 @@ public class DonationRequest {
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    * @return originalReference
    */
-  @ApiModelProperty(value = "The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  ")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOriginalReference() {
@@ -188,7 +182,7 @@ public class DonationRequest {
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    *
    * @param originalReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
@@ -207,10 +201,9 @@ public class DonationRequest {
   }
 
   /**
-   * platformChargebackLogic
+   * Get platformChargebackLogic
    * @return platformChargebackLogic
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PlatformChargebackLogic getPlatformChargebackLogic() {
@@ -221,7 +214,7 @@ public class DonationRequest {
    * platformChargebackLogic
    *
    * @param platformChargebackLogic
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
@@ -243,7 +236,6 @@ public class DonationRequest {
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return reference
    */
-  @ApiModelProperty(value = "Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -254,7 +246,7 @@ public class DonationRequest {
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {

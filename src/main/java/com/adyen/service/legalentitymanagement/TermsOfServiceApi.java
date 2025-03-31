@@ -130,6 +130,7 @@ public class TermsOfServiceApi extends Service {
             throw new IllegalArgumentException("Please provide the termsofserviceacceptancereference path parameter");
         }
         pathParams.put("termsofserviceacceptancereference", termsofserviceacceptancereference);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (termsOfServiceDocumentFormat != null) {

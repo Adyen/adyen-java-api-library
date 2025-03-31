@@ -72,7 +72,6 @@ public class BusinessLinesApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public BusinessLine createBusinessLine(BusinessLineInfo businessLineInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = businessLineInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/businessLines", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,6 @@ public class ResponseAdditionalDataDomesticError {
    * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
    * @return domesticRefusalReasonRaw
    */
-  @ApiModelProperty(value = "The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.")
   @JsonProperty(JSON_PROPERTY_DOMESTIC_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDomesticRefusalReasonRaw() {
@@ -71,7 +68,7 @@ public class ResponseAdditionalDataDomesticError {
    * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
    *
    * @param domesticRefusalReasonRaw
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOMESTIC_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomesticRefusalReasonRaw(String domesticRefusalReasonRaw) {
@@ -93,7 +90,6 @@ public class ResponseAdditionalDataDomesticError {
    * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
    * @return domesticShopperAdvice
    */
-  @ApiModelProperty(value = "The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.")
   @JsonProperty(JSON_PROPERTY_DOMESTIC_SHOPPER_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDomesticShopperAdvice() {
@@ -104,7 +100,7 @@ public class ResponseAdditionalDataDomesticError {
    * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
    *
    * @param domesticShopperAdvice
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOMESTIC_SHOPPER_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomesticShopperAdvice(String domesticShopperAdvice) {

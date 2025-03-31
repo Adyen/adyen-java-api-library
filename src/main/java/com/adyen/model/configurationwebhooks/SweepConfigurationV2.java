@@ -186,6 +186,8 @@ public class SweepConfigurationV2 {
     ERROR("error"),
     
     NOTENOUGHBALANCE("notEnoughBalance"),
+
+    PENDING("pending"),
     
     PENDINGAPPROVAL("pendingApproval"),
     

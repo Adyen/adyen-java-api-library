@@ -71,7 +71,6 @@ public class TransferInstrumentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public TransferInstrument createTransferInstrument(TransferInstrumentInfo transferInstrumentInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = transferInstrumentInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/transferInstruments", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

@@ -77,7 +77,6 @@ public class TransfersApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public void approveInitiatedTransfers(ApproveTransfersRequest approveTransfersRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = approveTransfersRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/transfers/approve", null);
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -101,7 +100,6 @@ public class TransfersApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public void cancelInitiatedTransfers(CancelTransfersRequest cancelTransfersRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = cancelTransfersRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/transfers/cancel", null);
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -264,7 +262,6 @@ public class TransfersApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public Transfer transferFunds(TransferInfo transferInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = transferInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/transfers", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

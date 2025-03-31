@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,6 @@ public class TransferRequestReview {
    * Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    * @return numberOfApprovalsRequired
    */
-  @ApiModelProperty(value = "Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getNumberOfApprovalsRequired() {
@@ -71,7 +68,7 @@ public class TransferRequestReview {
    * Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    *
    * @param numberOfApprovalsRequired
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberOfApprovalsRequired(Integer numberOfApprovalsRequired) {
@@ -93,7 +90,6 @@ public class TransferRequestReview {
    * Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).
    * @return scaOnApproval
    */
-  @ApiModelProperty(value = "Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).")
   @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getScaOnApproval() {
@@ -104,7 +100,7 @@ public class TransferRequestReview {
    * Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).
    *
    * @param scaOnApproval
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaOnApproval(Boolean scaOnApproval) {

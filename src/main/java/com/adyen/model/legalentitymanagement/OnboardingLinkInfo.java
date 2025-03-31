@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.OnboardingLinkSettings;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -69,7 +67,6 @@ public class OnboardingLinkInfo {
    * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See possible valuesfor [marketplaces](https://docs.adyen.com/marketplaces/onboard-users/hosted#supported-languages) or [platforms](https://docs.adyen.com/platforms/onboard-users/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
    * @return locale
    */
-  @ApiModelProperty(value = "The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See possible valuesfor [marketplaces](https://docs.adyen.com/marketplaces/onboard-users/hosted#supported-languages) or [platforms](https://docs.adyen.com/platforms/onboard-users/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLocale() {
@@ -80,7 +77,7 @@ public class OnboardingLinkInfo {
    * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See possible valuesfor [marketplaces](https://docs.adyen.com/marketplaces/onboard-users/hosted#supported-languages) or [platforms](https://docs.adyen.com/platforms/onboard-users/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
    *
    * @param locale
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
@@ -102,7 +99,6 @@ public class OnboardingLinkInfo {
    * The URL where the user is redirected after they complete hosted onboarding.
    * @return redirectUrl
    */
-  @ApiModelProperty(value = "The URL where the user is redirected after they complete hosted onboarding.")
   @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRedirectUrl() {
@@ -113,7 +109,7 @@ public class OnboardingLinkInfo {
    * The URL where the user is redirected after they complete hosted onboarding.
    *
    * @param redirectUrl
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRedirectUrl(String redirectUrl) {
@@ -132,10 +128,9 @@ public class OnboardingLinkInfo {
   }
 
   /**
-   * settings
+   * Get settings
    * @return settings
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OnboardingLinkSettings getSettings() {
@@ -146,7 +141,7 @@ public class OnboardingLinkInfo {
    * settings
    *
    * @param settings
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettings(OnboardingLinkSettings settings) {
@@ -168,7 +163,6 @@ public class OnboardingLinkInfo {
    * The unique identifier of the hosted onboarding theme.
    * @return themeId
    */
-  @ApiModelProperty(value = "The unique identifier of the hosted onboarding theme.")
   @JsonProperty(JSON_PROPERTY_THEME_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getThemeId() {
@@ -179,7 +173,7 @@ public class OnboardingLinkInfo {
    * The unique identifier of the hosted onboarding theme.
    *
    * @param themeId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THEME_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThemeId(String themeId) {

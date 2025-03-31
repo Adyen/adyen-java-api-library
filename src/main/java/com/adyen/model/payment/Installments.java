@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,23 +42,25 @@ public class Installments {
    * The installment plan, used for [card installments in Japan](https://docs.adyen.com/payment-methods/cards/credit-card-installments#make-a-payment-japan). and [Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico). By default, this is set to **regular**. 
    */
   public enum PlanEnum {
-    BUYNOW_PAYLATER("buynow_paylater"),
+    BONUS(String.valueOf("bonus")),
     
-    INTERES_REFUND_PRCTG("interes_refund_prctg"),
+    BUYNOW_PAYLATER(String.valueOf("buynow_paylater")),
     
-    INTEREST_BONUS("interest_bonus"),
+    INTERES_REFUND_PRCTG(String.valueOf("interes_refund_prctg")),
     
-    NOINTERES_REFUND_PRCTG("nointeres_refund_prctg"),
+    INTEREST_BONUS(String.valueOf("interest_bonus")),
     
-    NOINTEREST_BONUS("nointerest_bonus"),
+    NOINTERES_REFUND_PRCTG(String.valueOf("nointeres_refund_prctg")),
     
-    REFUND_PRCTG("refund_prctg"),
+    NOINTEREST_BONUS(String.valueOf("nointerest_bonus")),
     
-    REGULAR("regular"),
+    REFUND_PRCTG(String.valueOf("refund_prctg")),
     
-    REVOLVING("revolving"),
+    REGULAR(String.valueOf("regular")),
     
-    WITH_INTEREST("with_interest");
+    REVOLVING(String.valueOf("revolving")),
+    
+    WITH_INTEREST(String.valueOf("with_interest"));
 
     private String value;
 
@@ -113,7 +113,6 @@ public class Installments {
    * Defines the bonus percentage, refund percentage or if the transaction is Buy now Pay later. Used for [card installments in Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico) 
    * @return extra
    */
-  @ApiModelProperty(value = "Defines the bonus percentage, refund percentage or if the transaction is Buy now Pay later. Used for [card installments in Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico) ")
   @JsonProperty(JSON_PROPERTY_EXTRA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getExtra() {
@@ -124,7 +123,7 @@ public class Installments {
    * Defines the bonus percentage, refund percentage or if the transaction is Buy now Pay later. Used for [card installments in Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico) 
    *
    * @param extra
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_EXTRA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtra(Integer extra) {
@@ -146,7 +145,6 @@ public class Installments {
    * The installment plan, used for [card installments in Japan](https://docs.adyen.com/payment-methods/cards/credit-card-installments#make-a-payment-japan). and [Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico). By default, this is set to **regular**. 
    * @return plan
    */
-  @ApiModelProperty(value = "The installment plan, used for [card installments in Japan](https://docs.adyen.com/payment-methods/cards/credit-card-installments#make-a-payment-japan). and [Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico). By default, this is set to **regular**. ")
   @JsonProperty(JSON_PROPERTY_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PlanEnum getPlan() {
@@ -157,7 +155,7 @@ public class Installments {
    * The installment plan, used for [card installments in Japan](https://docs.adyen.com/payment-methods/cards/credit-card-installments#make-a-payment-japan). and [Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installments/#getting-paid-mexico). By default, this is set to **regular**. 
    *
    * @param plan
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlan(PlanEnum plan) {
@@ -179,7 +177,6 @@ public class Installments {
    * Defines the number of installments. Usually, the maximum allowed number of installments is capped. For example, it may not be possible to split a payment in more than 24 installments. The acquirer sets this upper limit, so its value may vary. This value can be zero for Installments processed in Mexico.
    * @return value
    */
-  @ApiModelProperty(required = true, value = "Defines the number of installments. Usually, the maximum allowed number of installments is capped. For example, it may not be possible to split a payment in more than 24 installments. The acquirer sets this upper limit, so its value may vary. This value can be zero for Installments processed in Mexico.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getValue() {
@@ -190,7 +187,7 @@ public class Installments {
    * Defines the number of installments. Usually, the maximum allowed number of installments is capped. For example, it may not be possible to split a payment in more than 24 installments. The acquirer sets this upper limit, so its value may vary. This value can be zero for Installments processed in Mexico.
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Integer value) {

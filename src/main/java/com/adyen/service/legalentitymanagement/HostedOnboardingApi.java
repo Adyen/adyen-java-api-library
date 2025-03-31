@@ -139,7 +139,6 @@ public class HostedOnboardingApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public OnboardingThemes listHostedOnboardingPageThemes(RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/themes", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);

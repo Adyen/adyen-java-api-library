@@ -141,7 +141,6 @@ public class LegalEntitiesApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public LegalEntity createLegalEntity(LegalEntityInfoRequiredType legalEntityInfoRequiredType, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = legalEntityInfoRequiredType.toJson();
         Resource resource = new Resource(this, this.baseURL + "/legalEntities", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

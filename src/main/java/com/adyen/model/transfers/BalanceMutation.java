@@ -13,7 +13,6 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,7 +66,6 @@ public class BalanceMutation {
    * The amount in the payment&#39;s currency that is debited or credited on the balance accounting register.
    * @return balance
    */
-  @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the balance accounting register.")
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getBalance() {
@@ -79,7 +76,7 @@ public class BalanceMutation {
    * The amount in the payment&#39;s currency that is debited or credited on the balance accounting register.
    *
    * @param balance
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
@@ -101,7 +98,6 @@ public class BalanceMutation {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
    */
-  @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -112,7 +108,7 @@ public class BalanceMutation {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    *
    * @param currency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -134,7 +130,6 @@ public class BalanceMutation {
    * The amount in the payment&#39;s currency that is debited or credited on the received accounting register.
    * @return received
    */
-  @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the received accounting register.")
   @JsonProperty(JSON_PROPERTY_RECEIVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReceived() {
@@ -145,7 +140,7 @@ public class BalanceMutation {
    * The amount in the payment&#39;s currency that is debited or credited on the received accounting register.
    *
    * @param received
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RECEIVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceived(Long received) {
@@ -167,7 +162,6 @@ public class BalanceMutation {
    * The amount in the payment&#39;s currency that is debited or credited on the reserved accounting register.
    * @return reserved
    */
-  @ApiModelProperty(value = "The amount in the payment's currency that is debited or credited on the reserved accounting register.")
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getReserved() {
@@ -178,7 +172,7 @@ public class BalanceMutation {
    * The amount in the payment&#39;s currency that is debited or credited on the reserved accounting register.
    *
    * @param reserved
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {

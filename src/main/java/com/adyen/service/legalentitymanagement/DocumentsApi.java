@@ -107,6 +107,7 @@ public class DocumentsApi extends Service {
             throw new IllegalArgumentException("Please provide the id path parameter");
         }
         pathParams.put("id", id);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (skipContent != null) {
@@ -174,7 +175,6 @@ public class DocumentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public Document uploadDocumentForVerificationChecks(Document document, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = document.toJson();
         Resource resource = new Resource(this, this.baseURL + "/documents", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

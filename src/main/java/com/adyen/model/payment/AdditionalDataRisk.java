@@ -13,7 +13,6 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -136,7 +134,6 @@ public class AdditionalDataRisk {
    * The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).
    * @return riskdataCustomFieldName
    */
-  @ApiModelProperty(value = "The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataCustomFieldName() {
@@ -147,7 +144,7 @@ public class AdditionalDataRisk {
    * The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).
    *
    * @param riskdataCustomFieldName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_CUSTOM_FIELD_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataCustomFieldName(String riskdataCustomFieldName) {
@@ -169,7 +166,6 @@ public class AdditionalDataRisk {
    * The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return riskdataBasketItemItemNrAmountPerItem
    */
-  @ApiModelProperty(value = "The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrAmountPerItem() {
@@ -180,7 +176,7 @@ public class AdditionalDataRisk {
    * The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
    * @param riskdataBasketItemItemNrAmountPerItem
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_AMOUNT_PER_ITEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrAmountPerItem(String riskdataBasketItemItemNrAmountPerItem) {
@@ -202,7 +198,6 @@ public class AdditionalDataRisk {
    * Brand of the item.
    * @return riskdataBasketItemItemNrBrand
    */
-  @ApiModelProperty(value = "Brand of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrBrand() {
@@ -213,7 +208,7 @@ public class AdditionalDataRisk {
    * Brand of the item.
    *
    * @param riskdataBasketItemItemNrBrand
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrBrand(String riskdataBasketItemItemNrBrand) {
@@ -235,7 +230,6 @@ public class AdditionalDataRisk {
    * Category of the item.
    * @return riskdataBasketItemItemNrCategory
    */
-  @ApiModelProperty(value = "Category of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrCategory() {
@@ -246,7 +240,7 @@ public class AdditionalDataRisk {
    * Category of the item.
    *
    * @param riskdataBasketItemItemNrCategory
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrCategory(String riskdataBasketItemItemNrCategory) {
@@ -268,7 +262,6 @@ public class AdditionalDataRisk {
    * Color of the item.
    * @return riskdataBasketItemItemNrColor
    */
-  @ApiModelProperty(value = "Color of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrColor() {
@@ -279,7 +272,7 @@ public class AdditionalDataRisk {
    * Color of the item.
    *
    * @param riskdataBasketItemItemNrColor
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrColor(String riskdataBasketItemItemNrColor) {
@@ -301,7 +294,6 @@ public class AdditionalDataRisk {
    * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return riskdataBasketItemItemNrCurrency
    */
-  @ApiModelProperty(value = "The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrCurrency() {
@@ -312,7 +304,7 @@ public class AdditionalDataRisk {
    * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    *
    * @param riskdataBasketItemItemNrCurrency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrCurrency(String riskdataBasketItemItemNrCurrency) {
@@ -334,7 +326,6 @@ public class AdditionalDataRisk {
    * ID of the item.
    * @return riskdataBasketItemItemNrItemID
    */
-  @ApiModelProperty(value = "ID of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrItemID() {
@@ -345,7 +336,7 @@ public class AdditionalDataRisk {
    * ID of the item.
    *
    * @param riskdataBasketItemItemNrItemID
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_ITEM_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrItemID(String riskdataBasketItemItemNrItemID) {
@@ -367,7 +358,6 @@ public class AdditionalDataRisk {
    * Manufacturer of the item.
    * @return riskdataBasketItemItemNrManufacturer
    */
-  @ApiModelProperty(value = "Manufacturer of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrManufacturer() {
@@ -378,7 +368,7 @@ public class AdditionalDataRisk {
    * Manufacturer of the item.
    *
    * @param riskdataBasketItemItemNrManufacturer
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrManufacturer(String riskdataBasketItemItemNrManufacturer) {
@@ -400,7 +390,6 @@ public class AdditionalDataRisk {
    * A text description of the product the invoice line refers to.
    * @return riskdataBasketItemItemNrProductTitle
    */
-  @ApiModelProperty(value = "A text description of the product the invoice line refers to.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrProductTitle() {
@@ -411,7 +400,7 @@ public class AdditionalDataRisk {
    * A text description of the product the invoice line refers to.
    *
    * @param riskdataBasketItemItemNrProductTitle
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_PRODUCT_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrProductTitle(String riskdataBasketItemItemNrProductTitle) {
@@ -433,7 +422,6 @@ public class AdditionalDataRisk {
    * Quantity of the item purchased.
    * @return riskdataBasketItemItemNrQuantity
    */
-  @ApiModelProperty(value = "Quantity of the item purchased.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrQuantity() {
@@ -444,7 +432,7 @@ public class AdditionalDataRisk {
    * Quantity of the item purchased.
    *
    * @param riskdataBasketItemItemNrQuantity
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrQuantity(String riskdataBasketItemItemNrQuantity) {
@@ -466,7 +454,6 @@ public class AdditionalDataRisk {
    * Email associated with the given product in the basket (usually in electronic gift cards).
    * @return riskdataBasketItemItemNrReceiverEmail
    */
-  @ApiModelProperty(value = "Email associated with the given product in the basket (usually in electronic gift cards).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrReceiverEmail() {
@@ -477,7 +464,7 @@ public class AdditionalDataRisk {
    * Email associated with the given product in the basket (usually in electronic gift cards).
    *
    * @param riskdataBasketItemItemNrReceiverEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrReceiverEmail(String riskdataBasketItemItemNrReceiverEmail) {
@@ -499,7 +486,6 @@ public class AdditionalDataRisk {
    * Size of the item.
    * @return riskdataBasketItemItemNrSize
    */
-  @ApiModelProperty(value = "Size of the item.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrSize() {
@@ -510,7 +496,7 @@ public class AdditionalDataRisk {
    * Size of the item.
    *
    * @param riskdataBasketItemItemNrSize
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrSize(String riskdataBasketItemItemNrSize) {
@@ -532,7 +518,6 @@ public class AdditionalDataRisk {
    * [Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).
    * @return riskdataBasketItemItemNrSku
    */
-  @ApiModelProperty(value = "[Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrSku() {
@@ -543,7 +528,7 @@ public class AdditionalDataRisk {
    * [Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).
    *
    * @param riskdataBasketItemItemNrSku
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrSku(String riskdataBasketItemItemNrSku) {
@@ -565,7 +550,6 @@ public class AdditionalDataRisk {
    * [Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).
    * @return riskdataBasketItemItemNrUpc
    */
-  @ApiModelProperty(value = "[Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataBasketItemItemNrUpc() {
@@ -576,7 +560,7 @@ public class AdditionalDataRisk {
    * [Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).
    *
    * @param riskdataBasketItemItemNrUpc
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_BASKET_ITEM_ITEM_NR_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataBasketItemItemNrUpc(String riskdataBasketItemItemNrUpc) {
@@ -598,7 +582,6 @@ public class AdditionalDataRisk {
    * Code of the promotion.
    * @return riskdataPromotionsPromotionItemNrPromotionCode
    */
-  @ApiModelProperty(value = "Code of the promotion.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataPromotionsPromotionItemNrPromotionCode() {
@@ -609,7 +592,7 @@ public class AdditionalDataRisk {
    * Code of the promotion.
    *
    * @param riskdataPromotionsPromotionItemNrPromotionCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionCode(String riskdataPromotionsPromotionItemNrPromotionCode) {
@@ -631,7 +614,6 @@ public class AdditionalDataRisk {
    * The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountAmount
    */
-  @ApiModelProperty(value = "The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountAmount() {
@@ -642,7 +624,7 @@ public class AdditionalDataRisk {
    * The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
    * @param riskdataPromotionsPromotionItemNrPromotionDiscountAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountAmount(String riskdataPromotionsPromotionItemNrPromotionDiscountAmount) {
@@ -664,7 +646,6 @@ public class AdditionalDataRisk {
    * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountCurrency
    */
-  @ApiModelProperty(value = "The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency() {
@@ -675,7 +656,7 @@ public class AdditionalDataRisk {
    * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    *
    * @param riskdataPromotionsPromotionItemNrPromotionDiscountCurrency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency(String riskdataPromotionsPromotionItemNrPromotionDiscountCurrency) {
@@ -697,7 +678,6 @@ public class AdditionalDataRisk {
    * Promotion&#39;s percentage discount. It is represented in percentage value and there is no need to include the &#39;%&#39; sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountPercentage
    */
-  @ApiModelProperty(value = "Promotion's percentage discount. It is represented in percentage value and there is no need to include the '%' sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage() {
@@ -708,7 +688,7 @@ public class AdditionalDataRisk {
    * Promotion&#39;s percentage discount. It is represented in percentage value and there is no need to include the &#39;%&#39; sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.
    *
    * @param riskdataPromotionsPromotionItemNrPromotionDiscountPercentage
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_DISCOUNT_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage(String riskdataPromotionsPromotionItemNrPromotionDiscountPercentage) {
@@ -730,7 +710,6 @@ public class AdditionalDataRisk {
    * Name of the promotion.
    * @return riskdataPromotionsPromotionItemNrPromotionName
    */
-  @ApiModelProperty(value = "Name of the promotion.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataPromotionsPromotionItemNrPromotionName() {
@@ -741,7 +720,7 @@ public class AdditionalDataRisk {
    * Name of the promotion.
    *
    * @param riskdataPromotionsPromotionItemNrPromotionName
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_PROMOTIONS_PROMOTION_ITEM_NR_PROMOTION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataPromotionsPromotionItemNrPromotionName(String riskdataPromotionsPromotionItemNrPromotionName) {
@@ -763,7 +742,6 @@ public class AdditionalDataRisk {
    * Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account&#39;s default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).
    * @return riskdataRiskProfileReference
    */
-  @ApiModelProperty(value = "Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).")
   @JsonProperty(JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataRiskProfileReference() {
@@ -774,7 +752,7 @@ public class AdditionalDataRisk {
    * Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account&#39;s default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).
    *
    * @param riskdataRiskProfileReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_RISK_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataRiskProfileReference(String riskdataRiskProfileReference) {
@@ -796,7 +774,6 @@ public class AdditionalDataRisk {
    * If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.
    * @return riskdataSkipRisk
    */
-  @ApiModelProperty(value = "If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.")
   @JsonProperty(JSON_PROPERTY_RISKDATA_SKIP_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskdataSkipRisk() {
@@ -807,7 +784,7 @@ public class AdditionalDataRisk {
    * If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.
    *
    * @param riskdataSkipRisk
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISKDATA_SKIP_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskdataSkipRisk(String riskdataSkipRisk) {

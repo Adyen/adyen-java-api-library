@@ -13,7 +13,6 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -49,6 +47,14 @@ public class PhoneNumber {
   public PhoneNumber() { 
   }
 
+  @JsonCreator
+  public PhoneNumber(
+    @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE) String phoneCountryCode
+  ) {
+    this();
+    this.phoneCountryCode = phoneCountryCode;
+  }
+
   /**
    * The full phone number, including the country code. For example, **+3112345678**.
    *
@@ -64,7 +70,6 @@ public class PhoneNumber {
    * The full phone number, including the country code. For example, **+3112345678**.
    * @return number
    */
-  @ApiModelProperty(required = true, value = "The full phone number, including the country code. For example, **+3112345678**.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNumber() {
@@ -75,7 +80,7 @@ public class PhoneNumber {
    * The full phone number, including the country code. For example, **+3112345678**.
    *
    * @param number
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -84,36 +89,14 @@ public class PhoneNumber {
 
   /**
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the &#x60;phoneCountryCode&#x60; is determined by the country code digit(s) of &#x60;phone.number&#x60;
-   *
-   * @param phoneCountryCode
-   * @return the current {@code PhoneNumber} instance, allowing for method chaining
-   */
-  public PhoneNumber phoneCountryCode(String phoneCountryCode) {
-    this.phoneCountryCode = phoneCountryCode;
-    return this;
-  }
-
-  /**
-   * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the &#x60;phoneCountryCode&#x60; is determined by the country code digit(s) of &#x60;phone.number&#x60;
    * @return phoneCountryCode
    */
-  @ApiModelProperty(value = "The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the `phoneCountryCode` is determined by the country code digit(s) of `phone.number`")
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneCountryCode() {
     return phoneCountryCode;
   }
 
-  /**
-   * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the &#x60;phoneCountryCode&#x60; is determined by the country code digit(s) of &#x60;phone.number&#x60;
-   *
-   * @param phoneCountryCode
-   */ 
-  @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPhoneCountryCode(String phoneCountryCode) {
-    this.phoneCountryCode = phoneCountryCode;
-  }
 
   /**
    * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
@@ -130,7 +113,6 @@ public class PhoneNumber {
    * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    * @return type
    */
-  @ApiModelProperty(value = "The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -141,7 +123,7 @@ public class PhoneNumber {
    * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
