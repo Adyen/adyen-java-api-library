@@ -40,7 +40,6 @@
 
                 <configuration>
                     <executable>maven</executable>
-                    <mainClass>CalculateHmacPayments</mainClass>
                 </configuration>
             </plugin>
         </plugins>
