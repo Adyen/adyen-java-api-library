@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
@@ -26,9 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -55,7 +53,7 @@ public class PaymentCaptureResponse {
   private Amount amount;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = null;
+  private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -73,13 +71,13 @@ public class PaymentCaptureResponse {
   private String reference;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = null;
+  private List<Split> splits = new ArrayList<>();
 
   /**
    * The status of your request. This will always have the value **received**.
    */
   public enum StatusEnum {
-    RECEIVED("received");
+    RECEIVED(String.valueOf("received"));
 
     private String value;
 
@@ -112,7 +110,7 @@ public class PaymentCaptureResponse {
   private StatusEnum status;
 
   public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
-  private List<SubMerchantInfo> subMerchants = null;
+  private List<SubMerchantInfo> subMerchants = new ArrayList<>();
 
   public PaymentCaptureResponse() { 
   }
@@ -129,10 +127,9 @@ public class PaymentCaptureResponse {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -143,7 +140,7 @@ public class PaymentCaptureResponse {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -173,7 +170,6 @@ public class PaymentCaptureResponse {
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    * @return lineItems
    */
-  @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.")
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<LineItem> getLineItems() {
@@ -184,7 +180,7 @@ public class PaymentCaptureResponse {
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    *
    * @param lineItems
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(List<LineItem> lineItems) {
@@ -206,7 +202,6 @@ public class PaymentCaptureResponse {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
    */
-  @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -217,7 +212,7 @@ public class PaymentCaptureResponse {
    * The merchant account that is used to process the payment.
    *
    * @param merchantAccount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -239,7 +234,6 @@ public class PaymentCaptureResponse {
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. 
    * @return paymentPspReference
    */
-  @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. ")
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentPspReference() {
@@ -250,7 +244,7 @@ public class PaymentCaptureResponse {
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. 
    *
    * @param paymentPspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentPspReference(String paymentPspReference) {
@@ -269,10 +263,9 @@ public class PaymentCaptureResponse {
   }
 
   /**
-   * platformChargebackLogic
+   * Get platformChargebackLogic
    * @return platformChargebackLogic
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PlatformChargebackLogic getPlatformChargebackLogic() {
@@ -283,7 +276,7 @@ public class PaymentCaptureResponse {
    * platformChargebackLogic
    *
    * @param platformChargebackLogic
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
@@ -305,7 +298,6 @@ public class PaymentCaptureResponse {
    * Adyen&#39;s 16-character reference associated with the capture request.
    * @return pspReference
    */
-  @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the capture request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -316,7 +308,7 @@ public class PaymentCaptureResponse {
    * Adyen&#39;s 16-character reference associated with the capture request.
    *
    * @param pspReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -338,7 +330,6 @@ public class PaymentCaptureResponse {
    * Your reference for the capture request.
    * @return reference
    */
-  @ApiModelProperty(value = "Your reference for the capture request.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -349,7 +340,7 @@ public class PaymentCaptureResponse {
    * Your reference for the capture request.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -379,7 +370,6 @@ public class PaymentCaptureResponse {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    * @return splits
    */
-  @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).")
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Split> getSplits() {
@@ -390,7 +380,7 @@ public class PaymentCaptureResponse {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    *
    * @param splits
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplits(List<Split> splits) {
@@ -412,7 +402,6 @@ public class PaymentCaptureResponse {
    * The status of your request. This will always have the value **received**.
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -423,7 +412,7 @@ public class PaymentCaptureResponse {
    * The status of your request. This will always have the value **received**.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -453,7 +442,6 @@ public class PaymentCaptureResponse {
    * List of sub-merchants.
    * @return subMerchants
    */
-  @ApiModelProperty(value = "List of sub-merchants.")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SubMerchantInfo> getSubMerchants() {
@@ -464,7 +452,7 @@ public class PaymentCaptureResponse {
    * List of sub-merchants.
    *
    * @param subMerchants
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchants(List<SubMerchantInfo> subMerchants) {

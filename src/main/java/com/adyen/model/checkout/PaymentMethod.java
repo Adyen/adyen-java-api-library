@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.InputDetail;
@@ -25,9 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,24 +51,24 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaymentMethod {
   public static final String JSON_PROPERTY_APPS = "apps";
-  private List<PaymentMethodUPIApps> apps = null;
+  private List<PaymentMethodUPIApps> apps = new ArrayList<>();
 
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
   public static final String JSON_PROPERTY_BRANDS = "brands";
-  private List<String> brands = null;
+  private List<String> brands = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
-  private Map<String, String> configuration = null;
+  private Map<String, String> configuration = new HashMap<>();
 
   /**
    * The funding source of the payment method.
    */
   public enum FundingSourceEnum {
-    CREDIT("credit"),
+    CREDIT(String.valueOf("credit")),
     
-    DEBIT("debit");
+    DEBIT(String.valueOf("debit"));
 
     private String value;
 
@@ -107,10 +105,10 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
   @Deprecated // deprecated 
-  private List<InputDetail> inputDetails = null;
+  private List<InputDetail> inputDetails = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ISSUERS = "issuers";
-  private List<PaymentMethodIssuer> issuers = null;
+  private List<PaymentMethodIssuer> issuers = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -144,7 +142,6 @@ public class PaymentMethod {
    * A list of apps for this payment method.
    * @return apps
    */
-  @ApiModelProperty(value = "A list of apps for this payment method.")
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentMethodUPIApps> getApps() {
@@ -155,7 +152,7 @@ public class PaymentMethod {
    * A list of apps for this payment method.
    *
    * @param apps
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApps(List<PaymentMethodUPIApps> apps) {
@@ -177,7 +174,6 @@ public class PaymentMethod {
    * Brand for the selected gift card. For example: plastix, hmclub.
    * @return brand
    */
-  @ApiModelProperty(value = "Brand for the selected gift card. For example: plastix, hmclub.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
@@ -188,7 +184,7 @@ public class PaymentMethod {
    * Brand for the selected gift card. For example: plastix, hmclub.
    *
    * @param brand
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -218,7 +214,6 @@ public class PaymentMethod {
    * List of possible brands. For example: visa, mc.
    * @return brands
    */
-  @ApiModelProperty(value = "List of possible brands. For example: visa, mc.")
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getBrands() {
@@ -229,7 +224,7 @@ public class PaymentMethod {
    * List of possible brands. For example: visa, mc.
    *
    * @param brands
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<String> brands) {
@@ -259,7 +254,6 @@ public class PaymentMethod {
    * The configuration of the payment method.
    * @return configuration
    */
-  @ApiModelProperty(value = "The configuration of the payment method.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getConfiguration() {
@@ -270,7 +264,7 @@ public class PaymentMethod {
    * The configuration of the payment method.
    *
    * @param configuration
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfiguration(Map<String, String> configuration) {
@@ -292,7 +286,6 @@ public class PaymentMethod {
    * The funding source of the payment method.
    * @return fundingSource
    */
-  @ApiModelProperty(value = "The funding source of the payment method.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FundingSourceEnum getFundingSource() {
@@ -303,7 +296,7 @@ public class PaymentMethod {
    * The funding source of the payment method.
    *
    * @param fundingSource
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
@@ -322,10 +315,9 @@ public class PaymentMethod {
   }
 
   /**
-   * group
+   * Get group
    * @return group
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaymentMethodGroup getGroup() {
@@ -336,7 +328,7 @@ public class PaymentMethod {
    * group
    *
    * @param group
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(PaymentMethodGroup group) {
@@ -351,7 +343,7 @@ public class PaymentMethod {
    *
    * @deprecated 
    */
-  @Deprecated
+  @Deprecated // deprecated 
   public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
     this.inputDetails = inputDetails;
     return this;
@@ -368,11 +360,9 @@ public class PaymentMethod {
   /**
    * All input details to be provided to complete the payment with this payment method.
    * @return inputDetails
-   *
-   * @deprecated 
+   * @deprecated // deprecated 
    */
-  @Deprecated
-  @ApiModelProperty(value = "All input details to be provided to complete the payment with this payment method.")
+  @Deprecated // deprecated 
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<InputDetail> getInputDetails() {
@@ -385,8 +375,8 @@ public class PaymentMethod {
    * @param inputDetails
    *
    * @deprecated 
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated 
   @JsonProperty(JSON_PROPERTY_INPUT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInputDetails(List<InputDetail> inputDetails) {
@@ -416,7 +406,6 @@ public class PaymentMethod {
    * A list of issuers for this payment method.
    * @return issuers
    */
-  @ApiModelProperty(value = "A list of issuers for this payment method.")
   @JsonProperty(JSON_PROPERTY_ISSUERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentMethodIssuer> getIssuers() {
@@ -427,7 +416,7 @@ public class PaymentMethod {
    * A list of issuers for this payment method.
    *
    * @param issuers
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISSUERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuers(List<PaymentMethodIssuer> issuers) {
@@ -449,7 +438,6 @@ public class PaymentMethod {
    * The displayable name of this payment method.
    * @return name
    */
-  @ApiModelProperty(value = "The displayable name of this payment method.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -460,7 +448,7 @@ public class PaymentMethod {
    * The displayable name of this payment method.
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -482,7 +470,6 @@ public class PaymentMethod {
    * The unique payment method code.
    * @return type
    */
-  @ApiModelProperty(value = "The unique payment method code.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -493,7 +480,7 @@ public class PaymentMethod {
    * The unique payment method code.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

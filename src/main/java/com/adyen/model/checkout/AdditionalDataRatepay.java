@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -84,7 +82,6 @@ public class AdditionalDataRatepay {
    * Amount the customer has to pay each month.
    * @return ratepayInstallmentAmount
    */
-  @ApiModelProperty(value = "Amount the customer has to pay each month.")
   @JsonProperty(JSON_PROPERTY_RATEPAY_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRatepayInstallmentAmount() {
@@ -95,7 +92,7 @@ public class AdditionalDataRatepay {
    * Amount the customer has to pay each month.
    *
    * @param ratepayInstallmentAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RATEPAY_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayInstallmentAmount(String ratepayInstallmentAmount) {
@@ -117,7 +114,6 @@ public class AdditionalDataRatepay {
    * Interest rate of this installment.
    * @return ratepayInterestRate
    */
-  @ApiModelProperty(value = "Interest rate of this installment.")
   @JsonProperty(JSON_PROPERTY_RATEPAY_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRatepayInterestRate() {
@@ -128,7 +124,7 @@ public class AdditionalDataRatepay {
    * Interest rate of this installment.
    *
    * @param ratepayInterestRate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RATEPAY_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayInterestRate(String ratepayInterestRate) {
@@ -150,7 +146,6 @@ public class AdditionalDataRatepay {
    * Amount of the last installment.
    * @return ratepayLastInstallmentAmount
    */
-  @ApiModelProperty(value = "Amount of the last installment.")
   @JsonProperty(JSON_PROPERTY_RATEPAY_LAST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRatepayLastInstallmentAmount() {
@@ -161,7 +156,7 @@ public class AdditionalDataRatepay {
    * Amount of the last installment.
    *
    * @param ratepayLastInstallmentAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RATEPAY_LAST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayLastInstallmentAmount(String ratepayLastInstallmentAmount) {
@@ -183,7 +178,6 @@ public class AdditionalDataRatepay {
    * Calendar day of the first payment.
    * @return ratepayPaymentFirstday
    */
-  @ApiModelProperty(value = "Calendar day of the first payment.")
   @JsonProperty(JSON_PROPERTY_RATEPAY_PAYMENT_FIRSTDAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRatepayPaymentFirstday() {
@@ -194,7 +188,7 @@ public class AdditionalDataRatepay {
    * Calendar day of the first payment.
    *
    * @param ratepayPaymentFirstday
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RATEPAY_PAYMENT_FIRSTDAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepayPaymentFirstday(String ratepayPaymentFirstday) {
@@ -216,7 +210,6 @@ public class AdditionalDataRatepay {
    * Date the merchant delivered the goods to the customer.
    * @return ratepaydataDeliveryDate
    */
-  @ApiModelProperty(value = "Date the merchant delivered the goods to the customer.")
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRatepaydataDeliveryDate() {
@@ -227,7 +220,7 @@ public class AdditionalDataRatepay {
    * Date the merchant delivered the goods to the customer.
    *
    * @param ratepaydataDeliveryDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataDeliveryDate(String ratepaydataDeliveryDate) {
@@ -249,7 +242,6 @@ public class AdditionalDataRatepay {
    * Date by which the customer must settle the payment.
    * @return ratepaydataDueDate
    */
-  @ApiModelProperty(value = "Date by which the customer must settle the payment.")
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRatepaydataDueDate() {
@@ -260,7 +252,7 @@ public class AdditionalDataRatepay {
    * Date by which the customer must settle the payment.
    *
    * @param ratepaydataDueDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataDueDate(String ratepaydataDueDate) {
@@ -282,7 +274,6 @@ public class AdditionalDataRatepay {
    * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    * @return ratepaydataInvoiceDate
    */
-  @ApiModelProperty(value = "Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.")
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRatepaydataInvoiceDate() {
@@ -293,7 +284,7 @@ public class AdditionalDataRatepay {
    * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    *
    * @param ratepaydataInvoiceDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataInvoiceDate(String ratepaydataInvoiceDate) {
@@ -315,7 +306,6 @@ public class AdditionalDataRatepay {
    * Identification name or number for the invoice, defined by the merchant.
    * @return ratepaydataInvoiceId
    */
-  @ApiModelProperty(value = "Identification name or number for the invoice, defined by the merchant.")
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRatepaydataInvoiceId() {
@@ -326,7 +316,7 @@ public class AdditionalDataRatepay {
    * Identification name or number for the invoice, defined by the merchant.
    *
    * @param ratepaydataInvoiceId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRatepaydataInvoiceId(String ratepaydataInvoiceId) {

@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,23 +45,25 @@ public class InstallmentOption {
    * Gets or Sets plans
    */
   public enum PlansEnum {
-    BUYNOW_PAYLATER("buynow_paylater"),
+    BONUS(String.valueOf("bonus")),
     
-    INTERES_REFUND_PRCTG("interes_refund_prctg"),
+    BUYNOW_PAYLATER(String.valueOf("buynow_paylater")),
     
-    INTEREST_BONUS("interest_bonus"),
+    INTERES_REFUND_PRCTG(String.valueOf("interes_refund_prctg")),
     
-    NOINTERES_REFUND_PRCTG("nointeres_refund_prctg"),
+    INTEREST_BONUS(String.valueOf("interest_bonus")),
     
-    NOINTEREST_BONUS("nointerest_bonus"),
+    NOINTERES_REFUND_PRCTG(String.valueOf("nointeres_refund_prctg")),
     
-    REFUND_PRCTG("refund_prctg"),
+    NOINTEREST_BONUS(String.valueOf("nointerest_bonus")),
     
-    REGULAR("regular"),
+    REFUND_PRCTG(String.valueOf("refund_prctg")),
     
-    REVOLVING("revolving"),
+    REGULAR(String.valueOf("regular")),
     
-    WITH_INTEREST("with_interest");
+    REVOLVING(String.valueOf("revolving")),
+    
+    WITH_INTEREST(String.valueOf("with_interest"));
 
     private String value;
 
@@ -93,13 +93,13 @@ public class InstallmentOption {
   }
 
   public static final String JSON_PROPERTY_PLANS = "plans";
-  private List<PlansEnum> plans = null;
+  private List<PlansEnum> plans = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PRESELECTED_VALUE = "preselectedValue";
   private Integer preselectedValue;
 
   public static final String JSON_PROPERTY_VALUES = "values";
-  private List<Integer> values = null;
+  private List<Integer> values = new ArrayList<>();
 
   public InstallmentOption() { 
   }
@@ -119,7 +119,6 @@ public class InstallmentOption {
    * The maximum number of installments offered for this payment method.
    * @return maxValue
    */
-  @ApiModelProperty(value = "The maximum number of installments offered for this payment method.")
   @JsonProperty(JSON_PROPERTY_MAX_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getMaxValue() {
@@ -130,7 +129,7 @@ public class InstallmentOption {
    * The maximum number of installments offered for this payment method.
    *
    * @param maxValue
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MAX_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxValue(Integer maxValue) {
@@ -160,7 +159,6 @@ public class InstallmentOption {
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    * @return plans
    */
-  @ApiModelProperty(value = "Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**")
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PlansEnum> getPlans() {
@@ -171,7 +169,7 @@ public class InstallmentOption {
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    *
    * @param plans
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPlans(List<PlansEnum> plans) {
@@ -193,7 +191,6 @@ public class InstallmentOption {
    * Preselected number of installments offered for this payment method.
    * @return preselectedValue
    */
-  @ApiModelProperty(value = "Preselected number of installments offered for this payment method.")
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPreselectedValue() {
@@ -204,7 +201,7 @@ public class InstallmentOption {
    * Preselected number of installments offered for this payment method.
    *
    * @param preselectedValue
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreselectedValue(Integer preselectedValue) {
@@ -234,7 +231,6 @@ public class InstallmentOption {
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    * @return values
    */
-  @ApiModelProperty(value = "An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Integer> getValues() {
@@ -245,7 +241,7 @@ public class InstallmentOption {
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    *
    * @param values
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Integer> values) {

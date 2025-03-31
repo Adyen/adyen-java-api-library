@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.ApplePayDonations;
@@ -26,8 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -51,9 +49,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
@@ -96,158 +92,117 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-
             // deserialize ApplePayDonations
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (ApplePayDonations.class.equals(Integer.class) || ApplePayDonations.class.equals(Long.class) || ApplePayDonations.class.equals(Float.class) || ApplePayDonations.class.equals(Double.class) || ApplePayDonations.class.equals(Boolean.class) || ApplePayDonations.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((ApplePayDonations.class.equals(Integer.class) || ApplePayDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((ApplePayDonations.class.equals(Float.class) || ApplePayDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (ApplePayDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (ApplePayDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(ApplePayDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(ApplePayDonations.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ApplePayDonations'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(ApplePayDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), ApplePayDonations.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'ApplePayDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'ApplePayDonations'", e);
             }
 
-
             // deserialize CardDonations
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (CardDonations.class.equals(Integer.class) || CardDonations.class.equals(Long.class) || CardDonations.class.equals(Float.class) || CardDonations.class.equals(Double.class) || CardDonations.class.equals(Boolean.class) || CardDonations.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((CardDonations.class.equals(Integer.class) || CardDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((CardDonations.class.equals(Float.class) || CardDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (CardDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (CardDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(CardDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(CardDonations.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'CardDonations'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(CardDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), CardDonations.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'CardDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CardDonations'", e);
             }
 
-
             // deserialize GooglePayDonations
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (GooglePayDonations.class.equals(Integer.class) || GooglePayDonations.class.equals(Long.class) || GooglePayDonations.class.equals(Float.class) || GooglePayDonations.class.equals(Double.class) || GooglePayDonations.class.equals(Boolean.class) || GooglePayDonations.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((GooglePayDonations.class.equals(Integer.class) || GooglePayDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((GooglePayDonations.class.equals(Float.class) || GooglePayDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (GooglePayDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (GooglePayDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(GooglePayDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(GooglePayDonations.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'GooglePayDonations'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(GooglePayDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), GooglePayDonations.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'GooglePayDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'GooglePayDonations'", e);
             }
 
-
             // deserialize IdealDonations
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (IdealDonations.class.equals(Integer.class) || IdealDonations.class.equals(Long.class) || IdealDonations.class.equals(Float.class) || IdealDonations.class.equals(Double.class) || IdealDonations.class.equals(Boolean.class) || IdealDonations.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((IdealDonations.class.equals(Integer.class) || IdealDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((IdealDonations.class.equals(Float.class) || IdealDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (IdealDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (IdealDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(IdealDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(IdealDonations.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'IdealDonations'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(IdealDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), IdealDonations.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'IdealDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'IdealDonations'", e);
             }
 
-
             // deserialize PayWithGoogleDonations
             try {
                 boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (PayWithGoogleDonations.class.equals(Integer.class) || PayWithGoogleDonations.class.equals(Long.class) || PayWithGoogleDonations.class.equals(Float.class) || PayWithGoogleDonations.class.equals(Double.class) || PayWithGoogleDonations.class.equals(Boolean.class) || PayWithGoogleDonations.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((PayWithGoogleDonations.class.equals(Integer.class) || PayWithGoogleDonations.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((PayWithGoogleDonations.class.equals(Float.class) || PayWithGoogleDonations.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (PayWithGoogleDonations.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (PayWithGoogleDonations.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(PayWithGoogleDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(PayWithGoogleDonations.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'PayWithGoogleDonations'");
                     }
-                }
-                // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                boolean typeMatch = Arrays.stream(PayWithGoogleDonations.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-                if (attemptParsing || typeMatch) {
-                    // Strict deserialization for oneOf models
-                    deserialized = JSON.getMapper().readValue(tree.toString(), PayWithGoogleDonations.class);
-                    // typeMatch should enforce proper deserialization
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'PayWithGoogleDonations'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'PayWithGoogleDonations'", e);
             }
 
-            // Throw error if there is no match
-            if (match == 0) {
-                throw new IOException(String.format("Failed deserialization for DonationPaymentMethod: %d classes match result, expected 1", match));
+            if (match == 1) {
+                DonationPaymentMethod ret = new DonationPaymentMethod();
+                ret.setActualInstance(deserialized);
+                return ret;
             }
-            // Log warning if there is more than one match
-            if (match > 1) {
-                log.log(Level.WARNING, String.format("Warning, indecisive deserialization for DonationPaymentMethod: %d classes match result, expected 1", match));
-            }
-
-            DonationPaymentMethod ret = new DonationPaymentMethod();
-            ret.setActualInstance(deserialized);
-            return ret;
+            throw new IOException(String.format("Failed deserialization for DonationPaymentMethod: %d classes match result, expected 1", match));
         }
 
         /**
@@ -260,7 +215,7 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     }
 
     // store a list of schema names defined in oneOf
-    public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+    public static final Map<String, GenericType<?>> schemas = new HashMap<>();
 
     public DonationPaymentMethod() {
         super("oneOf", Boolean.FALSE);
@@ -306,7 +261,7 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     }
 
     @Override
-    public Map<String, GenericType> getSchemas() {
+    public Map<String, GenericType<?>> getSchemas() {
         return DonationPaymentMethod.schemas;
     }
 
@@ -320,27 +275,27 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(ApplePayDonations.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(ApplePayDonations.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(CardDonations.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(CardDonations.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(GooglePayDonations.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(GooglePayDonations.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(IdealDonations.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(IdealDonations.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(PayWithGoogleDonations.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(PayWithGoogleDonations.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -414,6 +369,7 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
         return (PayWithGoogleDonations)super.getActualInstance();
     }
 
+
     /**
     * Create an instance of DonationPaymentMethod given an JSON string
     *
@@ -433,5 +389,5 @@ public class DonationPaymentMethod extends AbstractOpenApiSchema {
     public String toJson() throws JsonProcessingException {
         return JSON.getMapper().writeValueAsString(this);
     }
-}
 
+}

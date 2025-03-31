@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -50,13 +48,13 @@ public class ThreeDSecureData {
    * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.  
    */
   public enum AuthenticationResponseEnum {
-    Y("Y"),
+    Y(String.valueOf("Y")),
     
-    N("N"),
+    N(String.valueOf("N")),
     
-    U("U"),
+    U(String.valueOf("U")),
     
-    A("A");
+    A(String.valueOf("A"));
 
     private String value;
 
@@ -98,19 +96,19 @@ public class ThreeDSecureData {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    */
   public enum ChallengeCancelEnum {
-    _01("01"),
+    _01(String.valueOf("01")),
     
-    _02("02"),
+    _02(String.valueOf("02")),
     
-    _03("03"),
+    _03(String.valueOf("03")),
     
-    _04("04"),
+    _04(String.valueOf("04")),
     
-    _05("05"),
+    _05(String.valueOf("05")),
     
-    _06("06"),
+    _06(String.valueOf("06")),
     
-    _07("07");
+    _07(String.valueOf("07"));
 
     private String value;
 
@@ -146,21 +144,21 @@ public class ThreeDSecureData {
    * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.  
    */
   public enum DirectoryResponseEnum {
-    A("A"),
+    A(String.valueOf("A")),
     
-    C("C"),
+    C(String.valueOf("C")),
     
-    D("D"),
+    D(String.valueOf("D")),
     
-    I("I"),
+    I(String.valueOf("I")),
     
-    N("N"),
+    N(String.valueOf("N")),
     
-    R("R"),
+    R(String.valueOf("R")),
     
-    U("U"),
+    U(String.valueOf("U")),
     
-    Y("Y");
+    Y(String.valueOf("Y"));
 
     private String value;
 
@@ -231,7 +229,6 @@ public class ThreeDSecureData {
    * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.  
    * @return authenticationResponse
    */
-  @ApiModelProperty(value = "In 3D Secure 2, this is the `transStatus` from the challenge result. If the transaction was frictionless, omit this parameter.  ")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthenticationResponseEnum getAuthenticationResponse() {
@@ -242,7 +239,7 @@ public class ThreeDSecureData {
    * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.  
    *
    * @param authenticationResponse
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationResponse(AuthenticationResponseEnum authenticationResponse) {
@@ -264,7 +261,6 @@ public class ThreeDSecureData {
    * The cardholder authentication value (base64 encoded, 20 bytes in a decoded form).
    * @return cavv
    */
-  @ApiModelProperty(value = "The cardholder authentication value (base64 encoded, 20 bytes in a decoded form).")
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getCavv() {
@@ -275,7 +271,7 @@ public class ThreeDSecureData {
    * The cardholder authentication value (base64 encoded, 20 bytes in a decoded form).
    *
    * @param cavv
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(byte[] cavv) {
@@ -297,7 +293,6 @@ public class ThreeDSecureData {
    * The CAVV algorithm used. Include this only for 3D Secure 1.
    * @return cavvAlgorithm
    */
-  @ApiModelProperty(value = "The CAVV algorithm used. Include this only for 3D Secure 1.")
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCavvAlgorithm() {
@@ -308,7 +303,7 @@ public class ThreeDSecureData {
    * The CAVV algorithm used. Include this only for 3D Secure 1.
    *
    * @param cavvAlgorithm
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
@@ -330,7 +325,6 @@ public class ThreeDSecureData {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    * @return challengeCancel
    */
-  @ApiModelProperty(value = "Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).")
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ChallengeCancelEnum getChallengeCancel() {
@@ -341,7 +335,7 @@ public class ThreeDSecureData {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    *
    * @param challengeCancel
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeCancel(ChallengeCancelEnum challengeCancel) {
@@ -363,7 +357,6 @@ public class ThreeDSecureData {
    * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.  
    * @return directoryResponse
    */
-  @ApiModelProperty(value = "In 3D Secure 2, this is the `transStatus` from the `ARes`.  ")
   @JsonProperty(JSON_PROPERTY_DIRECTORY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DirectoryResponseEnum getDirectoryResponse() {
@@ -374,7 +367,7 @@ public class ThreeDSecureData {
    * In 3D Secure 2, this is the &#x60;transStatus&#x60; from the &#x60;ARes&#x60;.  
    *
    * @param directoryResponse
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DIRECTORY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectoryResponse(DirectoryResponseEnum directoryResponse) {
@@ -396,7 +389,6 @@ public class ThreeDSecureData {
    * Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.
    * @return dsTransID
    */
-  @ApiModelProperty(value = "Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.")
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDsTransID() {
@@ -407,7 +399,7 @@ public class ThreeDSecureData {
    * Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.
    *
    * @param dsTransID
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDsTransID(String dsTransID) {
@@ -429,7 +421,6 @@ public class ThreeDSecureData {
    * The electronic commerce indicator.
    * @return eci
    */
-  @ApiModelProperty(value = "The electronic commerce indicator.")
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEci() {
@@ -440,7 +431,7 @@ public class ThreeDSecureData {
    * The electronic commerce indicator.
    *
    * @param eci
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEci(String eci) {
@@ -462,7 +453,6 @@ public class ThreeDSecureData {
    * Risk score calculated by Directory Server (DS). Required for Cartes Bancaires integrations.
    * @return riskScore
    */
-  @ApiModelProperty(value = "Risk score calculated by Directory Server (DS). Required for Cartes Bancaires integrations.")
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRiskScore() {
@@ -473,7 +463,7 @@ public class ThreeDSecureData {
    * Risk score calculated by Directory Server (DS). Required for Cartes Bancaires integrations.
    *
    * @param riskScore
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiskScore(String riskScore) {
@@ -495,7 +485,6 @@ public class ThreeDSecureData {
    * The version of the 3D Secure protocol.
    * @return threeDSVersion
    */
-  @ApiModelProperty(value = "The version of the 3D Secure protocol.")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getThreeDSVersion() {
@@ -506,7 +495,7 @@ public class ThreeDSecureData {
    * The version of the 3D Secure protocol.
    *
    * @param threeDSVersion
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(String threeDSVersion) {
@@ -528,7 +517,6 @@ public class ThreeDSecureData {
    * Network token authentication verification value (TAVV). The network token cryptogram.
    * @return tokenAuthenticationVerificationValue
    */
-  @ApiModelProperty(value = "Network token authentication verification value (TAVV). The network token cryptogram.")
   @JsonProperty(JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getTokenAuthenticationVerificationValue() {
@@ -539,7 +527,7 @@ public class ThreeDSecureData {
    * Network token authentication verification value (TAVV). The network token cryptogram.
    *
    * @param tokenAuthenticationVerificationValue
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN_AUTHENTICATION_VERIFICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenAuthenticationVerificationValue(byte[] tokenAuthenticationVerificationValue) {
@@ -561,7 +549,6 @@ public class ThreeDSecureData {
    * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    * @return transStatusReason
    */
-  @ApiModelProperty(value = "Provides information on why the `transStatus` field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).")
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransStatusReason() {
@@ -572,7 +559,7 @@ public class ThreeDSecureData {
    * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    *
    * @param transStatusReason
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransStatusReason(String transStatusReason) {
@@ -594,7 +581,6 @@ public class ThreeDSecureData {
    * Supported for 3D Secure 1. The transaction identifier (Base64-encoded, 20 bytes in a decoded form).
    * @return xid
    */
-  @ApiModelProperty(value = "Supported for 3D Secure 1. The transaction identifier (Base64-encoded, 20 bytes in a decoded form).")
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getXid() {
@@ -605,7 +591,7 @@ public class ThreeDSecureData {
    * Supported for 3D Secure 1. The transaction identifier (Base64-encoded, 20 bytes in a decoded form).
    *
    * @param xid
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setXid(byte[] xid) {

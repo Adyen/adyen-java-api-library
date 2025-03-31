@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class DeliveryMethod {
    * The type of the delivery method.
    */
   public enum TypeEnum {
-    SHIPPING("Shipping");
+    SHIPPING(String.valueOf("Shipping"));
 
     private String value;
 
@@ -103,10 +101,9 @@ public class DeliveryMethod {
   }
 
   /**
-   * amount
+   * Get amount
    * @return amount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -117,7 +114,7 @@ public class DeliveryMethod {
    * amount
    *
    * @param amount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -139,7 +136,6 @@ public class DeliveryMethod {
    * The name of the delivery method as shown to the shopper.
    * @return description
    */
-  @ApiModelProperty(value = "The name of the delivery method as shown to the shopper.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -150,7 +146,7 @@ public class DeliveryMethod {
    * The name of the delivery method as shown to the shopper.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -172,7 +168,6 @@ public class DeliveryMethod {
    * The reference of the delivery method.
    * @return reference
    */
-  @ApiModelProperty(value = "The reference of the delivery method.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -183,7 +178,7 @@ public class DeliveryMethod {
    * The reference of the delivery method.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -205,7 +200,6 @@ public class DeliveryMethod {
    * If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.
    * @return selected
    */
-  @ApiModelProperty(value = "If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.")
   @JsonProperty(JSON_PROPERTY_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSelected() {
@@ -216,7 +210,7 @@ public class DeliveryMethod {
    * If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.
    *
    * @param selected
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelected(Boolean selected) {
@@ -238,7 +232,6 @@ public class DeliveryMethod {
    * The type of the delivery method.
    * @return type
    */
-  @ApiModelProperty(value = "The type of the delivery method.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -249,7 +242,7 @@ public class DeliveryMethod {
    * The type of the delivery method.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

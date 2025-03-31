@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,11 +40,11 @@ public class DeviceRenderOptions {
    * Supported SDK interface types. Allowed values: * native * html * both
    */
   public enum SdkInterfaceEnum {
-    NATIVE("native"),
+    NATIVE(String.valueOf("native")),
     
-    HTML("html"),
+    HTML(String.valueOf("html")),
     
-    BOTH("both");
+    BOTH(String.valueOf("both"));
 
     private String value;
 
@@ -76,21 +74,21 @@ public class DeviceRenderOptions {
   }
 
   public static final String JSON_PROPERTY_SDK_INTERFACE = "sdkInterface";
-  private SdkInterfaceEnum sdkInterface;
+  private SdkInterfaceEnum sdkInterface = SdkInterfaceEnum.BOTH;
 
   /**
    * Gets or Sets sdkUiType
    */
   public enum SdkUiTypeEnum {
-    MULTISELECT("multiSelect"),
+    MULTISELECT(String.valueOf("multiSelect")),
     
-    OTHERHTML("otherHtml"),
+    OTHERHTML(String.valueOf("otherHtml")),
     
-    OUTOFBAND("outOfBand"),
+    OUTOFBAND(String.valueOf("outOfBand")),
     
-    SINGLESELECT("singleSelect"),
+    SINGLESELECT(String.valueOf("singleSelect")),
     
-    TEXT("text");
+    TEXT(String.valueOf("text"));
 
     private String value;
 
@@ -120,7 +118,7 @@ public class DeviceRenderOptions {
   }
 
   public static final String JSON_PROPERTY_SDK_UI_TYPE = "sdkUiType";
-  private List<SdkUiTypeEnum> sdkUiType = null;
+  private List<SdkUiTypeEnum> sdkUiType = new ArrayList<>();
 
   public DeviceRenderOptions() { 
   }
@@ -140,7 +138,6 @@ public class DeviceRenderOptions {
    * Supported SDK interface types. Allowed values: * native * html * both
    * @return sdkInterface
    */
-  @ApiModelProperty(value = "Supported SDK interface types. Allowed values: * native * html * both")
   @JsonProperty(JSON_PROPERTY_SDK_INTERFACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SdkInterfaceEnum getSdkInterface() {
@@ -151,7 +148,7 @@ public class DeviceRenderOptions {
    * Supported SDK interface types. Allowed values: * native * html * both
    *
    * @param sdkInterface
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SDK_INTERFACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkInterface(SdkInterfaceEnum sdkInterface) {
@@ -181,7 +178,6 @@ public class DeviceRenderOptions {
    * UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
    * @return sdkUiType
    */
-  @ApiModelProperty(value = "UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect")
   @JsonProperty(JSON_PROPERTY_SDK_UI_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SdkUiTypeEnum> getSdkUiType() {
@@ -192,7 +188,7 @@ public class DeviceRenderOptions {
    * UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
    *
    * @param sdkUiType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SDK_UI_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkUiType(List<SdkUiTypeEnum> sdkUiType) {

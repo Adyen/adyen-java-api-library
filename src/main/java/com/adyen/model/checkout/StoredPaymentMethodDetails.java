@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,39 +50,39 @@ public class StoredPaymentMethodDetails {
    * The payment method type.
    */
   public enum TypeEnum {
-    BCMC_MOBILE("bcmc_mobile"),
+    BCMC_MOBILE(String.valueOf("bcmc_mobile")),
     
-    BCMC_MOBILE_QR("bcmc_mobile_QR"),
+    BCMC_MOBILE_QR(String.valueOf("bcmc_mobile_QR")),
     
-    BCMC_MOBILE_APP("bcmc_mobile_app"),
+    BCMC_MOBILE_APP(String.valueOf("bcmc_mobile_app")),
     
-    MOMO_WALLET("momo_wallet"),
+    MOMO_WALLET(String.valueOf("momo_wallet")),
     
-    MOMO_WALLET_APP("momo_wallet_app"),
+    MOMO_WALLET_APP(String.valueOf("momo_wallet_app")),
     
-    PAYMAYA_WALLET("paymaya_wallet"),
+    PAYMAYA_WALLET(String.valueOf("paymaya_wallet")),
     
-    GRABPAY_SG("grabpay_SG"),
+    GRABPAY_SG(String.valueOf("grabpay_SG")),
     
-    GRABPAY_MY("grabpay_MY"),
+    GRABPAY_MY(String.valueOf("grabpay_MY")),
     
-    GRABPAY_TH("grabpay_TH"),
+    GRABPAY_TH(String.valueOf("grabpay_TH")),
     
-    GRABPAY_ID("grabpay_ID"),
+    GRABPAY_ID(String.valueOf("grabpay_ID")),
     
-    GRABPAY_VN("grabpay_VN"),
+    GRABPAY_VN(String.valueOf("grabpay_VN")),
     
-    GRABPAY_PH("grabpay_PH"),
+    GRABPAY_PH(String.valueOf("grabpay_PH")),
     
-    OXXO("oxxo"),
+    OXXO(String.valueOf("oxxo")),
     
-    GCASH("gcash"),
+    GCASH(String.valueOf("gcash")),
     
-    DANA("dana"),
+    DANA(String.valueOf("dana")),
     
-    KAKAOPAY("kakaopay"),
+    KAKAOPAY(String.valueOf("kakaopay")),
     
-    TRUEMONEY("truemoney");
+    TRUEMONEY(String.valueOf("truemoney"));
 
     private String value;
 
@@ -134,7 +132,6 @@ public class StoredPaymentMethodDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
-  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -145,7 +142,7 @@ public class StoredPaymentMethodDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -161,7 +158,7 @@ public class StoredPaymentMethodDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -170,12 +167,9 @@ public class StoredPaymentMethodDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   *
-   * @deprecated since Adyen Checkout API v49
-   * Use &#x60;storedPaymentMethodId&#x60; instead.
+   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
-  @Deprecated
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -189,8 +183,8 @@ public class StoredPaymentMethodDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -212,7 +206,6 @@ public class StoredPaymentMethodDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -223,7 +216,7 @@ public class StoredPaymentMethodDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -245,7 +238,6 @@ public class StoredPaymentMethodDetails {
    * The payment method type.
    * @return type
    */
-  @ApiModelProperty(value = "The payment method type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -256,7 +248,7 @@ public class StoredPaymentMethodDetails {
    * The payment method type.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

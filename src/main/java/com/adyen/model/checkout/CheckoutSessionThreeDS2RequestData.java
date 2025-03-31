@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Phone;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -49,17 +47,17 @@ public class CheckoutSessionThreeDS2RequestData {
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    */
   public enum ThreeDSRequestorChallengeIndEnum {
-    _01("01"),
+    _01(String.valueOf("01")),
     
-    _02("02"),
+    _02(String.valueOf("02")),
     
-    _03("03"),
+    _03(String.valueOf("03")),
     
-    _04("04"),
+    _04(String.valueOf("04")),
     
-    _05("05"),
+    _05(String.valueOf("05")),
     
-    _06("06");
+    _06(String.valueOf("06"));
 
     private String value;
 
@@ -109,10 +107,9 @@ public class CheckoutSessionThreeDS2RequestData {
   }
 
   /**
-   * homePhone
+   * Get homePhone
    * @return homePhone
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Phone getHomePhone() {
@@ -123,7 +120,7 @@ public class CheckoutSessionThreeDS2RequestData {
    * homePhone
    *
    * @param homePhone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomePhone(Phone homePhone) {
@@ -142,10 +139,9 @@ public class CheckoutSessionThreeDS2RequestData {
   }
 
   /**
-   * mobilePhone
+   * Get mobilePhone
    * @return mobilePhone
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Phone getMobilePhone() {
@@ -156,7 +152,7 @@ public class CheckoutSessionThreeDS2RequestData {
    * mobilePhone
    *
    * @param mobilePhone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobilePhone(Phone mobilePhone) {
@@ -178,7 +174,6 @@ public class CheckoutSessionThreeDS2RequestData {
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    * @return threeDSRequestorChallengeInd
    */
-  @ApiModelProperty(value = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ThreeDSRequestorChallengeIndEnum getThreeDSRequestorChallengeInd() {
@@ -189,7 +184,7 @@ public class CheckoutSessionThreeDS2RequestData {
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    *
    * @param threeDSRequestorChallengeInd
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
@@ -208,10 +203,9 @@ public class CheckoutSessionThreeDS2RequestData {
   }
 
   /**
-   * workPhone
+   * Get workPhone
    * @return workPhone
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Phone getWorkPhone() {
@@ -222,7 +216,7 @@ public class CheckoutSessionThreeDS2RequestData {
    * workPhone
    *
    * @param workPhone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkPhone(Phone workPhone) {

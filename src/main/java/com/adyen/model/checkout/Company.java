@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -76,7 +74,6 @@ public class Company {
    * The company website&#39;s home page.
    * @return homepage
    */
-  @ApiModelProperty(value = "The company website's home page.")
   @JsonProperty(JSON_PROPERTY_HOMEPAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHomepage() {
@@ -87,7 +84,7 @@ public class Company {
    * The company website&#39;s home page.
    *
    * @param homepage
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HOMEPAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHomepage(String homepage) {
@@ -109,7 +106,6 @@ public class Company {
    * The company name.
    * @return name
    */
-  @ApiModelProperty(value = "The company name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -120,7 +116,7 @@ public class Company {
    * The company name.
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -142,7 +138,6 @@ public class Company {
    * Registration number of the company.
    * @return registrationNumber
    */
-  @ApiModelProperty(value = "Registration number of the company.")
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegistrationNumber() {
@@ -153,7 +148,7 @@ public class Company {
    * Registration number of the company.
    *
    * @param registrationNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
@@ -175,7 +170,6 @@ public class Company {
    * Registry location of the company.
    * @return registryLocation
    */
-  @ApiModelProperty(value = "Registry location of the company.")
   @JsonProperty(JSON_PROPERTY_REGISTRY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegistryLocation() {
@@ -186,7 +180,7 @@ public class Company {
    * Registry location of the company.
    *
    * @param registryLocation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REGISTRY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistryLocation(String registryLocation) {
@@ -208,7 +202,6 @@ public class Company {
    * Tax ID of the company.
    * @return taxId
    */
-  @ApiModelProperty(value = "Tax ID of the company.")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTaxId() {
@@ -219,7 +212,7 @@ public class Company {
    * Tax ID of the company.
    *
    * @param taxId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
@@ -241,7 +234,6 @@ public class Company {
    * The company type.
    * @return type
    */
-  @ApiModelProperty(value = "The company type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -252,7 +244,7 @@ public class Company {
    * The company type.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

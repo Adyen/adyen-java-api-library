@@ -13,7 +13,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -85,7 +83,7 @@ public class CheckoutBankTransferAction {
    * The type of the action.
    */
   public enum TypeEnum {
-    BANKTRANSFER("bankTransfer");
+    BANKTRANSFER(String.valueOf("bankTransfer"));
 
     private String value;
 
@@ -138,7 +136,6 @@ public class CheckoutBankTransferAction {
    * The account number of the bank transfer.
    * @return accountNumber
    */
-  @ApiModelProperty(value = "The account number of the bank transfer.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -149,7 +146,7 @@ public class CheckoutBankTransferAction {
    * The account number of the bank transfer.
    *
    * @param accountNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -171,7 +168,6 @@ public class CheckoutBankTransferAction {
    * The name of the account holder.
    * @return beneficiary
    */
-  @ApiModelProperty(value = "The name of the account holder.")
   @JsonProperty(JSON_PROPERTY_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBeneficiary() {
@@ -182,7 +178,7 @@ public class CheckoutBankTransferAction {
    * The name of the account holder.
    *
    * @param beneficiary
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBeneficiary(String beneficiary) {
@@ -204,7 +200,6 @@ public class CheckoutBankTransferAction {
    * The BIC of the IBAN.
    * @return bic
    */
-  @ApiModelProperty(value = "The BIC of the IBAN.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBic() {
@@ -215,7 +210,7 @@ public class CheckoutBankTransferAction {
    * The BIC of the IBAN.
    *
    * @param bic
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
@@ -237,7 +232,6 @@ public class CheckoutBankTransferAction {
    * The url to download payment details with.
    * @return downloadUrl
    */
-  @ApiModelProperty(value = "The url to download payment details with.")
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDownloadUrl() {
@@ -248,7 +242,7 @@ public class CheckoutBankTransferAction {
    * The url to download payment details with.
    *
    * @param downloadUrl
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDownloadUrl(String downloadUrl) {
@@ -270,7 +264,6 @@ public class CheckoutBankTransferAction {
    * The IBAN of the bank transfer.
    * @return iban
    */
-  @ApiModelProperty(value = "The IBAN of the bank transfer.")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIban() {
@@ -281,7 +274,7 @@ public class CheckoutBankTransferAction {
    * The IBAN of the bank transfer.
    *
    * @param iban
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -303,7 +296,6 @@ public class CheckoutBankTransferAction {
    * Specifies the payment method.
    * @return paymentMethodType
    */
-  @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethodType() {
@@ -314,7 +306,7 @@ public class CheckoutBankTransferAction {
    * Specifies the payment method.
    *
    * @param paymentMethodType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -336,7 +328,6 @@ public class CheckoutBankTransferAction {
    * The transfer reference.
    * @return reference
    */
-  @ApiModelProperty(value = "The transfer reference.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -347,7 +338,7 @@ public class CheckoutBankTransferAction {
    * The transfer reference.
    *
    * @param reference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -369,7 +360,6 @@ public class CheckoutBankTransferAction {
    * The routing number of the bank transfer.
    * @return routingNumber
    */
-  @ApiModelProperty(value = "The routing number of the bank transfer.")
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRoutingNumber() {
@@ -380,7 +370,7 @@ public class CheckoutBankTransferAction {
    * The routing number of the bank transfer.
    *
    * @param routingNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
@@ -402,7 +392,6 @@ public class CheckoutBankTransferAction {
    * The e-mail of the shopper, included if an e-mail was sent to the shopper.
    * @return shopperEmail
    */
-  @ApiModelProperty(value = "The e-mail of the shopper, included if an e-mail was sent to the shopper.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -413,7 +402,7 @@ public class CheckoutBankTransferAction {
    * The e-mail of the shopper, included if an e-mail was sent to the shopper.
    *
    * @param shopperEmail
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -435,7 +424,6 @@ public class CheckoutBankTransferAction {
    * The sort code of the bank transfer.
    * @return sortCode
    */
-  @ApiModelProperty(value = "The sort code of the bank transfer.")
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSortCode() {
@@ -446,7 +434,7 @@ public class CheckoutBankTransferAction {
    * The sort code of the bank transfer.
    *
    * @param sortCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSortCode(String sortCode) {
@@ -465,10 +453,9 @@ public class CheckoutBankTransferAction {
   }
 
   /**
-   * totalAmount
+   * Get totalAmount
    * @return totalAmount
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getTotalAmount() {
@@ -479,7 +466,7 @@ public class CheckoutBankTransferAction {
    * totalAmount
    *
    * @param totalAmount
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalAmount(Amount totalAmount) {
@@ -501,7 +488,6 @@ public class CheckoutBankTransferAction {
    * The type of the action.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The type of the action.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -512,7 +498,7 @@ public class CheckoutBankTransferAction {
    * The type of the action.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -534,7 +520,6 @@ public class CheckoutBankTransferAction {
    * Specifies the URL to redirect to.
    * @return url
    */
-  @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -545,7 +530,7 @@ public class CheckoutBankTransferAction {
    * Specifies the URL to redirect to.
    *
    * @param url
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
