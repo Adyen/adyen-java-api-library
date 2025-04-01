@@ -255,11 +255,11 @@ public class LegalEntityManagementTest extends BaseTest {
         HostedOnboardingApi service = new HostedOnboardingApi(client);
         OnboardingLinkInfo request = OnboardingLinkInfo.fromJson("{\n" +
                 "    \"locale\": \"cs-CZ\",\n" +
-                "    \"redirectUrl\": \"https://your.redirect-url.com\",\n" +
+                "    \"redirectUrl\": \"https://example.com\",\n" +
                 "    \"themeId\": \"123456789\"\n" +
                 "}");
         OnboardingLink response = service.getLinkToAdyenhostedOnboardingPage("",request);
-        assertEquals("https://your.redirect-url.com", response.getUrl());
+        assertEquals("https://example.com", response.getUrl());
     }
 
     @Test
