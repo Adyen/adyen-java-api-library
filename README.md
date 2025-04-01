@@ -69,7 +69,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>36.0.0</version>
+  <version>36.0.1</version>
 </dependency>
 ```
 
@@ -553,7 +553,7 @@ Have a look at our [contributing guidelines](CONTRIBUTING.md) to find out how to
 ## Support
 If you have a feature request, or spotted a bug or a technical problem, [create an issue here](https://github.com/Adyen/adyen-java-api-library/issues/new/choose).
  
-For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/requests/new?ticket_form_id=360000705420).
+For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/requests/new?ticket_form_id=36.0.1705420).
  
  
 ## Licence
