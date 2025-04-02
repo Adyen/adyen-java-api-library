@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.TermsOfServiceAcceptanceInfo;
@@ -21,8 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -37,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GetTermsOfServiceAcceptanceInfosResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<TermsOfServiceAcceptanceInfo> data = new ArrayList<>();
+  private List<TermsOfServiceAcceptanceInfo> data = null;
 
   public GetTermsOfServiceAcceptanceInfosResponse() { 
   }
@@ -65,6 +67,7 @@ public class GetTermsOfServiceAcceptanceInfosResponse {
    * The Terms of Service acceptance information.
    * @return data
    */
+  @ApiModelProperty(value = "The Terms of Service acceptance information.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TermsOfServiceAcceptanceInfo> getData() {
@@ -75,7 +78,7 @@ public class GetTermsOfServiceAcceptanceInfosResponse {
    * The Terms of Service acceptance information.
    *
    * @param data
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TermsOfServiceAcceptanceInfo> data) {

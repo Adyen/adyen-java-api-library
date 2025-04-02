@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -46,9 +48,9 @@ public class ReturnTransferResponse {
    * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    */
   public enum StatusEnum {
-    AUTHORISED(String.valueOf("Authorised")),
+    AUTHORISED("Authorised"),
     
-    DECLINED(String.valueOf("Declined"));
+    DECLINED("Declined");
 
     private String value;
 
@@ -101,6 +103,7 @@ public class ReturnTransferResponse {
    * The unique identifier of the return.
    * @return id
    */
+  @ApiModelProperty(value = "The unique identifier of the return.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -111,7 +114,7 @@ public class ReturnTransferResponse {
    * The unique identifier of the return.
    *
    * @param id
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -133,6 +136,7 @@ public class ReturnTransferResponse {
    * Your internal reference for the return.
    * @return reference
    */
+  @ApiModelProperty(value = "Your internal reference for the return.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -143,7 +147,7 @@ public class ReturnTransferResponse {
    * Your internal reference for the return.
    *
    * @param reference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -165,6 +169,7 @@ public class ReturnTransferResponse {
    * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    * @return status
    */
+  @ApiModelProperty(value = "The resulting status of the return.  Possible values: **Authorised**, **Declined**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -175,7 +180,7 @@ public class ReturnTransferResponse {
    * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    *
    * @param status
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -197,6 +202,7 @@ public class ReturnTransferResponse {
    * The unique identifier of the original transfer.
    * @return transferId
    */
+  @ApiModelProperty(value = "The unique identifier of the original transfer.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransferId() {
@@ -207,7 +213,7 @@ public class ReturnTransferResponse {
    * The unique identifier of the original transfer.
    *
    * @param transferId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferId(String transferId) {

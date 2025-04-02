@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,7 +56,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * **delegatedAuthentication**
    */
   public enum TypeEnum {
-    DELEGATEDAUTHENTICATION(String.valueOf("delegatedAuthentication"));
+    DELEGATEDAUTHENTICATION("delegatedAuthentication");
 
     private String value;
 
@@ -107,6 +109,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * A token needed to authorise a payment.
    * @return authorisationToken
    */
+  @ApiModelProperty(value = "A token needed to authorise a payment.")
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthorisationToken() {
@@ -117,7 +120,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * A token needed to authorise a payment.
    *
    * @param authorisationToken
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationToken(String authorisationToken) {
@@ -139,6 +142,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * Encoded payment data.
    * @return paymentData
    */
+  @ApiModelProperty(value = "Encoded payment data.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentData() {
@@ -149,7 +153,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * Encoded payment data.
    *
    * @param paymentData
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -171,6 +175,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * Specifies the payment method.
    * @return paymentMethodType
    */
+  @ApiModelProperty(value = "Specifies the payment method.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentMethodType() {
@@ -181,7 +186,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * Specifies the payment method.
    *
    * @param paymentMethodType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethodType(String paymentMethodType) {
@@ -203,6 +208,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * A token to pass to the delegatedAuthentication component.
    * @return token
    */
+  @ApiModelProperty(value = "A token to pass to the delegatedAuthentication component.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToken() {
@@ -213,7 +219,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * A token to pass to the delegatedAuthentication component.
    *
    * @param token
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {
@@ -235,6 +241,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * **delegatedAuthentication**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**delegatedAuthentication**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -245,7 +252,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * **delegatedAuthentication**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -267,6 +274,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * Specifies the URL to redirect to.
    * @return url
    */
+  @ApiModelProperty(value = "Specifies the URL to redirect to.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
@@ -277,7 +285,7 @@ public class CheckoutDelegatedAuthenticationAction {
    * Specifies the URL to redirect to.
    *
    * @param url
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {

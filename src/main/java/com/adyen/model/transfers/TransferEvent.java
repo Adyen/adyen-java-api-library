@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
@@ -27,9 +28,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -64,7 +66,7 @@ public class TransferEvent {
   private Amount amount;
 
   public static final String JSON_PROPERTY_AMOUNT_ADJUSTMENTS = "amountAdjustments";
-  private List<AmountAdjustment> amountAdjustments = new ArrayList<>();
+  private List<AmountAdjustment> amountAdjustments = null;
 
   public static final String JSON_PROPERTY_ARN = "arn";
   private String arn;
@@ -76,7 +78,7 @@ public class TransferEvent {
   private OffsetDateTime estimatedArrivalTime;
 
   public static final String JSON_PROPERTY_EVENTS_DATA = "eventsData";
-  private List<TransferEventEventsDataInner> eventsData = new ArrayList<>();
+  private List<TransferEventEventsDataInner> eventsData = null;
 
   public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
   private ExternalReason externalReason;
@@ -88,7 +90,7 @@ public class TransferEvent {
   private Modification modification;
 
   public static final String JSON_PROPERTY_MUTATIONS = "mutations";
-  private List<BalanceMutation> mutations = new ArrayList<>();
+  private List<BalanceMutation> mutations = null;
 
   public static final String JSON_PROPERTY_ORIGINAL_AMOUNT = "originalAmount";
   private Amount originalAmount;
@@ -97,53 +99,53 @@ public class TransferEvent {
    * The reason for the transfer status.
    */
   public enum ReasonEnum {
-    ACCOUNTHIERARCHYNOTACTIVE(String.valueOf("accountHierarchyNotActive")),
+    ACCOUNTHIERARCHYNOTACTIVE("accountHierarchyNotActive"),
     
-    AMOUNTLIMITEXCEEDED(String.valueOf("amountLimitExceeded")),
+    AMOUNTLIMITEXCEEDED("amountLimitExceeded"),
     
-    APPROVED(String.valueOf("approved")),
+    APPROVED("approved"),
     
-    BALANCEACCOUNTTEMPORARILYBLOCKEDBYTRANSACTIONRULE(String.valueOf("balanceAccountTemporarilyBlockedByTransactionRule")),
+    BALANCEACCOUNTTEMPORARILYBLOCKEDBYTRANSACTIONRULE("balanceAccountTemporarilyBlockedByTransactionRule"),
     
-    COUNTERPARTYACCOUNTBLOCKED(String.valueOf("counterpartyAccountBlocked")),
+    COUNTERPARTYACCOUNTBLOCKED("counterpartyAccountBlocked"),
     
-    COUNTERPARTYACCOUNTCLOSED(String.valueOf("counterpartyAccountClosed")),
+    COUNTERPARTYACCOUNTCLOSED("counterpartyAccountClosed"),
     
-    COUNTERPARTYACCOUNTNOTFOUND(String.valueOf("counterpartyAccountNotFound")),
+    COUNTERPARTYACCOUNTNOTFOUND("counterpartyAccountNotFound"),
     
-    COUNTERPARTYADDRESSREQUIRED(String.valueOf("counterpartyAddressRequired")),
+    COUNTERPARTYADDRESSREQUIRED("counterpartyAddressRequired"),
     
-    COUNTERPARTYBANKTIMEDOUT(String.valueOf("counterpartyBankTimedOut")),
+    COUNTERPARTYBANKTIMEDOUT("counterpartyBankTimedOut"),
     
-    COUNTERPARTYBANKUNAVAILABLE(String.valueOf("counterpartyBankUnavailable")),
+    COUNTERPARTYBANKUNAVAILABLE("counterpartyBankUnavailable"),
     
-    DECLINED(String.valueOf("declined")),
+    DECLINED("declined"),
     
-    DECLINEDBYTRANSACTIONRULE(String.valueOf("declinedByTransactionRule")),
+    DECLINEDBYTRANSACTIONRULE("declinedByTransactionRule"),
     
-    DIRECTDEBITNOTSUPPORTED(String.valueOf("directDebitNotSupported")),
+    DIRECTDEBITNOTSUPPORTED("directDebitNotSupported"),
     
-    ERROR(String.valueOf("error")),
+    ERROR("error"),
     
-    NOTENOUGHBALANCE(String.valueOf("notEnoughBalance")),
+    NOTENOUGHBALANCE("notEnoughBalance"),
     
-    PENDING(String.valueOf("pending")),
+    PENDING("pending"),
     
-    PENDINGAPPROVAL(String.valueOf("pendingApproval")),
+    PENDINGAPPROVAL("pendingApproval"),
     
-    PENDINGEXECUTION(String.valueOf("pendingExecution")),
+    PENDINGEXECUTION("pendingExecution"),
     
-    REFUSEDBYCOUNTERPARTYBANK(String.valueOf("refusedByCounterpartyBank")),
+    REFUSEDBYCOUNTERPARTYBANK("refusedByCounterpartyBank"),
     
-    REFUSEDBYCUSTOMER(String.valueOf("refusedByCustomer")),
+    REFUSEDBYCUSTOMER("refusedByCustomer"),
     
-    ROUTENOTFOUND(String.valueOf("routeNotFound")),
+    ROUTENOTFOUND("routeNotFound"),
     
-    SCAFAILED(String.valueOf("scaFailed")),
+    SCAFAILED("scaFailed"),
     
-    TRANSFERINSTRUMENTDOESNOTEXIST(String.valueOf("transferInstrumentDoesNotExist")),
+    TRANSFERINSTRUMENTDOESNOTEXIST("transferInstrumentDoesNotExist"),
     
-    UNKNOWN(String.valueOf("unknown"));
+    UNKNOWN("unknown");
 
     private String value;
 
@@ -179,139 +181,139 @@ public class TransferEvent {
    * The status of the transfer event.
    */
   public enum StatusEnum {
-    APPROVALPENDING(String.valueOf("approvalPending")),
+    APPROVALPENDING("approvalPending"),
     
-    ATMWITHDRAWAL(String.valueOf("atmWithdrawal")),
+    ATMWITHDRAWAL("atmWithdrawal"),
     
-    ATMWITHDRAWALREVERSALPENDING(String.valueOf("atmWithdrawalReversalPending")),
+    ATMWITHDRAWALREVERSALPENDING("atmWithdrawalReversalPending"),
     
-    ATMWITHDRAWALREVERSED(String.valueOf("atmWithdrawalReversed")),
+    ATMWITHDRAWALREVERSED("atmWithdrawalReversed"),
     
-    AUTHADJUSTMENTAUTHORISED(String.valueOf("authAdjustmentAuthorised")),
+    AUTHADJUSTMENTAUTHORISED("authAdjustmentAuthorised"),
     
-    AUTHADJUSTMENTERROR(String.valueOf("authAdjustmentError")),
+    AUTHADJUSTMENTERROR("authAdjustmentError"),
     
-    AUTHADJUSTMENTREFUSED(String.valueOf("authAdjustmentRefused")),
+    AUTHADJUSTMENTREFUSED("authAdjustmentRefused"),
     
-    AUTHORISED(String.valueOf("authorised")),
+    AUTHORISED("authorised"),
     
-    BANKTRANSFER(String.valueOf("bankTransfer")),
+    BANKTRANSFER("bankTransfer"),
     
-    BANKTRANSFERPENDING(String.valueOf("bankTransferPending")),
+    BANKTRANSFERPENDING("bankTransferPending"),
     
-    BOOKED(String.valueOf("booked")),
+    BOOKED("booked"),
     
-    BOOKINGPENDING(String.valueOf("bookingPending")),
+    BOOKINGPENDING("bookingPending"),
     
-    CANCELLED(String.valueOf("cancelled")),
+    CANCELLED("cancelled"),
     
-    CAPTUREPENDING(String.valueOf("capturePending")),
+    CAPTUREPENDING("capturePending"),
     
-    CAPTUREREVERSALPENDING(String.valueOf("captureReversalPending")),
+    CAPTUREREVERSALPENDING("captureReversalPending"),
     
-    CAPTUREREVERSED(String.valueOf("captureReversed")),
+    CAPTUREREVERSED("captureReversed"),
     
-    CAPTURED(String.valueOf("captured")),
+    CAPTURED("captured"),
     
-    CAPTUREDEXTERNALLY(String.valueOf("capturedExternally")),
+    CAPTUREDEXTERNALLY("capturedExternally"),
     
-    CHARGEBACK(String.valueOf("chargeback")),
+    CHARGEBACK("chargeback"),
     
-    CHARGEBACKEXTERNALLY(String.valueOf("chargebackExternally")),
+    CHARGEBACKEXTERNALLY("chargebackExternally"),
     
-    CHARGEBACKPENDING(String.valueOf("chargebackPending")),
+    CHARGEBACKPENDING("chargebackPending"),
     
-    CHARGEBACKREVERSALPENDING(String.valueOf("chargebackReversalPending")),
+    CHARGEBACKREVERSALPENDING("chargebackReversalPending"),
     
-    CHARGEBACKREVERSED(String.valueOf("chargebackReversed")),
+    CHARGEBACKREVERSED("chargebackReversed"),
     
-    CREDITED(String.valueOf("credited")),
+    CREDITED("credited"),
     
-    DEPOSITCORRECTION(String.valueOf("depositCorrection")),
+    DEPOSITCORRECTION("depositCorrection"),
     
-    DEPOSITCORRECTIONPENDING(String.valueOf("depositCorrectionPending")),
+    DEPOSITCORRECTIONPENDING("depositCorrectionPending"),
     
-    DISPUTE(String.valueOf("dispute")),
+    DISPUTE("dispute"),
     
-    DISPUTECLOSED(String.valueOf("disputeClosed")),
+    DISPUTECLOSED("disputeClosed"),
     
-    DISPUTEEXPIRED(String.valueOf("disputeExpired")),
+    DISPUTEEXPIRED("disputeExpired"),
     
-    DISPUTENEEDSREVIEW(String.valueOf("disputeNeedsReview")),
+    DISPUTENEEDSREVIEW("disputeNeedsReview"),
     
-    ERROR(String.valueOf("error")),
+    ERROR("error"),
     
-    EXPIRED(String.valueOf("expired")),
+    EXPIRED("expired"),
     
-    FAILED(String.valueOf("failed")),
+    FAILED("failed"),
     
-    FEE(String.valueOf("fee")),
+    FEE("fee"),
     
-    FEEPENDING(String.valueOf("feePending")),
+    FEEPENDING("feePending"),
     
-    INTERNALTRANSFER(String.valueOf("internalTransfer")),
+    INTERNALTRANSFER("internalTransfer"),
     
-    INTERNALTRANSFERPENDING(String.valueOf("internalTransferPending")),
+    INTERNALTRANSFERPENDING("internalTransferPending"),
     
-    INVOICEDEDUCTION(String.valueOf("invoiceDeduction")),
+    INVOICEDEDUCTION("invoiceDeduction"),
     
-    INVOICEDEDUCTIONPENDING(String.valueOf("invoiceDeductionPending")),
+    INVOICEDEDUCTIONPENDING("invoiceDeductionPending"),
     
-    MANUALCORRECTIONPENDING(String.valueOf("manualCorrectionPending")),
+    MANUALCORRECTIONPENDING("manualCorrectionPending"),
     
-    MANUALLYCORRECTED(String.valueOf("manuallyCorrected")),
+    MANUALLYCORRECTED("manuallyCorrected"),
     
-    MATCHEDSTATEMENT(String.valueOf("matchedStatement")),
+    MATCHEDSTATEMENT("matchedStatement"),
     
-    MATCHEDSTATEMENTPENDING(String.valueOf("matchedStatementPending")),
+    MATCHEDSTATEMENTPENDING("matchedStatementPending"),
     
-    MERCHANTPAYIN(String.valueOf("merchantPayin")),
+    MERCHANTPAYIN("merchantPayin"),
     
-    MERCHANTPAYINPENDING(String.valueOf("merchantPayinPending")),
+    MERCHANTPAYINPENDING("merchantPayinPending"),
     
-    MERCHANTPAYINREVERSED(String.valueOf("merchantPayinReversed")),
+    MERCHANTPAYINREVERSED("merchantPayinReversed"),
     
-    MERCHANTPAYINREVERSEDPENDING(String.valueOf("merchantPayinReversedPending")),
+    MERCHANTPAYINREVERSEDPENDING("merchantPayinReversedPending"),
     
-    MISCCOST(String.valueOf("miscCost")),
+    MISCCOST("miscCost"),
     
-    MISCCOSTPENDING(String.valueOf("miscCostPending")),
+    MISCCOSTPENDING("miscCostPending"),
     
-    PAYMENTCOST(String.valueOf("paymentCost")),
+    PAYMENTCOST("paymentCost"),
     
-    PAYMENTCOSTPENDING(String.valueOf("paymentCostPending")),
+    PAYMENTCOSTPENDING("paymentCostPending"),
     
-    PENDINGAPPROVAL(String.valueOf("pendingApproval")),
+    PENDINGAPPROVAL("pendingApproval"),
     
-    PENDINGEXECUTION(String.valueOf("pendingExecution")),
+    PENDINGEXECUTION("pendingExecution"),
     
-    RECEIVED(String.valueOf("received")),
+    RECEIVED("received"),
     
-    REFUNDPENDING(String.valueOf("refundPending")),
+    REFUNDPENDING("refundPending"),
     
-    REFUNDREVERSALPENDING(String.valueOf("refundReversalPending")),
+    REFUNDREVERSALPENDING("refundReversalPending"),
     
-    REFUNDREVERSED(String.valueOf("refundReversed")),
+    REFUNDREVERSED("refundReversed"),
     
-    REFUNDED(String.valueOf("refunded")),
+    REFUNDED("refunded"),
     
-    REFUNDEDEXTERNALLY(String.valueOf("refundedExternally")),
+    REFUNDEDEXTERNALLY("refundedExternally"),
     
-    REFUSED(String.valueOf("refused")),
+    REFUSED("refused"),
     
-    REJECTED(String.valueOf("rejected")),
+    REJECTED("rejected"),
     
-    RESERVEADJUSTMENT(String.valueOf("reserveAdjustment")),
+    RESERVEADJUSTMENT("reserveAdjustment"),
     
-    RESERVEADJUSTMENTPENDING(String.valueOf("reserveAdjustmentPending")),
+    RESERVEADJUSTMENTPENDING("reserveAdjustmentPending"),
     
-    RETURNED(String.valueOf("returned")),
+    RETURNED("returned"),
     
-    SECONDCHARGEBACK(String.valueOf("secondChargeback")),
+    SECONDCHARGEBACK("secondChargeback"),
     
-    SECONDCHARGEBACKPENDING(String.valueOf("secondChargebackPending")),
+    SECONDCHARGEBACKPENDING("secondChargebackPending"),
     
-    UNDEFINED(String.valueOf("undefined"));
+    UNDEFINED("undefined");
 
     private String value;
 
@@ -353,9 +355,9 @@ public class TransferEvent {
    * The type of the transfer event. Possible values: **accounting**, **tracking**.
    */
   public enum TypeEnum {
-    ACCOUNTING(String.valueOf("accounting")),
+    ACCOUNTING("accounting"),
     
-    TRACKING(String.valueOf("tracking"));
+    TRACKING("tracking");
 
     private String value;
 
@@ -408,9 +410,10 @@ public class TransferEvent {
   }
 
   /**
-   * Get amount
+   * amount
    * @return amount
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -421,7 +424,7 @@ public class TransferEvent {
    * amount
    *
    * @param amount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -451,6 +454,7 @@ public class TransferEvent {
    * The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    * @return amountAdjustments
    */
+  @ApiModelProperty(value = "The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.")
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AmountAdjustment> getAmountAdjustments() {
@@ -461,7 +465,7 @@ public class TransferEvent {
    * The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    *
    * @param amountAdjustments
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountAdjustments(List<AmountAdjustment> amountAdjustments) {
@@ -483,6 +487,7 @@ public class TransferEvent {
    * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
    * @return arn
    */
+  @ApiModelProperty(value = "Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.")
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getArn() {
@@ -493,7 +498,7 @@ public class TransferEvent {
    * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
    *
    * @param arn
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setArn(String arn) {
@@ -515,6 +520,7 @@ public class TransferEvent {
    * The date when the transfer request was sent.
    * @return bookingDate
    */
+  @ApiModelProperty(value = "The date when the transfer request was sent.")
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getBookingDate() {
@@ -525,7 +531,7 @@ public class TransferEvent {
    * The date when the transfer request was sent.
    *
    * @param bookingDate
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBookingDate(OffsetDateTime bookingDate) {
@@ -547,6 +553,7 @@ public class TransferEvent {
    * The estimated time when the beneficiary should have access to the funds.
    * @return estimatedArrivalTime
    */
+  @ApiModelProperty(value = "The estimated time when the beneficiary should have access to the funds.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getEstimatedArrivalTime() {
@@ -557,7 +564,7 @@ public class TransferEvent {
    * The estimated time when the beneficiary should have access to the funds.
    *
    * @param estimatedArrivalTime
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
@@ -587,6 +594,7 @@ public class TransferEvent {
    * A list of event data.
    * @return eventsData
    */
+  @ApiModelProperty(value = "A list of event data.")
   @JsonProperty(JSON_PROPERTY_EVENTS_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TransferEventEventsDataInner> getEventsData() {
@@ -597,7 +605,7 @@ public class TransferEvent {
    * A list of event data.
    *
    * @param eventsData
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_EVENTS_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventsData(List<TransferEventEventsDataInner> eventsData) {
@@ -616,9 +624,10 @@ public class TransferEvent {
   }
 
   /**
-   * Get externalReason
+   * externalReason
    * @return externalReason
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ExternalReason getExternalReason() {
@@ -629,7 +638,7 @@ public class TransferEvent {
    * externalReason
    *
    * @param externalReason
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReason(ExternalReason externalReason) {
@@ -651,6 +660,7 @@ public class TransferEvent {
    * The unique identifier of the transfer event.
    * @return id
    */
+  @ApiModelProperty(value = "The unique identifier of the transfer event.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -661,7 +671,7 @@ public class TransferEvent {
    * The unique identifier of the transfer event.
    *
    * @param id
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -680,9 +690,10 @@ public class TransferEvent {
   }
 
   /**
-   * Get modification
+   * modification
    * @return modification
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MODIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Modification getModification() {
@@ -693,7 +704,7 @@ public class TransferEvent {
    * modification
    *
    * @param modification
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModification(Modification modification) {
@@ -723,6 +734,7 @@ public class TransferEvent {
    * The list of balance mutations per event.
    * @return mutations
    */
+  @ApiModelProperty(value = "The list of balance mutations per event.")
   @JsonProperty(JSON_PROPERTY_MUTATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<BalanceMutation> getMutations() {
@@ -733,7 +745,7 @@ public class TransferEvent {
    * The list of balance mutations per event.
    *
    * @param mutations
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MUTATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMutations(List<BalanceMutation> mutations) {
@@ -752,9 +764,10 @@ public class TransferEvent {
   }
 
   /**
-   * Get originalAmount
+   * originalAmount
    * @return originalAmount
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getOriginalAmount() {
@@ -765,7 +778,7 @@ public class TransferEvent {
    * originalAmount
    *
    * @param originalAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalAmount(Amount originalAmount) {
@@ -787,6 +800,7 @@ public class TransferEvent {
    * The reason for the transfer status.
    * @return reason
    */
+  @ApiModelProperty(value = "The reason for the transfer status.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ReasonEnum getReason() {
@@ -797,7 +811,7 @@ public class TransferEvent {
    * The reason for the transfer status.
    *
    * @param reason
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
@@ -819,6 +833,7 @@ public class TransferEvent {
    * The status of the transfer event.
    * @return status
    */
+  @ApiModelProperty(value = "The status of the transfer event.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -829,7 +844,7 @@ public class TransferEvent {
    * The status of the transfer event.
    *
    * @param status
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -848,9 +863,10 @@ public class TransferEvent {
   }
 
   /**
-   * Get trackingData
+   * trackingData
    * @return trackingData
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRACKING_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransferEventTrackingData getTrackingData() {
@@ -861,7 +877,7 @@ public class TransferEvent {
    * trackingData
    *
    * @param trackingData
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TRACKING_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingData(TransferEventTrackingData trackingData) {
@@ -883,6 +899,7 @@ public class TransferEvent {
    * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
    * @return transactionId
    */
+  @ApiModelProperty(value = "The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransactionId() {
@@ -893,7 +910,7 @@ public class TransferEvent {
    * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
    *
    * @param transactionId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionId(String transactionId) {
@@ -915,6 +932,7 @@ public class TransferEvent {
    * The type of the transfer event. Possible values: **accounting**, **tracking**.
    * @return type
    */
+  @ApiModelProperty(value = "The type of the transfer event. Possible values: **accounting**, **tracking**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -925,7 +943,7 @@ public class TransferEvent {
    * The type of the transfer event. Possible values: **accounting**, **tracking**.
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -947,6 +965,7 @@ public class TransferEvent {
    * The date when the tracking status was updated.
    * @return updateDate
    */
+  @ApiModelProperty(value = "The date when the tracking status was updated.")
   @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getUpdateDate() {
@@ -957,7 +976,7 @@ public class TransferEvent {
    * The date when the tracking status was updated.
    *
    * @param updateDate
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdateDate(OffsetDateTime updateDate) {
@@ -979,6 +998,7 @@ public class TransferEvent {
    * The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    * @return valueDate
    */
+  @ApiModelProperty(value = "The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.")
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValueDate() {
@@ -989,7 +1009,7 @@ public class TransferEvent {
    * The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    *
    * @param valueDate
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValueDate(OffsetDateTime valueDate) {

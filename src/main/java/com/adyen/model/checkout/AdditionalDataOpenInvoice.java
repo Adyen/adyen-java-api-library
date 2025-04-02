@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -122,6 +124,7 @@ public class AdditionalDataOpenInvoice {
    * Holds different merchant data points like product, purchase, customer, and so on. It takes data in a Base64 encoded string.  The &#x60;merchantData&#x60; parameter needs to be added to the &#x60;openinvoicedata&#x60; signature at the end.  Since the field is optional, if it&#39;s not included it does not impact computing the merchant signature.  Applies only to Klarna.  You can contact Klarna for the format and structure of the string.
    * @return openinvoicedataMerchantData
    */
+  @ApiModelProperty(value = "Holds different merchant data points like product, purchase, customer, and so on. It takes data in a Base64 encoded string.  The `merchantData` parameter needs to be added to the `openinvoicedata` signature at the end.  Since the field is optional, if it's not included it does not impact computing the merchant signature.  Applies only to Klarna.  You can contact Klarna for the format and structure of the string.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_MERCHANT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataMerchantData() {
@@ -132,7 +135,7 @@ public class AdditionalDataOpenInvoice {
    * Holds different merchant data points like product, purchase, customer, and so on. It takes data in a Base64 encoded string.  The &#x60;merchantData&#x60; parameter needs to be added to the &#x60;openinvoicedata&#x60; signature at the end.  Since the field is optional, if it&#39;s not included it does not impact computing the merchant signature.  Applies only to Klarna.  You can contact Klarna for the format and structure of the string.
    *
    * @param openinvoicedataMerchantData
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_MERCHANT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataMerchantData(String openinvoicedataMerchantData) {
@@ -154,6 +157,7 @@ public class AdditionalDataOpenInvoice {
    * The number of invoice lines included in &#x60;openinvoicedata&#x60;.  There needs to be at least one line, so &#x60;numberOfLines&#x60; needs to be at least 1.
    * @return openinvoicedataNumberOfLines
    */
+  @ApiModelProperty(value = "The number of invoice lines included in `openinvoicedata`.  There needs to be at least one line, so `numberOfLines` needs to be at least 1.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_NUMBER_OF_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataNumberOfLines() {
@@ -164,7 +168,7 @@ public class AdditionalDataOpenInvoice {
    * The number of invoice lines included in &#x60;openinvoicedata&#x60;.  There needs to be at least one line, so &#x60;numberOfLines&#x60; needs to be at least 1.
    *
    * @param openinvoicedataNumberOfLines
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_NUMBER_OF_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataNumberOfLines(String openinvoicedataNumberOfLines) {
@@ -186,6 +190,7 @@ public class AdditionalDataOpenInvoice {
    * First name of the recipient. If the delivery address and the billing address are different, specify the &#x60;recipientFirstName&#x60; and &#x60;recipientLastName&#x60; to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.
    * @return openinvoicedataRecipientFirstName
    */
+  @ApiModelProperty(value = "First name of the recipient. If the delivery address and the billing address are different, specify the `recipientFirstName` and `recipientLastName` to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataRecipientFirstName() {
@@ -196,7 +201,7 @@ public class AdditionalDataOpenInvoice {
    * First name of the recipient. If the delivery address and the billing address are different, specify the &#x60;recipientFirstName&#x60; and &#x60;recipientLastName&#x60; to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.
    *
    * @param openinvoicedataRecipientFirstName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataRecipientFirstName(String openinvoicedataRecipientFirstName) {
@@ -218,6 +223,7 @@ public class AdditionalDataOpenInvoice {
    * Last name of the recipient. If the delivery address and the billing address are different, specify the &#x60;recipientFirstName&#x60; and &#x60;recipientLastName&#x60; to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.
    * @return openinvoicedataRecipientLastName
    */
+  @ApiModelProperty(value = "Last name of the recipient. If the delivery address and the billing address are different, specify the `recipientFirstName` and `recipientLastName` to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataRecipientLastName() {
@@ -228,7 +234,7 @@ public class AdditionalDataOpenInvoice {
    * Last name of the recipient. If the delivery address and the billing address are different, specify the &#x60;recipientFirstName&#x60; and &#x60;recipientLastName&#x60; to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.
    *
    * @param openinvoicedataRecipientLastName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_RECIPIENT_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataRecipientLastName(String openinvoicedataRecipientLastName) {
@@ -250,6 +256,7 @@ public class AdditionalDataOpenInvoice {
    * The three-character ISO currency code.
    * @return openinvoicedataLineItemNrCurrencyCode
    */
+  @ApiModelProperty(value = "The three-character ISO currency code.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrCurrencyCode() {
@@ -260,7 +267,7 @@ public class AdditionalDataOpenInvoice {
    * The three-character ISO currency code.
    *
    * @param openinvoicedataLineItemNrCurrencyCode
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrCurrencyCode(String openinvoicedataLineItemNrCurrencyCode) {
@@ -282,6 +289,7 @@ public class AdditionalDataOpenInvoice {
    * A text description of the product the invoice line refers to.
    * @return openinvoicedataLineItemNrDescription
    */
+  @ApiModelProperty(value = "A text description of the product the invoice line refers to.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrDescription() {
@@ -292,7 +300,7 @@ public class AdditionalDataOpenInvoice {
    * A text description of the product the invoice line refers to.
    *
    * @param openinvoicedataLineItemNrDescription
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrDescription(String openinvoicedataLineItemNrDescription) {
@@ -314,6 +322,7 @@ public class AdditionalDataOpenInvoice {
    * The price for one item in the invoice line, represented in minor units.  The due amount for the item, VAT excluded.
    * @return openinvoicedataLineItemNrItemAmount
    */
+  @ApiModelProperty(value = "The price for one item in the invoice line, represented in minor units.  The due amount for the item, VAT excluded.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrItemAmount() {
@@ -324,7 +333,7 @@ public class AdditionalDataOpenInvoice {
    * The price for one item in the invoice line, represented in minor units.  The due amount for the item, VAT excluded.
    *
    * @param openinvoicedataLineItemNrItemAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemAmount(String openinvoicedataLineItemNrItemAmount) {
@@ -346,6 +355,7 @@ public class AdditionalDataOpenInvoice {
    * A unique id for this item. Required for RatePay if the description of each item is not unique.
    * @return openinvoicedataLineItemNrItemId
    */
+  @ApiModelProperty(value = "A unique id for this item. Required for RatePay if the description of each item is not unique.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrItemId() {
@@ -356,7 +366,7 @@ public class AdditionalDataOpenInvoice {
    * A unique id for this item. Required for RatePay if the description of each item is not unique.
    *
    * @param openinvoicedataLineItemNrItemId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemId(String openinvoicedataLineItemNrItemId) {
@@ -378,6 +388,7 @@ public class AdditionalDataOpenInvoice {
    * The VAT due for one item in the invoice line, represented in minor units.
    * @return openinvoicedataLineItemNrItemVatAmount
    */
+  @ApiModelProperty(value = "The VAT due for one item in the invoice line, represented in minor units.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrItemVatAmount() {
@@ -388,7 +399,7 @@ public class AdditionalDataOpenInvoice {
    * The VAT due for one item in the invoice line, represented in minor units.
    *
    * @param openinvoicedataLineItemNrItemVatAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemVatAmount(String openinvoicedataLineItemNrItemVatAmount) {
@@ -410,6 +421,7 @@ public class AdditionalDataOpenInvoice {
    * The VAT percentage for one item in the invoice line, represented in minor units.  For example, 19% VAT is specified as 1900.
    * @return openinvoicedataLineItemNrItemVatPercentage
    */
+  @ApiModelProperty(value = "The VAT percentage for one item in the invoice line, represented in minor units.  For example, 19% VAT is specified as 1900.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrItemVatPercentage() {
@@ -420,7 +432,7 @@ public class AdditionalDataOpenInvoice {
    * The VAT percentage for one item in the invoice line, represented in minor units.  For example, 19% VAT is specified as 1900.
    *
    * @param openinvoicedataLineItemNrItemVatPercentage
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_ITEM_VAT_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrItemVatPercentage(String openinvoicedataLineItemNrItemVatPercentage) {
@@ -442,6 +454,7 @@ public class AdditionalDataOpenInvoice {
    * The number of units purchased of a specific product.
    * @return openinvoicedataLineItemNrNumberOfItems
    */
+  @ApiModelProperty(value = "The number of units purchased of a specific product.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrNumberOfItems() {
@@ -452,7 +465,7 @@ public class AdditionalDataOpenInvoice {
    * The number of units purchased of a specific product.
    *
    * @param openinvoicedataLineItemNrNumberOfItems
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_NUMBER_OF_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrNumberOfItems(String openinvoicedataLineItemNrNumberOfItems) {
@@ -474,6 +487,7 @@ public class AdditionalDataOpenInvoice {
    * Name of the shipping company handling the the return shipment.
    * @return openinvoicedataLineItemNrReturnShippingCompany
    */
+  @ApiModelProperty(value = "Name of the shipping company handling the the return shipment.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrReturnShippingCompany() {
@@ -484,7 +498,7 @@ public class AdditionalDataOpenInvoice {
    * Name of the shipping company handling the the return shipment.
    *
    * @param openinvoicedataLineItemNrReturnShippingCompany
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_SHIPPING_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrReturnShippingCompany(String openinvoicedataLineItemNrReturnShippingCompany) {
@@ -506,6 +520,7 @@ public class AdditionalDataOpenInvoice {
    * The tracking number for the return of the shipment.
    * @return openinvoicedataLineItemNrReturnTrackingNumber
    */
+  @ApiModelProperty(value = "The tracking number for the return of the shipment.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrReturnTrackingNumber() {
@@ -516,7 +531,7 @@ public class AdditionalDataOpenInvoice {
    * The tracking number for the return of the shipment.
    *
    * @param openinvoicedataLineItemNrReturnTrackingNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrReturnTrackingNumber(String openinvoicedataLineItemNrReturnTrackingNumber) {
@@ -538,6 +553,7 @@ public class AdditionalDataOpenInvoice {
    * URI where the customer can track the return of their shipment.
    * @return openinvoicedataLineItemNrReturnTrackingUri
    */
+  @ApiModelProperty(value = "URI where the customer can track the return of their shipment.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrReturnTrackingUri() {
@@ -548,7 +564,7 @@ public class AdditionalDataOpenInvoice {
    * URI where the customer can track the return of their shipment.
    *
    * @param openinvoicedataLineItemNrReturnTrackingUri
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_RETURN_TRACKING_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrReturnTrackingUri(String openinvoicedataLineItemNrReturnTrackingUri) {
@@ -570,6 +586,7 @@ public class AdditionalDataOpenInvoice {
    * Name of the shipping company handling the delivery.
    * @return openinvoicedataLineItemNrShippingCompany
    */
+  @ApiModelProperty(value = "Name of the shipping company handling the delivery.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrShippingCompany() {
@@ -580,7 +597,7 @@ public class AdditionalDataOpenInvoice {
    * Name of the shipping company handling the delivery.
    *
    * @param openinvoicedataLineItemNrShippingCompany
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrShippingCompany(String openinvoicedataLineItemNrShippingCompany) {
@@ -602,6 +619,7 @@ public class AdditionalDataOpenInvoice {
    * Shipping method.
    * @return openinvoicedataLineItemNrShippingMethod
    */
+  @ApiModelProperty(value = "Shipping method.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrShippingMethod() {
@@ -612,7 +630,7 @@ public class AdditionalDataOpenInvoice {
    * Shipping method.
    *
    * @param openinvoicedataLineItemNrShippingMethod
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrShippingMethod(String openinvoicedataLineItemNrShippingMethod) {
@@ -634,6 +652,7 @@ public class AdditionalDataOpenInvoice {
    * The tracking number for the shipment.
    * @return openinvoicedataLineItemNrTrackingNumber
    */
+  @ApiModelProperty(value = "The tracking number for the shipment.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrTrackingNumber() {
@@ -644,7 +663,7 @@ public class AdditionalDataOpenInvoice {
    * The tracking number for the shipment.
    *
    * @param openinvoicedataLineItemNrTrackingNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrTrackingNumber(String openinvoicedataLineItemNrTrackingNumber) {
@@ -666,6 +685,7 @@ public class AdditionalDataOpenInvoice {
    * URI where the customer can track their shipment.
    * @return openinvoicedataLineItemNrTrackingUri
    */
+  @ApiModelProperty(value = "URI where the customer can track their shipment.")
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpeninvoicedataLineItemNrTrackingUri() {
@@ -676,7 +696,7 @@ public class AdditionalDataOpenInvoice {
    * URI where the customer can track their shipment.
    *
    * @param openinvoicedataLineItemNrTrackingUri
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENINVOICEDATA_LINE_ITEM_NR_TRACKING_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpeninvoicedataLineItemNrTrackingUri(String openinvoicedataLineItemNrTrackingUri) {

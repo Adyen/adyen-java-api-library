@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Address;
@@ -22,7 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -69,9 +71,10 @@ public class FundOrigin {
   }
 
   /**
-   * Get billingAddress
+   * billingAddress
    * @return billingAddress
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getBillingAddress() {
@@ -82,7 +85,7 @@ public class FundOrigin {
    * billingAddress
    *
    * @param billingAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -104,6 +107,7 @@ public class FundOrigin {
    * The email address of the person funding the money.
    * @return shopperEmail
    */
+  @ApiModelProperty(value = "The email address of the person funding the money.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -114,7 +118,7 @@ public class FundOrigin {
    * The email address of the person funding the money.
    *
    * @param shopperEmail
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -133,9 +137,10 @@ public class FundOrigin {
   }
 
   /**
-   * Get shopperName
+   * shopperName
    * @return shopperName
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getShopperName() {
@@ -146,7 +151,7 @@ public class FundOrigin {
    * shopperName
    *
    * @param shopperName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -168,6 +173,7 @@ public class FundOrigin {
    * The phone number of the person funding the money.
    * @return telephoneNumber
    */
+  @ApiModelProperty(value = "The phone number of the person funding the money.")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
@@ -178,7 +184,7 @@ public class FundOrigin {
    * The phone number of the person funding the money.
    *
    * @param telephoneNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
@@ -200,6 +206,7 @@ public class FundOrigin {
    * The unique identifier of the wallet where the funds are coming from.
    * @return walletIdentifier
    */
+  @ApiModelProperty(value = "The unique identifier of the wallet where the funds are coming from.")
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWalletIdentifier() {
@@ -210,7 +217,7 @@ public class FundOrigin {
    * The unique identifier of the wallet where the funds are coming from.
    *
    * @param walletIdentifier
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletIdentifier(String walletIdentifier) {

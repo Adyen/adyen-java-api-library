@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -58,6 +60,7 @@ public class RepaymentTerm {
    * The estimated term for repaying the grant, in days.
    * @return estimatedDays
    */
+  @ApiModelProperty(required = true, value = "The estimated term for repaying the grant, in days.")
   @JsonProperty(JSON_PROPERTY_ESTIMATED_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getEstimatedDays() {
@@ -68,7 +71,7 @@ public class RepaymentTerm {
    * The estimated term for repaying the grant, in days.
    *
    * @param estimatedDays
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ESTIMATED_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEstimatedDays(Integer estimatedDays) {
@@ -90,6 +93,7 @@ public class RepaymentTerm {
    * The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
    * @return maximumDays
    */
+  @ApiModelProperty(value = "The maximum term for repaying the grant, in days. Only applies when `contractType` is **loan**.")
   @JsonProperty(JSON_PROPERTY_MAXIMUM_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getMaximumDays() {
@@ -100,7 +104,7 @@ public class RepaymentTerm {
    * The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
    *
    * @param maximumDays
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MAXIMUM_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaximumDays(Integer maximumDays) {

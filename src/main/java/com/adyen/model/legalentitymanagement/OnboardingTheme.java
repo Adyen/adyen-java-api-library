@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,9 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -73,6 +76,7 @@ public class OnboardingTheme {
    * The creation date of the theme.
    * @return createdAt
    */
+  @ApiModelProperty(required = true, value = "The creation date of the theme.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -83,7 +87,7 @@ public class OnboardingTheme {
    * The creation date of the theme.
    *
    * @param createdAt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -105,6 +109,7 @@ public class OnboardingTheme {
    * The description of the theme.
    * @return description
    */
+  @ApiModelProperty(value = "The description of the theme.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -115,7 +120,7 @@ public class OnboardingTheme {
    * The description of the theme.
    *
    * @param description
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -137,6 +142,7 @@ public class OnboardingTheme {
    * The unique identifier of the theme.
    * @return id
    */
+  @ApiModelProperty(required = true, value = "The unique identifier of the theme.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -147,7 +153,7 @@ public class OnboardingTheme {
    * The unique identifier of the theme.
    *
    * @param id
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -166,9 +172,6 @@ public class OnboardingTheme {
   }
 
   public OnboardingTheme putPropertiesItem(String key, String propertiesItem) {
-    if (this.properties == null) {
-      this.properties = new HashMap<>();
-    }
     this.properties.put(key, propertiesItem);
     return this;
   }
@@ -177,6 +180,7 @@ public class OnboardingTheme {
    * The properties of the theme.
    * @return properties
    */
+  @ApiModelProperty(required = true, value = "The properties of the theme.")
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getProperties() {
@@ -187,7 +191,7 @@ public class OnboardingTheme {
    * The properties of the theme.
    *
    * @param properties
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, String> properties) {
@@ -209,6 +213,7 @@ public class OnboardingTheme {
    * The date when the theme was last updated.
    * @return updatedAt
    */
+  @ApiModelProperty(value = "The date when the theme was last updated.")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getUpdatedAt() {
@@ -219,7 +224,7 @@ public class OnboardingTheme {
    * The date when the theme was last updated.
    *
    * @param updatedAt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdatedAt(OffsetDateTime updatedAt) {

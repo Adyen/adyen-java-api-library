@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,9 +45,9 @@ public class MasterpassDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   public enum FundingSourceEnum {
-    CREDIT(String.valueOf("credit")),
+    CREDIT("credit"),
     
-    DEBIT(String.valueOf("debit"));
+    DEBIT("debit");
 
     private String value;
 
@@ -84,7 +86,7 @@ public class MasterpassDetails {
    * **masterpass**
    */
   public enum TypeEnum {
-    MASTERPASS(String.valueOf("masterpass"));
+    MASTERPASS("masterpass");
 
     private String value;
 
@@ -114,7 +116,7 @@ public class MasterpassDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.MASTERPASS;
+  private TypeEnum type;
 
   public MasterpassDetails() { 
   }
@@ -134,6 +136,7 @@ public class MasterpassDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -144,7 +147,7 @@ public class MasterpassDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -166,6 +169,7 @@ public class MasterpassDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
    */
+  @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FundingSourceEnum getFundingSource() {
@@ -176,7 +180,7 @@ public class MasterpassDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
    * @param fundingSource
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
@@ -198,6 +202,7 @@ public class MasterpassDetails {
    * The Masterpass transaction ID.
    * @return masterpassTransactionId
    */
+  @ApiModelProperty(required = true, value = "The Masterpass transaction ID.")
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMasterpassTransactionId() {
@@ -208,7 +213,7 @@ public class MasterpassDetails {
    * The Masterpass transaction ID.
    *
    * @param masterpassTransactionId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMasterpassTransactionId(String masterpassTransactionId) {
@@ -230,6 +235,7 @@ public class MasterpassDetails {
    * **masterpass**
    * @return type
    */
+  @ApiModelProperty(value = "**masterpass**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -240,7 +246,7 @@ public class MasterpassDetails {
    * **masterpass**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

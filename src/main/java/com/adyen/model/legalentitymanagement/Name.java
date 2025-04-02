@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,6 +64,7 @@ public class Name {
    * The individual&#39;s first name. Must not be blank.
    * @return firstName
    */
+  @ApiModelProperty(required = true, value = "The individual's first name. Must not be blank.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFirstName() {
@@ -72,7 +75,7 @@ public class Name {
    * The individual&#39;s first name. Must not be blank.
    *
    * @param firstName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -94,6 +97,7 @@ public class Name {
    * The infix in the individual&#39;s name, if any.
    * @return infix
    */
+  @ApiModelProperty(value = "The infix in the individual's name, if any.")
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInfix() {
@@ -104,7 +108,7 @@ public class Name {
    * The infix in the individual&#39;s name, if any.
    *
    * @param infix
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfix(String infix) {
@@ -126,6 +130,7 @@ public class Name {
    * The individual&#39;s last name. Must not be blank.
    * @return lastName
    */
+  @ApiModelProperty(required = true, value = "The individual's last name. Must not be blank.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLastName() {
@@ -136,7 +141,7 @@ public class Name {
    * The individual&#39;s last name. Must not be blank.
    *
    * @param lastName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {

@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
@@ -22,8 +23,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,7 +50,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CreateOrderResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData = null;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
@@ -77,7 +80,7 @@ public class CreateOrderResponse {
    * The result of the order creation request.  The value is always **Success**.
    */
   public enum ResultCodeEnum {
-    SUCCESS(String.valueOf("Success"));
+    SUCCESS("Success");
 
     private String value;
 
@@ -135,6 +138,7 @@ public class CreateOrderResponse {
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return additionalData
    */
+  @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -145,7 +149,7 @@ public class CreateOrderResponse {
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
    * @param additionalData
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -164,9 +168,10 @@ public class CreateOrderResponse {
   }
 
   /**
-   * Get amount
+   * amount
    * @return amount
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -177,7 +182,7 @@ public class CreateOrderResponse {
    * amount
    *
    * @param amount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -199,6 +204,7 @@ public class CreateOrderResponse {
    * The date that the order will expire.
    * @return expiresAt
    */
+  @ApiModelProperty(required = true, value = "The date that the order will expire.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiresAt() {
@@ -209,7 +215,7 @@ public class CreateOrderResponse {
    * The date that the order will expire.
    *
    * @param expiresAt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(String expiresAt) {
@@ -228,9 +234,10 @@ public class CreateOrderResponse {
   }
 
   /**
-   * Get fraudResult
+   * fraudResult
    * @return fraudResult
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FraudResult getFraudResult() {
@@ -241,7 +248,7 @@ public class CreateOrderResponse {
    * fraudResult
    *
    * @param fraudResult
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResult(FraudResult fraudResult) {
@@ -263,6 +270,7 @@ public class CreateOrderResponse {
    * The encrypted data that will be used by merchant for adding payments to the order.
    * @return orderData
    */
+  @ApiModelProperty(required = true, value = "The encrypted data that will be used by merchant for adding payments to the order.")
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOrderData() {
@@ -273,7 +281,7 @@ public class CreateOrderResponse {
    * The encrypted data that will be used by merchant for adding payments to the order.
    *
    * @param orderData
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderData(String orderData) {
@@ -295,6 +303,7 @@ public class CreateOrderResponse {
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
    */
+  @ApiModelProperty(value = "Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -305,7 +314,7 @@ public class CreateOrderResponse {
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
    * @param pspReference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -327,6 +336,7 @@ public class CreateOrderResponse {
    * The reference provided by merchant for creating the order.
    * @return reference
    */
+  @ApiModelProperty(value = "The reference provided by merchant for creating the order.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -337,7 +347,7 @@ public class CreateOrderResponse {
    * The reference provided by merchant for creating the order.
    *
    * @param reference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -359,6 +369,7 @@ public class CreateOrderResponse {
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReason
    */
+  @ApiModelProperty(value = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRefusalReason() {
@@ -369,7 +380,7 @@ public class CreateOrderResponse {
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
    * @param refusalReason
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
@@ -388,9 +399,10 @@ public class CreateOrderResponse {
   }
 
   /**
-   * Get remainingAmount
+   * remainingAmount
    * @return remainingAmount
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getRemainingAmount() {
@@ -401,7 +413,7 @@ public class CreateOrderResponse {
    * remainingAmount
    *
    * @param remainingAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemainingAmount(Amount remainingAmount) {
@@ -423,6 +435,7 @@ public class CreateOrderResponse {
    * The result of the order creation request.  The value is always **Success**.
    * @return resultCode
    */
+  @ApiModelProperty(required = true, value = "The result of the order creation request.  The value is always **Success**.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResultCodeEnum getResultCode() {
@@ -433,7 +446,7 @@ public class CreateOrderResponse {
    * The result of the order creation request.  The value is always **Success**.
    *
    * @param resultCode
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(ResultCodeEnum resultCode) {

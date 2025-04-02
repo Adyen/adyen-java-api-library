@@ -13,6 +13,7 @@
 package com.adyen.model.acswebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.acswebhooks.Amount;
@@ -21,8 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,6 +66,7 @@ public class Purchase {
    * The time of the purchase.
    * @return date
    */
+  @ApiModelProperty(required = true, value = "The time of the purchase.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDate() {
@@ -74,7 +77,7 @@ public class Purchase {
    * The time of the purchase.
    *
    * @param date
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(OffsetDateTime date) {
@@ -96,6 +99,7 @@ public class Purchase {
    * The name of the merchant.
    * @return merchantName
    */
+  @ApiModelProperty(required = true, value = "The name of the merchant.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantName() {
@@ -106,7 +110,7 @@ public class Purchase {
    * The name of the merchant.
    *
    * @param merchantName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
@@ -125,9 +129,10 @@ public class Purchase {
   }
 
   /**
-   * Get originalAmount
+   * originalAmount
    * @return originalAmount
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getOriginalAmount() {
@@ -138,7 +143,7 @@ public class Purchase {
    * originalAmount
    *
    * @param originalAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalAmount(Amount originalAmount) {

@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,9 +47,9 @@ public class BillDeskDetails {
    * **billdesk**
    */
   public enum TypeEnum {
-    BILLDESK_ONLINE(String.valueOf("billdesk_online")),
+    ONLINE("billdesk_online"),
     
-    BILLDESK_WALLET(String.valueOf("billdesk_wallet"));
+    WALLET("billdesk_wallet");
 
     private String value;
 
@@ -97,6 +99,7 @@ public class BillDeskDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -107,7 +110,7 @@ public class BillDeskDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -129,6 +132,7 @@ public class BillDeskDetails {
    * The issuer id of the shopper&#39;s selected bank.
    * @return issuer
    */
+  @ApiModelProperty(required = true, value = "The issuer id of the shopper's selected bank.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuer() {
@@ -139,7 +143,7 @@ public class BillDeskDetails {
    * The issuer id of the shopper&#39;s selected bank.
    *
    * @param issuer
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
@@ -161,6 +165,7 @@ public class BillDeskDetails {
    * **billdesk**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**billdesk**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -171,7 +176,7 @@ public class BillDeskDetails {
    * **billdesk**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

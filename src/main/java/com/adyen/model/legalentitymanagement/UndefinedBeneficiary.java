@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,14 +45,6 @@ public class UndefinedBeneficiary {
   public UndefinedBeneficiary() { 
   }
 
-  @JsonCreator
-  public UndefinedBeneficiary(
-    @JsonProperty(JSON_PROPERTY_REFERENCE) String reference
-  ) {
-    this();
-    this.reference = reference;
-  }
-
   /**
    * The details of the undefined beneficiary.
    *
@@ -66,6 +60,7 @@ public class UndefinedBeneficiary {
    * The details of the undefined beneficiary.
    * @return description
    */
+  @ApiModelProperty(value = "The details of the undefined beneficiary.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -76,7 +71,7 @@ public class UndefinedBeneficiary {
    * The details of the undefined beneficiary.
    *
    * @param description
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -85,14 +80,36 @@ public class UndefinedBeneficiary {
 
   /**
    * The reference of the undefined beneficiary.
+   *
+   * @param reference
+   * @return the current {@code UndefinedBeneficiary} instance, allowing for method chaining
+   */
+  public UndefinedBeneficiary reference(String reference) {
+    this.reference = reference;
+    return this;
+  }
+
+  /**
+   * The reference of the undefined beneficiary.
    * @return reference
    */
+  @ApiModelProperty(value = "The reference of the undefined beneficiary.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
     return reference;
   }
 
+  /**
+   * The reference of the undefined beneficiary.
+   *
+   * @param reference
+   */ 
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
 
   /**
    * Return true if this UndefinedBeneficiary object is equal to o.

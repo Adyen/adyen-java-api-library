@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
@@ -23,8 +24,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -75,49 +77,49 @@ public class Trust {
   private String registrationNumber;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = new ArrayList<>();
+  private List<TaxInformation> taxInformation = null;
 
   /**
    * Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
    */
   public enum TypeEnum {
-    BUSINESSTRUST(String.valueOf("businessTrust")),
+    BUSINESSTRUST("businessTrust"),
     
-    CASHMANAGEMENTTRUST(String.valueOf("cashManagementTrust")),
+    CASHMANAGEMENTTRUST("cashManagementTrust"),
     
-    CHARITABLETRUST(String.valueOf("charitableTrust")),
+    CHARITABLETRUST("charitableTrust"),
     
-    CORPORATEUNITTRUST(String.valueOf("corporateUnitTrust")),
+    CORPORATEUNITTRUST("corporateUnitTrust"),
     
-    DECEASEDESTATE(String.valueOf("deceasedEstate")),
+    DECEASEDESTATE("deceasedEstate"),
     
-    DISCRETIONARYTRUST(String.valueOf("discretionaryTrust")),
+    DISCRETIONARYTRUST("discretionaryTrust"),
     
-    DISCRETIONARYINVESTMENTTRUST(String.valueOf("discretionaryInvestmentTrust")),
+    DISCRETIONARYINVESTMENTTRUST("discretionaryInvestmentTrust"),
     
-    DISCRETIONARYSERVICESMANAGEMENTTRUST(String.valueOf("discretionaryServicesManagementTrust")),
+    DISCRETIONARYSERVICESMANAGEMENTTRUST("discretionaryServicesManagementTrust"),
     
-    DISCRETIONARYTRADINGTRUST(String.valueOf("discretionaryTradingTrust")),
+    DISCRETIONARYTRADINGTRUST("discretionaryTradingTrust"),
     
-    FAMILYTRUST(String.valueOf("familyTrust")),
+    FAMILYTRUST("familyTrust"),
     
-    FIRSTHOMESAVERACCOUNTSTRUST(String.valueOf("firstHomeSaverAccountsTrust")),
+    FIRSTHOMESAVERACCOUNTSTRUST("firstHomeSaverAccountsTrust"),
     
-    FIXEDTRUST(String.valueOf("fixedTrust")),
+    FIXEDTRUST("fixedTrust"),
     
-    FIXEDUNITTRUST(String.valueOf("fixedUnitTrust")),
+    FIXEDUNITTRUST("fixedUnitTrust"),
     
-    HYBRIDTRUST(String.valueOf("hybridTrust")),
+    HYBRIDTRUST("hybridTrust"),
     
-    LISTEDPUBLICUNITTRUST(String.valueOf("listedPublicUnitTrust")),
+    LISTEDPUBLICUNITTRUST("listedPublicUnitTrust"),
     
-    OTHERTRUST(String.valueOf("otherTrust")),
+    OTHERTRUST("otherTrust"),
     
-    POOLEDSUPERANNUATIONTRUST(String.valueOf("pooledSuperannuationTrust")),
+    POOLEDSUPERANNUATIONTRUST("pooledSuperannuationTrust"),
     
-    PUBLICTRADINGTRUST(String.valueOf("publicTradingTrust")),
+    PUBLICTRADINGTRUST("publicTradingTrust"),
     
-    UNLISTEDPUBLICUNITTRUST(String.valueOf("unlistedPublicUnitTrust"));
+    UNLISTEDPUBLICUNITTRUST("unlistedPublicUnitTrust");
 
     private String value;
 
@@ -150,15 +152,15 @@ public class Trust {
   private TypeEnum type;
 
   public static final String JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO = "undefinedBeneficiaryInfo";
-  private List<UndefinedBeneficiary> undefinedBeneficiaryInfo = new ArrayList<>();
+  private List<UndefinedBeneficiary> undefinedBeneficiaryInfo = null;
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   public enum VatAbsenceReasonEnum {
-    INDUSTRYEXEMPTION(String.valueOf("industryExemption")),
+    INDUSTRYEXEMPTION("industryExemption"),
     
-    BELOWTAXTHRESHOLD(String.valueOf("belowTaxThreshold"));
+    BELOWTAXTHRESHOLD("belowTaxThreshold");
 
     private String value;
 
@@ -211,6 +213,7 @@ public class Trust {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return countryOfGoverningLaw
    */
+  @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountryOfGoverningLaw() {
@@ -221,7 +224,7 @@ public class Trust {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
    * @param countryOfGoverningLaw
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
@@ -243,6 +246,7 @@ public class Trust {
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    * @return dateOfIncorporation
    */
+  @ApiModelProperty(value = "The date when the legal arrangement was incorporated in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDateOfIncorporation() {
@@ -253,7 +257,7 @@ public class Trust {
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    *
    * @param dateOfIncorporation
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
@@ -275,6 +279,7 @@ public class Trust {
    * A short description about the trust. Only applicable for charitable trusts in New Zealand.
    * @return description
    */
+  @ApiModelProperty(value = "A short description about the trust. Only applicable for charitable trusts in New Zealand.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -285,7 +290,7 @@ public class Trust {
    * A short description about the trust. Only applicable for charitable trusts in New Zealand.
    *
    * @param description
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -307,6 +312,7 @@ public class Trust {
    * The registered name, if different from the &#x60;name&#x60;.
    * @return doingBusinessAs
    */
+  @ApiModelProperty(value = "The registered name, if different from the `name`.")
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDoingBusinessAs() {
@@ -317,7 +323,7 @@ public class Trust {
    * The registered name, if different from the &#x60;name&#x60;.
    *
    * @param doingBusinessAs
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
@@ -339,6 +345,7 @@ public class Trust {
    * The legal name.
    * @return name
    */
+  @ApiModelProperty(required = true, value = "The legal name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -349,7 +356,7 @@ public class Trust {
    * The legal name.
    *
    * @param name
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -368,9 +375,10 @@ public class Trust {
   }
 
   /**
-   * Get principalPlaceOfBusiness
+   * principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getPrincipalPlaceOfBusiness() {
@@ -381,7 +389,7 @@ public class Trust {
    * principalPlaceOfBusiness
    *
    * @param principalPlaceOfBusiness
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -400,9 +408,10 @@ public class Trust {
   }
 
   /**
-   * Get registeredAddress
+   * registeredAddress
    * @return registeredAddress
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getRegisteredAddress() {
@@ -413,7 +422,7 @@ public class Trust {
    * registeredAddress
    *
    * @param registeredAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
@@ -435,6 +444,7 @@ public class Trust {
    * The registration number.
    * @return registrationNumber
    */
+  @ApiModelProperty(value = "The registration number.")
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegistrationNumber() {
@@ -445,7 +455,7 @@ public class Trust {
    * The registration number.
    *
    * @param registrationNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
@@ -475,6 +485,7 @@ public class Trust {
    * The tax information of the entity.
    * @return taxInformation
    */
+  @ApiModelProperty(value = "The tax information of the entity.")
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TaxInformation> getTaxInformation() {
@@ -485,7 +496,7 @@ public class Trust {
    * The tax information of the entity.
    *
    * @param taxInformation
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
@@ -507,6 +518,7 @@ public class Trust {
    * Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
    * @return type
    */
+  @ApiModelProperty(required = true, value = "Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-new-zealand).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -517,7 +529,7 @@ public class Trust {
    * Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -547,6 +559,7 @@ public class Trust {
    * The undefined beneficiary information of the entity.
    * @return undefinedBeneficiaryInfo
    */
+  @ApiModelProperty(value = "The undefined beneficiary information of the entity.")
   @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<UndefinedBeneficiary> getUndefinedBeneficiaryInfo() {
@@ -557,7 +570,7 @@ public class Trust {
    * The undefined beneficiary information of the entity.
    *
    * @param undefinedBeneficiaryInfo
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUndefinedBeneficiaryInfo(List<UndefinedBeneficiary> undefinedBeneficiaryInfo) {
@@ -579,6 +592,7 @@ public class Trust {
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
    */
+  @ApiModelProperty(value = "The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public VatAbsenceReasonEnum getVatAbsenceReason() {
@@ -589,7 +603,7 @@ public class Trust {
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
    * @param vatAbsenceReason
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -611,6 +625,7 @@ public class Trust {
    * The VAT number.
    * @return vatNumber
    */
+  @ApiModelProperty(value = "The VAT number.")
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVatNumber() {
@@ -621,7 +636,7 @@ public class Trust {
    * The VAT number.
    *
    * @param vatNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {

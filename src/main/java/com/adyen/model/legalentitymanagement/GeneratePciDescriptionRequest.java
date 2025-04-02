@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,8 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,13 +42,13 @@ public class GeneratePciDescriptionRequest {
    * Gets or Sets additionalSalesChannels
    */
   public enum AdditionalSalesChannelsEnum {
-    ECOMMERCE(String.valueOf("eCommerce")),
+    ECOMMERCE("eCommerce"),
     
-    ECOMMOTO(String.valueOf("ecomMoto")),
+    ECOMMOTO("ecomMoto"),
     
-    POS(String.valueOf("pos")),
+    POS("pos"),
     
-    POSMOTO(String.valueOf("posMoto"));
+    POSMOTO("posMoto");
 
     private String value;
 
@@ -76,7 +78,7 @@ public class GeneratePciDescriptionRequest {
   }
 
   public static final String JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS = "additionalSalesChannels";
-  private List<AdditionalSalesChannelsEnum> additionalSalesChannels = new ArrayList<>();
+  private List<AdditionalSalesChannelsEnum> additionalSalesChannels = null;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
@@ -107,6 +109,7 @@ public class GeneratePciDescriptionRequest {
    * An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
    * @return additionalSalesChannels
    */
+  @ApiModelProperty(value = "An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  ")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AdditionalSalesChannelsEnum> getAdditionalSalesChannels() {
@@ -117,7 +120,7 @@ public class GeneratePciDescriptionRequest {
    * An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
    *
    * @param additionalSalesChannels
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalSalesChannels(List<AdditionalSalesChannelsEnum> additionalSalesChannels) {
@@ -139,6 +142,7 @@ public class GeneratePciDescriptionRequest {
    * Sets the language of the PCI questionnaire. Its value is a two-character [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code, for example, **en**.
    * @return language
    */
+  @ApiModelProperty(value = "Sets the language of the PCI questionnaire. Its value is a two-character [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code, for example, **en**.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLanguage() {
@@ -149,7 +153,7 @@ public class GeneratePciDescriptionRequest {
    * Sets the language of the PCI questionnaire. Its value is a two-character [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code, for example, **en**.
    *
    * @param language
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {

@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,27 +55,27 @@ public class DokuDetails {
    * **doku**
    */
   public enum TypeEnum {
-    DOKU_MANDIRI_VA(String.valueOf("doku_mandiri_va")),
+    MANDIRI_VA("doku_mandiri_va"),
     
-    DOKU_CIMB_VA(String.valueOf("doku_cimb_va")),
+    CIMB_VA("doku_cimb_va"),
     
-    DOKU_DANAMON_VA(String.valueOf("doku_danamon_va")),
+    DANAMON_VA("doku_danamon_va"),
     
-    DOKU_BNI_VA(String.valueOf("doku_bni_va")),
+    BNI_VA("doku_bni_va"),
     
-    DOKU_PERMATA_LITE_ATM(String.valueOf("doku_permata_lite_atm")),
+    PERMATA_LITE_ATM("doku_permata_lite_atm"),
     
-    DOKU_BRI_VA(String.valueOf("doku_bri_va")),
+    BRI_VA("doku_bri_va"),
     
-    DOKU_BCA_VA(String.valueOf("doku_bca_va")),
+    BCA_VA("doku_bca_va"),
     
-    DOKU_ALFAMART(String.valueOf("doku_alfamart")),
+    ALFAMART("doku_alfamart"),
     
-    DOKU_INDOMARET(String.valueOf("doku_indomaret")),
+    INDOMARET("doku_indomaret"),
     
-    DOKU_WALLET(String.valueOf("doku_wallet")),
+    WALLET("doku_wallet"),
     
-    DOKU_OVO(String.valueOf("doku_ovo"));
+    OVO("doku_ovo");
 
     private String value;
 
@@ -123,6 +125,7 @@ public class DokuDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -133,7 +136,7 @@ public class DokuDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -155,6 +158,7 @@ public class DokuDetails {
    * The shopper&#39;s first name.
    * @return firstName
    */
+  @ApiModelProperty(required = true, value = "The shopper's first name.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFirstName() {
@@ -165,7 +169,7 @@ public class DokuDetails {
    * The shopper&#39;s first name.
    *
    * @param firstName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -187,6 +191,7 @@ public class DokuDetails {
    * The shopper&#39;s last name.
    * @return lastName
    */
+  @ApiModelProperty(required = true, value = "The shopper's last name.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLastName() {
@@ -197,7 +202,7 @@ public class DokuDetails {
    * The shopper&#39;s last name.
    *
    * @param lastName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
@@ -219,6 +224,7 @@ public class DokuDetails {
    * The shopper&#39;s email.
    * @return shopperEmail
    */
+  @ApiModelProperty(required = true, value = "The shopper's email.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -229,7 +235,7 @@ public class DokuDetails {
    * The shopper&#39;s email.
    *
    * @param shopperEmail
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -251,6 +257,7 @@ public class DokuDetails {
    * **doku**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**doku**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -261,7 +268,7 @@ public class DokuDetails {
    * **doku**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

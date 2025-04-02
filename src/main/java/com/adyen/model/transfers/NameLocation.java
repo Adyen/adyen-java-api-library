@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -74,6 +76,7 @@ public class NameLocation {
    * The city where the merchant is located.
    * @return city
    */
+  @ApiModelProperty(value = "The city where the merchant is located.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCity() {
@@ -84,7 +87,7 @@ public class NameLocation {
    * The city where the merchant is located.
    *
    * @param city
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -106,6 +109,7 @@ public class NameLocation {
    * The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
    * @return country
    */
+  @ApiModelProperty(value = "The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountry() {
@@ -116,7 +120,7 @@ public class NameLocation {
    * The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
    *
    * @param country
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -138,6 +142,7 @@ public class NameLocation {
    * The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.
    * @return countryOfOrigin
    */
+  @ApiModelProperty(value = "The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountryOfOrigin() {
@@ -148,7 +153,7 @@ public class NameLocation {
    * The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.
    *
    * @param countryOfOrigin
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfOrigin(String countryOfOrigin) {
@@ -170,6 +175,7 @@ public class NameLocation {
    * The name of the merchant&#39;s shop or service.
    * @return name
    */
+  @ApiModelProperty(value = "The name of the merchant's shop or service.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -180,7 +186,7 @@ public class NameLocation {
    * The name of the merchant&#39;s shop or service.
    *
    * @param name
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -202,6 +208,7 @@ public class NameLocation {
    * The raw data.
    * @return rawData
    */
+  @ApiModelProperty(value = "The raw data.")
   @JsonProperty(JSON_PROPERTY_RAW_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRawData() {
@@ -212,7 +219,7 @@ public class NameLocation {
    * The raw data.
    *
    * @param rawData
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_RAW_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRawData(String rawData) {
@@ -234,6 +241,7 @@ public class NameLocation {
    * The state where the merchant is located.
    * @return state
    */
+  @ApiModelProperty(value = "The state where the merchant is located.")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getState() {
@@ -244,7 +252,7 @@ public class NameLocation {
    * The state where the merchant is located.
    *
    * @param state
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setState(String state) {

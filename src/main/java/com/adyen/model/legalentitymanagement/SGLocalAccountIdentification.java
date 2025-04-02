@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,7 +47,7 @@ public class SGLocalAccountIdentification {
    * **sgLocal**
    */
   public enum TypeEnum {
-    SGLOCAL(String.valueOf("sgLocal"));
+    SGLOCAL("sgLocal");
 
     private String value;
 
@@ -75,7 +77,7 @@ public class SGLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.SGLOCAL;
+  private TypeEnum type;
 
   public SGLocalAccountIdentification() { 
   }
@@ -95,6 +97,7 @@ public class SGLocalAccountIdentification {
    * The 4- to 19-digit bank account number, without separators or whitespace.
    * @return accountNumber
    */
+  @ApiModelProperty(required = true, value = "The 4- to 19-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -105,7 +108,7 @@ public class SGLocalAccountIdentification {
    * The 4- to 19-digit bank account number, without separators or whitespace.
    *
    * @param accountNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -127,6 +130,7 @@ public class SGLocalAccountIdentification {
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    * @return bic
    */
+  @ApiModelProperty(required = true, value = "The bank's 8- or 11-character BIC or SWIFT code.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBic() {
@@ -137,7 +141,7 @@ public class SGLocalAccountIdentification {
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
    * @param bic
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
@@ -159,6 +163,7 @@ public class SGLocalAccountIdentification {
    * **sgLocal**
    * @return type
    */
+  @ApiModelProperty(value = "**sgLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -169,7 +174,7 @@ public class SGLocalAccountIdentification {
    * **sgLocal**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
