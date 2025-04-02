@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Address;
@@ -24,7 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -85,15 +87,15 @@ public class FundRecipient {
    * The purpose of a digital wallet transaction.
    */
   public enum WalletPurposeEnum {
-    IDENTIFIEDBOLETO(String.valueOf("identifiedBoleto")),
+    IDENTIFIEDBOLETO("identifiedBoleto"),
     
-    TRANSFERDIFFERENTWALLET(String.valueOf("transferDifferentWallet")),
+    TRANSFERDIFFERENTWALLET("transferDifferentWallet"),
     
-    TRANSFEROWNWALLET(String.valueOf("transferOwnWallet")),
+    TRANSFEROWNWALLET("transferOwnWallet"),
     
-    TRANSFERSAMEWALLET(String.valueOf("transferSameWallet")),
+    TRANSFERSAMEWALLET("transferSameWallet"),
     
-    UNIDENTIFIEDBOLETO(String.valueOf("unidentifiedBoleto"));
+    UNIDENTIFIEDBOLETO("unidentifiedBoleto");
 
     private String value;
 
@@ -143,6 +145,7 @@ public class FundRecipient {
    * The IBAN of the bank account where the funds are being transferred to.
    * @return IBAN
    */
+  @ApiModelProperty(value = "The IBAN of the bank account where the funds are being transferred to.")
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIBAN() {
@@ -153,7 +156,7 @@ public class FundRecipient {
    * The IBAN of the bank account where the funds are being transferred to.
    *
    * @param IBAN
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIBAN(String IBAN) {
@@ -172,9 +175,10 @@ public class FundRecipient {
   }
 
   /**
-   * Get billingAddress
+   * billingAddress
    * @return billingAddress
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getBillingAddress() {
@@ -185,7 +189,7 @@ public class FundRecipient {
    * billingAddress
    *
    * @param billingAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -204,9 +208,10 @@ public class FundRecipient {
   }
 
   /**
-   * Get paymentMethod
+   * paymentMethod
    * @return paymentMethod
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardDetails getPaymentMethod() {
@@ -217,7 +222,7 @@ public class FundRecipient {
    * paymentMethod
    *
    * @param paymentMethod
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(CardDetails paymentMethod) {
@@ -239,6 +244,7 @@ public class FundRecipient {
    * The email address of the shopper.
    * @return shopperEmail
    */
+  @ApiModelProperty(value = "The email address of the shopper.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -249,7 +255,7 @@ public class FundRecipient {
    * The email address of the shopper.
    *
    * @param shopperEmail
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -268,9 +274,10 @@ public class FundRecipient {
   }
 
   /**
-   * Get shopperName
+   * shopperName
    * @return shopperName
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getShopperName() {
@@ -281,7 +288,7 @@ public class FundRecipient {
    * shopperName
    *
    * @param shopperName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -303,6 +310,7 @@ public class FundRecipient {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    * @return shopperReference
    */
+  @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. > Your reference must not include personally identifiable information (PII) such as name or email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -313,7 +321,7 @@ public class FundRecipient {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
    * @param shopperReference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -335,6 +343,7 @@ public class FundRecipient {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -345,7 +354,7 @@ public class FundRecipient {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -364,9 +373,10 @@ public class FundRecipient {
   }
 
   /**
-   * Get subMerchant
+   * subMerchant
    * @return subMerchant
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SubMerchant getSubMerchant() {
@@ -377,7 +387,7 @@ public class FundRecipient {
    * subMerchant
    *
    * @param subMerchant
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubMerchant(SubMerchant subMerchant) {
@@ -399,6 +409,7 @@ public class FundRecipient {
    * The telephone number of the shopper.
    * @return telephoneNumber
    */
+  @ApiModelProperty(value = "The telephone number of the shopper.")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
@@ -409,7 +420,7 @@ public class FundRecipient {
    * The telephone number of the shopper.
    *
    * @param telephoneNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
@@ -431,6 +442,7 @@ public class FundRecipient {
    * The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    * @return walletIdentifier
    */
+  @ApiModelProperty(value = "The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.")
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWalletIdentifier() {
@@ -441,7 +453,7 @@ public class FundRecipient {
    * The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    *
    * @param walletIdentifier
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletIdentifier(String walletIdentifier) {
@@ -463,6 +475,7 @@ public class FundRecipient {
    * The tax identifier of the person receiving the funds.
    * @return walletOwnerTaxId
    */
+  @ApiModelProperty(value = "The tax identifier of the person receiving the funds.")
   @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWalletOwnerTaxId() {
@@ -473,7 +486,7 @@ public class FundRecipient {
    * The tax identifier of the person receiving the funds.
    *
    * @param walletOwnerTaxId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletOwnerTaxId(String walletOwnerTaxId) {
@@ -495,6 +508,7 @@ public class FundRecipient {
    * The purpose of a digital wallet transaction.
    * @return walletPurpose
    */
+  @ApiModelProperty(value = "The purpose of a digital wallet transaction.")
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WalletPurposeEnum getWalletPurpose() {
@@ -505,7 +519,7 @@ public class FundRecipient {
    * The purpose of a digital wallet transaction.
    *
    * @param walletPurpose
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletPurpose(WalletPurposeEnum walletPurpose) {

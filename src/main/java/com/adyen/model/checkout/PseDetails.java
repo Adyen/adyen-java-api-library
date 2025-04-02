@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -57,7 +59,7 @@ public class PseDetails {
    * The payment method type.
    */
   public enum TypeEnum {
-    PSE_PAYULATAM(String.valueOf("pse_payulatam"));
+    PSE_PAYULATAM("pse_payulatam");
 
     private String value;
 
@@ -107,6 +109,7 @@ public class PseDetails {
    * The shopper&#39;s bank.
    * @return bank
    */
+  @ApiModelProperty(required = true, value = "The shopper's bank.")
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBank() {
@@ -117,7 +120,7 @@ public class PseDetails {
    * The shopper&#39;s bank.
    *
    * @param bank
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(String bank) {
@@ -139,6 +142,7 @@ public class PseDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -149,7 +153,7 @@ public class PseDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -171,6 +175,7 @@ public class PseDetails {
    * The client type.
    * @return clientType
    */
+  @ApiModelProperty(required = true, value = "The client type.")
   @JsonProperty(JSON_PROPERTY_CLIENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientType() {
@@ -181,7 +186,7 @@ public class PseDetails {
    * The client type.
    *
    * @param clientType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CLIENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientType(String clientType) {
@@ -203,6 +208,7 @@ public class PseDetails {
    * The identification code.
    * @return identification
    */
+  @ApiModelProperty(required = true, value = "The identification code.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIdentification() {
@@ -213,7 +219,7 @@ public class PseDetails {
    * The identification code.
    *
    * @param identification
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentification(String identification) {
@@ -235,6 +241,7 @@ public class PseDetails {
    * The identification type.
    * @return identificationType
    */
+  @ApiModelProperty(required = true, value = "The identification type.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIdentificationType() {
@@ -245,7 +252,7 @@ public class PseDetails {
    * The identification type.
    *
    * @param identificationType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationType(String identificationType) {
@@ -267,6 +274,7 @@ public class PseDetails {
    * The payment method type.
    * @return type
    */
+  @ApiModelProperty(value = "The payment method type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -277,7 +285,7 @@ public class PseDetails {
    * The payment method type.
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

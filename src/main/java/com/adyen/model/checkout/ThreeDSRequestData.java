@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -40,15 +42,15 @@ public class ThreeDSRequestData {
    * Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    */
   public enum ChallengeWindowSizeEnum {
-    _01(String.valueOf("01")),
+    _01("01"),
     
-    _02(String.valueOf("02")),
+    _02("02"),
     
-    _03(String.valueOf("03")),
+    _03("03"),
     
-    _04(String.valueOf("04")),
+    _04("04"),
     
-    _05(String.valueOf("05"));
+    _05("05");
 
     private String value;
 
@@ -84,9 +86,9 @@ public class ThreeDSRequestData {
    * Flag for data only flow.
    */
   public enum DataOnlyEnum {
-    FALSE(String.valueOf("false")),
+    FALSE("false"),
     
-    TRUE(String.valueOf("true"));
+    TRUE("true");
 
     private String value;
 
@@ -122,9 +124,9 @@ public class ThreeDSRequestData {
    * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    */
   public enum NativeThreeDSEnum {
-    PREFERRED(String.valueOf("preferred")),
+    PREFERRED("preferred"),
     
-    DISABLED(String.valueOf("disabled"));
+    DISABLED("disabled");
 
     private String value;
 
@@ -160,9 +162,9 @@ public class ThreeDSRequestData {
    * The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    */
   public enum ThreeDSVersionEnum {
-    _2_1_0(String.valueOf("2.1.0")),
+    _1_0("2.1.0"),
     
-    _2_2_0(String.valueOf("2.2.0"));
+    _2_0("2.2.0");
 
     private String value;
 
@@ -212,6 +214,7 @@ public class ThreeDSRequestData {
    * Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    * @return challengeWindowSize
    */
+  @ApiModelProperty(value = "Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen")
   @JsonProperty(JSON_PROPERTY_CHALLENGE_WINDOW_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ChallengeWindowSizeEnum getChallengeWindowSize() {
@@ -222,7 +225,7 @@ public class ThreeDSRequestData {
    * Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    *
    * @param challengeWindowSize
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHALLENGE_WINDOW_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChallengeWindowSize(ChallengeWindowSizeEnum challengeWindowSize) {
@@ -244,6 +247,7 @@ public class ThreeDSRequestData {
    * Flag for data only flow.
    * @return dataOnly
    */
+  @ApiModelProperty(value = "Flag for data only flow.")
   @JsonProperty(JSON_PROPERTY_DATA_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DataOnlyEnum getDataOnly() {
@@ -254,7 +258,7 @@ public class ThreeDSRequestData {
    * Flag for data only flow.
    *
    * @param dataOnly
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDataOnly(DataOnlyEnum dataOnly) {
@@ -276,6 +280,7 @@ public class ThreeDSRequestData {
    * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    * @return nativeThreeDS
    */
+  @ApiModelProperty(value = "Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.")
   @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NativeThreeDSEnum getNativeThreeDS() {
@@ -286,7 +291,7 @@ public class ThreeDSRequestData {
    * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    *
    * @param nativeThreeDS
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNativeThreeDS(NativeThreeDSEnum nativeThreeDS) {
@@ -308,6 +313,7 @@ public class ThreeDSRequestData {
    * The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    * @return threeDSVersion
    */
+  @ApiModelProperty(value = "The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**")
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ThreeDSVersionEnum getThreeDSVersion() {
@@ -318,7 +324,7 @@ public class ThreeDSRequestData {
    * The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    *
    * @param threeDSVersion
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeDSVersion(ThreeDSVersionEnum threeDSVersion) {

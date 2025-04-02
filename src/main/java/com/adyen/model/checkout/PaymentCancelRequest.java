@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.ApplicationInfo;
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,9 +62,10 @@ public class PaymentCancelRequest {
   }
 
   /**
-   * Get applicationInfo
+   * applicationInfo
    * @return applicationInfo
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApplicationInfo getApplicationInfo() {
@@ -73,7 +76,7 @@ public class PaymentCancelRequest {
    * applicationInfo
    *
    * @param applicationInfo
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
@@ -95,6 +98,7 @@ public class PaymentCancelRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
    */
+  @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -105,7 +109,7 @@ public class PaymentCancelRequest {
    * The merchant account that is used to process the payment.
    *
    * @param merchantAccount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -127,6 +131,7 @@ public class PaymentCancelRequest {
    * Your reference for the cancel request. Maximum length: 80 characters.
    * @return reference
    */
+  @ApiModelProperty(value = "Your reference for the cancel request. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -137,7 +142,7 @@ public class PaymentCancelRequest {
    * Your reference for the cancel request. Maximum length: 80 characters.
    *
    * @param reference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {

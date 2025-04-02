@@ -13,6 +13,7 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,6 +64,7 @@ public class ShopperInteractionDevice {
    * Locale on the shopper interaction device.
    * @return locale
    */
+  @ApiModelProperty(value = "Locale on the shopper interaction device.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLocale() {
@@ -72,7 +75,7 @@ public class ShopperInteractionDevice {
    * Locale on the shopper interaction device.
    *
    * @param locale
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(String locale) {
@@ -94,6 +97,7 @@ public class ShopperInteractionDevice {
    * Operating system running on the shopper interaction device.
    * @return os
    */
+  @ApiModelProperty(value = "Operating system running on the shopper interaction device.")
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOs() {
@@ -104,7 +108,7 @@ public class ShopperInteractionDevice {
    * Operating system running on the shopper interaction device.
    *
    * @param os
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOs(String os) {
@@ -126,6 +130,7 @@ public class ShopperInteractionDevice {
    * Version of the operating system on the shopper interaction device.
    * @return osVersion
    */
+  @ApiModelProperty(value = "Version of the operating system on the shopper interaction device.")
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOsVersion() {
@@ -136,7 +141,7 @@ public class ShopperInteractionDevice {
    * Version of the operating system on the shopper interaction device.
    *
    * @param osVersion
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {

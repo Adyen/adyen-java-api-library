@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,8 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,23 +56,23 @@ public class TermsOfServiceAcceptanceInfo {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   public enum TypeEnum {
-    ADYENACCOUNT(String.valueOf("adyenAccount")),
+    ADYENACCOUNT("adyenAccount"),
     
-    ADYENCAPITAL(String.valueOf("adyenCapital")),
+    ADYENCAPITAL("adyenCapital"),
     
-    ADYENCARD(String.valueOf("adyenCard")),
+    ADYENCARD("adyenCard"),
     
-    ADYENCHARGECARD(String.valueOf("adyenChargeCard")),
+    ADYENCHARGECARD("adyenChargeCard"),
     
-    ADYENFORPLATFORMSADVANCED(String.valueOf("adyenForPlatformsAdvanced")),
+    ADYENFORPLATFORMSADVANCED("adyenForPlatformsAdvanced"),
     
-    ADYENFORPLATFORMSMANAGE(String.valueOf("adyenForPlatformsManage")),
+    ADYENFORPLATFORMSMANAGE("adyenForPlatformsManage"),
     
-    ADYENFRANCHISEE(String.valueOf("adyenFranchisee")),
+    ADYENFRANCHISEE("adyenFranchisee"),
     
-    ADYENISSUING(String.valueOf("adyenIssuing")),
+    ADYENISSUING("adyenIssuing"),
     
-    ADYENPCCR(String.valueOf("adyenPccr"));
+    ADYENPCCR("adyenPccr");
 
     private String value;
 
@@ -120,6 +122,7 @@ public class TermsOfServiceAcceptanceInfo {
    * The unique identifier of the user that accepted the Terms of Service.
    * @return acceptedBy
    */
+  @ApiModelProperty(value = "The unique identifier of the user that accepted the Terms of Service.")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcceptedBy() {
@@ -130,7 +133,7 @@ public class TermsOfServiceAcceptanceInfo {
    * The unique identifier of the user that accepted the Terms of Service.
    *
    * @param acceptedBy
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
@@ -152,6 +155,7 @@ public class TermsOfServiceAcceptanceInfo {
    * The unique identifier of the legal entity for which the Terms of Service are accepted.
    * @return acceptedFor
    */
+  @ApiModelProperty(value = "The unique identifier of the legal entity for which the Terms of Service are accepted.")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcceptedFor() {
@@ -162,7 +166,7 @@ public class TermsOfServiceAcceptanceInfo {
    * The unique identifier of the legal entity for which the Terms of Service are accepted.
    *
    * @param acceptedFor
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedFor(String acceptedFor) {
@@ -184,6 +188,7 @@ public class TermsOfServiceAcceptanceInfo {
    * The date when the Terms of Service were accepted.
    * @return createdAt
    */
+  @ApiModelProperty(value = "The date when the Terms of Service were accepted.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -194,7 +199,7 @@ public class TermsOfServiceAcceptanceInfo {
    * The date when the Terms of Service were accepted.
    *
    * @param createdAt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -216,6 +221,7 @@ public class TermsOfServiceAcceptanceInfo {
    * An Adyen-generated reference for the accepted Terms of Service.
    * @return id
    */
+  @ApiModelProperty(value = "An Adyen-generated reference for the accepted Terms of Service.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -226,7 +232,7 @@ public class TermsOfServiceAcceptanceInfo {
    * An Adyen-generated reference for the accepted Terms of Service.
    *
    * @param id
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -248,6 +254,7 @@ public class TermsOfServiceAcceptanceInfo {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    * @return type
    */
+  @ApiModelProperty(value = "The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -258,7 +265,7 @@ public class TermsOfServiceAcceptanceInfo {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

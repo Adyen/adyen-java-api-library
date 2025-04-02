@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -58,6 +60,7 @@ public class Lodging {
    * The check-in date.
    * @return checkInDate
    */
+  @ApiModelProperty(value = "The check-in date.")
   @JsonProperty(JSON_PROPERTY_CHECK_IN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckInDate() {
@@ -68,7 +71,7 @@ public class Lodging {
    * The check-in date.
    *
    * @param checkInDate
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECK_IN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckInDate(String checkInDate) {
@@ -90,6 +93,7 @@ public class Lodging {
    * The total number of nights the room is booked for.
    * @return numberOfNights
    */
+  @ApiModelProperty(value = "The total number of nights the room is booked for.")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getNumberOfNights() {
@@ -100,7 +104,7 @@ public class Lodging {
    * The total number of nights the room is booked for.
    *
    * @param numberOfNights
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberOfNights(Integer numberOfNights) {

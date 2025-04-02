@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.CardBrandDetails;
@@ -21,8 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,7 +42,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CardDetailsResponse {
   public static final String JSON_PROPERTY_BRANDS = "brands";
-  private List<CardBrandDetails> brands = new ArrayList<>();
+  private List<CardBrandDetails> brands = null;
 
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;
@@ -77,6 +79,7 @@ public class CardDetailsResponse {
    * The list of brands identified for the card.
    * @return brands
    */
+  @ApiModelProperty(value = "The list of brands identified for the card.")
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CardBrandDetails> getBrands() {
@@ -87,7 +90,7 @@ public class CardDetailsResponse {
    * The list of brands identified for the card.
    *
    * @param brands
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrands(List<CardBrandDetails> brands) {
@@ -109,6 +112,7 @@ public class CardDetailsResponse {
    * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
    * @return fundingSource
    */
+  @ApiModelProperty(value = "The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.")
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFundingSource() {
@@ -119,7 +123,7 @@ public class CardDetailsResponse {
    * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
    *
    * @param fundingSource
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
@@ -141,6 +145,7 @@ public class CardDetailsResponse {
    * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
    * @return isCardCommercial
    */
+  @ApiModelProperty(value = "Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.")
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsCardCommercial() {
@@ -151,7 +156,7 @@ public class CardDetailsResponse {
    * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
    *
    * @param isCardCommercial
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCardCommercial(Boolean isCardCommercial) {
@@ -173,6 +178,7 @@ public class CardDetailsResponse {
    * The two-letter country code  of the country where the card was issued.
    * @return issuingCountryCode
    */
+  @ApiModelProperty(value = "The two-letter country code  of the country where the card was issued.")
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuingCountryCode() {
@@ -183,7 +189,7 @@ public class CardDetailsResponse {
    * The two-letter country code  of the country where the card was issued.
    *
    * @param issuingCountryCode
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuingCountryCode(String issuingCountryCode) {

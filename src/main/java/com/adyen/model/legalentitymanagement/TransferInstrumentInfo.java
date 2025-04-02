@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.BankAccountInfo;
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -46,9 +48,9 @@ public class TransferInstrumentInfo {
    * The type of transfer instrument.  Possible value: **bankAccount**.
    */
   public enum TypeEnum {
-    BANKACCOUNT(String.valueOf("bankAccount")),
+    BANKACCOUNT("bankAccount"),
     
-    RECURRINGDETAIL(String.valueOf("recurringDetail"));
+    RECURRINGDETAIL("recurringDetail");
 
     private String value;
 
@@ -95,9 +97,10 @@ public class TransferInstrumentInfo {
   }
 
   /**
-   * Get bankAccount
+   * bankAccount
    * @return bankAccount
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccountInfo getBankAccount() {
@@ -108,7 +111,7 @@ public class TransferInstrumentInfo {
    * bankAccount
    *
    * @param bankAccount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccount(BankAccountInfo bankAccount) {
@@ -130,6 +133,7 @@ public class TransferInstrumentInfo {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    * @return legalEntityId
    */
+  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalEntityId() {
@@ -140,7 +144,7 @@ public class TransferInstrumentInfo {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    *
    * @param legalEntityId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
@@ -162,6 +166,7 @@ public class TransferInstrumentInfo {
    * The type of transfer instrument.  Possible value: **bankAccount**.
    * @return type
    */
+  @ApiModelProperty(required = true, value = "The type of transfer instrument.  Possible value: **bankAccount**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -172,7 +177,7 @@ public class TransferInstrumentInfo {
    * The type of transfer instrument.  Possible value: **bankAccount**.
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

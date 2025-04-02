@@ -13,6 +13,7 @@
 package com.adyen.model.transactionwebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transactionwebhooks.Transaction;
@@ -21,8 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -51,7 +53,7 @@ public class TransactionNotificationRequestV4 {
    * Type of the webhook.
    */
   public enum TypeEnum {
-    BALANCEPLATFORM_TRANSACTION_CREATED(String.valueOf("balancePlatform.transaction.created"));
+    BALANCEPLATFORM_TRANSACTION_CREATED("balancePlatform.transaction.created");
 
     private String value;
 
@@ -98,9 +100,10 @@ public class TransactionNotificationRequestV4 {
   }
 
   /**
-   * Get data
+   * data
    * @return data
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Transaction getData() {
@@ -111,7 +114,7 @@ public class TransactionNotificationRequestV4 {
    * data
    *
    * @param data
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(Transaction data) {
@@ -133,6 +136,7 @@ public class TransactionNotificationRequestV4 {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return environment
    */
+  @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnvironment() {
@@ -143,7 +147,7 @@ public class TransactionNotificationRequestV4 {
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
    * @param environment
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
@@ -165,6 +169,7 @@ public class TransactionNotificationRequestV4 {
    * When the event was queued.
    * @return timestamp
    */
+  @ApiModelProperty(value = "When the event was queued.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getTimestamp() {
@@ -175,7 +180,7 @@ public class TransactionNotificationRequestV4 {
    * When the event was queued.
    *
    * @param timestamp
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(OffsetDateTime timestamp) {
@@ -197,6 +202,7 @@ public class TransactionNotificationRequestV4 {
    * Type of the webhook.
    * @return type
    */
+  @ApiModelProperty(value = "Type of the webhook.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -207,7 +213,7 @@ public class TransactionNotificationRequestV4 {
    * Type of the webhook.
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

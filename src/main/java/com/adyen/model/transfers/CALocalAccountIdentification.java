@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,9 +46,9 @@ public class CALocalAccountIdentification {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    */
   public enum AccountTypeEnum {
-    CHECKING(String.valueOf("checking")),
+    CHECKING("checking"),
     
-    SAVINGS(String.valueOf("savings"));
+    SAVINGS("savings");
 
     private String value;
 
@@ -76,7 +78,7 @@ public class CALocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  private AccountTypeEnum accountType = AccountTypeEnum.CHECKING;
+  private AccountTypeEnum accountType;
 
   public static final String JSON_PROPERTY_INSTITUTION_NUMBER = "institutionNumber";
   private String institutionNumber;
@@ -88,7 +90,7 @@ public class CALocalAccountIdentification {
    * **caLocal**
    */
   public enum TypeEnum {
-    CALOCAL(String.valueOf("caLocal"));
+    CALOCAL("caLocal");
 
     private String value;
 
@@ -118,7 +120,7 @@ public class CALocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CALOCAL;
+  private TypeEnum type;
 
   public CALocalAccountIdentification() { 
   }
@@ -138,6 +140,7 @@ public class CALocalAccountIdentification {
    * The 5- to 12-digit bank account number, without separators or whitespace.
    * @return accountNumber
    */
+  @ApiModelProperty(required = true, value = "The 5- to 12-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -148,7 +151,7 @@ public class CALocalAccountIdentification {
    * The 5- to 12-digit bank account number, without separators or whitespace.
    *
    * @param accountNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -170,6 +173,7 @@ public class CALocalAccountIdentification {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return accountType
    */
+  @ApiModelProperty(value = "The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AccountTypeEnum getAccountType() {
@@ -180,7 +184,7 @@ public class CALocalAccountIdentification {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    *
    * @param accountType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
@@ -202,6 +206,7 @@ public class CALocalAccountIdentification {
    * The 3-digit institution number, without separators or whitespace.
    * @return institutionNumber
    */
+  @ApiModelProperty(required = true, value = "The 3-digit institution number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstitutionNumber() {
@@ -212,7 +217,7 @@ public class CALocalAccountIdentification {
    * The 3-digit institution number, without separators or whitespace.
    *
    * @param institutionNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstitutionNumber(String institutionNumber) {
@@ -234,6 +239,7 @@ public class CALocalAccountIdentification {
    * The 5-digit transit number, without separators or whitespace.
    * @return transitNumber
    */
+  @ApiModelProperty(required = true, value = "The 5-digit transit number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransitNumber() {
@@ -244,7 +250,7 @@ public class CALocalAccountIdentification {
    * The 5-digit transit number, without separators or whitespace.
    *
    * @param transitNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransitNumber(String transitNumber) {
@@ -266,6 +272,7 @@ public class CALocalAccountIdentification {
    * **caLocal**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**caLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -276,7 +283,7 @@ public class CALocalAccountIdentification {
    * **caLocal**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

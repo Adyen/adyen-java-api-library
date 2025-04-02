@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,9 +45,9 @@ public class USLocalAccountIdentification {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    */
   public enum AccountTypeEnum {
-    CHECKING(String.valueOf("checking")),
+    CHECKING("checking"),
     
-    SAVINGS(String.valueOf("savings"));
+    SAVINGS("savings");
 
     private String value;
 
@@ -75,7 +77,7 @@ public class USLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  private AccountTypeEnum accountType = AccountTypeEnum.CHECKING;
+  private AccountTypeEnum accountType;
 
   public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
   private String routingNumber;
@@ -84,7 +86,7 @@ public class USLocalAccountIdentification {
    * **usLocal**
    */
   public enum TypeEnum {
-    USLOCAL(String.valueOf("usLocal"));
+    USLOCAL("usLocal");
 
     private String value;
 
@@ -114,7 +116,7 @@ public class USLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.USLOCAL;
+  private TypeEnum type;
 
   public USLocalAccountIdentification() { 
   }
@@ -134,6 +136,7 @@ public class USLocalAccountIdentification {
    * The bank account number, without separators or whitespace.
    * @return accountNumber
    */
+  @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -144,7 +147,7 @@ public class USLocalAccountIdentification {
    * The bank account number, without separators or whitespace.
    *
    * @param accountNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -166,6 +169,7 @@ public class USLocalAccountIdentification {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return accountType
    */
+  @ApiModelProperty(value = "The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AccountTypeEnum getAccountType() {
@@ -176,7 +180,7 @@ public class USLocalAccountIdentification {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    *
    * @param accountType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
@@ -198,6 +202,7 @@ public class USLocalAccountIdentification {
    * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    * @return routingNumber
    */
+  @ApiModelProperty(required = true, value = "The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRoutingNumber() {
@@ -208,7 +213,7 @@ public class USLocalAccountIdentification {
    * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    *
    * @param routingNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
@@ -230,6 +235,7 @@ public class USLocalAccountIdentification {
    * **usLocal**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**usLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -240,7 +246,7 @@ public class USLocalAccountIdentification {
    * **usLocal**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

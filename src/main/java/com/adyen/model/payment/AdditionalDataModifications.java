@@ -13,6 +13,7 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,6 +56,7 @@ public class AdditionalDataModifications {
    * This is the installment option selected by the shopper. It is required only if specified by the user.
    * @return installmentPaymentDataSelectedInstallmentOption
    */
+  @ApiModelProperty(value = "This is the installment option selected by the shopper. It is required only if specified by the user.")
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_SELECTED_INSTALLMENT_OPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstallmentPaymentDataSelectedInstallmentOption() {
@@ -64,7 +67,7 @@ public class AdditionalDataModifications {
    * This is the installment option selected by the shopper. It is required only if specified by the user.
    *
    * @param installmentPaymentDataSelectedInstallmentOption
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_SELECTED_INSTALLMENT_OPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallmentPaymentDataSelectedInstallmentOption(String installmentPaymentDataSelectedInstallmentOption) {

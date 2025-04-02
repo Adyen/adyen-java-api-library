@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -58,6 +60,7 @@ public class Phone {
    * Country code. Length: 1–3 characters.
    * @return cc
    */
+  @ApiModelProperty(value = "Country code. Length: 1–3 characters.")
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCc() {
@@ -68,7 +71,7 @@ public class Phone {
    * Country code. Length: 1–3 characters.
    *
    * @param cc
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCc(String cc) {
@@ -90,6 +93,7 @@ public class Phone {
    * Subscriber number. Maximum length: 15 characters.
    * @return subscriber
    */
+  @ApiModelProperty(value = "Subscriber number. Maximum length: 15 characters.")
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubscriber() {
@@ -100,7 +104,7 @@ public class Phone {
    * Subscriber number. Maximum length: 15 characters.
    *
    * @param subscriber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscriber(String subscriber) {

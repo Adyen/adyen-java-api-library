@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
@@ -23,8 +24,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,7 +49,7 @@ public class PaypalUpdateOrderRequest {
   private Amount amount;
 
   public static final String JSON_PROPERTY_DELIVERY_METHODS = "deliveryMethods";
-  private List<DeliveryMethod> deliveryMethods = new ArrayList<>();
+  private List<DeliveryMethod> deliveryMethods = null;
 
   public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;
@@ -76,9 +78,10 @@ public class PaypalUpdateOrderRequest {
   }
 
   /**
-   * Get amount
+   * amount
    * @return amount
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -89,7 +92,7 @@ public class PaypalUpdateOrderRequest {
    * amount
    *
    * @param amount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -119,6 +122,7 @@ public class PaypalUpdateOrderRequest {
    * The list of new delivery methods and the cost of each.
    * @return deliveryMethods
    */
+  @ApiModelProperty(value = "The list of new delivery methods and the cost of each.")
   @JsonProperty(JSON_PROPERTY_DELIVERY_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DeliveryMethod> getDeliveryMethods() {
@@ -129,7 +133,7 @@ public class PaypalUpdateOrderRequest {
    * The list of new delivery methods and the cost of each.
    *
    * @param deliveryMethods
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
@@ -151,6 +155,7 @@ public class PaypalUpdateOrderRequest {
    * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
    * @return paymentData
    */
+  @ApiModelProperty(value = "The `paymentData` from the client side. This value changes every time you make a `/paypal/updateOrder` request.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentData() {
@@ -161,7 +166,7 @@ public class PaypalUpdateOrderRequest {
    * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
    *
    * @param paymentData
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentData(String paymentData) {
@@ -183,6 +188,7 @@ public class PaypalUpdateOrderRequest {
    * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
    * @return pspReference
    */
+  @ApiModelProperty(value = "The original `pspReference` from the `/payments` response.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -193,7 +199,7 @@ public class PaypalUpdateOrderRequest {
    * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
    *
    * @param pspReference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -215,6 +221,7 @@ public class PaypalUpdateOrderRequest {
    * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
    * @return sessionId
    */
+  @ApiModelProperty(value = "The original `sessionId` from the `/sessions` response.")
   @JsonProperty(JSON_PROPERTY_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSessionId() {
@@ -225,7 +232,7 @@ public class PaypalUpdateOrderRequest {
    * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
    *
    * @param sessionId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSessionId(String sessionId) {
@@ -244,9 +251,10 @@ public class PaypalUpdateOrderRequest {
   }
 
   /**
-   * Get taxTotal
+   * taxTotal
    * @return taxTotal
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TAX_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TaxTotal getTaxTotal() {
@@ -257,7 +265,7 @@ public class PaypalUpdateOrderRequest {
    * taxTotal
    *
    * @param taxTotal
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxTotal(TaxTotal taxTotal) {
