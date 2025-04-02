@@ -1,0 +1,42 @@
+{
+  "amount": {
+    "currency": "EUR",
+    "value": 20000
+  },
+  "balances": {
+    "currency": "EUR",
+    "fee": 10,
+    "principal": 19990,
+    "total": 20000
+  },
+  "counterparty": {
+    "accountHolderId": "AH000000001",
+    "balanceAccountId": "BA000000001",
+    "transferInstrumentId": "PI000000001"
+  },
+  "fee": {
+    "amount": {
+      "currency": "EUR",
+      "value": 10
+    }
+  },
+  "grantAccountId": "987654321",
+  "grantOfferId": "string",
+  "id": "0000001",
+  "repayment": {
+    "basisPoints": 0,
+    "term": {
+      "estimatedDays": 0,
+      "maximumDays": 0
+    },
+    "threshold": {
+      "amount": {
+        "currency": "str",
+        "value": 0
+      }
+    }
+  },
+  "status": {
+    "code": "Pending"
+  }
+}
