@@ -5,6 +5,9 @@ import com.adyen.util.HMACValidator;
 import com.adyen.model.notification.NotificationRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 /**
  Script to calculate the HMAC signature of Payments webhooks (where the signature is calculated considering
  a subset of the fields in the payload - i.e. NotificationRequestItem object)
@@ -27,16 +30,20 @@ public class CalculateHmacPayments {
         String hmacKey = args[0];
         String jsonFilePath = args[1];
 
-        System.out.println("Calculating HMAC signature with payload from " + jsonFilePath);
-
         try {
 
             HMACValidator hmacValidator = new HMACValidator();
+            String content = loadFromJsonAsString(jsonFilePath);
+
+            System.out.println("********");
+            System.out.println("Payload file: " + jsonFilePath);
+            System.out.println("Payload length: " + content.length());
 
             NotificationRequest notificationRequest = loadFromJson(jsonFilePath);
             // fetch first notificationRequestItem
             NotificationRequestItem notificationRequestItem = notificationRequest.getNotificationItems().get(0);
 
+            System.out.println("********");
             String hmacSignature = hmacValidator.calculateHMAC(notificationRequestItem, hmacKey);
 
             System.out.println("HMAC signature: " + hmacSignature);
@@ -55,5 +62,15 @@ public class CalculateHmacPayments {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(new File(filepath), NotificationRequest.class);
     }
+
+    /**
+	 * Load payload as String from JSON file
+     * @param filepath
+	 * @return
+	 * @throws Exception
+     */
+    private static String loadFromJsonAsString(String filepath) throws Exception {
+        return new String(Files.readAllBytes(Paths.get(filepath)));
+    }    
 
 }
