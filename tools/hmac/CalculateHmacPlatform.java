@@ -18,12 +18,12 @@ public class CalculateHmacPlatform {
     public static void main(String[] args) {
         if (args.length != 2) {
             System.err.println("‼️Error running the script");
-            System.err.println("Usage: java CalculateHmacPlatform <hmacKey> <payloadFile>");
+            System.err.println("Usage: java CalculateHmacPlatform <hmacKey> <payload.json>");
             System.exit(1);
         }
 
         String hmacKey = args[0];
-        String jsonFilePath = args[1];
+        String jsonFilePath = args[1]; 
 
         System.out.println("Calculating HMAC signature with payload from " + jsonFilePath);
 
@@ -33,8 +33,13 @@ public class CalculateHmacPlatform {
 
             String data = loadFromJson(jsonFilePath);
 
+            System.out.println("********");
+            System.out.println("Payload file: " + jsonFilePath);
+            System.out.println("Payload length: " + data.length());
+
             String hmacSignature = hmacValidator.calculateHMAC(data, hmacKey);
 
+            System.out.println("********");
             System.out.println("HMAC signature: " + hmacSignature);
         } catch (Exception e) {
             e.printStackTrace();
