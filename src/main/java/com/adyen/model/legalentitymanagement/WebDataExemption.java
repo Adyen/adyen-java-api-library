@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -37,9 +39,9 @@ public class WebDataExemption {
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    */
   public enum ReasonEnum {
-    NOONLINEPRESENCE(String.valueOf("noOnlinePresence")),
+    NOONLINEPRESENCE("noOnlinePresence"),
     
-    NOTCOLLECTEDDURINGONBOARDING(String.valueOf("notCollectedDuringOnboarding"));
+    NOTCOLLECTEDDURINGONBOARDING("notCollectedDuringOnboarding");
 
     private String value;
 
@@ -89,6 +91,7 @@ public class WebDataExemption {
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    * @return reason
    */
+  @ApiModelProperty(value = "The reason why the web data was not provided. Possible value: **noOnlinePresence**.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ReasonEnum getReason() {
@@ -99,7 +102,7 @@ public class WebDataExemption {
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    *
    * @param reason
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {

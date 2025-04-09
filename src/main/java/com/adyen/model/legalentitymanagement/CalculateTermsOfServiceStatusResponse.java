@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,8 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,23 +41,23 @@ public class CalculateTermsOfServiceStatusResponse {
    * Gets or Sets termsOfServiceTypes
    */
   public enum TermsOfServiceTypesEnum {
-    ADYENACCOUNT(String.valueOf("adyenAccount")),
+    ADYENACCOUNT("adyenAccount"),
     
-    ADYENCAPITAL(String.valueOf("adyenCapital")),
+    ADYENCAPITAL("adyenCapital"),
     
-    ADYENCARD(String.valueOf("adyenCard")),
+    ADYENCARD("adyenCard"),
     
-    ADYENCHARGECARD(String.valueOf("adyenChargeCard")),
+    ADYENCHARGECARD("adyenChargeCard"),
     
-    ADYENFORPLATFORMSADVANCED(String.valueOf("adyenForPlatformsAdvanced")),
+    ADYENFORPLATFORMSADVANCED("adyenForPlatformsAdvanced"),
     
-    ADYENFORPLATFORMSMANAGE(String.valueOf("adyenForPlatformsManage")),
+    ADYENFORPLATFORMSMANAGE("adyenForPlatformsManage"),
     
-    ADYENFRANCHISEE(String.valueOf("adyenFranchisee")),
+    ADYENFRANCHISEE("adyenFranchisee"),
     
-    ADYENISSUING(String.valueOf("adyenIssuing")),
+    ADYENISSUING("adyenIssuing"),
     
-    ADYENPCCR(String.valueOf("adyenPccr"));
+    ADYENPCCR("adyenPccr");
 
     private String value;
 
@@ -85,7 +87,7 @@ public class CalculateTermsOfServiceStatusResponse {
   }
 
   public static final String JSON_PROPERTY_TERMS_OF_SERVICE_TYPES = "termsOfServiceTypes";
-  private List<TermsOfServiceTypesEnum> termsOfServiceTypes = new ArrayList<>();
+  private List<TermsOfServiceTypesEnum> termsOfServiceTypes = null;
 
   public CalculateTermsOfServiceStatusResponse() { 
   }
@@ -113,6 +115,7 @@ public class CalculateTermsOfServiceStatusResponse {
    * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
    * @return termsOfServiceTypes
    */
+  @ApiModelProperty(value = "The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TermsOfServiceTypesEnum> getTermsOfServiceTypes() {
@@ -123,7 +126,7 @@ public class CalculateTermsOfServiceStatusResponse {
    * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
    *
    * @param termsOfServiceTypes
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceTypes(List<TermsOfServiceTypesEnum> termsOfServiceTypes) {

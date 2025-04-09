@@ -13,6 +13,7 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -39,11 +41,11 @@ public class PlatformChargebackLogic {
    * The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    */
   public enum BehaviorEnum {
-    DEDUCTACCORDINGTOSPLITRATIO(String.valueOf("deductAccordingToSplitRatio")),
+    DEDUCTACCORDINGTOSPLITRATIO("deductAccordingToSplitRatio"),
     
-    DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
+    DEDUCTFROMLIABLEACCOUNT("deductFromLiableAccount"),
     
-    DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+    DEDUCTFROMONEBALANCEACCOUNT("deductFromOneBalanceAccount");
 
     private String value;
 
@@ -99,6 +101,7 @@ public class PlatformChargebackLogic {
    * The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    * @return behavior
    */
+  @ApiModelProperty(value = "The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.")
   @JsonProperty(JSON_PROPERTY_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BehaviorEnum getBehavior() {
@@ -109,7 +112,7 @@ public class PlatformChargebackLogic {
    * The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    *
    * @param behavior
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBehavior(BehaviorEnum behavior) {
@@ -131,6 +134,7 @@ public class PlatformChargebackLogic {
    * The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
    * @return costAllocationAccount
    */
+  @ApiModelProperty(value = "The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.")
   @JsonProperty(JSON_PROPERTY_COST_ALLOCATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCostAllocationAccount() {
@@ -141,7 +145,7 @@ public class PlatformChargebackLogic {
    * The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
    *
    * @param costAllocationAccount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_COST_ALLOCATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostAllocationAccount(String costAllocationAccount) {
@@ -163,6 +167,7 @@ public class PlatformChargebackLogic {
    * The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
    * @return targetAccount
    */
+  @ApiModelProperty(value = "The unique identifier of the balance account against which the disputed amount is booked.  Required if `behavior` is **deductFromOneBalanceAccount**.")
   @JsonProperty(JSON_PROPERTY_TARGET_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTargetAccount() {
@@ -173,7 +178,7 @@ public class PlatformChargebackLogic {
    * The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
    *
    * @param targetAccount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TARGET_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTargetAccount(String targetAccount) {

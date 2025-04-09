@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,13 +64,13 @@ public class IdentificationData {
    * Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
    */
   public enum TypeEnum {
-    NATIONALIDNUMBER(String.valueOf("nationalIdNumber")),
+    NATIONALIDNUMBER("nationalIdNumber"),
     
-    PASSPORT(String.valueOf("passport")),
+    PASSPORT("passport"),
     
-    DRIVERSLICENSE(String.valueOf("driversLicense")),
+    DRIVERSLICENSE("driversLicense"),
     
-    IDENTITYCARD(String.valueOf("identityCard"));
+    IDENTITYCARD("identityCard");
 
     private String value;
 
@@ -118,6 +120,7 @@ public class IdentificationData {
    * The card number of the document that was issued (AU only).
    * @return cardNumber
    */
+  @ApiModelProperty(value = "The card number of the document that was issued (AU only).")
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardNumber() {
@@ -128,7 +131,7 @@ public class IdentificationData {
    * The card number of the document that was issued (AU only).
    *
    * @param cardNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
@@ -150,6 +153,7 @@ public class IdentificationData {
    * The expiry date of the document, in YYYY-MM-DD format.
    * @return expiryDate
    */
+  @ApiModelProperty(value = "The expiry date of the document, in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExpiryDate() {
@@ -160,7 +164,7 @@ public class IdentificationData {
    * The expiry date of the document, in YYYY-MM-DD format.
    *
    * @param expiryDate
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
@@ -175,7 +179,7 @@ public class IdentificationData {
    *
    * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
   public IdentificationData issuerCountry(String issuerCountry) {
     this.issuerCountry = issuerCountry;
     return this;
@@ -184,9 +188,11 @@ public class IdentificationData {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    * @return issuerCountry
-   * @deprecated // deprecated since Legal Entity Management API v1
+   *
+   * @deprecated since Legal Entity Management API v1
    */
-  @Deprecated // deprecated since Legal Entity Management API v1
+  @Deprecated
+  @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.")
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuerCountry() {
@@ -199,8 +205,8 @@ public class IdentificationData {
    * @param issuerCountry
    *
    * @deprecated since Legal Entity Management API v1
-   */
-  @Deprecated // deprecated since Legal Entity Management API v1
+   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ISSUER_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerCountry(String issuerCountry) {
@@ -222,6 +228,7 @@ public class IdentificationData {
    * The state or province where the document was issued (AU only).
    * @return issuerState
    */
+  @ApiModelProperty(value = "The state or province where the document was issued (AU only).")
   @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuerState() {
@@ -232,7 +239,7 @@ public class IdentificationData {
    * The state or province where the document was issued (AU only).
    *
    * @param issuerState
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuerState(String issuerState) {
@@ -254,6 +261,7 @@ public class IdentificationData {
    * Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
    * @return nationalIdExempt
    */
+  @ApiModelProperty(value = "Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.")
   @JsonProperty(JSON_PROPERTY_NATIONAL_ID_EXEMPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getNationalIdExempt() {
@@ -264,7 +272,7 @@ public class IdentificationData {
    * Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
    *
    * @param nationalIdExempt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NATIONAL_ID_EXEMPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationalIdExempt(Boolean nationalIdExempt) {
@@ -286,6 +294,7 @@ public class IdentificationData {
    * The number in the document.
    * @return number
    */
+  @ApiModelProperty(value = "The number in the document.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNumber() {
@@ -296,7 +305,7 @@ public class IdentificationData {
    * The number in the document.
    *
    * @param number
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -318,6 +327,7 @@ public class IdentificationData {
    * Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type=custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -328,7 +338,7 @@ public class IdentificationData {
    * Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

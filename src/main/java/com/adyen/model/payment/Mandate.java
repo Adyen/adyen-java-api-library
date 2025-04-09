@@ -13,6 +13,7 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,9 +50,9 @@ public class Mandate {
    * The limitation rule of the billing amount.  Possible values:  * **max**: The transaction amount can not exceed the &#x60;amount&#x60;.   * **exact**: The transaction amount should be the same as the &#x60;amount&#x60;.  
    */
   public enum AmountRuleEnum {
-    MAX(String.valueOf("max")),
+    MAX("max"),
     
-    EXACT(String.valueOf("exact"));
+    EXACT("exact");
 
     private String value;
 
@@ -86,11 +88,11 @@ public class Mandate {
    * The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.  Possible values:   * **on**: On a specific date.   * **before**:  Before and on a specific date.   * **after**: On and after a specific date.  
    */
   public enum BillingAttemptsRuleEnum {
-    ON(String.valueOf("on")),
+    ON("on"),
     
-    BEFORE(String.valueOf("before")),
+    BEFORE("before"),
     
-    AFTER(String.valueOf("after"));
+    AFTER("after");
 
     private String value;
 
@@ -135,21 +137,21 @@ public class Mandate {
    * The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.
    */
   public enum FrequencyEnum {
-    ADHOC(String.valueOf("adhoc")),
+    ADHOC("adhoc"),
     
-    DAILY(String.valueOf("daily")),
+    DAILY("daily"),
     
-    WEEKLY(String.valueOf("weekly")),
+    WEEKLY("weekly"),
     
-    BIWEEKLY(String.valueOf("biWeekly")),
+    BIWEEKLY("biWeekly"),
     
-    MONTHLY(String.valueOf("monthly")),
+    MONTHLY("monthly"),
     
-    QUARTERLY(String.valueOf("quarterly")),
+    QUARTERLY("quarterly"),
     
-    HALFYEARLY(String.valueOf("halfYearly")),
+    HALFYEARLY("halfYearly"),
     
-    YEARLY(String.valueOf("yearly"));
+    YEARLY("yearly");
 
     private String value;
 
@@ -205,6 +207,7 @@ public class Mandate {
    * The billing amount (in minor units) of the recurring transactions.
    * @return amount
    */
+  @ApiModelProperty(required = true, value = "The billing amount (in minor units) of the recurring transactions.")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAmount() {
@@ -215,7 +218,7 @@ public class Mandate {
    * The billing amount (in minor units) of the recurring transactions.
    *
    * @param amount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(String amount) {
@@ -237,6 +240,7 @@ public class Mandate {
    * The limitation rule of the billing amount.  Possible values:  * **max**: The transaction amount can not exceed the &#x60;amount&#x60;.   * **exact**: The transaction amount should be the same as the &#x60;amount&#x60;.  
    * @return amountRule
    */
+  @ApiModelProperty(value = "The limitation rule of the billing amount.  Possible values:  * **max**: The transaction amount can not exceed the `amount`.   * **exact**: The transaction amount should be the same as the `amount`.  ")
   @JsonProperty(JSON_PROPERTY_AMOUNT_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AmountRuleEnum getAmountRule() {
@@ -247,7 +251,7 @@ public class Mandate {
    * The limitation rule of the billing amount.  Possible values:  * **max**: The transaction amount can not exceed the &#x60;amount&#x60;.   * **exact**: The transaction amount should be the same as the &#x60;amount&#x60;.  
    *
    * @param amountRule
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNT_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmountRule(AmountRuleEnum amountRule) {
@@ -269,6 +273,7 @@ public class Mandate {
    * The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.  Possible values:   * **on**: On a specific date.   * **before**:  Before and on a specific date.   * **after**: On and after a specific date.  
    * @return billingAttemptsRule
    */
+  @ApiModelProperty(value = "The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.  Possible values:   * **on**: On a specific date.   * **before**:  Before and on a specific date.   * **after**: On and after a specific date.  ")
   @JsonProperty(JSON_PROPERTY_BILLING_ATTEMPTS_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BillingAttemptsRuleEnum getBillingAttemptsRule() {
@@ -279,7 +284,7 @@ public class Mandate {
    * The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.  Possible values:   * **on**: On a specific date.   * **before**:  Before and on a specific date.   * **after**: On and after a specific date.  
    *
    * @param billingAttemptsRule
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ATTEMPTS_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAttemptsRule(BillingAttemptsRuleEnum billingAttemptsRule) {
@@ -301,6 +306,7 @@ public class Mandate {
    * The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.  Possible values: 1-31 based on the &#x60;frequency&#x60;.
    * @return billingDay
    */
+  @ApiModelProperty(value = "The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.  Possible values: 1-31 based on the `frequency`.")
   @JsonProperty(JSON_PROPERTY_BILLING_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingDay() {
@@ -311,7 +317,7 @@ public class Mandate {
    * The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.  Possible values: 1-31 based on the &#x60;frequency&#x60;.
    *
    * @param billingDay
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDay(String billingDay) {
@@ -333,6 +339,7 @@ public class Mandate {
    * The number of transactions that can be performed within the given frequency.
    * @return count
    */
+  @ApiModelProperty(value = "The number of transactions that can be performed within the given frequency.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCount() {
@@ -343,7 +350,7 @@ public class Mandate {
    * The number of transactions that can be performed within the given frequency.
    *
    * @param count
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCount(String count) {
@@ -365,6 +372,7 @@ public class Mandate {
    * End date of the billing plan, in YYYY-MM-DD format.
    * @return endsAt
    */
+  @ApiModelProperty(required = true, value = "End date of the billing plan, in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEndsAt() {
@@ -375,7 +383,7 @@ public class Mandate {
    * End date of the billing plan, in YYYY-MM-DD format.
    *
    * @param endsAt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(String endsAt) {
@@ -397,6 +405,7 @@ public class Mandate {
    * The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.
    * @return frequency
    */
+  @ApiModelProperty(required = true, value = "The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FrequencyEnum getFrequency() {
@@ -407,7 +416,7 @@ public class Mandate {
    * The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.
    *
    * @param frequency
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrequency(FrequencyEnum frequency) {
@@ -429,6 +438,7 @@ public class Mandate {
    * The message shown by UPI to the shopper on the approval screen.
    * @return remarks
    */
+  @ApiModelProperty(value = "The message shown by UPI to the shopper on the approval screen.")
   @JsonProperty(JSON_PROPERTY_REMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRemarks() {
@@ -439,7 +449,7 @@ public class Mandate {
    * The message shown by UPI to the shopper on the approval screen.
    *
    * @param remarks
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REMARKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemarks(String remarks) {
@@ -461,6 +471,7 @@ public class Mandate {
    * Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.
    * @return startsAt
    */
+  @ApiModelProperty(value = "Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.")
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartsAt() {
@@ -471,7 +482,7 @@ public class Mandate {
    * Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.
    *
    * @param startsAt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(String startsAt) {

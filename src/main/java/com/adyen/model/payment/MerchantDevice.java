@@ -13,6 +13,7 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,6 +64,7 @@ public class MerchantDevice {
    * Operating system running on the merchant device.
    * @return os
    */
+  @ApiModelProperty(value = "Operating system running on the merchant device.")
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOs() {
@@ -72,7 +75,7 @@ public class MerchantDevice {
    * Operating system running on the merchant device.
    *
    * @param os
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOs(String os) {
@@ -94,6 +97,7 @@ public class MerchantDevice {
    * Version of the operating system on the merchant device.
    * @return osVersion
    */
+  @ApiModelProperty(value = "Version of the operating system on the merchant device.")
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOsVersion() {
@@ -104,7 +108,7 @@ public class MerchantDevice {
    * Version of the operating system on the merchant device.
    *
    * @param osVersion
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOsVersion(String osVersion) {
@@ -126,6 +130,7 @@ public class MerchantDevice {
    * Merchant device reference.
    * @return reference
    */
+  @ApiModelProperty(value = "Merchant device reference.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -136,7 +141,7 @@ public class MerchantDevice {
    * Merchant device reference.
    *
    * @param reference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {

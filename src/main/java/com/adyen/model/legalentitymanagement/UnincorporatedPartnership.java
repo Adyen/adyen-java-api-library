@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.Address;
@@ -22,8 +23,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -73,67 +75,67 @@ public class UnincorporatedPartnership {
   private String registrationNumber;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = new ArrayList<>();
+  private List<TaxInformation> taxInformation = null;
 
   /**
    * Type of Partnership.  Possible values: *  **limitedPartnership** *  **generalPartnership** *  **familyPartnership** *  **commercialPartnership** *  **publicPartnership** *  **otherPartnership** *  **gbr** *  **gmbh** *  **kgaa** *  **cv** *  **vof** *  **maatschap** *  **privateFundLimitedPartnership** *  **businessTrustEntity** *  **businessPartnership** *  **limitedLiabilityPartnership** *  **eg** *  **cooperative** *  **vos** *  **comunidadDeBienes** *  **herenciaYacente** *  **comunidadDePropietarios** *  **sep** *  **sca** *  **bt** *  **kkt** *  **scs** *  **snc**  
    */
   public enum TypeEnum {
-    LIMITEDPARTNERSHIP(String.valueOf("limitedPartnership")),
+    LIMITEDPARTNERSHIP("limitedPartnership"),
     
-    GENERALPARTNERSHIP(String.valueOf("generalPartnership")),
+    GENERALPARTNERSHIP("generalPartnership"),
     
-    FAMILYPARTNERSHIP(String.valueOf("familyPartnership")),
+    FAMILYPARTNERSHIP("familyPartnership"),
     
-    COMMERCIALPARTNERSHIP(String.valueOf("commercialPartnership")),
+    COMMERCIALPARTNERSHIP("commercialPartnership"),
     
-    PUBLICPARTNERSHIP(String.valueOf("publicPartnership")),
+    PUBLICPARTNERSHIP("publicPartnership"),
     
-    OTHERPARTNERSHIP(String.valueOf("otherPartnership")),
+    OTHERPARTNERSHIP("otherPartnership"),
     
-    GBR(String.valueOf("gbr")),
+    GBR("gbr"),
     
-    GMBH(String.valueOf("gmbh")),
+    GMBH("gmbh"),
     
-    KGAA(String.valueOf("kgaa")),
+    KGAA("kgaa"),
     
-    CV(String.valueOf("cv")),
+    CV("cv"),
     
-    VOF(String.valueOf("vof")),
+    VOF("vof"),
     
-    MAATSCHAP(String.valueOf("maatschap")),
+    MAATSCHAP("maatschap"),
     
-    PRIVATEFUNDLIMITEDPARTNERSHIP(String.valueOf("privateFundLimitedPartnership")),
+    PRIVATEFUNDLIMITEDPARTNERSHIP("privateFundLimitedPartnership"),
     
-    BUSINESSTRUSTENTITY(String.valueOf("businessTrustEntity")),
+    BUSINESSTRUSTENTITY("businessTrustEntity"),
     
-    BUSINESSPARTNERSHIP(String.valueOf("businessPartnership")),
+    BUSINESSPARTNERSHIP("businessPartnership"),
     
-    LIMITEDLIABILITYPARTNERSHIP(String.valueOf("limitedLiabilityPartnership")),
+    LIMITEDLIABILITYPARTNERSHIP("limitedLiabilityPartnership"),
     
-    EG(String.valueOf("eg")),
+    EG("eg"),
     
-    COOPERATIVE(String.valueOf("cooperative")),
+    COOPERATIVE("cooperative"),
     
-    VOS(String.valueOf("vos")),
+    VOS("vos"),
     
-    COMUNIDADDEBIENES(String.valueOf("comunidadDeBienes")),
+    COMUNIDADDEBIENES("comunidadDeBienes"),
     
-    HERENCIAYACENTE(String.valueOf("herenciaYacente")),
+    HERENCIAYACENTE("herenciaYacente"),
     
-    COMUNIDADDEPROPIETARIOS(String.valueOf("comunidadDePropietarios")),
+    COMUNIDADDEPROPIETARIOS("comunidadDePropietarios"),
     
-    SEP(String.valueOf("sep")),
+    SEP("sep"),
     
-    SCA(String.valueOf("sca")),
+    SCA("sca"),
     
-    BT(String.valueOf("bt")),
+    BT("bt"),
     
-    KKT(String.valueOf("kkt")),
+    KKT("kkt"),
     
-    SCS(String.valueOf("scs")),
+    SCS("scs"),
     
-    SNC(String.valueOf("snc"));
+    SNC("snc");
 
     private String value;
 
@@ -169,9 +171,9 @@ public class UnincorporatedPartnership {
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   public enum VatAbsenceReasonEnum {
-    INDUSTRYEXEMPTION(String.valueOf("industryExemption")),
+    INDUSTRYEXEMPTION("industryExemption"),
     
-    BELOWTAXTHRESHOLD(String.valueOf("belowTaxThreshold"));
+    BELOWTAXTHRESHOLD("belowTaxThreshold");
 
     private String value;
 
@@ -209,14 +211,6 @@ public class UnincorporatedPartnership {
   public UnincorporatedPartnership() { 
   }
 
-  @JsonCreator
-  public UnincorporatedPartnership(
-    @JsonProperty(JSON_PROPERTY_TYPE) TypeEnum type
-  ) {
-    this();
-    this.type = type;
-  }
-
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
@@ -232,6 +226,7 @@ public class UnincorporatedPartnership {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return countryOfGoverningLaw
    */
+  @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountryOfGoverningLaw() {
@@ -242,7 +237,7 @@ public class UnincorporatedPartnership {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
    * @param countryOfGoverningLaw
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
@@ -264,6 +259,7 @@ public class UnincorporatedPartnership {
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    * @return dateOfIncorporation
    */
+  @ApiModelProperty(value = "The date when the legal arrangement was incorporated in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDateOfIncorporation() {
@@ -274,7 +270,7 @@ public class UnincorporatedPartnership {
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    *
    * @param dateOfIncorporation
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfIncorporation(String dateOfIncorporation) {
@@ -296,6 +292,7 @@ public class UnincorporatedPartnership {
    * Short description about the Legal Arrangement.
    * @return description
    */
+  @ApiModelProperty(value = "Short description about the Legal Arrangement.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -306,7 +303,7 @@ public class UnincorporatedPartnership {
    * Short description about the Legal Arrangement.
    *
    * @param description
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -328,6 +325,7 @@ public class UnincorporatedPartnership {
    * The registered name, if different from the &#x60;name&#x60;.
    * @return doingBusinessAs
    */
+  @ApiModelProperty(value = "The registered name, if different from the `name`.")
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDoingBusinessAs() {
@@ -338,7 +336,7 @@ public class UnincorporatedPartnership {
    * The registered name, if different from the &#x60;name&#x60;.
    *
    * @param doingBusinessAs
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
@@ -360,6 +358,7 @@ public class UnincorporatedPartnership {
    * The legal name.
    * @return name
    */
+  @ApiModelProperty(required = true, value = "The legal name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -370,7 +369,7 @@ public class UnincorporatedPartnership {
    * The legal name.
    *
    * @param name
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -389,9 +388,10 @@ public class UnincorporatedPartnership {
   }
 
   /**
-   * Get principalPlaceOfBusiness
+   * principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getPrincipalPlaceOfBusiness() {
@@ -402,7 +402,7 @@ public class UnincorporatedPartnership {
    * principalPlaceOfBusiness
    *
    * @param principalPlaceOfBusiness
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -421,9 +421,10 @@ public class UnincorporatedPartnership {
   }
 
   /**
-   * Get registeredAddress
+   * registeredAddress
    * @return registeredAddress
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getRegisteredAddress() {
@@ -434,7 +435,7 @@ public class UnincorporatedPartnership {
    * registeredAddress
    *
    * @param registeredAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegisteredAddress(Address registeredAddress) {
@@ -456,6 +457,7 @@ public class UnincorporatedPartnership {
    * The registration number.
    * @return registrationNumber
    */
+  @ApiModelProperty(value = "The registration number.")
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRegistrationNumber() {
@@ -466,7 +468,7 @@ public class UnincorporatedPartnership {
    * The registration number.
    *
    * @param registrationNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
@@ -496,6 +498,7 @@ public class UnincorporatedPartnership {
    * The tax information of the entity.
    * @return taxInformation
    */
+  @ApiModelProperty(value = "The tax information of the entity.")
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TaxInformation> getTaxInformation() {
@@ -506,7 +509,7 @@ public class UnincorporatedPartnership {
    * The tax information of the entity.
    *
    * @param taxInformation
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxInformation(List<TaxInformation> taxInformation) {
@@ -515,14 +518,36 @@ public class UnincorporatedPartnership {
 
   /**
    * Type of Partnership.  Possible values: *  **limitedPartnership** *  **generalPartnership** *  **familyPartnership** *  **commercialPartnership** *  **publicPartnership** *  **otherPartnership** *  **gbr** *  **gmbh** *  **kgaa** *  **cv** *  **vof** *  **maatschap** *  **privateFundLimitedPartnership** *  **businessTrustEntity** *  **businessPartnership** *  **limitedLiabilityPartnership** *  **eg** *  **cooperative** *  **vos** *  **comunidadDeBienes** *  **herenciaYacente** *  **comunidadDePropietarios** *  **sep** *  **sca** *  **bt** *  **kkt** *  **scs** *  **snc**  
+   *
+   * @param type
+   * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
+   */
+  public UnincorporatedPartnership type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Type of Partnership.  Possible values: *  **limitedPartnership** *  **generalPartnership** *  **familyPartnership** *  **commercialPartnership** *  **publicPartnership** *  **otherPartnership** *  **gbr** *  **gmbh** *  **kgaa** *  **cv** *  **vof** *  **maatschap** *  **privateFundLimitedPartnership** *  **businessTrustEntity** *  **businessPartnership** *  **limitedLiabilityPartnership** *  **eg** *  **cooperative** *  **vos** *  **comunidadDeBienes** *  **herenciaYacente** *  **comunidadDePropietarios** *  **sep** *  **sca** *  **bt** *  **kkt** *  **scs** *  **snc**  
    * @return type
    */
+  @ApiModelProperty(value = "Type of Partnership.  Possible values: *  **limitedPartnership** *  **generalPartnership** *  **familyPartnership** *  **commercialPartnership** *  **publicPartnership** *  **otherPartnership** *  **gbr** *  **gmbh** *  **kgaa** *  **cv** *  **vof** *  **maatschap** *  **privateFundLimitedPartnership** *  **businessTrustEntity** *  **businessPartnership** *  **limitedLiabilityPartnership** *  **eg** *  **cooperative** *  **vos** *  **comunidadDeBienes** *  **herenciaYacente** *  **comunidadDePropietarios** *  **sep** *  **sca** *  **bt** *  **kkt** *  **scs** *  **snc**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
     return type;
   }
 
+  /**
+   * Type of Partnership.  Possible values: *  **limitedPartnership** *  **generalPartnership** *  **familyPartnership** *  **commercialPartnership** *  **publicPartnership** *  **otherPartnership** *  **gbr** *  **gmbh** *  **kgaa** *  **cv** *  **vof** *  **maatschap** *  **privateFundLimitedPartnership** *  **businessTrustEntity** *  **businessPartnership** *  **limitedLiabilityPartnership** *  **eg** *  **cooperative** *  **vos** *  **comunidadDeBienes** *  **herenciaYacente** *  **comunidadDePropietarios** *  **sep** *  **sca** *  **bt** *  **kkt** *  **scs** *  **snc**  
+   *
+   * @param type
+   */ 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
@@ -539,6 +564,7 @@ public class UnincorporatedPartnership {
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
    */
+  @ApiModelProperty(value = "The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public VatAbsenceReasonEnum getVatAbsenceReason() {
@@ -549,7 +575,7 @@ public class UnincorporatedPartnership {
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
    * @param vatAbsenceReason
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -571,6 +597,7 @@ public class UnincorporatedPartnership {
    * The VAT number.
    * @return vatNumber
    */
+  @ApiModelProperty(value = "The VAT number.")
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVatNumber() {
@@ -581,7 +608,7 @@ public class UnincorporatedPartnership {
    * The VAT number.
    *
    * @param vatNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVatNumber(String vatNumber) {

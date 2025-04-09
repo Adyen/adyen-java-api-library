@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,6 +64,7 @@ public class StockData {
    * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    * @return marketIdentifier
    */
+  @ApiModelProperty(value = "The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization's stocks are traded.")
   @JsonProperty(JSON_PROPERTY_MARKET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMarketIdentifier() {
@@ -72,7 +75,7 @@ public class StockData {
    * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    *
    * @param marketIdentifier
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MARKET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMarketIdentifier(String marketIdentifier) {
@@ -94,6 +97,7 @@ public class StockData {
    * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    * @return stockNumber
    */
+  @ApiModelProperty(value = "The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).")
   @JsonProperty(JSON_PROPERTY_STOCK_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStockNumber() {
@@ -104,7 +108,7 @@ public class StockData {
    * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    *
    * @param stockNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STOCK_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStockNumber(String stockNumber) {
@@ -126,6 +130,7 @@ public class StockData {
    * The stock ticker symbol.
    * @return tickerSymbol
    */
+  @ApiModelProperty(value = "The stock ticker symbol.")
   @JsonProperty(JSON_PROPERTY_TICKER_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTickerSymbol() {
@@ -136,7 +141,7 @@ public class StockData {
    * The stock ticker symbol.
    *
    * @param tickerSymbol
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TICKER_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTickerSymbol(String tickerSymbol) {

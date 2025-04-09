@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -46,17 +48,17 @@ public class RoutingDetails {
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    */
   public enum PriorityEnum {
-    CROSSBORDER(String.valueOf("crossBorder")),
+    CROSSBORDER("crossBorder"),
     
-    FAST(String.valueOf("fast")),
+    FAST("fast"),
     
-    INSTANT(String.valueOf("instant")),
+    INSTANT("instant"),
     
-    INTERNAL(String.valueOf("internal")),
+    INTERNAL("internal"),
     
-    REGULAR(String.valueOf("regular")),
+    REGULAR("regular"),
     
-    WIRE(String.valueOf("wire"));
+    WIRE("wire");
 
     private String value;
 
@@ -109,6 +111,7 @@ public class RoutingDetails {
    * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
    */
+  @ApiModelProperty(value = "A human-readable explanation specific to this occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDetail() {
@@ -119,7 +122,7 @@ public class RoutingDetails {
    * A human-readable explanation specific to this occurrence of the problem.
    *
    * @param detail
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
@@ -141,6 +144,7 @@ public class RoutingDetails {
    * A code that identifies the problem type.
    * @return errorCode
    */
+  @ApiModelProperty(value = "A code that identifies the problem type.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorCode() {
@@ -151,7 +155,7 @@ public class RoutingDetails {
    * A code that identifies the problem type.
    *
    * @param errorCode
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -173,6 +177,7 @@ public class RoutingDetails {
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    * @return priority
    */
+  @ApiModelProperty(value = "The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with `category` **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PriorityEnum getPriority() {
@@ -183,7 +188,7 @@ public class RoutingDetails {
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    *
    * @param priority
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
@@ -205,6 +210,7 @@ public class RoutingDetails {
    * A short, human-readable summary of the problem type.
    * @return title
    */
+  @ApiModelProperty(value = "A short, human-readable summary of the problem type.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -215,7 +221,7 @@ public class RoutingDetails {
    * A short, human-readable summary of the problem type.
    *
    * @param title
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {

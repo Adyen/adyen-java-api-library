@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -49,7 +51,7 @@ public class WeChatPayMiniProgramDetails {
    * **wechatpayMiniProgram**
    */
   public enum TypeEnum {
-    WECHATPAYMINIPROGRAM(String.valueOf("wechatpayMiniProgram"));
+    WECHATPAYMINIPROGRAM("wechatpayMiniProgram");
 
     private String value;
 
@@ -79,7 +81,7 @@ public class WeChatPayMiniProgramDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.WECHATPAYMINIPROGRAM;
+  private TypeEnum type;
 
   public WeChatPayMiniProgramDetails() { 
   }
@@ -96,9 +98,10 @@ public class WeChatPayMiniProgramDetails {
   }
 
   /**
-   * Get appId
+   * appId
    * @return appId
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAppId() {
@@ -109,7 +112,7 @@ public class WeChatPayMiniProgramDetails {
    * appId
    *
    * @param appId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
@@ -131,6 +134,7 @@ public class WeChatPayMiniProgramDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -141,7 +145,7 @@ public class WeChatPayMiniProgramDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -160,9 +164,10 @@ public class WeChatPayMiniProgramDetails {
   }
 
   /**
-   * Get openid
+   * openid
    * @return openid
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPENID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOpenid() {
@@ -173,7 +178,7 @@ public class WeChatPayMiniProgramDetails {
    * openid
    *
    * @param openid
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OPENID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpenid(String openid) {
@@ -195,6 +200,7 @@ public class WeChatPayMiniProgramDetails {
    * **wechatpayMiniProgram**
    * @return type
    */
+  @ApiModelProperty(value = "**wechatpayMiniProgram**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -205,7 +211,7 @@ public class WeChatPayMiniProgramDetails {
    * **wechatpayMiniProgram**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

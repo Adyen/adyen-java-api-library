@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.EncryptedOrderData;
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -59,6 +61,7 @@ public class CancelOrderRequest {
    * The merchant account identifier that orderData belongs to.
    * @return merchantAccount
    */
+  @ApiModelProperty(required = true, value = "The merchant account identifier that orderData belongs to.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -69,7 +72,7 @@ public class CancelOrderRequest {
    * The merchant account identifier that orderData belongs to.
    *
    * @param merchantAccount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -88,9 +91,10 @@ public class CancelOrderRequest {
   }
 
   /**
-   * Get order
+   * order
    * @return order
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EncryptedOrderData getOrder() {
@@ -101,7 +105,7 @@ public class CancelOrderRequest {
    * order
    *
    * @param order
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(EncryptedOrderData order) {

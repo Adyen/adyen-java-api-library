@@ -13,6 +13,7 @@
 package com.adyen.model.acswebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.acswebhooks.AuthenticationInfo;
@@ -22,7 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -59,11 +61,11 @@ public class AuthenticationNotificationData {
    * Outcome of the authentication. Allowed values: * authenticated * rejected * error
    */
   public enum StatusEnum {
-    AUTHENTICATED(String.valueOf("authenticated")),
+    AUTHENTICATED("authenticated"),
     
-    REJECTED(String.valueOf("rejected")),
+    REJECTED("rejected"),
     
-    ERROR(String.valueOf("error"));
+    ERROR("error");
 
     private String value;
 
@@ -110,9 +112,10 @@ public class AuthenticationNotificationData {
   }
 
   /**
-   * Get authentication
+   * authentication
    * @return authentication
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthenticationInfo getAuthentication() {
@@ -123,7 +126,7 @@ public class AuthenticationNotificationData {
    * authentication
    *
    * @param authentication
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthentication(AuthenticationInfo authentication) {
@@ -145,6 +148,7 @@ public class AuthenticationNotificationData {
    * The unique identifier of the balance platform.
    * @return balancePlatform
    */
+  @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
@@ -155,7 +159,7 @@ public class AuthenticationNotificationData {
    * The unique identifier of the balance platform.
    *
    * @param balancePlatform
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -177,6 +181,7 @@ public class AuthenticationNotificationData {
    * Unique identifier of the authentication.
    * @return id
    */
+  @ApiModelProperty(required = true, value = "Unique identifier of the authentication.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -187,7 +192,7 @@ public class AuthenticationNotificationData {
    * Unique identifier of the authentication.
    *
    * @param id
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -209,6 +214,7 @@ public class AuthenticationNotificationData {
    * Unique identifier of the payment instrument that was used for the authentication.
    * @return paymentInstrumentId
    */
+  @ApiModelProperty(required = true, value = "Unique identifier of the payment instrument that was used for the authentication.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
@@ -219,7 +225,7 @@ public class AuthenticationNotificationData {
    * Unique identifier of the payment instrument that was used for the authentication.
    *
    * @param paymentInstrumentId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -238,9 +244,10 @@ public class AuthenticationNotificationData {
   }
 
   /**
-   * Get purchase
+   * purchase
    * @return purchase
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PurchaseInfo getPurchase() {
@@ -251,7 +258,7 @@ public class AuthenticationNotificationData {
    * purchase
    *
    * @param purchase
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPurchase(PurchaseInfo purchase) {
@@ -273,6 +280,7 @@ public class AuthenticationNotificationData {
    * Outcome of the authentication. Allowed values: * authenticated * rejected * error
    * @return status
    */
+  @ApiModelProperty(required = true, value = "Outcome of the authentication. Allowed values: * authenticated * rejected * error")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -283,7 +291,7 @@ public class AuthenticationNotificationData {
    * Outcome of the authentication. Allowed values: * authenticated * rejected * error
    *
    * @param status
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

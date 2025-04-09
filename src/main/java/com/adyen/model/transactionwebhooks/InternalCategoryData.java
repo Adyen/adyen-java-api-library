@@ -13,6 +13,7 @@
 package com.adyen.model.transactionwebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,7 +47,7 @@ public class InternalCategoryData {
    * **internal**
    */
   public enum TypeEnum {
-    INTERNAL(String.valueOf("internal"));
+    INTERNAL("internal");
 
     private String value;
 
@@ -75,7 +77,7 @@ public class InternalCategoryData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.INTERNAL;
+  private TypeEnum type;
 
   public InternalCategoryData() { 
   }
@@ -95,6 +97,7 @@ public class InternalCategoryData {
    * The capture&#39;s merchant reference included in the transfer.
    * @return modificationMerchantReference
    */
+  @ApiModelProperty(value = "The capture's merchant reference included in the transfer.")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getModificationMerchantReference() {
@@ -105,7 +108,7 @@ public class InternalCategoryData {
    * The capture&#39;s merchant reference included in the transfer.
    *
    * @param modificationMerchantReference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationMerchantReference(String modificationMerchantReference) {
@@ -127,6 +130,7 @@ public class InternalCategoryData {
    * The capture reference included in the transfer.
    * @return modificationPspReference
    */
+  @ApiModelProperty(value = "The capture reference included in the transfer.")
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getModificationPspReference() {
@@ -137,7 +141,7 @@ public class InternalCategoryData {
    * The capture reference included in the transfer.
    *
    * @param modificationPspReference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModificationPspReference(String modificationPspReference) {
@@ -159,6 +163,7 @@ public class InternalCategoryData {
    * **internal**
    * @return type
    */
+  @ApiModelProperty(value = "**internal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -169,7 +174,7 @@ public class InternalCategoryData {
    * **internal**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

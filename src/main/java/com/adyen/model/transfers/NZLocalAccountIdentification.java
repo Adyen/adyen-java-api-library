@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -41,7 +43,7 @@ public class NZLocalAccountIdentification {
    * **nzLocal**
    */
   public enum TypeEnum {
-    NZLOCAL(String.valueOf("nzLocal"));
+    NZLOCAL("nzLocal");
 
     private String value;
 
@@ -71,7 +73,7 @@ public class NZLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.NZLOCAL;
+  private TypeEnum type;
 
   public NZLocalAccountIdentification() { 
   }
@@ -91,6 +93,7 @@ public class NZLocalAccountIdentification {
    * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    * @return accountNumber
    */
+  @ApiModelProperty(required = true, value = "The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -101,7 +104,7 @@ public class NZLocalAccountIdentification {
    * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    *
    * @param accountNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -123,6 +126,7 @@ public class NZLocalAccountIdentification {
    * **nzLocal**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**nzLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -133,7 +137,7 @@ public class NZLocalAccountIdentification {
    * **nzLocal**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

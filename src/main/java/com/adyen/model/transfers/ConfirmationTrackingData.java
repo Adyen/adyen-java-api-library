@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -38,7 +40,7 @@ public class ConfirmationTrackingData {
    * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    */
   public enum StatusEnum {
-    CREDITED(String.valueOf("credited"));
+    CREDITED("credited");
 
     private String value;
 
@@ -74,7 +76,7 @@ public class ConfirmationTrackingData {
    * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    */
   public enum TypeEnum {
-    CONFIRMATION(String.valueOf("confirmation"));
+    CONFIRMATION("confirmation");
 
     private String value;
 
@@ -104,7 +106,7 @@ public class ConfirmationTrackingData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CONFIRMATION;
+  private TypeEnum type;
 
   public ConfirmationTrackingData() { 
   }
@@ -124,6 +126,7 @@ public class ConfirmationTrackingData {
    * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    * @return status
    */
+  @ApiModelProperty(required = true, value = "The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user's transfer instrument or bank account.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -134,7 +137,7 @@ public class ConfirmationTrackingData {
    * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    *
    * @param status
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -156,6 +159,7 @@ public class ConfirmationTrackingData {
    * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    * @return type
    */
+  @ApiModelProperty(required = true, value = "The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen's internal review.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -166,7 +170,7 @@ public class ConfirmationTrackingData {
    * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

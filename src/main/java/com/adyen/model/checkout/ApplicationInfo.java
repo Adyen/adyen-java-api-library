@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.CommonField;
@@ -24,7 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -75,9 +77,10 @@ public class ApplicationInfo {
   }
 
   /**
-   * Get adyenLibrary
+   * adyenLibrary
    * @return adyenLibrary
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADYEN_LIBRARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CommonField getAdyenLibrary() {
@@ -88,7 +91,7 @@ public class ApplicationInfo {
    * adyenLibrary
    *
    * @param adyenLibrary
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_LIBRARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenLibrary(CommonField adyenLibrary) {
@@ -107,9 +110,10 @@ public class ApplicationInfo {
   }
 
   /**
-   * Get adyenPaymentSource
+   * adyenPaymentSource
    * @return adyenPaymentSource
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADYEN_PAYMENT_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CommonField getAdyenPaymentSource() {
@@ -120,7 +124,7 @@ public class ApplicationInfo {
    * adyenPaymentSource
    *
    * @param adyenPaymentSource
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ADYEN_PAYMENT_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdyenPaymentSource(CommonField adyenPaymentSource) {
@@ -139,9 +143,10 @@ public class ApplicationInfo {
   }
 
   /**
-   * Get externalPlatform
+   * externalPlatform
    * @return externalPlatform
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ExternalPlatform getExternalPlatform() {
@@ -152,7 +157,7 @@ public class ApplicationInfo {
    * externalPlatform
    *
    * @param externalPlatform
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalPlatform(ExternalPlatform externalPlatform) {
@@ -171,9 +176,10 @@ public class ApplicationInfo {
   }
 
   /**
-   * Get merchantApplication
+   * merchantApplication
    * @return merchantApplication
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPLICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CommonField getMerchantApplication() {
@@ -184,7 +190,7 @@ public class ApplicationInfo {
    * merchantApplication
    *
    * @param merchantApplication
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPLICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantApplication(CommonField merchantApplication) {
@@ -203,9 +209,10 @@ public class ApplicationInfo {
   }
 
   /**
-   * Get merchantDevice
+   * merchantDevice
    * @return merchantDevice
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MerchantDevice getMerchantDevice() {
@@ -216,7 +223,7 @@ public class ApplicationInfo {
    * merchantDevice
    *
    * @param merchantDevice
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MERCHANT_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantDevice(MerchantDevice merchantDevice) {
@@ -235,9 +242,10 @@ public class ApplicationInfo {
   }
 
   /**
-   * Get shopperInteractionDevice
+   * shopperInteractionDevice
    * @return shopperInteractionDevice
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ShopperInteractionDevice getShopperInteractionDevice() {
@@ -248,7 +256,7 @@ public class ApplicationInfo {
    * shopperInteractionDevice
    *
    * @param shopperInteractionDevice
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteractionDevice(ShopperInteractionDevice shopperInteractionDevice) {

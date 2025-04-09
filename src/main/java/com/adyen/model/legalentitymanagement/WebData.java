@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,14 +45,6 @@ public class WebData {
   public WebData() { 
   }
 
-  @JsonCreator
-  public WebData(
-    @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID) String webAddressId
-  ) {
-    this();
-    this.webAddressId = webAddressId;
-  }
-
   /**
    * The URL of the website or the app store URL.
    *
@@ -66,6 +60,7 @@ public class WebData {
    * The URL of the website or the app store URL.
    * @return webAddress
    */
+  @ApiModelProperty(value = "The URL of the website or the app store URL.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWebAddress() {
@@ -76,7 +71,7 @@ public class WebData {
    * The URL of the website or the app store URL.
    *
    * @param webAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {
@@ -85,14 +80,36 @@ public class WebData {
 
   /**
    * The unique identifier of the web address.
+   *
+   * @param webAddressId
+   * @return the current {@code WebData} instance, allowing for method chaining
+   */
+  public WebData webAddressId(String webAddressId) {
+    this.webAddressId = webAddressId;
+    return this;
+  }
+
+  /**
+   * The unique identifier of the web address.
    * @return webAddressId
    */
+  @ApiModelProperty(value = "The unique identifier of the web address.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWebAddressId() {
     return webAddressId;
   }
 
+  /**
+   * The unique identifier of the web address.
+   *
+   * @param webAddressId
+   */ 
+  @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWebAddressId(String webAddressId) {
+    this.webAddressId = webAddressId;
+  }
 
   /**
    * Return true if this WebData object is equal to o.

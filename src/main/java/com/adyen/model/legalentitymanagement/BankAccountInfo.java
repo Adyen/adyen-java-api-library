@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.legalentitymanagement.BankAccountInfoAccountIdentification;
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -57,14 +59,6 @@ public class BankAccountInfo {
   public BankAccountInfo() { 
   }
 
-  @JsonCreator
-  public BankAccountInfo(
-    @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE) Boolean trustedSource
-  ) {
-    this();
-    this.trustedSource = trustedSource;
-  }
-
   /**
    * accountIdentification
    *
@@ -77,9 +71,10 @@ public class BankAccountInfo {
   }
 
   /**
-   * Get accountIdentification
+   * accountIdentification
    * @return accountIdentification
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccountInfoAccountIdentification getAccountIdentification() {
@@ -90,7 +85,7 @@ public class BankAccountInfo {
    * accountIdentification
    *
    * @param accountIdentification
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountIdentification(BankAccountInfoAccountIdentification accountIdentification) {
@@ -105,7 +100,7 @@ public class BankAccountInfo {
    *
    * @deprecated since Legal Entity Management API v2
    */
-  @Deprecated // deprecated since Legal Entity Management API v2
+  @Deprecated
   public BankAccountInfo accountType(String accountType) {
     this.accountType = accountType;
     return this;
@@ -114,9 +109,11 @@ public class BankAccountInfo {
   /**
    * The type of bank account.
    * @return accountType
-   * @deprecated // deprecated since Legal Entity Management API v2
+   *
+   * @deprecated since Legal Entity Management API v2
    */
-  @Deprecated // deprecated since Legal Entity Management API v2
+  @Deprecated
+  @ApiModelProperty(value = "The type of bank account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountType() {
@@ -129,8 +126,8 @@ public class BankAccountInfo {
    * @param accountType
    *
    * @deprecated since Legal Entity Management API v2
-   */
-  @Deprecated // deprecated since Legal Entity Management API v2
+   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
@@ -152,6 +149,7 @@ public class BankAccountInfo {
    * The name of the banking institution where the bank account is held.
    * @return bankName
    */
+  @ApiModelProperty(value = "The name of the banking institution where the bank account is held.")
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankName() {
@@ -162,7 +160,7 @@ public class BankAccountInfo {
    * The name of the banking institution where the bank account is held.
    *
    * @param bankName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankName(String bankName) {
@@ -184,6 +182,7 @@ public class BankAccountInfo {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    * @return countryCode
    */
+  @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountryCode() {
@@ -194,7 +193,7 @@ public class BankAccountInfo {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    *
    * @param countryCode
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -203,14 +202,36 @@ public class BankAccountInfo {
 
   /**
    * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
+   *
+   * @param trustedSource
+   * @return the current {@code BankAccountInfo} instance, allowing for method chaining
+   */
+  public BankAccountInfo trustedSource(Boolean trustedSource) {
+    this.trustedSource = trustedSource;
+    return this;
+  }
+
+  /**
+   * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
    * @return trustedSource
    */
+  @ApiModelProperty(value = "Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote=2023-05-08-hosted-onboarding).")
   @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getTrustedSource() {
     return trustedSource;
   }
 
+  /**
+   * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
+   *
+   * @param trustedSource
+   */ 
+  @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTrustedSource(Boolean trustedSource) {
+    this.trustedSource = trustedSource;
+  }
 
   /**
    * Return true if this BankAccountInfo object is equal to o.

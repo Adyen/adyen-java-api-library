@@ -79,7 +79,9 @@ public class DisputeEventNotification {
   public enum TypeEnum {
     FRAUD("fraud"),
     
-    NOTDELIVERED("notDelivered");
+    NOTDELIVERED("notDelivered"),
+    
+    DUPLICATE("duplicate");
 
     private String value;
 

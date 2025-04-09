@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,8 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -34,6 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Donation.JSON_PROPERTY_CURRENCY,
   Donation.JSON_PROPERTY_DONATION_TYPE,
   Donation.JSON_PROPERTY_MAX_ROUNDUP_AMOUNT,
+  Donation.JSON_PROPERTY_TYPE,
   Donation.JSON_PROPERTY_VALUES
 })
 
@@ -47,8 +50,11 @@ public class Donation {
   public static final String JSON_PROPERTY_MAX_ROUNDUP_AMOUNT = "maxRoundupAmount";
   private Long maxRoundupAmount;
 
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
+
   public static final String JSON_PROPERTY_VALUES = "values";
-  private List<Long> values = new ArrayList<>();
+  private List<Long> values = null;
 
   public Donation() { 
   }
@@ -68,6 +74,7 @@ public class Donation {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    * @return currency
    */
+  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -78,7 +85,7 @@ public class Donation {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    *
    * @param currency
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -100,6 +107,7 @@ public class Donation {
    * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.
    * @return donationType
    */
+  @ApiModelProperty(required = true, value = "The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.")
   @JsonProperty(JSON_PROPERTY_DONATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDonationType() {
@@ -110,7 +118,7 @@ public class Donation {
    * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.
    *
    * @param donationType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DONATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonationType(String donationType) {
@@ -132,6 +140,7 @@ public class Donation {
    * The maximum amount a transaction can be rounded up to make a donation. This field is only present when &#x60;donationType&#x60; is **roundup**.
    * @return maxRoundupAmount
    */
+  @ApiModelProperty(value = "The maximum amount a transaction can be rounded up to make a donation. This field is only present when `donationType` is **roundup**.")
   @JsonProperty(JSON_PROPERTY_MAX_ROUNDUP_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMaxRoundupAmount() {
@@ -142,11 +151,44 @@ public class Donation {
    * The maximum amount a transaction can be rounded up to make a donation. This field is only present when &#x60;donationType&#x60; is **roundup**.
    *
    * @param maxRoundupAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MAX_ROUNDUP_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxRoundupAmount(Long maxRoundupAmount) {
     this.maxRoundupAmount = maxRoundupAmount;
+  }
+
+  /**
+   * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donation amounts that the shopper can select from.
+   *
+   * @param type
+   * @return the current {@code Donation} instance, allowing for method chaining
+   */
+  public Donation type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donation amounts that the shopper can select from.
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donation amounts that the shopper can select from.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getType() {
+    return type;
+  }
+
+  /**
+   * The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donation amounts that the shopper can select from.
+   *
+   * @param type
+   */ 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(String type) {
+    this.type = type;
   }
 
   /**
@@ -172,6 +214,7 @@ public class Donation {
    * The fixed donation amounts in [minor units](https://docs.adyen.com/development-resources/currency-codes//#minor-units). This field is only present when &#x60;donationType&#x60; is **fixedAmounts**.
    * @return values
    */
+  @ApiModelProperty(value = "The fixed donation amounts in [minor units](https://docs.adyen.com/development-resources/currency-codes//#minor-units). This field is only present when `donationType` is **fixedAmounts**.")
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Long> getValues() {
@@ -182,7 +225,7 @@ public class Donation {
    * The fixed donation amounts in [minor units](https://docs.adyen.com/development-resources/currency-codes//#minor-units). This field is only present when &#x60;donationType&#x60; is **fixedAmounts**.
    *
    * @param values
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(List<Long> values) {
@@ -204,12 +247,13 @@ public class Donation {
     return Objects.equals(this.currency, donation.currency) &&
         Objects.equals(this.donationType, donation.donationType) &&
         Objects.equals(this.maxRoundupAmount, donation.maxRoundupAmount) &&
+        Objects.equals(this.type, donation.type) &&
         Objects.equals(this.values, donation.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, donationType, maxRoundupAmount, values);
+    return Objects.hash(currency, donationType, maxRoundupAmount, type, values);
   }
 
   @Override
@@ -219,6 +263,7 @@ public class Donation {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    donationType: ").append(toIndentedString(donationType)).append("\n");
     sb.append("    maxRoundupAmount: ").append(toIndentedString(maxRoundupAmount)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();

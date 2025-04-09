@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,7 +56,7 @@ public class IdealDetails {
    * **ideal**
    */
   public enum TypeEnum {
-    IDEAL(String.valueOf("ideal"));
+    IDEAL("ideal");
 
     private String value;
 
@@ -84,7 +86,7 @@ public class IdealDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.IDEAL;
+  private TypeEnum type;
 
   public IdealDetails() { 
   }
@@ -104,6 +106,7 @@ public class IdealDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -114,7 +117,7 @@ public class IdealDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -136,6 +139,7 @@ public class IdealDetails {
    * The iDEAL issuer value of the shopper&#39;s selected bank. Set this to an **id** of an iDEAL issuer to preselect it.
    * @return issuer
    */
+  @ApiModelProperty(value = "The iDEAL issuer value of the shopper's selected bank. Set this to an **id** of an iDEAL issuer to preselect it.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuer() {
@@ -146,7 +150,7 @@ public class IdealDetails {
    * The iDEAL issuer value of the shopper&#39;s selected bank. Set this to an **id** of an iDEAL issuer to preselect it.
    *
    * @param issuer
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
@@ -162,7 +166,7 @@ public class IdealDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   public IdealDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -171,9 +175,12 @@ public class IdealDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -187,8 +194,8 @@ public class IdealDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -210,6 +217,7 @@ public class IdealDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -220,7 +228,7 @@ public class IdealDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -242,6 +250,7 @@ public class IdealDetails {
    * **ideal**
    * @return type
    */
+  @ApiModelProperty(value = "**ideal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -252,7 +261,7 @@ public class IdealDetails {
    * **ideal**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

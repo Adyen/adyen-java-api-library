@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -49,7 +51,7 @@ public class MbwayDetails {
    * **mbway**
    */
   public enum TypeEnum {
-    MBWAY(String.valueOf("mbway"));
+    MBWAY("mbway");
 
     private String value;
 
@@ -79,7 +81,7 @@ public class MbwayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.MBWAY;
+  private TypeEnum type;
 
   public MbwayDetails() { 
   }
@@ -99,6 +101,7 @@ public class MbwayDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -109,7 +112,7 @@ public class MbwayDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -131,6 +134,7 @@ public class MbwayDetails {
    * 
    * @return shopperEmail
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -141,7 +145,7 @@ public class MbwayDetails {
    * 
    *
    * @param shopperEmail
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -163,6 +167,7 @@ public class MbwayDetails {
    * 
    * @return telephoneNumber
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
@@ -173,7 +178,7 @@ public class MbwayDetails {
    * 
    *
    * @param telephoneNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {
@@ -195,6 +200,7 @@ public class MbwayDetails {
    * **mbway**
    * @return type
    */
+  @ApiModelProperty(value = "**mbway**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -205,7 +211,7 @@ public class MbwayDetails {
    * **mbway**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
