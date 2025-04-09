@@ -13,6 +13,7 @@
 package com.adyen.model.acswebhooks;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.acswebhooks.AuthenticationDecision;
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,9 +54,10 @@ public class RelayedAuthenticationResponse {
   }
 
   /**
-   * Get authenticationDecision
+   * authenticationDecision
    * @return authenticationDecision
    */
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AuthenticationDecision getAuthenticationDecision() {
@@ -65,7 +68,7 @@ public class RelayedAuthenticationResponse {
    * authenticationDecision
    *
    * @param authenticationDecision
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthenticationDecision(AuthenticationDecision authenticationDecision) {

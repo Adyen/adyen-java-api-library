@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,6 +56,7 @@ public class SetTaxElectronicDeliveryConsentRequest {
    * Consent to electronically deliver tax form US1099-K.
    * @return us1099k
    */
+  @ApiModelProperty(value = "Consent to electronically deliver tax form US1099-K.")
   @JsonProperty(JSON_PROPERTY_US1099K)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getUs1099k() {
@@ -64,7 +67,7 @@ public class SetTaxElectronicDeliveryConsentRequest {
    * Consent to electronically deliver tax form US1099-K.
    *
    * @param us1099k
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_US1099K)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUs1099k(Boolean us1099k) {

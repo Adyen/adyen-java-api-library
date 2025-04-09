@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,9 +56,9 @@ public class ZipDetails {
    * **zip**
    */
   public enum TypeEnum {
-    ZIP(String.valueOf("zip")),
+    ZIP("zip"),
     
-    ZIP_POS(String.valueOf("zip_pos"));
+    ZIP_POS("zip_pos");
 
     private String value;
 
@@ -86,7 +88,7 @@ public class ZipDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ZIP;
+  private TypeEnum type;
 
   public ZipDetails() { 
   }
@@ -106,6 +108,7 @@ public class ZipDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -116,7 +119,7 @@ public class ZipDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -138,6 +141,7 @@ public class ZipDetails {
    * Set this to **true** if the shopper would like to pick up and collect their order, instead of having the goods delivered to them.
    * @return clickAndCollect
    */
+  @ApiModelProperty(value = "Set this to **true** if the shopper would like to pick up and collect their order, instead of having the goods delivered to them.")
   @JsonProperty(JSON_PROPERTY_CLICK_AND_COLLECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClickAndCollect() {
@@ -148,7 +152,7 @@ public class ZipDetails {
    * Set this to **true** if the shopper would like to pick up and collect their order, instead of having the goods delivered to them.
    *
    * @param clickAndCollect
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CLICK_AND_COLLECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClickAndCollect(String clickAndCollect) {
@@ -164,7 +168,7 @@ public class ZipDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   public ZipDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -173,9 +177,12 @@ public class ZipDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -189,8 +196,8 @@ public class ZipDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -212,6 +219,7 @@ public class ZipDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -222,7 +230,7 @@ public class ZipDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -244,6 +252,7 @@ public class ZipDetails {
    * **zip**
    * @return type
    */
+  @ApiModelProperty(value = "**zip**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -254,7 +263,7 @@ public class ZipDetails {
    * **zip**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

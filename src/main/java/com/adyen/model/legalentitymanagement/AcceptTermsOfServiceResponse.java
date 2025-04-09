@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -57,23 +59,23 @@ public class AcceptTermsOfServiceResponse {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   public enum TypeEnum {
-    ADYENACCOUNT(String.valueOf("adyenAccount")),
+    ADYENACCOUNT("adyenAccount"),
     
-    ADYENCAPITAL(String.valueOf("adyenCapital")),
+    ADYENCAPITAL("adyenCapital"),
     
-    ADYENCARD(String.valueOf("adyenCard")),
+    ADYENCARD("adyenCard"),
     
-    ADYENCHARGECARD(String.valueOf("adyenChargeCard")),
+    ADYENCHARGECARD("adyenChargeCard"),
     
-    ADYENFORPLATFORMSADVANCED(String.valueOf("adyenForPlatformsAdvanced")),
+    ADYENFORPLATFORMSADVANCED("adyenForPlatformsAdvanced"),
     
-    ADYENFORPLATFORMSMANAGE(String.valueOf("adyenForPlatformsManage")),
+    ADYENFORPLATFORMSMANAGE("adyenForPlatformsManage"),
     
-    ADYENFRANCHISEE(String.valueOf("adyenFranchisee")),
+    ADYENFRANCHISEE("adyenFranchisee"),
     
-    ADYENISSUING(String.valueOf("adyenIssuing")),
+    ADYENISSUING("adyenIssuing"),
     
-    ADYENPCCR(String.valueOf("adyenPccr"));
+    ADYENPCCR("adyenPccr");
 
     private String value;
 
@@ -123,6 +125,7 @@ public class AcceptTermsOfServiceResponse {
    * The unique identifier of the user that accepted the Terms of Service.
    * @return acceptedBy
    */
+  @ApiModelProperty(value = "The unique identifier of the user that accepted the Terms of Service.")
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcceptedBy() {
@@ -133,7 +136,7 @@ public class AcceptTermsOfServiceResponse {
    * The unique identifier of the user that accepted the Terms of Service.
    *
    * @param acceptedBy
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptedBy(String acceptedBy) {
@@ -155,6 +158,7 @@ public class AcceptTermsOfServiceResponse {
    * The unique identifier of the Terms of Service acceptance.
    * @return id
    */
+  @ApiModelProperty(value = "The unique identifier of the Terms of Service acceptance.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -165,7 +169,7 @@ public class AcceptTermsOfServiceResponse {
    * The unique identifier of the Terms of Service acceptance.
    *
    * @param id
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -187,6 +191,7 @@ public class AcceptTermsOfServiceResponse {
    * The IP address of the user that accepted the Terms of Service.
    * @return ipAddress
    */
+  @ApiModelProperty(value = "The IP address of the user that accepted the Terms of Service.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIpAddress() {
@@ -197,7 +202,7 @@ public class AcceptTermsOfServiceResponse {
    * The IP address of the user that accepted the Terms of Service.
    *
    * @param ipAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
@@ -219,6 +224,7 @@ public class AcceptTermsOfServiceResponse {
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    * @return language
    */
+  @ApiModelProperty(value = "The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLanguage() {
@@ -229,7 +235,7 @@ public class AcceptTermsOfServiceResponse {
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    *
    * @param language
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
@@ -251,6 +257,7 @@ public class AcceptTermsOfServiceResponse {
    * The unique identifier of the Terms of Service document.
    * @return termsOfServiceDocumentId
    */
+  @ApiModelProperty(value = "The unique identifier of the Terms of Service document.")
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTermsOfServiceDocumentId() {
@@ -261,7 +268,7 @@ public class AcceptTermsOfServiceResponse {
    * The unique identifier of the Terms of Service document.
    *
    * @param termsOfServiceDocumentId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsOfServiceDocumentId(String termsOfServiceDocumentId) {
@@ -283,6 +290,7 @@ public class AcceptTermsOfServiceResponse {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    * @return type
    */
+  @ApiModelProperty(value = "The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -293,7 +301,7 @@ public class AcceptTermsOfServiceResponse {
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

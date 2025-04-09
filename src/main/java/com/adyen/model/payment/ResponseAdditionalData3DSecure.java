@@ -13,6 +13,7 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -70,6 +72,7 @@ public class ResponseAdditionalData3DSecure {
    * Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. 
    * @return cardHolderInfo
    */
+  @ApiModelProperty(value = "Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. ")
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardHolderInfo() {
@@ -80,7 +83,7 @@ public class ResponseAdditionalData3DSecure {
    * Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. 
    *
    * @param cardHolderInfo
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolderInfo(String cardHolderInfo) {
@@ -102,6 +105,7 @@ public class ResponseAdditionalData3DSecure {
    * The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.
    * @return cavv
    */
+  @ApiModelProperty(value = "The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.")
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCavv() {
@@ -112,7 +116,7 @@ public class ResponseAdditionalData3DSecure {
    * The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.
    *
    * @param cavv
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavv(String cavv) {
@@ -134,6 +138,7 @@ public class ResponseAdditionalData3DSecure {
    * The CAVV algorithm used.
    * @return cavvAlgorithm
    */
+  @ApiModelProperty(value = "The CAVV algorithm used.")
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCavvAlgorithm() {
@@ -144,7 +149,7 @@ public class ResponseAdditionalData3DSecure {
    * The CAVV algorithm used.
    *
    * @param cavvAlgorithm
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCavvAlgorithm(String cavvAlgorithm) {
@@ -166,6 +171,7 @@ public class ResponseAdditionalData3DSecure {
    * Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** 
    * @return scaExemptionRequested
    */
+  @ApiModelProperty(value = "Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** ")
   @JsonProperty(JSON_PROPERTY_SCA_EXEMPTION_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScaExemptionRequested() {
@@ -176,7 +182,7 @@ public class ResponseAdditionalData3DSecure {
    * Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** 
    *
    * @param scaExemptionRequested
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SCA_EXEMPTION_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaExemptionRequested(String scaExemptionRequested) {
@@ -198,6 +204,7 @@ public class ResponseAdditionalData3DSecure {
    * Indicates whether a card is enrolled for 3D Secure 2.
    * @return threeds2CardEnrolled
    */
+  @ApiModelProperty(value = "Indicates whether a card is enrolled for 3D Secure 2.")
   @JsonProperty(JSON_PROPERTY_THREEDS2_CARD_ENROLLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getThreeds2CardEnrolled() {
@@ -208,7 +215,7 @@ public class ResponseAdditionalData3DSecure {
    * Indicates whether a card is enrolled for 3D Secure 2.
    *
    * @param threeds2CardEnrolled
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_THREEDS2_CARD_ENROLLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreeds2CardEnrolled(Boolean threeds2CardEnrolled) {

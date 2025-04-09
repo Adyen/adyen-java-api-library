@@ -13,6 +13,7 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,11 +47,11 @@ public class DocumentPage {
    * Gets or Sets type
    */
   public enum TypeEnum {
-    BACK(String.valueOf("BACK")),
+    BACK("BACK"),
     
-    FRONT(String.valueOf("FRONT")),
+    FRONT("FRONT"),
     
-    UNDEFINED(String.valueOf("UNDEFINED"));
+    UNDEFINED("UNDEFINED");
 
     private String value;
 
@@ -96,9 +98,10 @@ public class DocumentPage {
   }
 
   /**
-   * Get pageName
+   * pageName
    * @return pageName
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPageName() {
@@ -109,7 +112,7 @@ public class DocumentPage {
    * pageName
    *
    * @param pageName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageName(String pageName) {
@@ -128,9 +131,10 @@ public class DocumentPage {
   }
 
   /**
-   * Get pageNumber
+   * pageNumber
    * @return pageNumber
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPageNumber() {
@@ -141,7 +145,7 @@ public class DocumentPage {
    * pageNumber
    *
    * @param pageNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageNumber(Integer pageNumber) {
@@ -160,9 +164,10 @@ public class DocumentPage {
   }
 
   /**
-   * Get type
+   * type
    * @return type
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -173,7 +178,7 @@ public class DocumentPage {
    * type
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

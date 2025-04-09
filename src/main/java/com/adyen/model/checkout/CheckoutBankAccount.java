@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -46,19 +48,19 @@ public class CheckoutBankAccount {
    * The type of the bank account.
    */
   public enum AccountTypeEnum {
-    BALANCE(String.valueOf("balance")),
+    BALANCE("balance"),
     
-    CHECKING(String.valueOf("checking")),
+    CHECKING("checking"),
     
-    DEPOSIT(String.valueOf("deposit")),
+    DEPOSIT("deposit"),
     
-    GENERAL(String.valueOf("general")),
+    GENERAL("general"),
     
-    OTHER(String.valueOf("other")),
+    OTHER("other"),
     
-    PAYMENT(String.valueOf("payment")),
+    PAYMENT("payment"),
     
-    SAVINGS(String.valueOf("savings"));
+    SAVINGS("savings");
 
     private String value;
 
@@ -135,6 +137,7 @@ public class CheckoutBankAccount {
    * The type of the bank account.
    * @return accountType
    */
+  @ApiModelProperty(value = "The type of the bank account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AccountTypeEnum getAccountType() {
@@ -145,7 +148,7 @@ public class CheckoutBankAccount {
    * The type of the bank account.
    *
    * @param accountType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(AccountTypeEnum accountType) {
@@ -167,6 +170,7 @@ public class CheckoutBankAccount {
    * The bank account number (without separators).
    * @return bankAccountNumber
    */
+  @ApiModelProperty(value = "The bank account number (without separators).")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankAccountNumber() {
@@ -177,7 +181,7 @@ public class CheckoutBankAccount {
    * The bank account number (without separators).
    *
    * @param bankAccountNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
@@ -199,6 +203,7 @@ public class CheckoutBankAccount {
    * The bank city.
    * @return bankCity
    */
+  @ApiModelProperty(value = "The bank city.")
   @JsonProperty(JSON_PROPERTY_BANK_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankCity() {
@@ -209,7 +214,7 @@ public class CheckoutBankAccount {
    * The bank city.
    *
    * @param bankCity
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCity(String bankCity) {
@@ -231,6 +236,7 @@ public class CheckoutBankAccount {
    * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
    * @return bankLocationId
    */
+  @ApiModelProperty(value = "The location id of the bank. The field value is `nil` in most cases.")
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankLocationId() {
@@ -241,7 +247,7 @@ public class CheckoutBankAccount {
    * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
    *
    * @param bankLocationId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
@@ -263,6 +269,7 @@ public class CheckoutBankAccount {
    * The name of the bank.
    * @return bankName
    */
+  @ApiModelProperty(value = "The name of the bank.")
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankName() {
@@ -273,7 +280,7 @@ public class CheckoutBankAccount {
    * The name of the bank.
    *
    * @param bankName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankName(String bankName) {
@@ -295,6 +302,7 @@ public class CheckoutBankAccount {
    * The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
    * @return bic
    */
+  @ApiModelProperty(value = "The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is `nil` in most cases.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBic() {
@@ -305,7 +313,7 @@ public class CheckoutBankAccount {
    * The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
    *
    * @param bic
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
@@ -327,6 +335,7 @@ public class CheckoutBankAccount {
    * Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
    * @return countryCode
    */
+  @ApiModelProperty(value = "Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. 'NL').")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountryCode() {
@@ -337,7 +346,7 @@ public class CheckoutBankAccount {
    * Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
    *
    * @param countryCode
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountryCode(String countryCode) {
@@ -359,6 +368,7 @@ public class CheckoutBankAccount {
    * The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
    * @return iban
    */
+  @ApiModelProperty(value = "The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIban() {
@@ -369,7 +379,7 @@ public class CheckoutBankAccount {
    * The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
    *
    * @param iban
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -391,6 +401,7 @@ public class CheckoutBankAccount {
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    * @return ownerName
    */
+  @ApiModelProperty(value = "The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don't accept 'ø'. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. > If provided details don't match the required format, the response returns the error message: 203 'Invalid bank account holder name'.")
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOwnerName() {
@@ -401,7 +412,7 @@ public class CheckoutBankAccount {
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    *
    * @param ownerName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
@@ -423,6 +434,7 @@ public class CheckoutBankAccount {
    * The bank account holder&#39;s tax ID.
    * @return taxId
    */
+  @ApiModelProperty(value = "The bank account holder's tax ID.")
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTaxId() {
@@ -433,7 +445,7 @@ public class CheckoutBankAccount {
    * The bank account holder&#39;s tax ID.
    *
    * @param taxId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {

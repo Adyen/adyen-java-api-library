@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -66,7 +68,7 @@ public class BacsDirectDebitDetails {
    * **directdebit_GB**
    */
   public enum TypeEnum {
-    DIRECTDEBIT_GB(String.valueOf("directdebit_GB"));
+    DIRECTDEBIT_GB("directdebit_GB");
 
     private String value;
 
@@ -96,7 +98,7 @@ public class BacsDirectDebitDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.DIRECTDEBIT_GB;
+  private TypeEnum type;
 
   public BacsDirectDebitDetails() { 
   }
@@ -116,6 +118,7 @@ public class BacsDirectDebitDetails {
    * The bank account number (without separators).
    * @return bankAccountNumber
    */
+  @ApiModelProperty(value = "The bank account number (without separators).")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankAccountNumber() {
@@ -126,7 +129,7 @@ public class BacsDirectDebitDetails {
    * The bank account number (without separators).
    *
    * @param bankAccountNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
@@ -148,6 +151,7 @@ public class BacsDirectDebitDetails {
    * The bank routing number of the account.
    * @return bankLocationId
    */
+  @ApiModelProperty(value = "The bank routing number of the account.")
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankLocationId() {
@@ -158,7 +162,7 @@ public class BacsDirectDebitDetails {
    * The bank routing number of the account.
    *
    * @param bankLocationId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
@@ -180,6 +184,7 @@ public class BacsDirectDebitDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -190,7 +195,7 @@ public class BacsDirectDebitDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -212,6 +217,7 @@ public class BacsDirectDebitDetails {
    * The name of the bank account holder.
    * @return holderName
    */
+  @ApiModelProperty(value = "The name of the bank account holder.")
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHolderName() {
@@ -222,7 +228,7 @@ public class BacsDirectDebitDetails {
    * The name of the bank account holder.
    *
    * @param holderName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHolderName(String holderName) {
@@ -238,7 +244,7 @@ public class BacsDirectDebitDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   public BacsDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -247,9 +253,12 @@ public class BacsDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -263,8 +272,8 @@ public class BacsDirectDebitDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -286,6 +295,7 @@ public class BacsDirectDebitDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -296,7 +306,7 @@ public class BacsDirectDebitDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -318,6 +328,7 @@ public class BacsDirectDebitDetails {
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    * @return transferInstrumentId
    */
+  @ApiModelProperty(value = "The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransferInstrumentId() {
@@ -328,7 +339,7 @@ public class BacsDirectDebitDetails {
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    *
    * @param transferInstrumentId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
@@ -350,6 +361,7 @@ public class BacsDirectDebitDetails {
    * **directdebit_GB**
    * @return type
    */
+  @ApiModelProperty(value = "**directdebit_GB**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -360,7 +372,7 @@ public class BacsDirectDebitDetails {
    * **directdebit_GB**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

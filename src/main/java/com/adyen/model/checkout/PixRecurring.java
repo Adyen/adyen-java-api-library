@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,15 +54,15 @@ public class PixRecurring {
    * The frequency at which the shopper will be charged.
    */
   public enum FrequencyEnum {
-    WEEKLY(String.valueOf("weekly")),
+    WEEKLY("weekly"),
     
-    MONTHLY(String.valueOf("monthly")),
+    MONTHLY("monthly"),
     
-    QUARTERLY(String.valueOf("quarterly")),
+    QUARTERLY("quarterly"),
     
-    HALF_YEARLY(String.valueOf("half-yearly")),
+    HALF_YEARLY("half-yearly"),
     
-    YEARLY(String.valueOf("yearly"));
+    YEARLY("yearly");
 
     private String value;
 
@@ -128,6 +130,7 @@ public class PixRecurring {
    * The date on which the shopper&#39;s payment method will be charged, in YYYY-MM-DD format.
    * @return billingDate
    */
+  @ApiModelProperty(value = "The date on which the shopper's payment method will be charged, in YYYY-MM-DD format.")
   @JsonProperty(JSON_PROPERTY_BILLING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingDate() {
@@ -138,7 +141,7 @@ public class PixRecurring {
    * The date on which the shopper&#39;s payment method will be charged, in YYYY-MM-DD format.
    *
    * @param billingDate
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDate(String billingDate) {
@@ -160,6 +163,7 @@ public class PixRecurring {
    * End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.
    * @return endsAt
    */
+  @ApiModelProperty(value = "End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.")
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEndsAt() {
@@ -170,7 +174,7 @@ public class PixRecurring {
    * End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.
    *
    * @param endsAt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndsAt(String endsAt) {
@@ -192,6 +196,7 @@ public class PixRecurring {
    * The frequency at which the shopper will be charged.
    * @return frequency
    */
+  @ApiModelProperty(value = "The frequency at which the shopper will be charged.")
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FrequencyEnum getFrequency() {
@@ -202,7 +207,7 @@ public class PixRecurring {
    * The frequency at which the shopper will be charged.
    *
    * @param frequency
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFrequency(FrequencyEnum frequency) {
@@ -221,9 +226,10 @@ public class PixRecurring {
   }
 
   /**
-   * Get minAmount
+   * minAmount
    * @return minAmount
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MIN_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getMinAmount() {
@@ -234,7 +240,7 @@ public class PixRecurring {
    * minAmount
    *
    * @param minAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_MIN_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMinAmount(Amount minAmount) {
@@ -256,6 +262,7 @@ public class PixRecurring {
    * The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
    * @return originalPspReference
    */
+  @ApiModelProperty(value = "The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOriginalPspReference() {
@@ -266,7 +273,7 @@ public class PixRecurring {
    * The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
    *
    * @param originalPspReference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalPspReference(String originalPspReference) {
@@ -285,9 +292,10 @@ public class PixRecurring {
   }
 
   /**
-   * Get recurringAmount
+   * recurringAmount
    * @return recurringAmount
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getRecurringAmount() {
@@ -298,7 +306,7 @@ public class PixRecurring {
    * recurringAmount
    *
    * @param recurringAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringAmount(Amount recurringAmount) {
@@ -320,6 +328,7 @@ public class PixRecurring {
    * The text that that will be shown on the shopper&#39;s bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
    * @return recurringStatement
    */
+  @ApiModelProperty(value = "The text that that will be shown on the shopper's bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.")
   @JsonProperty(JSON_PROPERTY_RECURRING_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringStatement() {
@@ -330,7 +339,7 @@ public class PixRecurring {
    * The text that that will be shown on the shopper&#39;s bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
    *
    * @param recurringStatement
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_RECURRING_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringStatement(String recurringStatement) {
@@ -352,6 +361,7 @@ public class PixRecurring {
    * When set to true, you can retry for failed recurring payments. The default value is true.
    * @return retryPolicy
    */
+  @ApiModelProperty(value = "When set to true, you can retry for failed recurring payments. The default value is true.")
   @JsonProperty(JSON_PROPERTY_RETRY_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRetryPolicy() {
@@ -362,7 +372,7 @@ public class PixRecurring {
    * When set to true, you can retry for failed recurring payments. The default value is true.
    *
    * @param retryPolicy
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_RETRY_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetryPolicy(Boolean retryPolicy) {
@@ -384,6 +394,7 @@ public class PixRecurring {
    * Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.
    * @return startsAt
    */
+  @ApiModelProperty(value = "Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.")
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStartsAt() {
@@ -394,7 +405,7 @@ public class PixRecurring {
    * Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.
    *
    * @param startsAt
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(String startsAt) {

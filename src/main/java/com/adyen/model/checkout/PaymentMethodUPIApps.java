@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -58,6 +60,7 @@ public class PaymentMethodUPIApps {
    * The unique identifier of this app, to submit in requests to /payments.
    * @return id
    */
+  @ApiModelProperty(required = true, value = "The unique identifier of this app, to submit in requests to /payments.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -68,7 +71,7 @@ public class PaymentMethodUPIApps {
    * The unique identifier of this app, to submit in requests to /payments.
    *
    * @param id
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -90,6 +93,7 @@ public class PaymentMethodUPIApps {
    * A localized name of the app.
    * @return name
    */
+  @ApiModelProperty(required = true, value = "A localized name of the app.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -100,7 +104,7 @@ public class PaymentMethodUPIApps {
    * A localized name of the app.
    *
    * @param name
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {

@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,6 +64,7 @@ public class ExternalPlatform {
    * External platform integrator.
    * @return integrator
    */
+  @ApiModelProperty(value = "External platform integrator.")
   @JsonProperty(JSON_PROPERTY_INTEGRATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIntegrator() {
@@ -72,7 +75,7 @@ public class ExternalPlatform {
    * External platform integrator.
    *
    * @param integrator
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_INTEGRATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIntegrator(String integrator) {
@@ -94,6 +97,7 @@ public class ExternalPlatform {
    * Name of the field. For example, Name of External Platform.
    * @return name
    */
+  @ApiModelProperty(value = "Name of the field. For example, Name of External Platform.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -104,7 +108,7 @@ public class ExternalPlatform {
    * Name of the field. For example, Name of External Platform.
    *
    * @param name
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -126,6 +130,7 @@ public class ExternalPlatform {
    * Version of the field. For example, Version of External Platform.
    * @return version
    */
+  @ApiModelProperty(value = "Version of the field. For example, Version of External Platform.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVersion() {
@@ -136,7 +141,7 @@ public class ExternalPlatform {
    * Version of the field. For example, Version of External Platform.
    *
    * @param version
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(String version) {

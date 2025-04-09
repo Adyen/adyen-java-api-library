@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.RepaymentTerm;
@@ -22,7 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,6 +66,7 @@ public class Repayment {
    * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
    * @return basisPoints
    */
+  @ApiModelProperty(required = true, value = "The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).")
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getBasisPoints() {
@@ -74,7 +77,7 @@ public class Repayment {
    * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
    *
    * @param basisPoints
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasisPoints(Integer basisPoints) {
@@ -93,9 +96,10 @@ public class Repayment {
   }
 
   /**
-   * Get term
+   * term
    * @return term
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RepaymentTerm getTerm() {
@@ -106,7 +110,7 @@ public class Repayment {
    * term
    *
    * @param term
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerm(RepaymentTerm term) {
@@ -125,9 +129,10 @@ public class Repayment {
   }
 
   /**
-   * Get threshold
+   * threshold
    * @return threshold
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ThresholdRepayment getThreshold() {
@@ -138,7 +143,7 @@ public class Repayment {
    * threshold
    *
    * @param threshold
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreshold(ThresholdRepayment threshold) {

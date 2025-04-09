@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,7 +47,7 @@ public class PayByBankDetails {
    * **paybybank**
    */
   public enum TypeEnum {
-    PAYBYBANK(String.valueOf("paybybank"));
+    PAYBYBANK("paybybank");
 
     private String value;
 
@@ -75,7 +77,7 @@ public class PayByBankDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYBYBANK;
+  private TypeEnum type;
 
   public PayByBankDetails() { 
   }
@@ -95,6 +97,7 @@ public class PayByBankDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -105,7 +108,7 @@ public class PayByBankDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -127,6 +130,7 @@ public class PayByBankDetails {
    * The PayByBank issuer value of the shopper&#39;s selected bank.
    * @return issuer
    */
+  @ApiModelProperty(value = "The PayByBank issuer value of the shopper's selected bank.")
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIssuer() {
@@ -137,7 +141,7 @@ public class PayByBankDetails {
    * The PayByBank issuer value of the shopper&#39;s selected bank.
    *
    * @param issuer
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIssuer(String issuer) {
@@ -159,6 +163,7 @@ public class PayByBankDetails {
    * **paybybank**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**paybybank**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -169,7 +174,7 @@ public class PayByBankDetails {
    * **paybybank**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

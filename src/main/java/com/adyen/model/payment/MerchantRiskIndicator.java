@@ -13,6 +13,7 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payment.Amount;
@@ -21,8 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -55,19 +57,19 @@ public class MerchantRiskIndicator {
    * Indicator regarding the delivery address. Allowed values: * &#x60;shipToBillingAddress&#x60; * &#x60;shipToVerifiedAddress&#x60; * &#x60;shipToNewAddress&#x60; * &#x60;shipToStore&#x60; * &#x60;digitalGoods&#x60; * &#x60;goodsNotShipped&#x60; * &#x60;other&#x60;
    */
   public enum DeliveryAddressIndicatorEnum {
-    SHIPTOBILLINGADDRESS(String.valueOf("shipToBillingAddress")),
+    SHIPTOBILLINGADDRESS("shipToBillingAddress"),
     
-    SHIPTOVERIFIEDADDRESS(String.valueOf("shipToVerifiedAddress")),
+    SHIPTOVERIFIEDADDRESS("shipToVerifiedAddress"),
     
-    SHIPTONEWADDRESS(String.valueOf("shipToNewAddress")),
+    SHIPTONEWADDRESS("shipToNewAddress"),
     
-    SHIPTOSTORE(String.valueOf("shipToStore")),
+    SHIPTOSTORE("shipToStore"),
     
-    DIGITALGOODS(String.valueOf("digitalGoods")),
+    DIGITALGOODS("digitalGoods"),
     
-    GOODSNOTSHIPPED(String.valueOf("goodsNotShipped")),
+    GOODSNOTSHIPPED("goodsNotShipped"),
     
-    OTHER(String.valueOf("other"));
+    OTHER("other");
 
     private String value;
 
@@ -110,13 +112,13 @@ public class MerchantRiskIndicator {
    * The estimated delivery time for the shopper to receive the goods. Allowed values: * &#x60;electronicDelivery&#x60; * &#x60;sameDayShipping&#x60; * &#x60;overnightShipping&#x60; * &#x60;twoOrMoreDaysShipping&#x60;
    */
   public enum DeliveryTimeframeEnum {
-    ELECTRONICDELIVERY(String.valueOf("electronicDelivery")),
+    ELECTRONICDELIVERY("electronicDelivery"),
     
-    SAMEDAYSHIPPING(String.valueOf("sameDayShipping")),
+    SAMEDAYSHIPPING("sameDayShipping"),
     
-    OVERNIGHTSHIPPING(String.valueOf("overnightShipping")),
+    OVERNIGHTSHIPPING("overnightShipping"),
     
-    TWOORMOREDAYSSHIPPING(String.valueOf("twoOrMoreDaysShipping"));
+    TWOORMOREDAYSSHIPPING("twoOrMoreDaysShipping");
 
     private String value;
 
@@ -193,6 +195,7 @@ public class MerchantRiskIndicator {
    * Whether the chosen delivery address is identical to the billing address.
    * @return addressMatch
    */
+  @ApiModelProperty(value = "Whether the chosen delivery address is identical to the billing address.")
   @JsonProperty(JSON_PROPERTY_ADDRESS_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAddressMatch() {
@@ -203,7 +206,7 @@ public class MerchantRiskIndicator {
    * Whether the chosen delivery address is identical to the billing address.
    *
    * @param addressMatch
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ADDRESS_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddressMatch(Boolean addressMatch) {
@@ -225,6 +228,7 @@ public class MerchantRiskIndicator {
    * Indicator regarding the delivery address. Allowed values: * &#x60;shipToBillingAddress&#x60; * &#x60;shipToVerifiedAddress&#x60; * &#x60;shipToNewAddress&#x60; * &#x60;shipToStore&#x60; * &#x60;digitalGoods&#x60; * &#x60;goodsNotShipped&#x60; * &#x60;other&#x60;
    * @return deliveryAddressIndicator
    */
+  @ApiModelProperty(value = "Indicator regarding the delivery address. Allowed values: * `shipToBillingAddress` * `shipToVerifiedAddress` * `shipToNewAddress` * `shipToStore` * `digitalGoods` * `goodsNotShipped` * `other`")
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DeliveryAddressIndicatorEnum getDeliveryAddressIndicator() {
@@ -235,7 +239,7 @@ public class MerchantRiskIndicator {
    * Indicator regarding the delivery address. Allowed values: * &#x60;shipToBillingAddress&#x60; * &#x60;shipToVerifiedAddress&#x60; * &#x60;shipToNewAddress&#x60; * &#x60;shipToStore&#x60; * &#x60;digitalGoods&#x60; * &#x60;goodsNotShipped&#x60; * &#x60;other&#x60;
    *
    * @param deliveryAddressIndicator
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddressIndicator(DeliveryAddressIndicatorEnum deliveryAddressIndicator) {
@@ -251,7 +255,7 @@ public class MerchantRiskIndicator {
    * @deprecated since Adyen Payment API v68
    * Use &#x60;deliveryEmailAddress&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `deliveryEmailAddress` instead.
+  @Deprecated
   public MerchantRiskIndicator deliveryEmail(String deliveryEmail) {
     this.deliveryEmail = deliveryEmail;
     return this;
@@ -260,9 +264,12 @@ public class MerchantRiskIndicator {
   /**
    * The delivery email address (for digital goods).
    * @return deliveryEmail
-   * @deprecated // deprecated since Adyen Payment API v68: Use `deliveryEmailAddress` instead.
+   *
+   * @deprecated since Adyen Payment API v68
+   * Use &#x60;deliveryEmailAddress&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `deliveryEmailAddress` instead.
+  @Deprecated
+  @ApiModelProperty(value = "The delivery email address (for digital goods).")
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeliveryEmail() {
@@ -276,8 +283,8 @@ public class MerchantRiskIndicator {
    *
    * @deprecated since Adyen Payment API v68
    * Use &#x60;deliveryEmailAddress&#x60; instead.
-   */
-  @Deprecated // deprecated since Adyen Payment API v68: Use `deliveryEmailAddress` instead.
+   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmail(String deliveryEmail) {
@@ -299,6 +306,7 @@ public class MerchantRiskIndicator {
    * For Electronic delivery, the email address to which the merchandise was delivered. Maximum length: 254 characters.
    * @return deliveryEmailAddress
    */
+  @ApiModelProperty(value = "For Electronic delivery, the email address to which the merchandise was delivered. Maximum length: 254 characters.")
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeliveryEmailAddress() {
@@ -309,7 +317,7 @@ public class MerchantRiskIndicator {
    * For Electronic delivery, the email address to which the merchandise was delivered. Maximum length: 254 characters.
    *
    * @param deliveryEmailAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryEmailAddress(String deliveryEmailAddress) {
@@ -331,6 +339,7 @@ public class MerchantRiskIndicator {
    * The estimated delivery time for the shopper to receive the goods. Allowed values: * &#x60;electronicDelivery&#x60; * &#x60;sameDayShipping&#x60; * &#x60;overnightShipping&#x60; * &#x60;twoOrMoreDaysShipping&#x60;
    * @return deliveryTimeframe
    */
+  @ApiModelProperty(value = "The estimated delivery time for the shopper to receive the goods. Allowed values: * `electronicDelivery` * `sameDayShipping` * `overnightShipping` * `twoOrMoreDaysShipping`")
   @JsonProperty(JSON_PROPERTY_DELIVERY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DeliveryTimeframeEnum getDeliveryTimeframe() {
@@ -341,7 +350,7 @@ public class MerchantRiskIndicator {
    * The estimated delivery time for the shopper to receive the goods. Allowed values: * &#x60;electronicDelivery&#x60; * &#x60;sameDayShipping&#x60; * &#x60;overnightShipping&#x60; * &#x60;twoOrMoreDaysShipping&#x60;
    *
    * @param deliveryTimeframe
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryTimeframe(DeliveryTimeframeEnum deliveryTimeframe) {
@@ -360,9 +369,10 @@ public class MerchantRiskIndicator {
   }
 
   /**
-   * Get giftCardAmount
+   * giftCardAmount
    * @return giftCardAmount
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getGiftCardAmount() {
@@ -373,7 +383,7 @@ public class MerchantRiskIndicator {
    * giftCardAmount
    *
    * @param giftCardAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardAmount(Amount giftCardAmount) {
@@ -395,6 +405,7 @@ public class MerchantRiskIndicator {
    * For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.
    * @return giftCardCount
    */
+  @ApiModelProperty(value = "For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.")
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getGiftCardCount() {
@@ -405,7 +416,7 @@ public class MerchantRiskIndicator {
    * For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.
    *
    * @param giftCardCount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardCount(Integer giftCardCount) {
@@ -427,6 +438,7 @@ public class MerchantRiskIndicator {
    * For prepaid or gift card purchase, [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-digit currency code of the gift card, other than those listed in Table A.5 of the EMVCo 3D Secure Protocol and Core Functions Specification.
    * @return giftCardCurr
    */
+  @ApiModelProperty(value = "For prepaid or gift card purchase, [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-digit currency code of the gift card, other than those listed in Table A.5 of the EMVCo 3D Secure Protocol and Core Functions Specification.")
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_CURR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getGiftCardCurr() {
@@ -437,7 +449,7 @@ public class MerchantRiskIndicator {
    * For prepaid or gift card purchase, [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-digit currency code of the gift card, other than those listed in Table A.5 of the EMVCo 3D Secure Protocol and Core Functions Specification.
    *
    * @param giftCardCurr
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_GIFT_CARD_CURR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGiftCardCurr(String giftCardCurr) {
@@ -459,6 +471,7 @@ public class MerchantRiskIndicator {
    * For pre-order purchases, the expected date this product will be available to the shopper.
    * @return preOrderDate
    */
+  @ApiModelProperty(value = "For pre-order purchases, the expected date this product will be available to the shopper.")
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getPreOrderDate() {
@@ -469,7 +482,7 @@ public class MerchantRiskIndicator {
    * For pre-order purchases, the expected date this product will be available to the shopper.
    *
    * @param preOrderDate
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderDate(OffsetDateTime preOrderDate) {
@@ -491,6 +504,7 @@ public class MerchantRiskIndicator {
    * Indicator for whether this transaction is for pre-ordering a product.
    * @return preOrderPurchase
    */
+  @ApiModelProperty(value = "Indicator for whether this transaction is for pre-ordering a product.")
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getPreOrderPurchase() {
@@ -501,7 +515,7 @@ public class MerchantRiskIndicator {
    * Indicator for whether this transaction is for pre-ordering a product.
    *
    * @param preOrderPurchase
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderPurchase(Boolean preOrderPurchase) {
@@ -523,6 +537,7 @@ public class MerchantRiskIndicator {
    * Indicates whether Cardholder is placing an order for merchandise with a future availability or release date.
    * @return preOrderPurchaseInd
    */
+  @ApiModelProperty(value = "Indicates whether Cardholder is placing an order for merchandise with a future availability or release date.")
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPreOrderPurchaseInd() {
@@ -533,7 +548,7 @@ public class MerchantRiskIndicator {
    * Indicates whether Cardholder is placing an order for merchandise with a future availability or release date.
    *
    * @param preOrderPurchaseInd
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PRE_ORDER_PURCHASE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreOrderPurchaseInd(String preOrderPurchaseInd) {
@@ -555,6 +570,7 @@ public class MerchantRiskIndicator {
    * Indicator for whether the shopper has already purchased the same items in the past.
    * @return reorderItems
    */
+  @ApiModelProperty(value = "Indicator for whether the shopper has already purchased the same items in the past.")
   @JsonProperty(JSON_PROPERTY_REORDER_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getReorderItems() {
@@ -565,7 +581,7 @@ public class MerchantRiskIndicator {
    * Indicator for whether the shopper has already purchased the same items in the past.
    *
    * @param reorderItems
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REORDER_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReorderItems(Boolean reorderItems) {
@@ -587,6 +603,7 @@ public class MerchantRiskIndicator {
    * Indicates whether the cardholder is reordering previously purchased merchandise.
    * @return reorderItemsInd
    */
+  @ApiModelProperty(value = "Indicates whether the cardholder is reordering previously purchased merchandise.")
   @JsonProperty(JSON_PROPERTY_REORDER_ITEMS_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReorderItemsInd() {
@@ -597,7 +614,7 @@ public class MerchantRiskIndicator {
    * Indicates whether the cardholder is reordering previously purchased merchandise.
    *
    * @param reorderItemsInd
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REORDER_ITEMS_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReorderItemsInd(String reorderItemsInd) {
@@ -619,6 +636,7 @@ public class MerchantRiskIndicator {
    * Indicates shipping method chosen for the transaction.
    * @return shipIndicator
    */
+  @ApiModelProperty(value = "Indicates shipping method chosen for the transaction.")
   @JsonProperty(JSON_PROPERTY_SHIP_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShipIndicator() {
@@ -629,7 +647,7 @@ public class MerchantRiskIndicator {
    * Indicates shipping method chosen for the transaction.
    *
    * @param shipIndicator
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SHIP_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipIndicator(String shipIndicator) {

@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -66,19 +68,19 @@ public class KlarnaDetails {
    * **klarna**
    */
   public enum TypeEnum {
-    KLARNA(String.valueOf("klarna")),
+    KLARNA("klarna"),
     
-    KLARNAPAYMENTS(String.valueOf("klarnapayments")),
+    KLARNAPAYMENTS("klarnapayments"),
     
-    KLARNAPAYMENTS_ACCOUNT(String.valueOf("klarnapayments_account")),
+    KLARNAPAYMENTS_ACCOUNT("klarnapayments_account"),
     
-    KLARNAPAYMENTS_B2B(String.valueOf("klarnapayments_b2b")),
+    KLARNAPAYMENTS_B2B("klarnapayments_b2b"),
     
-    KLARNA_PAYNOW(String.valueOf("klarna_paynow")),
+    KLARNA_PAYNOW("klarna_paynow"),
     
-    KLARNA_ACCOUNT(String.valueOf("klarna_account")),
+    KLARNA_ACCOUNT("klarna_account"),
     
-    KLARNA_B2B(String.valueOf("klarna_b2b"));
+    KLARNA_B2B("klarna_b2b");
 
     private String value;
 
@@ -108,7 +110,7 @@ public class KlarnaDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.KLARNA;
+  private TypeEnum type;
 
   public KlarnaDetails() { 
   }
@@ -128,6 +130,7 @@ public class KlarnaDetails {
    * The address where to send the invoice.
    * @return billingAddress
    */
+  @ApiModelProperty(value = "The address where to send the invoice.")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingAddress() {
@@ -138,7 +141,7 @@ public class KlarnaDetails {
    * The address where to send the invoice.
    *
    * @param billingAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(String billingAddress) {
@@ -160,6 +163,7 @@ public class KlarnaDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -170,7 +174,7 @@ public class KlarnaDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -192,6 +196,7 @@ public class KlarnaDetails {
    * The address where the goods should be delivered.
    * @return deliveryAddress
    */
+  @ApiModelProperty(value = "The address where the goods should be delivered.")
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeliveryAddress() {
@@ -202,7 +207,7 @@ public class KlarnaDetails {
    * The address where the goods should be delivered.
    *
    * @param deliveryAddress
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeliveryAddress(String deliveryAddress) {
@@ -224,6 +229,7 @@ public class KlarnaDetails {
    * Shopper name, date of birth, phone number, and email address.
    * @return personalDetails
    */
+  @ApiModelProperty(value = "Shopper name, date of birth, phone number, and email address.")
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPersonalDetails() {
@@ -234,7 +240,7 @@ public class KlarnaDetails {
    * Shopper name, date of birth, phone number, and email address.
    *
    * @param personalDetails
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPersonalDetails(String personalDetails) {
@@ -250,7 +256,7 @@ public class KlarnaDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   public KlarnaDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -259,9 +265,12 @@ public class KlarnaDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -275,8 +284,8 @@ public class KlarnaDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -298,6 +307,7 @@ public class KlarnaDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -308,7 +318,7 @@ public class KlarnaDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -330,6 +340,7 @@ public class KlarnaDetails {
    * The type of flow to initiate.
    * @return subtype
    */
+  @ApiModelProperty(value = "The type of flow to initiate.")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubtype() {
@@ -340,7 +351,7 @@ public class KlarnaDetails {
    * The type of flow to initiate.
    *
    * @param subtype
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubtype(String subtype) {
@@ -362,6 +373,7 @@ public class KlarnaDetails {
    * **klarna**
    * @return type
    */
+  @ApiModelProperty(required = true, value = "**klarna**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -372,7 +384,7 @@ public class KlarnaDetails {
    * **klarna**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

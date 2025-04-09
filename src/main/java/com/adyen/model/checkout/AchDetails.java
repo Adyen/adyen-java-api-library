@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,9 +50,9 @@ public class AchDetails {
    * The account holder type (personal or business).
    */
   public enum AccountHolderTypeEnum {
-    BUSINESS(String.valueOf("business")),
+    BUSINESS("business"),
     
-    PERSONAL(String.valueOf("personal"));
+    PERSONAL("personal");
 
     private String value;
 
@@ -89,19 +91,19 @@ public class AchDetails {
    * The bank account type (checking, savings...).
    */
   public enum BankAccountTypeEnum {
-    BALANCE(String.valueOf("balance")),
+    BALANCE("balance"),
     
-    CHECKING(String.valueOf("checking")),
+    CHECKING("checking"),
     
-    DEPOSIT(String.valueOf("deposit")),
+    DEPOSIT("deposit"),
     
-    GENERAL(String.valueOf("general")),
+    GENERAL("general"),
     
-    OTHER(String.valueOf("other")),
+    OTHER("other"),
     
-    PAYMENT(String.valueOf("payment")),
+    PAYMENT("payment"),
     
-    SAVINGS(String.valueOf("savings"));
+    SAVINGS("savings");
 
     private String value;
 
@@ -162,9 +164,9 @@ public class AchDetails {
    * **ach**
    */
   public enum TypeEnum {
-    ACH(String.valueOf("ach")),
+    ACH("ach"),
     
-    ACH_PLAID(String.valueOf("ach_plaid"));
+    ACH_PLAID("ach_plaid");
 
     private String value;
 
@@ -194,7 +196,7 @@ public class AchDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ACH;
+  private TypeEnum type;
 
   public AchDetails() { 
   }
@@ -214,6 +216,7 @@ public class AchDetails {
    * The account holder type (personal or business).
    * @return accountHolderType
    */
+  @ApiModelProperty(value = "The account holder type (personal or business).")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AccountHolderTypeEnum getAccountHolderType() {
@@ -224,7 +227,7 @@ public class AchDetails {
    * The account holder type (personal or business).
    *
    * @param accountHolderType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderType(AccountHolderTypeEnum accountHolderType) {
@@ -246,6 +249,7 @@ public class AchDetails {
    * The bank account number (without separators).
    * @return bankAccountNumber
    */
+  @ApiModelProperty(value = "The bank account number (without separators).")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankAccountNumber() {
@@ -256,7 +260,7 @@ public class AchDetails {
    * The bank account number (without separators).
    *
    * @param bankAccountNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountNumber(String bankAccountNumber) {
@@ -278,6 +282,7 @@ public class AchDetails {
    * The bank account type (checking, savings...).
    * @return bankAccountType
    */
+  @ApiModelProperty(value = "The bank account type (checking, savings...).")
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccountTypeEnum getBankAccountType() {
@@ -288,7 +293,7 @@ public class AchDetails {
    * The bank account type (checking, savings...).
    *
    * @param bankAccountType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankAccountType(BankAccountTypeEnum bankAccountType) {
@@ -310,6 +315,7 @@ public class AchDetails {
    * The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    * @return bankLocationId
    */
+  @ApiModelProperty(value = "The bank routing number of the account. The field value is `nil` in most cases.")
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankLocationId() {
@@ -320,7 +326,7 @@ public class AchDetails {
    * The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    *
    * @param bankLocationId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankLocationId(String bankLocationId) {
@@ -342,6 +348,7 @@ public class AchDetails {
    * The checkout attempt identifier.
    * @return checkoutAttemptId
    */
+  @ApiModelProperty(value = "The checkout attempt identifier.")
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCheckoutAttemptId() {
@@ -352,7 +359,7 @@ public class AchDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
@@ -374,6 +381,7 @@ public class AchDetails {
    * Encrypted bank account number. The bank account number (without separators).
    * @return encryptedBankAccountNumber
    */
+  @ApiModelProperty(value = "Encrypted bank account number. The bank account number (without separators).")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedBankAccountNumber() {
@@ -384,7 +392,7 @@ public class AchDetails {
    * Encrypted bank account number. The bank account number (without separators).
    *
    * @param encryptedBankAccountNumber
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedBankAccountNumber(String encryptedBankAccountNumber) {
@@ -406,6 +414,7 @@ public class AchDetails {
    * Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    * @return encryptedBankLocationId
    */
+  @ApiModelProperty(value = "Encrypted location id. The bank routing number of the account. The field value is `nil` in most cases.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedBankLocationId() {
@@ -416,7 +425,7 @@ public class AchDetails {
    * Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    *
    * @param encryptedBankLocationId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedBankLocationId(String encryptedBankLocationId) {
@@ -438,6 +447,7 @@ public class AchDetails {
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    * @return ownerName
    */
+  @ApiModelProperty(value = "The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don't accept 'ø'. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. > If provided details don't match the required format, the response returns the error message: 203 'Invalid bank account holder name'.")
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOwnerName() {
@@ -448,7 +458,7 @@ public class AchDetails {
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    *
    * @param ownerName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerName(String ownerName) {
@@ -464,7 +474,7 @@ public class AchDetails {
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
   public AchDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
@@ -473,9 +483,12 @@ public class AchDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
-   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   *
+   * @deprecated since Adyen Checkout API v49
+   * Use &#x60;storedPaymentMethodId&#x60; instead.
    */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @Deprecated
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -489,8 +502,8 @@ public class AchDetails {
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
-   */
-  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   */ 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -512,6 +525,7 @@ public class AchDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
    */
+  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -522,7 +536,7 @@ public class AchDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @param storedPaymentMethodId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
@@ -544,6 +558,7 @@ public class AchDetails {
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    * @return transferInstrumentId
    */
+  @ApiModelProperty(value = "The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts.")
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTransferInstrumentId() {
@@ -554,7 +569,7 @@ public class AchDetails {
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    *
    * @param transferInstrumentId
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
@@ -576,6 +591,7 @@ public class AchDetails {
    * **ach**
    * @return type
    */
+  @ApiModelProperty(value = "**ach**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -586,7 +602,7 @@ public class AchDetails {
    * **ach**
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

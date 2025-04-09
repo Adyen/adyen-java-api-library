@@ -13,6 +13,7 @@
 package com.adyen.model.transfers;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Airline;
@@ -22,8 +23,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,13 +45,13 @@ public class MerchantPurchaseData {
   private Airline airline;
 
   public static final String JSON_PROPERTY_LODGING = "lodging";
-  private List<Lodging> lodging = new ArrayList<>();
+  private List<Lodging> lodging = null;
 
   /**
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    */
   public enum TypeEnum {
-    MERCHANTPURCHASEDATA(String.valueOf("merchantPurchaseData"));
+    MERCHANTPURCHASEDATA("merchantPurchaseData");
 
     private String value;
 
@@ -79,7 +81,7 @@ public class MerchantPurchaseData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.MERCHANTPURCHASEDATA;
+  private TypeEnum type;
 
   public MerchantPurchaseData() { 
   }
@@ -96,9 +98,10 @@ public class MerchantPurchaseData {
   }
 
   /**
-   * Get airline
+   * airline
    * @return airline
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AIRLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Airline getAirline() {
@@ -109,7 +112,7 @@ public class MerchantPurchaseData {
    * airline
    *
    * @param airline
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AIRLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAirline(Airline airline) {
@@ -139,6 +142,7 @@ public class MerchantPurchaseData {
    * Lodging information.
    * @return lodging
    */
+  @ApiModelProperty(value = "Lodging information.")
   @JsonProperty(JSON_PROPERTY_LODGING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Lodging> getLodging() {
@@ -149,7 +153,7 @@ public class MerchantPurchaseData {
    * Lodging information.
    *
    * @param lodging
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_LODGING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLodging(List<Lodging> lodging) {
@@ -171,6 +175,7 @@ public class MerchantPurchaseData {
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    * @return type
    */
+  @ApiModelProperty(required = true, value = "The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -181,7 +186,7 @@ public class MerchantPurchaseData {
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -187,6 +187,8 @@ public class UpdateSweepConfigurationV2 {
     
     NOTENOUGHBALANCE("notEnoughBalance"),
     
+    PENDING("pending"),
+    
     PENDINGAPPROVAL("pendingApproval"),
     
     PENDINGEXECUTION("pendingExecution"),

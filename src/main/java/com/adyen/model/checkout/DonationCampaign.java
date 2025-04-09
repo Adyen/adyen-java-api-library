@@ -13,6 +13,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amounts;
@@ -22,7 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -93,9 +95,10 @@ public class DonationCampaign {
   }
 
   /**
-   * Get amounts
+   * amounts
    * @return amounts
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amounts getAmounts() {
@@ -106,7 +109,7 @@ public class DonationCampaign {
    * amounts
    *
    * @param amounts
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_AMOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmounts(Amounts amounts) {
@@ -128,6 +131,7 @@ public class DonationCampaign {
    * The URL for the banner of the nonprofit or campaign.
    * @return bannerUrl
    */
+  @ApiModelProperty(value = "The URL for the banner of the nonprofit or campaign.")
   @JsonProperty(JSON_PROPERTY_BANNER_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBannerUrl() {
@@ -138,7 +142,7 @@ public class DonationCampaign {
    * The URL for the banner of the nonprofit or campaign.
    *
    * @param bannerUrl
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BANNER_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBannerUrl(String bannerUrl) {
@@ -160,6 +164,7 @@ public class DonationCampaign {
    * The name of the donation campaign..
    * @return campaignName
    */
+  @ApiModelProperty(value = "The name of the donation campaign..")
   @JsonProperty(JSON_PROPERTY_CAMPAIGN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCampaignName() {
@@ -170,7 +175,7 @@ public class DonationCampaign {
    * The name of the donation campaign..
    *
    * @param campaignName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CAMPAIGN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCampaignName(String campaignName) {
@@ -192,6 +197,7 @@ public class DonationCampaign {
    * The cause of the nonprofit.
    * @return causeName
    */
+  @ApiModelProperty(value = "The cause of the nonprofit.")
   @JsonProperty(JSON_PROPERTY_CAUSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCauseName() {
@@ -202,7 +208,7 @@ public class DonationCampaign {
    * The cause of the nonprofit.
    *
    * @param causeName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_CAUSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCauseName(String causeName) {
@@ -221,9 +227,10 @@ public class DonationCampaign {
   }
 
   /**
-   * Get donation
+   * donation
    * @return donation
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DONATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Donation getDonation() {
@@ -234,7 +241,7 @@ public class DonationCampaign {
    * donation
    *
    * @param donation
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_DONATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDonation(Donation donation) {
@@ -256,6 +263,7 @@ public class DonationCampaign {
    * The unique campaign ID of the donation campaign.
    * @return id
    */
+  @ApiModelProperty(value = "The unique campaign ID of the donation campaign.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -266,7 +274,7 @@ public class DonationCampaign {
    * The unique campaign ID of the donation campaign.
    *
    * @param id
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -288,6 +296,7 @@ public class DonationCampaign {
    * The URL for the logo of the nonprofit.
    * @return logoUrl
    */
+  @ApiModelProperty(value = "The URL for the logo of the nonprofit.")
   @JsonProperty(JSON_PROPERTY_LOGO_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogoUrl() {
@@ -298,7 +307,7 @@ public class DonationCampaign {
    * The URL for the logo of the nonprofit.
    *
    * @param logoUrl
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_LOGO_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogoUrl(String logoUrl) {
@@ -320,6 +329,7 @@ public class DonationCampaign {
    * The description of the nonprofit.
    * @return nonprofitDescription
    */
+  @ApiModelProperty(value = "The description of the nonprofit.")
   @JsonProperty(JSON_PROPERTY_NONPROFIT_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNonprofitDescription() {
@@ -330,7 +340,7 @@ public class DonationCampaign {
    * The description of the nonprofit.
    *
    * @param nonprofitDescription
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NONPROFIT_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitDescription(String nonprofitDescription) {
@@ -352,6 +362,7 @@ public class DonationCampaign {
    * The name of the nonprofit organization that receives the donation.
    * @return nonprofitName
    */
+  @ApiModelProperty(value = "The name of the nonprofit organization that receives the donation.")
   @JsonProperty(JSON_PROPERTY_NONPROFIT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNonprofitName() {
@@ -362,7 +373,7 @@ public class DonationCampaign {
    * The name of the nonprofit organization that receives the donation.
    *
    * @param nonprofitName
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NONPROFIT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitName(String nonprofitName) {
@@ -384,6 +395,7 @@ public class DonationCampaign {
    * The website URL of the nonprofit.
    * @return nonprofitUrl
    */
+  @ApiModelProperty(value = "The website URL of the nonprofit.")
   @JsonProperty(JSON_PROPERTY_NONPROFIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNonprofitUrl() {
@@ -394,7 +406,7 @@ public class DonationCampaign {
    * The website URL of the nonprofit.
    *
    * @param nonprofitUrl
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_NONPROFIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNonprofitUrl(String nonprofitUrl) {
@@ -416,6 +428,7 @@ public class DonationCampaign {
    * The URL of the terms and conditions page of the nonprofit and the campaign.
    * @return termsAndConditionsUrl
    */
+  @ApiModelProperty(value = "The URL of the terms and conditions page of the nonprofit and the campaign.")
   @JsonProperty(JSON_PROPERTY_TERMS_AND_CONDITIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTermsAndConditionsUrl() {
@@ -426,7 +439,7 @@ public class DonationCampaign {
    * The URL of the terms and conditions page of the nonprofit and the campaign.
    *
    * @param termsAndConditionsUrl
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TERMS_AND_CONDITIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTermsAndConditionsUrl(String termsAndConditionsUrl) {

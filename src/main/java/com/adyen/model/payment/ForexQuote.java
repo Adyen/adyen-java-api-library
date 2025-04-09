@@ -13,6 +13,7 @@
 package com.adyen.model.payment;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payment.Amount;
@@ -21,8 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -100,6 +102,7 @@ public class ForexQuote {
    * The account name.
    * @return account
    */
+  @ApiModelProperty(value = "The account name.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccount() {
@@ -110,7 +113,7 @@ public class ForexQuote {
    * The account name.
    *
    * @param account
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccount(String account) {
@@ -132,6 +135,7 @@ public class ForexQuote {
    * The account type.
    * @return accountType
    */
+  @ApiModelProperty(value = "The account type.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountType() {
@@ -142,7 +146,7 @@ public class ForexQuote {
    * The account type.
    *
    * @param accountType
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
@@ -161,9 +165,10 @@ public class ForexQuote {
   }
 
   /**
-   * Get baseAmount
+   * baseAmount
    * @return baseAmount
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getBaseAmount() {
@@ -174,7 +179,7 @@ public class ForexQuote {
    * baseAmount
    *
    * @param baseAmount
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBaseAmount(Amount baseAmount) {
@@ -196,6 +201,7 @@ public class ForexQuote {
    * The base points.
    * @return basePoints
    */
+  @ApiModelProperty(required = true, value = "The base points.")
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getBasePoints() {
@@ -206,7 +212,7 @@ public class ForexQuote {
    * The base points.
    *
    * @param basePoints
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBasePoints(Integer basePoints) {
@@ -225,9 +231,10 @@ public class ForexQuote {
   }
 
   /**
-   * Get buy
+   * buy
    * @return buy
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BUY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getBuy() {
@@ -238,7 +245,7 @@ public class ForexQuote {
    * buy
    *
    * @param buy
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_BUY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBuy(Amount buy) {
@@ -257,9 +264,10 @@ public class ForexQuote {
   }
 
   /**
-   * Get interbank
+   * interbank
    * @return interbank
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTERBANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getInterbank() {
@@ -270,7 +278,7 @@ public class ForexQuote {
    * interbank
    *
    * @param interbank
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_INTERBANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInterbank(Amount interbank) {
@@ -292,6 +300,7 @@ public class ForexQuote {
    * The reference assigned to the forex quote request.
    * @return reference
    */
+  @ApiModelProperty(value = "The reference assigned to the forex quote request.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -302,7 +311,7 @@ public class ForexQuote {
    * The reference assigned to the forex quote request.
    *
    * @param reference
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -321,9 +330,10 @@ public class ForexQuote {
   }
 
   /**
-   * Get sell
+   * sell
    * @return sell
    */
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SELL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getSell() {
@@ -334,7 +344,7 @@ public class ForexQuote {
    * sell
    *
    * @param sell
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SELL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSell(Amount sell) {
@@ -356,6 +366,7 @@ public class ForexQuote {
    * The signature to validate the integrity.
    * @return signature
    */
+  @ApiModelProperty(value = "The signature to validate the integrity.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSignature() {
@@ -366,7 +377,7 @@ public class ForexQuote {
    * The signature to validate the integrity.
    *
    * @param signature
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(String signature) {
@@ -388,6 +399,7 @@ public class ForexQuote {
    * The source of the forex quote.
    * @return source
    */
+  @ApiModelProperty(value = "The source of the forex quote.")
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSource() {
@@ -398,7 +410,7 @@ public class ForexQuote {
    * The source of the forex quote.
    *
    * @param source
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSource(String source) {
@@ -420,6 +432,7 @@ public class ForexQuote {
    * The type of forex.
    * @return type
    */
+  @ApiModelProperty(value = "The type of forex.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -430,7 +443,7 @@ public class ForexQuote {
    * The type of forex.
    *
    * @param type
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
@@ -452,6 +465,7 @@ public class ForexQuote {
    * The date until which the forex quote is valid.
    * @return validTill
    */
+  @ApiModelProperty(required = true, value = "The date until which the forex quote is valid.")
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getValidTill() {
@@ -462,7 +476,7 @@ public class ForexQuote {
    * The date until which the forex quote is valid.
    *
    * @param validTill
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidTill(OffsetDateTime validTill) {
