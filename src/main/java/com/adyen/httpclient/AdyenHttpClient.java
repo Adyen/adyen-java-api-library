@@ -115,12 +115,11 @@ public class AdyenHttpClient implements ClientInterface {
         HttpUriRequestBase httpRequest = createHttpRequestBase(createUri(endpoint, params), requestBody, httpMethod);
 
         RequestConfig.Builder builder = RequestConfig.custom();
-        if (config.getReadTimeoutMillis() > 0) {
-            builder.setResponseTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS);
-        }
-        if (config.getConnectionTimeoutMillis() > 0) {
-            builder.setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS);
-        }
+
+        builder.setResponseTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS);
+        builder.setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS);
+        builder.setDefaultKeepAlive(config.getDefaultKeepAlive(), TimeUnit.MILLISECONDS);
+
         if (config.getProtocolUpgradeEnabled() != null) {
             builder.setProtocolUpgradeEnabled(config.getProtocolUpgradeEnabled());
         }

@@ -16,8 +16,9 @@ public class Config {
      */
     protected String applicationName;
     protected String apiKey;
-    protected int connectionTimeoutMillis;
-    protected int readTimeoutMillis;
+    protected int connectionTimeoutMillis = 60 * 1000; // default 60 sec
+    protected int readTimeoutMillis = 60 * 1000; // default 60 sec
+    protected int defaultKeepAlive = 60 * 1000; // default 60 sec
     protected Boolean protocolUpgradeEnabled;
 
     //Terminal API Specific
@@ -110,6 +111,14 @@ public class Config {
 
     public void setReadTimeoutMillis(int readTimeoutMillis) {
         this.readTimeoutMillis = readTimeoutMillis;
+    }
+
+    public int getDefaultKeepAlive() {
+        return defaultKeepAlive;
+    }
+
+    public void setDefaultKeepAlive(int defaultKeepAlive) {
+        this.defaultKeepAlive = defaultKeepAlive;
     }
 
     public Boolean getProtocolUpgradeEnabled() {
