@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class DonationCampaignsResponse {
   public static final String JSON_PROPERTY_DONATION_CAMPAIGNS = "donationCampaigns";
-  private List<DonationCampaign> donationCampaigns = new ArrayList<>();
+  private List<DonationCampaign> donationCampaigns;
 
   public DonationCampaignsResponse() { 
   }

@@ -53,7 +53,7 @@ public class PaymentCaptureResponse {
   private Amount amount;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = new ArrayList<>();
+  private List<LineItem> lineItems;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -71,7 +71,7 @@ public class PaymentCaptureResponse {
   private String reference;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = new ArrayList<>();
+  private List<Split> splits;
 
   /**
    * The status of your request. This will always have the value **received**.
@@ -110,7 +110,7 @@ public class PaymentCaptureResponse {
   private StatusEnum status;
 
   public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
-  private List<SubMerchantInfo> subMerchants = new ArrayList<>();
+  private List<SubMerchantInfo> subMerchants;
 
   public PaymentCaptureResponse() { 
   }

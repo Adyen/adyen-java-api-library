@@ -41,7 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CheckoutNativeRedirectAction {
   public static final String JSON_PROPERTY_DATA = "data";
-  private Map<String, String> data = new HashMap<>();
+  private Map<String, String> data;
 
   public static final String JSON_PROPERTY_METHOD = "method";
   private String method;

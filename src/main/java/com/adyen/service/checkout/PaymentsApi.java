@@ -80,7 +80,6 @@ public class PaymentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = cardDetailsRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/cardDetails", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -115,6 +114,7 @@ public class PaymentsApi extends Service {
             throw new IllegalArgumentException("Please provide the sessionId path parameter");
         }
         pathParams.put("sessionId", sessionId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (sessionResult != null) {
@@ -147,7 +147,6 @@ public class PaymentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = paymentMethodsRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentMethods", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -174,7 +173,6 @@ public class PaymentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaymentResponse payments(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = paymentRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -201,7 +199,6 @@ public class PaymentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaymentDetailsResponse paymentsDetails(PaymentDetailsRequest paymentDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = paymentDetailsRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payments/details", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -228,7 +225,6 @@ public class PaymentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = createCheckoutSessionRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/sessions", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

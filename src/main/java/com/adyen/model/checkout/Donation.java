@@ -48,7 +48,7 @@ public class Donation {
   private Long maxRoundupAmount;
 
   public static final String JSON_PROPERTY_VALUES = "values";
-  private List<Long> values = new ArrayList<>();
+  private List<Long> values;
 
   public Donation() { 
   }

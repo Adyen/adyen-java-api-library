@@ -51,16 +51,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaymentMethod {
   public static final String JSON_PROPERTY_APPS = "apps";
-  private List<PaymentMethodUPIApps> apps = new ArrayList<>();
+  private List<PaymentMethodUPIApps> apps;
 
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
   public static final String JSON_PROPERTY_BRANDS = "brands";
-  private List<String> brands = new ArrayList<>();
+  private List<String> brands;
 
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
-  private Map<String, String> configuration = new HashMap<>();
+  private Map<String, String> configuration;
 
   /**
    * The funding source of the payment method.
@@ -105,10 +105,10 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
   @Deprecated // deprecated 
-  private List<InputDetail> inputDetails = new ArrayList<>();
+  private List<InputDetail> inputDetails;
 
   public static final String JSON_PROPERTY_ISSUERS = "issuers";
-  private List<PaymentMethodIssuer> issuers = new ArrayList<>();
+  private List<PaymentMethodIssuer> issuers;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

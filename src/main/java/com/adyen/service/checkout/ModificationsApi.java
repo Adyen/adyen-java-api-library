@@ -81,7 +81,6 @@ public class ModificationsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public StandalonePaymentCancelResponse cancelAuthorisedPayment(StandalonePaymentCancelRequest standalonePaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = standalonePaymentCancelRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/cancels", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

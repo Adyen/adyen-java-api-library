@@ -96,7 +96,7 @@ public class DonationPaymentRequest {
   private AccountInfo accountInfo;
 
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
@@ -188,7 +188,7 @@ public class DonationPaymentRequest {
   private String donationToken;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = new ArrayList<>();
+  private List<LineItem> lineItems;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -197,7 +197,7 @@ public class DonationPaymentRequest {
   private MerchantRiskIndicator merchantRiskIndicator;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = new HashMap<>();
+  private Map<String, String> metadata;
 
   public static final String JSON_PROPERTY_MPI_DATA = "mpiData";
   private ThreeDSecureData mpiData;

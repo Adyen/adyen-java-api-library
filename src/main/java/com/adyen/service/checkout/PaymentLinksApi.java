@@ -105,7 +105,6 @@ public class PaymentLinksApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaymentLinkResponse paymentLinks(PaymentLinkRequest paymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = paymentLinkRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentLinks", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

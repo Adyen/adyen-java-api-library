@@ -118,7 +118,7 @@ public class DeviceRenderOptions {
   }
 
   public static final String JSON_PROPERTY_SDK_UI_TYPE = "sdkUiType";
-  private List<SdkUiTypeEnum> sdkUiType = new ArrayList<>();
+  private List<SdkUiTypeEnum> sdkUiType;
 
   public DeviceRenderOptions() { 
   }

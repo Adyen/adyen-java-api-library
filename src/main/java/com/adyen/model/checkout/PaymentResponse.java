@@ -60,7 +60,7 @@ public class PaymentResponse {
   private PaymentResponseAction action;
 
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;

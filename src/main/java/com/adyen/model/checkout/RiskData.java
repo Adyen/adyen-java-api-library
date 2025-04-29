@@ -42,7 +42,7 @@ public class RiskData {
   private String clientData;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "customFields";
-  private Map<String, String> customFields = new HashMap<>();
+  private Map<String, String> customFields;
 
   public static final String JSON_PROPERTY_FRAUD_OFFSET = "fraudOffset";
   private Integer fraudOffset;

@@ -36,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class UtilityRequest {
   public static final String JSON_PROPERTY_ORIGIN_DOMAINS = "originDomains";
-  private List<String> originDomains = new ArrayList<>();
+  private List<String> originDomains;
 
   public UtilityRequest() { 
   }

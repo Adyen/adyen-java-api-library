@@ -139,7 +139,7 @@ public class PaymentRequest {
   private Amount additionalAmount;
 
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
@@ -334,10 +334,10 @@ public class PaymentRequest {
   private Installments installments;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = new ArrayList<>();
+  private List<LineItem> lineItems;
 
   public static final String JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT = "localizedShopperStatement";
-  private Map<String, String> localizedShopperStatement = new HashMap<>();
+  private Map<String, String> localizedShopperStatement;
 
   public static final String JSON_PROPERTY_MANDATE = "mandate";
   private Mandate mandate;
@@ -355,7 +355,7 @@ public class PaymentRequest {
   private MerchantRiskIndicator merchantRiskIndicator;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = new HashMap<>();
+  private Map<String, String> metadata;
 
   public static final String JSON_PROPERTY_MPI_DATA = "mpiData";
   private ThreeDSecureData mpiData;
@@ -506,7 +506,7 @@ public class PaymentRequest {
   private String socialSecurityNumber;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = new ArrayList<>();
+  private List<Split> splits;
 
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;
@@ -515,7 +515,7 @@ public class PaymentRequest {
   private Boolean storePaymentMethod;
 
   public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
-  private List<SubMerchantInfo> subMerchants = new ArrayList<>();
+  private List<SubMerchantInfo> subMerchants;
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;

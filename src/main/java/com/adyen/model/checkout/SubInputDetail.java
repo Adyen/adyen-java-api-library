@@ -44,10 +44,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class SubInputDetail {
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
-  private Map<String, String> configuration = new HashMap<>();
+  private Map<String, String> configuration;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  private List<Item> items = new ArrayList<>();
+  private List<Item> items;
 
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;

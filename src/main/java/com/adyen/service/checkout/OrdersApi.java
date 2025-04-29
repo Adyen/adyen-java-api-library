@@ -75,7 +75,6 @@ public class OrdersApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public CancelOrderResponse cancelOrder(CancelOrderRequest cancelOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = cancelOrderRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/orders/cancel", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -102,7 +101,6 @@ public class OrdersApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public BalanceCheckResponse getBalanceOfGiftCard(BalanceCheckRequest balanceCheckRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = balanceCheckRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentMethods/balance", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -129,7 +127,6 @@ public class OrdersApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public CreateOrderResponse orders(CreateOrderRequest createOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = createOrderRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/orders", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

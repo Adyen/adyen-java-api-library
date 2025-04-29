@@ -41,7 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ServiceError {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   private String errorCode;

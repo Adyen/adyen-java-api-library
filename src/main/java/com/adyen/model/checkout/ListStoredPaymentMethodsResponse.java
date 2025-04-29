@@ -45,7 +45,7 @@ public class ListStoredPaymentMethodsResponse {
   private String shopperReference;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHODS = "storedPaymentMethods";
-  private List<StoredPaymentMethodResource> storedPaymentMethods = new ArrayList<>();
+  private List<StoredPaymentMethodResource> storedPaymentMethods;
 
   public ListStoredPaymentMethodsResponse() { 
   }

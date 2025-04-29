@@ -75,7 +75,6 @@ public class UtilityApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public ApplePaySessionResponse getApplePaySession(ApplePaySessionRequest applePaySessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = applePaySessionRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/applePay/sessions", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -106,7 +105,6 @@ public class UtilityApi extends Service {
     */
    @Deprecated
     public UtilityResponse originKeys(UtilityRequest utilityRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = utilityRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/originKeys", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -133,7 +131,6 @@ public class UtilityApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaypalUpdateOrderResponse updatesOrderForPaypalExpressCheckout(PaypalUpdateOrderRequest paypalUpdateOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = paypalUpdateOrderRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paypal/updateOrder", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

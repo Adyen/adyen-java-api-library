@@ -73,7 +73,6 @@ public class DonationsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public DonationCampaignsResponse donationCampaigns(DonationCampaignsRequest donationCampaignsRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = donationCampaignsRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/donationCampaigns", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -100,7 +99,6 @@ public class DonationsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public DonationPaymentResponse donations(DonationPaymentRequest donationPaymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = donationPaymentRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/donations", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

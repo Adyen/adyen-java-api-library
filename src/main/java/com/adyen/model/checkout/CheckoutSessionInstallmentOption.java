@@ -89,13 +89,13 @@ public class CheckoutSessionInstallmentOption {
   }
 
   public static final String JSON_PROPERTY_PLANS = "plans";
-  private List<PlansEnum> plans = new ArrayList<>();
+  private List<PlansEnum> plans;
 
   public static final String JSON_PROPERTY_PRESELECTED_VALUE = "preselectedValue";
   private Integer preselectedValue;
 
   public static final String JSON_PROPERTY_VALUES = "values";
-  private List<Integer> values = new ArrayList<>();
+  private List<Integer> values;
 
   public CheckoutSessionInstallmentOption() { 
   }

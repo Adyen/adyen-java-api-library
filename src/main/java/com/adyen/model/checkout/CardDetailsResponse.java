@@ -40,7 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CardDetailsResponse {
   public static final String JSON_PROPERTY_BRANDS = "brands";
-  private List<CardBrandDetails> brands = new ArrayList<>();
+  private List<CardBrandDetails> brands;
 
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;

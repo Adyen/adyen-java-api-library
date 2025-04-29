@@ -40,7 +40,7 @@ public class Amounts {
   private String currency;
 
   public static final String JSON_PROPERTY_VALUES = "values";
-  private List<Long> values = new ArrayList<>();
+  private List<Long> values;
 
   public Amounts() { 
   }

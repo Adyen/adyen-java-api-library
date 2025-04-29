@@ -36,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class UtilityResponse {
   public static final String JSON_PROPERTY_ORIGIN_KEYS = "originKeys";
-  private Map<String, String> originKeys = new HashMap<>();
+  private Map<String, String> originKeys;
 
   public UtilityResponse() { 
   }
