@@ -79,6 +79,7 @@ public class RecurringApi extends Service {
             throw new IllegalArgumentException("Please provide the storedPaymentMethodId path parameter");
         }
         pathParams.put("storedPaymentMethodId", storedPaymentMethodId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (shopperReference != null) {
@@ -148,7 +149,6 @@ public class RecurringApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public StoredPaymentMethodResource storedPaymentMethods(StoredPaymentMethodRequest storedPaymentMethodRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = storedPaymentMethodRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/storedPaymentMethods", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

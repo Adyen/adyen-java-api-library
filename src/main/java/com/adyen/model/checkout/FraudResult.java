@@ -41,7 +41,7 @@ public class FraudResult {
   private Integer accountScore;
 
   public static final String JSON_PROPERTY_RESULTS = "results";
-  private List<FraudCheckResult> results = new ArrayList<>();
+  private List<FraudCheckResult> results;
 
   public FraudResult() { 
   }

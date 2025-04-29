@@ -48,20 +48,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class InputDetail {
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
-  private Map<String, String> configuration = new HashMap<>();
+  private Map<String, String> configuration;
 
   public static final String JSON_PROPERTY_DETAILS = "details";
-  private List<SubInputDetail> details = new ArrayList<>();
+  private List<SubInputDetail> details;
 
   public static final String JSON_PROPERTY_INPUT_DETAILS = "inputDetails";
   @Deprecated // deprecated 
-  private List<SubInputDetail> inputDetails = new ArrayList<>();
+  private List<SubInputDetail> inputDetails;
 
   public static final String JSON_PROPERTY_ITEM_SEARCH_URL = "itemSearchUrl";
   private String itemSearchUrl;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  private List<Item> items = new ArrayList<>();
+  private List<Item> items;
 
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;

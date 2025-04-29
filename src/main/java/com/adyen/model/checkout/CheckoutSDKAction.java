@@ -46,7 +46,7 @@ public class CheckoutSDKAction {
   private String paymentMethodType;
 
   public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
-  private Map<String, String> sdkData = new HashMap<>();
+  private Map<String, String> sdkData;
 
   /**
    * The type of the action.

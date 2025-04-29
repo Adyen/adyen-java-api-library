@@ -55,7 +55,7 @@ public class PaymentRefundResponse {
   private String capturePspReference;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = new ArrayList<>();
+  private List<LineItem> lineItems;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -114,7 +114,7 @@ public class PaymentRefundResponse {
   private String reference;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = new ArrayList<>();
+  private List<Split> splits;
 
   /**
    * The status of your request. This will always have the value **received**.

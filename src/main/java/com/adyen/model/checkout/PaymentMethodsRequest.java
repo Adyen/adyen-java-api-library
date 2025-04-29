@@ -53,16 +53,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaymentMethodsRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
-  private List<String> allowedPaymentMethods = new ArrayList<>();
+  private List<String> allowedPaymentMethods;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
   public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
-  private List<String> blockedPaymentMethods = new ArrayList<>();
+  private List<String> blockedPaymentMethods;
 
   /**
    * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web

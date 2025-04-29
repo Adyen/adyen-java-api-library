@@ -126,10 +126,10 @@ public class CreateCheckoutSessionResponse {
   private Amount additionalAmount;
 
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
-  private List<String> allowedPaymentMethods = new ArrayList<>();
+  private List<String> allowedPaymentMethods;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
@@ -144,7 +144,7 @@ public class CreateCheckoutSessionResponse {
   private BillingAddress billingAddress;
 
   public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
-  private List<String> blockedPaymentMethods = new ArrayList<>();
+  private List<String> blockedPaymentMethods;
 
   public static final String JSON_PROPERTY_CAPTURE_DELAY_HOURS = "captureDelayHours";
   private Integer captureDelayHours;
@@ -226,10 +226,10 @@ public class CreateCheckoutSessionResponse {
   private String id;
 
   public static final String JSON_PROPERTY_INSTALLMENT_OPTIONS = "installmentOptions";
-  private Map<String, CheckoutSessionInstallmentOption> installmentOptions = new HashMap<>();
+  private Map<String, CheckoutSessionInstallmentOption> installmentOptions;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = new ArrayList<>();
+  private List<LineItem> lineItems;
 
   public static final String JSON_PROPERTY_MANDATE = "mandate";
   private Mandate mandate;
@@ -244,7 +244,7 @@ public class CreateCheckoutSessionResponse {
   private String merchantOrderReference;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = new HashMap<>();
+  private Map<String, String> metadata;
 
   /**
    * Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in or Components integration * **hosted**: Hosted Checkout integration
@@ -427,7 +427,7 @@ public class CreateCheckoutSessionResponse {
   private Boolean splitCardFundingSources = false;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = new ArrayList<>();
+  private List<Split> splits;
 
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;

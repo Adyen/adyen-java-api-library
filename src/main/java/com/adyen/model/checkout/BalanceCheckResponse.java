@@ -44,7 +44,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class BalanceCheckResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_BALANCE = "balance";
   private Amount balance;

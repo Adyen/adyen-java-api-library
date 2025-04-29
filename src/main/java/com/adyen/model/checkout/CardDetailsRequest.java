@@ -52,7 +52,7 @@ public class CardDetailsRequest {
   private String merchantAccount;
 
   public static final String JSON_PROPERTY_SUPPORTED_BRANDS = "supportedBrands";
-  private List<String> supportedBrands = new ArrayList<>();
+  private List<String> supportedBrands;
 
   public CardDetailsRequest() { 
   }

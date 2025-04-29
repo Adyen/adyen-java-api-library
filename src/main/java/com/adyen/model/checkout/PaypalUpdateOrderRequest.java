@@ -47,7 +47,7 @@ public class PaypalUpdateOrderRequest {
   private Amount amount;
 
   public static final String JSON_PROPERTY_DELIVERY_METHODS = "deliveryMethods";
-  private List<DeliveryMethod> deliveryMethods = new ArrayList<>();
+  private List<DeliveryMethod> deliveryMethods;
 
   public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
   private String paymentData;

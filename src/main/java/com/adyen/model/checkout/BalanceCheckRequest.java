@@ -101,7 +101,7 @@ public class BalanceCheckRequest {
   private Amount additionalAmount;
 
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
@@ -140,7 +140,7 @@ public class BalanceCheckRequest {
   private Installments installments;
 
   public static final String JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT = "localizedShopperStatement";
-  private Map<String, String> localizedShopperStatement = new HashMap<>();
+  private Map<String, String> localizedShopperStatement;
 
   public static final String JSON_PROPERTY_MCC = "mcc";
   private String mcc;
@@ -155,13 +155,13 @@ public class BalanceCheckRequest {
   private MerchantRiskIndicator merchantRiskIndicator;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = new HashMap<>();
+  private Map<String, String> metadata;
 
   public static final String JSON_PROPERTY_ORDER_REFERENCE = "orderReference";
   private String orderReference;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
-  private Map<String, String> paymentMethod = new HashMap<>();
+  private Map<String, String> paymentMethod;
 
   public static final String JSON_PROPERTY_RECURRING = "recurring";
   private Recurring recurring;
@@ -282,7 +282,7 @@ public class BalanceCheckRequest {
   private String socialSecurityNumber;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = new ArrayList<>();
+  private List<Split> splits;
 
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;

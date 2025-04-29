@@ -93,7 +93,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaymentLinkRequest {
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
-  private List<String> allowedPaymentMethods = new ArrayList<>();
+  private List<String> allowedPaymentMethods;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
@@ -105,7 +105,7 @@ public class PaymentLinkRequest {
   private Address billingAddress;
 
   public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
-  private List<String> blockedPaymentMethods = new ArrayList<>();
+  private List<String> blockedPaymentMethods;
 
   public static final String JSON_PROPERTY_CAPTURE_DELAY_HOURS = "captureDelayHours";
   private Integer captureDelayHours;
@@ -135,10 +135,10 @@ public class PaymentLinkRequest {
   private FundRecipient fundRecipient;
 
   public static final String JSON_PROPERTY_INSTALLMENT_OPTIONS = "installmentOptions";
-  private Map<String, InstallmentOption> installmentOptions = new HashMap<>();
+  private Map<String, InstallmentOption> installmentOptions;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
-  private List<LineItem> lineItems = new ArrayList<>();
+  private List<LineItem> lineItems;
 
   public static final String JSON_PROPERTY_MANUAL_CAPTURE = "manualCapture";
   private Boolean manualCapture;
@@ -153,7 +153,7 @@ public class PaymentLinkRequest {
   private String merchantOrderReference;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = new HashMap<>();
+  private Map<String, String> metadata;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
@@ -243,7 +243,7 @@ public class PaymentLinkRequest {
   }
 
   public static final String JSON_PROPERTY_REQUIRED_SHOPPER_FIELDS = "requiredShopperFields";
-  private List<RequiredShopperFieldsEnum> requiredShopperFields = new ArrayList<>();
+  private List<RequiredShopperFieldsEnum> requiredShopperFields;
 
   public static final String JSON_PROPERTY_RETURN_URL = "returnUrl";
   private String returnUrl;
@@ -279,7 +279,7 @@ public class PaymentLinkRequest {
   private Boolean splitCardFundingSources = false;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = new ArrayList<>();
+  private List<Split> splits;
 
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;

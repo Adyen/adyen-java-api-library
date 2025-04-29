@@ -94,10 +94,10 @@ public class StoredPaymentMethod {
   private String shopperEmail;
 
   public static final String JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS = "supportedRecurringProcessingModels";
-  private List<String> supportedRecurringProcessingModels = new ArrayList<>();
+  private List<String> supportedRecurringProcessingModels;
 
   public static final String JSON_PROPERTY_SUPPORTED_SHOPPER_INTERACTIONS = "supportedShopperInteractions";
-  private List<String> supportedShopperInteractions = new ArrayList<>();
+  private List<String> supportedShopperInteractions;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
