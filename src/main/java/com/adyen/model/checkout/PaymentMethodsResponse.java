@@ -13,17 +13,19 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.PaymentMethod;
-import com.adyen.model.checkout.PaymentMethodsResponseStoredPaymentMethodsInner;
+import com.adyen.model.checkout.StoredPaymentMethod;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,10 +41,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaymentMethodsResponse {
   public static final String JSON_PROPERTY_PAYMENT_METHODS = "paymentMethods";
-  private List<PaymentMethod> paymentMethods;
+  private List<PaymentMethod> paymentMethods = null;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHODS = "storedPaymentMethods";
-  private List<PaymentMethodsResponseStoredPaymentMethodsInner> storedPaymentMethods;
+  private List<StoredPaymentMethod> storedPaymentMethods = null;
 
   public PaymentMethodsResponse() { 
   }
@@ -70,6 +72,7 @@ public class PaymentMethodsResponse {
    * Detailed list of payment methods required to generate payment forms.
    * @return paymentMethods
    */
+  @ApiModelProperty(value = "Detailed list of payment methods required to generate payment forms.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentMethod> getPaymentMethods() {
@@ -80,7 +83,7 @@ public class PaymentMethodsResponse {
    * Detailed list of payment methods required to generate payment forms.
    *
    * @param paymentMethods
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
@@ -93,12 +96,12 @@ public class PaymentMethodsResponse {
    * @param storedPaymentMethods
    * @return the current {@code PaymentMethodsResponse} instance, allowing for method chaining
    */
-  public PaymentMethodsResponse storedPaymentMethods(List<PaymentMethodsResponseStoredPaymentMethodsInner> storedPaymentMethods) {
+  public PaymentMethodsResponse storedPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
     return this;
   }
 
-  public PaymentMethodsResponse addStoredPaymentMethodsItem(PaymentMethodsResponseStoredPaymentMethodsInner storedPaymentMethodsItem) {
+  public PaymentMethodsResponse addStoredPaymentMethodsItem(StoredPaymentMethod storedPaymentMethodsItem) {
     if (this.storedPaymentMethods == null) {
       this.storedPaymentMethods = new ArrayList<>();
     }
@@ -110,9 +113,10 @@ public class PaymentMethodsResponse {
    * List of all stored payment methods.
    * @return storedPaymentMethods
    */
+  @ApiModelProperty(value = "List of all stored payment methods.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<PaymentMethodsResponseStoredPaymentMethodsInner> getStoredPaymentMethods() {
+  public List<StoredPaymentMethod> getStoredPaymentMethods() {
     return storedPaymentMethods;
   }
 
@@ -120,10 +124,10 @@ public class PaymentMethodsResponse {
    * List of all stored payment methods.
    *
    * @param storedPaymentMethods
-   */
+   */ 
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStoredPaymentMethods(List<PaymentMethodsResponseStoredPaymentMethodsInner> storedPaymentMethods) {
+  public void setStoredPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
     this.storedPaymentMethods = storedPaymentMethods;
   }
 
