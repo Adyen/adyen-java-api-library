@@ -4,7 +4,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.disputes.*;
-import com.adyen.service.DisputesApi;
+import com.adyen.service.disputes.DisputesApi;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
