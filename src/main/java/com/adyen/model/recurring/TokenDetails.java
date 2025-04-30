@@ -1,5 +1,5 @@
 /*
- * Adyen Recurring API (deprecated)
+ * Adyen Recurring API
  *
  * The version of the OpenAPI document: 68
  * 
@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class TokenDetails {
   public static final String JSON_PROPERTY_TOKEN_DATA = "tokenData";
-  private Map<String, String> tokenData = null;
+  private Map<String, String> tokenData;
 
   public static final String JSON_PROPERTY_TOKEN_DATA_TYPE = "tokenDataType";
   private String tokenDataType;
@@ -51,7 +48,7 @@ public class TokenDetails {
   /**
    * tokenData
    *
-   * @param tokenData
+   * @param tokenData 
    * @return the current {@code TokenDetails} instance, allowing for method chaining
    */
   public TokenDetails tokenData(Map<String, String> tokenData) {
@@ -68,10 +65,9 @@ public class TokenDetails {
   }
 
   /**
-   * tokenData
-   * @return tokenData
+   * Get tokenData
+   * @return tokenData 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getTokenData() {
@@ -81,8 +77,8 @@ public class TokenDetails {
   /**
    * tokenData
    *
-   * @param tokenData
-   */ 
+   * @param tokenData 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenData(Map<String, String> tokenData) {
@@ -92,7 +88,7 @@ public class TokenDetails {
   /**
    * tokenDataType
    *
-   * @param tokenDataType
+   * @param tokenDataType 
    * @return the current {@code TokenDetails} instance, allowing for method chaining
    */
   public TokenDetails tokenDataType(String tokenDataType) {
@@ -101,10 +97,9 @@ public class TokenDetails {
   }
 
   /**
-   * tokenDataType
-   * @return tokenDataType
+   * Get tokenDataType
+   * @return tokenDataType 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTokenDataType() {
@@ -114,8 +109,8 @@ public class TokenDetails {
   /**
    * tokenDataType
    *
-   * @param tokenDataType
-   */ 
+   * @param tokenDataType 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenDataType(String tokenDataType) {

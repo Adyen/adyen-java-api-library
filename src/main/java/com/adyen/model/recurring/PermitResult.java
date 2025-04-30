@@ -1,5 +1,5 @@
 /*
- * Adyen Recurring API (deprecated)
+ * Adyen Recurring API
  *
  * The version of the OpenAPI document: 68
  * 
@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class PermitResult {
   /**
    * The key to link permit requests to permit results.
    *
-   * @param resultKey
+   * @param resultKey The key to link permit requests to permit results.
    * @return the current {@code PermitResult} instance, allowing for method chaining
    */
   public PermitResult resultKey(String resultKey) {
@@ -58,9 +56,8 @@ public class PermitResult {
 
   /**
    * The key to link permit requests to permit results.
-   * @return resultKey
+   * @return resultKey The key to link permit requests to permit results.
    */
-  @ApiModelProperty(value = "The key to link permit requests to permit results.")
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultKey() {
@@ -70,8 +67,8 @@ public class PermitResult {
   /**
    * The key to link permit requests to permit results.
    *
-   * @param resultKey
-   */ 
+   * @param resultKey The key to link permit requests to permit results.
+   */
   @JsonProperty(JSON_PROPERTY_RESULT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultKey(String resultKey) {
@@ -81,7 +78,7 @@ public class PermitResult {
   /**
    * The permit token which is used to make payments by the partner company.
    *
-   * @param token
+   * @param token The permit token which is used to make payments by the partner company.
    * @return the current {@code PermitResult} instance, allowing for method chaining
    */
   public PermitResult token(String token) {
@@ -91,9 +88,8 @@ public class PermitResult {
 
   /**
    * The permit token which is used to make payments by the partner company.
-   * @return token
+   * @return token The permit token which is used to make payments by the partner company.
    */
-  @ApiModelProperty(value = "The permit token which is used to make payments by the partner company.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToken() {
@@ -103,8 +99,8 @@ public class PermitResult {
   /**
    * The permit token which is used to make payments by the partner company.
    *
-   * @param token
-   */ 
+   * @param token The permit token which is used to make payments by the partner company.
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {

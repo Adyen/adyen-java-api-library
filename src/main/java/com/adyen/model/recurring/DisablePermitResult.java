@@ -1,5 +1,5 @@
 /*
- * Adyen Recurring API (deprecated)
+ * Adyen Recurring API
  *
  * The version of the OpenAPI document: 68
  * 
@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class DisablePermitResult {
   /**
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    * @return the current {@code DisablePermitResult} instance, allowing for method chaining
    */
   public DisablePermitResult pspReference(String pspReference) {
@@ -58,9 +56,8 @@ public class DisablePermitResult {
 
   /**
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
-   * @return pspReference
+   * @return pspReference A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    */
-  @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -70,8 +67,8 @@ public class DisablePermitResult {
   /**
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
-   */ 
+   * @param pspReference A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -81,7 +78,7 @@ public class DisablePermitResult {
   /**
    * Status of the disable request.
    *
-   * @param status
+   * @param status Status of the disable request.
    * @return the current {@code DisablePermitResult} instance, allowing for method chaining
    */
   public DisablePermitResult status(String status) {
@@ -91,9 +88,8 @@ public class DisablePermitResult {
 
   /**
    * Status of the disable request.
-   * @return status
+   * @return status Status of the disable request.
    */
-  @ApiModelProperty(value = "Status of the disable request.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -103,8 +99,8 @@ public class DisablePermitResult {
   /**
    * Status of the disable request.
    *
-   * @param status
-   */ 
+   * @param status Status of the disable request.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {

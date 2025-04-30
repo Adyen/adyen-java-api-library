@@ -1,5 +1,5 @@
 /*
- * Adyen Recurring API (deprecated)
+ * Adyen Recurring API
  *
  * The version of the OpenAPI document: 68
  * 
@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.Amount;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -77,7 +75,7 @@ public class NotifyShopperRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest amount(Amount amount) {
@@ -86,10 +84,9 @@ public class NotifyShopperRequest {
   }
 
   /**
-   * amount
-   * @return amount
+   * Get amount
+   * @return amount 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -99,8 +96,8 @@ public class NotifyShopperRequest {
   /**
    * amount
    *
-   * @param amount
-   */ 
+   * @param amount 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -110,7 +107,7 @@ public class NotifyShopperRequest {
   /**
    * Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
    *
-   * @param billingDate
+   * @param billingDate Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest billingDate(String billingDate) {
@@ -120,9 +117,8 @@ public class NotifyShopperRequest {
 
   /**
    * Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
-   * @return billingDate
+   * @return billingDate Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
    */
-  @ApiModelProperty(value = "Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format")
   @JsonProperty(JSON_PROPERTY_BILLING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingDate() {
@@ -132,8 +128,8 @@ public class NotifyShopperRequest {
   /**
    * Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
    *
-   * @param billingDate
-   */ 
+   * @param billingDate Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDate(String billingDate) {
@@ -143,7 +139,7 @@ public class NotifyShopperRequest {
   /**
    * Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
    *
-   * @param billingSequenceNumber
+   * @param billingSequenceNumber Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest billingSequenceNumber(String billingSequenceNumber) {
@@ -153,9 +149,8 @@ public class NotifyShopperRequest {
 
   /**
    * Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
-   * @return billingSequenceNumber
+   * @return billingSequenceNumber Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
    */
-  @ApiModelProperty(value = "Sequence of the debit. Depends on Frequency and Billing Attempts Rule.")
   @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBillingSequenceNumber() {
@@ -165,8 +160,8 @@ public class NotifyShopperRequest {
   /**
    * Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
    *
-   * @param billingSequenceNumber
-   */ 
+   * @param billingSequenceNumber Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingSequenceNumber(String billingSequenceNumber) {
@@ -176,7 +171,7 @@ public class NotifyShopperRequest {
   /**
    * Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
    *
-   * @param displayedReference
+   * @param displayedReference Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest displayedReference(String displayedReference) {
@@ -186,9 +181,8 @@ public class NotifyShopperRequest {
 
   /**
    * Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
-   * @return displayedReference
+   * @return displayedReference Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
    */
-  @ApiModelProperty(value = "Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing")
   @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayedReference() {
@@ -198,8 +192,8 @@ public class NotifyShopperRequest {
   /**
    * Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
    *
-   * @param displayedReference
-   */ 
+   * @param displayedReference Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
+   */
   @JsonProperty(JSON_PROPERTY_DISPLAYED_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayedReference(String displayedReference) {
@@ -209,7 +203,7 @@ public class NotifyShopperRequest {
   /**
    * The merchant account identifier with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier with which you want to process the transaction.
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest merchantAccount(String merchantAccount) {
@@ -219,9 +213,8 @@ public class NotifyShopperRequest {
 
   /**
    * The merchant account identifier with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier with which you want to process the transaction.
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -231,8 +224,8 @@ public class NotifyShopperRequest {
   /**
    * The merchant account identifier with which you want to process the transaction.
    *
-   * @param merchantAccount
-   */ 
+   * @param merchantAccount The merchant account identifier with which you want to process the transaction.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -242,7 +235,7 @@ public class NotifyShopperRequest {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest recurringDetailReference(String recurringDetailReference) {
@@ -252,9 +245,8 @@ public class NotifyShopperRequest {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRecurringDetailReference() {
@@ -264,8 +256,8 @@ public class NotifyShopperRequest {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
-   */ 
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
@@ -275,7 +267,7 @@ public class NotifyShopperRequest {
   /**
    * Pre-debit notification reference sent by the merchant. This is a mandatory field
    *
-   * @param reference
+   * @param reference Pre-debit notification reference sent by the merchant. This is a mandatory field
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest reference(String reference) {
@@ -285,9 +277,8 @@ public class NotifyShopperRequest {
 
   /**
    * Pre-debit notification reference sent by the merchant. This is a mandatory field
-   * @return reference
+   * @return reference Pre-debit notification reference sent by the merchant. This is a mandatory field
    */
-  @ApiModelProperty(required = true, value = "Pre-debit notification reference sent by the merchant. This is a mandatory field")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -297,8 +288,8 @@ public class NotifyShopperRequest {
   /**
    * Pre-debit notification reference sent by the merchant. This is a mandatory field
    *
-   * @param reference
-   */ 
+   * @param reference Pre-debit notification reference sent by the merchant. This is a mandatory field
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -308,7 +299,7 @@ public class NotifyShopperRequest {
   /**
    * The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
    *
-   * @param shopperReference
+   * @param shopperReference The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest shopperReference(String shopperReference) {
@@ -318,9 +309,8 @@ public class NotifyShopperRequest {
 
   /**
    * The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
-   * @return shopperReference
+   * @return shopperReference The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
    */
-  @ApiModelProperty(required = true, value = "The ID that uniquely identifies the shopper.  This `shopperReference` must be the same as the `shopperReference` used in the initial payment.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -330,8 +320,8 @@ public class NotifyShopperRequest {
   /**
    * The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
    *
-   * @param shopperReference
-   */ 
+   * @param shopperReference The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -341,7 +331,7 @@ public class NotifyShopperRequest {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code NotifyShopperRequest} instance, allowing for method chaining
    */
   public NotifyShopperRequest storedPaymentMethodId(String storedPaymentMethodId) {
@@ -351,9 +341,8 @@ public class NotifyShopperRequest {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
-  @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoredPaymentMethodId() {
@@ -363,8 +352,8 @@ public class NotifyShopperRequest {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
-   */ 
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+   */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoredPaymentMethodId(String storedPaymentMethodId) {
