@@ -598,4 +598,89 @@ public class BalancePlatformTest extends BaseTest {
         );
     }
 
+    @Test
+    public void getWebhookSettings() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/BalanceWebhookSettingsResponse.json");
+        BalancesApi service = new BalancesApi(client);
+
+        String balancePlatformId = "123456789";
+        String webhookId = "WH00000001";
+
+        WebhookSettings response = service.getAllWebhookSettings(balancePlatformId, webhookId);
+
+        assertNotNull(response);
+        assertNotNull(response.getWebhookSettings());
+        assertEquals(2 ,response.getWebhookSettings().size());
+    }
+
+    @Test
+    public void getWebhookSettingById() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/BalanceWebhookSettingResponse.json");
+        BalancesApi service = new BalancesApi(client);
+
+        String balancePlatformId = "123456789";
+        String webhookId = "WH00000001";
+        String settingId = "BWHS00000000000000000000000001";
+
+        WebhookSetting response = service.getWebhookSetting(balancePlatformId, webhookId, settingId);
+
+        assertNotNull(response);
+        assertEquals("BWHS00000000000000000000000001" ,response.getId());
+        assertEquals("USD" ,response.getCurrency());
+    }
+
+    @Test
+    public void createWebhookSetting() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/BalanceWebhookSettingResponse.json");
+        BalancesApi service = new BalancesApi(client);
+
+        String balancePlatformId = "123456789";
+        String webhookId = "WH00000001";
+
+        WebhookSetting response = service.createWebhookSetting(balancePlatformId, webhookId,
+                new BalanceWebhookSettingInfo()
+                        .type(BalanceWebhookSettingInfo.TypeEnum.BALANCE)
+                        .target(new Target()
+                                .type(Target.TypeEnum.BALANCEACCOUNT)
+                                .id("BA00000000000000000LIABLE"))
+                        .currency("USD")
+                        .status(BalanceWebhookSettingInfo.StatusEnum.ACTIVE)
+                        .addConditionsItem(new Condition()
+                                .balanceType(Condition.BalanceTypeEnum.AVAILABLE)
+                                .conditionType(Condition.ConditionTypeEnum.LESSTHAN)
+                                .value(50000L))
+        );
+
+        assertNotNull(response);
+        assertNotNull(response.getId());
+        assertEquals("USD" ,response.getCurrency());
+    }
+
+    @Test
+    public void updateWebhookSetting() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/BalanceWebhookSettingResponse.json");
+        BalancesApi service = new BalancesApi(client);
+
+        String balancePlatformId = "123456789";
+        String webhookId = "WH00000001";
+        String settingId = "BWHS00000000000000000000000001";
+
+        WebhookSetting response = service.updateWebhookSetting(balancePlatformId, webhookId, settingId,
+                new BalanceWebhookSettingInfoUpdate()
+                        .type(BalanceWebhookSettingInfoUpdate.TypeEnum.BALANCE)
+                        .target(new PatchableTarget()
+                                .type(PatchableTarget.TypeEnum.BALANCEACCOUNT)
+                                .id("BA00000000000000000LIABLE"))
+                        .currency("USD")
+                        .status(BalanceWebhookSettingInfoUpdate.StatusEnum.ACTIVE)
+                        .addConditionsItem(new Condition()
+                                .balanceType(Condition.BalanceTypeEnum.AVAILABLE)
+                                .conditionType(Condition.ConditionTypeEnum.LESSTHAN)
+                                .value(50000L))
+        );
+
+        assertNotNull(response);
+        assertNotNull(response.getId());
+        assertEquals("USD" ,response.getCurrency());
+    }
 }

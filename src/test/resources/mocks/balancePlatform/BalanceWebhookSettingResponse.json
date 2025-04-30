@@ -1,0 +1,17 @@
+{
+  "id": "BWHS00000000000000000000000001",
+  "type": "balance",
+  "target": {
+    "type": "balancePlatform",
+    "id": "YOUR_BALANCE_PLATFORM"
+  },
+  "currency": "USD",
+  "status": "active",
+  "conditions": [
+    {
+      "balanceType": "available",
+      "conditionType": "lessThan",
+      "value": 500000
+    }
+  ]
+}
