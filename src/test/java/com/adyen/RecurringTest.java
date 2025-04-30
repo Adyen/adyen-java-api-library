@@ -7,7 +7,7 @@
 package com.adyen;
 
 import com.adyen.model.recurring.*;
-import com.adyen.service.RecurringApi;
+import com.adyen.service.recurring.RecurringApi;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
