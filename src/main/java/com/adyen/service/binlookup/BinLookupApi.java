@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.service;
+package com.adyen.service.binlookup;
 
 import com.adyen.Client;
 import com.adyen.Service;
@@ -27,12 +27,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * The service has been moved to a different package 'com.adyen.service.binlookup'
- * @deprecated Use instead com.adyen.service.binlookup.BinLookupApi
- *
- */
-@Deprecated(since = "v37.0.0", forRemoval = true)
 public class BinLookupApi extends Service {
 
     public static final String API_VERSION = "54";
@@ -40,22 +34,20 @@ public class BinLookupApi extends Service {
     protected String baseURL;
 
     /**
-    * Default constructor in {@link com.adyen.service package}.
-    * @param client {@link Client }  (required)
+    * BinLookup constructor in {@link com.adyen.service.binlookup package}.
+    * @param client {@link Client } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public BinLookupApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/BinLookup/v54");
     }
 
     /**
-    * Alternative constructor in {@link com.adyen.service package}.
+    * BinLookup constructor in {@link com.adyen.service.binlookup package}.
     * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
-    * @param client {@link Client }  (required)
-    * @param baseURL {@link String }  (required)
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public BinLookupApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -68,7 +60,6 @@ public class BinLookupApi extends Service {
     * @return {@link ThreeDSAvailabilityResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public ThreeDSAvailabilityResponse get3dsAvailability(ThreeDSAvailabilityRequest threeDSAvailabilityRequest) throws ApiException, IOException {
         return get3dsAvailability(threeDSAvailabilityRequest, null);
     }
@@ -81,9 +72,7 @@ public class BinLookupApi extends Service {
     * @return {@link ThreeDSAvailabilityResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public ThreeDSAvailabilityResponse get3dsAvailability(ThreeDSAvailabilityRequest threeDSAvailabilityRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = threeDSAvailabilityRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/get3dsAvailability", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -97,7 +86,6 @@ public class BinLookupApi extends Service {
     * @return {@link CostEstimateResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public CostEstimateResponse getCostEstimate(CostEstimateRequest costEstimateRequest) throws ApiException, IOException {
         return getCostEstimate(costEstimateRequest, null);
     }
@@ -110,9 +98,7 @@ public class BinLookupApi extends Service {
     * @return {@link CostEstimateResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public CostEstimateResponse getCostEstimate(CostEstimateRequest costEstimateRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = costEstimateRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/getCostEstimate", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

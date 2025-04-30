@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.binlookup.Amount;
@@ -25,8 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -76,13 +74,13 @@ public class CostEstimateRequest {
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
   public enum ShopperInteractionEnum {
-    ECOMMERCE("Ecommerce"),
+    ECOMMERCE(String.valueOf("Ecommerce")),
     
-    CONTAUTH("ContAuth"),
+    CONTAUTH(String.valueOf("ContAuth")),
     
-    MOTO("Moto"),
+    MOTO(String.valueOf("Moto")),
     
-    POS("POS");
+    POS(String.valueOf("POS"));
 
     private String value;
 
@@ -123,7 +121,7 @@ public class CostEstimateRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest amount(Amount amount) {
@@ -132,10 +130,9 @@ public class CostEstimateRequest {
   }
 
   /**
-   * amount
-   * @return amount
+   * Get amount
+   * @return amount 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -145,8 +142,8 @@ public class CostEstimateRequest {
   /**
    * amount
    *
-   * @param amount
-   */ 
+   * @param amount 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -156,7 +153,7 @@ public class CostEstimateRequest {
   /**
    * assumptions
    *
-   * @param assumptions
+   * @param assumptions 
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest assumptions(CostEstimateAssumptions assumptions) {
@@ -165,10 +162,9 @@ public class CostEstimateRequest {
   }
 
   /**
-   * assumptions
-   * @return assumptions
+   * Get assumptions
+   * @return assumptions 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSUMPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CostEstimateAssumptions getAssumptions() {
@@ -178,8 +174,8 @@ public class CostEstimateRequest {
   /**
    * assumptions
    *
-   * @param assumptions
-   */ 
+   * @param assumptions 
+   */
   @JsonProperty(JSON_PROPERTY_ASSUMPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssumptions(CostEstimateAssumptions assumptions) {
@@ -189,7 +185,7 @@ public class CostEstimateRequest {
   /**
    * The card number (4-19 characters) for PCI compliant use cases. Do not use any separators.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
    *
-   * @param cardNumber
+   * @param cardNumber The card number (4-19 characters) for PCI compliant use cases. Do not use any separators.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest cardNumber(String cardNumber) {
@@ -199,9 +195,8 @@ public class CostEstimateRequest {
 
   /**
    * The card number (4-19 characters) for PCI compliant use cases. Do not use any separators.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
-   * @return cardNumber
+   * @return cardNumber The card number (4-19 characters) for PCI compliant use cases. Do not use any separators.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
    */
-  @ApiModelProperty(value = "The card number (4-19 characters) for PCI compliant use cases. Do not use any separators.  > Either the `cardNumber` or `encryptedCardNumber` field must be provided in a payment request.")
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardNumber() {
@@ -211,8 +206,8 @@ public class CostEstimateRequest {
   /**
    * The card number (4-19 characters) for PCI compliant use cases. Do not use any separators.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
    *
-   * @param cardNumber
-   */ 
+   * @param cardNumber The card number (4-19 characters) for PCI compliant use cases. Do not use any separators.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
+   */
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardNumber(String cardNumber) {
@@ -222,7 +217,7 @@ public class CostEstimateRequest {
   /**
    * Encrypted data that stores card information for non PCI-compliant use cases. The encrypted data must be created with the Checkout Card Component or Secured Fields Component, and must contain the &#x60;encryptedCardNumber&#x60; field.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
    *
-   * @param encryptedCardNumber
+   * @param encryptedCardNumber Encrypted data that stores card information for non PCI-compliant use cases. The encrypted data must be created with the Checkout Card Component or Secured Fields Component, and must contain the &#x60;encryptedCardNumber&#x60; field.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest encryptedCardNumber(String encryptedCardNumber) {
@@ -232,9 +227,8 @@ public class CostEstimateRequest {
 
   /**
    * Encrypted data that stores card information for non PCI-compliant use cases. The encrypted data must be created with the Checkout Card Component or Secured Fields Component, and must contain the &#x60;encryptedCardNumber&#x60; field.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
-   * @return encryptedCardNumber
+   * @return encryptedCardNumber Encrypted data that stores card information for non PCI-compliant use cases. The encrypted data must be created with the Checkout Card Component or Secured Fields Component, and must contain the &#x60;encryptedCardNumber&#x60; field.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
    */
-  @ApiModelProperty(value = "Encrypted data that stores card information for non PCI-compliant use cases. The encrypted data must be created with the Checkout Card Component or Secured Fields Component, and must contain the `encryptedCardNumber` field.  > Either the `cardNumber` or `encryptedCardNumber` field must be provided in a payment request.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedCardNumber() {
@@ -244,8 +238,8 @@ public class CostEstimateRequest {
   /**
    * Encrypted data that stores card information for non PCI-compliant use cases. The encrypted data must be created with the Checkout Card Component or Secured Fields Component, and must contain the &#x60;encryptedCardNumber&#x60; field.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
    *
-   * @param encryptedCardNumber
-   */ 
+   * @param encryptedCardNumber Encrypted data that stores card information for non PCI-compliant use cases. The encrypted data must be created with the Checkout Card Component or Secured Fields Component, and must contain the &#x60;encryptedCardNumber&#x60; field.  &gt; Either the &#x60;cardNumber&#x60; or &#x60;encryptedCardNumber&#x60; field must be provided in a payment request.
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedCardNumber(String encryptedCardNumber) {
@@ -255,7 +249,7 @@ public class CostEstimateRequest {
   /**
    * The merchant account identifier you want to process the (transaction) request with.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier you want to process the (transaction) request with.
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest merchantAccount(String merchantAccount) {
@@ -265,9 +259,8 @@ public class CostEstimateRequest {
 
   /**
    * The merchant account identifier you want to process the (transaction) request with.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier you want to process the (transaction) request with.
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier you want to process the (transaction) request with.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -277,8 +270,8 @@ public class CostEstimateRequest {
   /**
    * The merchant account identifier you want to process the (transaction) request with.
    *
-   * @param merchantAccount
-   */ 
+   * @param merchantAccount The merchant account identifier you want to process the (transaction) request with.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -288,7 +281,7 @@ public class CostEstimateRequest {
   /**
    * merchantDetails
    *
-   * @param merchantDetails
+   * @param merchantDetails 
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest merchantDetails(MerchantDetails merchantDetails) {
@@ -297,10 +290,9 @@ public class CostEstimateRequest {
   }
 
   /**
-   * merchantDetails
-   * @return merchantDetails
+   * Get merchantDetails
+   * @return merchantDetails 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MerchantDetails getMerchantDetails() {
@@ -310,8 +302,8 @@ public class CostEstimateRequest {
   /**
    * merchantDetails
    *
-   * @param merchantDetails
-   */ 
+   * @param merchantDetails 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantDetails(MerchantDetails merchantDetails) {
@@ -321,7 +313,7 @@ public class CostEstimateRequest {
   /**
    * recurring
    *
-   * @param recurring
+   * @param recurring 
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest recurring(Recurring recurring) {
@@ -330,10 +322,9 @@ public class CostEstimateRequest {
   }
 
   /**
-   * recurring
-   * @return recurring
+   * Get recurring
+   * @return recurring 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Recurring getRecurring() {
@@ -343,8 +334,8 @@ public class CostEstimateRequest {
   /**
    * recurring
    *
-   * @param recurring
-   */ 
+   * @param recurring 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
@@ -354,7 +345,7 @@ public class CostEstimateRequest {
   /**
    * The &#x60;recurringDetailReference&#x60; you want to use for this cost estimate. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    *
-   * @param selectedRecurringDetailReference
+   * @param selectedRecurringDetailReference The &#x60;recurringDetailReference&#x60; you want to use for this cost estimate. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -364,9 +355,8 @@ public class CostEstimateRequest {
 
   /**
    * The &#x60;recurringDetailReference&#x60; you want to use for this cost estimate. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
-   * @return selectedRecurringDetailReference
+   * @return selectedRecurringDetailReference The &#x60;recurringDetailReference&#x60; you want to use for this cost estimate. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    */
-  @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this cost estimate. The value `LATEST` can be used to select the most recently stored recurring detail.")
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSelectedRecurringDetailReference() {
@@ -376,8 +366,8 @@ public class CostEstimateRequest {
   /**
    * The &#x60;recurringDetailReference&#x60; you want to use for this cost estimate. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    *
-   * @param selectedRecurringDetailReference
-   */ 
+   * @param selectedRecurringDetailReference The &#x60;recurringDetailReference&#x60; you want to use for this cost estimate. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
+   */
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -387,7 +377,7 @@ public class CostEstimateRequest {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -397,9 +387,8 @@ public class CostEstimateRequest {
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
-   * @return shopperInteraction
+   * @return shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
-  @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ShopperInteractionEnum getShopperInteraction() {
@@ -409,8 +398,8 @@ public class CostEstimateRequest {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
-   */ 
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the card holder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -420,7 +409,7 @@ public class CostEstimateRequest {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    * @return the current {@code CostEstimateRequest} instance, allowing for method chaining
    */
   public CostEstimateRequest shopperReference(String shopperReference) {
@@ -430,9 +419,8 @@ public class CostEstimateRequest {
 
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
-   * @return shopperReference
+   * @return shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
-  @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. > Your reference must not include personally identifiable information (PII) such as name or email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -442,8 +430,8 @@ public class CostEstimateRequest {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
-   */ 
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {

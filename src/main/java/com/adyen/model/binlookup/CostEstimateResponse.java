@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.binlookup.Amount;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -58,7 +56,7 @@ public class CostEstimateResponse {
   /**
    * cardBin
    *
-   * @param cardBin
+   * @param cardBin 
    * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
    */
   public CostEstimateResponse cardBin(CardBin cardBin) {
@@ -67,10 +65,9 @@ public class CostEstimateResponse {
   }
 
   /**
-   * cardBin
-   * @return cardBin
+   * Get cardBin
+   * @return cardBin 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardBin getCardBin() {
@@ -80,8 +77,8 @@ public class CostEstimateResponse {
   /**
    * cardBin
    *
-   * @param cardBin
-   */ 
+   * @param cardBin 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardBin(CardBin cardBin) {
@@ -91,7 +88,7 @@ public class CostEstimateResponse {
   /**
    * costEstimateAmount
    *
-   * @param costEstimateAmount
+   * @param costEstimateAmount 
    * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
    */
   public CostEstimateResponse costEstimateAmount(Amount costEstimateAmount) {
@@ -100,10 +97,9 @@ public class CostEstimateResponse {
   }
 
   /**
-   * costEstimateAmount
-   * @return costEstimateAmount
+   * Get costEstimateAmount
+   * @return costEstimateAmount 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getCostEstimateAmount() {
@@ -113,8 +109,8 @@ public class CostEstimateResponse {
   /**
    * costEstimateAmount
    *
-   * @param costEstimateAmount
-   */ 
+   * @param costEstimateAmount 
+   */
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateAmount(Amount costEstimateAmount) {
@@ -124,7 +120,7 @@ public class CostEstimateResponse {
   /**
    * Adyen&#39;s 16-character reference associated with the request.
    *
-   * @param costEstimateReference
+   * @param costEstimateReference Adyen&#39;s 16-character reference associated with the request.
    * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
    */
   public CostEstimateResponse costEstimateReference(String costEstimateReference) {
@@ -134,9 +130,8 @@ public class CostEstimateResponse {
 
   /**
    * Adyen&#39;s 16-character reference associated with the request.
-   * @return costEstimateReference
+   * @return costEstimateReference Adyen&#39;s 16-character reference associated with the request.
    */
-  @ApiModelProperty(value = "Adyen's 16-character reference associated with the request.")
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCostEstimateReference() {
@@ -146,8 +141,8 @@ public class CostEstimateResponse {
   /**
    * Adyen&#39;s 16-character reference associated with the request.
    *
-   * @param costEstimateReference
-   */ 
+   * @param costEstimateReference Adyen&#39;s 16-character reference associated with the request.
+   */
   @JsonProperty(JSON_PROPERTY_COST_ESTIMATE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCostEstimateReference(String costEstimateReference) {
@@ -157,7 +152,7 @@ public class CostEstimateResponse {
   /**
    * The result of the cost estimation.
    *
-   * @param resultCode
+   * @param resultCode The result of the cost estimation.
    * @return the current {@code CostEstimateResponse} instance, allowing for method chaining
    */
   public CostEstimateResponse resultCode(String resultCode) {
@@ -167,9 +162,8 @@ public class CostEstimateResponse {
 
   /**
    * The result of the cost estimation.
-   * @return resultCode
+   * @return resultCode The result of the cost estimation.
    */
-  @ApiModelProperty(value = "The result of the cost estimation.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultCode() {
@@ -179,8 +173,8 @@ public class CostEstimateResponse {
   /**
    * The result of the cost estimation.
    *
-   * @param resultCode
-   */ 
+   * @param resultCode The result of the cost estimation.
+   */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {
