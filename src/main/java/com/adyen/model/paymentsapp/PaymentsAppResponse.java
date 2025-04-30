@@ -13,7 +13,6 @@
 package com.adyen.model.paymentsapp;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.paymentsapp.PaymentsAppDto;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PaymentsAppResponse {
   public static final String JSON_PROPERTY_PAYMENTS_APPS = "paymentsApps";
-  private List<PaymentsAppDto> paymentsApps = new ArrayList<>();
+  private List<PaymentsAppDto> paymentsApps;
 
   public PaymentsAppResponse() { 
   }
@@ -47,7 +45,7 @@ public class PaymentsAppResponse {
   /**
    * List of Payments Apps.
    *
-   * @param paymentsApps
+   * @param paymentsApps List of Payments Apps.
    * @return the current {@code PaymentsAppResponse} instance, allowing for method chaining
    */
   public PaymentsAppResponse paymentsApps(List<PaymentsAppDto> paymentsApps) {
@@ -56,15 +54,17 @@ public class PaymentsAppResponse {
   }
 
   public PaymentsAppResponse addPaymentsAppsItem(PaymentsAppDto paymentsAppsItem) {
+    if (this.paymentsApps == null) {
+      this.paymentsApps = new ArrayList<>();
+    }
     this.paymentsApps.add(paymentsAppsItem);
     return this;
   }
 
   /**
    * List of Payments Apps.
-   * @return paymentsApps
+   * @return paymentsApps List of Payments Apps.
    */
-  @ApiModelProperty(required = true, value = "List of Payments Apps.")
   @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentsAppDto> getPaymentsApps() {
@@ -74,8 +74,8 @@ public class PaymentsAppResponse {
   /**
    * List of Payments Apps.
    *
-   * @param paymentsApps
-   */ 
+   * @param paymentsApps List of Payments Apps.
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENTS_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentsApps(List<PaymentsAppDto> paymentsApps) {

@@ -13,7 +13,6 @@
 package com.adyen.model.paymentsapp;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.paymentsapp.InvalidField;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -33,7 +31,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 /**
  * Standardized error response following RFC-7807 format
  */
-@ApiModel(description = "Standardized error response following RFC-7807 format")
 @JsonPropertyOrder({
   DefaultErrorResponseEntity.JSON_PROPERTY_DETAIL,
   DefaultErrorResponseEntity.JSON_PROPERTY_ERROR_CODE,
@@ -56,7 +53,7 @@ public class DefaultErrorResponseEntity {
   private String instance;
 
   public static final String JSON_PROPERTY_INVALID_FIELDS = "invalidFields";
-  private List<InvalidField> invalidFields = null;
+  private List<InvalidField> invalidFields;
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -76,7 +73,7 @@ public class DefaultErrorResponseEntity {
   /**
    * A human-readable explanation specific to this occurrence of the problem.
    *
-   * @param detail
+   * @param detail A human-readable explanation specific to this occurrence of the problem.
    * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
    */
   public DefaultErrorResponseEntity detail(String detail) {
@@ -86,9 +83,8 @@ public class DefaultErrorResponseEntity {
 
   /**
    * A human-readable explanation specific to this occurrence of the problem.
-   * @return detail
+   * @return detail A human-readable explanation specific to this occurrence of the problem.
    */
-  @ApiModelProperty(value = "A human-readable explanation specific to this occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDetail() {
@@ -98,8 +94,8 @@ public class DefaultErrorResponseEntity {
   /**
    * A human-readable explanation specific to this occurrence of the problem.
    *
-   * @param detail
-   */ 
+   * @param detail A human-readable explanation specific to this occurrence of the problem.
+   */
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
@@ -109,7 +105,7 @@ public class DefaultErrorResponseEntity {
   /**
    * Unique business error code.
    *
-   * @param errorCode
+   * @param errorCode Unique business error code.
    * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
    */
   public DefaultErrorResponseEntity errorCode(String errorCode) {
@@ -119,9 +115,8 @@ public class DefaultErrorResponseEntity {
 
   /**
    * Unique business error code.
-   * @return errorCode
+   * @return errorCode Unique business error code.
    */
-  @ApiModelProperty(value = "Unique business error code.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorCode() {
@@ -131,8 +126,8 @@ public class DefaultErrorResponseEntity {
   /**
    * Unique business error code.
    *
-   * @param errorCode
-   */ 
+   * @param errorCode Unique business error code.
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -142,7 +137,7 @@ public class DefaultErrorResponseEntity {
   /**
    * A URI that identifies the specific occurrence of the problem if applicable.
    *
-   * @param instance
+   * @param instance A URI that identifies the specific occurrence of the problem if applicable.
    * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
    */
   public DefaultErrorResponseEntity instance(String instance) {
@@ -152,9 +147,8 @@ public class DefaultErrorResponseEntity {
 
   /**
    * A URI that identifies the specific occurrence of the problem if applicable.
-   * @return instance
+   * @return instance A URI that identifies the specific occurrence of the problem if applicable.
    */
-  @ApiModelProperty(value = "A URI that identifies the specific occurrence of the problem if applicable.")
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstance() {
@@ -164,8 +158,8 @@ public class DefaultErrorResponseEntity {
   /**
    * A URI that identifies the specific occurrence of the problem if applicable.
    *
-   * @param instance
-   */ 
+   * @param instance A URI that identifies the specific occurrence of the problem if applicable.
+   */
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstance(String instance) {
@@ -175,7 +169,7 @@ public class DefaultErrorResponseEntity {
   /**
    * Array of fields with validation errors when applicable.
    *
-   * @param invalidFields
+   * @param invalidFields Array of fields with validation errors when applicable.
    * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
    */
   public DefaultErrorResponseEntity invalidFields(List<InvalidField> invalidFields) {
@@ -193,9 +187,8 @@ public class DefaultErrorResponseEntity {
 
   /**
    * Array of fields with validation errors when applicable.
-   * @return invalidFields
+   * @return invalidFields Array of fields with validation errors when applicable.
    */
-  @ApiModelProperty(value = "Array of fields with validation errors when applicable.")
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<InvalidField> getInvalidFields() {
@@ -205,8 +198,8 @@ public class DefaultErrorResponseEntity {
   /**
    * Array of fields with validation errors when applicable.
    *
-   * @param invalidFields
-   */ 
+   * @param invalidFields Array of fields with validation errors when applicable.
+   */
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvalidFields(List<InvalidField> invalidFields) {
@@ -216,7 +209,7 @@ public class DefaultErrorResponseEntity {
   /**
    * The unique reference for the request.
    *
-   * @param requestId
+   * @param requestId The unique reference for the request.
    * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
    */
   public DefaultErrorResponseEntity requestId(String requestId) {
@@ -226,9 +219,8 @@ public class DefaultErrorResponseEntity {
 
   /**
    * The unique reference for the request.
-   * @return requestId
+   * @return requestId The unique reference for the request.
    */
-  @ApiModelProperty(value = "The unique reference for the request.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestId() {
@@ -238,8 +230,8 @@ public class DefaultErrorResponseEntity {
   /**
    * The unique reference for the request.
    *
-   * @param requestId
-   */ 
+   * @param requestId The unique reference for the request.
+   */
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
@@ -249,7 +241,7 @@ public class DefaultErrorResponseEntity {
   /**
    * The HTTP status code.
    *
-   * @param status
+   * @param status The HTTP status code.
    * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
    */
   public DefaultErrorResponseEntity status(Integer status) {
@@ -259,9 +251,8 @@ public class DefaultErrorResponseEntity {
 
   /**
    * The HTTP status code.
-   * @return status
+   * @return status The HTTP status code.
    */
-  @ApiModelProperty(value = "The HTTP status code.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getStatus() {
@@ -271,8 +262,8 @@ public class DefaultErrorResponseEntity {
   /**
    * The HTTP status code.
    *
-   * @param status
-   */ 
+   * @param status The HTTP status code.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {
@@ -282,7 +273,7 @@ public class DefaultErrorResponseEntity {
   /**
    * A short, human-readable summary of the problem type.
    *
-   * @param title
+   * @param title A short, human-readable summary of the problem type.
    * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
    */
   public DefaultErrorResponseEntity title(String title) {
@@ -292,9 +283,8 @@ public class DefaultErrorResponseEntity {
 
   /**
    * A short, human-readable summary of the problem type.
-   * @return title
+   * @return title A short, human-readable summary of the problem type.
    */
-  @ApiModelProperty(value = "A short, human-readable summary of the problem type.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -304,8 +294,8 @@ public class DefaultErrorResponseEntity {
   /**
    * A short, human-readable summary of the problem type.
    *
-   * @param title
-   */ 
+   * @param title A short, human-readable summary of the problem type.
+   */
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
@@ -315,7 +305,7 @@ public class DefaultErrorResponseEntity {
   /**
    * A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
    *
-   * @param type
+   * @param type A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
    * @return the current {@code DefaultErrorResponseEntity} instance, allowing for method chaining
    */
   public DefaultErrorResponseEntity type(String type) {
@@ -325,9 +315,8 @@ public class DefaultErrorResponseEntity {
 
   /**
    * A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
-   * @return type
+   * @return type A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
    */
-  @ApiModelProperty(value = "A URI that identifies the validation error type. It points to human-readable documentation for the problem type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -337,8 +326,8 @@ public class DefaultErrorResponseEntity {
   /**
    * A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
    *
-   * @param type
-   */ 
+   * @param type A URI that identifies the validation error type. It points to human-readable documentation for the problem type.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

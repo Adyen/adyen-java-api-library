@@ -13,7 +13,6 @@
 package com.adyen.model.paymentsapp;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class BoardingTokenRequest {
   /**
    * The boardingToken request token.
    *
-   * @param boardingRequestToken
+   * @param boardingRequestToken The boardingToken request token.
    * @return the current {@code BoardingTokenRequest} instance, allowing for method chaining
    */
   public BoardingTokenRequest boardingRequestToken(String boardingRequestToken) {
@@ -54,9 +52,8 @@ public class BoardingTokenRequest {
 
   /**
    * The boardingToken request token.
-   * @return boardingRequestToken
+   * @return boardingRequestToken The boardingToken request token.
    */
-  @ApiModelProperty(required = true, value = "The boardingToken request token.")
   @JsonProperty(JSON_PROPERTY_BOARDING_REQUEST_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBoardingRequestToken() {
@@ -66,8 +63,8 @@ public class BoardingTokenRequest {
   /**
    * The boardingToken request token.
    *
-   * @param boardingRequestToken
-   */ 
+   * @param boardingRequestToken The boardingToken request token.
+   */
   @JsonProperty(JSON_PROPERTY_BOARDING_REQUEST_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBoardingRequestToken(String boardingRequestToken) {
