@@ -26,6 +26,13 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The service has been moved to a different package 'com.adyen.service.binlookup'
+ * @deprecated Use instead com.adyen.service.binlookup.BinLookupApi
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class BinLookupApi extends Service {
 
     public static final String API_VERSION = "54";
@@ -36,6 +43,7 @@ public class BinLookupApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public BinLookupApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/BinLookup/v54");
@@ -47,6 +55,7 @@ public class BinLookupApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public BinLookupApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -59,6 +68,7 @@ public class BinLookupApi extends Service {
     * @return {@link ThreeDSAvailabilityResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public ThreeDSAvailabilityResponse get3dsAvailability(ThreeDSAvailabilityRequest threeDSAvailabilityRequest) throws ApiException, IOException {
         return get3dsAvailability(threeDSAvailabilityRequest, null);
     }
@@ -71,6 +81,7 @@ public class BinLookupApi extends Service {
     * @return {@link ThreeDSAvailabilityResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public ThreeDSAvailabilityResponse get3dsAvailability(ThreeDSAvailabilityRequest threeDSAvailabilityRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = threeDSAvailabilityRequest.toJson();
@@ -86,6 +97,7 @@ public class BinLookupApi extends Service {
     * @return {@link CostEstimateResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public CostEstimateResponse getCostEstimate(CostEstimateRequest costEstimateRequest) throws ApiException, IOException {
         return getCostEstimate(costEstimateRequest, null);
     }
@@ -98,6 +110,7 @@ public class BinLookupApi extends Service {
     * @return {@link CostEstimateResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.binlookup.BinLookupApi
     public CostEstimateResponse getCostEstimate(CostEstimateRequest costEstimateRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = costEstimateRequest.toJson();
