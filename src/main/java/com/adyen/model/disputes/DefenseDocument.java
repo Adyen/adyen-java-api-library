@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class DefenseDocument {
   /**
    * The content of the defense document.
    *
-   * @param content
+   * @param content The content of the defense document.
    * @return the current {@code DefenseDocument} instance, allowing for method chaining
    */
   public DefenseDocument content(byte[] content) {
@@ -62,9 +60,8 @@ public class DefenseDocument {
 
   /**
    * The content of the defense document.
-   * @return content
+   * @return content The content of the defense document.
    */
-  @ApiModelProperty(required = true, value = "The content of the defense document.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getContent() {
@@ -74,8 +71,8 @@ public class DefenseDocument {
   /**
    * The content of the defense document.
    *
-   * @param content
-   */ 
+   * @param content The content of the defense document.
+   */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(byte[] content) {
@@ -85,7 +82,7 @@ public class DefenseDocument {
   /**
    * The content type of the defense document.
    *
-   * @param contentType
+   * @param contentType The content type of the defense document.
    * @return the current {@code DefenseDocument} instance, allowing for method chaining
    */
   public DefenseDocument contentType(String contentType) {
@@ -95,9 +92,8 @@ public class DefenseDocument {
 
   /**
    * The content type of the defense document.
-   * @return contentType
+   * @return contentType The content type of the defense document.
    */
-  @ApiModelProperty(required = true, value = "The content type of the defense document.")
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContentType() {
@@ -107,8 +103,8 @@ public class DefenseDocument {
   /**
    * The content type of the defense document.
    *
-   * @param contentType
-   */ 
+   * @param contentType The content type of the defense document.
+   */
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContentType(String contentType) {
@@ -118,7 +114,7 @@ public class DefenseDocument {
   /**
    * The document type code of the defense document.
    *
-   * @param defenseDocumentTypeCode
+   * @param defenseDocumentTypeCode The document type code of the defense document.
    * @return the current {@code DefenseDocument} instance, allowing for method chaining
    */
   public DefenseDocument defenseDocumentTypeCode(String defenseDocumentTypeCode) {
@@ -128,9 +124,8 @@ public class DefenseDocument {
 
   /**
    * The document type code of the defense document.
-   * @return defenseDocumentTypeCode
+   * @return defenseDocumentTypeCode The document type code of the defense document.
    */
-  @ApiModelProperty(required = true, value = "The document type code of the defense document.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefenseDocumentTypeCode() {
@@ -140,8 +135,8 @@ public class DefenseDocument {
   /**
    * The document type code of the defense document.
    *
-   * @param defenseDocumentTypeCode
-   */ 
+   * @param defenseDocumentTypeCode The document type code of the defense document.
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {

@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.service;
+package com.adyen.service.disputes;
 
 import com.adyen.Client;
 import com.adyen.Service;
@@ -33,12 +33,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * The service has been moved to a different package 'com.adyen.service.disputes.DisputesApi'
- * @deprecated Use instead com.adyen.service.disputes.DisputesApi
- *
- */
-@Deprecated(since = "v37.0.0", forRemoval = true)
 public class DisputesApi extends Service {
 
     public static final String API_VERSION = "30";
@@ -46,22 +40,20 @@ public class DisputesApi extends Service {
     protected String baseURL;
 
     /**
-    * Default constructor in {@link com.adyen.service package}.
-    * @param client {@link Client }  (required)
+    * Disputes constructor in {@link com.adyen.service.disputes package}.
+    * @param client {@link Client } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DisputesApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://ca-test.adyen.com/ca/services/DisputeService/v30");
     }
 
     /**
-    * Alternative constructor in {@link com.adyen.service package}.
+    * Disputes constructor in {@link com.adyen.service.disputes package}.
     * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
-    * @param client {@link Client }  (required)
-    * @param baseURL {@link String }  (required)
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DisputesApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -74,7 +66,6 @@ public class DisputesApi extends Service {
     * @return {@link AcceptDisputeResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public AcceptDisputeResponse acceptDispute(AcceptDisputeRequest acceptDisputeRequest) throws ApiException, IOException {
         return acceptDispute(acceptDisputeRequest, null);
     }
@@ -87,9 +78,7 @@ public class DisputesApi extends Service {
     * @return {@link AcceptDisputeResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public AcceptDisputeResponse acceptDispute(AcceptDisputeRequest acceptDisputeRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = acceptDisputeRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/acceptDispute", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -103,7 +92,6 @@ public class DisputesApi extends Service {
     * @return {@link DefendDisputeResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DefendDisputeResponse defendDispute(DefendDisputeRequest defendDisputeRequest) throws ApiException, IOException {
         return defendDispute(defendDisputeRequest, null);
     }
@@ -116,9 +104,7 @@ public class DisputesApi extends Service {
     * @return {@link DefendDisputeResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DefendDisputeResponse defendDispute(DefendDisputeRequest defendDisputeRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = defendDisputeRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/defendDispute", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -132,7 +118,6 @@ public class DisputesApi extends Service {
     * @return {@link DeleteDefenseDocumentResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DeleteDefenseDocumentResponse deleteDisputeDefenseDocument(DeleteDefenseDocumentRequest deleteDefenseDocumentRequest) throws ApiException, IOException {
         return deleteDisputeDefenseDocument(deleteDefenseDocumentRequest, null);
     }
@@ -145,9 +130,7 @@ public class DisputesApi extends Service {
     * @return {@link DeleteDefenseDocumentResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DeleteDefenseDocumentResponse deleteDisputeDefenseDocument(DeleteDefenseDocumentRequest deleteDefenseDocumentRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = deleteDefenseDocumentRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/deleteDisputeDefenseDocument", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -161,7 +144,6 @@ public class DisputesApi extends Service {
     * @return {@link DefenseReasonsResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DefenseReasonsResponse retrieveApplicableDefenseReasons(DefenseReasonsRequest defenseReasonsRequest) throws ApiException, IOException {
         return retrieveApplicableDefenseReasons(defenseReasonsRequest, null);
     }
@@ -174,9 +156,7 @@ public class DisputesApi extends Service {
     * @return {@link DefenseReasonsResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DefenseReasonsResponse retrieveApplicableDefenseReasons(DefenseReasonsRequest defenseReasonsRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = defenseReasonsRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/retrieveApplicableDefenseReasons", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -190,7 +170,6 @@ public class DisputesApi extends Service {
     * @return {@link SupplyDefenseDocumentResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public SupplyDefenseDocumentResponse supplyDefenseDocument(SupplyDefenseDocumentRequest supplyDefenseDocumentRequest) throws ApiException, IOException {
         return supplyDefenseDocument(supplyDefenseDocumentRequest, null);
     }
@@ -203,9 +182,7 @@ public class DisputesApi extends Service {
     * @return {@link SupplyDefenseDocumentResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public SupplyDefenseDocumentResponse supplyDefenseDocument(SupplyDefenseDocumentRequest supplyDefenseDocumentRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = supplyDefenseDocumentRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/supplyDefenseDocument", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

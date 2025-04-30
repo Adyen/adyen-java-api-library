@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.disputes.DefenseReason;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class DefenseReasonsResponse {
   public static final String JSON_PROPERTY_DEFENSE_REASONS = "defenseReasons";
-  private List<DefenseReason> defenseReasons = null;
+  private List<DefenseReason> defenseReasons;
 
   public static final String JSON_PROPERTY_DISPUTE_SERVICE_RESULT = "disputeServiceResult";
   private DisputeServiceResult disputeServiceResult;
@@ -52,7 +50,7 @@ public class DefenseReasonsResponse {
   /**
    * The defense reasons that can be used to defend the dispute.
    *
-   * @param defenseReasons
+   * @param defenseReasons The defense reasons that can be used to defend the dispute.
    * @return the current {@code DefenseReasonsResponse} instance, allowing for method chaining
    */
   public DefenseReasonsResponse defenseReasons(List<DefenseReason> defenseReasons) {
@@ -70,9 +68,8 @@ public class DefenseReasonsResponse {
 
   /**
    * The defense reasons that can be used to defend the dispute.
-   * @return defenseReasons
+   * @return defenseReasons The defense reasons that can be used to defend the dispute.
    */
-  @ApiModelProperty(value = "The defense reasons that can be used to defend the dispute.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DefenseReason> getDefenseReasons() {
@@ -82,8 +79,8 @@ public class DefenseReasonsResponse {
   /**
    * The defense reasons that can be used to defend the dispute.
    *
-   * @param defenseReasons
-   */ 
+   * @param defenseReasons The defense reasons that can be used to defend the dispute.
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasons(List<DefenseReason> defenseReasons) {
@@ -93,7 +90,7 @@ public class DefenseReasonsResponse {
   /**
    * disputeServiceResult
    *
-   * @param disputeServiceResult
+   * @param disputeServiceResult 
    * @return the current {@code DefenseReasonsResponse} instance, allowing for method chaining
    */
   public DefenseReasonsResponse disputeServiceResult(DisputeServiceResult disputeServiceResult) {
@@ -102,10 +99,9 @@ public class DefenseReasonsResponse {
   }
 
   /**
-   * disputeServiceResult
-   * @return disputeServiceResult
+   * Get disputeServiceResult
+   * @return disputeServiceResult 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DisputeServiceResult getDisputeServiceResult() {
@@ -115,8 +111,8 @@ public class DefenseReasonsResponse {
   /**
    * disputeServiceResult
    *
-   * @param disputeServiceResult
-   */ 
+   * @param disputeServiceResult 
+   */
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeServiceResult(DisputeServiceResult disputeServiceResult) {

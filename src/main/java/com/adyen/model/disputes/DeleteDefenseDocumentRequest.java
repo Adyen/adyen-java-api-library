@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class DeleteDefenseDocumentRequest {
   /**
    * The document type code of the defense document.
    *
-   * @param defenseDocumentType
+   * @param defenseDocumentType The document type code of the defense document.
    * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
    */
   public DeleteDefenseDocumentRequest defenseDocumentType(String defenseDocumentType) {
@@ -62,9 +60,8 @@ public class DeleteDefenseDocumentRequest {
 
   /**
    * The document type code of the defense document.
-   * @return defenseDocumentType
+   * @return defenseDocumentType The document type code of the defense document.
    */
-  @ApiModelProperty(required = true, value = "The document type code of the defense document.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefenseDocumentType() {
@@ -74,8 +71,8 @@ public class DeleteDefenseDocumentRequest {
   /**
    * The document type code of the defense document.
    *
-   * @param defenseDocumentType
-   */ 
+   * @param defenseDocumentType The document type code of the defense document.
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentType(String defenseDocumentType) {
@@ -85,7 +82,7 @@ public class DeleteDefenseDocumentRequest {
   /**
    * The PSP reference assigned to the dispute.
    *
-   * @param disputePspReference
+   * @param disputePspReference The PSP reference assigned to the dispute.
    * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
    */
   public DeleteDefenseDocumentRequest disputePspReference(String disputePspReference) {
@@ -95,9 +92,8 @@ public class DeleteDefenseDocumentRequest {
 
   /**
    * The PSP reference assigned to the dispute.
-   * @return disputePspReference
+   * @return disputePspReference The PSP reference assigned to the dispute.
    */
-  @ApiModelProperty(required = true, value = "The PSP reference assigned to the dispute.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisputePspReference() {
@@ -107,8 +103,8 @@ public class DeleteDefenseDocumentRequest {
   /**
    * The PSP reference assigned to the dispute.
    *
-   * @param disputePspReference
-   */ 
+   * @param disputePspReference The PSP reference assigned to the dispute.
+   */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
@@ -118,7 +114,7 @@ public class DeleteDefenseDocumentRequest {
   /**
    * The merchant account identifier, for which you want to process the dispute transaction.
    *
-   * @param merchantAccountCode
+   * @param merchantAccountCode The merchant account identifier, for which you want to process the dispute transaction.
    * @return the current {@code DeleteDefenseDocumentRequest} instance, allowing for method chaining
    */
   public DeleteDefenseDocumentRequest merchantAccountCode(String merchantAccountCode) {
@@ -128,9 +124,8 @@ public class DeleteDefenseDocumentRequest {
 
   /**
    * The merchant account identifier, for which you want to process the dispute transaction.
-   * @return merchantAccountCode
+   * @return merchantAccountCode The merchant account identifier, for which you want to process the dispute transaction.
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, for which you want to process the dispute transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccountCode() {
@@ -140,8 +135,8 @@ public class DeleteDefenseDocumentRequest {
   /**
    * The merchant account identifier, for which you want to process the dispute transaction.
    *
-   * @param merchantAccountCode
-   */ 
+   * @param merchantAccountCode The merchant account identifier, for which you want to process the dispute transaction.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {

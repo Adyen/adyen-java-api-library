@@ -13,7 +13,6 @@
 package com.adyen.model.paymentsapp;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class BoardingTokenResponse {
   /**
    * The boarding token that allows the Payments App to board.
    *
-   * @param boardingToken
+   * @param boardingToken The boarding token that allows the Payments App to board.
    * @return the current {@code BoardingTokenResponse} instance, allowing for method chaining
    */
   public BoardingTokenResponse boardingToken(String boardingToken) {
@@ -58,9 +56,8 @@ public class BoardingTokenResponse {
 
   /**
    * The boarding token that allows the Payments App to board.
-   * @return boardingToken
+   * @return boardingToken The boarding token that allows the Payments App to board.
    */
-  @ApiModelProperty(required = true, value = "The boarding token that allows the Payments App to board.")
   @JsonProperty(JSON_PROPERTY_BOARDING_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBoardingToken() {
@@ -70,8 +67,8 @@ public class BoardingTokenResponse {
   /**
    * The boarding token that allows the Payments App to board.
    *
-   * @param boardingToken
-   */ 
+   * @param boardingToken The boarding token that allows the Payments App to board.
+   */
   @JsonProperty(JSON_PROPERTY_BOARDING_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBoardingToken(String boardingToken) {
@@ -81,7 +78,7 @@ public class BoardingTokenResponse {
   /**
    * The unique identifier of the Payments App instance.
    *
-   * @param installationId
+   * @param installationId The unique identifier of the Payments App instance.
    * @return the current {@code BoardingTokenResponse} instance, allowing for method chaining
    */
   public BoardingTokenResponse installationId(String installationId) {
@@ -91,9 +88,8 @@ public class BoardingTokenResponse {
 
   /**
    * The unique identifier of the Payments App instance.
-   * @return installationId
+   * @return installationId The unique identifier of the Payments App instance.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the Payments App instance.")
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstallationId() {
@@ -103,8 +99,8 @@ public class BoardingTokenResponse {
   /**
    * The unique identifier of the Payments App instance.
    *
-   * @param installationId
-   */ 
+   * @param installationId The unique identifier of the Payments App instance.
+   */
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallationId(String installationId) {

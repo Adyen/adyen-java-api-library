@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.service;
+package com.adyen.service.dataprotection;
 
 import com.adyen.Client;
 import com.adyen.Service;
@@ -25,12 +25,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * The service has been moved to a different package 'com.adyen.dataprotection.DataProtectionApi'
- * @deprecated Use instead com.adyen.service.dataprotection.DataProtectionApi
- *
- */
-@Deprecated(since = "v37.0.0", forRemoval = true)
 public class DataProtectionApi extends Service {
 
     public static final String API_VERSION = "1";
@@ -38,22 +32,20 @@ public class DataProtectionApi extends Service {
     protected String baseURL;
 
     /**
-    * Default constructor in {@link com.adyen.service package}.
-    * @param client {@link Client }  (required)
+    * DataProtection constructor in {@link com.adyen.service.dataprotection package}.
+    * @param client {@link Client } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.dataprotection.DataProtectionApi
     public DataProtectionApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://ca-test.adyen.com/ca/services/DataProtectionService/v1");
     }
 
     /**
-    * Alternative constructor in {@link com.adyen.service package}.
+    * DataProtection constructor in {@link com.adyen.service.dataprotection package}.
     * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
-    * @param client {@link Client }  (required)
-    * @param baseURL {@link String }  (required)
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.dataprotection.DataProtectionApi
     public DataProtectionApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -66,7 +58,6 @@ public class DataProtectionApi extends Service {
     * @return {@link SubjectErasureResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.dataprotection.DataProtectionApi
     public SubjectErasureResponse requestSubjectErasure(SubjectErasureByPspReferenceRequest subjectErasureByPspReferenceRequest) throws ApiException, IOException {
         return requestSubjectErasure(subjectErasureByPspReferenceRequest, null);
     }
@@ -79,9 +70,7 @@ public class DataProtectionApi extends Service {
     * @return {@link SubjectErasureResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.dataprotection.DataProtectionApi
     public SubjectErasureResponse requestSubjectErasure(SubjectErasureByPspReferenceRequest subjectErasureByPspReferenceRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = subjectErasureByPspReferenceRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/requestSubjectErasure", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

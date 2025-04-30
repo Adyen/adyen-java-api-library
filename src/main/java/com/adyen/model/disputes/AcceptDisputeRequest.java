@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class AcceptDisputeRequest {
   /**
    * The PSP reference assigned to the dispute.
    *
-   * @param disputePspReference
+   * @param disputePspReference The PSP reference assigned to the dispute.
    * @return the current {@code AcceptDisputeRequest} instance, allowing for method chaining
    */
   public AcceptDisputeRequest disputePspReference(String disputePspReference) {
@@ -58,9 +56,8 @@ public class AcceptDisputeRequest {
 
   /**
    * The PSP reference assigned to the dispute.
-   * @return disputePspReference
+   * @return disputePspReference The PSP reference assigned to the dispute.
    */
-  @ApiModelProperty(required = true, value = "The PSP reference assigned to the dispute.")
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisputePspReference() {
@@ -70,8 +67,8 @@ public class AcceptDisputeRequest {
   /**
    * The PSP reference assigned to the dispute.
    *
-   * @param disputePspReference
-   */ 
+   * @param disputePspReference The PSP reference assigned to the dispute.
+   */
   @JsonProperty(JSON_PROPERTY_DISPUTE_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputePspReference(String disputePspReference) {
@@ -81,7 +78,7 @@ public class AcceptDisputeRequest {
   /**
    * The merchant account identifier, for which you want to process the dispute transaction.
    *
-   * @param merchantAccountCode
+   * @param merchantAccountCode The merchant account identifier, for which you want to process the dispute transaction.
    * @return the current {@code AcceptDisputeRequest} instance, allowing for method chaining
    */
   public AcceptDisputeRequest merchantAccountCode(String merchantAccountCode) {
@@ -91,9 +88,8 @@ public class AcceptDisputeRequest {
 
   /**
    * The merchant account identifier, for which you want to process the dispute transaction.
-   * @return merchantAccountCode
+   * @return merchantAccountCode The merchant account identifier, for which you want to process the dispute transaction.
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, for which you want to process the dispute transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccountCode() {
@@ -103,8 +99,8 @@ public class AcceptDisputeRequest {
   /**
    * The merchant account identifier, for which you want to process the dispute transaction.
    *
-   * @param merchantAccountCode
-   */ 
+   * @param merchantAccountCode The merchant account identifier, for which you want to process the dispute transaction.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccountCode(String merchantAccountCode) {

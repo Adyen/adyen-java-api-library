@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.disputes.DisputeServiceResult;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,7 +43,7 @@ public class SupplyDefenseDocumentResponse {
   /**
    * disputeServiceResult
    *
-   * @param disputeServiceResult
+   * @param disputeServiceResult 
    * @return the current {@code SupplyDefenseDocumentResponse} instance, allowing for method chaining
    */
   public SupplyDefenseDocumentResponse disputeServiceResult(DisputeServiceResult disputeServiceResult) {
@@ -54,10 +52,9 @@ public class SupplyDefenseDocumentResponse {
   }
 
   /**
-   * disputeServiceResult
-   * @return disputeServiceResult
+   * Get disputeServiceResult
+   * @return disputeServiceResult 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DisputeServiceResult getDisputeServiceResult() {
@@ -67,8 +64,8 @@ public class SupplyDefenseDocumentResponse {
   /**
    * disputeServiceResult
    *
-   * @param disputeServiceResult
-   */ 
+   * @param disputeServiceResult 
+   */
   @JsonProperty(JSON_PROPERTY_DISPUTE_SERVICE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisputeServiceResult(DisputeServiceResult disputeServiceResult) {

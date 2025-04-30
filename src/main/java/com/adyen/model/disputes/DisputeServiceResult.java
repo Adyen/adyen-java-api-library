@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class DisputeServiceResult {
   /**
    * The general error message.
    *
-   * @param errorMessage
+   * @param errorMessage The general error message.
    * @return the current {@code DisputeServiceResult} instance, allowing for method chaining
    */
   public DisputeServiceResult errorMessage(String errorMessage) {
@@ -58,9 +56,8 @@ public class DisputeServiceResult {
 
   /**
    * The general error message.
-   * @return errorMessage
+   * @return errorMessage The general error message.
    */
-  @ApiModelProperty(value = "The general error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorMessage() {
@@ -70,8 +67,8 @@ public class DisputeServiceResult {
   /**
    * The general error message.
    *
-   * @param errorMessage
-   */ 
+   * @param errorMessage The general error message.
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
@@ -81,7 +78,7 @@ public class DisputeServiceResult {
   /**
    * Indicates whether the request succeeded.
    *
-   * @param success
+   * @param success Indicates whether the request succeeded.
    * @return the current {@code DisputeServiceResult} instance, allowing for method chaining
    */
   public DisputeServiceResult success(Boolean success) {
@@ -91,9 +88,8 @@ public class DisputeServiceResult {
 
   /**
    * Indicates whether the request succeeded.
-   * @return success
+   * @return success Indicates whether the request succeeded.
    */
-  @ApiModelProperty(required = true, value = "Indicates whether the request succeeded.")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSuccess() {
@@ -103,8 +99,8 @@ public class DisputeServiceResult {
   /**
    * Indicates whether the request succeeded.
    *
-   * @param success
-   */ 
+   * @param success Indicates whether the request succeeded.
+   */
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {
