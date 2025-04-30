@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.service;
+package com.adyen.service.posmobile;
 
 import com.adyen.Client;
 import com.adyen.Service;
@@ -24,12 +24,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * The service has been moved to a different package 'com.adyen.service.posmobile'
- * @deprecated Use instead com.adyen.service.posmobile.PosMobileApi
- *
- */
-@Deprecated(since = "v37.0.0", forRemoval = true)
 public class PosMobileApi extends Service {
 
     public static final String API_VERSION = "68";
@@ -37,22 +31,20 @@ public class PosMobileApi extends Service {
     protected String baseURL;
 
     /**
-    * Default constructor in {@link com.adyen.service package}.
-    * @param client {@link Client }  (required)
+    * PosMobile constructor in {@link com.adyen.service.posmobile package}.
+    * @param client {@link Client } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true)
     public PosMobileApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/checkout/possdk/v68");
     }
 
     /**
-    * Alternative constructor in {@link com.adyen.service package}.
+    * PosMobile constructor in {@link com.adyen.service.posmobile package}.
     * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
-    * @param client {@link Client }  (required)
-    * @param baseURL {@link String }  (required)
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true)
     public PosMobileApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -65,7 +57,6 @@ public class PosMobileApi extends Service {
     * @return {@link CreateSessionResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true)
     public CreateSessionResponse createCommunicationSession(CreateSessionRequest createSessionRequest) throws ApiException, IOException {
         return createCommunicationSession(createSessionRequest, null);
     }
@@ -78,9 +69,7 @@ public class PosMobileApi extends Service {
     * @return {@link CreateSessionResponse }
     * @throws ApiException if fails to make API call
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true)
     public CreateSessionResponse createCommunicationSession(CreateSessionRequest createSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = createSessionRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/sessions", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

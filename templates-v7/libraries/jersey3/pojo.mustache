@@ -114,7 +114,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   /**
    * {{description}}{{^description}}{{name}}{{/description}}
    *
-   * @param {{name}}
+   * @param {{name}} {{description}}
    * @return the current {@code {{classname}}} instance, allowing for method chaining
    {{#deprecated}}
    *
@@ -201,7 +201,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{#maximum}}
    * maximum: {{.}}
   {{/maximum}}
-   * @return {{name}}
+   * @return {{name}} {{description}}
   {{#deprecated}}
    * @deprecated // deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}: {{{.}}}{{/vendorExtensions.x-deprecatedMessage}}
   {{/deprecated}}
@@ -255,7 +255,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   /**
    * {{description}}{{^description}}{{name}}{{/description}}
    *
-   * @param {{name}}
+   * @param {{name}} {{description}}
    {{#deprecated}}
    *
    * @deprecated {{#vendorExtensions.x-deprecatedInVersion}}since {{#appName}}{{{.}}}{{/appName}} v{{.}}{{/vendorExtensions.x-deprecatedInVersion}}{{#vendorExtensions.x-deprecatedMessage}}
