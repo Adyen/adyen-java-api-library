@@ -21,7 +21,7 @@
 package com.adyen;
 
 import com.adyen.model.binlookup.*;
-import com.adyen.service.BinLookupApi;
+import com.adyen.service.binlookup.BinLookupApi;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
