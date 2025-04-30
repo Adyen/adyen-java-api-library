@@ -13,7 +13,6 @@
 package com.adyen.model.posmobile;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class CreateSessionRequest {
   /**
    * The unique identifier of your merchant account.
    *
-   * @param merchantAccount
+   * @param merchantAccount The unique identifier of your merchant account.
    * @return the current {@code CreateSessionRequest} instance, allowing for method chaining
    */
   public CreateSessionRequest merchantAccount(String merchantAccount) {
@@ -62,9 +60,8 @@ public class CreateSessionRequest {
 
   /**
    * The unique identifier of your merchant account.
-   * @return merchantAccount
+   * @return merchantAccount The unique identifier of your merchant account.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of your merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -74,8 +71,8 @@ public class CreateSessionRequest {
   /**
    * The unique identifier of your merchant account.
    *
-   * @param merchantAccount
-   */ 
+   * @param merchantAccount The unique identifier of your merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -85,7 +82,7 @@ public class CreateSessionRequest {
   /**
    * The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the &#x60;AuthenticationService.authenticate(setupToken)&#x60; callback of &#x60;AuthenticationService&#x60;.  - When using the iOS POS Mobile SDK, obtain the token through the &#x60;PaymentServiceDelegate.register(with:)&#x60; callback of &#x60;PaymentServiceDelegate&#x60;.
    *
-   * @param setupToken
+   * @param setupToken The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the &#x60;AuthenticationService.authenticate(setupToken)&#x60; callback of &#x60;AuthenticationService&#x60;.  - When using the iOS POS Mobile SDK, obtain the token through the &#x60;PaymentServiceDelegate.register(with:)&#x60; callback of &#x60;PaymentServiceDelegate&#x60;.
    * @return the current {@code CreateSessionRequest} instance, allowing for method chaining
    */
   public CreateSessionRequest setupToken(String setupToken) {
@@ -95,9 +92,8 @@ public class CreateSessionRequest {
 
   /**
    * The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the &#x60;AuthenticationService.authenticate(setupToken)&#x60; callback of &#x60;AuthenticationService&#x60;.  - When using the iOS POS Mobile SDK, obtain the token through the &#x60;PaymentServiceDelegate.register(with:)&#x60; callback of &#x60;PaymentServiceDelegate&#x60;.
-   * @return setupToken
+   * @return setupToken The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the &#x60;AuthenticationService.authenticate(setupToken)&#x60; callback of &#x60;AuthenticationService&#x60;.  - When using the iOS POS Mobile SDK, obtain the token through the &#x60;PaymentServiceDelegate.register(with:)&#x60; callback of &#x60;PaymentServiceDelegate&#x60;.
    */
-  @ApiModelProperty(required = true, value = "The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the `AuthenticationService.authenticate(setupToken)` callback of `AuthenticationService`.  - When using the iOS POS Mobile SDK, obtain the token through the `PaymentServiceDelegate.register(with:)` callback of `PaymentServiceDelegate`.")
   @JsonProperty(JSON_PROPERTY_SETUP_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSetupToken() {
@@ -107,8 +103,8 @@ public class CreateSessionRequest {
   /**
    * The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the &#x60;AuthenticationService.authenticate(setupToken)&#x60; callback of &#x60;AuthenticationService&#x60;.  - When using the iOS POS Mobile SDK, obtain the token through the &#x60;PaymentServiceDelegate.register(with:)&#x60; callback of &#x60;PaymentServiceDelegate&#x60;.
    *
-   * @param setupToken
-   */ 
+   * @param setupToken The setup token provided by the POS Mobile SDK.  - When using the Android POS Mobile SDK, obtain the token through the &#x60;AuthenticationService.authenticate(setupToken)&#x60; callback of &#x60;AuthenticationService&#x60;.  - When using the iOS POS Mobile SDK, obtain the token through the &#x60;PaymentServiceDelegate.register(with:)&#x60; callback of &#x60;PaymentServiceDelegate&#x60;.
+   */
   @JsonProperty(JSON_PROPERTY_SETUP_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSetupToken(String setupToken) {
@@ -118,7 +114,7 @@ public class CreateSessionRequest {
   /**
    * The unique identifier of the store that you want to process transactions for.
    *
-   * @param store
+   * @param store The unique identifier of the store that you want to process transactions for.
    * @return the current {@code CreateSessionRequest} instance, allowing for method chaining
    */
   public CreateSessionRequest store(String store) {
@@ -128,9 +124,8 @@ public class CreateSessionRequest {
 
   /**
    * The unique identifier of the store that you want to process transactions for.
-   * @return store
+   * @return store The unique identifier of the store that you want to process transactions for.
    */
-  @ApiModelProperty(value = "The unique identifier of the store that you want to process transactions for.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStore() {
@@ -140,8 +135,8 @@ public class CreateSessionRequest {
   /**
    * The unique identifier of the store that you want to process transactions for.
    *
-   * @param store
-   */ 
+   * @param store The unique identifier of the store that you want to process transactions for.
+   */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
