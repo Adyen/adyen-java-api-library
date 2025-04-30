@@ -13,7 +13,6 @@
 package com.adyen.model.dataprotection;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -39,13 +37,13 @@ public class SubjectErasureResponse {
    * The result of this operation.
    */
   public enum ResultEnum {
-    ACTIVE_RECURRING_TOKEN_EXISTS("ACTIVE_RECURRING_TOKEN_EXISTS"),
+    ACTIVE_RECURRING_TOKEN_EXISTS(String.valueOf("ACTIVE_RECURRING_TOKEN_EXISTS")),
     
-    ALREADY_PROCESSED("ALREADY_PROCESSED"),
+    ALREADY_PROCESSED(String.valueOf("ALREADY_PROCESSED")),
     
-    PAYMENT_NOT_FOUND("PAYMENT_NOT_FOUND"),
+    PAYMENT_NOT_FOUND(String.valueOf("PAYMENT_NOT_FOUND")),
     
-    SUCCESS("SUCCESS");
+    SUCCESS(String.valueOf("SUCCESS"));
 
     private String value;
 
@@ -83,7 +81,7 @@ public class SubjectErasureResponse {
   /**
    * The result of this operation.
    *
-   * @param result
+   * @param result The result of this operation.
    * @return the current {@code SubjectErasureResponse} instance, allowing for method chaining
    */
   public SubjectErasureResponse result(ResultEnum result) {
@@ -93,9 +91,8 @@ public class SubjectErasureResponse {
 
   /**
    * The result of this operation.
-   * @return result
+   * @return result The result of this operation.
    */
-  @ApiModelProperty(value = "The result of this operation.")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResultEnum getResult() {
@@ -105,8 +102,8 @@ public class SubjectErasureResponse {
   /**
    * The result of this operation.
    *
-   * @param result
-   */ 
+   * @param result The result of this operation.
+   */
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(ResultEnum result) {
