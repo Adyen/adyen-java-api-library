@@ -37,7 +37,7 @@ import java.util.Map;
 
 /**
  * The service has been moved to a different package 'com.adyen.service.storedvalue'
- * @Deprecated Use instead com.adyen.service.storedvalue.StoredValue
+ * @deprecated Use instead com.adyen.service.storedvalue.StoredValue
  *
  */
 @Deprecated(since = "v37.0.0", forRemoval = true)
