@@ -1,5 +1,5 @@
 /*
- * Adyen Recurring API (deprecated)
+ * Adyen Recurring API
  *
  * The version of the OpenAPI document: 68
  * 
@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.RecurringDetail;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,7 +43,7 @@ public class RecurringDetailWrapper {
   /**
    * recurringDetail
    *
-   * @param recurringDetail
+   * @param recurringDetail 
    * @return the current {@code RecurringDetailWrapper} instance, allowing for method chaining
    */
   public RecurringDetailWrapper recurringDetail(RecurringDetail recurringDetail) {
@@ -54,10 +52,9 @@ public class RecurringDetailWrapper {
   }
 
   /**
-   * recurringDetail
-   * @return recurringDetail
+   * Get recurringDetail
+   * @return recurringDetail 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RecurringDetail getRecurringDetail() {
@@ -67,8 +64,8 @@ public class RecurringDetailWrapper {
   /**
    * recurringDetail
    *
-   * @param recurringDetail
-   */ 
+   * @param recurringDetail 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetail(RecurringDetail recurringDetail) {

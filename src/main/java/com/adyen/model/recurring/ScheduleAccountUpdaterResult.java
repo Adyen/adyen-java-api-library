@@ -1,5 +1,5 @@
 /*
- * Adyen Recurring API (deprecated)
+ * Adyen Recurring API
  *
  * The version of the OpenAPI document: 68
  * 
@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class ScheduleAccountUpdaterResult {
   /**
    * Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
    * @return the current {@code ScheduleAccountUpdaterResult} instance, allowing for method chaining
    */
   public ScheduleAccountUpdaterResult pspReference(String pspReference) {
@@ -58,9 +56,8 @@ public class ScheduleAccountUpdaterResult {
 
   /**
    * Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
-   * @return pspReference
+   * @return pspReference Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
    */
-  @ApiModelProperty(required = true, value = "Adyen's 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -70,8 +67,8 @@ public class ScheduleAccountUpdaterResult {
   /**
    * Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
-   */ 
+   * @param pspReference Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -81,7 +78,7 @@ public class ScheduleAccountUpdaterResult {
   /**
    * The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
    *
-   * @param result
+   * @param result The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
    * @return the current {@code ScheduleAccountUpdaterResult} instance, allowing for method chaining
    */
   public ScheduleAccountUpdaterResult result(String result) {
@@ -91,9 +88,8 @@ public class ScheduleAccountUpdaterResult {
 
   /**
    * The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
-   * @return result
+   * @return result The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
    */
-  @ApiModelProperty(required = true, value = "The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResult() {
@@ -103,8 +99,8 @@ public class ScheduleAccountUpdaterResult {
   /**
    * The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
    *
-   * @param result
-   */ 
+   * @param result The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
+   */
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {

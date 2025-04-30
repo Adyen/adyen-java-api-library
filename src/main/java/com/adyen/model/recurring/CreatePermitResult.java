@@ -1,5 +1,5 @@
 /*
- * Adyen Recurring API (deprecated)
+ * Adyen Recurring API
  *
  * The version of the OpenAPI document: 68
  * 
@@ -13,7 +13,6 @@
 package com.adyen.model.recurring;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.recurring.PermitResult;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,7 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CreatePermitResult {
   public static final String JSON_PROPERTY_PERMIT_RESULT_LIST = "permitResultList";
-  private List<PermitResult> permitResultList = null;
+  private List<PermitResult> permitResultList;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -51,7 +49,7 @@ public class CreatePermitResult {
   /**
    * List of new permits.
    *
-   * @param permitResultList
+   * @param permitResultList List of new permits.
    * @return the current {@code CreatePermitResult} instance, allowing for method chaining
    */
   public CreatePermitResult permitResultList(List<PermitResult> permitResultList) {
@@ -69,9 +67,8 @@ public class CreatePermitResult {
 
   /**
    * List of new permits.
-   * @return permitResultList
+   * @return permitResultList List of new permits.
    */
-  @ApiModelProperty(value = "List of new permits.")
   @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PermitResult> getPermitResultList() {
@@ -81,8 +78,8 @@ public class CreatePermitResult {
   /**
    * List of new permits.
    *
-   * @param permitResultList
-   */ 
+   * @param permitResultList List of new permits.
+   */
   @JsonProperty(JSON_PROPERTY_PERMIT_RESULT_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPermitResultList(List<PermitResult> permitResultList) {
@@ -92,7 +89,7 @@ public class CreatePermitResult {
   /**
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    * @return the current {@code CreatePermitResult} instance, allowing for method chaining
    */
   public CreatePermitResult pspReference(String pspReference) {
@@ -102,9 +99,8 @@ public class CreatePermitResult {
 
   /**
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
-   * @return pspReference
+   * @return pspReference A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    */
-  @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -114,8 +110,8 @@ public class CreatePermitResult {
   /**
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
-   */ 
+   * @param pspReference A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
