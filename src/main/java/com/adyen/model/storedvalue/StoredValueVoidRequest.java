@@ -13,7 +13,6 @@
 package com.adyen.model.storedvalue;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,7 @@ public class StoredValueVoidRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest merchantAccount(String merchantAccount) {
@@ -74,9 +72,8 @@ public class StoredValueVoidRequest {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -86,8 +83,8 @@ public class StoredValueVoidRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
-   */ 
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -97,7 +94,7 @@ public class StoredValueVoidRequest {
   /**
    * The original pspReference of the payment to modify.
    *
-   * @param originalReference
+   * @param originalReference The original pspReference of the payment to modify.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest originalReference(String originalReference) {
@@ -107,9 +104,8 @@ public class StoredValueVoidRequest {
 
   /**
    * The original pspReference of the payment to modify.
-   * @return originalReference
+   * @return originalReference The original pspReference of the payment to modify.
    */
-  @ApiModelProperty(required = true, value = "The original pspReference of the payment to modify.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOriginalReference() {
@@ -119,8 +115,8 @@ public class StoredValueVoidRequest {
   /**
    * The original pspReference of the payment to modify.
    *
-   * @param originalReference
-   */ 
+   * @param originalReference The original pspReference of the payment to modify.
+   */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalReference(String originalReference) {
@@ -130,7 +126,7 @@ public class StoredValueVoidRequest {
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest reference(String reference) {
@@ -140,9 +136,8 @@ public class StoredValueVoidRequest {
 
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    */
-  @ApiModelProperty(value = "Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -152,8 +147,8 @@ public class StoredValueVoidRequest {
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
-   * @param reference
-   */ 
+   * @param reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -163,7 +158,7 @@ public class StoredValueVoidRequest {
   /**
    * The physical store, for which this payment is processed.
    *
-   * @param store
+   * @param store The physical store, for which this payment is processed.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest store(String store) {
@@ -173,9 +168,8 @@ public class StoredValueVoidRequest {
 
   /**
    * The physical store, for which this payment is processed.
-   * @return store
+   * @return store The physical store, for which this payment is processed.
    */
-  @ApiModelProperty(value = "The physical store, for which this payment is processed.")
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStore() {
@@ -185,8 +179,8 @@ public class StoredValueVoidRequest {
   /**
    * The physical store, for which this payment is processed.
    *
-   * @param store
-   */ 
+   * @param store The physical store, for which this payment is processed.
+   */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStore(String store) {
@@ -196,7 +190,7 @@ public class StoredValueVoidRequest {
   /**
    * The reference of the tender.
    *
-   * @param tenderReference
+   * @param tenderReference The reference of the tender.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest tenderReference(String tenderReference) {
@@ -206,9 +200,8 @@ public class StoredValueVoidRequest {
 
   /**
    * The reference of the tender.
-   * @return tenderReference
+   * @return tenderReference The reference of the tender.
    */
-  @ApiModelProperty(value = "The reference of the tender.")
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTenderReference() {
@@ -218,8 +211,8 @@ public class StoredValueVoidRequest {
   /**
    * The reference of the tender.
    *
-   * @param tenderReference
-   */ 
+   * @param tenderReference The reference of the tender.
+   */
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTenderReference(String tenderReference) {
@@ -229,7 +222,7 @@ public class StoredValueVoidRequest {
   /**
    * The unique ID of a POS terminal.
    *
-   * @param uniqueTerminalId
+   * @param uniqueTerminalId The unique ID of a POS terminal.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest uniqueTerminalId(String uniqueTerminalId) {
@@ -239,9 +232,8 @@ public class StoredValueVoidRequest {
 
   /**
    * The unique ID of a POS terminal.
-   * @return uniqueTerminalId
+   * @return uniqueTerminalId The unique ID of a POS terminal.
    */
-  @ApiModelProperty(value = "The unique ID of a POS terminal.")
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUniqueTerminalId() {
@@ -251,8 +243,8 @@ public class StoredValueVoidRequest {
   /**
    * The unique ID of a POS terminal.
    *
-   * @param uniqueTerminalId
-   */ 
+   * @param uniqueTerminalId The unique ID of a POS terminal.
+   */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {
