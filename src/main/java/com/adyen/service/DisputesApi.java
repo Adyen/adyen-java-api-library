@@ -32,6 +32,13 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The service has been moved to a different package 'com.adyen.service.disputes.DisputesApi'
+ * @deprecated Use instead com.adyen.service.disputes.DisputesApi
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class DisputesApi extends Service {
 
     public static final String API_VERSION = "30";
@@ -42,6 +49,7 @@ public class DisputesApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DisputesApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://ca-test.adyen.com/ca/services/DisputeService/v30");
@@ -53,6 +61,7 @@ public class DisputesApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DisputesApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -65,6 +74,7 @@ public class DisputesApi extends Service {
     * @return {@link AcceptDisputeResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public AcceptDisputeResponse acceptDispute(AcceptDisputeRequest acceptDisputeRequest) throws ApiException, IOException {
         return acceptDispute(acceptDisputeRequest, null);
     }
@@ -77,6 +87,7 @@ public class DisputesApi extends Service {
     * @return {@link AcceptDisputeResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public AcceptDisputeResponse acceptDispute(AcceptDisputeRequest acceptDisputeRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = acceptDisputeRequest.toJson();
@@ -92,6 +103,7 @@ public class DisputesApi extends Service {
     * @return {@link DefendDisputeResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DefendDisputeResponse defendDispute(DefendDisputeRequest defendDisputeRequest) throws ApiException, IOException {
         return defendDispute(defendDisputeRequest, null);
     }
@@ -104,6 +116,7 @@ public class DisputesApi extends Service {
     * @return {@link DefendDisputeResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DefendDisputeResponse defendDispute(DefendDisputeRequest defendDisputeRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = defendDisputeRequest.toJson();
@@ -119,6 +132,7 @@ public class DisputesApi extends Service {
     * @return {@link DeleteDefenseDocumentResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DeleteDefenseDocumentResponse deleteDisputeDefenseDocument(DeleteDefenseDocumentRequest deleteDefenseDocumentRequest) throws ApiException, IOException {
         return deleteDisputeDefenseDocument(deleteDefenseDocumentRequest, null);
     }
@@ -131,6 +145,7 @@ public class DisputesApi extends Service {
     * @return {@link DeleteDefenseDocumentResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DeleteDefenseDocumentResponse deleteDisputeDefenseDocument(DeleteDefenseDocumentRequest deleteDefenseDocumentRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = deleteDefenseDocumentRequest.toJson();
@@ -146,6 +161,7 @@ public class DisputesApi extends Service {
     * @return {@link DefenseReasonsResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DefenseReasonsResponse retrieveApplicableDefenseReasons(DefenseReasonsRequest defenseReasonsRequest) throws ApiException, IOException {
         return retrieveApplicableDefenseReasons(defenseReasonsRequest, null);
     }
@@ -158,6 +174,7 @@ public class DisputesApi extends Service {
     * @return {@link DefenseReasonsResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public DefenseReasonsResponse retrieveApplicableDefenseReasons(DefenseReasonsRequest defenseReasonsRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = defenseReasonsRequest.toJson();
@@ -173,6 +190,7 @@ public class DisputesApi extends Service {
     * @return {@link SupplyDefenseDocumentResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public SupplyDefenseDocumentResponse supplyDefenseDocument(SupplyDefenseDocumentRequest supplyDefenseDocumentRequest) throws ApiException, IOException {
         return supplyDefenseDocument(supplyDefenseDocumentRequest, null);
     }
@@ -185,6 +203,7 @@ public class DisputesApi extends Service {
     * @return {@link SupplyDefenseDocumentResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.disputes.DisputesApi
     public SupplyDefenseDocumentResponse supplyDefenseDocument(SupplyDefenseDocumentRequest supplyDefenseDocumentRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = supplyDefenseDocumentRequest.toJson();
