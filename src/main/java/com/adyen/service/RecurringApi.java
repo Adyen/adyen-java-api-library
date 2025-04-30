@@ -34,6 +34,12 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The service has been moved to a different package 'com.adyen.recurring.RecurringApi'
+ * @deprecated Use instead com.adyen.service.recurring.RecurringApi
+ *
+ */
 public class RecurringApi extends Service {
 
     public static final String API_VERSION = "68";
@@ -44,6 +50,7 @@ public class RecurringApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public RecurringApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/Recurring/v68");
@@ -55,6 +62,7 @@ public class RecurringApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public RecurringApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -67,6 +75,7 @@ public class RecurringApi extends Service {
     * @return {@link CreatePermitResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public CreatePermitResult createPermit(CreatePermitRequest createPermitRequest) throws ApiException, IOException {
         return createPermit(createPermitRequest, null);
     }
@@ -79,6 +88,7 @@ public class RecurringApi extends Service {
     * @return {@link CreatePermitResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public CreatePermitResult createPermit(CreatePermitRequest createPermitRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = createPermitRequest.toJson();
@@ -94,6 +104,7 @@ public class RecurringApi extends Service {
     * @return {@link DisableResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public DisableResult disable(DisableRequest disableRequest) throws ApiException, IOException {
         return disable(disableRequest, null);
     }
@@ -106,6 +117,7 @@ public class RecurringApi extends Service {
     * @return {@link DisableResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public DisableResult disable(DisableRequest disableRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = disableRequest.toJson();
@@ -121,6 +133,7 @@ public class RecurringApi extends Service {
     * @return {@link DisablePermitResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public DisablePermitResult disablePermit(DisablePermitRequest disablePermitRequest) throws ApiException, IOException {
         return disablePermit(disablePermitRequest, null);
     }
@@ -133,6 +146,7 @@ public class RecurringApi extends Service {
     * @return {@link DisablePermitResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public DisablePermitResult disablePermit(DisablePermitRequest disablePermitRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = disablePermitRequest.toJson();
@@ -148,6 +162,7 @@ public class RecurringApi extends Service {
     * @return {@link RecurringDetailsResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest recurringDetailsRequest) throws ApiException, IOException {
         return listRecurringDetails(recurringDetailsRequest, null);
     }
@@ -160,6 +175,7 @@ public class RecurringApi extends Service {
     * @return {@link RecurringDetailsResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest recurringDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = recurringDetailsRequest.toJson();
@@ -175,6 +191,7 @@ public class RecurringApi extends Service {
     * @return {@link NotifyShopperResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public NotifyShopperResult notifyShopper(NotifyShopperRequest notifyShopperRequest) throws ApiException, IOException {
         return notifyShopper(notifyShopperRequest, null);
     }
@@ -187,6 +204,7 @@ public class RecurringApi extends Service {
     * @return {@link NotifyShopperResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public NotifyShopperResult notifyShopper(NotifyShopperRequest notifyShopperRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = notifyShopperRequest.toJson();
@@ -202,6 +220,7 @@ public class RecurringApi extends Service {
     * @return {@link ScheduleAccountUpdaterResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest scheduleAccountUpdaterRequest) throws ApiException, IOException {
         return scheduleAccountUpdater(scheduleAccountUpdaterRequest, null);
     }
@@ -214,6 +233,7 @@ public class RecurringApi extends Service {
     * @return {@link ScheduleAccountUpdaterResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.recurring.RecurringApi
     public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest scheduleAccountUpdaterRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = scheduleAccountUpdaterRequest.toJson();
