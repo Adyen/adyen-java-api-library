@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,7 @@ public class DSPublicKeyDetail {
   /**
    * Card brand.
    *
-   * @param brand
+   * @param brand Card brand.
    * @return the current {@code DSPublicKeyDetail} instance, allowing for method chaining
    */
   public DSPublicKeyDetail brand(String brand) {
@@ -70,9 +68,8 @@ public class DSPublicKeyDetail {
 
   /**
    * Card brand.
-   * @return brand
+   * @return brand Card brand.
    */
-  @ApiModelProperty(value = "Card brand.")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
@@ -82,8 +79,8 @@ public class DSPublicKeyDetail {
   /**
    * Card brand.
    *
-   * @param brand
-   */ 
+   * @param brand Card brand.
+   */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -93,7 +90,7 @@ public class DSPublicKeyDetail {
   /**
    * Directory Server (DS) identifier.
    *
-   * @param directoryServerId
+   * @param directoryServerId Directory Server (DS) identifier.
    * @return the current {@code DSPublicKeyDetail} instance, allowing for method chaining
    */
   public DSPublicKeyDetail directoryServerId(String directoryServerId) {
@@ -103,9 +100,8 @@ public class DSPublicKeyDetail {
 
   /**
    * Directory Server (DS) identifier.
-   * @return directoryServerId
+   * @return directoryServerId Directory Server (DS) identifier.
    */
-  @ApiModelProperty(value = "Directory Server (DS) identifier.")
   @JsonProperty(JSON_PROPERTY_DIRECTORY_SERVER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDirectoryServerId() {
@@ -115,8 +111,8 @@ public class DSPublicKeyDetail {
   /**
    * Directory Server (DS) identifier.
    *
-   * @param directoryServerId
-   */ 
+   * @param directoryServerId Directory Server (DS) identifier.
+   */
   @JsonProperty(JSON_PROPERTY_DIRECTORY_SERVER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectoryServerId(String directoryServerId) {
@@ -126,7 +122,7 @@ public class DSPublicKeyDetail {
   /**
    * The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).
    *
-   * @param fromSDKVersion
+   * @param fromSDKVersion The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).
    * @return the current {@code DSPublicKeyDetail} instance, allowing for method chaining
    */
   public DSPublicKeyDetail fromSDKVersion(String fromSDKVersion) {
@@ -136,9 +132,8 @@ public class DSPublicKeyDetail {
 
   /**
    * The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).
-   * @return fromSDKVersion
+   * @return fromSDKVersion The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).
    */
-  @ApiModelProperty(value = "The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).")
   @JsonProperty(JSON_PROPERTY_FROM_S_D_K_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFromSDKVersion() {
@@ -148,8 +143,8 @@ public class DSPublicKeyDetail {
   /**
    * The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).
    *
-   * @param fromSDKVersion
-   */ 
+   * @param fromSDKVersion The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).
+   */
   @JsonProperty(JSON_PROPERTY_FROM_S_D_K_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromSDKVersion(String fromSDKVersion) {
@@ -159,7 +154,7 @@ public class DSPublicKeyDetail {
   /**
    * Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.
    *
-   * @param publicKey
+   * @param publicKey Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.
    * @return the current {@code DSPublicKeyDetail} instance, allowing for method chaining
    */
   public DSPublicKeyDetail publicKey(byte[] publicKey) {
@@ -169,9 +164,8 @@ public class DSPublicKeyDetail {
 
   /**
    * Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.
-   * @return publicKey
+   * @return publicKey Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.
    */
-  @ApiModelProperty(value = "Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public byte[] getPublicKey() {
@@ -181,8 +175,8 @@ public class DSPublicKeyDetail {
   /**
    * Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.
    *
-   * @param publicKey
-   */ 
+   * @param publicKey Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.
+   */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicKey(byte[] publicKey) {
@@ -192,7 +186,7 @@ public class DSPublicKeyDetail {
   /**
    * Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.
    *
-   * @param rootCertificates
+   * @param rootCertificates Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.
    * @return the current {@code DSPublicKeyDetail} instance, allowing for method chaining
    */
   public DSPublicKeyDetail rootCertificates(String rootCertificates) {
@@ -202,9 +196,8 @@ public class DSPublicKeyDetail {
 
   /**
    * Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.
-   * @return rootCertificates
+   * @return rootCertificates Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.
    */
-  @ApiModelProperty(value = "Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.")
   @JsonProperty(JSON_PROPERTY_ROOT_CERTIFICATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRootCertificates() {
@@ -214,8 +207,8 @@ public class DSPublicKeyDetail {
   /**
    * Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.
    *
-   * @param rootCertificates
-   */ 
+   * @param rootCertificates Directory Server root certificates. The 3D Secure 2 SDK verifies the ACS signed content using the rootCertificates.
+   */
   @JsonProperty(JSON_PROPERTY_ROOT_CERTIFICATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRootCertificates(String rootCertificates) {

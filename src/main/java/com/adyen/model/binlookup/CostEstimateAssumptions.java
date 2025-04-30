@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class CostEstimateAssumptions {
   /**
    * If true, the cardholder is expected to successfully authorise via 3D Secure.
    *
-   * @param assume3DSecureAuthenticated
+   * @param assume3DSecureAuthenticated If true, the cardholder is expected to successfully authorise via 3D Secure.
    * @return the current {@code CostEstimateAssumptions} instance, allowing for method chaining
    */
   public CostEstimateAssumptions assume3DSecureAuthenticated(Boolean assume3DSecureAuthenticated) {
@@ -62,9 +60,8 @@ public class CostEstimateAssumptions {
 
   /**
    * If true, the cardholder is expected to successfully authorise via 3D Secure.
-   * @return assume3DSecureAuthenticated
+   * @return assume3DSecureAuthenticated If true, the cardholder is expected to successfully authorise via 3D Secure.
    */
-  @ApiModelProperty(value = "If true, the cardholder is expected to successfully authorise via 3D Secure.")
   @JsonProperty(JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAssume3DSecureAuthenticated() {
@@ -74,8 +71,8 @@ public class CostEstimateAssumptions {
   /**
    * If true, the cardholder is expected to successfully authorise via 3D Secure.
    *
-   * @param assume3DSecureAuthenticated
-   */ 
+   * @param assume3DSecureAuthenticated If true, the cardholder is expected to successfully authorise via 3D Secure.
+   */
   @JsonProperty(JSON_PROPERTY_ASSUME3_D_SECURE_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssume3DSecureAuthenticated(Boolean assume3DSecureAuthenticated) {
@@ -85,7 +82,7 @@ public class CostEstimateAssumptions {
   /**
    * If true, the transaction is expected to have valid Level 3 data.
    *
-   * @param assumeLevel3Data
+   * @param assumeLevel3Data If true, the transaction is expected to have valid Level 3 data.
    * @return the current {@code CostEstimateAssumptions} instance, allowing for method chaining
    */
   public CostEstimateAssumptions assumeLevel3Data(Boolean assumeLevel3Data) {
@@ -95,9 +92,8 @@ public class CostEstimateAssumptions {
 
   /**
    * If true, the transaction is expected to have valid Level 3 data.
-   * @return assumeLevel3Data
+   * @return assumeLevel3Data If true, the transaction is expected to have valid Level 3 data.
    */
-  @ApiModelProperty(value = "If true, the transaction is expected to have valid Level 3 data.")
   @JsonProperty(JSON_PROPERTY_ASSUME_LEVEL3_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAssumeLevel3Data() {
@@ -107,8 +103,8 @@ public class CostEstimateAssumptions {
   /**
    * If true, the transaction is expected to have valid Level 3 data.
    *
-   * @param assumeLevel3Data
-   */ 
+   * @param assumeLevel3Data If true, the transaction is expected to have valid Level 3 data.
+   */
   @JsonProperty(JSON_PROPERTY_ASSUME_LEVEL3_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssumeLevel3Data(Boolean assumeLevel3Data) {
@@ -118,7 +114,7 @@ public class CostEstimateAssumptions {
   /**
    * If not zero, the number of installments.
    *
-   * @param installments
+   * @param installments If not zero, the number of installments.
    * @return the current {@code CostEstimateAssumptions} instance, allowing for method chaining
    */
   public CostEstimateAssumptions installments(Integer installments) {
@@ -128,9 +124,8 @@ public class CostEstimateAssumptions {
 
   /**
    * If not zero, the number of installments.
-   * @return installments
+   * @return installments If not zero, the number of installments.
    */
-  @ApiModelProperty(value = "If not zero, the number of installments.")
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getInstallments() {
@@ -140,8 +135,8 @@ public class CostEstimateAssumptions {
   /**
    * If not zero, the number of installments.
    *
-   * @param installments
-   */ 
+   * @param installments If not zero, the number of installments.
+   */
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Integer installments) {

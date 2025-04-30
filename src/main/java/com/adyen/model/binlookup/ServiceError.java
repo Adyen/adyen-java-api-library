@@ -13,7 +13,6 @@
 package com.adyen.model.binlookup;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,7 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ServiceError {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
   private String errorCode;
@@ -67,7 +64,7 @@ public class ServiceError {
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
-   * @param additionalData
+   * @param additionalData Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError additionalData(Map<String, String> additionalData) {
@@ -85,9 +82,8 @@ public class ServiceError {
 
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
-   * @return additionalData
+   * @return additionalData Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    */
-  @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** > **Developers** > **Additional data**.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -97,8 +93,8 @@ public class ServiceError {
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
-   * @param additionalData
-   */ 
+   * @param additionalData Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -108,7 +104,7 @@ public class ServiceError {
   /**
    * The error code mapped to the error message.
    *
-   * @param errorCode
+   * @param errorCode The error code mapped to the error message.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError errorCode(String errorCode) {
@@ -118,9 +114,8 @@ public class ServiceError {
 
   /**
    * The error code mapped to the error message.
-   * @return errorCode
+   * @return errorCode The error code mapped to the error message.
    */
-  @ApiModelProperty(value = "The error code mapped to the error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorCode() {
@@ -130,8 +125,8 @@ public class ServiceError {
   /**
    * The error code mapped to the error message.
    *
-   * @param errorCode
-   */ 
+   * @param errorCode The error code mapped to the error message.
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -141,7 +136,7 @@ public class ServiceError {
   /**
    * The category of the error.
    *
-   * @param errorType
+   * @param errorType The category of the error.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError errorType(String errorType) {
@@ -151,9 +146,8 @@ public class ServiceError {
 
   /**
    * The category of the error.
-   * @return errorType
+   * @return errorType The category of the error.
    */
-  @ApiModelProperty(value = "The category of the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorType() {
@@ -163,8 +157,8 @@ public class ServiceError {
   /**
    * The category of the error.
    *
-   * @param errorType
-   */ 
+   * @param errorType The category of the error.
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorType(String errorType) {
@@ -174,7 +168,7 @@ public class ServiceError {
   /**
    * A short explanation of the issue.
    *
-   * @param message
+   * @param message A short explanation of the issue.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError message(String message) {
@@ -184,9 +178,8 @@ public class ServiceError {
 
   /**
    * A short explanation of the issue.
-   * @return message
+   * @return message A short explanation of the issue.
    */
-  @ApiModelProperty(value = "A short explanation of the issue.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -196,8 +189,8 @@ public class ServiceError {
   /**
    * A short explanation of the issue.
    *
-   * @param message
-   */ 
+   * @param message A short explanation of the issue.
+   */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -207,7 +200,7 @@ public class ServiceError {
   /**
    * The PSP reference of the payment.
    *
-   * @param pspReference
+   * @param pspReference The PSP reference of the payment.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError pspReference(String pspReference) {
@@ -217,9 +210,8 @@ public class ServiceError {
 
   /**
    * The PSP reference of the payment.
-   * @return pspReference
+   * @return pspReference The PSP reference of the payment.
    */
-  @ApiModelProperty(value = "The PSP reference of the payment.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -229,8 +221,8 @@ public class ServiceError {
   /**
    * The PSP reference of the payment.
    *
-   * @param pspReference
-   */ 
+   * @param pspReference The PSP reference of the payment.
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -240,7 +232,7 @@ public class ServiceError {
   /**
    * The HTTP response status.
    *
-   * @param status
+   * @param status The HTTP response status.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError status(Integer status) {
@@ -250,9 +242,8 @@ public class ServiceError {
 
   /**
    * The HTTP response status.
-   * @return status
+   * @return status The HTTP response status.
    */
-  @ApiModelProperty(value = "The HTTP response status.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getStatus() {
@@ -262,8 +253,8 @@ public class ServiceError {
   /**
    * The HTTP response status.
    *
-   * @param status
-   */ 
+   * @param status The HTTP response status.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {
