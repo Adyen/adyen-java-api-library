@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.disputes.DefenseDocumentType;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class DefenseReason {
   public static final String JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES = "defenseDocumentTypes";
-  private List<DefenseDocumentType> defenseDocumentTypes = null;
+  private List<DefenseDocumentType> defenseDocumentTypes;
 
   public static final String JSON_PROPERTY_DEFENSE_REASON_CODE = "defenseReasonCode";
   private String defenseReasonCode;
@@ -55,7 +53,7 @@ public class DefenseReason {
   /**
    * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
    *
-   * @param defenseDocumentTypes
+   * @param defenseDocumentTypes Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
    * @return the current {@code DefenseReason} instance, allowing for method chaining
    */
   public DefenseReason defenseDocumentTypes(List<DefenseDocumentType> defenseDocumentTypes) {
@@ -73,9 +71,8 @@ public class DefenseReason {
 
   /**
    * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
-   * @return defenseDocumentTypes
+   * @return defenseDocumentTypes Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
    */
-  @ApiModelProperty(value = "Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DefenseDocumentType> getDefenseDocumentTypes() {
@@ -85,8 +82,8 @@ public class DefenseReason {
   /**
    * Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
    *
-   * @param defenseDocumentTypes
-   */ 
+   * @param defenseDocumentTypes Array of defense document types for a specific defense reason. Indicates the document types that you can submit to the schemes to defend this dispute, and whether they are required.
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypes(List<DefenseDocumentType> defenseDocumentTypes) {
@@ -96,7 +93,7 @@ public class DefenseReason {
   /**
    * The defense reason code that was selected to defend this dispute.
    *
-   * @param defenseReasonCode
+   * @param defenseReasonCode The defense reason code that was selected to defend this dispute.
    * @return the current {@code DefenseReason} instance, allowing for method chaining
    */
   public DefenseReason defenseReasonCode(String defenseReasonCode) {
@@ -106,9 +103,8 @@ public class DefenseReason {
 
   /**
    * The defense reason code that was selected to defend this dispute.
-   * @return defenseReasonCode
+   * @return defenseReasonCode The defense reason code that was selected to defend this dispute.
    */
-  @ApiModelProperty(required = true, value = "The defense reason code that was selected to defend this dispute.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefenseReasonCode() {
@@ -118,8 +114,8 @@ public class DefenseReason {
   /**
    * The defense reason code that was selected to defend this dispute.
    *
-   * @param defenseReasonCode
-   */ 
+   * @param defenseReasonCode The defense reason code that was selected to defend this dispute.
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseReasonCode(String defenseReasonCode) {
@@ -129,7 +125,7 @@ public class DefenseReason {
   /**
    * Indicates if sufficient defense material has been supplied.
    *
-   * @param satisfied
+   * @param satisfied Indicates if sufficient defense material has been supplied.
    * @return the current {@code DefenseReason} instance, allowing for method chaining
    */
   public DefenseReason satisfied(Boolean satisfied) {
@@ -139,9 +135,8 @@ public class DefenseReason {
 
   /**
    * Indicates if sufficient defense material has been supplied.
-   * @return satisfied
+   * @return satisfied Indicates if sufficient defense material has been supplied.
    */
-  @ApiModelProperty(required = true, value = "Indicates if sufficient defense material has been supplied.")
   @JsonProperty(JSON_PROPERTY_SATISFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSatisfied() {
@@ -151,8 +146,8 @@ public class DefenseReason {
   /**
    * Indicates if sufficient defense material has been supplied.
    *
-   * @param satisfied
-   */ 
+   * @param satisfied Indicates if sufficient defense material has been supplied.
+   */
   @JsonProperty(JSON_PROPERTY_SATISFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSatisfied(Boolean satisfied) {

@@ -13,7 +13,6 @@
 package com.adyen.model.disputes;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class DefenseDocumentType {
   /**
    * When **true**, you&#39;ve successfully uploaded this type of defense document. When **false**, you haven&#39;t uploaded this defense document type.
    *
-   * @param available
+   * @param available When **true**, you&#39;ve successfully uploaded this type of defense document. When **false**, you haven&#39;t uploaded this defense document type.
    * @return the current {@code DefenseDocumentType} instance, allowing for method chaining
    */
   public DefenseDocumentType available(Boolean available) {
@@ -62,9 +60,8 @@ public class DefenseDocumentType {
 
   /**
    * When **true**, you&#39;ve successfully uploaded this type of defense document. When **false**, you haven&#39;t uploaded this defense document type.
-   * @return available
+   * @return available When **true**, you&#39;ve successfully uploaded this type of defense document. When **false**, you haven&#39;t uploaded this defense document type.
    */
-  @ApiModelProperty(required = true, value = "When **true**, you've successfully uploaded this type of defense document. When **false**, you haven't uploaded this defense document type.")
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAvailable() {
@@ -74,8 +71,8 @@ public class DefenseDocumentType {
   /**
    * When **true**, you&#39;ve successfully uploaded this type of defense document. When **false**, you haven&#39;t uploaded this defense document type.
    *
-   * @param available
-   */ 
+   * @param available When **true**, you&#39;ve successfully uploaded this type of defense document. When **false**, you haven&#39;t uploaded this defense document type.
+   */
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Boolean available) {
@@ -85,7 +82,7 @@ public class DefenseDocumentType {
   /**
    * The document type code of the defense document.
    *
-   * @param defenseDocumentTypeCode
+   * @param defenseDocumentTypeCode The document type code of the defense document.
    * @return the current {@code DefenseDocumentType} instance, allowing for method chaining
    */
   public DefenseDocumentType defenseDocumentTypeCode(String defenseDocumentTypeCode) {
@@ -95,9 +92,8 @@ public class DefenseDocumentType {
 
   /**
    * The document type code of the defense document.
-   * @return defenseDocumentTypeCode
+   * @return defenseDocumentTypeCode The document type code of the defense document.
    */
-  @ApiModelProperty(required = true, value = "The document type code of the defense document.")
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefenseDocumentTypeCode() {
@@ -107,8 +103,8 @@ public class DefenseDocumentType {
   /**
    * The document type code of the defense document.
    *
-   * @param defenseDocumentTypeCode
-   */ 
+   * @param defenseDocumentTypeCode The document type code of the defense document.
+   */
   @JsonProperty(JSON_PROPERTY_DEFENSE_DOCUMENT_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefenseDocumentTypeCode(String defenseDocumentTypeCode) {
@@ -118,7 +114,7 @@ public class DefenseDocumentType {
   /**
    * Indicates to what extent the defense document is required in the defense process.  Possible values:   * **Required**: You must supply the document.   * **OneOrMore**: You must supply at least one of the documents with this label.  * **Optional**: You can choose to supply the document.  * **AlternativeRequired**: You must supply a generic defense document. To enable this functionality, contact our Support Team. When enabled, you can supply a generic defense document for all schemes.
    *
-   * @param requirementLevel
+   * @param requirementLevel Indicates to what extent the defense document is required in the defense process.  Possible values:   * **Required**: You must supply the document.   * **OneOrMore**: You must supply at least one of the documents with this label.  * **Optional**: You can choose to supply the document.  * **AlternativeRequired**: You must supply a generic defense document. To enable this functionality, contact our Support Team. When enabled, you can supply a generic defense document for all schemes.
    * @return the current {@code DefenseDocumentType} instance, allowing for method chaining
    */
   public DefenseDocumentType requirementLevel(String requirementLevel) {
@@ -128,9 +124,8 @@ public class DefenseDocumentType {
 
   /**
    * Indicates to what extent the defense document is required in the defense process.  Possible values:   * **Required**: You must supply the document.   * **OneOrMore**: You must supply at least one of the documents with this label.  * **Optional**: You can choose to supply the document.  * **AlternativeRequired**: You must supply a generic defense document. To enable this functionality, contact our Support Team. When enabled, you can supply a generic defense document for all schemes.
-   * @return requirementLevel
+   * @return requirementLevel Indicates to what extent the defense document is required in the defense process.  Possible values:   * **Required**: You must supply the document.   * **OneOrMore**: You must supply at least one of the documents with this label.  * **Optional**: You can choose to supply the document.  * **AlternativeRequired**: You must supply a generic defense document. To enable this functionality, contact our Support Team. When enabled, you can supply a generic defense document for all schemes.
    */
-  @ApiModelProperty(required = true, value = "Indicates to what extent the defense document is required in the defense process.  Possible values:   * **Required**: You must supply the document.   * **OneOrMore**: You must supply at least one of the documents with this label.  * **Optional**: You can choose to supply the document.  * **AlternativeRequired**: You must supply a generic defense document. To enable this functionality, contact our Support Team. When enabled, you can supply a generic defense document for all schemes.")
   @JsonProperty(JSON_PROPERTY_REQUIREMENT_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequirementLevel() {
@@ -140,8 +135,8 @@ public class DefenseDocumentType {
   /**
    * Indicates to what extent the defense document is required in the defense process.  Possible values:   * **Required**: You must supply the document.   * **OneOrMore**: You must supply at least one of the documents with this label.  * **Optional**: You can choose to supply the document.  * **AlternativeRequired**: You must supply a generic defense document. To enable this functionality, contact our Support Team. When enabled, you can supply a generic defense document for all schemes.
    *
-   * @param requirementLevel
-   */ 
+   * @param requirementLevel Indicates to what extent the defense document is required in the defense process.  Possible values:   * **Required**: You must supply the document.   * **OneOrMore**: You must supply at least one of the documents with this label.  * **Optional**: You can choose to supply the document.  * **AlternativeRequired**: You must supply a generic defense document. To enable this functionality, contact our Support Team. When enabled, you can supply a generic defense document for all schemes.
+   */
   @JsonProperty(JSON_PROPERTY_REQUIREMENT_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirementLevel(String requirementLevel) {
