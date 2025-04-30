@@ -24,6 +24,13 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The service has been moved to a different package 'com.adyen.dataprotection.DataProtectionApi'
+ * @deprecated Use instead com.adyen.service.dataprotection.DataProtectionApi
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class DataProtectionApi extends Service {
 
     public static final String API_VERSION = "1";
@@ -34,6 +41,7 @@ public class DataProtectionApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.dataprotection.DataProtectionApi
     public DataProtectionApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://ca-test.adyen.com/ca/services/DataProtectionService/v1");
@@ -45,6 +53,7 @@ public class DataProtectionApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.dataprotection.DataProtectionApi
     public DataProtectionApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -57,6 +66,7 @@ public class DataProtectionApi extends Service {
     * @return {@link SubjectErasureResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.dataprotection.DataProtectionApi
     public SubjectErasureResponse requestSubjectErasure(SubjectErasureByPspReferenceRequest subjectErasureByPspReferenceRequest) throws ApiException, IOException {
         return requestSubjectErasure(subjectErasureByPspReferenceRequest, null);
     }
@@ -69,6 +79,7 @@ public class DataProtectionApi extends Service {
     * @return {@link SubjectErasureResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.dataprotection.DataProtectionApi
     public SubjectErasureResponse requestSubjectErasure(SubjectErasureByPspReferenceRequest subjectErasureByPspReferenceRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = subjectErasureByPspReferenceRequest.toJson();
