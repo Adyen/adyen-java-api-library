@@ -34,6 +34,13 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The service has been moved to a different package 'com.adyen.service.storedvalue'
+ * @Deprecated Use instead com.adyen.service.storedvalue.StoredValue
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class StoredValueApi extends Service {
 
     public static final String API_VERSION = "46";
@@ -44,6 +51,7 @@ public class StoredValueApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/StoredValue/v46");
@@ -55,6 +63,7 @@ public class StoredValueApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -67,6 +76,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueStatusChangeResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueStatusChangeResponse changeStatus(StoredValueStatusChangeRequest storedValueStatusChangeRequest) throws ApiException, IOException {
         return changeStatus(storedValueStatusChangeRequest, null);
     }
@@ -79,6 +89,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueStatusChangeResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueStatusChangeResponse changeStatus(StoredValueStatusChangeRequest storedValueStatusChangeRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = storedValueStatusChangeRequest.toJson();
@@ -94,6 +105,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueBalanceCheckResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueBalanceCheckResponse checkBalance(StoredValueBalanceCheckRequest storedValueBalanceCheckRequest) throws ApiException, IOException {
         return checkBalance(storedValueBalanceCheckRequest, null);
     }
@@ -106,6 +118,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueBalanceCheckResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueBalanceCheckResponse checkBalance(StoredValueBalanceCheckRequest storedValueBalanceCheckRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = storedValueBalanceCheckRequest.toJson();
@@ -121,6 +134,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueIssueResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueIssueResponse issue(StoredValueIssueRequest storedValueIssueRequest) throws ApiException, IOException {
         return issue(storedValueIssueRequest, null);
     }
@@ -133,6 +147,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueIssueResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueIssueResponse issue(StoredValueIssueRequest storedValueIssueRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = storedValueIssueRequest.toJson();
@@ -148,6 +163,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueLoadResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueLoadResponse load(StoredValueLoadRequest storedValueLoadRequest) throws ApiException, IOException {
         return load(storedValueLoadRequest, null);
     }
@@ -160,6 +176,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueLoadResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueLoadResponse load(StoredValueLoadRequest storedValueLoadRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = storedValueLoadRequest.toJson();
@@ -175,6 +192,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueBalanceMergeResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueBalanceMergeResponse mergeBalance(StoredValueBalanceMergeRequest storedValueBalanceMergeRequest) throws ApiException, IOException {
         return mergeBalance(storedValueBalanceMergeRequest, null);
     }
@@ -187,6 +205,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueBalanceMergeResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueBalanceMergeResponse mergeBalance(StoredValueBalanceMergeRequest storedValueBalanceMergeRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = storedValueBalanceMergeRequest.toJson();
@@ -202,6 +221,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueVoidResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueVoidResponse voidTransaction(StoredValueVoidRequest storedValueVoidRequest) throws ApiException, IOException {
         return voidTransaction(storedValueVoidRequest, null);
     }
@@ -214,6 +234,7 @@ public class StoredValueApi extends Service {
     * @return {@link StoredValueVoidResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.storedvalue.StoredValue
     public StoredValueVoidResponse voidTransaction(StoredValueVoidRequest storedValueVoidRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = storedValueVoidRequest.toJson();
