@@ -62,7 +62,7 @@ public class StoredValueVoidRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest merchantAccount(String merchantAccount) {
@@ -72,7 +72,7 @@ public class StoredValueVoidRequest {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class StoredValueVoidRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +94,7 @@ public class StoredValueVoidRequest {
   /**
    * The original pspReference of the payment to modify.
    *
-   * @param originalReference
+   * @param originalReference The original pspReference of the payment to modify.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest originalReference(String originalReference) {
@@ -104,7 +104,7 @@ public class StoredValueVoidRequest {
 
   /**
    * The original pspReference of the payment to modify.
-   * @return originalReference
+   * @return originalReference The original pspReference of the payment to modify.
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class StoredValueVoidRequest {
   /**
    * The original pspReference of the payment to modify.
    *
-   * @param originalReference
+   * @param originalReference The original pspReference of the payment to modify.
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class StoredValueVoidRequest {
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest reference(String reference) {
@@ -136,7 +136,7 @@ public class StoredValueVoidRequest {
 
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class StoredValueVoidRequest {
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class StoredValueVoidRequest {
   /**
    * The physical store, for which this payment is processed.
    *
-   * @param store
+   * @param store The physical store, for which this payment is processed.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest store(String store) {
@@ -168,7 +168,7 @@ public class StoredValueVoidRequest {
 
   /**
    * The physical store, for which this payment is processed.
-   * @return store
+   * @return store The physical store, for which this payment is processed.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class StoredValueVoidRequest {
   /**
    * The physical store, for which this payment is processed.
    *
-   * @param store
+   * @param store The physical store, for which this payment is processed.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class StoredValueVoidRequest {
   /**
    * The reference of the tender.
    *
-   * @param tenderReference
+   * @param tenderReference The reference of the tender.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest tenderReference(String tenderReference) {
@@ -200,7 +200,7 @@ public class StoredValueVoidRequest {
 
   /**
    * The reference of the tender.
-   * @return tenderReference
+   * @return tenderReference The reference of the tender.
    */
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class StoredValueVoidRequest {
   /**
    * The reference of the tender.
    *
-   * @param tenderReference
+   * @param tenderReference The reference of the tender.
    */
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class StoredValueVoidRequest {
   /**
    * The unique ID of a POS terminal.
    *
-   * @param uniqueTerminalId
+   * @param uniqueTerminalId The unique ID of a POS terminal.
    * @return the current {@code StoredValueVoidRequest} instance, allowing for method chaining
    */
   public StoredValueVoidRequest uniqueTerminalId(String uniqueTerminalId) {
@@ -232,7 +232,7 @@ public class StoredValueVoidRequest {
 
   /**
    * The unique ID of a POS terminal.
-   * @return uniqueTerminalId
+   * @return uniqueTerminalId The unique ID of a POS terminal.
    */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class StoredValueVoidRequest {
   /**
    * The unique ID of a POS terminal.
    *
-   * @param uniqueTerminalId
+   * @param uniqueTerminalId The unique ID of a POS terminal.
    */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

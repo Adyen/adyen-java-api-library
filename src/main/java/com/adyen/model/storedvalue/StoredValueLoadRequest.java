@@ -151,7 +151,7 @@ public class StoredValueLoadRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest amount(Amount amount) {
@@ -161,7 +161,7 @@ public class StoredValueLoadRequest {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class StoredValueLoadRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class StoredValueLoadRequest {
   /**
    * The type of load you are trying to do, when absent we default to &#39;Load&#39;
    *
-   * @param loadType
+   * @param loadType The type of load you are trying to do, when absent we default to &#39;Load&#39;
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest loadType(LoadTypeEnum loadType) {
@@ -193,7 +193,7 @@ public class StoredValueLoadRequest {
 
   /**
    * The type of load you are trying to do, when absent we default to &#39;Load&#39;
-   * @return loadType
+   * @return loadType The type of load you are trying to do, when absent we default to &#39;Load&#39;
    */
   @JsonProperty(JSON_PROPERTY_LOAD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +204,7 @@ public class StoredValueLoadRequest {
   /**
    * The type of load you are trying to do, when absent we default to &#39;Load&#39;
    *
-   * @param loadType
+   * @param loadType The type of load you are trying to do, when absent we default to &#39;Load&#39;
    */
   @JsonProperty(JSON_PROPERTY_LOAD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +215,7 @@ public class StoredValueLoadRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest merchantAccount(String merchantAccount) {
@@ -225,7 +225,7 @@ public class StoredValueLoadRequest {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +236,7 @@ public class StoredValueLoadRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +247,7 @@ public class StoredValueLoadRequest {
   /**
    * The collection that contains the type of the payment method and its specific information if available
    *
-   * @param paymentMethod
+   * @param paymentMethod The collection that contains the type of the payment method and its specific information if available
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest paymentMethod(Map<String, String> paymentMethod) {
@@ -265,7 +265,7 @@ public class StoredValueLoadRequest {
 
   /**
    * The collection that contains the type of the payment method and its specific information if available
-   * @return paymentMethod
+   * @return paymentMethod The collection that contains the type of the payment method and its specific information if available
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class StoredValueLoadRequest {
   /**
    * The collection that contains the type of the payment method and its specific information if available
    *
-   * @param paymentMethod
+   * @param paymentMethod The collection that contains the type of the payment method and its specific information if available
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +287,7 @@ public class StoredValueLoadRequest {
   /**
    * recurringDetailReference
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference 
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest recurringDetailReference(String recurringDetailReference) {
@@ -297,7 +297,7 @@ public class StoredValueLoadRequest {
 
   /**
    * Get recurringDetailReference
-   * @return recurringDetailReference
+   * @return recurringDetailReference 
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +308,7 @@ public class StoredValueLoadRequest {
   /**
    * recurringDetailReference
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference 
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +319,7 @@ public class StoredValueLoadRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest reference(String reference) {
@@ -329,7 +329,7 @@ public class StoredValueLoadRequest {
 
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-   * @return reference
+   * @return reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +340,7 @@ public class StoredValueLoadRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,7 +351,7 @@ public class StoredValueLoadRequest {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -361,7 +361,7 @@ public class StoredValueLoadRequest {
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
-   * @return shopperInteraction
+   * @return shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,7 +372,7 @@ public class StoredValueLoadRequest {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -383,7 +383,7 @@ public class StoredValueLoadRequest {
   /**
    * shopperReference
    *
-   * @param shopperReference
+   * @param shopperReference 
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest shopperReference(String shopperReference) {
@@ -393,7 +393,7 @@ public class StoredValueLoadRequest {
 
   /**
    * Get shopperReference
-   * @return shopperReference
+   * @return shopperReference 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,7 +404,7 @@ public class StoredValueLoadRequest {
   /**
    * shopperReference
    *
-   * @param shopperReference
+   * @param shopperReference 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,7 +415,7 @@ public class StoredValueLoadRequest {
   /**
    * The physical store, for which this payment is processed.
    *
-   * @param store
+   * @param store The physical store, for which this payment is processed.
    * @return the current {@code StoredValueLoadRequest} instance, allowing for method chaining
    */
   public StoredValueLoadRequest store(String store) {
@@ -425,7 +425,7 @@ public class StoredValueLoadRequest {
 
   /**
    * The physical store, for which this payment is processed.
-   * @return store
+   * @return store The physical store, for which this payment is processed.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -436,7 +436,7 @@ public class StoredValueLoadRequest {
   /**
    * The physical store, for which this payment is processed.
    *
-   * @param store
+   * @param store The physical store, for which this payment is processed.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

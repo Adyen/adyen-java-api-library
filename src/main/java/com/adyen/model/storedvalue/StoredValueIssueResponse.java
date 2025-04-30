@@ -108,7 +108,7 @@ public class StoredValueIssueResponse {
   /**
    * Authorisation code: * When the payment is authorised, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.
    *
-   * @param authCode
+   * @param authCode Authorisation code: * When the payment is authorised, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.
    * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
   public StoredValueIssueResponse authCode(String authCode) {
@@ -118,7 +118,7 @@ public class StoredValueIssueResponse {
 
   /**
    * Authorisation code: * When the payment is authorised, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.
-   * @return authCode
+   * @return authCode Authorisation code: * When the payment is authorised, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.
    */
   @JsonProperty(JSON_PROPERTY_AUTH_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +129,7 @@ public class StoredValueIssueResponse {
   /**
    * Authorisation code: * When the payment is authorised, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.
    *
-   * @param authCode
+   * @param authCode Authorisation code: * When the payment is authorised, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.
    */
   @JsonProperty(JSON_PROPERTY_AUTH_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class StoredValueIssueResponse {
   /**
    * currentBalance
    *
-   * @param currentBalance
+   * @param currentBalance 
    * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
   public StoredValueIssueResponse currentBalance(Amount currentBalance) {
@@ -150,7 +150,7 @@ public class StoredValueIssueResponse {
 
   /**
    * Get currentBalance
-   * @return currentBalance
+   * @return currentBalance 
    */
   @JsonProperty(JSON_PROPERTY_CURRENT_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class StoredValueIssueResponse {
   /**
    * currentBalance
    *
-   * @param currentBalance
+   * @param currentBalance 
    */
   @JsonProperty(JSON_PROPERTY_CURRENT_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class StoredValueIssueResponse {
   /**
    * The collection that contains the type of the payment method and its specific information if available
    *
-   * @param paymentMethod
+   * @param paymentMethod The collection that contains the type of the payment method and its specific information if available
    * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
   public StoredValueIssueResponse paymentMethod(Map<String, String> paymentMethod) {
@@ -190,7 +190,7 @@ public class StoredValueIssueResponse {
 
   /**
    * The collection that contains the type of the payment method and its specific information if available
-   * @return paymentMethod
+   * @return paymentMethod The collection that contains the type of the payment method and its specific information if available
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class StoredValueIssueResponse {
   /**
    * The collection that contains the type of the payment method and its specific information if available
    *
-   * @param paymentMethod
+   * @param paymentMethod The collection that contains the type of the payment method and its specific information if available
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class StoredValueIssueResponse {
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
   public StoredValueIssueResponse pspReference(String pspReference) {
@@ -222,7 +222,7 @@ public class StoredValueIssueResponse {
 
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-   * @return pspReference
+   * @return pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class StoredValueIssueResponse {
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class StoredValueIssueResponse {
   /**
    * If the transaction is refused or an error occurs, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
    *
-   * @param refusalReason
+   * @param refusalReason If the transaction is refused or an error occurs, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
    * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
   public StoredValueIssueResponse refusalReason(String refusalReason) {
@@ -254,7 +254,7 @@ public class StoredValueIssueResponse {
 
   /**
    * If the transaction is refused or an error occurs, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
-   * @return refusalReason
+   * @return refusalReason If the transaction is refused or an error occurs, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class StoredValueIssueResponse {
   /**
    * If the transaction is refused or an error occurs, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
    *
-   * @param refusalReason
+   * @param refusalReason If the transaction is refused or an error occurs, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class StoredValueIssueResponse {
   /**
    * The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the &#x60;refusalReason&#x60; field.  * **Error** – There was an error when the operation was processed. The reason is given in the &#x60;refusalReason&#x60; field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  
    *
-   * @param resultCode
+   * @param resultCode The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the &#x60;refusalReason&#x60; field.  * **Error** – There was an error when the operation was processed. The reason is given in the &#x60;refusalReason&#x60; field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  
    * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
   public StoredValueIssueResponse resultCode(ResultCodeEnum resultCode) {
@@ -286,7 +286,7 @@ public class StoredValueIssueResponse {
 
   /**
    * The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the &#x60;refusalReason&#x60; field.  * **Error** – There was an error when the operation was processed. The reason is given in the &#x60;refusalReason&#x60; field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  
-   * @return resultCode
+   * @return resultCode The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the &#x60;refusalReason&#x60; field.  * **Error** – There was an error when the operation was processed. The reason is given in the &#x60;refusalReason&#x60; field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +297,7 @@ public class StoredValueIssueResponse {
   /**
    * The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the &#x60;refusalReason&#x60; field.  * **Error** – There was an error when the operation was processed. The reason is given in the &#x60;refusalReason&#x60; field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  
    *
-   * @param resultCode
+   * @param resultCode The result of the payment. Possible values:  * **Success** – The operation has been completed successfully.  * **Refused** – The operation was refused. The reason is given in the &#x60;refusalReason&#x60; field.  * **Error** – There was an error when the operation was processed. The reason is given in the &#x60;refusalReason&#x60; field.  * **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks.  
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +308,7 @@ public class StoredValueIssueResponse {
   /**
    * Raw refusal reason received from the third party, where available
    *
-   * @param thirdPartyRefusalReason
+   * @param thirdPartyRefusalReason Raw refusal reason received from the third party, where available
    * @return the current {@code StoredValueIssueResponse} instance, allowing for method chaining
    */
   public StoredValueIssueResponse thirdPartyRefusalReason(String thirdPartyRefusalReason) {
@@ -318,7 +318,7 @@ public class StoredValueIssueResponse {
 
   /**
    * Raw refusal reason received from the third party, where available
-   * @return thirdPartyRefusalReason
+   * @return thirdPartyRefusalReason Raw refusal reason received from the third party, where available
    */
   @JsonProperty(JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +329,7 @@ public class StoredValueIssueResponse {
   /**
    * Raw refusal reason received from the third party, where available
    *
-   * @param thirdPartyRefusalReason
+   * @param thirdPartyRefusalReason Raw refusal reason received from the third party, where available
    */
   @JsonProperty(JSON_PROPERTY_THIRD_PARTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
