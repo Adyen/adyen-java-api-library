@@ -25,6 +25,13 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The service has been moved to a different package 'com.adyen.service.paymentsapp.PaymentsAppApi'
+ * @deprecated Use instead com.adyen.service.paymentsapp.PaymentsAppApi
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class PaymentsAppApi extends Service {
 
     public static final String API_VERSION = "1";
@@ -35,6 +42,7 @@ public class PaymentsAppApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public PaymentsAppApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://management-live.adyen.com/v1");
@@ -46,6 +54,7 @@ public class PaymentsAppApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public PaymentsAppApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -60,6 +69,7 @@ public class PaymentsAppApi extends Service {
     * @return {@link BoardingTokenResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public BoardingTokenResponse generatePaymentsAppBoardingTokenForMerchant(String merchantId, BoardingTokenRequest boardingTokenRequest) throws ApiException, IOException {
         return generatePaymentsAppBoardingTokenForMerchant(merchantId, boardingTokenRequest, null);
     }
@@ -73,6 +83,7 @@ public class PaymentsAppApi extends Service {
     * @return {@link BoardingTokenResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public BoardingTokenResponse generatePaymentsAppBoardingTokenForMerchant(String merchantId, BoardingTokenRequest boardingTokenRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
@@ -97,6 +108,7 @@ public class PaymentsAppApi extends Service {
     * @return {@link BoardingTokenResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public BoardingTokenResponse generatePaymentsAppBoardingTokenForStore(String merchantId, String storeId, BoardingTokenRequest boardingTokenRequest) throws ApiException, IOException {
         return generatePaymentsAppBoardingTokenForStore(merchantId, storeId, boardingTokenRequest, null);
     }
@@ -111,6 +123,7 @@ public class PaymentsAppApi extends Service {
     * @return {@link BoardingTokenResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public BoardingTokenResponse generatePaymentsAppBoardingTokenForStore(String merchantId, String storeId, BoardingTokenRequest boardingTokenRequest, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
@@ -136,6 +149,7 @@ public class PaymentsAppApi extends Service {
     * @return {@link PaymentsAppResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public PaymentsAppResponse listPaymentsAppForMerchant(String merchantId) throws ApiException, IOException {
         return listPaymentsAppForMerchant(merchantId, null,  null,  null,  null);
     }
@@ -151,6 +165,7 @@ public class PaymentsAppApi extends Service {
     * @return {@link PaymentsAppResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public PaymentsAppResponse listPaymentsAppForMerchant(String merchantId, String statuses, Integer limit, Long offset, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
@@ -184,6 +199,7 @@ public class PaymentsAppApi extends Service {
     * @return {@link PaymentsAppResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public PaymentsAppResponse listPaymentsAppForStore(String merchantId, String storeId) throws ApiException, IOException {
         return listPaymentsAppForStore(merchantId, storeId, null,  null,  null,  null);
     }
@@ -200,6 +216,7 @@ public class PaymentsAppApi extends Service {
     * @return {@link PaymentsAppResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public PaymentsAppResponse listPaymentsAppForStore(String merchantId, String storeId, String statuses, Integer limit, Long offset, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
@@ -236,6 +253,7 @@ public class PaymentsAppApi extends Service {
     * @param installationId {@link String } The unique identifier of the Payments App instance on a device. (required)
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public void revokePaymentsApp(String merchantId, String installationId) throws ApiException, IOException {
         revokePaymentsApp(merchantId, installationId, null);
     }
@@ -248,6 +266,7 @@ public class PaymentsAppApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.paymentsapp.PaymentsAppApi
     public void revokePaymentsApp(String merchantId, String installationId, RequestOptions requestOptions) throws ApiException, IOException {
         //Add path params
         Map<String, String> pathParams = new HashMap<>();
