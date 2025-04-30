@@ -23,6 +23,13 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The service has been moved to a different package 'com.adyen.service.posmobile'
+ * @deprecated Use instead com.adyen.service.posmobile.PosMobileApi
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class PosMobileApi extends Service {
 
     public static final String API_VERSION = "68";
@@ -33,6 +40,7 @@ public class PosMobileApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true)
     public PosMobileApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://checkout-test.adyen.com/checkout/possdk/v68");
@@ -44,6 +52,7 @@ public class PosMobileApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true)
     public PosMobileApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -56,6 +65,7 @@ public class PosMobileApi extends Service {
     * @return {@link CreateSessionResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true)
     public CreateSessionResponse createCommunicationSession(CreateSessionRequest createSessionRequest) throws ApiException, IOException {
         return createCommunicationSession(createSessionRequest, null);
     }
@@ -68,6 +78,7 @@ public class PosMobileApi extends Service {
     * @return {@link CreateSessionResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true)
     public CreateSessionResponse createCommunicationSession(CreateSessionRequest createSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = createSessionRequest.toJson();
