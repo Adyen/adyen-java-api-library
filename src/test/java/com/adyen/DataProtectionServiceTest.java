@@ -23,7 +23,7 @@ package com.adyen;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.dataprotection.SubjectErasureByPspReferenceRequest;
 import com.adyen.model.dataprotection.SubjectErasureResponse;
-import com.adyen.service.DataProtectionApi;
+import com.adyen.service.dataprotection.DataProtectionApi;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
