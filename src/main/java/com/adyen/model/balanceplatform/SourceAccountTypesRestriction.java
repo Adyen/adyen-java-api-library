@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -45,9 +43,9 @@ public class SourceAccountTypesRestriction {
    * Gets or Sets value
    */
   public enum ValueEnum {
-    BALANCEACCOUNT("balanceAccount"),
+    BALANCEACCOUNT(String.valueOf("balanceAccount")),
     
-    BUSINESSACCOUNT("businessAccount");
+    BUSINESSACCOUNT(String.valueOf("businessAccount"));
 
     private String value;
 
@@ -77,7 +75,7 @@ public class SourceAccountTypesRestriction {
   }
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<ValueEnum> value = null;
+  private List<ValueEnum> value;
 
   public SourceAccountTypesRestriction() { 
   }
@@ -97,7 +95,6 @@ public class SourceAccountTypesRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
    */
-  @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOperation() {
@@ -108,7 +105,7 @@ public class SourceAccountTypesRestriction {
    * Defines how the condition must be evaluated.
    *
    * @param operation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
@@ -138,7 +135,6 @@ public class SourceAccountTypesRestriction {
    * The list of source account types to be evaluated.
    * @return value
    */
-  @ApiModelProperty(value = "The list of source account types to be evaluated.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ValueEnum> getValue() {
@@ -149,7 +145,7 @@ public class SourceAccountTypesRestriction {
    * The list of source account types to be evaluated.
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {

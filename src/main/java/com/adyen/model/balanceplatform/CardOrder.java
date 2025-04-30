@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,9 +66,9 @@ public class CardOrder {
    * The status of the card order.  Possible values: **Open**, **Closed**.
    */
   public enum StatusEnum {
-    CLOSED("closed"),
+    CLOSED(String.valueOf("closed")),
     
-    OPEN("open");
+    OPEN(String.valueOf("open"));
 
     private String value;
 
@@ -120,7 +118,6 @@ public class CardOrder {
    * The date when the card order is created.
    * @return beginDate
    */
-  @ApiModelProperty(value = "The date when the card order is created.")
   @JsonProperty(JSON_PROPERTY_BEGIN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getBeginDate() {
@@ -131,7 +128,7 @@ public class CardOrder {
    * The date when the card order is created.
    *
    * @param beginDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BEGIN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBeginDate(OffsetDateTime beginDate) {
@@ -153,7 +150,6 @@ public class CardOrder {
    * The unique identifier of the card manufacturer profile.
    * @return cardManufacturingProfileId
    */
-  @ApiModelProperty(value = "The unique identifier of the card manufacturer profile.")
   @JsonProperty(JSON_PROPERTY_CARD_MANUFACTURING_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardManufacturingProfileId() {
@@ -164,7 +160,7 @@ public class CardOrder {
    * The unique identifier of the card manufacturer profile.
    *
    * @param cardManufacturingProfileId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_MANUFACTURING_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardManufacturingProfileId(String cardManufacturingProfileId) {
@@ -186,7 +182,6 @@ public class CardOrder {
    * The date when the card order processing ends.
    * @return closedDate
    */
-  @ApiModelProperty(value = "The date when the card order processing ends.")
   @JsonProperty(JSON_PROPERTY_CLOSED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getClosedDate() {
@@ -197,7 +192,7 @@ public class CardOrder {
    * The date when the card order processing ends.
    *
    * @param closedDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CLOSED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClosedDate(OffsetDateTime closedDate) {
@@ -219,7 +214,6 @@ public class CardOrder {
    * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
    * @return endDate
    */
-  @ApiModelProperty(value = "The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the `endDate`.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getEndDate() {
@@ -230,7 +224,7 @@ public class CardOrder {
    * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
    *
    * @param endDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEndDate(OffsetDateTime endDate) {
@@ -252,7 +246,6 @@ public class CardOrder {
    * The unique identifier of the card order.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the card order.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -263,7 +256,7 @@ public class CardOrder {
    * The unique identifier of the card order.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -285,7 +278,6 @@ public class CardOrder {
    * The date when the card order processing begins.
    * @return lockDate
    */
-  @ApiModelProperty(value = "The date when the card order processing begins.")
   @JsonProperty(JSON_PROPERTY_LOCK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getLockDate() {
@@ -296,7 +288,7 @@ public class CardOrder {
    * The date when the card order processing begins.
    *
    * @param lockDate
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LOCK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLockDate(OffsetDateTime lockDate) {
@@ -318,7 +310,6 @@ public class CardOrder {
    * The service center.
    * @return serviceCenter
    */
-  @ApiModelProperty(value = "The service center.")
   @JsonProperty(JSON_PROPERTY_SERVICE_CENTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getServiceCenter() {
@@ -329,7 +320,7 @@ public class CardOrder {
    * The service center.
    *
    * @param serviceCenter
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SERVICE_CENTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setServiceCenter(String serviceCenter) {
@@ -351,7 +342,6 @@ public class CardOrder {
    * The status of the card order.  Possible values: **Open**, **Closed**.
    * @return status
    */
-  @ApiModelProperty(value = "The status of the card order.  Possible values: **Open**, **Closed**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -362,7 +352,7 @@ public class CardOrder {
    * The status of the card order.  Possible values: **Open**, **Closed**.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

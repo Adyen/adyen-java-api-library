@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Duration;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,19 +46,19 @@ public class TransactionRuleInterval {
    * The day of week, used when the &#x60;duration.unit&#x60; is **weeks**. If not provided, by default, this is set to **monday**.  Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday**, **friday**.
    */
   public enum DayOfWeekEnum {
-    FRIDAY("friday"),
+    FRIDAY(String.valueOf("friday")),
     
-    MONDAY("monday"),
+    MONDAY(String.valueOf("monday")),
     
-    SATURDAY("saturday"),
+    SATURDAY(String.valueOf("saturday")),
     
-    SUNDAY("sunday"),
+    SUNDAY(String.valueOf("sunday")),
     
-    THURSDAY("thursday"),
+    THURSDAY(String.valueOf("thursday")),
     
-    TUESDAY("tuesday"),
+    TUESDAY(String.valueOf("tuesday")),
     
-    WEDNESDAY("wednesday");
+    WEDNESDAY(String.valueOf("wednesday"));
 
     private String value;
 
@@ -105,19 +103,19 @@ public class TransactionRuleInterval {
    * The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during which the rule conditions and limits apply, and how often counters are reset.  Possible values:   * **perTransaction**: conditions are evaluated and the counters are reset for every transaction.  * **daily**: the counters are reset daily at 00:00:00 CET.  * **weekly**: the counters are reset every Monday at 00:00:00 CET.   * **monthly**: the counters reset every first day of the month at 00:00:00 CET.   * **lifetime**: conditions are applied to the lifetime of the payment instrument.  * **rolling**: conditions are applied and the counters are reset based on a &#x60;duration&#x60;. If the reset date and time are not provided, Adyen applies the default reset time similar to fixed intervals. For example, if the duration is every two weeks, the counter resets every third Monday at 00:00:00 CET.  * **sliding**: conditions are applied and the counters are reset based on the current time and a &#x60;duration&#x60; that you specify.
    */
   public enum TypeEnum {
-    DAILY("daily"),
+    DAILY(String.valueOf("daily")),
     
-    LIFETIME("lifetime"),
+    LIFETIME(String.valueOf("lifetime")),
     
-    MONTHLY("monthly"),
+    MONTHLY(String.valueOf("monthly")),
     
-    PERTRANSACTION("perTransaction"),
+    PERTRANSACTION(String.valueOf("perTransaction")),
     
-    ROLLING("rolling"),
+    ROLLING(String.valueOf("rolling")),
     
-    SLIDING("sliding"),
+    SLIDING(String.valueOf("sliding")),
     
-    WEEKLY("weekly");
+    WEEKLY(String.valueOf("weekly"));
 
     private String value;
 
@@ -167,7 +165,6 @@ public class TransactionRuleInterval {
    * The day of month, used when the &#x60;duration.unit&#x60; is **months**. If not provided, by default, this is set to **1**, the first day of the month.
    * @return dayOfMonth
    */
-  @ApiModelProperty(value = "The day of month, used when the `duration.unit` is **months**. If not provided, by default, this is set to **1**, the first day of the month.")
   @JsonProperty(JSON_PROPERTY_DAY_OF_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getDayOfMonth() {
@@ -178,7 +175,7 @@ public class TransactionRuleInterval {
    * The day of month, used when the &#x60;duration.unit&#x60; is **months**. If not provided, by default, this is set to **1**, the first day of the month.
    *
    * @param dayOfMonth
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DAY_OF_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDayOfMonth(Integer dayOfMonth) {
@@ -200,7 +197,6 @@ public class TransactionRuleInterval {
    * The day of week, used when the &#x60;duration.unit&#x60; is **weeks**. If not provided, by default, this is set to **monday**.  Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday**, **friday**.
    * @return dayOfWeek
    */
-  @ApiModelProperty(value = "The day of week, used when the `duration.unit` is **weeks**. If not provided, by default, this is set to **monday**.  Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday**, **friday**.")
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DayOfWeekEnum getDayOfWeek() {
@@ -211,7 +207,7 @@ public class TransactionRuleInterval {
    * The day of week, used when the &#x60;duration.unit&#x60; is **weeks**. If not provided, by default, this is set to **monday**.  Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday**, **friday**.
    *
    * @param dayOfWeek
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDayOfWeek(DayOfWeekEnum dayOfWeek) {
@@ -230,10 +226,9 @@ public class TransactionRuleInterval {
   }
 
   /**
-   * duration
+   * Get duration
    * @return duration
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Duration getDuration() {
@@ -244,7 +239,7 @@ public class TransactionRuleInterval {
    * duration
    *
    * @param duration
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDuration(Duration duration) {
@@ -266,7 +261,6 @@ public class TransactionRuleInterval {
    * The time of day, in **hh:mm:ss** format, used when the &#x60;duration.unit&#x60; is **hours**. If not provided, by default, this is set to **00:00:00**.
    * @return timeOfDay
    */
-  @ApiModelProperty(value = "The time of day, in **hh:mm:ss** format, used when the `duration.unit` is **hours**. If not provided, by default, this is set to **00:00:00**.")
   @JsonProperty(JSON_PROPERTY_TIME_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeOfDay() {
@@ -277,7 +271,7 @@ public class TransactionRuleInterval {
    * The time of day, in **hh:mm:ss** format, used when the &#x60;duration.unit&#x60; is **hours**. If not provided, by default, this is set to **00:00:00**.
    *
    * @param timeOfDay
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIME_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeOfDay(String timeOfDay) {
@@ -299,7 +293,6 @@ public class TransactionRuleInterval {
    * The [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example, **Europe/Amsterdam**. By default, this is set to **UTC**.
    * @return timeZone
    */
-  @ApiModelProperty(value = "The [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example, **Europe/Amsterdam**. By default, this is set to **UTC**.")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeZone() {
@@ -310,7 +303,7 @@ public class TransactionRuleInterval {
    * The [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example, **Europe/Amsterdam**. By default, this is set to **UTC**.
    *
    * @param timeZone
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(String timeZone) {
@@ -332,7 +325,6 @@ public class TransactionRuleInterval {
    * The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during which the rule conditions and limits apply, and how often counters are reset.  Possible values:   * **perTransaction**: conditions are evaluated and the counters are reset for every transaction.  * **daily**: the counters are reset daily at 00:00:00 CET.  * **weekly**: the counters are reset every Monday at 00:00:00 CET.   * **monthly**: the counters reset every first day of the month at 00:00:00 CET.   * **lifetime**: conditions are applied to the lifetime of the payment instrument.  * **rolling**: conditions are applied and the counters are reset based on a &#x60;duration&#x60;. If the reset date and time are not provided, Adyen applies the default reset time similar to fixed intervals. For example, if the duration is every two weeks, the counter resets every third Monday at 00:00:00 CET.  * **sliding**: conditions are applied and the counters are reset based on the current time and a &#x60;duration&#x60; that you specify.
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during which the rule conditions and limits apply, and how often counters are reset.  Possible values:   * **perTransaction**: conditions are evaluated and the counters are reset for every transaction.  * **daily**: the counters are reset daily at 00:00:00 CET.  * **weekly**: the counters are reset every Monday at 00:00:00 CET.   * **monthly**: the counters reset every first day of the month at 00:00:00 CET.   * **lifetime**: conditions are applied to the lifetime of the payment instrument.  * **rolling**: conditions are applied and the counters are reset based on a `duration`. If the reset date and time are not provided, Adyen applies the default reset time similar to fixed intervals. For example, if the duration is every two weeks, the counter resets every third Monday at 00:00:00 CET.  * **sliding**: conditions are applied and the counters are reset based on the current time and a `duration` that you specify.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -343,7 +335,7 @@ public class TransactionRuleInterval {
    * The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during which the rule conditions and limits apply, and how often counters are reset.  Possible values:   * **perTransaction**: conditions are evaluated and the counters are reset for every transaction.  * **daily**: the counters are reset daily at 00:00:00 CET.  * **weekly**: the counters are reset every Monday at 00:00:00 CET.   * **monthly**: the counters reset every first day of the month at 00:00:00 CET.   * **lifetime**: conditions are applied to the lifetime of the payment instrument.  * **rolling**: conditions are applied and the counters are reset based on a &#x60;duration&#x60;. If the reset date and time are not provided, Adyen applies the default reset time similar to fixed intervals. For example, if the duration is every two weeks, the counter resets every third Monday at 00:00:00 CET.  * **sliding**: conditions are applied and the counters are reset based on the current time and a &#x60;duration&#x60; that you specify.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

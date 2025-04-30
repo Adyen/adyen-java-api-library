@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,7 +66,6 @@ public class RegisterSCAResponse {
    * The unique identifier of the SCA device you are registering.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the SCA device you are registering.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -79,7 +76,7 @@ public class RegisterSCAResponse {
    * The unique identifier of the SCA device you are registering.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -101,7 +98,6 @@ public class RegisterSCAResponse {
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    * @return paymentInstrumentId
    */
-  @ApiModelProperty(value = "The unique identifier of the payment instrument for which you are registering the SCA device.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
@@ -112,7 +108,7 @@ public class RegisterSCAResponse {
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    *
    * @param paymentInstrumentId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -134,7 +130,6 @@ public class RegisterSCAResponse {
    * A string that you must pass to the authentication SDK to continue with the registration process.
    * @return sdkInput
    */
-  @ApiModelProperty(value = "A string that you must pass to the authentication SDK to continue with the registration process.")
   @JsonProperty(JSON_PROPERTY_SDK_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSdkInput() {
@@ -145,7 +140,7 @@ public class RegisterSCAResponse {
    * A string that you must pass to the authentication SDK to continue with the registration process.
    *
    * @param sdkInput
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SDK_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkInput(String sdkInput) {
@@ -167,7 +162,6 @@ public class RegisterSCAResponse {
    * Specifies if the registration was initiated successfully.
    * @return success
    */
-  @ApiModelProperty(value = "Specifies if the registration was initiated successfully.")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSuccess() {
@@ -178,7 +172,7 @@ public class RegisterSCAResponse {
    * Specifies if the registration was initiated successfully.
    *
    * @param success
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {

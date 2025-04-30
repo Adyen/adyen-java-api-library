@@ -75,7 +75,6 @@ public class AccountHoldersApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public AccountHolder createAccountHolder(AccountHolderInfo accountHolderInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = accountHolderInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/accountHolders", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -143,6 +142,7 @@ public class AccountHoldersApi extends Service {
             throw new IllegalArgumentException("Please provide the id path parameter");
         }
         pathParams.put("id", id);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (offset != null) {
@@ -221,6 +221,7 @@ public class AccountHoldersApi extends Service {
             throw new IllegalArgumentException("Please provide the id path parameter");
         }
         pathParams.put("id", id);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (formType != null) {

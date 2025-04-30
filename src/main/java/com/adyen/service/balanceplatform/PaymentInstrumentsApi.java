@@ -78,7 +78,6 @@ public class PaymentInstrumentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaymentInstrument createPaymentInstrument(PaymentInstrumentInfo paymentInstrumentInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = paymentInstrumentInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentInstruments", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -237,7 +236,6 @@ public class PaymentInstrumentsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaymentInstrumentRevealResponse revealDataOfPaymentInstrument(PaymentInstrumentRevealRequest paymentInstrumentRevealRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = paymentInstrumentRevealRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentInstruments/reveal", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

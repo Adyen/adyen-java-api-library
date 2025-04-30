@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -47,7 +45,7 @@ public class HKLocalAccountIdentification {
    * **hkLocal**
    */
   public enum TypeEnum {
-    HKLOCAL("hkLocal");
+    HKLOCAL(String.valueOf("hkLocal"));
 
     private String value;
 
@@ -77,7 +75,7 @@ public class HKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.HKLOCAL;
 
   public HKLocalAccountIdentification() { 
   }
@@ -97,7 +95,6 @@ public class HKLocalAccountIdentification {
    * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    * @return accountNumber
    */
-  @ApiModelProperty(required = true, value = "The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -108,7 +105,7 @@ public class HKLocalAccountIdentification {
    * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    *
    * @param accountNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -130,7 +127,6 @@ public class HKLocalAccountIdentification {
    * The 3-digit clearing code, without separators or whitespace.
    * @return clearingCode
    */
-  @ApiModelProperty(required = true, value = "The 3-digit clearing code, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClearingCode() {
@@ -141,7 +137,7 @@ public class HKLocalAccountIdentification {
    * The 3-digit clearing code, without separators or whitespace.
    *
    * @param clearingCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingCode(String clearingCode) {
@@ -163,7 +159,6 @@ public class HKLocalAccountIdentification {
    * **hkLocal**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**hkLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -174,7 +169,7 @@ public class HKLocalAccountIdentification {
    * **hkLocal**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

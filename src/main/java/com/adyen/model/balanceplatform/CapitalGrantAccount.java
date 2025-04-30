@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.CapitalBalance;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -43,7 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CapitalGrantAccount {
   public static final String JSON_PROPERTY_BALANCES = "balances";
-  private List<CapitalBalance> balances = null;
+  private List<CapitalBalance> balances;
 
   public static final String JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID = "fundingBalanceAccountId";
   private String fundingBalanceAccountId;
@@ -52,7 +50,7 @@ public class CapitalGrantAccount {
   private String id;
 
   public static final String JSON_PROPERTY_LIMITS = "limits";
-  private List<GrantLimit> limits = null;
+  private List<GrantLimit> limits;
 
   public CapitalGrantAccount() { 
   }
@@ -80,7 +78,6 @@ public class CapitalGrantAccount {
    * The balances of the grant account.
    * @return balances
    */
-  @ApiModelProperty(value = "The balances of the grant account.")
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CapitalBalance> getBalances() {
@@ -91,7 +88,7 @@ public class CapitalGrantAccount {
    * The balances of the grant account.
    *
    * @param balances
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalances(List<CapitalBalance> balances) {
@@ -113,7 +110,6 @@ public class CapitalGrantAccount {
    * The unique identifier of the balance account used to fund the grant.
    * @return fundingBalanceAccountId
    */
-  @ApiModelProperty(value = "The unique identifier of the balance account used to fund the grant.")
   @JsonProperty(JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFundingBalanceAccountId() {
@@ -124,7 +120,7 @@ public class CapitalGrantAccount {
    * The unique identifier of the balance account used to fund the grant.
    *
    * @param fundingBalanceAccountId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingBalanceAccountId(String fundingBalanceAccountId) {
@@ -146,7 +142,6 @@ public class CapitalGrantAccount {
    * The identifier of the grant account.
    * @return id
    */
-  @ApiModelProperty(value = "The identifier of the grant account.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -157,7 +152,7 @@ public class CapitalGrantAccount {
    * The identifier of the grant account.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -187,7 +182,6 @@ public class CapitalGrantAccount {
    * The limits of the grant account.
    * @return limits
    */
-  @ApiModelProperty(value = "The limits of the grant account.")
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<GrantLimit> getLimits() {
@@ -198,7 +192,7 @@ public class CapitalGrantAccount {
    * The limits of the grant account.
    *
    * @param limits
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimits(List<GrantLimit> limits) {

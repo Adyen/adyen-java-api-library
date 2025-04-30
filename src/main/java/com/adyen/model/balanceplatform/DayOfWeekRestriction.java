@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -45,19 +43,19 @@ public class DayOfWeekRestriction {
    * Gets or Sets value
    */
   public enum ValueEnum {
-    FRIDAY("friday"),
+    FRIDAY(String.valueOf("friday")),
     
-    MONDAY("monday"),
+    MONDAY(String.valueOf("monday")),
     
-    SATURDAY("saturday"),
+    SATURDAY(String.valueOf("saturday")),
     
-    SUNDAY("sunday"),
+    SUNDAY(String.valueOf("sunday")),
     
-    THURSDAY("thursday"),
+    THURSDAY(String.valueOf("thursday")),
     
-    TUESDAY("tuesday"),
+    TUESDAY(String.valueOf("tuesday")),
     
-    WEDNESDAY("wednesday");
+    WEDNESDAY(String.valueOf("wednesday"));
 
     private String value;
 
@@ -87,7 +85,7 @@ public class DayOfWeekRestriction {
   }
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<ValueEnum> value = null;
+  private List<ValueEnum> value;
 
   public DayOfWeekRestriction() { 
   }
@@ -107,7 +105,6 @@ public class DayOfWeekRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
    */
-  @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOperation() {
@@ -118,7 +115,7 @@ public class DayOfWeekRestriction {
    * Defines how the condition must be evaluated.
    *
    * @param operation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(String operation) {
@@ -148,7 +145,6 @@ public class DayOfWeekRestriction {
    * List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  
    * @return value
    */
-  @ApiModelProperty(value = "List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  ")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ValueEnum> getValue() {
@@ -159,7 +155,7 @@ public class DayOfWeekRestriction {
    * List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(List<ValueEnum> value) {

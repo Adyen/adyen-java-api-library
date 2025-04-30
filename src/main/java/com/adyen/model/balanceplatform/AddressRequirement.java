@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,15 +44,15 @@ public class AddressRequirement {
    * Gets or Sets requiredAddressFields
    */
   public enum RequiredAddressFieldsEnum {
-    CITY("city"),
+    CITY(String.valueOf("city")),
     
-    COUNTRY("country"),
+    COUNTRY(String.valueOf("country")),
     
-    LINE1("line1"),
+    LINE1(String.valueOf("line1")),
     
-    POSTALCODE("postalCode"),
+    POSTALCODE(String.valueOf("postalCode")),
     
-    STATEORPROVINCE("stateOrProvince");
+    STATEORPROVINCE(String.valueOf("stateOrProvince"));
 
     private String value;
 
@@ -84,13 +82,13 @@ public class AddressRequirement {
   }
 
   public static final String JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS = "requiredAddressFields";
-  private List<RequiredAddressFieldsEnum> requiredAddressFields = null;
+  private List<RequiredAddressFieldsEnum> requiredAddressFields;
 
   /**
    * **addressRequirement**
    */
   public enum TypeEnum {
-    ADDRESSREQUIREMENT("addressRequirement");
+    ADDRESSREQUIREMENT(String.valueOf("addressRequirement"));
 
     private String value;
 
@@ -120,7 +118,7 @@ public class AddressRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.ADDRESSREQUIREMENT;
 
   public AddressRequirement() { 
   }
@@ -140,7 +138,6 @@ public class AddressRequirement {
    * Specifies the required address related fields for a particular route.
    * @return description
    */
-  @ApiModelProperty(value = "Specifies the required address related fields for a particular route.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -151,7 +148,7 @@ public class AddressRequirement {
    * Specifies the required address related fields for a particular route.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -181,7 +178,6 @@ public class AddressRequirement {
    * List of address fields.
    * @return requiredAddressFields
    */
-  @ApiModelProperty(value = "List of address fields.")
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RequiredAddressFieldsEnum> getRequiredAddressFields() {
@@ -192,7 +188,7 @@ public class AddressRequirement {
    * List of address fields.
    *
    * @param requiredAddressFields
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequiredAddressFields(List<RequiredAddressFieldsEnum> requiredAddressFields) {
@@ -214,7 +210,6 @@ public class AddressRequirement {
    * **addressRequirement**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**addressRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -225,7 +220,7 @@ public class AddressRequirement {
    * **addressRequirement**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -74,7 +74,6 @@ public class ManageCardPinApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PinChangeResponse changeCardPin(PinChangeRequest pinChangeRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = pinChangeRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/pins/change", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -136,7 +135,6 @@ public class ManageCardPinApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public RevealPinResponse revealCardPin(RevealPinRequest revealPinRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = revealPinRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/pins/reveal", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

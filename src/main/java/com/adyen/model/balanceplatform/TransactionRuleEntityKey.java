@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,6 @@ public class TransactionRuleEntityKey {
    * The unique identifier of the resource.
    * @return entityReference
    */
-  @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ENTITY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEntityReference() {
@@ -71,7 +68,7 @@ public class TransactionRuleEntityKey {
    * The unique identifier of the resource.
    *
    * @param entityReference
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENTITY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityReference(String entityReference) {
@@ -93,7 +90,6 @@ public class TransactionRuleEntityKey {
    * The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.
    * @return entityType
    */
-  @ApiModelProperty(value = "The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.")
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEntityType() {
@@ -104,7 +100,7 @@ public class TransactionRuleEntityKey {
    * The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.
    *
    * @param entityType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(String entityType) {

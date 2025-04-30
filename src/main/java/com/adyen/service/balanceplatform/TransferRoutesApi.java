@@ -71,7 +71,6 @@ public class TransferRoutesApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public TransferRouteResponse calculateTransferRoutes(TransferRouteRequest transferRouteRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = transferRouteRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/transferRoutes/calculate", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

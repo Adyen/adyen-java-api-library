@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -55,7 +53,7 @@ public class BRLocalAccountIdentification {
    * **brLocal**
    */
   public enum TypeEnum {
-    BRLOCAL("brLocal");
+    BRLOCAL(String.valueOf("brLocal"));
 
     private String value;
 
@@ -85,7 +83,7 @@ public class BRLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.BRLOCAL;
 
   public BRLocalAccountIdentification() { 
   }
@@ -105,7 +103,6 @@ public class BRLocalAccountIdentification {
    * The bank account number, without separators or whitespace.
    * @return accountNumber
    */
-  @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -116,7 +113,7 @@ public class BRLocalAccountIdentification {
    * The bank account number, without separators or whitespace.
    *
    * @param accountNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -138,7 +135,6 @@ public class BRLocalAccountIdentification {
    * The 3-digit bank code, with leading zeros.
    * @return bankCode
    */
-  @ApiModelProperty(required = true, value = "The 3-digit bank code, with leading zeros.")
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBankCode() {
@@ -149,7 +145,7 @@ public class BRLocalAccountIdentification {
    * The 3-digit bank code, with leading zeros.
    *
    * @param bankCode
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBankCode(String bankCode) {
@@ -171,7 +167,6 @@ public class BRLocalAccountIdentification {
    * The bank account branch number, without separators or whitespace.
    * @return branchNumber
    */
-  @ApiModelProperty(required = true, value = "The bank account branch number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBranchNumber() {
@@ -182,7 +177,7 @@ public class BRLocalAccountIdentification {
    * The bank account branch number, without separators or whitespace.
    *
    * @param branchNumber
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBranchNumber(String branchNumber) {
@@ -204,7 +199,6 @@ public class BRLocalAccountIdentification {
    * The 8-digit ISPB, with leading zeros.
    * @return ispb
    */
-  @ApiModelProperty(value = "The 8-digit ISPB, with leading zeros.")
   @JsonProperty(JSON_PROPERTY_ISPB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIspb() {
@@ -215,7 +209,7 @@ public class BRLocalAccountIdentification {
    * The 8-digit ISPB, with leading zeros.
    *
    * @param ispb
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ISPB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIspb(String ispb) {
@@ -237,7 +231,6 @@ public class BRLocalAccountIdentification {
    * **brLocal**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**brLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -248,7 +241,7 @@ public class BRLocalAccountIdentification {
    * **brLocal**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

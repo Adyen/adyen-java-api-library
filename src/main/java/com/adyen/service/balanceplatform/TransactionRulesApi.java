@@ -72,7 +72,6 @@ public class TransactionRulesApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public TransactionRule createTransactionRule(TransactionRuleInfo transactionRuleInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = transactionRuleInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/transactionRules", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

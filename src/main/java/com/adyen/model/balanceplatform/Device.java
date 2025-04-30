@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -51,11 +49,11 @@ public class Device {
    * The type of device.  Possible values: **ios**, **android**, **browser**.
    */
   public enum TypeEnum {
-    IOS("ios"),
+    IOS(String.valueOf("ios")),
     
-    ANDROID("android"),
+    ANDROID(String.valueOf("android")),
     
-    BROWSER("browser");
+    BROWSER(String.valueOf("browser"));
 
     private String value;
 
@@ -105,7 +103,6 @@ public class Device {
    * The unique identifier of the SCA device.
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier of the SCA device.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -116,7 +113,7 @@ public class Device {
    * The unique identifier of the SCA device.
    *
    * @param id
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -138,7 +135,6 @@ public class Device {
    * The name of the SCA device. You can show this name to your user to help them identify the device.
    * @return name
    */
-  @ApiModelProperty(value = "The name of the SCA device. You can show this name to your user to help them identify the device.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -149,7 +145,7 @@ public class Device {
    * The name of the SCA device. You can show this name to your user to help them identify the device.
    *
    * @param name
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -171,7 +167,6 @@ public class Device {
    * The unique identifier of the payment instrument that is associated with the SCA device.
    * @return paymentInstrumentId
    */
-  @ApiModelProperty(value = "The unique identifier of the payment instrument that is associated with the SCA device.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
@@ -182,7 +177,7 @@ public class Device {
    * The unique identifier of the payment instrument that is associated with the SCA device.
    *
    * @param paymentInstrumentId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
@@ -204,7 +199,6 @@ public class Device {
    * The type of device.  Possible values: **ios**, **android**, **browser**.
    * @return type
    */
-  @ApiModelProperty(value = "The type of device.  Possible values: **ios**, **android**, **browser**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -215,7 +209,7 @@ public class Device {
    * The type of device.  Possible values: **ios**, **android**, **browser**.
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -39,11 +37,11 @@ public class PinChangeResponse {
    * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    */
   public enum StatusEnum {
-    COMPLETED("completed"),
+    COMPLETED(String.valueOf("completed")),
     
-    PENDING("pending"),
+    PENDING(String.valueOf("pending")),
     
-    UNAVAILABLE("unavailable");
+    UNAVAILABLE(String.valueOf("unavailable"));
 
     private String value;
 
@@ -93,7 +91,6 @@ public class PinChangeResponse {
    * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -104,7 +101,7 @@ public class PinChangeResponse {
    * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    *
    * @param status
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

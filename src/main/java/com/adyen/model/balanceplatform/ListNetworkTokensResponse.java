@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.NetworkToken;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ListNetworkTokensResponse {
   public static final String JSON_PROPERTY_NETWORK_TOKENS = "networkTokens";
-  private List<NetworkToken> networkTokens = null;
+  private List<NetworkToken> networkTokens;
 
   public ListNetworkTokensResponse() { 
   }
@@ -67,7 +65,6 @@ public class ListNetworkTokensResponse {
    * List of network tokens.
    * @return networkTokens
    */
-  @ApiModelProperty(value = "List of network tokens.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<NetworkToken> getNetworkTokens() {
@@ -78,7 +75,7 @@ public class ListNetworkTokensResponse {
    * List of network tokens.
    *
    * @param networkTokens
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokens(List<NetworkToken> networkTokens) {

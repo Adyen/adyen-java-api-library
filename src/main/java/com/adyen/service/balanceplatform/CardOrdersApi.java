@@ -80,6 +80,7 @@ public class CardOrdersApi extends Service {
             throw new IllegalArgumentException("Please provide the id path parameter");
         }
         pathParams.put("id", id);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (offset != null) {

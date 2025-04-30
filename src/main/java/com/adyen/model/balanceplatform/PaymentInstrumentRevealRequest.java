@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,6 @@ public class PaymentInstrumentRevealRequest {
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    * @return encryptedKey
    */
-  @ApiModelProperty(required = true, value = "The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedKey() {
@@ -71,7 +68,7 @@ public class PaymentInstrumentRevealRequest {
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    *
    * @param encryptedKey
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedKey(String encryptedKey) {
@@ -93,7 +90,6 @@ public class PaymentInstrumentRevealRequest {
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    * @return paymentInstrumentId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the payment instrument, which is the card for which you are managing the PIN.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPaymentInstrumentId() {
@@ -104,7 +100,7 @@ public class PaymentInstrumentRevealRequest {
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    *
    * @param paymentInstrumentId
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {

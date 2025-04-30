@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -40,13 +38,13 @@ public class StringMatch {
    * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    */
   public enum OperationEnum {
-    CONTAINS("contains"),
+    CONTAINS(String.valueOf("contains")),
     
-    ENDSWITH("endsWith"),
+    ENDSWITH(String.valueOf("endsWith")),
     
-    ISEQUALTO("isEqualTo"),
+    ISEQUALTO(String.valueOf("isEqualTo")),
     
-    STARTSWITH("startsWith");
+    STARTSWITH(String.valueOf("startsWith"));
 
     private String value;
 
@@ -99,7 +97,6 @@ public class StringMatch {
    * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    * @return operation
    */
-  @ApiModelProperty(value = "The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,")
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OperationEnum getOperation() {
@@ -110,7 +107,7 @@ public class StringMatch {
    * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    *
    * @param operation
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOperation(OperationEnum operation) {
@@ -132,7 +129,6 @@ public class StringMatch {
    * The string to be matched.
    * @return value
    */
-  @ApiModelProperty(value = "The string to be matched.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {
@@ -143,7 +139,7 @@ public class StringMatch {
    * The string to be matched.
    *
    * @param value
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(String value) {

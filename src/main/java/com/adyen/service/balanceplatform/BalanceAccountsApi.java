@@ -78,7 +78,6 @@ public class BalanceAccountsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public BalanceAccount createBalanceAccount(BalanceAccountInfo balanceAccountInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = balanceAccountInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/balanceAccounts", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -184,6 +183,7 @@ public class BalanceAccountsApi extends Service {
             throw new IllegalArgumentException("Please provide the balanceAccountId path parameter");
         }
         pathParams.put("balanceAccountId", balanceAccountId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (offset != null) {
@@ -294,6 +294,7 @@ public class BalanceAccountsApi extends Service {
             throw new IllegalArgumentException("Please provide the id path parameter");
         }
         pathParams.put("id", id);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (offset != null) {
