@@ -26,14 +26,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 
 /**
- * PatchableTarget
+ * TargetUpdate
  */
 @JsonPropertyOrder({
-  PatchableTarget.JSON_PROPERTY_ID,
-  PatchableTarget.JSON_PROPERTY_TYPE
+  TargetUpdate.JSON_PROPERTY_ID,
+  TargetUpdate.JSON_PROPERTY_TYPE
 })
 
-public class PatchableTarget {
+public class TargetUpdate {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -77,16 +77,16 @@ public class PatchableTarget {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public PatchableTarget() { 
+  public TargetUpdate() { 
   }
 
   /**
    * The unique identifier of the &#x60;target.type&#x60;. This can be the ID of your:  * balance platform * account holder * account holder&#39;s balance account
    *
    * @param id
-   * @return the current {@code PatchableTarget} instance, allowing for method chaining
+   * @return the current {@code TargetUpdate} instance, allowing for method chaining
    */
-  public PatchableTarget id(String id) {
+  public TargetUpdate id(String id) {
     this.id = id;
     return this;
   }
@@ -116,9 +116,9 @@ public class PatchableTarget {
    * The resource for which you want to receive notifications. Possible values:  * **balancePlatform**: receive notifications about balance changes in your entire balance platform.  * **accountHolder**: receive notifications about balance changes of a specific user.  * **balanceAccount**: receive notifications about balance changes in a specific balance account.
    *
    * @param type
-   * @return the current {@code PatchableTarget} instance, allowing for method chaining
+   * @return the current {@code TargetUpdate} instance, allowing for method chaining
    */
-  public PatchableTarget type(TypeEnum type) {
+  public TargetUpdate type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -145,7 +145,7 @@ public class PatchableTarget {
   }
 
   /**
-   * Return true if this PatchableTarget object is equal to o.
+   * Return true if this TargetUpdate object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -155,9 +155,9 @@ public class PatchableTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PatchableTarget patchableTarget = (PatchableTarget) o;
-    return Objects.equals(this.id, patchableTarget.id) &&
-        Objects.equals(this.type, patchableTarget.type);
+    TargetUpdate targetUpdate = (TargetUpdate) o;
+    return Objects.equals(this.id, targetUpdate.id) &&
+        Objects.equals(this.type, targetUpdate.type);
   }
 
   @Override
@@ -168,7 +168,7 @@ public class PatchableTarget {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PatchableTarget {\n");
+    sb.append("class TargetUpdate {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -187,17 +187,17 @@ public class PatchableTarget {
   }
 
 /**
-   * Create an instance of PatchableTarget given an JSON string
+   * Create an instance of TargetUpdate given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PatchableTarget
-   * @throws JsonProcessingException if the JSON string is invalid with respect to PatchableTarget
+   * @return An instance of TargetUpdate
+   * @throws JsonProcessingException if the JSON string is invalid with respect to TargetUpdate
    */
-  public static PatchableTarget fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PatchableTarget.class);
+  public static TargetUpdate fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, TargetUpdate.class);
   }
 /**
-  * Convert an instance of PatchableTarget to an JSON string
+  * Convert an instance of TargetUpdate to an JSON string
   *
   * @return JSON string
   */

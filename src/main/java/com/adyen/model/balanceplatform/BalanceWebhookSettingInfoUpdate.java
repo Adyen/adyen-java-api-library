@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.Condition;
-import com.adyen.model.balanceplatform.PatchableTarget;
+import com.adyen.model.balanceplatform.TargetUpdate;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -86,7 +86,7 @@ public class BalanceWebhookSettingInfoUpdate {
   private StatusEnum status;
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  private PatchableTarget target;
+  private TargetUpdate target;
 
   /**
    * The type of the webhook you are configuring. Set to **balance**.
@@ -237,7 +237,7 @@ public class BalanceWebhookSettingInfoUpdate {
    * @param target
    * @return the current {@code BalanceWebhookSettingInfoUpdate} instance, allowing for method chaining
    */
-  public BalanceWebhookSettingInfoUpdate target(PatchableTarget target) {
+  public BalanceWebhookSettingInfoUpdate target(TargetUpdate target) {
     this.target = target;
     return this;
   }
@@ -248,7 +248,7 @@ public class BalanceWebhookSettingInfoUpdate {
    */
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public PatchableTarget getTarget() {
+  public TargetUpdate getTarget() {
     return target;
   }
 
@@ -259,7 +259,7 @@ public class BalanceWebhookSettingInfoUpdate {
    */
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTarget(PatchableTarget target) {
+  public void setTarget(TargetUpdate target) {
     this.target = target;
   }
 

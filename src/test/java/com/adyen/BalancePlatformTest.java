@@ -668,8 +668,8 @@ public class BalancePlatformTest extends BaseTest {
         WebhookSetting response = service.updateWebhookSetting(balancePlatformId, webhookId, settingId,
                 new BalanceWebhookSettingInfoUpdate()
                         .type(BalanceWebhookSettingInfoUpdate.TypeEnum.BALANCE)
-                        .target(new PatchableTarget()
-                                .type(PatchableTarget.TypeEnum.BALANCEACCOUNT)
+                        .target(new TargetUpdate()
+                                .type(TargetUpdate.TypeEnum.BALANCEACCOUNT)
                                 .id("BA00000000000000000LIABLE"))
                         .currency("USD")
                         .status(BalanceWebhookSettingInfoUpdate.StatusEnum.ACTIVE)
