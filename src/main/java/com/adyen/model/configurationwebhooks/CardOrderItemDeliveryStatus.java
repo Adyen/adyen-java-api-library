@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,21 +42,21 @@ public class CardOrderItemDeliveryStatus {
    * The status of the PIN delivery.
    */
   public enum StatusEnum {
-    CREATED("created"),
+    CREATED(String.valueOf("created")),
     
-    DELIVERED("delivered"),
+    DELIVERED(String.valueOf("delivered")),
     
-    NOTAPPLICABLE("notApplicable"),
+    NOTAPPLICABLE(String.valueOf("notApplicable")),
     
-    PROCESSING("processing"),
+    PROCESSING(String.valueOf("processing")),
     
-    PRODUCED("produced"),
+    PRODUCED(String.valueOf("produced")),
     
-    REJECTED("rejected"),
+    REJECTED(String.valueOf("rejected")),
     
-    SHIPPED("shipped"),
+    SHIPPED(String.valueOf("shipped")),
     
-    UNKNOWN("unknown");
+    UNKNOWN(String.valueOf("unknown"));
 
     private String value;
 
@@ -99,7 +97,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * An error message.
    *
-   * @param errorMessage
+   * @param errorMessage An error message.
    * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
    */
   public CardOrderItemDeliveryStatus errorMessage(String errorMessage) {
@@ -109,9 +107,8 @@ public class CardOrderItemDeliveryStatus {
 
   /**
    * An error message.
-   * @return errorMessage
+   * @return errorMessage An error message.
    */
-  @ApiModelProperty(value = "An error message.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorMessage() {
@@ -121,8 +118,8 @@ public class CardOrderItemDeliveryStatus {
   /**
    * An error message.
    *
-   * @param errorMessage
-   */ 
+   * @param errorMessage An error message.
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorMessage(String errorMessage) {
@@ -132,7 +129,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * The status of the PIN delivery.
    *
-   * @param status
+   * @param status The status of the PIN delivery.
    * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
    */
   public CardOrderItemDeliveryStatus status(StatusEnum status) {
@@ -142,9 +139,8 @@ public class CardOrderItemDeliveryStatus {
 
   /**
    * The status of the PIN delivery.
-   * @return status
+   * @return status The status of the PIN delivery.
    */
-  @ApiModelProperty(value = "The status of the PIN delivery.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -154,8 +150,8 @@ public class CardOrderItemDeliveryStatus {
   /**
    * The status of the PIN delivery.
    *
-   * @param status
-   */ 
+   * @param status The status of the PIN delivery.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -165,7 +161,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * The tracking number of the PIN delivery.
    *
-   * @param trackingNumber
+   * @param trackingNumber The tracking number of the PIN delivery.
    * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
    */
   public CardOrderItemDeliveryStatus trackingNumber(String trackingNumber) {
@@ -175,9 +171,8 @@ public class CardOrderItemDeliveryStatus {
 
   /**
    * The tracking number of the PIN delivery.
-   * @return trackingNumber
+   * @return trackingNumber The tracking number of the PIN delivery.
    */
-  @ApiModelProperty(value = "The tracking number of the PIN delivery.")
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTrackingNumber() {
@@ -187,8 +182,8 @@ public class CardOrderItemDeliveryStatus {
   /**
    * The tracking number of the PIN delivery.
    *
-   * @param trackingNumber
-   */ 
+   * @param trackingNumber The tracking number of the PIN delivery.
+   */
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrackingNumber(String trackingNumber) {
