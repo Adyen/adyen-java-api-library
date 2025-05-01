@@ -20,8 +20,6 @@
  */
 package com.adyen;
 
-import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
-import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantCreatedNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantUpdatedNotificationRequest;
 import com.adyen.model.managementwebhooks.PaymentMethodCreatedNotificationRequest;

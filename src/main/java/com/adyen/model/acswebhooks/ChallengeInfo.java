@@ -149,7 +149,7 @@ public class ChallengeInfo {
   /**
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    *
-   * @param challengeCancel
+   * @param challengeCancel Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
    */
   public ChallengeInfo challengeCancel(ChallengeCancelEnum challengeCancel) {
@@ -159,7 +159,7 @@ public class ChallengeInfo {
 
   /**
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
-   * @return challengeCancel
+   * @return challengeCancel Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class ChallengeInfo {
   /**
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    *
-   * @param challengeCancel
+   * @param challengeCancel Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key &#x60;challengeCancel&#x60;. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_CANCEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +181,7 @@ public class ChallengeInfo {
   /**
    * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    *
-   * @param flow
+   * @param flow The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
    */
   public ChallengeInfo flow(FlowEnum flow) {
@@ -191,7 +191,7 @@ public class ChallengeInfo {
 
   /**
    * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
-   * @return flow
+   * @return flow The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    */
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,7 +202,7 @@ public class ChallengeInfo {
   /**
    * The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    *
-   * @param flow
+   * @param flow The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
    */
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +213,7 @@ public class ChallengeInfo {
   /**
    * The last time of interaction with the challenge.
    *
-   * @param lastInteraction
+   * @param lastInteraction The last time of interaction with the challenge.
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
    */
   public ChallengeInfo lastInteraction(OffsetDateTime lastInteraction) {
@@ -223,7 +223,7 @@ public class ChallengeInfo {
 
   /**
    * The last time of interaction with the challenge.
-   * @return lastInteraction
+   * @return lastInteraction The last time of interaction with the challenge.
    */
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class ChallengeInfo {
   /**
    * The last time of interaction with the challenge.
    *
-   * @param lastInteraction
+   * @param lastInteraction The last time of interaction with the challenge.
    */
   @JsonProperty(JSON_PROPERTY_LAST_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +245,7 @@ public class ChallengeInfo {
   /**
    * The last four digits of the phone number used in the challenge.
    *
-   * @param phoneNumber
+   * @param phoneNumber The last four digits of the phone number used in the challenge.
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
    */
   public ChallengeInfo phoneNumber(String phoneNumber) {
@@ -255,7 +255,7 @@ public class ChallengeInfo {
 
   /**
    * The last four digits of the phone number used in the challenge.
-   * @return phoneNumber
+   * @return phoneNumber The last four digits of the phone number used in the challenge.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +266,7 @@ public class ChallengeInfo {
   /**
    * The last four digits of the phone number used in the challenge.
    *
-   * @param phoneNumber
+   * @param phoneNumber The last four digits of the phone number used in the challenge.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,7 +277,7 @@ public class ChallengeInfo {
   /**
    * The number of times the one-time password (OTP) was resent during the challenge.
    *
-   * @param resends
+   * @param resends The number of times the one-time password (OTP) was resent during the challenge.
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
    */
   public ChallengeInfo resends(Integer resends) {
@@ -287,7 +287,7 @@ public class ChallengeInfo {
 
   /**
    * The number of times the one-time password (OTP) was resent during the challenge.
-   * @return resends
+   * @return resends The number of times the one-time password (OTP) was resent during the challenge.
    */
   @JsonProperty(JSON_PROPERTY_RESENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +298,7 @@ public class ChallengeInfo {
   /**
    * The number of times the one-time password (OTP) was resent during the challenge.
    *
-   * @param resends
+   * @param resends The number of times the one-time password (OTP) was resent during the challenge.
    */
   @JsonProperty(JSON_PROPERTY_RESENDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +309,7 @@ public class ChallengeInfo {
   /**
    * The number of retries used in the challenge.
    *
-   * @param retries
+   * @param retries The number of retries used in the challenge.
    * @return the current {@code ChallengeInfo} instance, allowing for method chaining
    */
   public ChallengeInfo retries(Integer retries) {
@@ -319,7 +319,7 @@ public class ChallengeInfo {
 
   /**
    * The number of retries used in the challenge.
-   * @return retries
+   * @return retries The number of retries used in the challenge.
    */
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +330,7 @@ public class ChallengeInfo {
   /**
    * The number of retries used in the challenge.
    *
-   * @param retries
+   * @param retries The number of retries used in the challenge.
    */
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

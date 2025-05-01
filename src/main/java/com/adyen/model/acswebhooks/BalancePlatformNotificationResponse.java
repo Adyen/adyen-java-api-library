@@ -42,7 +42,7 @@ public class BalancePlatformNotificationResponse {
   /**
    * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
    *
-   * @param notificationResponse
+   * @param notificationResponse Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
    * @return the current {@code BalancePlatformNotificationResponse} instance, allowing for method chaining
    */
   public BalancePlatformNotificationResponse notificationResponse(String notificationResponse) {
@@ -52,7 +52,7 @@ public class BalancePlatformNotificationResponse {
 
   /**
    * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
-   * @return notificationResponse
+   * @return notificationResponse Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class BalancePlatformNotificationResponse {
   /**
    * Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
    *
-   * @param notificationResponse
+   * @param notificationResponse Respond with any **2xx** HTTP status code to [accept the webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

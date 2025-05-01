@@ -101,7 +101,7 @@ public class AuthenticationNotificationData {
   /**
    * authentication
    *
-   * @param authentication
+   * @param authentication 
    * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
    */
   public AuthenticationNotificationData authentication(AuthenticationInfo authentication) {
@@ -111,7 +111,7 @@ public class AuthenticationNotificationData {
 
   /**
    * Get authentication
-   * @return authentication
+   * @return authentication 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class AuthenticationNotificationData {
   /**
    * authentication
    *
-   * @param authentication
+   * @param authentication 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +133,7 @@ public class AuthenticationNotificationData {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
    */
   public AuthenticationNotificationData balancePlatform(String balancePlatform) {
@@ -143,7 +143,7 @@ public class AuthenticationNotificationData {
 
   /**
    * The unique identifier of the balance platform.
-   * @return balancePlatform
+   * @return balancePlatform The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class AuthenticationNotificationData {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +165,7 @@ public class AuthenticationNotificationData {
   /**
    * Unique identifier of the authentication.
    *
-   * @param id
+   * @param id Unique identifier of the authentication.
    * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
    */
   public AuthenticationNotificationData id(String id) {
@@ -175,7 +175,7 @@ public class AuthenticationNotificationData {
 
   /**
    * Unique identifier of the authentication.
-   * @return id
+   * @return id Unique identifier of the authentication.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class AuthenticationNotificationData {
   /**
    * Unique identifier of the authentication.
    *
-   * @param id
+   * @param id Unique identifier of the authentication.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,7 +197,7 @@ public class AuthenticationNotificationData {
   /**
    * Unique identifier of the payment instrument that was used for the authentication.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId Unique identifier of the payment instrument that was used for the authentication.
    * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
    */
   public AuthenticationNotificationData paymentInstrumentId(String paymentInstrumentId) {
@@ -207,7 +207,7 @@ public class AuthenticationNotificationData {
 
   /**
    * Unique identifier of the payment instrument that was used for the authentication.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId Unique identifier of the payment instrument that was used for the authentication.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class AuthenticationNotificationData {
   /**
    * Unique identifier of the payment instrument that was used for the authentication.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId Unique identifier of the payment instrument that was used for the authentication.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +229,7 @@ public class AuthenticationNotificationData {
   /**
    * purchase
    *
-   * @param purchase
+   * @param purchase 
    * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
    */
   public AuthenticationNotificationData purchase(PurchaseInfo purchase) {
@@ -239,7 +239,7 @@ public class AuthenticationNotificationData {
 
   /**
    * Get purchase
-   * @return purchase
+   * @return purchase 
    */
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +250,7 @@ public class AuthenticationNotificationData {
   /**
    * purchase
    *
-   * @param purchase
+   * @param purchase 
    */
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,7 +261,7 @@ public class AuthenticationNotificationData {
   /**
    * Outcome of the authentication. Allowed values: * authenticated * rejected * error
    *
-   * @param status
+   * @param status Outcome of the authentication. Allowed values: * authenticated * rejected * error
    * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
    */
   public AuthenticationNotificationData status(StatusEnum status) {
@@ -271,7 +271,7 @@ public class AuthenticationNotificationData {
 
   /**
    * Outcome of the authentication. Allowed values: * authenticated * rejected * error
-   * @return status
+   * @return status Outcome of the authentication. Allowed values: * authenticated * rejected * error
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,7 +282,7 @@ public class AuthenticationNotificationData {
   /**
    * Outcome of the authentication. Allowed values: * authenticated * rejected * error
    *
-   * @param status
+   * @param status Outcome of the authentication. Allowed values: * authenticated * rejected * error
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

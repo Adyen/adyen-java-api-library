@@ -89,7 +89,7 @@ public class AuthenticationNotificationRequest {
   /**
    * data
    *
-   * @param data
+   * @param data 
    * @return the current {@code AuthenticationNotificationRequest} instance, allowing for method chaining
    */
   public AuthenticationNotificationRequest data(AuthenticationNotificationData data) {
@@ -99,7 +99,7 @@ public class AuthenticationNotificationRequest {
 
   /**
    * Get data
-   * @return data
+   * @return data 
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class AuthenticationNotificationRequest {
   /**
    * data
    *
-   * @param data
+   * @param data 
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +121,7 @@ public class AuthenticationNotificationRequest {
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
-   * @param environment
+   * @param environment The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return the current {@code AuthenticationNotificationRequest} instance, allowing for method chaining
    */
   public AuthenticationNotificationRequest environment(String environment) {
@@ -131,7 +131,7 @@ public class AuthenticationNotificationRequest {
 
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
-   * @return environment
+   * @return environment The environment from which the webhook originated.  Possible values: **test**, **live**.
    */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class AuthenticationNotificationRequest {
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
-   * @param environment
+   * @param environment The environment from which the webhook originated.  Possible values: **test**, **live**.
    */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +153,7 @@ public class AuthenticationNotificationRequest {
   /**
    * When the event was queued.
    *
-   * @param timestamp
+   * @param timestamp When the event was queued.
    * @return the current {@code AuthenticationNotificationRequest} instance, allowing for method chaining
    */
   public AuthenticationNotificationRequest timestamp(OffsetDateTime timestamp) {
@@ -163,7 +163,7 @@ public class AuthenticationNotificationRequest {
 
   /**
    * When the event was queued.
-   * @return timestamp
+   * @return timestamp When the event was queued.
    */
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +174,7 @@ public class AuthenticationNotificationRequest {
   /**
    * When the event was queued.
    *
-   * @param timestamp
+   * @param timestamp When the event was queued.
    */
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +185,7 @@ public class AuthenticationNotificationRequest {
   /**
    * Type of notification.
    *
-   * @param type
+   * @param type Type of notification.
    * @return the current {@code AuthenticationNotificationRequest} instance, allowing for method chaining
    */
   public AuthenticationNotificationRequest type(TypeEnum type) {
@@ -195,7 +195,7 @@ public class AuthenticationNotificationRequest {
 
   /**
    * Type of notification.
-   * @return type
+   * @return type Type of notification.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +206,7 @@ public class AuthenticationNotificationRequest {
   /**
    * Type of notification.
    *
-   * @param type
+   * @param type Type of notification.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
