@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class TerminalBoardingData {
   /**
    * The unique identifier of the company account.
    *
-   * @param companyId
+   * @param companyId The unique identifier of the company account.
    * @return the current {@code TerminalBoardingData} instance, allowing for method chaining
    */
   public TerminalBoardingData companyId(String companyId) {
@@ -66,9 +64,8 @@ public class TerminalBoardingData {
 
   /**
    * The unique identifier of the company account.
-   * @return companyId
+   * @return companyId The unique identifier of the company account.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
@@ -78,8 +75,8 @@ public class TerminalBoardingData {
   /**
    * The unique identifier of the company account.
    *
-   * @param companyId
-   */ 
+   * @param companyId The unique identifier of the company account.
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -89,7 +86,7 @@ public class TerminalBoardingData {
   /**
    * The unique identifier of the merchant account.
    *
-   * @param merchantId
+   * @param merchantId The unique identifier of the merchant account.
    * @return the current {@code TerminalBoardingData} instance, allowing for method chaining
    */
   public TerminalBoardingData merchantId(String merchantId) {
@@ -99,9 +96,8 @@ public class TerminalBoardingData {
 
   /**
    * The unique identifier of the merchant account.
-   * @return merchantId
+   * @return merchantId The unique identifier of the merchant account.
    */
-  @ApiModelProperty(value = "The unique identifier of the merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -111,8 +107,8 @@ public class TerminalBoardingData {
   /**
    * The unique identifier of the merchant account.
    *
-   * @param merchantId
-   */ 
+   * @param merchantId The unique identifier of the merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -122,7 +118,7 @@ public class TerminalBoardingData {
   /**
    * The unique identifier of the store.
    *
-   * @param storeId
+   * @param storeId The unique identifier of the store.
    * @return the current {@code TerminalBoardingData} instance, allowing for method chaining
    */
   public TerminalBoardingData storeId(String storeId) {
@@ -132,9 +128,8 @@ public class TerminalBoardingData {
 
   /**
    * The unique identifier of the store.
-   * @return storeId
+   * @return storeId The unique identifier of the store.
    */
-  @ApiModelProperty(value = "The unique identifier of the store.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoreId() {
@@ -144,8 +139,8 @@ public class TerminalBoardingData {
   /**
    * The unique identifier of the store.
    *
-   * @param storeId
-   */ 
+   * @param storeId The unique identifier of the store.
+   */
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
@@ -155,7 +150,7 @@ public class TerminalBoardingData {
   /**
    * The unique identifier of the terminal.
    *
-   * @param uniqueTerminalId
+   * @param uniqueTerminalId The unique identifier of the terminal.
    * @return the current {@code TerminalBoardingData} instance, allowing for method chaining
    */
   public TerminalBoardingData uniqueTerminalId(String uniqueTerminalId) {
@@ -165,9 +160,8 @@ public class TerminalBoardingData {
 
   /**
    * The unique identifier of the terminal.
-   * @return uniqueTerminalId
+   * @return uniqueTerminalId The unique identifier of the terminal.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the terminal.")
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUniqueTerminalId() {
@@ -177,8 +171,8 @@ public class TerminalBoardingData {
   /**
    * The unique identifier of the terminal.
    *
-   * @param uniqueTerminalId
-   */ 
+   * @param uniqueTerminalId The unique identifier of the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {

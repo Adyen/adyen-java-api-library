@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.managementwebhooks.CapabilityProblem;
@@ -22,10 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -56,7 +54,7 @@ public class AccountCapabilityData {
   private String capability;
 
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
-  private List<CapabilityProblem> problems = null;
+  private List<CapabilityProblem> problems;
 
   public static final String JSON_PROPERTY_REQUESTED = "requested";
   private Boolean requested;
@@ -76,7 +74,7 @@ public class AccountCapabilityData {
   /**
    * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
    *
-   * @param allowed
+   * @param allowed Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
   public AccountCapabilityData allowed(Boolean allowed) {
@@ -86,9 +84,8 @@ public class AccountCapabilityData {
 
   /**
    * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
-   * @return allowed
+   * @return allowed Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
    */
-  @ApiModelProperty(value = "Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.")
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowed() {
@@ -98,8 +95,8 @@ public class AccountCapabilityData {
   /**
    * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
    *
-   * @param allowed
-   */ 
+   * @param allowed Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
+   */
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
@@ -109,7 +106,7 @@ public class AccountCapabilityData {
   /**
    * The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    *
-   * @param allowedLevel
+   * @param allowedLevel The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
   public AccountCapabilityData allowedLevel(String allowedLevel) {
@@ -119,9 +116,8 @@ public class AccountCapabilityData {
 
   /**
    * The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
-   * @return allowedLevel
+   * @return allowedLevel The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
-  @ApiModelProperty(value = "The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAllowedLevel() {
@@ -131,8 +127,8 @@ public class AccountCapabilityData {
   /**
    * The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    *
-   * @param allowedLevel
-   */ 
+   * @param allowedLevel The allowed level of the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
+   */
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedLevel(String allowedLevel) {
@@ -142,7 +138,7 @@ public class AccountCapabilityData {
   /**
    * The name of the capability. For example, **sendToTransferInstrument**.
    *
-   * @param capability
+   * @param capability The name of the capability. For example, **sendToTransferInstrument**.
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
   public AccountCapabilityData capability(String capability) {
@@ -152,9 +148,8 @@ public class AccountCapabilityData {
 
   /**
    * The name of the capability. For example, **sendToTransferInstrument**.
-   * @return capability
+   * @return capability The name of the capability. For example, **sendToTransferInstrument**.
    */
-  @ApiModelProperty(value = "The name of the capability. For example, **sendToTransferInstrument**.")
   @JsonProperty(JSON_PROPERTY_CAPABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCapability() {
@@ -164,8 +159,8 @@ public class AccountCapabilityData {
   /**
    * The name of the capability. For example, **sendToTransferInstrument**.
    *
-   * @param capability
-   */ 
+   * @param capability The name of the capability. For example, **sendToTransferInstrument**.
+   */
   @JsonProperty(JSON_PROPERTY_CAPABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapability(String capability) {
@@ -175,7 +170,7 @@ public class AccountCapabilityData {
   /**
    * List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
    *
-   * @param problems
+   * @param problems List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
   public AccountCapabilityData problems(List<CapabilityProblem> problems) {
@@ -193,9 +188,8 @@ public class AccountCapabilityData {
 
   /**
    * List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
-   * @return problems
+   * @return problems List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
    */
-  @ApiModelProperty(value = "List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.")
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CapabilityProblem> getProblems() {
@@ -205,8 +199,8 @@ public class AccountCapabilityData {
   /**
    * List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
    *
-   * @param problems
-   */ 
+   * @param problems List of entities that has problems with verification. The information includes the details of the errors and the actions that you can take to resolve them.
+   */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProblems(List<CapabilityProblem> problems) {
@@ -216,7 +210,7 @@ public class AccountCapabilityData {
   /**
    * Indicates whether you requested the capability.
    *
-   * @param requested
+   * @param requested Indicates whether you requested the capability.
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
   public AccountCapabilityData requested(Boolean requested) {
@@ -226,9 +220,8 @@ public class AccountCapabilityData {
 
   /**
    * Indicates whether you requested the capability.
-   * @return requested
+   * @return requested Indicates whether you requested the capability.
    */
-  @ApiModelProperty(required = true, value = "Indicates whether you requested the capability.")
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRequested() {
@@ -238,8 +231,8 @@ public class AccountCapabilityData {
   /**
    * Indicates whether you requested the capability.
    *
-   * @param requested
-   */ 
+   * @param requested Indicates whether you requested the capability.
+   */
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequested(Boolean requested) {
@@ -249,7 +242,7 @@ public class AccountCapabilityData {
   /**
    * The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    *
-   * @param requestedLevel
+   * @param requestedLevel The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
   public AccountCapabilityData requestedLevel(String requestedLevel) {
@@ -259,9 +252,8 @@ public class AccountCapabilityData {
 
   /**
    * The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
-   * @return requestedLevel
+   * @return requestedLevel The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
-  @ApiModelProperty(required = true, value = "The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.")
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestedLevel() {
@@ -271,8 +263,8 @@ public class AccountCapabilityData {
   /**
    * The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
    *
-   * @param requestedLevel
-   */ 
+   * @param requestedLevel The level that you requested for the capability. Some capabilities have different levels which correspond to thresholds. Higher levels may require additional checks and increased monitoring.Possible values: **notApplicable**, **low**, **medium**, **high**.
+   */
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestedLevel(String requestedLevel) {
@@ -282,7 +274,7 @@ public class AccountCapabilityData {
   /**
    * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
    *
-   * @param verificationDeadline
+   * @param verificationDeadline The verification deadline for the capability that will be disallowed if verification errors are not resolved.
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
   public AccountCapabilityData verificationDeadline(OffsetDateTime verificationDeadline) {
@@ -292,9 +284,8 @@ public class AccountCapabilityData {
 
   /**
    * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
-   * @return verificationDeadline
+   * @return verificationDeadline The verification deadline for the capability that will be disallowed if verification errors are not resolved.
    */
-  @ApiModelProperty(value = "The verification deadline for the capability that will be disallowed if verification errors are not resolved.")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getVerificationDeadline() {
@@ -304,8 +295,8 @@ public class AccountCapabilityData {
   /**
    * The verification deadline for the capability that will be disallowed if verification errors are not resolved.
    *
-   * @param verificationDeadline
-   */ 
+   * @param verificationDeadline The verification deadline for the capability that will be disallowed if verification errors are not resolved.
+   */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationDeadline(OffsetDateTime verificationDeadline) {
@@ -315,7 +306,7 @@ public class AccountCapabilityData {
   /**
    * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
    *
-   * @param verificationStatus
+   * @param verificationStatus The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
   public AccountCapabilityData verificationStatus(String verificationStatus) {
@@ -325,9 +316,8 @@ public class AccountCapabilityData {
 
   /**
    * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
-   * @return verificationStatus
+   * @return verificationStatus The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
    */
-  @ApiModelProperty(value = "The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the `errors` array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. ")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVerificationStatus() {
@@ -337,8 +327,8 @@ public class AccountCapabilityData {
   /**
    * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
    *
-   * @param verificationStatus
-   */ 
+   * @param verificationStatus The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification was successful.  * **rejected**: Adyen checked the information and found reasons to not allow the capability. 
+   */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(String verificationStatus) {

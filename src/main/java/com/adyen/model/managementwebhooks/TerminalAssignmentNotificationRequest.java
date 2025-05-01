@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,7 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The unique identifier of the merchant/company account to which the terminal is assigned.
    *
-   * @param assignedToAccount
+   * @param assignedToAccount The unique identifier of the merchant/company account to which the terminal is assigned.
    * @return the current {@code TerminalAssignmentNotificationRequest} instance, allowing for method chaining
    */
   public TerminalAssignmentNotificationRequest assignedToAccount(String assignedToAccount) {
@@ -70,9 +68,8 @@ public class TerminalAssignmentNotificationRequest {
 
   /**
    * The unique identifier of the merchant/company account to which the terminal is assigned.
-   * @return assignedToAccount
+   * @return assignedToAccount The unique identifier of the merchant/company account to which the terminal is assigned.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the merchant/company account to which the terminal is assigned.")
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAssignedToAccount() {
@@ -82,8 +79,8 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The unique identifier of the merchant/company account to which the terminal is assigned.
    *
-   * @param assignedToAccount
-   */ 
+   * @param assignedToAccount The unique identifier of the merchant/company account to which the terminal is assigned.
+   */
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignedToAccount(String assignedToAccount) {
@@ -93,7 +90,7 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The unique identifier of the store to which the terminal is assigned.
    *
-   * @param assignedToStore
+   * @param assignedToStore The unique identifier of the store to which the terminal is assigned.
    * @return the current {@code TerminalAssignmentNotificationRequest} instance, allowing for method chaining
    */
   public TerminalAssignmentNotificationRequest assignedToStore(String assignedToStore) {
@@ -103,9 +100,8 @@ public class TerminalAssignmentNotificationRequest {
 
   /**
    * The unique identifier of the store to which the terminal is assigned.
-   * @return assignedToStore
+   * @return assignedToStore The unique identifier of the store to which the terminal is assigned.
    */
-  @ApiModelProperty(value = "The unique identifier of the store to which the terminal is assigned.")
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAssignedToStore() {
@@ -115,8 +111,8 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The unique identifier of the store to which the terminal is assigned.
    *
-   * @param assignedToStore
-   */ 
+   * @param assignedToStore The unique identifier of the store to which the terminal is assigned.
+   */
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignedToStore(String assignedToStore) {
@@ -126,7 +122,7 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The date and time when an event has been completed.
    *
-   * @param eventDate
+   * @param eventDate The date and time when an event has been completed.
    * @return the current {@code TerminalAssignmentNotificationRequest} instance, allowing for method chaining
    */
   public TerminalAssignmentNotificationRequest eventDate(String eventDate) {
@@ -136,9 +132,8 @@ public class TerminalAssignmentNotificationRequest {
 
   /**
    * The date and time when an event has been completed.
-   * @return eventDate
+   * @return eventDate The date and time when an event has been completed.
    */
-  @ApiModelProperty(required = true, value = "The date and time when an event has been completed.")
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEventDate() {
@@ -148,8 +143,8 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The date and time when an event has been completed.
    *
-   * @param eventDate
-   */ 
+   * @param eventDate The date and time when an event has been completed.
+   */
   @JsonProperty(JSON_PROPERTY_EVENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventDate(String eventDate) {
@@ -159,7 +154,7 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The PSP reference of the request from which the notification originates.
    *
-   * @param pspReference
+   * @param pspReference The PSP reference of the request from which the notification originates.
    * @return the current {@code TerminalAssignmentNotificationRequest} instance, allowing for method chaining
    */
   public TerminalAssignmentNotificationRequest pspReference(String pspReference) {
@@ -169,9 +164,8 @@ public class TerminalAssignmentNotificationRequest {
 
   /**
    * The PSP reference of the request from which the notification originates.
-   * @return pspReference
+   * @return pspReference The PSP reference of the request from which the notification originates.
    */
-  @ApiModelProperty(required = true, value = "The PSP reference of the request from which the notification originates.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -181,8 +175,8 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The PSP reference of the request from which the notification originates.
    *
-   * @param pspReference
-   */ 
+   * @param pspReference The PSP reference of the request from which the notification originates.
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -192,7 +186,7 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The unique identifier of the terminal.
    *
-   * @param uniqueTerminalId
+   * @param uniqueTerminalId The unique identifier of the terminal.
    * @return the current {@code TerminalAssignmentNotificationRequest} instance, allowing for method chaining
    */
   public TerminalAssignmentNotificationRequest uniqueTerminalId(String uniqueTerminalId) {
@@ -202,9 +196,8 @@ public class TerminalAssignmentNotificationRequest {
 
   /**
    * The unique identifier of the terminal.
-   * @return uniqueTerminalId
+   * @return uniqueTerminalId The unique identifier of the terminal.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the terminal.")
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUniqueTerminalId() {
@@ -214,8 +207,8 @@ public class TerminalAssignmentNotificationRequest {
   /**
    * The unique identifier of the terminal.
    *
-   * @param uniqueTerminalId
-   */ 
+   * @param uniqueTerminalId The unique identifier of the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUniqueTerminalId(String uniqueTerminalId) {

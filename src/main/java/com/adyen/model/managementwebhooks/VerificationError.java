@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.managementwebhooks.RemediatingAction;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -50,20 +48,20 @@ public class VerificationError {
   private String message;
 
   public static final String JSON_PROPERTY_REMEDIATING_ACTIONS = "remediatingActions";
-  private List<RemediatingAction> remediatingActions = null;
+  private List<RemediatingAction> remediatingActions;
 
   public static final String JSON_PROPERTY_SUB_ERRORS = "subErrors";
-  private List<VerificationErrorRecursive> subErrors = null;
+  private List<VerificationErrorRecursive> subErrors;
 
   /**
    * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
    */
   public enum TypeEnum {
-    DATAMISSING("dataMissing"),
+    DATAMISSING(String.valueOf("dataMissing")),
     
-    INVALIDINPUT("invalidInput"),
+    INVALIDINPUT(String.valueOf("invalidInput")),
     
-    PENDINGSTATUS("pendingStatus");
+    PENDINGSTATUS(String.valueOf("pendingStatus"));
 
     private String value;
 
@@ -101,7 +99,7 @@ public class VerificationError {
   /**
    * The verification error code.
    *
-   * @param code
+   * @param code The verification error code.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError code(String code) {
@@ -111,9 +109,8 @@ public class VerificationError {
 
   /**
    * The verification error code.
-   * @return code
+   * @return code The verification error code.
    */
-  @ApiModelProperty(value = "The verification error code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -123,8 +120,8 @@ public class VerificationError {
   /**
    * The verification error code.
    *
-   * @param code
-   */ 
+   * @param code The verification error code.
+   */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
@@ -134,7 +131,7 @@ public class VerificationError {
   /**
    * The verification error message.
    *
-   * @param message
+   * @param message The verification error message.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError message(String message) {
@@ -144,9 +141,8 @@ public class VerificationError {
 
   /**
    * The verification error message.
-   * @return message
+   * @return message The verification error message.
    */
-  @ApiModelProperty(value = "The verification error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -156,8 +152,8 @@ public class VerificationError {
   /**
    * The verification error message.
    *
-   * @param message
-   */ 
+   * @param message The verification error message.
+   */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -167,7 +163,7 @@ public class VerificationError {
   /**
    * The actions that you can take to resolve the verification error.
    *
-   * @param remediatingActions
+   * @param remediatingActions The actions that you can take to resolve the verification error.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError remediatingActions(List<RemediatingAction> remediatingActions) {
@@ -185,9 +181,8 @@ public class VerificationError {
 
   /**
    * The actions that you can take to resolve the verification error.
-   * @return remediatingActions
+   * @return remediatingActions The actions that you can take to resolve the verification error.
    */
-  @ApiModelProperty(value = "The actions that you can take to resolve the verification error.")
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RemediatingAction> getRemediatingActions() {
@@ -197,8 +192,8 @@ public class VerificationError {
   /**
    * The actions that you can take to resolve the verification error.
    *
-   * @param remediatingActions
-   */ 
+   * @param remediatingActions The actions that you can take to resolve the verification error.
+   */
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
@@ -208,7 +203,7 @@ public class VerificationError {
   /**
    * More granular information about the verification error.
    *
-   * @param subErrors
+   * @param subErrors More granular information about the verification error.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError subErrors(List<VerificationErrorRecursive> subErrors) {
@@ -226,9 +221,8 @@ public class VerificationError {
 
   /**
    * More granular information about the verification error.
-   * @return subErrors
+   * @return subErrors More granular information about the verification error.
    */
-  @ApiModelProperty(value = "More granular information about the verification error.")
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<VerificationErrorRecursive> getSubErrors() {
@@ -238,8 +232,8 @@ public class VerificationError {
   /**
    * More granular information about the verification error.
    *
-   * @param subErrors
-   */ 
+   * @param subErrors More granular information about the verification error.
+   */
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubErrors(List<VerificationErrorRecursive> subErrors) {
@@ -249,7 +243,7 @@ public class VerificationError {
   /**
    * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
    *
-   * @param type
+   * @param type The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError type(TypeEnum type) {
@@ -259,9 +253,8 @@ public class VerificationError {
 
   /**
    * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
-   * @return type
+   * @return type The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
    */
-  @ApiModelProperty(value = "The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -271,8 +264,8 @@ public class VerificationError {
   /**
    * The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
    *
-   * @param type
-   */ 
+   * @param type The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
