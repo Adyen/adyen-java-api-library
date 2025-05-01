@@ -46,7 +46,7 @@ public class SameCounterpartyRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code SameCounterpartyRestriction} instance, allowing for method chaining
    */
   public SameCounterpartyRestriction operation(String operation) {
@@ -56,7 +56,7 @@ public class SameCounterpartyRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class SameCounterpartyRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class SameCounterpartyRestriction {
   /**
    * value
    *
-   * @param value
+   * @param value 
    * @return the current {@code SameCounterpartyRestriction} instance, allowing for method chaining
    */
   public SameCounterpartyRestriction value(Boolean value) {
@@ -88,7 +88,7 @@ public class SameCounterpartyRestriction {
 
   /**
    * Get value
-   * @return value
+   * @return value 
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class SameCounterpartyRestriction {
   /**
    * value
    *
-   * @param value
+   * @param value 
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

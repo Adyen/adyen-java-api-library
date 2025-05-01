@@ -79,7 +79,7 @@ public class USInternationalAchAddressRequirement {
   /**
    * Specifies that you must provide a complete street address for International ACH (IAT) transactions.
    *
-   * @param description
+   * @param description Specifies that you must provide a complete street address for International ACH (IAT) transactions.
    * @return the current {@code USInternationalAchAddressRequirement} instance, allowing for method chaining
    */
   public USInternationalAchAddressRequirement description(String description) {
@@ -89,7 +89,7 @@ public class USInternationalAchAddressRequirement {
 
   /**
    * Specifies that you must provide a complete street address for International ACH (IAT) transactions.
-   * @return description
+   * @return description Specifies that you must provide a complete street address for International ACH (IAT) transactions.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class USInternationalAchAddressRequirement {
   /**
    * Specifies that you must provide a complete street address for International ACH (IAT) transactions.
    *
-   * @param description
+   * @param description Specifies that you must provide a complete street address for International ACH (IAT) transactions.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class USInternationalAchAddressRequirement {
   /**
    * **usInternationalAchAddressRequirement**
    *
-   * @param type
+   * @param type **usInternationalAchAddressRequirement**
    * @return the current {@code USInternationalAchAddressRequirement} instance, allowing for method chaining
    */
   public USInternationalAchAddressRequirement type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class USInternationalAchAddressRequirement {
 
   /**
    * **usInternationalAchAddressRequirement**
-   * @return type
+   * @return type **usInternationalAchAddressRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class USInternationalAchAddressRequirement {
   /**
    * **usInternationalAchAddressRequirement**
    *
-   * @param type
+   * @param type **usInternationalAchAddressRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

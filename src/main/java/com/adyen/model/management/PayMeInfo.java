@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class PayMeInfo {
   /**
    * Merchant display name
    *
-   * @param displayName
+   * @param displayName Merchant display name
    * @return the current {@code PayMeInfo} instance, allowing for method chaining
    */
   public PayMeInfo displayName(String displayName) {
@@ -62,9 +60,8 @@ public class PayMeInfo {
 
   /**
    * Merchant display name
-   * @return displayName
+   * @return displayName Merchant display name
    */
-  @ApiModelProperty(required = true, value = "Merchant display name")
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayName() {
@@ -74,8 +71,8 @@ public class PayMeInfo {
   /**
    * Merchant display name
    *
-   * @param displayName
-   */ 
+   * @param displayName Merchant display name
+   */
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayName(String displayName) {
@@ -85,7 +82,7 @@ public class PayMeInfo {
   /**
    * Merchant logo. Format: Base64-encoded string.
    *
-   * @param logo
+   * @param logo Merchant logo. Format: Base64-encoded string.
    * @return the current {@code PayMeInfo} instance, allowing for method chaining
    */
   public PayMeInfo logo(String logo) {
@@ -95,9 +92,8 @@ public class PayMeInfo {
 
   /**
    * Merchant logo. Format: Base64-encoded string.
-   * @return logo
+   * @return logo Merchant logo. Format: Base64-encoded string.
    */
-  @ApiModelProperty(required = true, value = "Merchant logo. Format: Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogo() {
@@ -107,8 +103,8 @@ public class PayMeInfo {
   /**
    * Merchant logo. Format: Base64-encoded string.
    *
-   * @param logo
-   */ 
+   * @param logo Merchant logo. Format: Base64-encoded string.
+   */
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
@@ -118,7 +114,7 @@ public class PayMeInfo {
   /**
    * The email address of merchant support.
    *
-   * @param supportEmail
+   * @param supportEmail The email address of merchant support.
    * @return the current {@code PayMeInfo} instance, allowing for method chaining
    */
   public PayMeInfo supportEmail(String supportEmail) {
@@ -128,9 +124,8 @@ public class PayMeInfo {
 
   /**
    * The email address of merchant support.
-   * @return supportEmail
+   * @return supportEmail The email address of merchant support.
    */
-  @ApiModelProperty(required = true, value = "The email address of merchant support.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSupportEmail() {
@@ -140,8 +135,8 @@ public class PayMeInfo {
   /**
    * The email address of merchant support.
    *
-   * @param supportEmail
-   */ 
+   * @param supportEmail The email address of merchant support.
+   */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {

@@ -74,7 +74,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    *
-   * @param enhancedSchemeDataCustomerReference
+   * @param enhancedSchemeDataCustomerReference The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataCustomerReference(String enhancedSchemeDataCustomerReference) {
@@ -84,7 +84,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
-   * @return enhancedSchemeDataCustomerReference
+   * @return enhancedSchemeDataCustomerReference The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +95,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    *
-   * @param enhancedSchemeDataCustomerReference
+   * @param enhancedSchemeDataCustomerReference The customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +106,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
    *
-   * @param enhancedSchemeDataEmployeeName
+   * @param enhancedSchemeDataEmployeeName The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataEmployeeName(String enhancedSchemeDataEmployeeName) {
@@ -116,7 +116,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
-   * @return enhancedSchemeDataEmployeeName
+   * @return enhancedSchemeDataEmployeeName The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_EMPLOYEE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
    *
-   * @param enhancedSchemeDataEmployeeName
+   * @param enhancedSchemeDataEmployeeName The name or ID of the person working in a temporary capacity. * maxLength: 40.   * Must not be all spaces.  *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_EMPLOYEE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
    *
-   * @param enhancedSchemeDataJobDescription
+   * @param enhancedSchemeDataJobDescription The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataJobDescription(String enhancedSchemeDataJobDescription) {
@@ -148,7 +148,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
-   * @return enhancedSchemeDataJobDescription
+   * @return enhancedSchemeDataJobDescription The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_JOB_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
    *
-   * @param enhancedSchemeDataJobDescription
+   * @param enhancedSchemeDataJobDescription The job description of the person working in a temporary capacity. * maxLength: 40  * Must not be all spaces.  *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_JOB_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
    *
-   * @param enhancedSchemeDataRegularHoursRate
+   * @param enhancedSchemeDataRegularHoursRate The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataRegularHoursRate(String enhancedSchemeDataRegularHoursRate) {
@@ -180,7 +180,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
-   * @return enhancedSchemeDataRegularHoursRate
+   * @return enhancedSchemeDataRegularHoursRate The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
    *
-   * @param enhancedSchemeDataRegularHoursRate
+   * @param enhancedSchemeDataRegularHoursRate The amount paid for regular hours worked, [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 7 * Must not be empty * Can be all zeros
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,7 +202,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
    *
-   * @param enhancedSchemeDataRegularHoursWorked
+   * @param enhancedSchemeDataRegularHoursWorked The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataRegularHoursWorked(String enhancedSchemeDataRegularHoursWorked) {
@@ -212,7 +212,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
-   * @return enhancedSchemeDataRegularHoursWorked
+   * @return enhancedSchemeDataRegularHoursWorked The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_WORKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
    *
-   * @param enhancedSchemeDataRegularHoursWorked
+   * @param enhancedSchemeDataRegularHoursWorked The hours worked. * maxLength: 7 * Must not be empty * Can be all zeros
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REGULAR_HOURS_WORKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    *
-   * @param enhancedSchemeDataRequestName
+   * @param enhancedSchemeDataRequestName The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataRequestName(String enhancedSchemeDataRequestName) {
@@ -244,7 +244,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
-   * @return enhancedSchemeDataRequestName
+   * @return enhancedSchemeDataRequestName The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REQUEST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    *
-   * @param enhancedSchemeDataRequestName
+   * @param enhancedSchemeDataRequestName The name of the person requesting temporary services. * maxLength: 40 * Must not be all zeros * Must not be all spaces
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_REQUEST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +266,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The billing period start date. * Format: ddMMyy * maxLength: 6
    *
-   * @param enhancedSchemeDataTempStartDate
+   * @param enhancedSchemeDataTempStartDate The billing period start date. * Format: ddMMyy * maxLength: 6
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataTempStartDate(String enhancedSchemeDataTempStartDate) {
@@ -276,7 +276,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The billing period start date. * Format: ddMMyy * maxLength: 6
-   * @return enhancedSchemeDataTempStartDate
+   * @return enhancedSchemeDataTempStartDate The billing period start date. * Format: ddMMyy * maxLength: 6
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +287,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The billing period start date. * Format: ddMMyy * maxLength: 6
    *
-   * @param enhancedSchemeDataTempStartDate
+   * @param enhancedSchemeDataTempStartDate The billing period start date. * Format: ddMMyy * maxLength: 6
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +298,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The billing period end date. * Format: ddMMyy * maxLength: 6
    *
-   * @param enhancedSchemeDataTempWeekEnding
+   * @param enhancedSchemeDataTempWeekEnding The billing period end date. * Format: ddMMyy * maxLength: 6
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataTempWeekEnding(String enhancedSchemeDataTempWeekEnding) {
@@ -308,7 +308,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The billing period end date. * Format: ddMMyy * maxLength: 6
-   * @return enhancedSchemeDataTempWeekEnding
+   * @return enhancedSchemeDataTempWeekEnding The billing period end date. * Format: ddMMyy * maxLength: 6
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_WEEK_ENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +319,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The billing period end date. * Format: ddMMyy * maxLength: 6
    *
-   * @param enhancedSchemeDataTempWeekEnding
+   * @param enhancedSchemeDataTempWeekEnding The billing period end date. * Format: ddMMyy * maxLength: 6
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TEMP_WEEK_ENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +330,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
    *
-   * @param enhancedSchemeDataTotalTaxAmount
+   * @param enhancedSchemeDataTotalTaxAmount The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
    * @return the current {@code AdditionalDataTemporaryServices} instance, allowing for method chaining
    */
   public AdditionalDataTemporaryServices enhancedSchemeDataTotalTaxAmount(String enhancedSchemeDataTotalTaxAmount) {
@@ -340,7 +340,7 @@ public class AdditionalDataTemporaryServices {
 
   /**
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
-   * @return enhancedSchemeDataTotalTaxAmount
+   * @return enhancedSchemeDataTotalTaxAmount The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,7 +351,7 @@ public class AdditionalDataTemporaryServices {
   /**
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
    *
-   * @param enhancedSchemeDataTotalTaxAmount
+   * @param enhancedSchemeDataTotalTaxAmount The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00 * maxLength: 12
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

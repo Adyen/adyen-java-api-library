@@ -46,7 +46,7 @@ public class PlatformPaymentConfiguration {
   /**
    * Specifies at what time a [sales day](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#sales-day) ends for this account.  Possible values: Time in **\&quot;HH:MM\&quot;** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\&quot;00:00\&quot;**.
    *
-   * @param salesDayClosingTime
+   * @param salesDayClosingTime Specifies at what time a [sales day](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#sales-day) ends for this account.  Possible values: Time in **\&quot;HH:MM\&quot;** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\&quot;00:00\&quot;**.
    * @return the current {@code PlatformPaymentConfiguration} instance, allowing for method chaining
    */
   public PlatformPaymentConfiguration salesDayClosingTime(String salesDayClosingTime) {
@@ -56,7 +56,7 @@ public class PlatformPaymentConfiguration {
 
   /**
    * Specifies at what time a [sales day](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#sales-day) ends for this account.  Possible values: Time in **\&quot;HH:MM\&quot;** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\&quot;00:00\&quot;**.
-   * @return salesDayClosingTime
+   * @return salesDayClosingTime Specifies at what time a [sales day](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#sales-day) ends for this account.  Possible values: Time in **\&quot;HH:MM\&quot;** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\&quot;00:00\&quot;**.
    */
   @JsonProperty(JSON_PROPERTY_SALES_DAY_CLOSING_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class PlatformPaymentConfiguration {
   /**
    * Specifies at what time a [sales day](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#sales-day) ends for this account.  Possible values: Time in **\&quot;HH:MM\&quot;** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\&quot;00:00\&quot;**.
    *
-   * @param salesDayClosingTime
+   * @param salesDayClosingTime Specifies at what time a [sales day](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#sales-day) ends for this account.  Possible values: Time in **\&quot;HH:MM\&quot;** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\&quot;00:00\&quot;**.
    */
   @JsonProperty(JSON_PROPERTY_SALES_DAY_CLOSING_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class PlatformPaymentConfiguration {
   /**
    * Specifies after how many business days the funds in a [settlement batch](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#settlement-batch) are made available in this balance account.  Possible values: **1** to **20**, or **null**. * Setting this value to an integer enables Sales day settlement in this balance account. See how Sales day settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/sales-day-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement). * Setting this value to **null** enables Pass-through settlement in this balance account. See how Pass-through settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/pass-through-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/pass-through-settlement).  Default value: **null**.
    *
-   * @param settlementDelayDays
+   * @param settlementDelayDays Specifies after how many business days the funds in a [settlement batch](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#settlement-batch) are made available in this balance account.  Possible values: **1** to **20**, or **null**. * Setting this value to an integer enables Sales day settlement in this balance account. See how Sales day settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/sales-day-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement). * Setting this value to **null** enables Pass-through settlement in this balance account. See how Pass-through settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/pass-through-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/pass-through-settlement).  Default value: **null**.
    * @return the current {@code PlatformPaymentConfiguration} instance, allowing for method chaining
    */
   public PlatformPaymentConfiguration settlementDelayDays(Integer settlementDelayDays) {
@@ -88,7 +88,7 @@ public class PlatformPaymentConfiguration {
 
   /**
    * Specifies after how many business days the funds in a [settlement batch](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#settlement-batch) are made available in this balance account.  Possible values: **1** to **20**, or **null**. * Setting this value to an integer enables Sales day settlement in this balance account. See how Sales day settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/sales-day-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement). * Setting this value to **null** enables Pass-through settlement in this balance account. See how Pass-through settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/pass-through-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/pass-through-settlement).  Default value: **null**.
-   * @return settlementDelayDays
+   * @return settlementDelayDays Specifies after how many business days the funds in a [settlement batch](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#settlement-batch) are made available in this balance account.  Possible values: **1** to **20**, or **null**. * Setting this value to an integer enables Sales day settlement in this balance account. See how Sales day settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/sales-day-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement). * Setting this value to **null** enables Pass-through settlement in this balance account. See how Pass-through settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/pass-through-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/pass-through-settlement).  Default value: **null**.
    */
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_DELAY_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class PlatformPaymentConfiguration {
   /**
    * Specifies after how many business days the funds in a [settlement batch](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#settlement-batch) are made available in this balance account.  Possible values: **1** to **20**, or **null**. * Setting this value to an integer enables Sales day settlement in this balance account. See how Sales day settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/sales-day-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement). * Setting this value to **null** enables Pass-through settlement in this balance account. See how Pass-through settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/pass-through-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/pass-through-settlement).  Default value: **null**.
    *
-   * @param settlementDelayDays
+   * @param settlementDelayDays Specifies after how many business days the funds in a [settlement batch](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement#settlement-batch) are made available in this balance account.  Possible values: **1** to **20**, or **null**. * Setting this value to an integer enables Sales day settlement in this balance account. See how Sales day settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/sales-day-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/sales-day-settlement). * Setting this value to **null** enables Pass-through settlement in this balance account. See how Pass-through settlement works in your [marketplace](https://docs.adyen.com/marketplaces/settle-funds/pass-through-settlement) or [platform](https://docs.adyen.com/platforms/settle-funds/pass-through-settlement).  Default value: **null**.
    */
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_DELAY_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

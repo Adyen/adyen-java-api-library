@@ -45,7 +45,7 @@ public class OnboardingThemes {
   private String previous;
 
   public static final String JSON_PROPERTY_THEMES = "themes";
-  private List<OnboardingTheme> themes = new ArrayList<>();
+  private List<OnboardingTheme> themes;
 
   public OnboardingThemes() { 
   }
@@ -53,7 +53,7 @@ public class OnboardingThemes {
   /**
    * The next page. Only present if there is a next page.
    *
-   * @param next
+   * @param next The next page. Only present if there is a next page.
    * @return the current {@code OnboardingThemes} instance, allowing for method chaining
    */
   public OnboardingThemes next(String next) {
@@ -63,7 +63,7 @@ public class OnboardingThemes {
 
   /**
    * The next page. Only present if there is a next page.
-   * @return next
+   * @return next The next page. Only present if there is a next page.
    */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class OnboardingThemes {
   /**
    * The next page. Only present if there is a next page.
    *
-   * @param next
+   * @param next The next page. Only present if there is a next page.
    */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +85,7 @@ public class OnboardingThemes {
   /**
    * The previous page. Only present if there is a previous page.
    *
-   * @param previous
+   * @param previous The previous page. Only present if there is a previous page.
    * @return the current {@code OnboardingThemes} instance, allowing for method chaining
    */
   public OnboardingThemes previous(String previous) {
@@ -95,7 +95,7 @@ public class OnboardingThemes {
 
   /**
    * The previous page. Only present if there is a previous page.
-   * @return previous
+   * @return previous The previous page. Only present if there is a previous page.
    */
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +106,7 @@ public class OnboardingThemes {
   /**
    * The previous page. Only present if there is a previous page.
    *
-   * @param previous
+   * @param previous The previous page. Only present if there is a previous page.
    */
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class OnboardingThemes {
   /**
    * List of onboarding themes.
    *
-   * @param themes
+   * @param themes List of onboarding themes.
    * @return the current {@code OnboardingThemes} instance, allowing for method chaining
    */
   public OnboardingThemes themes(List<OnboardingTheme> themes) {
@@ -135,7 +135,7 @@ public class OnboardingThemes {
 
   /**
    * List of onboarding themes.
-   * @return themes
+   * @return themes List of onboarding themes.
    */
   @JsonProperty(JSON_PROPERTY_THEMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class OnboardingThemes {
   /**
    * List of onboarding themes.
    *
-   * @param themes
+   * @param themes List of onboarding themes.
    */
   @JsonProperty(JSON_PROPERTY_THEMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

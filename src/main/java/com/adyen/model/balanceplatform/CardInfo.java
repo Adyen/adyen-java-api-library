@@ -110,7 +110,7 @@ public class CardInfo {
   /**
    * authentication
    *
-   * @param authentication
+   * @param authentication 
    * @return the current {@code CardInfo} instance, allowing for method chaining
    */
   public CardInfo authentication(Authentication authentication) {
@@ -120,7 +120,7 @@ public class CardInfo {
 
   /**
    * Get authentication
-   * @return authentication
+   * @return authentication 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +131,7 @@ public class CardInfo {
   /**
    * authentication
    *
-   * @param authentication
+   * @param authentication 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class CardInfo {
   /**
    * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    *
-   * @param brand
+   * @param brand The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    * @return the current {@code CardInfo} instance, allowing for method chaining
    */
   public CardInfo brand(String brand) {
@@ -152,7 +152,7 @@ public class CardInfo {
 
   /**
    * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
-   * @return brand
+   * @return brand The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +163,7 @@ public class CardInfo {
   /**
    * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    *
-   * @param brand
+   * @param brand The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +174,7 @@ public class CardInfo {
   /**
    * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    *
-   * @param brandVariant
+   * @param brandVariant The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    * @return the current {@code CardInfo} instance, allowing for method chaining
    */
   public CardInfo brandVariant(String brandVariant) {
@@ -184,7 +184,7 @@ public class CardInfo {
 
   /**
    * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
-   * @return brandVariant
+   * @return brandVariant The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +195,7 @@ public class CardInfo {
   /**
    * The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    *
-   * @param brandVariant
+   * @param brandVariant The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +206,7 @@ public class CardInfo {
   /**
    * The name of the cardholder.  Maximum length: 26 characters.
    *
-   * @param cardholderName
+   * @param cardholderName The name of the cardholder.  Maximum length: 26 characters.
    * @return the current {@code CardInfo} instance, allowing for method chaining
    */
   public CardInfo cardholderName(String cardholderName) {
@@ -216,7 +216,7 @@ public class CardInfo {
 
   /**
    * The name of the cardholder.  Maximum length: 26 characters.
-   * @return cardholderName
+   * @return cardholderName The name of the cardholder.  Maximum length: 26 characters.
    */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +227,7 @@ public class CardInfo {
   /**
    * The name of the cardholder.  Maximum length: 26 characters.
    *
-   * @param cardholderName
+   * @param cardholderName The name of the cardholder.  Maximum length: 26 characters.
    */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +238,7 @@ public class CardInfo {
   /**
    * configuration
    *
-   * @param configuration
+   * @param configuration 
    * @return the current {@code CardInfo} instance, allowing for method chaining
    */
   public CardInfo configuration(CardConfiguration configuration) {
@@ -248,7 +248,7 @@ public class CardInfo {
 
   /**
    * Get configuration
-   * @return configuration
+   * @return configuration 
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +259,7 @@ public class CardInfo {
   /**
    * configuration
    *
-   * @param configuration
+   * @param configuration 
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +270,7 @@ public class CardInfo {
   /**
    * deliveryContact
    *
-   * @param deliveryContact
+   * @param deliveryContact 
    * @return the current {@code CardInfo} instance, allowing for method chaining
    */
   public CardInfo deliveryContact(DeliveryContact deliveryContact) {
@@ -280,7 +280,7 @@ public class CardInfo {
 
   /**
    * Get deliveryContact
-   * @return deliveryContact
+   * @return deliveryContact 
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,7 +291,7 @@ public class CardInfo {
   /**
    * deliveryContact
    *
-   * @param deliveryContact
+   * @param deliveryContact 
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +302,7 @@ public class CardInfo {
   /**
    * The form factor of the card. Possible values: **virtual**, **physical**.
    *
-   * @param formFactor
+   * @param formFactor The form factor of the card. Possible values: **virtual**, **physical**.
    * @return the current {@code CardInfo} instance, allowing for method chaining
    */
   public CardInfo formFactor(FormFactorEnum formFactor) {
@@ -312,7 +312,7 @@ public class CardInfo {
 
   /**
    * The form factor of the card. Possible values: **virtual**, **physical**.
-   * @return formFactor
+   * @return formFactor The form factor of the card. Possible values: **virtual**, **physical**.
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,7 +323,7 @@ public class CardInfo {
   /**
    * The form factor of the card. Possible values: **virtual**, **physical**.
    *
-   * @param formFactor
+   * @param formFactor The form factor of the card. Possible values: **virtual**, **physical**.
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,7 +334,7 @@ public class CardInfo {
   /**
    * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    *
-   * @param threeDSecure
+   * @param threeDSecure Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    * @return the current {@code CardInfo} instance, allowing for method chaining
    */
   public CardInfo threeDSecure(String threeDSecure) {
@@ -344,7 +344,7 @@ public class CardInfo {
 
   /**
    * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
-   * @return threeDSecure
+   * @return threeDSecure Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,7 +355,7 @@ public class CardInfo {
   /**
    * Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    *
-   * @param threeDSecure
+   * @param threeDSecure Allocates a specific product range for either a physical or a virtual card. Possible values: **fullySupported**, **secureCorporate**. &gt;Reach out to your Adyen contact to get the values relevant for your integration.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

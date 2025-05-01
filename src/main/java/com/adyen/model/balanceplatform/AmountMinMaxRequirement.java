@@ -87,7 +87,7 @@ public class AmountMinMaxRequirement {
   /**
    * Specifies the eligible amounts for a particular route.
    *
-   * @param description
+   * @param description Specifies the eligible amounts for a particular route.
    * @return the current {@code AmountMinMaxRequirement} instance, allowing for method chaining
    */
   public AmountMinMaxRequirement description(String description) {
@@ -97,7 +97,7 @@ public class AmountMinMaxRequirement {
 
   /**
    * Specifies the eligible amounts for a particular route.
-   * @return description
+   * @return description Specifies the eligible amounts for a particular route.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class AmountMinMaxRequirement {
   /**
    * Specifies the eligible amounts for a particular route.
    *
-   * @param description
+   * @param description Specifies the eligible amounts for a particular route.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class AmountMinMaxRequirement {
   /**
    * Maximum amount.
    *
-   * @param max
+   * @param max Maximum amount.
    * @return the current {@code AmountMinMaxRequirement} instance, allowing for method chaining
    */
   public AmountMinMaxRequirement max(Long max) {
@@ -129,7 +129,7 @@ public class AmountMinMaxRequirement {
 
   /**
    * Maximum amount.
-   * @return max
+   * @return max Maximum amount.
    */
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class AmountMinMaxRequirement {
   /**
    * Maximum amount.
    *
-   * @param max
+   * @param max Maximum amount.
    */
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class AmountMinMaxRequirement {
   /**
    * Minimum amount.
    *
-   * @param min
+   * @param min Minimum amount.
    * @return the current {@code AmountMinMaxRequirement} instance, allowing for method chaining
    */
   public AmountMinMaxRequirement min(Long min) {
@@ -161,7 +161,7 @@ public class AmountMinMaxRequirement {
 
   /**
    * Minimum amount.
-   * @return min
+   * @return min Minimum amount.
    */
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class AmountMinMaxRequirement {
   /**
    * Minimum amount.
    *
-   * @param min
+   * @param min Minimum amount.
    */
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class AmountMinMaxRequirement {
   /**
    * **amountMinMaxRequirement**
    *
-   * @param type
+   * @param type **amountMinMaxRequirement**
    * @return the current {@code AmountMinMaxRequirement} instance, allowing for method chaining
    */
   public AmountMinMaxRequirement type(TypeEnum type) {
@@ -193,7 +193,7 @@ public class AmountMinMaxRequirement {
 
   /**
    * **amountMinMaxRequirement**
-   * @return type
+   * @return type **amountMinMaxRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +204,7 @@ public class AmountMinMaxRequirement {
   /**
    * **amountMinMaxRequirement**
    *
-   * @param type
+   * @param type **amountMinMaxRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -43,7 +43,7 @@ public class BankAccount {
   /**
    * accountIdentification
    *
-   * @param accountIdentification
+   * @param accountIdentification 
    * @return the current {@code BankAccount} instance, allowing for method chaining
    */
   public BankAccount accountIdentification(BankAccountAccountIdentification accountIdentification) {
@@ -53,7 +53,7 @@ public class BankAccount {
 
   /**
    * Get accountIdentification
-   * @return accountIdentification
+   * @return accountIdentification 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -64,7 +64,7 @@ public class BankAccount {
   /**
    * accountIdentification
    *
-   * @param accountIdentification
+   * @param accountIdentification 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

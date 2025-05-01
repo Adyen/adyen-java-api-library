@@ -240,7 +240,7 @@ public class VerificationErrorRecursive {
   /**
    * Contains the capabilities that the verification error applies to.
    *
-   * @param capabilities
+   * @param capabilities Contains the capabilities that the verification error applies to.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive capabilities(List<CapabilitiesEnum> capabilities) {
@@ -258,7 +258,7 @@ public class VerificationErrorRecursive {
 
   /**
    * Contains the capabilities that the verification error applies to.
-   * @return capabilities
+   * @return capabilities Contains the capabilities that the verification error applies to.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +269,7 @@ public class VerificationErrorRecursive {
   /**
    * Contains the capabilities that the verification error applies to.
    *
-   * @param capabilities
+   * @param capabilities Contains the capabilities that the verification error applies to.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,7 +280,7 @@ public class VerificationErrorRecursive {
   /**
    * The verification error code.
    *
-   * @param code
+   * @param code The verification error code.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive code(String code) {
@@ -290,7 +290,7 @@ public class VerificationErrorRecursive {
 
   /**
    * The verification error code.
-   * @return code
+   * @return code The verification error code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +301,7 @@ public class VerificationErrorRecursive {
   /**
    * The verification error code.
    *
-   * @param code
+   * @param code The verification error code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +312,7 @@ public class VerificationErrorRecursive {
   /**
    * A description of the error.
    *
-   * @param message
+   * @param message A description of the error.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive message(String message) {
@@ -322,7 +322,7 @@ public class VerificationErrorRecursive {
 
   /**
    * A description of the error.
-   * @return message
+   * @return message A description of the error.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +333,7 @@ public class VerificationErrorRecursive {
   /**
    * A description of the error.
    *
-   * @param message
+   * @param message A description of the error.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -344,7 +344,7 @@ public class VerificationErrorRecursive {
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    *
-   * @param type
+   * @param type The type of error.   Possible values: **invalidInput**, **dataMissing**.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive type(TypeEnum type) {
@@ -354,7 +354,7 @@ public class VerificationErrorRecursive {
 
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
-   * @return type
+   * @return type The type of error.   Possible values: **invalidInput**, **dataMissing**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,7 +365,7 @@ public class VerificationErrorRecursive {
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    *
-   * @param type
+   * @param type The type of error.   Possible values: **invalidInput**, **dataMissing**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,7 +376,7 @@ public class VerificationErrorRecursive {
   /**
    * Contains the actions that you can take to resolve the verification error.
    *
-   * @param remediatingActions
+   * @param remediatingActions Contains the actions that you can take to resolve the verification error.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive remediatingActions(List<RemediatingAction> remediatingActions) {
@@ -394,7 +394,7 @@ public class VerificationErrorRecursive {
 
   /**
    * Contains the actions that you can take to resolve the verification error.
-   * @return remediatingActions
+   * @return remediatingActions Contains the actions that you can take to resolve the verification error.
    */
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -405,7 +405,7 @@ public class VerificationErrorRecursive {
   /**
    * Contains the actions that you can take to resolve the verification error.
    *
-   * @param remediatingActions
+   * @param remediatingActions Contains the actions that you can take to resolve the verification error.
    */
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

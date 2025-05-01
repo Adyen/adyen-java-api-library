@@ -126,7 +126,7 @@ public class AddressRequirement {
   /**
    * Specifies the required address related fields for a particular route.
    *
-   * @param description
+   * @param description Specifies the required address related fields for a particular route.
    * @return the current {@code AddressRequirement} instance, allowing for method chaining
    */
   public AddressRequirement description(String description) {
@@ -136,7 +136,7 @@ public class AddressRequirement {
 
   /**
    * Specifies the required address related fields for a particular route.
-   * @return description
+   * @return description Specifies the required address related fields for a particular route.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class AddressRequirement {
   /**
    * Specifies the required address related fields for a particular route.
    *
-   * @param description
+   * @param description Specifies the required address related fields for a particular route.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class AddressRequirement {
   /**
    * List of address fields.
    *
-   * @param requiredAddressFields
+   * @param requiredAddressFields List of address fields.
    * @return the current {@code AddressRequirement} instance, allowing for method chaining
    */
   public AddressRequirement requiredAddressFields(List<RequiredAddressFieldsEnum> requiredAddressFields) {
@@ -176,7 +176,7 @@ public class AddressRequirement {
 
   /**
    * List of address fields.
-   * @return requiredAddressFields
+   * @return requiredAddressFields List of address fields.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class AddressRequirement {
   /**
    * List of address fields.
    *
-   * @param requiredAddressFields
+   * @param requiredAddressFields List of address fields.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRED_ADDRESS_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class AddressRequirement {
   /**
    * **addressRequirement**
    *
-   * @param type
+   * @param type **addressRequirement**
    * @return the current {@code AddressRequirement} instance, allowing for method chaining
    */
   public AddressRequirement type(TypeEnum type) {
@@ -208,7 +208,7 @@ public class AddressRequirement {
 
   /**
    * **addressRequirement**
-   * @return type
+   * @return type **addressRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class AddressRequirement {
   /**
    * **addressRequirement**
    *
-   * @param type
+   * @param type **addressRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

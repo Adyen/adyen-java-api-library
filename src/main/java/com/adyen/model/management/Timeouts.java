@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class Timeouts {
   /**
    * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
    *
-   * @param fromActiveToSleep
+   * @param fromActiveToSleep Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
    * @return the current {@code Timeouts} instance, allowing for method chaining
    */
   public Timeouts fromActiveToSleep(Integer fromActiveToSleep) {
@@ -54,9 +52,8 @@ public class Timeouts {
 
   /**
    * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
-   * @return fromActiveToSleep
+   * @return fromActiveToSleep Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
    */
-  @ApiModelProperty(value = "Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.")
   @JsonProperty(JSON_PROPERTY_FROM_ACTIVE_TO_SLEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getFromActiveToSleep() {
@@ -66,8 +63,8 @@ public class Timeouts {
   /**
    * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
    *
-   * @param fromActiveToSleep
-   */ 
+   * @param fromActiveToSleep Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
+   */
   @JsonProperty(JSON_PROPERTY_FROM_ACTIVE_TO_SLEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromActiveToSleep(Integer fromActiveToSleep) {

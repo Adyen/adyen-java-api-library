@@ -53,7 +53,7 @@ public class BalanceAccountResource extends Resource {
   /**
    * balanceAccountId
    *
-   * @param balanceAccountId
+   * @param balanceAccountId 
    * @return the current {@code BalanceAccountResource} instance, allowing for method chaining
    */
   public BalanceAccountResource balanceAccountId(String balanceAccountId) {
@@ -63,7 +63,7 @@ public class BalanceAccountResource extends Resource {
 
   /**
    * Get balanceAccountId
-   * @return balanceAccountId
+   * @return balanceAccountId 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class BalanceAccountResource extends Resource {
   /**
    * balanceAccountId
    *
-   * @param balanceAccountId
+   * @param balanceAccountId 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -85,7 +85,7 @@ public class StringMatch {
   /**
    * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    *
-   * @param operation
+   * @param operation The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    * @return the current {@code StringMatch} instance, allowing for method chaining
    */
   public StringMatch operation(OperationEnum operation) {
@@ -95,7 +95,7 @@ public class StringMatch {
 
   /**
    * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
-   * @return operation
+   * @return operation The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +106,7 @@ public class StringMatch {
   /**
    * The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    *
-   * @param operation
+   * @param operation The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**,
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class StringMatch {
   /**
    * The string to be matched.
    *
-   * @param value
+   * @param value The string to be matched.
    * @return the current {@code StringMatch} instance, allowing for method chaining
    */
   public StringMatch value(String value) {
@@ -127,7 +127,7 @@ public class StringMatch {
 
   /**
    * The string to be matched.
-   * @return value
+   * @return value The string to be matched.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class StringMatch {
   /**
    * The string to be matched.
    *
-   * @param value
+   * @param value The string to be matched.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

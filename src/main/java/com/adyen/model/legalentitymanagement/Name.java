@@ -50,7 +50,7 @@ public class Name {
   /**
    * The individual&#39;s first name. Must not be blank.
    *
-   * @param firstName
+   * @param firstName The individual&#39;s first name. Must not be blank.
    * @return the current {@code Name} instance, allowing for method chaining
    */
   public Name firstName(String firstName) {
@@ -60,7 +60,7 @@ public class Name {
 
   /**
    * The individual&#39;s first name. Must not be blank.
-   * @return firstName
+   * @return firstName The individual&#39;s first name. Must not be blank.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class Name {
   /**
    * The individual&#39;s first name. Must not be blank.
    *
-   * @param firstName
+   * @param firstName The individual&#39;s first name. Must not be blank.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class Name {
   /**
    * The infix in the individual&#39;s name, if any.
    *
-   * @param infix
+   * @param infix The infix in the individual&#39;s name, if any.
    * @return the current {@code Name} instance, allowing for method chaining
    */
   public Name infix(String infix) {
@@ -92,7 +92,7 @@ public class Name {
 
   /**
    * The infix in the individual&#39;s name, if any.
-   * @return infix
+   * @return infix The infix in the individual&#39;s name, if any.
    */
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class Name {
   /**
    * The infix in the individual&#39;s name, if any.
    *
-   * @param infix
+   * @param infix The infix in the individual&#39;s name, if any.
    */
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class Name {
   /**
    * The individual&#39;s last name. Must not be blank.
    *
-   * @param lastName
+   * @param lastName The individual&#39;s last name. Must not be blank.
    * @return the current {@code Name} instance, allowing for method chaining
    */
   public Name lastName(String lastName) {
@@ -124,7 +124,7 @@ public class Name {
 
   /**
    * The individual&#39;s last name. Must not be blank.
-   * @return lastName
+   * @return lastName The individual&#39;s last name. Must not be blank.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class Name {
   /**
    * The individual&#39;s last name. Must not be blank.
    *
-   * @param lastName
+   * @param lastName The individual&#39;s last name. Must not be blank.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

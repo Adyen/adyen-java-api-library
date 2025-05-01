@@ -122,7 +122,7 @@ public class CapitalGrant {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant amount(Amount amount) {
@@ -132,7 +132,7 @@ public class CapitalGrant {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class CapitalGrant {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class CapitalGrant {
   /**
    * balances
    *
-   * @param balances
+   * @param balances 
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant balances(CapitalBalance balances) {
@@ -164,7 +164,7 @@ public class CapitalGrant {
 
   /**
    * Get balances
-   * @return balances
+   * @return balances 
    */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class CapitalGrant {
   /**
    * balances
    *
-   * @param balances
+   * @param balances 
    */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class CapitalGrant {
   /**
    * counterparty
    *
-   * @param counterparty
+   * @param counterparty 
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant counterparty(Counterparty counterparty) {
@@ -196,7 +196,7 @@ public class CapitalGrant {
 
   /**
    * Get counterparty
-   * @return counterparty
+   * @return counterparty 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class CapitalGrant {
   /**
    * counterparty
    *
-   * @param counterparty
+   * @param counterparty 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class CapitalGrant {
   /**
    * fee
    *
-   * @param fee
+   * @param fee 
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant fee(Fee fee) {
@@ -228,7 +228,7 @@ public class CapitalGrant {
 
   /**
    * Get fee
-   * @return fee
+   * @return fee 
    */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class CapitalGrant {
   /**
    * fee
    *
-   * @param fee
+   * @param fee 
    */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +250,7 @@ public class CapitalGrant {
   /**
    * The identifier of the grant account used for the grant.
    *
-   * @param grantAccountId
+   * @param grantAccountId The identifier of the grant account used for the grant.
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant grantAccountId(String grantAccountId) {
@@ -260,7 +260,7 @@ public class CapitalGrant {
 
   /**
    * The identifier of the grant account used for the grant.
-   * @return grantAccountId
+   * @return grantAccountId The identifier of the grant account used for the grant.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +271,7 @@ public class CapitalGrant {
   /**
    * The identifier of the grant account used for the grant.
    *
-   * @param grantAccountId
+   * @param grantAccountId The identifier of the grant account used for the grant.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,7 +282,7 @@ public class CapitalGrant {
   /**
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    *
-   * @param grantOfferId
+   * @param grantOfferId The identifier of the grant offer that has been selected and from which the grant details will be used.
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant grantOfferId(String grantOfferId) {
@@ -292,7 +292,7 @@ public class CapitalGrant {
 
   /**
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
-   * @return grantOfferId
+   * @return grantOfferId The identifier of the grant offer that has been selected and from which the grant details will be used.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,7 +303,7 @@ public class CapitalGrant {
   /**
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    *
-   * @param grantOfferId
+   * @param grantOfferId The identifier of the grant offer that has been selected and from which the grant details will be used.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -314,7 +314,7 @@ public class CapitalGrant {
   /**
    * The identifier of the grant reference.
    *
-   * @param id
+   * @param id The identifier of the grant reference.
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant id(String id) {
@@ -324,7 +324,7 @@ public class CapitalGrant {
 
   /**
    * The identifier of the grant reference.
-   * @return id
+   * @return id The identifier of the grant reference.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,7 +335,7 @@ public class CapitalGrant {
   /**
    * The identifier of the grant reference.
    *
-   * @param id
+   * @param id The identifier of the grant reference.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,7 +346,7 @@ public class CapitalGrant {
   /**
    * repayment
    *
-   * @param repayment
+   * @param repayment 
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant repayment(Repayment repayment) {
@@ -356,7 +356,7 @@ public class CapitalGrant {
 
   /**
    * Get repayment
-   * @return repayment
+   * @return repayment 
    */
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -367,7 +367,7 @@ public class CapitalGrant {
   /**
    * repayment
    *
-   * @param repayment
+   * @param repayment 
    */
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -378,7 +378,7 @@ public class CapitalGrant {
   /**
    * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    *
-   * @param status
+   * @param status The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    * @return the current {@code CapitalGrant} instance, allowing for method chaining
    */
   public CapitalGrant status(StatusEnum status) {
@@ -388,7 +388,7 @@ public class CapitalGrant {
 
   /**
    * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
-   * @return status
+   * @return status The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -399,7 +399,7 @@ public class CapitalGrant {
   /**
    * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    *
-   * @param status
+   * @param status The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

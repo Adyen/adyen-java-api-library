@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GetTermsOfServiceAcceptanceInfosResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<TermsOfServiceAcceptanceInfo> data = new ArrayList<>();
+  private List<TermsOfServiceAcceptanceInfo> data;
 
   public GetTermsOfServiceAcceptanceInfosResponse() { 
   }
@@ -45,7 +45,7 @@ public class GetTermsOfServiceAcceptanceInfosResponse {
   /**
    * The Terms of Service acceptance information.
    *
-   * @param data
+   * @param data The Terms of Service acceptance information.
    * @return the current {@code GetTermsOfServiceAcceptanceInfosResponse} instance, allowing for method chaining
    */
   public GetTermsOfServiceAcceptanceInfosResponse data(List<TermsOfServiceAcceptanceInfo> data) {
@@ -63,7 +63,7 @@ public class GetTermsOfServiceAcceptanceInfosResponse {
 
   /**
    * The Terms of Service acceptance information.
-   * @return data
+   * @return data The Terms of Service acceptance information.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class GetTermsOfServiceAcceptanceInfosResponse {
   /**
    * The Terms of Service acceptance information.
    *
-   * @param data
+   * @param data The Terms of Service acceptance information.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

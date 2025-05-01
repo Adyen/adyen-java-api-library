@@ -109,7 +109,7 @@ public class GrantOffer {
   /**
    * The identifier of the account holder to which the grant is offered.
    *
-   * @param accountHolderId
+   * @param accountHolderId The identifier of the account holder to which the grant is offered.
    * @return the current {@code GrantOffer} instance, allowing for method chaining
    */
   public GrantOffer accountHolderId(String accountHolderId) {
@@ -119,7 +119,7 @@ public class GrantOffer {
 
   /**
    * The identifier of the account holder to which the grant is offered.
-   * @return accountHolderId
+   * @return accountHolderId The identifier of the account holder to which the grant is offered.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class GrantOffer {
   /**
    * The identifier of the account holder to which the grant is offered.
    *
-   * @param accountHolderId
+   * @param accountHolderId The identifier of the account holder to which the grant is offered.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +141,7 @@ public class GrantOffer {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code GrantOffer} instance, allowing for method chaining
    */
   public GrantOffer amount(Amount amount) {
@@ -151,7 +151,7 @@ public class GrantOffer {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class GrantOffer {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +173,7 @@ public class GrantOffer {
   /**
    * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    *
-   * @param contractType
+   * @param contractType The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    * @return the current {@code GrantOffer} instance, allowing for method chaining
    */
   public GrantOffer contractType(ContractTypeEnum contractType) {
@@ -183,7 +183,7 @@ public class GrantOffer {
 
   /**
    * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
-   * @return contractType
+   * @return contractType The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    */
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class GrantOffer {
   /**
    * The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    *
-   * @param contractType
+   * @param contractType The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
    */
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +205,7 @@ public class GrantOffer {
   /**
    * The end date of the grant offer validity period.
    *
-   * @param expiresAt
+   * @param expiresAt The end date of the grant offer validity period.
    * @return the current {@code GrantOffer} instance, allowing for method chaining
    */
   public GrantOffer expiresAt(OffsetDateTime expiresAt) {
@@ -215,7 +215,7 @@ public class GrantOffer {
 
   /**
    * The end date of the grant offer validity period.
-   * @return expiresAt
+   * @return expiresAt The end date of the grant offer validity period.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +226,7 @@ public class GrantOffer {
   /**
    * The end date of the grant offer validity period.
    *
-   * @param expiresAt
+   * @param expiresAt The end date of the grant offer validity period.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -237,7 +237,7 @@ public class GrantOffer {
   /**
    * fee
    *
-   * @param fee
+   * @param fee 
    * @return the current {@code GrantOffer} instance, allowing for method chaining
    */
   public GrantOffer fee(Fee fee) {
@@ -247,7 +247,7 @@ public class GrantOffer {
 
   /**
    * Get fee
-   * @return fee
+   * @return fee 
    */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +258,7 @@ public class GrantOffer {
   /**
    * fee
    *
-   * @param fee
+   * @param fee 
    */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +269,7 @@ public class GrantOffer {
   /**
    * The unique identifier of the grant offer.
    *
-   * @param id
+   * @param id The unique identifier of the grant offer.
    * @return the current {@code GrantOffer} instance, allowing for method chaining
    */
   public GrantOffer id(String id) {
@@ -279,7 +279,7 @@ public class GrantOffer {
 
   /**
    * The unique identifier of the grant offer.
-   * @return id
+   * @return id The unique identifier of the grant offer.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +290,7 @@ public class GrantOffer {
   /**
    * The unique identifier of the grant offer.
    *
-   * @param id
+   * @param id The unique identifier of the grant offer.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +301,7 @@ public class GrantOffer {
   /**
    * repayment
    *
-   * @param repayment
+   * @param repayment 
    * @return the current {@code GrantOffer} instance, allowing for method chaining
    */
   public GrantOffer repayment(Repayment repayment) {
@@ -311,7 +311,7 @@ public class GrantOffer {
 
   /**
    * Get repayment
-   * @return repayment
+   * @return repayment 
    */
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class GrantOffer {
   /**
    * repayment
    *
-   * @param repayment
+   * @param repayment 
    */
   @JsonProperty(JSON_PROPERTY_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +333,7 @@ public class GrantOffer {
   /**
    * The starting date of the grant offer validity period.
    *
-   * @param startsAt
+   * @param startsAt The starting date of the grant offer validity period.
    * @return the current {@code GrantOffer} instance, allowing for method chaining
    */
   public GrantOffer startsAt(OffsetDateTime startsAt) {
@@ -343,7 +343,7 @@ public class GrantOffer {
 
   /**
    * The starting date of the grant offer validity period.
-   * @return startsAt
+   * @return startsAt The starting date of the grant offer validity period.
    */
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,7 +354,7 @@ public class GrantOffer {
   /**
    * The starting date of the grant offer validity period.
    *
-   * @param startsAt
+   * @param startsAt The starting date of the grant offer validity period.
    */
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

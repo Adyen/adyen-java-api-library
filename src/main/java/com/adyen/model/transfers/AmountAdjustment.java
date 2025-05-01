@@ -90,7 +90,7 @@ public class AmountAdjustment {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code AmountAdjustment} instance, allowing for method chaining
    */
   public AmountAdjustment amount(Amount amount) {
@@ -100,7 +100,7 @@ public class AmountAdjustment {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class AmountAdjustment {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class AmountAdjustment {
   /**
    * The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
    *
-   * @param amountAdjustmentType
+   * @param amountAdjustmentType The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
    * @return the current {@code AmountAdjustment} instance, allowing for method chaining
    */
   public AmountAdjustment amountAdjustmentType(AmountAdjustmentTypeEnum amountAdjustmentType) {
@@ -132,7 +132,7 @@ public class AmountAdjustment {
 
   /**
    * The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
-   * @return amountAdjustmentType
+   * @return amountAdjustmentType The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class AmountAdjustment {
   /**
    * The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
    *
-   * @param amountAdjustmentType
+   * @param amountAdjustmentType The type of markup that is applied to an authorised payment.  Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class AmountAdjustment {
   /**
    * The basepoints associated with the applied markup.
    *
-   * @param basepoints
+   * @param basepoints The basepoints associated with the applied markup.
    * @return the current {@code AmountAdjustment} instance, allowing for method chaining
    */
   public AmountAdjustment basepoints(Integer basepoints) {
@@ -164,7 +164,7 @@ public class AmountAdjustment {
 
   /**
    * The basepoints associated with the applied markup.
-   * @return basepoints
+   * @return basepoints The basepoints associated with the applied markup.
    */
   @JsonProperty(JSON_PROPERTY_BASEPOINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class AmountAdjustment {
   /**
    * The basepoints associated with the applied markup.
    *
-   * @param basepoints
+   * @param basepoints The basepoints associated with the applied markup.
    */
   @JsonProperty(JSON_PROPERTY_BASEPOINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

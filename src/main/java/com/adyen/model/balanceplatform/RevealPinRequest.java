@@ -46,7 +46,7 @@ public class RevealPinRequest {
   /**
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    *
-   * @param encryptedKey
+   * @param encryptedKey The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    * @return the current {@code RevealPinRequest} instance, allowing for method chaining
    */
   public RevealPinRequest encryptedKey(String encryptedKey) {
@@ -56,7 +56,7 @@ public class RevealPinRequest {
 
   /**
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
-   * @return encryptedKey
+   * @return encryptedKey The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class RevealPinRequest {
   /**
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    *
-   * @param encryptedKey
+   * @param encryptedKey The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class RevealPinRequest {
   /**
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    * @return the current {@code RevealPinRequest} instance, allowing for method chaining
    */
   public RevealPinRequest paymentInstrumentId(String paymentInstrumentId) {
@@ -88,7 +88,7 @@ public class RevealPinRequest {
 
   /**
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class RevealPinRequest {
   /**
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

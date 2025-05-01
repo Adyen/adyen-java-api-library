@@ -83,7 +83,7 @@ public class InternalCategoryData {
   /**
    * The capture&#39;s merchant reference included in the transfer.
    *
-   * @param modificationMerchantReference
+   * @param modificationMerchantReference The capture&#39;s merchant reference included in the transfer.
    * @return the current {@code InternalCategoryData} instance, allowing for method chaining
    */
   public InternalCategoryData modificationMerchantReference(String modificationMerchantReference) {
@@ -93,7 +93,7 @@ public class InternalCategoryData {
 
   /**
    * The capture&#39;s merchant reference included in the transfer.
-   * @return modificationMerchantReference
+   * @return modificationMerchantReference The capture&#39;s merchant reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class InternalCategoryData {
   /**
    * The capture&#39;s merchant reference included in the transfer.
    *
-   * @param modificationMerchantReference
+   * @param modificationMerchantReference The capture&#39;s merchant reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class InternalCategoryData {
   /**
    * The capture reference included in the transfer.
    *
-   * @param modificationPspReference
+   * @param modificationPspReference The capture reference included in the transfer.
    * @return the current {@code InternalCategoryData} instance, allowing for method chaining
    */
   public InternalCategoryData modificationPspReference(String modificationPspReference) {
@@ -125,7 +125,7 @@ public class InternalCategoryData {
 
   /**
    * The capture reference included in the transfer.
-   * @return modificationPspReference
+   * @return modificationPspReference The capture reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class InternalCategoryData {
   /**
    * The capture reference included in the transfer.
    *
-   * @param modificationPspReference
+   * @param modificationPspReference The capture reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class InternalCategoryData {
   /**
    * **internal**
    *
-   * @param type
+   * @param type **internal**
    * @return the current {@code InternalCategoryData} instance, allowing for method chaining
    */
   public InternalCategoryData type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class InternalCategoryData {
 
   /**
    * **internal**
-   * @return type
+   * @return type **internal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class InternalCategoryData {
   /**
    * **internal**
    *
-   * @param type
+   * @param type **internal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

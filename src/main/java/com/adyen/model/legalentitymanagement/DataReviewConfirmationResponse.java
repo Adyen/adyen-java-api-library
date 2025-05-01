@@ -42,7 +42,7 @@ public class DataReviewConfirmationResponse {
   /**
    * Date when data review was confirmed.
    *
-   * @param dataReviewedAt
+   * @param dataReviewedAt Date when data review was confirmed.
    * @return the current {@code DataReviewConfirmationResponse} instance, allowing for method chaining
    */
   public DataReviewConfirmationResponse dataReviewedAt(String dataReviewedAt) {
@@ -52,7 +52,7 @@ public class DataReviewConfirmationResponse {
 
   /**
    * Date when data review was confirmed.
-   * @return dataReviewedAt
+   * @return dataReviewedAt Date when data review was confirmed.
    */
   @JsonProperty(JSON_PROPERTY_DATA_REVIEWED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class DataReviewConfirmationResponse {
   /**
    * Date when data review was confirmed.
    *
-   * @param dataReviewedAt
+   * @param dataReviewedAt Date when data review was confirmed.
    */
   @JsonProperty(JSON_PROPERTY_DATA_REVIEWED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

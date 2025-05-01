@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,7 +66,7 @@ public class CreateMerchantResponse {
   /**
    * The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines).
    *
-   * @param businessLineId
+   * @param businessLineId The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines).
    * @return the current {@code CreateMerchantResponse} instance, allowing for method chaining
    */
   public CreateMerchantResponse businessLineId(String businessLineId) {
@@ -78,9 +76,8 @@ public class CreateMerchantResponse {
 
   /**
    * The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines).
-   * @return businessLineId
+   * @return businessLineId The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines).
    */
-  @ApiModelProperty(value = "The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines).")
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBusinessLineId() {
@@ -90,8 +87,8 @@ public class CreateMerchantResponse {
   /**
    * The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines).
    *
-   * @param businessLineId
-   */ 
+   * @param businessLineId The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines).
+   */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineId(String businessLineId) {
@@ -101,7 +98,7 @@ public class CreateMerchantResponse {
   /**
    * The unique identifier of the company account.
    *
-   * @param companyId
+   * @param companyId The unique identifier of the company account.
    * @return the current {@code CreateMerchantResponse} instance, allowing for method chaining
    */
   public CreateMerchantResponse companyId(String companyId) {
@@ -111,9 +108,8 @@ public class CreateMerchantResponse {
 
   /**
    * The unique identifier of the company account.
-   * @return companyId
+   * @return companyId The unique identifier of the company account.
    */
-  @ApiModelProperty(value = "The unique identifier of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
@@ -123,8 +119,8 @@ public class CreateMerchantResponse {
   /**
    * The unique identifier of the company account.
    *
-   * @param companyId
-   */ 
+   * @param companyId The unique identifier of the company account.
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -134,7 +130,7 @@ public class CreateMerchantResponse {
   /**
    * Your description for the merchant account, maximum 300 characters.
    *
-   * @param description
+   * @param description Your description for the merchant account, maximum 300 characters.
    * @return the current {@code CreateMerchantResponse} instance, allowing for method chaining
    */
   public CreateMerchantResponse description(String description) {
@@ -144,9 +140,8 @@ public class CreateMerchantResponse {
 
   /**
    * Your description for the merchant account, maximum 300 characters.
-   * @return description
+   * @return description Your description for the merchant account, maximum 300 characters.
    */
-  @ApiModelProperty(value = "Your description for the merchant account, maximum 300 characters.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -156,8 +151,8 @@ public class CreateMerchantResponse {
   /**
    * Your description for the merchant account, maximum 300 characters.
    *
-   * @param description
-   */ 
+   * @param description Your description for the merchant account, maximum 300 characters.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -167,7 +162,7 @@ public class CreateMerchantResponse {
   /**
    * The unique identifier of the merchant account. If Adyen set up a template for the &#x60;reference&#x60;, then the &#x60;id&#x60; will have the same value as the &#x60;reference&#x60; that you sent in the request. Otherwise, the value is generated by Adyen.
    *
-   * @param id
+   * @param id The unique identifier of the merchant account. If Adyen set up a template for the &#x60;reference&#x60;, then the &#x60;id&#x60; will have the same value as the &#x60;reference&#x60; that you sent in the request. Otherwise, the value is generated by Adyen.
    * @return the current {@code CreateMerchantResponse} instance, allowing for method chaining
    */
   public CreateMerchantResponse id(String id) {
@@ -177,9 +172,8 @@ public class CreateMerchantResponse {
 
   /**
    * The unique identifier of the merchant account. If Adyen set up a template for the &#x60;reference&#x60;, then the &#x60;id&#x60; will have the same value as the &#x60;reference&#x60; that you sent in the request. Otherwise, the value is generated by Adyen.
-   * @return id
+   * @return id The unique identifier of the merchant account. If Adyen set up a template for the &#x60;reference&#x60;, then the &#x60;id&#x60; will have the same value as the &#x60;reference&#x60; that you sent in the request. Otherwise, the value is generated by Adyen.
    */
-  @ApiModelProperty(value = "The unique identifier of the merchant account. If Adyen set up a template for the `reference`, then the `id` will have the same value as the `reference` that you sent in the request. Otherwise, the value is generated by Adyen.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -189,8 +183,8 @@ public class CreateMerchantResponse {
   /**
    * The unique identifier of the merchant account. If Adyen set up a template for the &#x60;reference&#x60;, then the &#x60;id&#x60; will have the same value as the &#x60;reference&#x60; that you sent in the request. Otherwise, the value is generated by Adyen.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the merchant account. If Adyen set up a template for the &#x60;reference&#x60;, then the &#x60;id&#x60; will have the same value as the &#x60;reference&#x60; that you sent in the request. Otherwise, the value is generated by Adyen.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -200,7 +194,7 @@ public class CreateMerchantResponse {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).
    * @return the current {@code CreateMerchantResponse} instance, allowing for method chaining
    */
   public CreateMerchantResponse legalEntityId(String legalEntityId) {
@@ -210,9 +204,8 @@ public class CreateMerchantResponse {
 
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).
-   * @return legalEntityId
+   * @return legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).
    */
-  @ApiModelProperty(value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalEntityId() {
@@ -222,8 +215,8 @@ public class CreateMerchantResponse {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).
    *
-   * @param legalEntityId
-   */ 
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).
+   */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
@@ -233,7 +226,7 @@ public class CreateMerchantResponse {
   /**
    * Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts.
    *
-   * @param pricingPlan
+   * @param pricingPlan Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts.
    * @return the current {@code CreateMerchantResponse} instance, allowing for method chaining
    */
   public CreateMerchantResponse pricingPlan(String pricingPlan) {
@@ -243,9 +236,8 @@ public class CreateMerchantResponse {
 
   /**
    * Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts.
-   * @return pricingPlan
+   * @return pricingPlan Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts.
    */
-  @ApiModelProperty(value = "Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts.")
   @JsonProperty(JSON_PROPERTY_PRICING_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPricingPlan() {
@@ -255,8 +247,8 @@ public class CreateMerchantResponse {
   /**
    * Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts.
    *
-   * @param pricingPlan
-   */ 
+   * @param pricingPlan Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts.
+   */
   @JsonProperty(JSON_PROPERTY_PRICING_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPricingPlan(String pricingPlan) {
@@ -266,7 +258,7 @@ public class CreateMerchantResponse {
   /**
    * Your reference for the merchant account.
    *
-   * @param reference
+   * @param reference Your reference for the merchant account.
    * @return the current {@code CreateMerchantResponse} instance, allowing for method chaining
    */
   public CreateMerchantResponse reference(String reference) {
@@ -276,9 +268,8 @@ public class CreateMerchantResponse {
 
   /**
    * Your reference for the merchant account.
-   * @return reference
+   * @return reference Your reference for the merchant account.
    */
-  @ApiModelProperty(value = "Your reference for the merchant account.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -288,8 +279,8 @@ public class CreateMerchantResponse {
   /**
    * Your reference for the merchant account.
    *
-   * @param reference
-   */ 
+   * @param reference Your reference for the merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {

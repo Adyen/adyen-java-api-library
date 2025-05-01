@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class WeChatPayInfo {
   /**
    * The name of the contact person from merchant support.
    *
-   * @param contactPersonName
+   * @param contactPersonName The name of the contact person from merchant support.
    * @return the current {@code WeChatPayInfo} instance, allowing for method chaining
    */
   public WeChatPayInfo contactPersonName(String contactPersonName) {
@@ -58,9 +56,8 @@ public class WeChatPayInfo {
 
   /**
    * The name of the contact person from merchant support.
-   * @return contactPersonName
+   * @return contactPersonName The name of the contact person from merchant support.
    */
-  @ApiModelProperty(required = true, value = "The name of the contact person from merchant support.")
   @JsonProperty(JSON_PROPERTY_CONTACT_PERSON_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getContactPersonName() {
@@ -70,8 +67,8 @@ public class WeChatPayInfo {
   /**
    * The name of the contact person from merchant support.
    *
-   * @param contactPersonName
-   */ 
+   * @param contactPersonName The name of the contact person from merchant support.
+   */
   @JsonProperty(JSON_PROPERTY_CONTACT_PERSON_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContactPersonName(String contactPersonName) {
@@ -81,7 +78,7 @@ public class WeChatPayInfo {
   /**
    * The email address of merchant support.
    *
-   * @param email
+   * @param email The email address of merchant support.
    * @return the current {@code WeChatPayInfo} instance, allowing for method chaining
    */
   public WeChatPayInfo email(String email) {
@@ -91,9 +88,8 @@ public class WeChatPayInfo {
 
   /**
    * The email address of merchant support.
-   * @return email
+   * @return email The email address of merchant support.
    */
-  @ApiModelProperty(required = true, value = "The email address of merchant support.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -103,8 +99,8 @@ public class WeChatPayInfo {
   /**
    * The email address of merchant support.
    *
-   * @param email
-   */ 
+   * @param email The email address of merchant support.
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {

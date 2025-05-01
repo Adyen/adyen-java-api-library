@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.DataCenter;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -62,7 +60,7 @@ public class Merchant {
   private String companyId;
 
   public static final String JSON_PROPERTY_DATA_CENTERS = "dataCenters";
-  private List<DataCenter> dataCenters = null;
+  private List<DataCenter> dataCenters;
 
   public static final String JSON_PROPERTY_DEFAULT_SHOPPER_INTERACTION = "defaultShopperInteraction";
   private String defaultShopperInteraction;
@@ -100,7 +98,7 @@ public class Merchant {
   /**
    * links
    *
-   * @param links
+   * @param links 
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant links(MerchantLinks links) {
@@ -109,10 +107,9 @@ public class Merchant {
   }
 
   /**
-   * links
-   * @return links
+   * Get links
+   * @return links 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MerchantLinks getLinks() {
@@ -122,8 +119,8 @@ public class Merchant {
   /**
    * links
    *
-   * @param links
-   */ 
+   * @param links 
+   */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(MerchantLinks links) {
@@ -133,7 +130,7 @@ public class Merchant {
   /**
    * The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**
    *
-   * @param captureDelay
+   * @param captureDelay The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant captureDelay(String captureDelay) {
@@ -143,9 +140,8 @@ public class Merchant {
 
   /**
    * The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**
-   * @return captureDelay
+   * @return captureDelay The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**
    */
-  @ApiModelProperty(value = "The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**")
   @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCaptureDelay() {
@@ -155,8 +151,8 @@ public class Merchant {
   /**
    * The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**
    *
-   * @param captureDelay
-   */ 
+   * @param captureDelay The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**
+   */
   @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCaptureDelay(String captureDelay) {
@@ -166,7 +162,7 @@ public class Merchant {
   /**
    * The unique identifier of the company account this merchant belongs to
    *
-   * @param companyId
+   * @param companyId The unique identifier of the company account this merchant belongs to
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant companyId(String companyId) {
@@ -176,9 +172,8 @@ public class Merchant {
 
   /**
    * The unique identifier of the company account this merchant belongs to
-   * @return companyId
+   * @return companyId The unique identifier of the company account this merchant belongs to
    */
-  @ApiModelProperty(value = "The unique identifier of the company account this merchant belongs to")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
@@ -188,8 +183,8 @@ public class Merchant {
   /**
    * The unique identifier of the company account this merchant belongs to
    *
-   * @param companyId
-   */ 
+   * @param companyId The unique identifier of the company account this merchant belongs to
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -199,7 +194,7 @@ public class Merchant {
   /**
    * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
    *
-   * @param dataCenters
+   * @param dataCenters List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant dataCenters(List<DataCenter> dataCenters) {
@@ -217,9 +212,8 @@ public class Merchant {
 
   /**
    * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
-   * @return dataCenters
+   * @return dataCenters List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
    */
-  @ApiModelProperty(value = "List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.")
   @JsonProperty(JSON_PROPERTY_DATA_CENTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<DataCenter> getDataCenters() {
@@ -229,8 +223,8 @@ public class Merchant {
   /**
    * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
    *
-   * @param dataCenters
-   */ 
+   * @param dataCenters List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
+   */
   @JsonProperty(JSON_PROPERTY_DATA_CENTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDataCenters(List<DataCenter> dataCenters) {
@@ -240,7 +234,7 @@ public class Merchant {
   /**
    * The default [&#x60;shopperInteraction&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.
    *
-   * @param defaultShopperInteraction
+   * @param defaultShopperInteraction The default [&#x60;shopperInteraction&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant defaultShopperInteraction(String defaultShopperInteraction) {
@@ -250,9 +244,8 @@ public class Merchant {
 
   /**
    * The default [&#x60;shopperInteraction&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.
-   * @return defaultShopperInteraction
+   * @return defaultShopperInteraction The default [&#x60;shopperInteraction&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.
    */
-  @ApiModelProperty(value = "The default [`shopperInteraction`](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.")
   @JsonProperty(JSON_PROPERTY_DEFAULT_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDefaultShopperInteraction() {
@@ -262,8 +255,8 @@ public class Merchant {
   /**
    * The default [&#x60;shopperInteraction&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.
    *
-   * @param defaultShopperInteraction
-   */ 
+   * @param defaultShopperInteraction The default [&#x60;shopperInteraction&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_DEFAULT_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultShopperInteraction(String defaultShopperInteraction) {
@@ -273,7 +266,7 @@ public class Merchant {
   /**
    * Your description for the merchant account, maximum 300 characters
    *
-   * @param description
+   * @param description Your description for the merchant account, maximum 300 characters
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant description(String description) {
@@ -283,9 +276,8 @@ public class Merchant {
 
   /**
    * Your description for the merchant account, maximum 300 characters
-   * @return description
+   * @return description Your description for the merchant account, maximum 300 characters
    */
-  @ApiModelProperty(value = "Your description for the merchant account, maximum 300 characters")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -295,8 +287,8 @@ public class Merchant {
   /**
    * Your description for the merchant account, maximum 300 characters
    *
-   * @param description
-   */ 
+   * @param description Your description for the merchant account, maximum 300 characters
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -306,7 +298,7 @@ public class Merchant {
   /**
    * The unique identifier of the merchant account.
    *
-   * @param id
+   * @param id The unique identifier of the merchant account.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant id(String id) {
@@ -316,9 +308,8 @@ public class Merchant {
 
   /**
    * The unique identifier of the merchant account.
-   * @return id
+   * @return id The unique identifier of the merchant account.
    */
-  @ApiModelProperty(value = "The unique identifier of the merchant account.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -328,8 +319,8 @@ public class Merchant {
   /**
    * The unique identifier of the merchant account.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -339,7 +330,7 @@ public class Merchant {
   /**
    * The city where the legal entity of this merchant account is registered.
    *
-   * @param merchantCity
+   * @param merchantCity The city where the legal entity of this merchant account is registered.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant merchantCity(String merchantCity) {
@@ -349,9 +340,8 @@ public class Merchant {
 
   /**
    * The city where the legal entity of this merchant account is registered.
-   * @return merchantCity
+   * @return merchantCity The city where the legal entity of this merchant account is registered.
    */
-  @ApiModelProperty(value = "The city where the legal entity of this merchant account is registered.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantCity() {
@@ -361,8 +351,8 @@ public class Merchant {
   /**
    * The city where the legal entity of this merchant account is registered.
    *
-   * @param merchantCity
-   */ 
+   * @param merchantCity The city where the legal entity of this merchant account is registered.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantCity(String merchantCity) {
@@ -372,7 +362,7 @@ public class Merchant {
   /**
    * The name of the legal entity associated with the merchant account.
    *
-   * @param name
+   * @param name The name of the legal entity associated with the merchant account.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant name(String name) {
@@ -382,9 +372,8 @@ public class Merchant {
 
   /**
    * The name of the legal entity associated with the merchant account.
-   * @return name
+   * @return name The name of the legal entity associated with the merchant account.
    */
-  @ApiModelProperty(value = "The name of the legal entity associated with the merchant account.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -394,8 +383,8 @@ public class Merchant {
   /**
    * The name of the legal entity associated with the merchant account.
    *
-   * @param name
-   */ 
+   * @param name The name of the legal entity associated with the merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -405,7 +394,7 @@ public class Merchant {
   /**
    * Only applies to merchant accounts managed by Adyen&#39;s partners. The name of the pricing plan assigned to the merchant account.
    *
-   * @param pricingPlan
+   * @param pricingPlan Only applies to merchant accounts managed by Adyen&#39;s partners. The name of the pricing plan assigned to the merchant account.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant pricingPlan(String pricingPlan) {
@@ -415,9 +404,8 @@ public class Merchant {
 
   /**
    * Only applies to merchant accounts managed by Adyen&#39;s partners. The name of the pricing plan assigned to the merchant account.
-   * @return pricingPlan
+   * @return pricingPlan Only applies to merchant accounts managed by Adyen&#39;s partners. The name of the pricing plan assigned to the merchant account.
    */
-  @ApiModelProperty(value = "Only applies to merchant accounts managed by Adyen's partners. The name of the pricing plan assigned to the merchant account.")
   @JsonProperty(JSON_PROPERTY_PRICING_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPricingPlan() {
@@ -427,8 +415,8 @@ public class Merchant {
   /**
    * Only applies to merchant accounts managed by Adyen&#39;s partners. The name of the pricing plan assigned to the merchant account.
    *
-   * @param pricingPlan
-   */ 
+   * @param pricingPlan Only applies to merchant accounts managed by Adyen&#39;s partners. The name of the pricing plan assigned to the merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_PRICING_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPricingPlan(String pricingPlan) {
@@ -438,7 +426,7 @@ public class Merchant {
   /**
    * The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.
    *
-   * @param primarySettlementCurrency
+   * @param primarySettlementCurrency The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant primarySettlementCurrency(String primarySettlementCurrency) {
@@ -448,9 +436,8 @@ public class Merchant {
 
   /**
    * The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.
-   * @return primarySettlementCurrency
+   * @return primarySettlementCurrency The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.
    */
-  @ApiModelProperty(value = "The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_SETTLEMENT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPrimarySettlementCurrency() {
@@ -460,8 +447,8 @@ public class Merchant {
   /**
    * The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.
    *
-   * @param primarySettlementCurrency
-   */ 
+   * @param primarySettlementCurrency The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.
+   */
   @JsonProperty(JSON_PROPERTY_PRIMARY_SETTLEMENT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimarySettlementCurrency(String primarySettlementCurrency) {
@@ -471,7 +458,7 @@ public class Merchant {
   /**
    * Reference of the merchant account.
    *
-   * @param reference
+   * @param reference Reference of the merchant account.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant reference(String reference) {
@@ -481,9 +468,8 @@ public class Merchant {
 
   /**
    * Reference of the merchant account.
-   * @return reference
+   * @return reference Reference of the merchant account.
    */
-  @ApiModelProperty(value = "Reference of the merchant account.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -493,8 +479,8 @@ public class Merchant {
   /**
    * Reference of the merchant account.
    *
-   * @param reference
-   */ 
+   * @param reference Reference of the merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -504,7 +490,7 @@ public class Merchant {
   /**
    * The URL for the ecommerce website used with this merchant account.
    *
-   * @param shopWebAddress
+   * @param shopWebAddress The URL for the ecommerce website used with this merchant account.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant shopWebAddress(String shopWebAddress) {
@@ -514,9 +500,8 @@ public class Merchant {
 
   /**
    * The URL for the ecommerce website used with this merchant account.
-   * @return shopWebAddress
+   * @return shopWebAddress The URL for the ecommerce website used with this merchant account.
    */
-  @ApiModelProperty(value = "The URL for the ecommerce website used with this merchant account.")
   @JsonProperty(JSON_PROPERTY_SHOP_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopWebAddress() {
@@ -526,8 +511,8 @@ public class Merchant {
   /**
    * The URL for the ecommerce website used with this merchant account.
    *
-   * @param shopWebAddress
-   */ 
+   * @param shopWebAddress The URL for the ecommerce website used with this merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_SHOP_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopWebAddress(String shopWebAddress) {
@@ -537,7 +522,7 @@ public class Merchant {
   /**
    * The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
    *
-   * @param status
+   * @param status The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
    * @return the current {@code Merchant} instance, allowing for method chaining
    */
   public Merchant status(String status) {
@@ -547,9 +532,8 @@ public class Merchant {
 
   /**
    * The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
-   * @return status
+   * @return status The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
    */
-  @ApiModelProperty(value = "The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -559,8 +543,8 @@ public class Merchant {
   /**
    * The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
    *
-   * @param status
-   */ 
+   * @param status The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {

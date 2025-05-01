@@ -42,7 +42,7 @@ public class RegisterSCAFinalResponse {
   /**
    * Specifies if the registration was initiated successfully.
    *
-   * @param success
+   * @param success Specifies if the registration was initiated successfully.
    * @return the current {@code RegisterSCAFinalResponse} instance, allowing for method chaining
    */
   public RegisterSCAFinalResponse success(Boolean success) {
@@ -52,7 +52,7 @@ public class RegisterSCAFinalResponse {
 
   /**
    * Specifies if the registration was initiated successfully.
-   * @return success
+   * @return success Specifies if the registration was initiated successfully.
    */
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class RegisterSCAFinalResponse {
   /**
    * Specifies if the registration was initiated successfully.
    *
-   * @param success
+   * @param success Specifies if the registration was initiated successfully.
    */
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

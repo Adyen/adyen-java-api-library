@@ -46,7 +46,7 @@ public class AuthenticationResultRequest {
   /**
    * The merchant account identifier, with which the authentication was processed.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which the authentication was processed.
    * @return the current {@code AuthenticationResultRequest} instance, allowing for method chaining
    */
   public AuthenticationResultRequest merchantAccount(String merchantAccount) {
@@ -56,7 +56,7 @@ public class AuthenticationResultRequest {
 
   /**
    * The merchant account identifier, with which the authentication was processed.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which the authentication was processed.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class AuthenticationResultRequest {
   /**
    * The merchant account identifier, with which the authentication was processed.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which the authentication was processed.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class AuthenticationResultRequest {
   /**
    * The pspReference identifier for the transaction.
    *
-   * @param pspReference
+   * @param pspReference The pspReference identifier for the transaction.
    * @return the current {@code AuthenticationResultRequest} instance, allowing for method chaining
    */
   public AuthenticationResultRequest pspReference(String pspReference) {
@@ -88,7 +88,7 @@ public class AuthenticationResultRequest {
 
   /**
    * The pspReference identifier for the transaction.
-   * @return pspReference
+   * @return pspReference The pspReference identifier for the transaction.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class AuthenticationResultRequest {
   /**
    * The pspReference identifier for the transaction.
    *
-   * @param pspReference
+   * @param pspReference The pspReference identifier for the transaction.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

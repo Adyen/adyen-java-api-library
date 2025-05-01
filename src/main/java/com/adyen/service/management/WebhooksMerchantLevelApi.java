@@ -162,6 +162,7 @@ public class WebhooksMerchantLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (pageNumber != null) {

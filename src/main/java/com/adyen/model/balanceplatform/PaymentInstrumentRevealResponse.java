@@ -42,7 +42,7 @@ public class PaymentInstrumentRevealResponse {
   /**
    * The data encrypted using the &#x60;encryptedKey&#x60;.
    *
-   * @param encryptedData
+   * @param encryptedData The data encrypted using the &#x60;encryptedKey&#x60;.
    * @return the current {@code PaymentInstrumentRevealResponse} instance, allowing for method chaining
    */
   public PaymentInstrumentRevealResponse encryptedData(String encryptedData) {
@@ -52,7 +52,7 @@ public class PaymentInstrumentRevealResponse {
 
   /**
    * The data encrypted using the &#x60;encryptedKey&#x60;.
-   * @return encryptedData
+   * @return encryptedData The data encrypted using the &#x60;encryptedKey&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class PaymentInstrumentRevealResponse {
   /**
    * The data encrypted using the &#x60;encryptedKey&#x60;.
    *
-   * @param encryptedData
+   * @param encryptedData The data encrypted using the &#x60;encryptedKey&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

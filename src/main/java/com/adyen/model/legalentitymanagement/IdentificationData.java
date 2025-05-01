@@ -106,7 +106,7 @@ public class IdentificationData {
   /**
    * The card number of the document that was issued (AU only).
    *
-   * @param cardNumber
+   * @param cardNumber The card number of the document that was issued (AU only).
    * @return the current {@code IdentificationData} instance, allowing for method chaining
    */
   public IdentificationData cardNumber(String cardNumber) {
@@ -116,7 +116,7 @@ public class IdentificationData {
 
   /**
    * The card number of the document that was issued (AU only).
-   * @return cardNumber
+   * @return cardNumber The card number of the document that was issued (AU only).
    */
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class IdentificationData {
   /**
    * The card number of the document that was issued (AU only).
    *
-   * @param cardNumber
+   * @param cardNumber The card number of the document that was issued (AU only).
    */
   @JsonProperty(JSON_PROPERTY_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class IdentificationData {
   /**
    * The expiry date of the document, in YYYY-MM-DD format.
    *
-   * @param expiryDate
+   * @param expiryDate The expiry date of the document, in YYYY-MM-DD format.
    * @return the current {@code IdentificationData} instance, allowing for method chaining
    */
   public IdentificationData expiryDate(String expiryDate) {
@@ -148,7 +148,7 @@ public class IdentificationData {
 
   /**
    * The expiry date of the document, in YYYY-MM-DD format.
-   * @return expiryDate
+   * @return expiryDate The expiry date of the document, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class IdentificationData {
   /**
    * The expiry date of the document, in YYYY-MM-DD format.
    *
-   * @param expiryDate
+   * @param expiryDate The expiry date of the document, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class IdentificationData {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    *
-   * @param issuerCountry
+   * @param issuerCountry The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    * @return the current {@code IdentificationData} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v1
@@ -183,7 +183,7 @@ public class IdentificationData {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
-   * @return issuerCountry
+   * @return issuerCountry The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    * @deprecated // deprecated since Legal Entity Management API v1
    */
   @Deprecated // deprecated since Legal Entity Management API v1
@@ -196,7 +196,7 @@ public class IdentificationData {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    *
-   * @param issuerCountry
+   * @param issuerCountry The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    *
    * @deprecated since Legal Entity Management API v1
    */
@@ -210,7 +210,7 @@ public class IdentificationData {
   /**
    * The state or province where the document was issued (AU only).
    *
-   * @param issuerState
+   * @param issuerState The state or province where the document was issued (AU only).
    * @return the current {@code IdentificationData} instance, allowing for method chaining
    */
   public IdentificationData issuerState(String issuerState) {
@@ -220,7 +220,7 @@ public class IdentificationData {
 
   /**
    * The state or province where the document was issued (AU only).
-   * @return issuerState
+   * @return issuerState The state or province where the document was issued (AU only).
    */
   @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +231,7 @@ public class IdentificationData {
   /**
    * The state or province where the document was issued (AU only).
    *
-   * @param issuerState
+   * @param issuerState The state or province where the document was issued (AU only).
    */
   @JsonProperty(JSON_PROPERTY_ISSUER_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +242,7 @@ public class IdentificationData {
   /**
    * Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
    *
-   * @param nationalIdExempt
+   * @param nationalIdExempt Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
    * @return the current {@code IdentificationData} instance, allowing for method chaining
    */
   public IdentificationData nationalIdExempt(Boolean nationalIdExempt) {
@@ -252,7 +252,7 @@ public class IdentificationData {
 
   /**
    * Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
-   * @return nationalIdExempt
+   * @return nationalIdExempt Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
    */
   @JsonProperty(JSON_PROPERTY_NATIONAL_ID_EXEMPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,7 +263,7 @@ public class IdentificationData {
   /**
    * Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
    *
-   * @param nationalIdExempt
+   * @param nationalIdExempt Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
    */
   @JsonProperty(JSON_PROPERTY_NATIONAL_ID_EXEMPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +274,7 @@ public class IdentificationData {
   /**
    * The number in the document.
    *
-   * @param number
+   * @param number The number in the document.
    * @return the current {@code IdentificationData} instance, allowing for method chaining
    */
   public IdentificationData number(String number) {
@@ -284,7 +284,7 @@ public class IdentificationData {
 
   /**
    * The number in the document.
-   * @return number
+   * @return number The number in the document.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +295,7 @@ public class IdentificationData {
   /**
    * The number in the document.
    *
-   * @param number
+   * @param number The number in the document.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,7 +306,7 @@ public class IdentificationData {
   /**
    * Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
    *
-   * @param type
+   * @param type Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
    * @return the current {@code IdentificationData} instance, allowing for method chaining
    */
   public IdentificationData type(TypeEnum type) {
@@ -316,7 +316,7 @@ public class IdentificationData {
 
   /**
    * Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
-   * @return type
+   * @return type Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +327,7 @@ public class IdentificationData {
   /**
    * Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
    *
-   * @param type
+   * @param type Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type&#x3D;custom) for other supported countries.  - Australia: **driversLicense**, **passport**  - Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**, **passport**  - Singapore: **driversLicense**, **nationalIdNumber**, **passport**   - All other supported countries: **nationalIdNumber**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

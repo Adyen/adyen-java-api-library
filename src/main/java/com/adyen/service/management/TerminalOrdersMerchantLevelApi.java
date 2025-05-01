@@ -232,6 +232,7 @@ public class TerminalOrdersMerchantLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (name != null) {
@@ -274,6 +275,7 @@ public class TerminalOrdersMerchantLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (customerOrderReference != null) {
@@ -324,6 +326,7 @@ public class TerminalOrdersMerchantLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (name != null) {
@@ -406,6 +409,7 @@ public class TerminalOrdersMerchantLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (country != null) {

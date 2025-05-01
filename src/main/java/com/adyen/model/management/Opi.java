@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class Opi {
   /**
    * Indicates if Pay at table is enabled.
    *
-   * @param enablePayAtTable
+   * @param enablePayAtTable Indicates if Pay at table is enabled.
    * @return the current {@code Opi} instance, allowing for method chaining
    */
   public Opi enablePayAtTable(Boolean enablePayAtTable) {
@@ -62,9 +60,8 @@ public class Opi {
 
   /**
    * Indicates if Pay at table is enabled.
-   * @return enablePayAtTable
+   * @return enablePayAtTable Indicates if Pay at table is enabled.
    */
-  @ApiModelProperty(value = "Indicates if Pay at table is enabled.")
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnablePayAtTable() {
@@ -74,8 +71,8 @@ public class Opi {
   /**
    * Indicates if Pay at table is enabled.
    *
-   * @param enablePayAtTable
-   */ 
+   * @param enablePayAtTable Indicates if Pay at table is enabled.
+   */
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnablePayAtTable(Boolean enablePayAtTable) {
@@ -85,7 +82,7 @@ public class Opi {
   /**
    * The store number to use for Pay at Table.
    *
-   * @param payAtTableStoreNumber
+   * @param payAtTableStoreNumber The store number to use for Pay at Table.
    * @return the current {@code Opi} instance, allowing for method chaining
    */
   public Opi payAtTableStoreNumber(String payAtTableStoreNumber) {
@@ -95,9 +92,8 @@ public class Opi {
 
   /**
    * The store number to use for Pay at Table.
-   * @return payAtTableStoreNumber
+   * @return payAtTableStoreNumber The store number to use for Pay at Table.
    */
-  @ApiModelProperty(value = "The store number to use for Pay at Table.")
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_STORE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPayAtTableStoreNumber() {
@@ -107,8 +103,8 @@ public class Opi {
   /**
    * The store number to use for Pay at Table.
    *
-   * @param payAtTableStoreNumber
-   */ 
+   * @param payAtTableStoreNumber The store number to use for Pay at Table.
+   */
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_STORE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTableStoreNumber(String payAtTableStoreNumber) {
@@ -118,7 +114,7 @@ public class Opi {
   /**
    * The URL and port number used for Pay at Table communication.
    *
-   * @param payAtTableURL
+   * @param payAtTableURL The URL and port number used for Pay at Table communication.
    * @return the current {@code Opi} instance, allowing for method chaining
    */
   public Opi payAtTableURL(String payAtTableURL) {
@@ -128,9 +124,8 @@ public class Opi {
 
   /**
    * The URL and port number used for Pay at Table communication.
-   * @return payAtTableURL
+   * @return payAtTableURL The URL and port number used for Pay at Table communication.
    */
-  @ApiModelProperty(value = "The URL and port number used for Pay at Table communication.")
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPayAtTableURL() {
@@ -140,8 +135,8 @@ public class Opi {
   /**
    * The URL and port number used for Pay at Table communication.
    *
-   * @param payAtTableURL
-   */ 
+   * @param payAtTableURL The URL and port number used for Pay at Table communication.
+   */
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTableURL(String payAtTableURL) {

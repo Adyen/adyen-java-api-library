@@ -39,10 +39,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class Policy {
   public static final String JSON_PROPERTY_RESOURCES = "resources";
-  private Set<Resource> resources = new LinkedHashSet<>();
+  private Set<Resource> resources;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  private Set<String> roles = new LinkedHashSet<>();
+  private Set<String> roles;
 
   public Policy() { 
   }
@@ -50,7 +50,7 @@ public class Policy {
   /**
    * An object containing the type and the unique identifier of the user of the component.  For [Onboarding components](https://docs.adyen.com/platforms/onboard-users/components), this is the ID of the legal entity that has a contractual relationship with your platform. For sole proprietorships, use the ID of the legal entity of the individual owner.  For [Platform Experience components](https://docs.adyen.com/platforms/build-user-dashboards), this is the ID of the account holder that is associated with the balance account shown in the component.
    *
-   * @param resources
+   * @param resources An object containing the type and the unique identifier of the user of the component.  For [Onboarding components](https://docs.adyen.com/platforms/onboard-users/components), this is the ID of the legal entity that has a contractual relationship with your platform. For sole proprietorships, use the ID of the legal entity of the individual owner.  For [Platform Experience components](https://docs.adyen.com/platforms/build-user-dashboards), this is the ID of the account holder that is associated with the balance account shown in the component.
    * @return the current {@code Policy} instance, allowing for method chaining
    */
   public Policy resources(Set<Resource> resources) {
@@ -68,7 +68,7 @@ public class Policy {
 
   /**
    * An object containing the type and the unique identifier of the user of the component.  For [Onboarding components](https://docs.adyen.com/platforms/onboard-users/components), this is the ID of the legal entity that has a contractual relationship with your platform. For sole proprietorships, use the ID of the legal entity of the individual owner.  For [Platform Experience components](https://docs.adyen.com/platforms/build-user-dashboards), this is the ID of the account holder that is associated with the balance account shown in the component.
-   * @return resources
+   * @return resources An object containing the type and the unique identifier of the user of the component.  For [Onboarding components](https://docs.adyen.com/platforms/onboard-users/components), this is the ID of the legal entity that has a contractual relationship with your platform. For sole proprietorships, use the ID of the legal entity of the individual owner.  For [Platform Experience components](https://docs.adyen.com/platforms/build-user-dashboards), this is the ID of the account holder that is associated with the balance account shown in the component.
    */
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class Policy {
   /**
    * An object containing the type and the unique identifier of the user of the component.  For [Onboarding components](https://docs.adyen.com/platforms/onboard-users/components), this is the ID of the legal entity that has a contractual relationship with your platform. For sole proprietorships, use the ID of the legal entity of the individual owner.  For [Platform Experience components](https://docs.adyen.com/platforms/build-user-dashboards), this is the ID of the account holder that is associated with the balance account shown in the component.
    *
-   * @param resources
+   * @param resources An object containing the type and the unique identifier of the user of the component.  For [Onboarding components](https://docs.adyen.com/platforms/onboard-users/components), this is the ID of the legal entity that has a contractual relationship with your platform. For sole proprietorships, use the ID of the legal entity of the individual owner.  For [Platform Experience components](https://docs.adyen.com/platforms/build-user-dashboards), this is the ID of the account holder that is associated with the balance account shown in the component.
    */
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_RESOURCES)
@@ -91,7 +91,7 @@ public class Policy {
   /**
    * The name of the role required to use the component.
    *
-   * @param roles
+   * @param roles The name of the role required to use the component.
    * @return the current {@code Policy} instance, allowing for method chaining
    */
   public Policy roles(Set<String> roles) {
@@ -109,7 +109,7 @@ public class Policy {
 
   /**
    * The name of the role required to use the component.
-   * @return roles
+   * @return roles The name of the role required to use the component.
    */
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +120,7 @@ public class Policy {
   /**
    * The name of the role required to use the component.
    *
-   * @param roles
+   * @param roles The name of the role required to use the component.
    */
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ROLES)

@@ -46,7 +46,7 @@ public class ThreeDS2ResultRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code ThreeDS2ResultRequest} instance, allowing for method chaining
    */
   public ThreeDS2ResultRequest merchantAccount(String merchantAccount) {
@@ -56,7 +56,7 @@ public class ThreeDS2ResultRequest {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class ThreeDS2ResultRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class ThreeDS2ResultRequest {
   /**
    * The pspReference returned in the /authorise call.
    *
-   * @param pspReference
+   * @param pspReference The pspReference returned in the /authorise call.
    * @return the current {@code ThreeDS2ResultRequest} instance, allowing for method chaining
    */
   public ThreeDS2ResultRequest pspReference(String pspReference) {
@@ -88,7 +88,7 @@ public class ThreeDS2ResultRequest {
 
   /**
    * The pspReference returned in the /authorise call.
-   * @return pspReference
+   * @return pspReference The pspReference returned in the /authorise call.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class ThreeDS2ResultRequest {
   /**
    * The pspReference returned in the /authorise call.
    *
-   * @param pspReference
+   * @param pspReference The pspReference returned in the /authorise call.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -59,7 +59,7 @@ public class Link {
   /**
    * first
    *
-   * @param first
+   * @param first 
    * @return the current {@code Link} instance, allowing for method chaining
    */
   public Link first(Href first) {
@@ -69,7 +69,7 @@ public class Link {
 
   /**
    * Get first
-   * @return first
+   * @return first 
    */
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,7 +80,7 @@ public class Link {
   /**
    * first
    *
-   * @param first
+   * @param first 
    */
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +91,7 @@ public class Link {
   /**
    * last
    *
-   * @param last
+   * @param last 
    * @return the current {@code Link} instance, allowing for method chaining
    */
   public Link last(Href last) {
@@ -101,7 +101,7 @@ public class Link {
 
   /**
    * Get last
-   * @return last
+   * @return last 
    */
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class Link {
   /**
    * last
    *
-   * @param last
+   * @param last 
    */
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class Link {
   /**
    * next
    *
-   * @param next
+   * @param next 
    * @return the current {@code Link} instance, allowing for method chaining
    */
   public Link next(Href next) {
@@ -133,7 +133,7 @@ public class Link {
 
   /**
    * Get next
-   * @return next
+   * @return next 
    */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class Link {
   /**
    * next
    *
-   * @param next
+   * @param next 
    */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class Link {
   /**
    * previous
    *
-   * @param previous
+   * @param previous 
    * @return the current {@code Link} instance, allowing for method chaining
    */
   public Link previous(Href previous) {
@@ -165,7 +165,7 @@ public class Link {
 
   /**
    * Get previous
-   * @return previous
+   * @return previous 
    */
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class Link {
   /**
    * previous
    *
-   * @param previous
+   * @param previous 
    */
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class Link {
   /**
    * self
    *
-   * @param self
+   * @param self 
    * @return the current {@code Link} instance, allowing for method chaining
    */
   public Link self(Href self) {
@@ -197,7 +197,7 @@ public class Link {
 
   /**
    * Get self
-   * @return self
+   * @return self 
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class Link {
   /**
    * self
    *
-   * @param self
+   * @param self 
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

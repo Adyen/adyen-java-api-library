@@ -70,7 +70,7 @@ public class AdditionalDataRatepay {
   /**
    * Amount the customer has to pay each month.
    *
-   * @param ratepayInstallmentAmount
+   * @param ratepayInstallmentAmount Amount the customer has to pay each month.
    * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
    */
   public AdditionalDataRatepay ratepayInstallmentAmount(String ratepayInstallmentAmount) {
@@ -80,7 +80,7 @@ public class AdditionalDataRatepay {
 
   /**
    * Amount the customer has to pay each month.
-   * @return ratepayInstallmentAmount
+   * @return ratepayInstallmentAmount Amount the customer has to pay each month.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAY_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +91,7 @@ public class AdditionalDataRatepay {
   /**
    * Amount the customer has to pay each month.
    *
-   * @param ratepayInstallmentAmount
+   * @param ratepayInstallmentAmount Amount the customer has to pay each month.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAY_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +102,7 @@ public class AdditionalDataRatepay {
   /**
    * Interest rate of this installment.
    *
-   * @param ratepayInterestRate
+   * @param ratepayInterestRate Interest rate of this installment.
    * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
    */
   public AdditionalDataRatepay ratepayInterestRate(String ratepayInterestRate) {
@@ -112,7 +112,7 @@ public class AdditionalDataRatepay {
 
   /**
    * Interest rate of this installment.
-   * @return ratepayInterestRate
+   * @return ratepayInterestRate Interest rate of this installment.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAY_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class AdditionalDataRatepay {
   /**
    * Interest rate of this installment.
    *
-   * @param ratepayInterestRate
+   * @param ratepayInterestRate Interest rate of this installment.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAY_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +134,7 @@ public class AdditionalDataRatepay {
   /**
    * Amount of the last installment.
    *
-   * @param ratepayLastInstallmentAmount
+   * @param ratepayLastInstallmentAmount Amount of the last installment.
    * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
    */
   public AdditionalDataRatepay ratepayLastInstallmentAmount(String ratepayLastInstallmentAmount) {
@@ -144,7 +144,7 @@ public class AdditionalDataRatepay {
 
   /**
    * Amount of the last installment.
-   * @return ratepayLastInstallmentAmount
+   * @return ratepayLastInstallmentAmount Amount of the last installment.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAY_LAST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class AdditionalDataRatepay {
   /**
    * Amount of the last installment.
    *
-   * @param ratepayLastInstallmentAmount
+   * @param ratepayLastInstallmentAmount Amount of the last installment.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAY_LAST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +166,7 @@ public class AdditionalDataRatepay {
   /**
    * Calendar day of the first payment.
    *
-   * @param ratepayPaymentFirstday
+   * @param ratepayPaymentFirstday Calendar day of the first payment.
    * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
    */
   public AdditionalDataRatepay ratepayPaymentFirstday(String ratepayPaymentFirstday) {
@@ -176,7 +176,7 @@ public class AdditionalDataRatepay {
 
   /**
    * Calendar day of the first payment.
-   * @return ratepayPaymentFirstday
+   * @return ratepayPaymentFirstday Calendar day of the first payment.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAY_PAYMENT_FIRSTDAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class AdditionalDataRatepay {
   /**
    * Calendar day of the first payment.
    *
-   * @param ratepayPaymentFirstday
+   * @param ratepayPaymentFirstday Calendar day of the first payment.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAY_PAYMENT_FIRSTDAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class AdditionalDataRatepay {
   /**
    * Date the merchant delivered the goods to the customer.
    *
-   * @param ratepaydataDeliveryDate
+   * @param ratepaydataDeliveryDate Date the merchant delivered the goods to the customer.
    * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
    */
   public AdditionalDataRatepay ratepaydataDeliveryDate(String ratepaydataDeliveryDate) {
@@ -208,7 +208,7 @@ public class AdditionalDataRatepay {
 
   /**
    * Date the merchant delivered the goods to the customer.
-   * @return ratepaydataDeliveryDate
+   * @return ratepaydataDeliveryDate Date the merchant delivered the goods to the customer.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class AdditionalDataRatepay {
   /**
    * Date the merchant delivered the goods to the customer.
    *
-   * @param ratepaydataDeliveryDate
+   * @param ratepaydataDeliveryDate Date the merchant delivered the goods to the customer.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DELIVERY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class AdditionalDataRatepay {
   /**
    * Date by which the customer must settle the payment.
    *
-   * @param ratepaydataDueDate
+   * @param ratepaydataDueDate Date by which the customer must settle the payment.
    * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
    */
   public AdditionalDataRatepay ratepaydataDueDate(String ratepaydataDueDate) {
@@ -240,7 +240,7 @@ public class AdditionalDataRatepay {
 
   /**
    * Date by which the customer must settle the payment.
-   * @return ratepaydataDueDate
+   * @return ratepaydataDueDate Date by which the customer must settle the payment.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +251,7 @@ public class AdditionalDataRatepay {
   /**
    * Date by which the customer must settle the payment.
    *
-   * @param ratepaydataDueDate
+   * @param ratepaydataDueDate Date by which the customer must settle the payment.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,7 +262,7 @@ public class AdditionalDataRatepay {
   /**
    * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    *
-   * @param ratepaydataInvoiceDate
+   * @param ratepaydataInvoiceDate Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
    */
   public AdditionalDataRatepay ratepaydataInvoiceDate(String ratepaydataInvoiceDate) {
@@ -272,7 +272,7 @@ public class AdditionalDataRatepay {
 
   /**
    * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
-   * @return ratepaydataInvoiceDate
+   * @return ratepaydataInvoiceDate Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +283,7 @@ public class AdditionalDataRatepay {
   /**
    * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    *
-   * @param ratepaydataInvoiceDate
+   * @param ratepaydataInvoiceDate Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +294,7 @@ public class AdditionalDataRatepay {
   /**
    * Identification name or number for the invoice, defined by the merchant.
    *
-   * @param ratepaydataInvoiceId
+   * @param ratepaydataInvoiceId Identification name or number for the invoice, defined by the merchant.
    * @return the current {@code AdditionalDataRatepay} instance, allowing for method chaining
    */
   public AdditionalDataRatepay ratepaydataInvoiceId(String ratepaydataInvoiceId) {
@@ -304,7 +304,7 @@ public class AdditionalDataRatepay {
 
   /**
    * Identification name or number for the invoice, defined by the merchant.
-   * @return ratepaydataInvoiceId
+   * @return ratepaydataInvoiceId Identification name or number for the invoice, defined by the merchant.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -315,7 +315,7 @@ public class AdditionalDataRatepay {
   /**
    * Identification name or number for the invoice, defined by the merchant.
    *
-   * @param ratepaydataInvoiceId
+   * @param ratepaydataInvoiceId Identification name or number for the invoice, defined by the merchant.
    */
   @JsonProperty(JSON_PROPERTY_RATEPAYDATA_INVOICE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

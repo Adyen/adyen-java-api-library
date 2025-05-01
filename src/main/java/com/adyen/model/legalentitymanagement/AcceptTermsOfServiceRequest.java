@@ -46,7 +46,7 @@ public class AcceptTermsOfServiceRequest {
   /**
    * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
    *
-   * @param acceptedBy
+   * @param acceptedBy The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
    * @return the current {@code AcceptTermsOfServiceRequest} instance, allowing for method chaining
    */
   public AcceptTermsOfServiceRequest acceptedBy(String acceptedBy) {
@@ -56,7 +56,7 @@ public class AcceptTermsOfServiceRequest {
 
   /**
    * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
-   * @return acceptedBy
+   * @return acceptedBy The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class AcceptTermsOfServiceRequest {
   /**
    * The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
    *
-   * @param acceptedBy
+   * @param acceptedBy The legal entity ID of the user accepting the Terms of Service.  For organizations, this must be the individual legal entity ID of an authorized signatory for the organization.  For sole proprietorships, this must be the individual legal entity ID of the owner.  For individuals, this must be the individual legal entity id of either the individual, parent, or guardian.  
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class AcceptTermsOfServiceRequest {
   /**
    * The IP address of the user accepting the Terms of Service.
    *
-   * @param ipAddress
+   * @param ipAddress The IP address of the user accepting the Terms of Service.
    * @return the current {@code AcceptTermsOfServiceRequest} instance, allowing for method chaining
    */
   public AcceptTermsOfServiceRequest ipAddress(String ipAddress) {
@@ -88,7 +88,7 @@ public class AcceptTermsOfServiceRequest {
 
   /**
    * The IP address of the user accepting the Terms of Service.
-   * @return ipAddress
+   * @return ipAddress The IP address of the user accepting the Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class AcceptTermsOfServiceRequest {
   /**
    * The IP address of the user accepting the Terms of Service.
    *
-   * @param ipAddress
+   * @param ipAddress The IP address of the user accepting the Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

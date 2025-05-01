@@ -51,7 +51,7 @@ public class CapitalGrantInfo {
   /**
    * counterparty
    *
-   * @param counterparty
+   * @param counterparty 
    * @return the current {@code CapitalGrantInfo} instance, allowing for method chaining
    */
   public CapitalGrantInfo counterparty(Counterparty counterparty) {
@@ -61,7 +61,7 @@ public class CapitalGrantInfo {
 
   /**
    * Get counterparty
-   * @return counterparty
+   * @return counterparty 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,7 +72,7 @@ public class CapitalGrantInfo {
   /**
    * counterparty
    *
-   * @param counterparty
+   * @param counterparty 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class CapitalGrantInfo {
   /**
    * The identifier of the grant account used for the grant.
    *
-   * @param grantAccountId
+   * @param grantAccountId The identifier of the grant account used for the grant.
    * @return the current {@code CapitalGrantInfo} instance, allowing for method chaining
    */
   public CapitalGrantInfo grantAccountId(String grantAccountId) {
@@ -93,7 +93,7 @@ public class CapitalGrantInfo {
 
   /**
    * The identifier of the grant account used for the grant.
-   * @return grantAccountId
+   * @return grantAccountId The identifier of the grant account used for the grant.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class CapitalGrantInfo {
   /**
    * The identifier of the grant account used for the grant.
    *
-   * @param grantAccountId
+   * @param grantAccountId The identifier of the grant account used for the grant.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class CapitalGrantInfo {
   /**
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    *
-   * @param grantOfferId
+   * @param grantOfferId The identifier of the grant offer that has been selected and from which the grant details will be used.
    * @return the current {@code CapitalGrantInfo} instance, allowing for method chaining
    */
   public CapitalGrantInfo grantOfferId(String grantOfferId) {
@@ -125,7 +125,7 @@ public class CapitalGrantInfo {
 
   /**
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
-   * @return grantOfferId
+   * @return grantOfferId The identifier of the grant offer that has been selected and from which the grant details will be used.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class CapitalGrantInfo {
   /**
    * The identifier of the grant offer that has been selected and from which the grant details will be used.
    *
-   * @param grantOfferId
+   * @param grantOfferId The identifier of the grant offer that has been selected and from which the grant details will be used.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

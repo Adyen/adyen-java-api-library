@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class Referenced {
   /**
    * Indicates whether referenced refunds are enabled on the standalone terminal.
    *
-   * @param enableStandaloneRefunds
+   * @param enableStandaloneRefunds Indicates whether referenced refunds are enabled on the standalone terminal.
    * @return the current {@code Referenced} instance, allowing for method chaining
    */
   public Referenced enableStandaloneRefunds(Boolean enableStandaloneRefunds) {
@@ -54,9 +52,8 @@ public class Referenced {
 
   /**
    * Indicates whether referenced refunds are enabled on the standalone terminal.
-   * @return enableStandaloneRefunds
+   * @return enableStandaloneRefunds Indicates whether referenced refunds are enabled on the standalone terminal.
    */
-  @ApiModelProperty(value = "Indicates whether referenced refunds are enabled on the standalone terminal.")
   @JsonProperty(JSON_PROPERTY_ENABLE_STANDALONE_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnableStandaloneRefunds() {
@@ -66,8 +63,8 @@ public class Referenced {
   /**
    * Indicates whether referenced refunds are enabled on the standalone terminal.
    *
-   * @param enableStandaloneRefunds
-   */ 
+   * @param enableStandaloneRefunds Indicates whether referenced refunds are enabled on the standalone terminal.
+   */
   @JsonProperty(JSON_PROPERTY_ENABLE_STANDALONE_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableStandaloneRefunds(Boolean enableStandaloneRefunds) {

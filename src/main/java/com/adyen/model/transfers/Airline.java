@@ -38,7 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class Airline {
   public static final String JSON_PROPERTY_LEGS = "legs";
-  private List<Leg> legs = new ArrayList<>();
+  private List<Leg> legs;
 
   public static final String JSON_PROPERTY_TICKET_NUMBER = "ticketNumber";
   private String ticketNumber;
@@ -49,7 +49,7 @@ public class Airline {
   /**
    * Details about the flight legs for this ticket.
    *
-   * @param legs
+   * @param legs Details about the flight legs for this ticket.
    * @return the current {@code Airline} instance, allowing for method chaining
    */
   public Airline legs(List<Leg> legs) {
@@ -67,7 +67,7 @@ public class Airline {
 
   /**
    * Details about the flight legs for this ticket.
-   * @return legs
+   * @return legs Details about the flight legs for this ticket.
    */
   @JsonProperty(JSON_PROPERTY_LEGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class Airline {
   /**
    * Details about the flight legs for this ticket.
    *
-   * @param legs
+   * @param legs Details about the flight legs for this ticket.
    */
   @JsonProperty(JSON_PROPERTY_LEGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +89,7 @@ public class Airline {
   /**
    * The ticket&#39;s unique identifier
    *
-   * @param ticketNumber
+   * @param ticketNumber The ticket&#39;s unique identifier
    * @return the current {@code Airline} instance, allowing for method chaining
    */
   public Airline ticketNumber(String ticketNumber) {
@@ -99,7 +99,7 @@ public class Airline {
 
   /**
    * The ticket&#39;s unique identifier
-   * @return ticketNumber
+   * @return ticketNumber The ticket&#39;s unique identifier
    */
   @JsonProperty(JSON_PROPERTY_TICKET_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class Airline {
   /**
    * The ticket&#39;s unique identifier
    *
-   * @param ticketNumber
+   * @param ticketNumber The ticket&#39;s unique identifier
    */
   @JsonProperty(JSON_PROPERTY_TICKET_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

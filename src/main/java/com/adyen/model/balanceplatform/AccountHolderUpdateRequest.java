@@ -137,7 +137,7 @@ public class AccountHolderUpdateRequest {
   /**
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    */
   public AccountHolderUpdateRequest balancePlatform(String balancePlatform) {
@@ -147,7 +147,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
-   * @return balancePlatform
+   * @return balancePlatform The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class AccountHolderUpdateRequest {
   /**
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class AccountHolderUpdateRequest {
   /**
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    *
-   * @param capabilities
+   * @param capabilities Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    */
   public AccountHolderUpdateRequest capabilities(Map<String, AccountHolderCapability> capabilities) {
@@ -187,7 +187,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
-   * @return capabilities
+   * @return capabilities Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class AccountHolderUpdateRequest {
   /**
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    *
-   * @param capabilities
+   * @param capabilities Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class AccountHolderUpdateRequest {
   /**
    * contactDetails
    *
-   * @param contactDetails
+   * @param contactDetails 
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    *
    * @deprecated 
@@ -222,7 +222,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * Get contactDetails
-   * @return contactDetails
+   * @return contactDetails 
    * @deprecated // deprecated 
    */
   @Deprecated // deprecated 
@@ -235,7 +235,7 @@ public class AccountHolderUpdateRequest {
   /**
    * contactDetails
    *
-   * @param contactDetails
+   * @param contactDetails 
    *
    * @deprecated 
    */
@@ -249,7 +249,7 @@ public class AccountHolderUpdateRequest {
   /**
    * Your description for the account holder.
    *
-   * @param description
+   * @param description Your description for the account holder.
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    */
   public AccountHolderUpdateRequest description(String description) {
@@ -259,7 +259,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * Your description for the account holder.
-   * @return description
+   * @return description Your description for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +270,7 @@ public class AccountHolderUpdateRequest {
   /**
    * Your description for the account holder.
    *
-   * @param description
+   * @param description Your description for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +281,7 @@ public class AccountHolderUpdateRequest {
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    *
-   * @param metadata
+   * @param metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    */
   public AccountHolderUpdateRequest metadata(Map<String, String> metadata) {
@@ -299,7 +299,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
-   * @return metadata
+   * @return metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +310,7 @@ public class AccountHolderUpdateRequest {
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    *
-   * @param metadata
+   * @param metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,7 +320,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * The unique identifier of the migrated account holder in the classic integration.
-   * @return migratedAccountHolderCode
+   * @return migratedAccountHolderCode The unique identifier of the migrated account holder in the classic integration.
    */
   @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -332,7 +332,7 @@ public class AccountHolderUpdateRequest {
   /**
    * The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
    *
-   * @param primaryBalanceAccount
+   * @param primaryBalanceAccount The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    */
   public AccountHolderUpdateRequest primaryBalanceAccount(String primaryBalanceAccount) {
@@ -342,7 +342,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
-   * @return primaryBalanceAccount
+   * @return primaryBalanceAccount The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
    */
   @JsonProperty(JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -353,7 +353,7 @@ public class AccountHolderUpdateRequest {
   /**
    * The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
    *
-   * @param primaryBalanceAccount
+   * @param primaryBalanceAccount The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
    */
   @JsonProperty(JSON_PROPERTY_PRIMARY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -364,7 +364,7 @@ public class AccountHolderUpdateRequest {
   /**
    * Your reference for the account holder.
    *
-   * @param reference
+   * @param reference Your reference for the account holder.
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    */
   public AccountHolderUpdateRequest reference(String reference) {
@@ -374,7 +374,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * Your reference for the account holder.
-   * @return reference
+   * @return reference Your reference for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -385,7 +385,7 @@ public class AccountHolderUpdateRequest {
   /**
    * Your reference for the account holder.
    *
-   * @param reference
+   * @param reference Your reference for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -396,7 +396,7 @@ public class AccountHolderUpdateRequest {
   /**
    * The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
    *
-   * @param status
+   * @param status The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    */
   public AccountHolderUpdateRequest status(StatusEnum status) {
@@ -406,7 +406,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
-   * @return status
+   * @return status The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -417,7 +417,7 @@ public class AccountHolderUpdateRequest {
   /**
    * The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
    *
-   * @param status
+   * @param status The status of the account holder.  Possible values:    * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.    * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.   * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -428,7 +428,7 @@ public class AccountHolderUpdateRequest {
   /**
    * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    *
-   * @param timeZone
+   * @param timeZone The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return the current {@code AccountHolderUpdateRequest} instance, allowing for method chaining
    */
   public AccountHolderUpdateRequest timeZone(String timeZone) {
@@ -438,7 +438,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-   * @return timeZone
+   * @return timeZone The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -449,7 +449,7 @@ public class AccountHolderUpdateRequest {
   /**
    * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    *
-   * @param timeZone
+   * @param timeZone The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -459,7 +459,7 @@ public class AccountHolderUpdateRequest {
 
   /**
    * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
-   * @return verificationDeadlines
+   * @return verificationDeadlines List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -75,7 +75,7 @@ public class Organization {
   private String email;
 
   public static final String JSON_PROPERTY_FINANCIAL_REPORTS = "financialReports";
-  private List<FinancialReport> financialReports = new ArrayList<>();
+  private List<FinancialReport> financialReports;
 
   public static final String JSON_PROPERTY_LEGAL_NAME = "legalName";
   private String legalName;
@@ -96,7 +96,7 @@ public class Organization {
   private StockData stockData;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = new ArrayList<>();
+  private List<TaxInformation> taxInformation;
 
   public static final String JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION = "taxReportingClassification";
   private TaxReportingClassification taxReportingClassification;
@@ -197,7 +197,7 @@ public class Organization {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
-   * @param countryOfGoverningLaw
+   * @param countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization countryOfGoverningLaw(String countryOfGoverningLaw) {
@@ -207,7 +207,7 @@ public class Organization {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
-   * @return countryOfGoverningLaw
+   * @return countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class Organization {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
-   * @param countryOfGoverningLaw
+   * @param countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +229,7 @@ public class Organization {
   /**
    * The date when the organization was incorporated in YYYY-MM-DD format.
    *
-   * @param dateOfIncorporation
+   * @param dateOfIncorporation The date when the organization was incorporated in YYYY-MM-DD format.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization dateOfIncorporation(String dateOfIncorporation) {
@@ -239,7 +239,7 @@ public class Organization {
 
   /**
    * The date when the organization was incorporated in YYYY-MM-DD format.
-   * @return dateOfIncorporation
+   * @return dateOfIncorporation The date when the organization was incorporated in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +250,7 @@ public class Organization {
   /**
    * The date when the organization was incorporated in YYYY-MM-DD format.
    *
-   * @param dateOfIncorporation
+   * @param dateOfIncorporation The date when the organization was incorporated in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,7 +261,7 @@ public class Organization {
   /**
    * Your description for the organization.
    *
-   * @param description
+   * @param description Your description for the organization.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization description(String description) {
@@ -271,7 +271,7 @@ public class Organization {
 
   /**
    * Your description for the organization.
-   * @return description
+   * @return description Your description for the organization.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,7 +282,7 @@ public class Organization {
   /**
    * Your description for the organization.
    *
-   * @param description
+   * @param description Your description for the organization.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +293,7 @@ public class Organization {
   /**
    * The organization&#39;s trading name, if different from the registered legal name.
    *
-   * @param doingBusinessAs
+   * @param doingBusinessAs The organization&#39;s trading name, if different from the registered legal name.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization doingBusinessAs(String doingBusinessAs) {
@@ -303,7 +303,7 @@ public class Organization {
 
   /**
    * The organization&#39;s trading name, if different from the registered legal name.
-   * @return doingBusinessAs
+   * @return doingBusinessAs The organization&#39;s trading name, if different from the registered legal name.
    */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -314,7 +314,7 @@ public class Organization {
   /**
    * The organization&#39;s trading name, if different from the registered legal name.
    *
-   * @param doingBusinessAs
+   * @param doingBusinessAs The organization&#39;s trading name, if different from the registered legal name.
    */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -325,7 +325,7 @@ public class Organization {
   /**
    * The email address of the legal entity.
    *
-   * @param email
+   * @param email The email address of the legal entity.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization email(String email) {
@@ -335,7 +335,7 @@ public class Organization {
 
   /**
    * The email address of the legal entity.
-   * @return email
+   * @return email The email address of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,7 +346,7 @@ public class Organization {
   /**
    * The email address of the legal entity.
    *
-   * @param email
+   * @param email The email address of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -357,7 +357,7 @@ public class Organization {
   /**
    * The financial report information of the organization.
    *
-   * @param financialReports
+   * @param financialReports The financial report information of the organization.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization financialReports(List<FinancialReport> financialReports) {
@@ -375,7 +375,7 @@ public class Organization {
 
   /**
    * The financial report information of the organization.
-   * @return financialReports
+   * @return financialReports The financial report information of the organization.
    */
   @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,7 +386,7 @@ public class Organization {
   /**
    * The financial report information of the organization.
    *
-   * @param financialReports
+   * @param financialReports The financial report information of the organization.
    */
   @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,7 +397,7 @@ public class Organization {
   /**
    * The organization&#39;s legal name.
    *
-   * @param legalName
+   * @param legalName The organization&#39;s legal name.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization legalName(String legalName) {
@@ -407,7 +407,7 @@ public class Organization {
 
   /**
    * The organization&#39;s legal name.
-   * @return legalName
+   * @return legalName The organization&#39;s legal name.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -418,7 +418,7 @@ public class Organization {
   /**
    * The organization&#39;s legal name.
    *
-   * @param legalName
+   * @param legalName The organization&#39;s legal name.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -429,7 +429,7 @@ public class Organization {
   /**
    * phone
    *
-   * @param phone
+   * @param phone 
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization phone(PhoneNumber phone) {
@@ -439,7 +439,7 @@ public class Organization {
 
   /**
    * Get phone
-   * @return phone
+   * @return phone 
    */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +450,7 @@ public class Organization {
   /**
    * phone
    *
-   * @param phone
+   * @param phone 
    */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -461,7 +461,7 @@ public class Organization {
   /**
    * principalPlaceOfBusiness
    *
-   * @param principalPlaceOfBusiness
+   * @param principalPlaceOfBusiness 
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -471,7 +471,7 @@ public class Organization {
 
   /**
    * Get principalPlaceOfBusiness
-   * @return principalPlaceOfBusiness
+   * @return principalPlaceOfBusiness 
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -482,7 +482,7 @@ public class Organization {
   /**
    * principalPlaceOfBusiness
    *
-   * @param principalPlaceOfBusiness
+   * @param principalPlaceOfBusiness 
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -493,7 +493,7 @@ public class Organization {
   /**
    * registeredAddress
    *
-   * @param registeredAddress
+   * @param registeredAddress 
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization registeredAddress(Address registeredAddress) {
@@ -503,7 +503,7 @@ public class Organization {
 
   /**
    * Get registeredAddress
-   * @return registeredAddress
+   * @return registeredAddress 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,7 +514,7 @@ public class Organization {
   /**
    * registeredAddress
    *
-   * @param registeredAddress
+   * @param registeredAddress 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -525,7 +525,7 @@ public class Organization {
   /**
    * The organization&#39;s registration number.
    *
-   * @param registrationNumber
+   * @param registrationNumber The organization&#39;s registration number.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization registrationNumber(String registrationNumber) {
@@ -535,7 +535,7 @@ public class Organization {
 
   /**
    * The organization&#39;s registration number.
-   * @return registrationNumber
+   * @return registrationNumber The organization&#39;s registration number.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -546,7 +546,7 @@ public class Organization {
   /**
    * The organization&#39;s registration number.
    *
-   * @param registrationNumber
+   * @param registrationNumber The organization&#39;s registration number.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -557,7 +557,7 @@ public class Organization {
   /**
    * stockData
    *
-   * @param stockData
+   * @param stockData 
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization stockData(StockData stockData) {
@@ -567,7 +567,7 @@ public class Organization {
 
   /**
    * Get stockData
-   * @return stockData
+   * @return stockData 
    */
   @JsonProperty(JSON_PROPERTY_STOCK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -578,7 +578,7 @@ public class Organization {
   /**
    * stockData
    *
-   * @param stockData
+   * @param stockData 
    */
   @JsonProperty(JSON_PROPERTY_STOCK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -589,7 +589,7 @@ public class Organization {
   /**
    * The tax information of the organization.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the organization.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization taxInformation(List<TaxInformation> taxInformation) {
@@ -607,7 +607,7 @@ public class Organization {
 
   /**
    * The tax information of the organization.
-   * @return taxInformation
+   * @return taxInformation The tax information of the organization.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -618,7 +618,7 @@ public class Organization {
   /**
    * The tax information of the organization.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the organization.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -629,7 +629,7 @@ public class Organization {
   /**
    * taxReportingClassification
    *
-   * @param taxReportingClassification
+   * @param taxReportingClassification 
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization taxReportingClassification(TaxReportingClassification taxReportingClassification) {
@@ -639,7 +639,7 @@ public class Organization {
 
   /**
    * Get taxReportingClassification
-   * @return taxReportingClassification
+   * @return taxReportingClassification 
    */
   @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -650,7 +650,7 @@ public class Organization {
   /**
    * taxReportingClassification
    *
-   * @param taxReportingClassification
+   * @param taxReportingClassification 
    */
   @JsonProperty(JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -661,7 +661,7 @@ public class Organization {
   /**
    * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    *
-   * @param type
+   * @param type Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization type(TypeEnum type) {
@@ -671,7 +671,7 @@ public class Organization {
 
   /**
    * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
-   * @return type
+   * @return type Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -682,7 +682,7 @@ public class Organization {
   /**
    * Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    *
-   * @param type
+   * @param type Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -693,7 +693,7 @@ public class Organization {
   /**
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
-   * @param vatAbsenceReason
+   * @param vatAbsenceReason The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -703,7 +703,7 @@ public class Organization {
 
   /**
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
-   * @return vatAbsenceReason
+   * @return vatAbsenceReason The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -714,7 +714,7 @@ public class Organization {
   /**
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
-   * @param vatAbsenceReason
+   * @param vatAbsenceReason The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -725,7 +725,7 @@ public class Organization {
   /**
    * The organization&#39;s VAT number.
    *
-   * @param vatNumber
+   * @param vatNumber The organization&#39;s VAT number.
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization vatNumber(String vatNumber) {
@@ -735,7 +735,7 @@ public class Organization {
 
   /**
    * The organization&#39;s VAT number.
-   * @return vatNumber
+   * @return vatNumber The organization&#39;s VAT number.
    */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -746,7 +746,7 @@ public class Organization {
   /**
    * The organization&#39;s VAT number.
    *
-   * @param vatNumber
+   * @param vatNumber The organization&#39;s VAT number.
    */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -757,7 +757,7 @@ public class Organization {
   /**
    * webData
    *
-   * @param webData
+   * @param webData 
    * @return the current {@code Organization} instance, allowing for method chaining
    */
   public Organization webData(WebData webData) {
@@ -767,7 +767,7 @@ public class Organization {
 
   /**
    * Get webData
-   * @return webData
+   * @return webData 
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -778,7 +778,7 @@ public class Organization {
   /**
    * webData
    *
-   * @param webData
+   * @param webData 
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

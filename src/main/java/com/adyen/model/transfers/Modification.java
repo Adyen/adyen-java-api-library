@@ -223,7 +223,7 @@ public class Modification {
   /**
    * The direction of the money movement.
    *
-   * @param direction
+   * @param direction The direction of the money movement.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification direction(String direction) {
@@ -233,7 +233,7 @@ public class Modification {
 
   /**
    * The direction of the money movement.
-   * @return direction
+   * @return direction The direction of the money movement.
    */
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class Modification {
   /**
    * The direction of the money movement.
    *
-   * @param direction
+   * @param direction The direction of the money movement.
    */
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class Modification {
   /**
    * Our reference for the modification.
    *
-   * @param id
+   * @param id Our reference for the modification.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification id(String id) {
@@ -265,7 +265,7 @@ public class Modification {
 
   /**
    * Our reference for the modification.
-   * @return id
+   * @return id Our reference for the modification.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class Modification {
   /**
    * Our reference for the modification.
    *
-   * @param id
+   * @param id Our reference for the modification.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +287,7 @@ public class Modification {
   /**
    * Your reference for the modification, used internally within your platform.
    *
-   * @param reference
+   * @param reference Your reference for the modification, used internally within your platform.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification reference(String reference) {
@@ -297,7 +297,7 @@ public class Modification {
 
   /**
    * Your reference for the modification, used internally within your platform.
-   * @return reference
+   * @return reference Your reference for the modification, used internally within your platform.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +308,7 @@ public class Modification {
   /**
    * Your reference for the modification, used internally within your platform.
    *
-   * @param reference
+   * @param reference Your reference for the modification, used internally within your platform.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +319,7 @@ public class Modification {
   /**
    * The status of the transfer event.
    *
-   * @param status
+   * @param status The status of the transfer event.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification status(StatusEnum status) {
@@ -329,7 +329,7 @@ public class Modification {
 
   /**
    * The status of the transfer event.
-   * @return status
+   * @return status The status of the transfer event.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +340,7 @@ public class Modification {
   /**
    * The status of the transfer event.
    *
-   * @param status
+   * @param status The status of the transfer event.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,7 +351,7 @@ public class Modification {
   /**
    * The type of transfer modification.
    *
-   * @param type
+   * @param type The type of transfer modification.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification type(String type) {
@@ -361,7 +361,7 @@ public class Modification {
 
   /**
    * The type of transfer modification.
-   * @return type
+   * @return type The type of transfer modification.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,7 +372,7 @@ public class Modification {
   /**
    * The type of transfer modification.
    *
-   * @param type
+   * @param type The type of transfer modification.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

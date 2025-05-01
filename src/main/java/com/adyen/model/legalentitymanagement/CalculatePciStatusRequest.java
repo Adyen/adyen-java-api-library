@@ -75,7 +75,7 @@ public class CalculatePciStatusRequest {
   }
 
   public static final String JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS = "additionalSalesChannels";
-  private List<AdditionalSalesChannelsEnum> additionalSalesChannels = new ArrayList<>();
+  private List<AdditionalSalesChannelsEnum> additionalSalesChannels;
 
   public CalculatePciStatusRequest() { 
   }
@@ -83,7 +83,7 @@ public class CalculatePciStatusRequest {
   /**
    * An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
    *
-   * @param additionalSalesChannels
+   * @param additionalSalesChannels An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
    * @return the current {@code CalculatePciStatusRequest} instance, allowing for method chaining
    */
   public CalculatePciStatusRequest additionalSalesChannels(List<AdditionalSalesChannelsEnum> additionalSalesChannels) {
@@ -101,7 +101,7 @@ public class CalculatePciStatusRequest {
 
   /**
    * An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
-   * @return additionalSalesChannels
+   * @return additionalSalesChannels An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class CalculatePciStatusRequest {
   /**
    * An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
    *
-   * @param additionalSalesChannels
+   * @param additionalSalesChannels An array of additional sales channels to generate PCI questionnaires. Include the relevant sales channels if you need your user to sign PCI questionnaires. Not required if you [create stores](https://docs.adyen.com/platforms) and [add payment methods](https://docs.adyen.com/adyen-for-platforms-model) before you generate the questionnaires.  Possible values: *  **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**  
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

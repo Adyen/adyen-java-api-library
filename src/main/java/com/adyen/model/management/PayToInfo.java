@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class PayToInfo {
   /**
    * Merchant name displayed to the shopper in the Agreements
    *
-   * @param merchantName
+   * @param merchantName Merchant name displayed to the shopper in the Agreements
    * @return the current {@code PayToInfo} instance, allowing for method chaining
    */
   public PayToInfo merchantName(String merchantName) {
@@ -58,9 +56,8 @@ public class PayToInfo {
 
   /**
    * Merchant name displayed to the shopper in the Agreements
-   * @return merchantName
+   * @return merchantName Merchant name displayed to the shopper in the Agreements
    */
-  @ApiModelProperty(required = true, value = "Merchant name displayed to the shopper in the Agreements")
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantName() {
@@ -70,8 +67,8 @@ public class PayToInfo {
   /**
    * Merchant name displayed to the shopper in the Agreements
    *
-   * @param merchantName
-   */ 
+   * @param merchantName Merchant name displayed to the shopper in the Agreements
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantName(String merchantName) {
@@ -81,7 +78,7 @@ public class PayToInfo {
   /**
    * Represents the purpose of the Agreements created, it relates to the business type **Allowed values**: mortgage, utility, loan, gambling, retail, salary, personal, government, pension, tax, other
    *
-   * @param payToPurpose
+   * @param payToPurpose Represents the purpose of the Agreements created, it relates to the business type **Allowed values**: mortgage, utility, loan, gambling, retail, salary, personal, government, pension, tax, other
    * @return the current {@code PayToInfo} instance, allowing for method chaining
    */
   public PayToInfo payToPurpose(String payToPurpose) {
@@ -91,9 +88,8 @@ public class PayToInfo {
 
   /**
    * Represents the purpose of the Agreements created, it relates to the business type **Allowed values**: mortgage, utility, loan, gambling, retail, salary, personal, government, pension, tax, other
-   * @return payToPurpose
+   * @return payToPurpose Represents the purpose of the Agreements created, it relates to the business type **Allowed values**: mortgage, utility, loan, gambling, retail, salary, personal, government, pension, tax, other
    */
-  @ApiModelProperty(required = true, value = "Represents the purpose of the Agreements created, it relates to the business type **Allowed values**: mortgage, utility, loan, gambling, retail, salary, personal, government, pension, tax, other")
   @JsonProperty(JSON_PROPERTY_PAY_TO_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPayToPurpose() {
@@ -103,8 +99,8 @@ public class PayToInfo {
   /**
    * Represents the purpose of the Agreements created, it relates to the business type **Allowed values**: mortgage, utility, loan, gambling, retail, salary, personal, government, pension, tax, other
    *
-   * @param payToPurpose
-   */ 
+   * @param payToPurpose Represents the purpose of the Agreements created, it relates to the business type **Allowed values**: mortgage, utility, loan, gambling, retail, salary, personal, government, pension, tax, other
+   */
   @JsonProperty(JSON_PROPERTY_PAY_TO_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayToPurpose(String payToPurpose) {

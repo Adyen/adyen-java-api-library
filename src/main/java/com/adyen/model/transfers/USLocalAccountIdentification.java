@@ -122,7 +122,7 @@ public class USLocalAccountIdentification {
   /**
    * The bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace.
    * @return the current {@code USLocalAccountIdentification} instance, allowing for method chaining
    */
   public USLocalAccountIdentification accountNumber(String accountNumber) {
@@ -132,7 +132,7 @@ public class USLocalAccountIdentification {
 
   /**
    * The bank account number, without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class USLocalAccountIdentification {
   /**
    * The bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class USLocalAccountIdentification {
   /**
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    *
-   * @param accountType
+   * @param accountType The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return the current {@code USLocalAccountIdentification} instance, allowing for method chaining
    */
   public USLocalAccountIdentification accountType(AccountTypeEnum accountType) {
@@ -164,7 +164,7 @@ public class USLocalAccountIdentification {
 
   /**
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
-   * @return accountType
+   * @return accountType The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class USLocalAccountIdentification {
   /**
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    *
-   * @param accountType
+   * @param accountType The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class USLocalAccountIdentification {
   /**
    * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    *
-   * @param routingNumber
+   * @param routingNumber The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    * @return the current {@code USLocalAccountIdentification} instance, allowing for method chaining
    */
   public USLocalAccountIdentification routingNumber(String routingNumber) {
@@ -196,7 +196,7 @@ public class USLocalAccountIdentification {
 
   /**
    * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
-   * @return routingNumber
+   * @return routingNumber The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class USLocalAccountIdentification {
   /**
    * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    *
-   * @param routingNumber
+   * @param routingNumber The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class USLocalAccountIdentification {
   /**
    * **usLocal**
    *
-   * @param type
+   * @param type **usLocal**
    * @return the current {@code USLocalAccountIdentification} instance, allowing for method chaining
    */
   public USLocalAccountIdentification type(TypeEnum type) {
@@ -228,7 +228,7 @@ public class USLocalAccountIdentification {
 
   /**
    * **usLocal**
-   * @return type
+   * @return type **usLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class USLocalAccountIdentification {
   /**
    * **usLocal**
    *
-   * @param type
+   * @param type **usLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

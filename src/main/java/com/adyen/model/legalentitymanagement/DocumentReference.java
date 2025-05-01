@@ -59,7 +59,7 @@ public class DocumentReference {
   private OffsetDateTime modificationDate;
 
   public static final String JSON_PROPERTY_PAGES = "pages";
-  private List<DocumentPage> pages = new ArrayList<>();
+  private List<DocumentPage> pages;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -70,7 +70,7 @@ public class DocumentReference {
   /**
    * Identifies whether the document is active and used for checks.
    *
-   * @param active
+   * @param active Identifies whether the document is active and used for checks.
    * @return the current {@code DocumentReference} instance, allowing for method chaining
    */
   public DocumentReference active(Boolean active) {
@@ -80,7 +80,7 @@ public class DocumentReference {
 
   /**
    * Identifies whether the document is active and used for checks.
-   * @return active
+   * @return active Identifies whether the document is active and used for checks.
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +91,7 @@ public class DocumentReference {
   /**
    * Identifies whether the document is active and used for checks.
    *
-   * @param active
+   * @param active Identifies whether the document is active and used for checks.
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +102,7 @@ public class DocumentReference {
   /**
    * Your description for the document.
    *
-   * @param description
+   * @param description Your description for the document.
    * @return the current {@code DocumentReference} instance, allowing for method chaining
    */
   public DocumentReference description(String description) {
@@ -112,7 +112,7 @@ public class DocumentReference {
 
   /**
    * Your description for the document.
-   * @return description
+   * @return description Your description for the document.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class DocumentReference {
   /**
    * Your description for the document.
    *
-   * @param description
+   * @param description Your description for the document.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +134,7 @@ public class DocumentReference {
   /**
    * Document name.
    *
-   * @param fileName
+   * @param fileName Document name.
    * @return the current {@code DocumentReference} instance, allowing for method chaining
    */
   public DocumentReference fileName(String fileName) {
@@ -144,7 +144,7 @@ public class DocumentReference {
 
   /**
    * Document name.
-   * @return fileName
+   * @return fileName Document name.
    */
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class DocumentReference {
   /**
    * Document name.
    *
-   * @param fileName
+   * @param fileName Document name.
    */
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +166,7 @@ public class DocumentReference {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    * @return the current {@code DocumentReference} instance, allowing for method chaining
    */
   public DocumentReference id(String id) {
@@ -176,7 +176,7 @@ public class DocumentReference {
 
   /**
    * The unique identifier of the resource.
-   * @return id
+   * @return id The unique identifier of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class DocumentReference {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class DocumentReference {
   /**
    * The modification date of the document.
    *
-   * @param modificationDate
+   * @param modificationDate The modification date of the document.
    * @return the current {@code DocumentReference} instance, allowing for method chaining
    */
   public DocumentReference modificationDate(OffsetDateTime modificationDate) {
@@ -208,7 +208,7 @@ public class DocumentReference {
 
   /**
    * The modification date of the document.
-   * @return modificationDate
+   * @return modificationDate The modification date of the document.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class DocumentReference {
   /**
    * The modification date of the document.
    *
-   * @param modificationDate
+   * @param modificationDate The modification date of the document.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class DocumentReference {
   /**
    * List of document pages
    *
-   * @param pages
+   * @param pages List of document pages
    * @return the current {@code DocumentReference} instance, allowing for method chaining
    */
   public DocumentReference pages(List<DocumentPage> pages) {
@@ -248,7 +248,7 @@ public class DocumentReference {
 
   /**
    * List of document pages
-   * @return pages
+   * @return pages List of document pages
    */
   @JsonProperty(JSON_PROPERTY_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +259,7 @@ public class DocumentReference {
   /**
    * List of document pages
    *
-   * @param pages
+   * @param pages List of document pages
    */
   @JsonProperty(JSON_PROPERTY_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +270,7 @@ public class DocumentReference {
   /**
    * Type of document, used when providing an ID number or uploading a document.
    *
-   * @param type
+   * @param type Type of document, used when providing an ID number or uploading a document.
    * @return the current {@code DocumentReference} instance, allowing for method chaining
    */
   public DocumentReference type(String type) {
@@ -280,7 +280,7 @@ public class DocumentReference {
 
   /**
    * Type of document, used when providing an ID number or uploading a document.
-   * @return type
+   * @return type Type of document, used when providing an ID number or uploading a document.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,7 +291,7 @@ public class DocumentReference {
   /**
    * Type of document, used when providing an ID number or uploading a document.
    *
-   * @param type
+   * @param type Type of document, used when providing an ID number or uploading a document.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -79,7 +79,7 @@ public class PinChangeResponse {
   /**
    * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    *
-   * @param status
+   * @param status The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    * @return the current {@code PinChangeResponse} instance, allowing for method chaining
    */
   public PinChangeResponse status(StatusEnum status) {
@@ -89,7 +89,7 @@ public class PinChangeResponse {
 
   /**
    * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
-   * @return status
+   * @return status The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class PinChangeResponse {
   /**
    * The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    *
-   * @param status
+   * @param status The status of the request for PIN change.  Possible values: **completed**, **pending**, **unavailable**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

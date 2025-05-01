@@ -59,7 +59,7 @@ public class SoleProprietorship {
   private String doingBusinessAs;
 
   public static final String JSON_PROPERTY_FINANCIAL_REPORTS = "financialReports";
-  private List<FinancialReport> financialReports = new ArrayList<>();
+  private List<FinancialReport> financialReports;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -77,7 +77,7 @@ public class SoleProprietorship {
   private Boolean taxAbsent;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = new ArrayList<>();
+  private List<TaxInformation> taxInformation;
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
@@ -126,7 +126,7 @@ public class SoleProprietorship {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
-   * @param countryOfGoverningLaw
+   * @param countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship countryOfGoverningLaw(String countryOfGoverningLaw) {
@@ -136,7 +136,7 @@ public class SoleProprietorship {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
-   * @return countryOfGoverningLaw
+   * @return countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class SoleProprietorship {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
-   * @param countryOfGoverningLaw
+   * @param countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class SoleProprietorship {
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    *
-   * @param dateOfIncorporation
+   * @param dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship dateOfIncorporation(String dateOfIncorporation) {
@@ -168,7 +168,7 @@ public class SoleProprietorship {
 
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
-   * @return dateOfIncorporation
+   * @return dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class SoleProprietorship {
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    *
-   * @param dateOfIncorporation
+   * @param dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class SoleProprietorship {
   /**
    * The registered name, if different from the &#x60;name&#x60;.
    *
-   * @param doingBusinessAs
+   * @param doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship doingBusinessAs(String doingBusinessAs) {
@@ -200,7 +200,7 @@ public class SoleProprietorship {
 
   /**
    * The registered name, if different from the &#x60;name&#x60;.
-   * @return doingBusinessAs
+   * @return doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class SoleProprietorship {
   /**
    * The registered name, if different from the &#x60;name&#x60;.
    *
-   * @param doingBusinessAs
+   * @param doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class SoleProprietorship {
   /**
    * The information from the financial report of the sole proprietorship.
    *
-   * @param financialReports
+   * @param financialReports The information from the financial report of the sole proprietorship.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship financialReports(List<FinancialReport> financialReports) {
@@ -240,7 +240,7 @@ public class SoleProprietorship {
 
   /**
    * The information from the financial report of the sole proprietorship.
-   * @return financialReports
+   * @return financialReports The information from the financial report of the sole proprietorship.
    */
   @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +251,7 @@ public class SoleProprietorship {
   /**
    * The information from the financial report of the sole proprietorship.
    *
-   * @param financialReports
+   * @param financialReports The information from the financial report of the sole proprietorship.
    */
   @JsonProperty(JSON_PROPERTY_FINANCIAL_REPORTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,7 +262,7 @@ public class SoleProprietorship {
   /**
    * The legal name.
    *
-   * @param name
+   * @param name The legal name.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship name(String name) {
@@ -272,7 +272,7 @@ public class SoleProprietorship {
 
   /**
    * The legal name.
-   * @return name
+   * @return name The legal name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +283,7 @@ public class SoleProprietorship {
   /**
    * The legal name.
    *
-   * @param name
+   * @param name The legal name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +294,7 @@ public class SoleProprietorship {
   /**
    * principalPlaceOfBusiness
    *
-   * @param principalPlaceOfBusiness
+   * @param principalPlaceOfBusiness 
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -304,7 +304,7 @@ public class SoleProprietorship {
 
   /**
    * Get principalPlaceOfBusiness
-   * @return principalPlaceOfBusiness
+   * @return principalPlaceOfBusiness 
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -315,7 +315,7 @@ public class SoleProprietorship {
   /**
    * principalPlaceOfBusiness
    *
-   * @param principalPlaceOfBusiness
+   * @param principalPlaceOfBusiness 
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -326,7 +326,7 @@ public class SoleProprietorship {
   /**
    * registeredAddress
    *
-   * @param registeredAddress
+   * @param registeredAddress 
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship registeredAddress(Address registeredAddress) {
@@ -336,7 +336,7 @@ public class SoleProprietorship {
 
   /**
    * Get registeredAddress
-   * @return registeredAddress
+   * @return registeredAddress 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -347,7 +347,7 @@ public class SoleProprietorship {
   /**
    * registeredAddress
    *
-   * @param registeredAddress
+   * @param registeredAddress 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -358,7 +358,7 @@ public class SoleProprietorship {
   /**
    * The registration number.
    *
-   * @param registrationNumber
+   * @param registrationNumber The registration number.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship registrationNumber(String registrationNumber) {
@@ -368,7 +368,7 @@ public class SoleProprietorship {
 
   /**
    * The registration number.
-   * @return registrationNumber
+   * @return registrationNumber The registration number.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,7 +379,7 @@ public class SoleProprietorship {
   /**
    * The registration number.
    *
-   * @param registrationNumber
+   * @param registrationNumber The registration number.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -390,7 +390,7 @@ public class SoleProprietorship {
   /**
    * The tax information is absent.
    *
-   * @param taxAbsent
+   * @param taxAbsent The tax information is absent.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship taxAbsent(Boolean taxAbsent) {
@@ -400,7 +400,7 @@ public class SoleProprietorship {
 
   /**
    * The tax information is absent.
-   * @return taxAbsent
+   * @return taxAbsent The tax information is absent.
    */
   @JsonProperty(JSON_PROPERTY_TAX_ABSENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -411,7 +411,7 @@ public class SoleProprietorship {
   /**
    * The tax information is absent.
    *
-   * @param taxAbsent
+   * @param taxAbsent The tax information is absent.
    */
   @JsonProperty(JSON_PROPERTY_TAX_ABSENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -422,7 +422,7 @@ public class SoleProprietorship {
   /**
    * The tax information of the entity.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the entity.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship taxInformation(List<TaxInformation> taxInformation) {
@@ -440,7 +440,7 @@ public class SoleProprietorship {
 
   /**
    * The tax information of the entity.
-   * @return taxInformation
+   * @return taxInformation The tax information of the entity.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -451,7 +451,7 @@ public class SoleProprietorship {
   /**
    * The tax information of the entity.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the entity.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -462,7 +462,7 @@ public class SoleProprietorship {
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
-   * @param vatAbsenceReason
+   * @param vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -472,7 +472,7 @@ public class SoleProprietorship {
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
-   * @return vatAbsenceReason
+   * @return vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -483,7 +483,7 @@ public class SoleProprietorship {
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
-   * @param vatAbsenceReason
+   * @param vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -494,7 +494,7 @@ public class SoleProprietorship {
   /**
    * The VAT number.
    *
-   * @param vatNumber
+   * @param vatNumber The VAT number.
    * @return the current {@code SoleProprietorship} instance, allowing for method chaining
    */
   public SoleProprietorship vatNumber(String vatNumber) {
@@ -504,7 +504,7 @@ public class SoleProprietorship {
 
   /**
    * The VAT number.
-   * @return vatNumber
+   * @return vatNumber The VAT number.
    */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -515,7 +515,7 @@ public class SoleProprietorship {
   /**
    * The VAT number.
    *
-   * @param vatNumber
+   * @param vatNumber The VAT number.
    */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -49,7 +49,7 @@ public class MerchantNamesRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code MerchantNamesRestriction} instance, allowing for method chaining
    */
   public MerchantNamesRestriction operation(String operation) {
@@ -59,7 +59,7 @@ public class MerchantNamesRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -70,7 +70,7 @@ public class MerchantNamesRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,7 +81,7 @@ public class MerchantNamesRestriction {
   /**
    * value
    *
-   * @param value
+   * @param value 
    * @return the current {@code MerchantNamesRestriction} instance, allowing for method chaining
    */
   public MerchantNamesRestriction value(List<StringMatch> value) {
@@ -99,7 +99,7 @@ public class MerchantNamesRestriction {
 
   /**
    * Get value
-   * @return value
+   * @return value 
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class MerchantNamesRestriction {
   /**
    * value
    *
-   * @param value
+   * @param value 
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

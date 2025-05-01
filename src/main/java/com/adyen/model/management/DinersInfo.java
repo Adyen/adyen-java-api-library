@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TransactionDescriptionInfo;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,15 +41,15 @@ public class DinersInfo {
   private String midNumber;
 
   public static final String JSON_PROPERTY_REUSE_MID_NUMBER = "reuseMidNumber";
-  private Boolean reuseMidNumber;
+  private Boolean reuseMidNumber = false;
 
   /**
    * Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:  * **noContract**: Adyen holds the contract with JCB.  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
    */
   public enum ServiceLevelEnum {
-    NOCONTRACT("noContract"),
+    NOCONTRACT(String.valueOf("noContract")),
     
-    GATEWAYCONTRACT("gatewayContract");
+    GATEWAYCONTRACT(String.valueOf("gatewayContract"));
 
     private String value;
 
@@ -92,7 +90,7 @@ public class DinersInfo {
   /**
    * MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric characters.
    *
-   * @param midNumber
+   * @param midNumber MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric characters.
    * @return the current {@code DinersInfo} instance, allowing for method chaining
    */
   public DinersInfo midNumber(String midNumber) {
@@ -102,9 +100,8 @@ public class DinersInfo {
 
   /**
    * MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric characters.
-   * @return midNumber
+   * @return midNumber MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric characters.
    */
-  @ApiModelProperty(value = "MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric characters.")
   @JsonProperty(JSON_PROPERTY_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMidNumber() {
@@ -114,8 +111,8 @@ public class DinersInfo {
   /**
    * MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric characters.
    *
-   * @param midNumber
-   */ 
+   * @param midNumber MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric characters.
+   */
   @JsonProperty(JSON_PROPERTY_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMidNumber(String midNumber) {
@@ -125,7 +122,7 @@ public class DinersInfo {
   /**
    * Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method. The default value is **false**. For merchants operating in Japan, this field is required and must be set to **true**.
    *
-   * @param reuseMidNumber
+   * @param reuseMidNumber Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method. The default value is **false**. For merchants operating in Japan, this field is required and must be set to **true**.
    * @return the current {@code DinersInfo} instance, allowing for method chaining
    */
   public DinersInfo reuseMidNumber(Boolean reuseMidNumber) {
@@ -135,9 +132,8 @@ public class DinersInfo {
 
   /**
    * Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method. The default value is **false**. For merchants operating in Japan, this field is required and must be set to **true**.
-   * @return reuseMidNumber
+   * @return reuseMidNumber Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method. The default value is **false**. For merchants operating in Japan, this field is required and must be set to **true**.
    */
-  @ApiModelProperty(required = true, value = "Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method. The default value is **false**. For merchants operating in Japan, this field is required and must be set to **true**.")
   @JsonProperty(JSON_PROPERTY_REUSE_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getReuseMidNumber() {
@@ -147,8 +143,8 @@ public class DinersInfo {
   /**
    * Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method. The default value is **false**. For merchants operating in Japan, this field is required and must be set to **true**.
    *
-   * @param reuseMidNumber
-   */ 
+   * @param reuseMidNumber Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method. The default value is **false**. For merchants operating in Japan, this field is required and must be set to **true**.
+   */
   @JsonProperty(JSON_PROPERTY_REUSE_MID_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMidNumber(Boolean reuseMidNumber) {
@@ -158,7 +154,7 @@ public class DinersInfo {
   /**
    * Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:  * **noContract**: Adyen holds the contract with JCB.  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
    *
-   * @param serviceLevel
+   * @param serviceLevel Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:  * **noContract**: Adyen holds the contract with JCB.  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
    * @return the current {@code DinersInfo} instance, allowing for method chaining
    */
   public DinersInfo serviceLevel(ServiceLevelEnum serviceLevel) {
@@ -168,9 +164,8 @@ public class DinersInfo {
 
   /**
    * Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:  * **noContract**: Adyen holds the contract with JCB.  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
-   * @return serviceLevel
+   * @return serviceLevel Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:  * **noContract**: Adyen holds the contract with JCB.  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
    */
-  @ApiModelProperty(value = "Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:  * **noContract**: Adyen holds the contract with JCB.  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.")
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ServiceLevelEnum getServiceLevel() {
@@ -180,8 +175,8 @@ public class DinersInfo {
   /**
    * Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:  * **noContract**: Adyen holds the contract with JCB.  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
    *
-   * @param serviceLevel
-   */ 
+   * @param serviceLevel Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:  * **noContract**: Adyen holds the contract with JCB.  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly.
+   */
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setServiceLevel(ServiceLevelEnum serviceLevel) {
@@ -191,7 +186,7 @@ public class DinersInfo {
   /**
    * transactionDescription
    *
-   * @param transactionDescription
+   * @param transactionDescription 
    * @return the current {@code DinersInfo} instance, allowing for method chaining
    */
   public DinersInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
@@ -200,10 +195,9 @@ public class DinersInfo {
   }
 
   /**
-   * transactionDescription
-   * @return transactionDescription
+   * Get transactionDescription
+   * @return transactionDescription 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransactionDescriptionInfo getTransactionDescription() {
@@ -213,8 +207,8 @@ public class DinersInfo {
   /**
    * transactionDescription
    *
-   * @param transactionDescription
-   */ 
+   * @param transactionDescription 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {

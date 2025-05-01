@@ -79,7 +79,7 @@ public class NOLocalAccountIdentification {
   /**
    * The 11-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 11-digit bank account number, without separators or whitespace.
    * @return the current {@code NOLocalAccountIdentification} instance, allowing for method chaining
    */
   public NOLocalAccountIdentification accountNumber(String accountNumber) {
@@ -89,7 +89,7 @@ public class NOLocalAccountIdentification {
 
   /**
    * The 11-digit bank account number, without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The 11-digit bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class NOLocalAccountIdentification {
   /**
    * The 11-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 11-digit bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class NOLocalAccountIdentification {
   /**
    * **noLocal**
    *
-   * @param type
+   * @param type **noLocal**
    * @return the current {@code NOLocalAccountIdentification} instance, allowing for method chaining
    */
   public NOLocalAccountIdentification type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class NOLocalAccountIdentification {
 
   /**
    * **noLocal**
-   * @return type
+   * @return type **noLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class NOLocalAccountIdentification {
   /**
    * **noLocal**
    *
-   * @param type
+   * @param type **noLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

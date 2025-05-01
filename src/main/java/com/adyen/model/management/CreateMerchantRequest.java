@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -62,7 +60,7 @@ public class CreateMerchantRequest {
   private String reference;
 
   public static final String JSON_PROPERTY_SALES_CHANNELS = "salesChannels";
-  private List<String> salesChannels = null;
+  private List<String> salesChannels;
 
   public CreateMerchantRequest() { 
   }
@@ -70,7 +68,7 @@ public class CreateMerchantRequest {
   /**
    * The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.
    *
-   * @param businessLineId
+   * @param businessLineId The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.
    * @return the current {@code CreateMerchantRequest} instance, allowing for method chaining
    */
   public CreateMerchantRequest businessLineId(String businessLineId) {
@@ -80,9 +78,8 @@ public class CreateMerchantRequest {
 
   /**
    * The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.
-   * @return businessLineId
+   * @return businessLineId The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.
    */
-  @ApiModelProperty(value = "The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.")
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBusinessLineId() {
@@ -92,8 +89,8 @@ public class CreateMerchantRequest {
   /**
    * The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.
    *
-   * @param businessLineId
-   */ 
+   * @param businessLineId The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.
+   */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineId(String businessLineId) {
@@ -103,7 +100,7 @@ public class CreateMerchantRequest {
   /**
    * The unique identifier of the company account.
    *
-   * @param companyId
+   * @param companyId The unique identifier of the company account.
    * @return the current {@code CreateMerchantRequest} instance, allowing for method chaining
    */
   public CreateMerchantRequest companyId(String companyId) {
@@ -113,9 +110,8 @@ public class CreateMerchantRequest {
 
   /**
    * The unique identifier of the company account.
-   * @return companyId
+   * @return companyId The unique identifier of the company account.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the company account.")
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompanyId() {
@@ -125,8 +121,8 @@ public class CreateMerchantRequest {
   /**
    * The unique identifier of the company account.
    *
-   * @param companyId
-   */ 
+   * @param companyId The unique identifier of the company account.
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
@@ -136,7 +132,7 @@ public class CreateMerchantRequest {
   /**
    * Your description for the merchant account, maximum 300 characters.
    *
-   * @param description
+   * @param description Your description for the merchant account, maximum 300 characters.
    * @return the current {@code CreateMerchantRequest} instance, allowing for method chaining
    */
   public CreateMerchantRequest description(String description) {
@@ -146,9 +142,8 @@ public class CreateMerchantRequest {
 
   /**
    * Your description for the merchant account, maximum 300 characters.
-   * @return description
+   * @return description Your description for the merchant account, maximum 300 characters.
    */
-  @ApiModelProperty(value = "Your description for the merchant account, maximum 300 characters.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -158,8 +153,8 @@ public class CreateMerchantRequest {
   /**
    * Your description for the merchant account, maximum 300 characters.
    *
-   * @param description
-   */ 
+   * @param description Your description for the merchant account, maximum 300 characters.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -169,7 +164,7 @@ public class CreateMerchantRequest {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.
    * @return the current {@code CreateMerchantRequest} instance, allowing for method chaining
    */
   public CreateMerchantRequest legalEntityId(String legalEntityId) {
@@ -179,9 +174,8 @@ public class CreateMerchantRequest {
 
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.
-   * @return legalEntityId
+   * @return legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.
    */
-  @ApiModelProperty(value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.")
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegalEntityId() {
@@ -191,8 +185,8 @@ public class CreateMerchantRequest {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.
    *
-   * @param legalEntityId
-   */ 
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.
+   */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
@@ -202,7 +196,7 @@ public class CreateMerchantRequest {
   /**
    * Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.
    *
-   * @param pricingPlan
+   * @param pricingPlan Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.
    * @return the current {@code CreateMerchantRequest} instance, allowing for method chaining
    */
   public CreateMerchantRequest pricingPlan(String pricingPlan) {
@@ -212,9 +206,8 @@ public class CreateMerchantRequest {
 
   /**
    * Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.
-   * @return pricingPlan
+   * @return pricingPlan Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.
    */
-  @ApiModelProperty(value = "Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.")
   @JsonProperty(JSON_PROPERTY_PRICING_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPricingPlan() {
@@ -224,8 +217,8 @@ public class CreateMerchantRequest {
   /**
    * Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.
    *
-   * @param pricingPlan
-   */ 
+   * @param pricingPlan Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.
+   */
   @JsonProperty(JSON_PROPERTY_PRICING_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPricingPlan(String pricingPlan) {
@@ -235,7 +228,7 @@ public class CreateMerchantRequest {
   /**
    * Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the &#x60;reference&#x60; is required and must be unique within the company account.
    *
-   * @param reference
+   * @param reference Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the &#x60;reference&#x60; is required and must be unique within the company account.
    * @return the current {@code CreateMerchantRequest} instance, allowing for method chaining
    */
   public CreateMerchantRequest reference(String reference) {
@@ -245,9 +238,8 @@ public class CreateMerchantRequest {
 
   /**
    * Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the &#x60;reference&#x60; is required and must be unique within the company account.
-   * @return reference
+   * @return reference Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the &#x60;reference&#x60; is required and must be unique within the company account.
    */
-  @ApiModelProperty(value = "Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the `reference` is required and must be unique within the company account.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -257,8 +249,8 @@ public class CreateMerchantRequest {
   /**
    * Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the &#x60;reference&#x60; is required and must be unique within the company account.
    *
-   * @param reference
-   */ 
+   * @param reference Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the &#x60;reference&#x60; is required and must be unique within the company account.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -268,7 +260,7 @@ public class CreateMerchantRequest {
   /**
    * List of sales channels that the merchant will process payments with
    *
-   * @param salesChannels
+   * @param salesChannels List of sales channels that the merchant will process payments with
    * @return the current {@code CreateMerchantRequest} instance, allowing for method chaining
    */
   public CreateMerchantRequest salesChannels(List<String> salesChannels) {
@@ -286,9 +278,8 @@ public class CreateMerchantRequest {
 
   /**
    * List of sales channels that the merchant will process payments with
-   * @return salesChannels
+   * @return salesChannels List of sales channels that the merchant will process payments with
    */
-  @ApiModelProperty(value = "List of sales channels that the merchant will process payments with")
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSalesChannels() {
@@ -298,8 +289,8 @@ public class CreateMerchantRequest {
   /**
    * List of sales channels that the merchant will process payments with
    *
-   * @param salesChannels
-   */ 
+   * @param salesChannels List of sales channels that the merchant will process payments with
+   */
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesChannels(List<String> salesChannels) {

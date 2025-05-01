@@ -48,7 +48,7 @@ public class BankAccountV3 {
   /**
    * accountHolder
    *
-   * @param accountHolder
+   * @param accountHolder 
    * @return the current {@code BankAccountV3} instance, allowing for method chaining
    */
   public BankAccountV3 accountHolder(PartyIdentification accountHolder) {
@@ -58,7 +58,7 @@ public class BankAccountV3 {
 
   /**
    * Get accountHolder
-   * @return accountHolder
+   * @return accountHolder 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -69,7 +69,7 @@ public class BankAccountV3 {
   /**
    * accountHolder
    *
-   * @param accountHolder
+   * @param accountHolder 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,7 +80,7 @@ public class BankAccountV3 {
   /**
    * accountIdentification
    *
-   * @param accountIdentification
+   * @param accountIdentification 
    * @return the current {@code BankAccountV3} instance, allowing for method chaining
    */
   public BankAccountV3 accountIdentification(BankAccountV3AccountIdentification accountIdentification) {
@@ -90,7 +90,7 @@ public class BankAccountV3 {
 
   /**
    * Get accountIdentification
-   * @return accountIdentification
+   * @return accountIdentification 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +101,7 @@ public class BankAccountV3 {
   /**
    * accountIdentification
    *
-   * @param accountIdentification
+   * @param accountIdentification 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

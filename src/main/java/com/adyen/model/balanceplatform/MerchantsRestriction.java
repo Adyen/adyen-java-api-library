@@ -49,7 +49,7 @@ public class MerchantsRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code MerchantsRestriction} instance, allowing for method chaining
    */
   public MerchantsRestriction operation(String operation) {
@@ -59,7 +59,7 @@ public class MerchantsRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -70,7 +70,7 @@ public class MerchantsRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,7 +81,7 @@ public class MerchantsRestriction {
   /**
    * List of merchant ID and acquirer ID pairs.
    *
-   * @param value
+   * @param value List of merchant ID and acquirer ID pairs.
    * @return the current {@code MerchantsRestriction} instance, allowing for method chaining
    */
   public MerchantsRestriction value(List<MerchantAcquirerPair> value) {
@@ -99,7 +99,7 @@ public class MerchantsRestriction {
 
   /**
    * List of merchant ID and acquirer ID pairs.
-   * @return value
+   * @return value List of merchant ID and acquirer ID pairs.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class MerchantsRestriction {
   /**
    * List of merchant ID and acquirer ID pairs.
    *
-   * @param value
+   * @param value List of merchant ID and acquirer ID pairs.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

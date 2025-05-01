@@ -128,7 +128,7 @@ public class Condition {
   /**
    * Define the type of balance about which you want to get notified. Possible values:  * **available**: the balance available for use.  * **balance**: the sum of transactions that have already been settled.  * **pending**: the sum of transactions that will be settled in the future.  * **reserved**: the balance currently held in reserve.
    *
-   * @param balanceType
+   * @param balanceType Define the type of balance about which you want to get notified. Possible values:  * **available**: the balance available for use.  * **balance**: the sum of transactions that have already been settled.  * **pending**: the sum of transactions that will be settled in the future.  * **reserved**: the balance currently held in reserve.
    * @return the current {@code Condition} instance, allowing for method chaining
    */
   public Condition balanceType(BalanceTypeEnum balanceType) {
@@ -138,7 +138,7 @@ public class Condition {
 
   /**
    * Define the type of balance about which you want to get notified. Possible values:  * **available**: the balance available for use.  * **balance**: the sum of transactions that have already been settled.  * **pending**: the sum of transactions that will be settled in the future.  * **reserved**: the balance currently held in reserve.
-   * @return balanceType
+   * @return balanceType Define the type of balance about which you want to get notified. Possible values:  * **available**: the balance available for use.  * **balance**: the sum of transactions that have already been settled.  * **pending**: the sum of transactions that will be settled in the future.  * **reserved**: the balance currently held in reserve.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +149,7 @@ public class Condition {
   /**
    * Define the type of balance about which you want to get notified. Possible values:  * **available**: the balance available for use.  * **balance**: the sum of transactions that have already been settled.  * **pending**: the sum of transactions that will be settled in the future.  * **reserved**: the balance currently held in reserve.
    *
-   * @param balanceType
+   * @param balanceType Define the type of balance about which you want to get notified. Possible values:  * **available**: the balance available for use.  * **balance**: the sum of transactions that have already been settled.  * **pending**: the sum of transactions that will be settled in the future.  * **reserved**: the balance currently held in reserve.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +160,7 @@ public class Condition {
   /**
    * Define when you want to get notified about a balance change. Possible values:  * **greaterThan**: the balance in the account(s) exceeds the specified &#x60;value&#x60;.  * **greaterThanOrEqual**: the balance in the account(s) reaches or exceeds the specified &#x60;value&#x60;.  * **lessThan**: the balance in the account(s) drops below the specified &#x60;value&#x60;.  * **lessThanOrEqual**: the balance in the account(s) reaches to drops below the specified &#x60;value&#x60;.
    *
-   * @param conditionType
+   * @param conditionType Define when you want to get notified about a balance change. Possible values:  * **greaterThan**: the balance in the account(s) exceeds the specified &#x60;value&#x60;.  * **greaterThanOrEqual**: the balance in the account(s) reaches or exceeds the specified &#x60;value&#x60;.  * **lessThan**: the balance in the account(s) drops below the specified &#x60;value&#x60;.  * **lessThanOrEqual**: the balance in the account(s) reaches to drops below the specified &#x60;value&#x60;.
    * @return the current {@code Condition} instance, allowing for method chaining
    */
   public Condition conditionType(ConditionTypeEnum conditionType) {
@@ -170,7 +170,7 @@ public class Condition {
 
   /**
    * Define when you want to get notified about a balance change. Possible values:  * **greaterThan**: the balance in the account(s) exceeds the specified &#x60;value&#x60;.  * **greaterThanOrEqual**: the balance in the account(s) reaches or exceeds the specified &#x60;value&#x60;.  * **lessThan**: the balance in the account(s) drops below the specified &#x60;value&#x60;.  * **lessThanOrEqual**: the balance in the account(s) reaches to drops below the specified &#x60;value&#x60;.
-   * @return conditionType
+   * @return conditionType Define when you want to get notified about a balance change. Possible values:  * **greaterThan**: the balance in the account(s) exceeds the specified &#x60;value&#x60;.  * **greaterThanOrEqual**: the balance in the account(s) reaches or exceeds the specified &#x60;value&#x60;.  * **lessThan**: the balance in the account(s) drops below the specified &#x60;value&#x60;.  * **lessThanOrEqual**: the balance in the account(s) reaches to drops below the specified &#x60;value&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_CONDITION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +181,7 @@ public class Condition {
   /**
    * Define when you want to get notified about a balance change. Possible values:  * **greaterThan**: the balance in the account(s) exceeds the specified &#x60;value&#x60;.  * **greaterThanOrEqual**: the balance in the account(s) reaches or exceeds the specified &#x60;value&#x60;.  * **lessThan**: the balance in the account(s) drops below the specified &#x60;value&#x60;.  * **lessThanOrEqual**: the balance in the account(s) reaches to drops below the specified &#x60;value&#x60;.
    *
-   * @param conditionType
+   * @param conditionType Define when you want to get notified about a balance change. Possible values:  * **greaterThan**: the balance in the account(s) exceeds the specified &#x60;value&#x60;.  * **greaterThanOrEqual**: the balance in the account(s) reaches or exceeds the specified &#x60;value&#x60;.  * **lessThan**: the balance in the account(s) drops below the specified &#x60;value&#x60;.  * **lessThanOrEqual**: the balance in the account(s) reaches to drops below the specified &#x60;value&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_CONDITION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +192,7 @@ public class Condition {
   /**
    * The value limit in the specified balance type and currency, in minor units.
    *
-   * @param value
+   * @param value The value limit in the specified balance type and currency, in minor units.
    * @return the current {@code Condition} instance, allowing for method chaining
    */
   public Condition value(Long value) {
@@ -202,7 +202,7 @@ public class Condition {
 
   /**
    * The value limit in the specified balance type and currency, in minor units.
-   * @return value
+   * @return value The value limit in the specified balance type and currency, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +213,7 @@ public class Condition {
   /**
    * The value limit in the specified balance type and currency, in minor units.
    *
-   * @param value
+   * @param value The value limit in the specified balance type and currency, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -91,7 +91,7 @@ public class Device {
   /**
    * The unique identifier of the SCA device.
    *
-   * @param id
+   * @param id The unique identifier of the SCA device.
    * @return the current {@code Device} instance, allowing for method chaining
    */
   public Device id(String id) {
@@ -101,7 +101,7 @@ public class Device {
 
   /**
    * The unique identifier of the SCA device.
-   * @return id
+   * @return id The unique identifier of the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class Device {
   /**
    * The unique identifier of the SCA device.
    *
-   * @param id
+   * @param id The unique identifier of the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class Device {
   /**
    * The name of the SCA device. You can show this name to your user to help them identify the device.
    *
-   * @param name
+   * @param name The name of the SCA device. You can show this name to your user to help them identify the device.
    * @return the current {@code Device} instance, allowing for method chaining
    */
   public Device name(String name) {
@@ -133,7 +133,7 @@ public class Device {
 
   /**
    * The name of the SCA device. You can show this name to your user to help them identify the device.
-   * @return name
+   * @return name The name of the SCA device. You can show this name to your user to help them identify the device.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class Device {
   /**
    * The name of the SCA device. You can show this name to your user to help them identify the device.
    *
-   * @param name
+   * @param name The name of the SCA device. You can show this name to your user to help them identify the device.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class Device {
   /**
    * The unique identifier of the payment instrument that is associated with the SCA device.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument that is associated with the SCA device.
    * @return the current {@code Device} instance, allowing for method chaining
    */
   public Device paymentInstrumentId(String paymentInstrumentId) {
@@ -165,7 +165,7 @@ public class Device {
 
   /**
    * The unique identifier of the payment instrument that is associated with the SCA device.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId The unique identifier of the payment instrument that is associated with the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class Device {
   /**
    * The unique identifier of the payment instrument that is associated with the SCA device.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument that is associated with the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class Device {
   /**
    * The type of device.  Possible values: **ios**, **android**, **browser**.
    *
-   * @param type
+   * @param type The type of device.  Possible values: **ios**, **android**, **browser**.
    * @return the current {@code Device} instance, allowing for method chaining
    */
   public Device type(TypeEnum type) {
@@ -197,7 +197,7 @@ public class Device {
 
   /**
    * The type of device.  Possible values: **ios**, **android**, **browser**.
-   * @return type
+   * @return type The type of device.  Possible values: **ios**, **android**, **browser**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class Device {
   /**
    * The type of device.  Possible values: **ios**, **android**, **browser**.
    *
-   * @param type
+   * @param type The type of device.  Possible values: **ios**, **android**, **browser**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

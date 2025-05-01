@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TransactionDescriptionInfo;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -45,7 +43,7 @@ public class GenericPmWithTdiInfo {
   /**
    * transactionDescription
    *
-   * @param transactionDescription
+   * @param transactionDescription 
    * @return the current {@code GenericPmWithTdiInfo} instance, allowing for method chaining
    */
   public GenericPmWithTdiInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
@@ -54,10 +52,9 @@ public class GenericPmWithTdiInfo {
   }
 
   /**
-   * transactionDescription
-   * @return transactionDescription
+   * Get transactionDescription
+   * @return transactionDescription 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransactionDescriptionInfo getTransactionDescription() {
@@ -67,8 +64,8 @@ public class GenericPmWithTdiInfo {
   /**
    * transactionDescription
    *
-   * @param transactionDescription
-   */ 
+   * @param transactionDescription 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {

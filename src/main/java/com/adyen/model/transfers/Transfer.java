@@ -547,7 +547,7 @@ public class Transfer {
   /**
    * accountHolder
    *
-   * @param accountHolder
+   * @param accountHolder 
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer accountHolder(ResourceReference accountHolder) {
@@ -557,7 +557,7 @@ public class Transfer {
 
   /**
    * Get accountHolder
-   * @return accountHolder
+   * @return accountHolder 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -568,7 +568,7 @@ public class Transfer {
   /**
    * accountHolder
    *
-   * @param accountHolder
+   * @param accountHolder 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -579,7 +579,7 @@ public class Transfer {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer amount(Amount amount) {
@@ -589,7 +589,7 @@ public class Transfer {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -600,7 +600,7 @@ public class Transfer {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -611,7 +611,7 @@ public class Transfer {
   /**
    * balanceAccount
    *
-   * @param balanceAccount
+   * @param balanceAccount 
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer balanceAccount(ResourceReference balanceAccount) {
@@ -621,7 +621,7 @@ public class Transfer {
 
   /**
    * Get balanceAccount
-   * @return balanceAccount
+   * @return balanceAccount 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -632,7 +632,7 @@ public class Transfer {
   /**
    * balanceAccount
    *
-   * @param balanceAccount
+   * @param balanceAccount 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -643,7 +643,7 @@ public class Transfer {
   /**
    * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category
+   * @param category The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer category(CategoryEnum category) {
@@ -653,7 +653,7 @@ public class Transfer {
 
   /**
    * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
-   * @return category
+   * @return category The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -664,7 +664,7 @@ public class Transfer {
   /**
    * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category
+   * @param category The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -675,7 +675,7 @@ public class Transfer {
   /**
    * categoryData
    *
-   * @param categoryData
+   * @param categoryData 
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer categoryData(TransferCategoryData categoryData) {
@@ -685,7 +685,7 @@ public class Transfer {
 
   /**
    * Get categoryData
-   * @return categoryData
+   * @return categoryData 
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -696,7 +696,7 @@ public class Transfer {
   /**
    * categoryData
    *
-   * @param categoryData
+   * @param categoryData 
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -707,7 +707,7 @@ public class Transfer {
   /**
    * counterparty
    *
-   * @param counterparty
+   * @param counterparty 
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer counterparty(CounterpartyV3 counterparty) {
@@ -717,7 +717,7 @@ public class Transfer {
 
   /**
    * Get counterparty
-   * @return counterparty
+   * @return counterparty 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -728,7 +728,7 @@ public class Transfer {
   /**
    * counterparty
    *
-   * @param counterparty
+   * @param counterparty 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -739,7 +739,7 @@ public class Transfer {
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param creationDate
+   * @param creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer creationDate(OffsetDateTime creationDate) {
@@ -749,7 +749,7 @@ public class Transfer {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
-   * @return creationDate
+   * @return creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -760,7 +760,7 @@ public class Transfer {
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param creationDate
+   * @param creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -771,7 +771,7 @@ public class Transfer {
   /**
    * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    *
-   * @param description
+   * @param description Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer description(String description) {
@@ -781,7 +781,7 @@ public class Transfer {
 
   /**
    * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
-   * @return description
+   * @return description Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -792,7 +792,7 @@ public class Transfer {
   /**
    * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    *
-   * @param description
+   * @param description Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -803,7 +803,7 @@ public class Transfer {
   /**
    * directDebitInformation
    *
-   * @param directDebitInformation
+   * @param directDebitInformation 
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer directDebitInformation(DirectDebitInformation directDebitInformation) {
@@ -813,7 +813,7 @@ public class Transfer {
 
   /**
    * Get directDebitInformation
-   * @return directDebitInformation
+   * @return directDebitInformation 
    */
   @JsonProperty(JSON_PROPERTY_DIRECT_DEBIT_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -824,7 +824,7 @@ public class Transfer {
   /**
    * directDebitInformation
    *
-   * @param directDebitInformation
+   * @param directDebitInformation 
    */
   @JsonProperty(JSON_PROPERTY_DIRECT_DEBIT_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -835,7 +835,7 @@ public class Transfer {
   /**
    * The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    *
-   * @param direction
+   * @param direction The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer direction(DirectionEnum direction) {
@@ -845,7 +845,7 @@ public class Transfer {
 
   /**
    * The direction of the transfer.  Possible values: **incoming**, **outgoing**.
-   * @return direction
+   * @return direction The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    */
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -856,7 +856,7 @@ public class Transfer {
   /**
    * The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    *
-   * @param direction
+   * @param direction The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    */
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -867,7 +867,7 @@ public class Transfer {
   /**
    * The ID of the resource.
    *
-   * @param id
+   * @param id The ID of the resource.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer id(String id) {
@@ -877,7 +877,7 @@ public class Transfer {
 
   /**
    * The ID of the resource.
-   * @return id
+   * @return id The ID of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -888,7 +888,7 @@ public class Transfer {
   /**
    * The ID of the resource.
    *
-   * @param id
+   * @param id The ID of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -899,7 +899,7 @@ public class Transfer {
   /**
    * paymentInstrument
    *
-   * @param paymentInstrument
+   * @param paymentInstrument 
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer paymentInstrument(PaymentInstrument paymentInstrument) {
@@ -909,7 +909,7 @@ public class Transfer {
 
   /**
    * Get paymentInstrument
-   * @return paymentInstrument
+   * @return paymentInstrument 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -920,7 +920,7 @@ public class Transfer {
   /**
    * paymentInstrument
    *
-   * @param paymentInstrument
+   * @param paymentInstrument 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -931,7 +931,7 @@ public class Transfer {
   /**
    * Additional information about the status of the transfer.
    *
-   * @param reason
+   * @param reason Additional information about the status of the transfer.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer reason(ReasonEnum reason) {
@@ -941,7 +941,7 @@ public class Transfer {
 
   /**
    * Additional information about the status of the transfer.
-   * @return reason
+   * @return reason Additional information about the status of the transfer.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -952,7 +952,7 @@ public class Transfer {
   /**
    * Additional information about the status of the transfer.
    *
-   * @param reason
+   * @param reason Additional information about the status of the transfer.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -963,7 +963,7 @@ public class Transfer {
   /**
    * Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    *
-   * @param reference
+   * @param reference Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer reference(String reference) {
@@ -973,7 +973,7 @@ public class Transfer {
 
   /**
    * Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
-   * @return reference
+   * @return reference Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -984,7 +984,7 @@ public class Transfer {
   /**
    * Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    *
-   * @param reference
+   * @param reference Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -995,7 +995,7 @@ public class Transfer {
   /**
    *  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    *
-   * @param referenceForBeneficiary
+   * @param referenceForBeneficiary  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer referenceForBeneficiary(String referenceForBeneficiary) {
@@ -1005,7 +1005,7 @@ public class Transfer {
 
   /**
    *  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
-   * @return referenceForBeneficiary
+   * @return referenceForBeneficiary  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1016,7 +1016,7 @@ public class Transfer {
   /**
    *  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    *
-   * @param referenceForBeneficiary
+   * @param referenceForBeneficiary  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1027,7 +1027,7 @@ public class Transfer {
   /**
    * review
    *
-   * @param review
+   * @param review 
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer review(TransferReview review) {
@@ -1037,7 +1037,7 @@ public class Transfer {
 
   /**
    * Get review
-   * @return review
+   * @return review 
    */
   @JsonProperty(JSON_PROPERTY_REVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1048,7 +1048,7 @@ public class Transfer {
   /**
    * review
    *
-   * @param review
+   * @param review 
    */
   @JsonProperty(JSON_PROPERTY_REVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1059,7 +1059,7 @@ public class Transfer {
   /**
    * The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    *
-   * @param status
+   * @param status The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer status(StatusEnum status) {
@@ -1069,7 +1069,7 @@ public class Transfer {
 
   /**
    * The result of the transfer.   For example, **authorised**, **refused**, or **error**.
-   * @return status
+   * @return status The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1080,7 +1080,7 @@ public class Transfer {
   /**
    * The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    *
-   * @param status
+   * @param status The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1091,7 +1091,7 @@ public class Transfer {
   /**
    * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    *
-   * @param type
+   * @param type The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer type(TypeEnum type) {
@@ -1101,7 +1101,7 @@ public class Transfer {
 
   /**
    * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
-   * @return type
+   * @return type The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1112,7 +1112,7 @@ public class Transfer {
   /**
    * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    *
-   * @param type
+   * @param type The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

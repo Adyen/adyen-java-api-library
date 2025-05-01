@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.AndroidAppError;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -54,7 +52,7 @@ public class AndroidApp {
   private String errorCode;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<AndroidAppError> errors = null;
+  private List<AndroidAppError> errors;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -69,15 +67,15 @@ public class AndroidApp {
    * The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
    */
   public enum StatusEnum {
-    ARCHIVED("archived"),
+    ARCHIVED(String.valueOf("archived")),
     
-    ERROR("error"),
+    ERROR(String.valueOf("error")),
     
-    INVALID("invalid"),
+    INVALID(String.valueOf("invalid")),
     
-    PROCESSING("processing"),
+    PROCESSING(String.valueOf("processing")),
     
-    READY("ready");
+    READY(String.valueOf("ready"));
 
     private String value;
 
@@ -121,7 +119,7 @@ public class AndroidApp {
   /**
    * The description that was provided when uploading the app. The description is not shown on the terminal.
    *
-   * @param description
+   * @param description The description that was provided when uploading the app. The description is not shown on the terminal.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
   public AndroidApp description(String description) {
@@ -131,9 +129,8 @@ public class AndroidApp {
 
   /**
    * The description that was provided when uploading the app. The description is not shown on the terminal.
-   * @return description
+   * @return description The description that was provided when uploading the app. The description is not shown on the terminal.
    */
-  @ApiModelProperty(value = "The description that was provided when uploading the app. The description is not shown on the terminal.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -143,8 +140,8 @@ public class AndroidApp {
   /**
    * The description that was provided when uploading the app. The description is not shown on the terminal.
    *
-   * @param description
-   */ 
+   * @param description The description that was provided when uploading the app. The description is not shown on the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -154,13 +151,13 @@ public class AndroidApp {
   /**
    * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
    *
-   * @param errorCode
+   * @param errorCode The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    *
    * @deprecated since Management API v3
    * Use &#x60;errors&#x60; instead.
    */
-  @Deprecated
+  @Deprecated // deprecated since Management API v3: Use `errors` instead.
   public AndroidApp errorCode(String errorCode) {
     this.errorCode = errorCode;
     return this;
@@ -168,13 +165,10 @@ public class AndroidApp {
 
   /**
    * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
-   * @return errorCode
-   *
-   * @deprecated since Management API v3
-   * Use &#x60;errors&#x60; instead.
+   * @return errorCode The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
+   * @deprecated // deprecated since Management API v3: Use `errors` instead.
    */
-  @Deprecated
-  @ApiModelProperty(value = "The error code of the Android app with the `status` of either **error** or **invalid**.")
+  @Deprecated // deprecated since Management API v3: Use `errors` instead.
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorCode() {
@@ -184,12 +178,12 @@ public class AndroidApp {
   /**
    * The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
    *
-   * @param errorCode
+   * @param errorCode The error code of the Android app with the &#x60;status&#x60; of either **error** or **invalid**.
    *
    * @deprecated since Management API v3
    * Use &#x60;errors&#x60; instead.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Management API v3: Use `errors` instead.
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -199,7 +193,7 @@ public class AndroidApp {
   /**
    * The list of errors of the Android app.
    *
-   * @param errors
+   * @param errors The list of errors of the Android app.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
   public AndroidApp errors(List<AndroidAppError> errors) {
@@ -217,9 +211,8 @@ public class AndroidApp {
 
   /**
    * The list of errors of the Android app.
-   * @return errors
+   * @return errors The list of errors of the Android app.
    */
-  @ApiModelProperty(value = "The list of errors of the Android app.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AndroidAppError> getErrors() {
@@ -229,8 +222,8 @@ public class AndroidApp {
   /**
    * The list of errors of the Android app.
    *
-   * @param errors
-   */ 
+   * @param errors The list of errors of the Android app.
+   */
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrors(List<AndroidAppError> errors) {
@@ -240,7 +233,7 @@ public class AndroidApp {
   /**
    * The unique identifier of the app.
    *
-   * @param id
+   * @param id The unique identifier of the app.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
   public AndroidApp id(String id) {
@@ -250,9 +243,8 @@ public class AndroidApp {
 
   /**
    * The unique identifier of the app.
-   * @return id
+   * @return id The unique identifier of the app.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the app.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -262,8 +254,8 @@ public class AndroidApp {
   /**
    * The unique identifier of the app.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the app.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -273,7 +265,7 @@ public class AndroidApp {
   /**
    * The app name that is shown on the terminal.
    *
-   * @param label
+   * @param label The app name that is shown on the terminal.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
   public AndroidApp label(String label) {
@@ -283,9 +275,8 @@ public class AndroidApp {
 
   /**
    * The app name that is shown on the terminal.
-   * @return label
+   * @return label The app name that is shown on the terminal.
    */
-  @ApiModelProperty(value = "The app name that is shown on the terminal.")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLabel() {
@@ -295,8 +286,8 @@ public class AndroidApp {
   /**
    * The app name that is shown on the terminal.
    *
-   * @param label
-   */ 
+   * @param label The app name that is shown on the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLabel(String label) {
@@ -306,7 +297,7 @@ public class AndroidApp {
   /**
    * The package name that uniquely identifies the Android app.
    *
-   * @param packageName
+   * @param packageName The package name that uniquely identifies the Android app.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
   public AndroidApp packageName(String packageName) {
@@ -316,9 +307,8 @@ public class AndroidApp {
 
   /**
    * The package name that uniquely identifies the Android app.
-   * @return packageName
+   * @return packageName The package name that uniquely identifies the Android app.
    */
-  @ApiModelProperty(value = "The package name that uniquely identifies the Android app.")
   @JsonProperty(JSON_PROPERTY_PACKAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPackageName() {
@@ -328,8 +318,8 @@ public class AndroidApp {
   /**
    * The package name that uniquely identifies the Android app.
    *
-   * @param packageName
-   */ 
+   * @param packageName The package name that uniquely identifies the Android app.
+   */
   @JsonProperty(JSON_PROPERTY_PACKAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPackageName(String packageName) {
@@ -339,7 +329,7 @@ public class AndroidApp {
   /**
    * The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
    *
-   * @param status
+   * @param status The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
   public AndroidApp status(StatusEnum status) {
@@ -349,9 +339,8 @@ public class AndroidApp {
 
   /**
    * The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
-   * @return status
+   * @return status The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
    */
-  @ApiModelProperty(required = true, value = "The status of the app. Possible values:  * `processing`: the app is being signed and converted to a format that the terminal can handle. * `error`: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * `invalid`: there is something wrong with the APK file of the app. * `ready`: the app has been signed and converted. * `archived`: the app is no longer available.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -361,8 +350,8 @@ public class AndroidApp {
   /**
    * The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
    *
-   * @param status
-   */ 
+   * @param status The status of the app. Possible values:  * &#x60;processing&#x60;: the app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: there is something wrong with the APK file of the app. * &#x60;ready&#x60;: the app has been signed and converted. * &#x60;archived&#x60;: the app is no longer available.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -372,7 +361,7 @@ public class AndroidApp {
   /**
    * The version number of the app.
    *
-   * @param versionCode
+   * @param versionCode The version number of the app.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
   public AndroidApp versionCode(Integer versionCode) {
@@ -382,9 +371,8 @@ public class AndroidApp {
 
   /**
    * The version number of the app.
-   * @return versionCode
+   * @return versionCode The version number of the app.
    */
-  @ApiModelProperty(value = "The version number of the app.")
   @JsonProperty(JSON_PROPERTY_VERSION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getVersionCode() {
@@ -394,8 +382,8 @@ public class AndroidApp {
   /**
    * The version number of the app.
    *
-   * @param versionCode
-   */ 
+   * @param versionCode The version number of the app.
+   */
   @JsonProperty(JSON_PROPERTY_VERSION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionCode(Integer versionCode) {
@@ -405,7 +393,7 @@ public class AndroidApp {
   /**
    * The app version number that is shown on the terminal.
    *
-   * @param versionName
+   * @param versionName The app version number that is shown on the terminal.
    * @return the current {@code AndroidApp} instance, allowing for method chaining
    */
   public AndroidApp versionName(String versionName) {
@@ -415,9 +403,8 @@ public class AndroidApp {
 
   /**
    * The app version number that is shown on the terminal.
-   * @return versionName
+   * @return versionName The app version number that is shown on the terminal.
    */
-  @ApiModelProperty(value = "The app version number that is shown on the terminal.")
   @JsonProperty(JSON_PROPERTY_VERSION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getVersionName() {
@@ -427,8 +414,8 @@ public class AndroidApp {
   /**
    * The app version number that is shown on the terminal.
    *
-   * @param versionName
-   */ 
+   * @param versionName The app version number that is shown on the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_VERSION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersionName(String versionName) {

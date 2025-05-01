@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class ReprocessAndroidAppResponse {
   /**
    * The result of the reprocess.
    *
-   * @param message
+   * @param message The result of the reprocess.
    * @return the current {@code ReprocessAndroidAppResponse} instance, allowing for method chaining
    */
   public ReprocessAndroidAppResponse message(String message) {
@@ -54,9 +52,8 @@ public class ReprocessAndroidAppResponse {
 
   /**
    * The result of the reprocess.
-   * @return message
+   * @return message The result of the reprocess.
    */
-  @ApiModelProperty(value = "The result of the reprocess.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -66,8 +63,8 @@ public class ReprocessAndroidAppResponse {
   /**
    * The result of the reprocess.
    *
-   * @param message
-   */ 
+   * @param message The result of the reprocess.
+   */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Url;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,10 +38,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class NotificationUrl {
   public static final String JSON_PROPERTY_LOCAL_URLS = "localUrls";
-  private List<Url> localUrls = null;
+  private List<Url> localUrls;
 
   public static final String JSON_PROPERTY_PUBLIC_URLS = "publicUrls";
-  private List<Url> publicUrls = null;
+  private List<Url> publicUrls;
 
   public NotificationUrl() { 
   }
@@ -51,7 +49,7 @@ public class NotificationUrl {
   /**
    * One or more local URLs to send notifications to when using Terminal API.
    *
-   * @param localUrls
+   * @param localUrls One or more local URLs to send notifications to when using Terminal API.
    * @return the current {@code NotificationUrl} instance, allowing for method chaining
    */
   public NotificationUrl localUrls(List<Url> localUrls) {
@@ -69,9 +67,8 @@ public class NotificationUrl {
 
   /**
    * One or more local URLs to send notifications to when using Terminal API.
-   * @return localUrls
+   * @return localUrls One or more local URLs to send notifications to when using Terminal API.
    */
-  @ApiModelProperty(value = "One or more local URLs to send notifications to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Url> getLocalUrls() {
@@ -81,8 +78,8 @@ public class NotificationUrl {
   /**
    * One or more local URLs to send notifications to when using Terminal API.
    *
-   * @param localUrls
-   */ 
+   * @param localUrls One or more local URLs to send notifications to when using Terminal API.
+   */
   @JsonProperty(JSON_PROPERTY_LOCAL_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalUrls(List<Url> localUrls) {
@@ -92,7 +89,7 @@ public class NotificationUrl {
   /**
    * One or more public URLs to send notifications to when using Terminal API.
    *
-   * @param publicUrls
+   * @param publicUrls One or more public URLs to send notifications to when using Terminal API.
    * @return the current {@code NotificationUrl} instance, allowing for method chaining
    */
   public NotificationUrl publicUrls(List<Url> publicUrls) {
@@ -110,9 +107,8 @@ public class NotificationUrl {
 
   /**
    * One or more public URLs to send notifications to when using Terminal API.
-   * @return publicUrls
+   * @return publicUrls One or more public URLs to send notifications to when using Terminal API.
    */
-  @ApiModelProperty(value = "One or more public URLs to send notifications to when using Terminal API.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Url> getPublicUrls() {
@@ -122,8 +118,8 @@ public class NotificationUrl {
   /**
    * One or more public URLs to send notifications to when using Terminal API.
    *
-   * @param publicUrls
-   */ 
+   * @param publicUrls One or more public URLs to send notifications to when using Terminal API.
+   */
   @JsonProperty(JSON_PROPERTY_PUBLIC_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPublicUrls(List<Url> publicUrls) {

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class SofortInfo {
   /**
    * Sofort currency code. For example, **EUR**.
    *
-   * @param currencyCode
+   * @param currencyCode Sofort currency code. For example, **EUR**.
    * @return the current {@code SofortInfo} instance, allowing for method chaining
    */
   public SofortInfo currencyCode(String currencyCode) {
@@ -58,9 +56,8 @@ public class SofortInfo {
 
   /**
    * Sofort currency code. For example, **EUR**.
-   * @return currencyCode
+   * @return currencyCode Sofort currency code. For example, **EUR**.
    */
-  @ApiModelProperty(required = true, value = "Sofort currency code. For example, **EUR**.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrencyCode() {
@@ -70,8 +67,8 @@ public class SofortInfo {
   /**
    * Sofort currency code. For example, **EUR**.
    *
-   * @param currencyCode
-   */ 
+   * @param currencyCode Sofort currency code. For example, **EUR**.
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
@@ -81,7 +78,7 @@ public class SofortInfo {
   /**
    * Sofort logo. Format: Base64-encoded string.
    *
-   * @param logo
+   * @param logo Sofort logo. Format: Base64-encoded string.
    * @return the current {@code SofortInfo} instance, allowing for method chaining
    */
   public SofortInfo logo(String logo) {
@@ -91,9 +88,8 @@ public class SofortInfo {
 
   /**
    * Sofort logo. Format: Base64-encoded string.
-   * @return logo
+   * @return logo Sofort logo. Format: Base64-encoded string.
    */
-  @ApiModelProperty(required = true, value = "Sofort logo. Format: Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogo() {
@@ -103,8 +99,8 @@ public class SofortInfo {
   /**
    * Sofort logo. Format: Base64-encoded string.
    *
-   * @param logo
-   */ 
+   * @param logo Sofort logo. Format: Base64-encoded string.
+   */
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {

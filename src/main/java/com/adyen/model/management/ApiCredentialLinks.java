@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.LinksElement;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -65,7 +63,7 @@ public class ApiCredentialLinks {
   /**
    * allowedOrigins
    *
-   * @param allowedOrigins
+   * @param allowedOrigins 
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks allowedOrigins(LinksElement allowedOrigins) {
@@ -74,10 +72,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * allowedOrigins
-   * @return allowedOrigins
+   * Get allowedOrigins
+   * @return allowedOrigins 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getAllowedOrigins() {
@@ -87,8 +84,8 @@ public class ApiCredentialLinks {
   /**
    * allowedOrigins
    *
-   * @param allowedOrigins
-   */ 
+   * @param allowedOrigins 
+   */
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(LinksElement allowedOrigins) {
@@ -98,7 +95,7 @@ public class ApiCredentialLinks {
   /**
    * company
    *
-   * @param company
+   * @param company 
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks company(LinksElement company) {
@@ -107,10 +104,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * company
-   * @return company
+   * Get company
+   * @return company 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getCompany() {
@@ -120,8 +116,8 @@ public class ApiCredentialLinks {
   /**
    * company
    *
-   * @param company
-   */ 
+   * @param company 
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
@@ -131,7 +127,7 @@ public class ApiCredentialLinks {
   /**
    * generateApiKey
    *
-   * @param generateApiKey
+   * @param generateApiKey 
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks generateApiKey(LinksElement generateApiKey) {
@@ -140,10 +136,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * generateApiKey
-   * @return generateApiKey
+   * Get generateApiKey
+   * @return generateApiKey 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getGenerateApiKey() {
@@ -153,8 +148,8 @@ public class ApiCredentialLinks {
   /**
    * generateApiKey
    *
-   * @param generateApiKey
-   */ 
+   * @param generateApiKey 
+   */
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateApiKey(LinksElement generateApiKey) {
@@ -164,7 +159,7 @@ public class ApiCredentialLinks {
   /**
    * generateClientKey
    *
-   * @param generateClientKey
+   * @param generateClientKey 
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks generateClientKey(LinksElement generateClientKey) {
@@ -173,10 +168,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * generateClientKey
-   * @return generateClientKey
+   * Get generateClientKey
+   * @return generateClientKey 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getGenerateClientKey() {
@@ -186,8 +180,8 @@ public class ApiCredentialLinks {
   /**
    * generateClientKey
    *
-   * @param generateClientKey
-   */ 
+   * @param generateClientKey 
+   */
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateClientKey(LinksElement generateClientKey) {
@@ -197,7 +191,7 @@ public class ApiCredentialLinks {
   /**
    * merchant
    *
-   * @param merchant
+   * @param merchant 
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks merchant(LinksElement merchant) {
@@ -206,10 +200,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * merchant
-   * @return merchant
+   * Get merchant
+   * @return merchant 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getMerchant() {
@@ -219,8 +212,8 @@ public class ApiCredentialLinks {
   /**
    * merchant
    *
-   * @param merchant
-   */ 
+   * @param merchant 
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
@@ -230,7 +223,7 @@ public class ApiCredentialLinks {
   /**
    * self
    *
-   * @param self
+   * @param self 
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks self(LinksElement self) {
@@ -239,10 +232,9 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * self
-   * @return self
+   * Get self
+   * @return self 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getSelf() {
@@ -252,8 +244,8 @@ public class ApiCredentialLinks {
   /**
    * self
    *
-   * @param self
-   */ 
+   * @param self 
+   */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {

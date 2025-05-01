@@ -49,7 +49,7 @@ public class TransactionRulesResult {
   private Integer score;
 
   public static final String JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES = "triggeredTransactionRules";
-  private List<TransactionEventViolation> triggeredTransactionRules = new ArrayList<>();
+  private List<TransactionEventViolation> triggeredTransactionRules;
 
   public TransactionRulesResult() { 
   }
@@ -57,7 +57,7 @@ public class TransactionRulesResult {
   /**
    * The advice given by the Risk analysis.
    *
-   * @param advice
+   * @param advice The advice given by the Risk analysis.
    * @return the current {@code TransactionRulesResult} instance, allowing for method chaining
    */
   public TransactionRulesResult advice(String advice) {
@@ -67,7 +67,7 @@ public class TransactionRulesResult {
 
   /**
    * The advice given by the Risk analysis.
-   * @return advice
+   * @return advice The advice given by the Risk analysis.
    */
   @JsonProperty(JSON_PROPERTY_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class TransactionRulesResult {
   /**
    * The advice given by the Risk analysis.
    *
-   * @param advice
+   * @param advice The advice given by the Risk analysis.
    */
   @JsonProperty(JSON_PROPERTY_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +89,7 @@ public class TransactionRulesResult {
   /**
    * Indicates whether the transaction passed the evaluation for all hardblock rules
    *
-   * @param allHardBlockRulesPassed
+   * @param allHardBlockRulesPassed Indicates whether the transaction passed the evaluation for all hardblock rules
    * @return the current {@code TransactionRulesResult} instance, allowing for method chaining
    */
   public TransactionRulesResult allHardBlockRulesPassed(Boolean allHardBlockRulesPassed) {
@@ -99,7 +99,7 @@ public class TransactionRulesResult {
 
   /**
    * Indicates whether the transaction passed the evaluation for all hardblock rules
-   * @return allHardBlockRulesPassed
+   * @return allHardBlockRulesPassed Indicates whether the transaction passed the evaluation for all hardblock rules
    */
   @JsonProperty(JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class TransactionRulesResult {
   /**
    * Indicates whether the transaction passed the evaluation for all hardblock rules
    *
-   * @param allHardBlockRulesPassed
+   * @param allHardBlockRulesPassed Indicates whether the transaction passed the evaluation for all hardblock rules
    */
   @JsonProperty(JSON_PROPERTY_ALL_HARD_BLOCK_RULES_PASSED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +121,7 @@ public class TransactionRulesResult {
   /**
    * The score of the Risk analysis.
    *
-   * @param score
+   * @param score The score of the Risk analysis.
    * @return the current {@code TransactionRulesResult} instance, allowing for method chaining
    */
   public TransactionRulesResult score(Integer score) {
@@ -131,7 +131,7 @@ public class TransactionRulesResult {
 
   /**
    * The score of the Risk analysis.
-   * @return score
+   * @return score The score of the Risk analysis.
    */
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class TransactionRulesResult {
   /**
    * The score of the Risk analysis.
    *
-   * @param score
+   * @param score The score of the Risk analysis.
    */
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +153,7 @@ public class TransactionRulesResult {
   /**
    * Array containing all the transaction rules that the transaction triggered.
    *
-   * @param triggeredTransactionRules
+   * @param triggeredTransactionRules Array containing all the transaction rules that the transaction triggered.
    * @return the current {@code TransactionRulesResult} instance, allowing for method chaining
    */
   public TransactionRulesResult triggeredTransactionRules(List<TransactionEventViolation> triggeredTransactionRules) {
@@ -171,7 +171,7 @@ public class TransactionRulesResult {
 
   /**
    * Array containing all the transaction rules that the transaction triggered.
-   * @return triggeredTransactionRules
+   * @return triggeredTransactionRules Array containing all the transaction rules that the transaction triggered.
    */
   @JsonProperty(JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +182,7 @@ public class TransactionRulesResult {
   /**
    * Array containing all the transaction rules that the transaction triggered.
    *
-   * @param triggeredTransactionRules
+   * @param triggeredTransactionRules Array containing all the transaction rules that the transaction triggered.
    */
   @JsonProperty(JSON_PROPERTY_TRIGGERED_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

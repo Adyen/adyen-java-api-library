@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.PaginationLinks;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,7 +44,7 @@ public class ListMerchantUsersResponse {
   private PaginationLinks links;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<User> data = null;
+  private List<User> data;
 
   public static final String JSON_PROPERTY_ITEMS_TOTAL = "itemsTotal";
   private Integer itemsTotal;
@@ -60,7 +58,7 @@ public class ListMerchantUsersResponse {
   /**
    * links
    *
-   * @param links
+   * @param links 
    * @return the current {@code ListMerchantUsersResponse} instance, allowing for method chaining
    */
   public ListMerchantUsersResponse links(PaginationLinks links) {
@@ -69,10 +67,9 @@ public class ListMerchantUsersResponse {
   }
 
   /**
-   * links
-   * @return links
+   * Get links
+   * @return links 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaginationLinks getLinks() {
@@ -82,8 +79,8 @@ public class ListMerchantUsersResponse {
   /**
    * links
    *
-   * @param links
-   */ 
+   * @param links 
+   */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
@@ -93,7 +90,7 @@ public class ListMerchantUsersResponse {
   /**
    * The list of users.
    *
-   * @param data
+   * @param data The list of users.
    * @return the current {@code ListMerchantUsersResponse} instance, allowing for method chaining
    */
   public ListMerchantUsersResponse data(List<User> data) {
@@ -111,9 +108,8 @@ public class ListMerchantUsersResponse {
 
   /**
    * The list of users.
-   * @return data
+   * @return data The list of users.
    */
-  @ApiModelProperty(value = "The list of users.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<User> getData() {
@@ -123,8 +119,8 @@ public class ListMerchantUsersResponse {
   /**
    * The list of users.
    *
-   * @param data
-   */ 
+   * @param data The list of users.
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<User> data) {
@@ -134,7 +130,7 @@ public class ListMerchantUsersResponse {
   /**
    * Total number of items.
    *
-   * @param itemsTotal
+   * @param itemsTotal Total number of items.
    * @return the current {@code ListMerchantUsersResponse} instance, allowing for method chaining
    */
   public ListMerchantUsersResponse itemsTotal(Integer itemsTotal) {
@@ -144,9 +140,8 @@ public class ListMerchantUsersResponse {
 
   /**
    * Total number of items.
-   * @return itemsTotal
+   * @return itemsTotal Total number of items.
    */
-  @ApiModelProperty(required = true, value = "Total number of items.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getItemsTotal() {
@@ -156,8 +151,8 @@ public class ListMerchantUsersResponse {
   /**
    * Total number of items.
    *
-   * @param itemsTotal
-   */ 
+   * @param itemsTotal Total number of items.
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
@@ -167,7 +162,7 @@ public class ListMerchantUsersResponse {
   /**
    * Total number of pages.
    *
-   * @param pagesTotal
+   * @param pagesTotal Total number of pages.
    * @return the current {@code ListMerchantUsersResponse} instance, allowing for method chaining
    */
   public ListMerchantUsersResponse pagesTotal(Integer pagesTotal) {
@@ -177,9 +172,8 @@ public class ListMerchantUsersResponse {
 
   /**
    * Total number of pages.
-   * @return pagesTotal
+   * @return pagesTotal Total number of pages.
    */
-  @ApiModelProperty(required = true, value = "Total number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPagesTotal() {
@@ -189,8 +183,8 @@ public class ListMerchantUsersResponse {
   /**
    * Total number of pages.
    *
-   * @param pagesTotal
-   */ 
+   * @param pagesTotal Total number of pages.
+   */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -69,7 +67,7 @@ public class AndroidCertificate {
   /**
    * The description that was provided when uploading the certificate.
    *
-   * @param description
+   * @param description The description that was provided when uploading the certificate.
    * @return the current {@code AndroidCertificate} instance, allowing for method chaining
    */
   public AndroidCertificate description(String description) {
@@ -79,9 +77,8 @@ public class AndroidCertificate {
 
   /**
    * The description that was provided when uploading the certificate.
-   * @return description
+   * @return description The description that was provided when uploading the certificate.
    */
-  @ApiModelProperty(value = "The description that was provided when uploading the certificate.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -91,8 +88,8 @@ public class AndroidCertificate {
   /**
    * The description that was provided when uploading the certificate.
    *
-   * @param description
-   */ 
+   * @param description The description that was provided when uploading the certificate.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -102,7 +99,7 @@ public class AndroidCertificate {
   /**
    * The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.
    *
-   * @param extension
+   * @param extension The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.
    * @return the current {@code AndroidCertificate} instance, allowing for method chaining
    */
   public AndroidCertificate extension(String extension) {
@@ -112,9 +109,8 @@ public class AndroidCertificate {
 
   /**
    * The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.
-   * @return extension
+   * @return extension The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.
    */
-  @ApiModelProperty(value = "The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.")
   @JsonProperty(JSON_PROPERTY_EXTENSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExtension() {
@@ -124,8 +120,8 @@ public class AndroidCertificate {
   /**
    * The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.
    *
-   * @param extension
-   */ 
+   * @param extension The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.
+   */
   @JsonProperty(JSON_PROPERTY_EXTENSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExtension(String extension) {
@@ -135,7 +131,7 @@ public class AndroidCertificate {
   /**
    * The unique identifier of the certificate.
    *
-   * @param id
+   * @param id The unique identifier of the certificate.
    * @return the current {@code AndroidCertificate} instance, allowing for method chaining
    */
   public AndroidCertificate id(String id) {
@@ -145,9 +141,8 @@ public class AndroidCertificate {
 
   /**
    * The unique identifier of the certificate.
-   * @return id
+   * @return id The unique identifier of the certificate.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the certificate.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -157,8 +152,8 @@ public class AndroidCertificate {
   /**
    * The unique identifier of the certificate.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the certificate.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -168,7 +163,7 @@ public class AndroidCertificate {
   /**
    * The file name of the certificate. For example, **mycert**.
    *
-   * @param name
+   * @param name The file name of the certificate. For example, **mycert**.
    * @return the current {@code AndroidCertificate} instance, allowing for method chaining
    */
   public AndroidCertificate name(String name) {
@@ -178,9 +173,8 @@ public class AndroidCertificate {
 
   /**
    * The file name of the certificate. For example, **mycert**.
-   * @return name
+   * @return name The file name of the certificate. For example, **mycert**.
    */
-  @ApiModelProperty(value = "The file name of the certificate. For example, **mycert**.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -190,8 +184,8 @@ public class AndroidCertificate {
   /**
    * The file name of the certificate. For example, **mycert**.
    *
-   * @param name
-   */ 
+   * @param name The file name of the certificate. For example, **mycert**.
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -201,7 +195,7 @@ public class AndroidCertificate {
   /**
    * The date when the certificate stops to be valid.
    *
-   * @param notAfter
+   * @param notAfter The date when the certificate stops to be valid.
    * @return the current {@code AndroidCertificate} instance, allowing for method chaining
    */
   public AndroidCertificate notAfter(OffsetDateTime notAfter) {
@@ -211,9 +205,8 @@ public class AndroidCertificate {
 
   /**
    * The date when the certificate stops to be valid.
-   * @return notAfter
+   * @return notAfter The date when the certificate stops to be valid.
    */
-  @ApiModelProperty(value = "The date when the certificate stops to be valid.")
   @JsonProperty(JSON_PROPERTY_NOT_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getNotAfter() {
@@ -223,8 +216,8 @@ public class AndroidCertificate {
   /**
    * The date when the certificate stops to be valid.
    *
-   * @param notAfter
-   */ 
+   * @param notAfter The date when the certificate stops to be valid.
+   */
   @JsonProperty(JSON_PROPERTY_NOT_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotAfter(OffsetDateTime notAfter) {
@@ -234,7 +227,7 @@ public class AndroidCertificate {
   /**
    * The date when the certificate starts to be valid.
    *
-   * @param notBefore
+   * @param notBefore The date when the certificate starts to be valid.
    * @return the current {@code AndroidCertificate} instance, allowing for method chaining
    */
   public AndroidCertificate notBefore(OffsetDateTime notBefore) {
@@ -244,9 +237,8 @@ public class AndroidCertificate {
 
   /**
    * The date when the certificate starts to be valid.
-   * @return notBefore
+   * @return notBefore The date when the certificate starts to be valid.
    */
-  @ApiModelProperty(value = "The date when the certificate starts to be valid.")
   @JsonProperty(JSON_PROPERTY_NOT_BEFORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getNotBefore() {
@@ -256,8 +248,8 @@ public class AndroidCertificate {
   /**
    * The date when the certificate starts to be valid.
    *
-   * @param notBefore
-   */ 
+   * @param notBefore The date when the certificate starts to be valid.
+   */
   @JsonProperty(JSON_PROPERTY_NOT_BEFORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotBefore(OffsetDateTime notBefore) {
@@ -267,7 +259,7 @@ public class AndroidCertificate {
   /**
    * The status of the certificate.
    *
-   * @param status
+   * @param status The status of the certificate.
    * @return the current {@code AndroidCertificate} instance, allowing for method chaining
    */
   public AndroidCertificate status(String status) {
@@ -277,9 +269,8 @@ public class AndroidCertificate {
 
   /**
    * The status of the certificate.
-   * @return status
+   * @return status The status of the certificate.
    */
-  @ApiModelProperty(value = "The status of the certificate.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStatus() {
@@ -289,8 +280,8 @@ public class AndroidCertificate {
   /**
    * The status of the certificate.
    *
-   * @param status
-   */ 
+   * @param status The status of the certificate.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(String status) {

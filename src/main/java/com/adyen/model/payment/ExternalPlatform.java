@@ -50,7 +50,7 @@ public class ExternalPlatform {
   /**
    * External platform integrator.
    *
-   * @param integrator
+   * @param integrator External platform integrator.
    * @return the current {@code ExternalPlatform} instance, allowing for method chaining
    */
   public ExternalPlatform integrator(String integrator) {
@@ -60,7 +60,7 @@ public class ExternalPlatform {
 
   /**
    * External platform integrator.
-   * @return integrator
+   * @return integrator External platform integrator.
    */
   @JsonProperty(JSON_PROPERTY_INTEGRATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class ExternalPlatform {
   /**
    * External platform integrator.
    *
-   * @param integrator
+   * @param integrator External platform integrator.
    */
   @JsonProperty(JSON_PROPERTY_INTEGRATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class ExternalPlatform {
   /**
    * Name of the field. For example, Name of External Platform.
    *
-   * @param name
+   * @param name Name of the field. For example, Name of External Platform.
    * @return the current {@code ExternalPlatform} instance, allowing for method chaining
    */
   public ExternalPlatform name(String name) {
@@ -92,7 +92,7 @@ public class ExternalPlatform {
 
   /**
    * Name of the field. For example, Name of External Platform.
-   * @return name
+   * @return name Name of the field. For example, Name of External Platform.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class ExternalPlatform {
   /**
    * Name of the field. For example, Name of External Platform.
    *
-   * @param name
+   * @param name Name of the field. For example, Name of External Platform.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class ExternalPlatform {
   /**
    * Version of the field. For example, Version of External Platform.
    *
-   * @param version
+   * @param version Version of the field. For example, Version of External Platform.
    * @return the current {@code ExternalPlatform} instance, allowing for method chaining
    */
   public ExternalPlatform version(String version) {
@@ -124,7 +124,7 @@ public class ExternalPlatform {
 
   /**
    * Version of the field. For example, Version of External Platform.
-   * @return version
+   * @return version Version of the field. For example, Version of External Platform.
    */
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class ExternalPlatform {
   /**
    * Version of the field. For example, Version of External Platform.
    *
-   * @param version
+   * @param version Version of the field. For example, Version of External Platform.
    */
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

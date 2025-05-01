@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.AndroidCertificate;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class AndroidCertificatesResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<AndroidCertificate> data = null;
+  private List<AndroidCertificate> data;
 
   public AndroidCertificatesResponse() { 
   }
@@ -47,7 +45,7 @@ public class AndroidCertificatesResponse {
   /**
    * Uploaded Android certificates for Android payment terminals.
    *
-   * @param data
+   * @param data Uploaded Android certificates for Android payment terminals.
    * @return the current {@code AndroidCertificatesResponse} instance, allowing for method chaining
    */
   public AndroidCertificatesResponse data(List<AndroidCertificate> data) {
@@ -65,9 +63,8 @@ public class AndroidCertificatesResponse {
 
   /**
    * Uploaded Android certificates for Android payment terminals.
-   * @return data
+   * @return data Uploaded Android certificates for Android payment terminals.
    */
-  @ApiModelProperty(value = "Uploaded Android certificates for Android payment terminals.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AndroidCertificate> getData() {
@@ -77,8 +74,8 @@ public class AndroidCertificatesResponse {
   /**
    * Uploaded Android certificates for Android payment terminals.
    *
-   * @param data
-   */ 
+   * @param data Uploaded Android certificates for Android payment terminals.
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<AndroidCertificate> data) {

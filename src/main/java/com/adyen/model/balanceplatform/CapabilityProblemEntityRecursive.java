@@ -90,7 +90,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * List of document IDs to which the verification errors related to the capabilities correspond to.
    *
-   * @param documents
+   * @param documents List of document IDs to which the verification errors related to the capabilities correspond to.
    * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
    */
   public CapabilityProblemEntityRecursive documents(List<String> documents) {
@@ -108,7 +108,7 @@ public class CapabilityProblemEntityRecursive {
 
   /**
    * List of document IDs to which the verification errors related to the capabilities correspond to.
-   * @return documents
+   * @return documents List of document IDs to which the verification errors related to the capabilities correspond to.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * List of document IDs to which the verification errors related to the capabilities correspond to.
    *
-   * @param documents
+   * @param documents List of document IDs to which the verification errors related to the capabilities correspond to.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * The ID of the entity.
    *
-   * @param id
+   * @param id The ID of the entity.
    * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
    */
   public CapabilityProblemEntityRecursive id(String id) {
@@ -140,7 +140,7 @@ public class CapabilityProblemEntityRecursive {
 
   /**
    * The ID of the entity.
-   * @return id
+   * @return id The ID of the entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * The ID of the entity.
    *
-   * @param id
+   * @param id The ID of the entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    *
-   * @param type
+   * @param type Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
    */
   public CapabilityProblemEntityRecursive type(TypeEnum type) {
@@ -172,7 +172,7 @@ public class CapabilityProblemEntityRecursive {
 
   /**
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
-   * @return type
+   * @return type Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    *
-   * @param type
+   * @param type Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

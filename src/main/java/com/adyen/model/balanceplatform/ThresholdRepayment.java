@@ -43,7 +43,7 @@ public class ThresholdRepayment {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code ThresholdRepayment} instance, allowing for method chaining
    */
   public ThresholdRepayment amount(Amount amount) {
@@ -53,7 +53,7 @@ public class ThresholdRepayment {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -64,7 +64,7 @@ public class ThresholdRepayment {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

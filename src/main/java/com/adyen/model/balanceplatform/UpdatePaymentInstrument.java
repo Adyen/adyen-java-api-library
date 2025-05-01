@@ -227,7 +227,7 @@ public class UpdatePaymentInstrument {
   /**
    * Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
    *
-   * @param additionalBankAccountIdentifications
+   * @param additionalBankAccountIdentifications Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    *
    * @deprecated since Configuration API v2
@@ -249,7 +249,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
-   * @return additionalBankAccountIdentifications
+   * @return additionalBankAccountIdentifications Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
    * @deprecated // deprecated since Configuration API v2: Please use `bankAccount` object instead
    */
   @Deprecated // deprecated since Configuration API v2: Please use `bankAccount` object instead
@@ -262,7 +262,7 @@ public class UpdatePaymentInstrument {
   /**
    * Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
    *
-   * @param additionalBankAccountIdentifications
+   * @param additionalBankAccountIdentifications Contains optional, additional business account details. Returned when you create a payment instrument with &#x60;type&#x60; **bankAccount**.
    *
    * @deprecated since Configuration API v2
    * Please use &#x60;bankAccount&#x60; object instead
@@ -277,7 +277,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
    *
-   * @param balanceAccountId
+   * @param balanceAccountId The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument balanceAccountId(String balanceAccountId) {
@@ -287,7 +287,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
-   * @return balanceAccountId
+   * @return balanceAccountId The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +298,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
    *
-   * @param balanceAccountId
+   * @param balanceAccountId The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/balanceAccounts__resParam_id) associated with the payment instrument.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +309,7 @@ public class UpdatePaymentInstrument {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument bankAccount(BankAccountDetails bankAccount) {
@@ -319,7 +319,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * Get bankAccount
-   * @return bankAccount
+   * @return bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +330,7 @@ public class UpdatePaymentInstrument {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -341,7 +341,7 @@ public class UpdatePaymentInstrument {
   /**
    * card
    *
-   * @param card
+   * @param card 
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument card(Card card) {
@@ -351,7 +351,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * Get card
-   * @return card
+   * @return card 
    */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +362,7 @@ public class UpdatePaymentInstrument {
   /**
    * card
    *
-   * @param card
+   * @param card 
    */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -373,7 +373,7 @@ public class UpdatePaymentInstrument {
   /**
    * Your description for the payment instrument, maximum 300 characters.
    *
-   * @param description
+   * @param description Your description for the payment instrument, maximum 300 characters.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument description(String description) {
@@ -383,7 +383,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * Your description for the payment instrument, maximum 300 characters.
-   * @return description
+   * @return description Your description for the payment instrument, maximum 300 characters.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,7 +394,7 @@ public class UpdatePaymentInstrument {
   /**
    * Your description for the payment instrument, maximum 300 characters.
    *
-   * @param description
+   * @param description Your description for the payment instrument, maximum 300 characters.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -405,7 +405,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the payment instrument.
    *
-   * @param id
+   * @param id The unique identifier of the payment instrument.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument id(String id) {
@@ -415,7 +415,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The unique identifier of the payment instrument.
-   * @return id
+   * @return id The unique identifier of the payment instrument.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,7 +426,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the payment instrument.
    *
-   * @param id
+   * @param id The unique identifier of the payment instrument.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -437,7 +437,7 @@ public class UpdatePaymentInstrument {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    *
-   * @param issuingCountryCode
+   * @param issuingCountryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument issuingCountryCode(String issuingCountryCode) {
@@ -447,7 +447,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
-   * @return issuingCountryCode
+   * @return issuingCountryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -458,7 +458,7 @@ public class UpdatePaymentInstrument {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    *
-   * @param issuingCountryCode
+   * @param issuingCountryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -469,7 +469,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
    *
-   * @param paymentInstrumentGroupId
+   * @param paymentInstrumentGroupId The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument paymentInstrumentGroupId(String paymentInstrumentGroupId) {
@@ -479,7 +479,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
-   * @return paymentInstrumentGroupId
+   * @return paymentInstrumentGroupId The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -490,7 +490,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
    *
-   * @param paymentInstrumentGroupId
+   * @param paymentInstrumentGroupId The unique identifier of the [payment instrument group](https://docs.adyen.com/api-explorer/#/balanceplatform/v1/post/paymentInstrumentGroups__resParam_id) to which the payment instrument belongs.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_GROUP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -501,7 +501,7 @@ public class UpdatePaymentInstrument {
   /**
    * Your reference for the payment instrument, maximum 150 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment instrument, maximum 150 characters.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument reference(String reference) {
@@ -511,7 +511,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * Your reference for the payment instrument, maximum 150 characters.
-   * @return reference
+   * @return reference Your reference for the payment instrument, maximum 150 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -522,7 +522,7 @@ public class UpdatePaymentInstrument {
   /**
    * Your reference for the payment instrument, maximum 150 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment instrument, maximum 150 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -533,7 +533,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the payment instrument that replaced this payment instrument.
    *
-   * @param replacedById
+   * @param replacedById The unique identifier of the payment instrument that replaced this payment instrument.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument replacedById(String replacedById) {
@@ -543,7 +543,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The unique identifier of the payment instrument that replaced this payment instrument.
-   * @return replacedById
+   * @return replacedById The unique identifier of the payment instrument that replaced this payment instrument.
    */
   @JsonProperty(JSON_PROPERTY_REPLACED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -554,7 +554,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the payment instrument that replaced this payment instrument.
    *
-   * @param replacedById
+   * @param replacedById The unique identifier of the payment instrument that replaced this payment instrument.
    */
   @JsonProperty(JSON_PROPERTY_REPLACED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -565,7 +565,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the payment instrument that is replaced by this payment instrument.
    *
-   * @param replacementOfId
+   * @param replacementOfId The unique identifier of the payment instrument that is replaced by this payment instrument.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument replacementOfId(String replacementOfId) {
@@ -575,7 +575,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The unique identifier of the payment instrument that is replaced by this payment instrument.
-   * @return replacementOfId
+   * @return replacementOfId The unique identifier of the payment instrument that is replaced by this payment instrument.
    */
   @JsonProperty(JSON_PROPERTY_REPLACEMENT_OF_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -586,7 +586,7 @@ public class UpdatePaymentInstrument {
   /**
    * The unique identifier of the payment instrument that is replaced by this payment instrument.
    *
-   * @param replacementOfId
+   * @param replacementOfId The unique identifier of the payment instrument that is replaced by this payment instrument.
    */
   @JsonProperty(JSON_PROPERTY_REPLACEMENT_OF_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -597,7 +597,7 @@ public class UpdatePaymentInstrument {
   /**
    * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
    *
-   * @param status
+   * @param status The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument status(StatusEnum status) {
@@ -607,7 +607,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
-   * @return status
+   * @return status The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -618,7 +618,7 @@ public class UpdatePaymentInstrument {
   /**
    * The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
    *
-   * @param status
+   * @param status The status of the payment instrument. If a status is not specified when creating a payment instrument, it is set to **active** by default. However, there can be exceptions for cards based on the &#x60;card.formFactor&#x60; and the &#x60;issuingCountryCode&#x60;. For example, when issuing physical cards in the US, the default status is **inactive**.  Possible values:    * **active**:  The payment instrument is active and can be used to make payments.    * **inactive**: The payment instrument is inactive and cannot be used to make payments.    * **suspended**: The payment instrument is suspended, either because it was stolen or lost.    * **closed**: The payment instrument is permanently closed. This action cannot be undone.   
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -629,7 +629,7 @@ public class UpdatePaymentInstrument {
   /**
    * Comment for the status of the payment instrument.  Required if &#x60;statusReason&#x60; is **other**.
    *
-   * @param statusComment
+   * @param statusComment Comment for the status of the payment instrument.  Required if &#x60;statusReason&#x60; is **other**.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument statusComment(String statusComment) {
@@ -639,7 +639,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * Comment for the status of the payment instrument.  Required if &#x60;statusReason&#x60; is **other**.
-   * @return statusComment
+   * @return statusComment Comment for the status of the payment instrument.  Required if &#x60;statusReason&#x60; is **other**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -650,7 +650,7 @@ public class UpdatePaymentInstrument {
   /**
    * Comment for the status of the payment instrument.  Required if &#x60;statusReason&#x60; is **other**.
    *
-   * @param statusComment
+   * @param statusComment Comment for the status of the payment instrument.  Required if &#x60;statusReason&#x60; is **other**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -661,7 +661,7 @@ public class UpdatePaymentInstrument {
   /**
    * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
    *
-   * @param statusReason
+   * @param statusReason The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument statusReason(StatusReasonEnum statusReason) {
@@ -671,7 +671,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
-   * @return statusReason
+   * @return statusReason The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
    */
   @JsonProperty(JSON_PROPERTY_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -682,7 +682,7 @@ public class UpdatePaymentInstrument {
   /**
    * The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
    *
-   * @param statusReason
+   * @param statusReason The reason for the status of the payment instrument.  Possible values: **accountClosure**, **damaged**, **endOfLife**, **expired**, **lost**, **stolen**, **suspectedFraud**, **transactionRule**, **other**. If the reason is **other**, you must also send the &#x60;statusComment&#x60; parameter describing the status change.
    */
   @JsonProperty(JSON_PROPERTY_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -693,7 +693,7 @@ public class UpdatePaymentInstrument {
   /**
    * The type of payment instrument.  Possible values: **card**, **bankAccount**.
    *
-   * @param type
+   * @param type The type of payment instrument.  Possible values: **card**, **bankAccount**.
    * @return the current {@code UpdatePaymentInstrument} instance, allowing for method chaining
    */
   public UpdatePaymentInstrument type(TypeEnum type) {
@@ -703,7 +703,7 @@ public class UpdatePaymentInstrument {
 
   /**
    * The type of payment instrument.  Possible values: **card**, **bankAccount**.
-   * @return type
+   * @return type The type of payment instrument.  Possible values: **card**, **bankAccount**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -714,7 +714,7 @@ public class UpdatePaymentInstrument {
   /**
    * The type of payment instrument.  Possible values: **card**, **bankAccount**.
    *
-   * @param type
+   * @param type The type of payment instrument.  Possible values: **card**, **bankAccount**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

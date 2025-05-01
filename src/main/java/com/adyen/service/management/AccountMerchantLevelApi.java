@@ -74,7 +74,6 @@ public class AccountMerchantLevelApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public CreateMerchantResponse createMerchantAccount(CreateMerchantRequest createMerchantRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = createMerchantRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/merchants", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

@@ -36,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ApproveTransfersRequest {
   public static final String JSON_PROPERTY_TRANSFER_IDS = "transferIds";
-  private List<String> transferIds = new ArrayList<>();
+  private List<String> transferIds;
 
   public ApproveTransfersRequest() { 
   }
@@ -44,7 +44,7 @@ public class ApproveTransfersRequest {
   /**
    * Contains the unique identifiers of the transfers that you want to approve.
    *
-   * @param transferIds
+   * @param transferIds Contains the unique identifiers of the transfers that you want to approve.
    * @return the current {@code ApproveTransfersRequest} instance, allowing for method chaining
    */
   public ApproveTransfersRequest transferIds(List<String> transferIds) {
@@ -62,7 +62,7 @@ public class ApproveTransfersRequest {
 
   /**
    * Contains the unique identifiers of the transfers that you want to approve.
-   * @return transferIds
+   * @return transferIds Contains the unique identifiers of the transfers that you want to approve.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -73,7 +73,7 @@ public class ApproveTransfersRequest {
   /**
    * Contains the unique identifiers of the transfers that you want to approve.
    *
-   * @param transferIds
+   * @param transferIds Contains the unique identifiers of the transfers that you want to approve.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

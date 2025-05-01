@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class CardholderReceipt {
   /**
    * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
    *
-   * @param headerForAuthorizedReceipt
+   * @param headerForAuthorizedReceipt A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
    * @return the current {@code CardholderReceipt} instance, allowing for method chaining
    */
   public CardholderReceipt headerForAuthorizedReceipt(String headerForAuthorizedReceipt) {
@@ -54,9 +52,8 @@ public class CardholderReceipt {
 
   /**
    * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
-   * @return headerForAuthorizedReceipt
+   * @return headerForAuthorizedReceipt A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
    */
-  @ApiModelProperty(value = "A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, `header,header,filler`")
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHeaderForAuthorizedReceipt() {
@@ -66,8 +63,8 @@ public class CardholderReceipt {
   /**
    * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
    *
-   * @param headerForAuthorizedReceipt
-   */ 
+   * @param headerForAuthorizedReceipt A custom header to show on the shopper receipt for an authorised transaction. Allows one or two comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
+   */
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeaderForAuthorizedReceipt(String headerForAuthorizedReceipt) {

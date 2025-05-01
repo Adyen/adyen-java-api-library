@@ -34,7 +34,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TermsOfServiceAcceptanceInfo.JSON_PROPERTY_ACCEPTED_FOR,
   TermsOfServiceAcceptanceInfo.JSON_PROPERTY_CREATED_AT,
   TermsOfServiceAcceptanceInfo.JSON_PROPERTY_ID,
-  TermsOfServiceAcceptanceInfo.JSON_PROPERTY_TYPE
+  TermsOfServiceAcceptanceInfo.JSON_PROPERTY_TYPE,
+  TermsOfServiceAcceptanceInfo.JSON_PROPERTY_VALID_TO
 })
 
 public class TermsOfServiceAcceptanceInfo {
@@ -102,13 +103,16 @@ public class TermsOfServiceAcceptanceInfo {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  public static final String JSON_PROPERTY_VALID_TO = "validTo";
+  private OffsetDateTime validTo;
+
   public TermsOfServiceAcceptanceInfo() { 
   }
 
   /**
    * The unique identifier of the user that accepted the Terms of Service.
    *
-   * @param acceptedBy
+   * @param acceptedBy The unique identifier of the user that accepted the Terms of Service.
    * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
    */
   public TermsOfServiceAcceptanceInfo acceptedBy(String acceptedBy) {
@@ -118,7 +122,7 @@ public class TermsOfServiceAcceptanceInfo {
 
   /**
    * The unique identifier of the user that accepted the Terms of Service.
-   * @return acceptedBy
+   * @return acceptedBy The unique identifier of the user that accepted the Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +133,7 @@ public class TermsOfServiceAcceptanceInfo {
   /**
    * The unique identifier of the user that accepted the Terms of Service.
    *
-   * @param acceptedBy
+   * @param acceptedBy The unique identifier of the user that accepted the Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +144,7 @@ public class TermsOfServiceAcceptanceInfo {
   /**
    * The unique identifier of the legal entity for which the Terms of Service are accepted.
    *
-   * @param acceptedFor
+   * @param acceptedFor The unique identifier of the legal entity for which the Terms of Service are accepted.
    * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
    */
   public TermsOfServiceAcceptanceInfo acceptedFor(String acceptedFor) {
@@ -150,7 +154,7 @@ public class TermsOfServiceAcceptanceInfo {
 
   /**
    * The unique identifier of the legal entity for which the Terms of Service are accepted.
-   * @return acceptedFor
+   * @return acceptedFor The unique identifier of the legal entity for which the Terms of Service are accepted.
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +165,7 @@ public class TermsOfServiceAcceptanceInfo {
   /**
    * The unique identifier of the legal entity for which the Terms of Service are accepted.
    *
-   * @param acceptedFor
+   * @param acceptedFor The unique identifier of the legal entity for which the Terms of Service are accepted.
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_FOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,9 +174,9 @@ public class TermsOfServiceAcceptanceInfo {
   }
 
   /**
-   * The date when the Terms of Service were accepted.
+   * The date when the Terms of Service were accepted, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00.
    *
-   * @param createdAt
+   * @param createdAt The date when the Terms of Service were accepted, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00.
    * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
    */
   public TermsOfServiceAcceptanceInfo createdAt(OffsetDateTime createdAt) {
@@ -181,8 +185,8 @@ public class TermsOfServiceAcceptanceInfo {
   }
 
   /**
-   * The date when the Terms of Service were accepted.
-   * @return createdAt
+   * The date when the Terms of Service were accepted, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00.
+   * @return createdAt The date when the Terms of Service were accepted, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00.
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,9 +195,9 @@ public class TermsOfServiceAcceptanceInfo {
   }
 
   /**
-   * The date when the Terms of Service were accepted.
+   * The date when the Terms of Service were accepted, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00.
    *
-   * @param createdAt
+   * @param createdAt The date when the Terms of Service were accepted, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00.
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +208,7 @@ public class TermsOfServiceAcceptanceInfo {
   /**
    * An Adyen-generated reference for the accepted Terms of Service.
    *
-   * @param id
+   * @param id An Adyen-generated reference for the accepted Terms of Service.
    * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
    */
   public TermsOfServiceAcceptanceInfo id(String id) {
@@ -214,7 +218,7 @@ public class TermsOfServiceAcceptanceInfo {
 
   /**
    * An Adyen-generated reference for the accepted Terms of Service.
-   * @return id
+   * @return id An Adyen-generated reference for the accepted Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +229,7 @@ public class TermsOfServiceAcceptanceInfo {
   /**
    * An Adyen-generated reference for the accepted Terms of Service.
    *
-   * @param id
+   * @param id An Adyen-generated reference for the accepted Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +240,7 @@ public class TermsOfServiceAcceptanceInfo {
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
-   * @param type
+   * @param type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
    */
   public TermsOfServiceAcceptanceInfo type(TypeEnum type) {
@@ -246,7 +250,7 @@ public class TermsOfServiceAcceptanceInfo {
 
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
-   * @return type
+   * @return type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,12 +261,44 @@ public class TermsOfServiceAcceptanceInfo {
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
-   * @param type
+   * @param type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+  }
+
+  /**
+   * The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
+   *
+   * @param validTo The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
+   * @return the current {@code TermsOfServiceAcceptanceInfo} instance, allowing for method chaining
+   */
+  public TermsOfServiceAcceptanceInfo validTo(OffsetDateTime validTo) {
+    this.validTo = validTo;
+    return this;
+  }
+
+  /**
+   * The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
+   * @return validTo The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
+   */
+  @JsonProperty(JSON_PROPERTY_VALID_TO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getValidTo() {
+    return validTo;
+  }
+
+  /**
+   * The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
+   *
+   * @param validTo The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
+   */
+  @JsonProperty(JSON_PROPERTY_VALID_TO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValidTo(OffsetDateTime validTo) {
+    this.validTo = validTo;
   }
 
   /**
@@ -281,12 +317,13 @@ public class TermsOfServiceAcceptanceInfo {
         Objects.equals(this.acceptedFor, termsOfServiceAcceptanceInfo.acceptedFor) &&
         Objects.equals(this.createdAt, termsOfServiceAcceptanceInfo.createdAt) &&
         Objects.equals(this.id, termsOfServiceAcceptanceInfo.id) &&
-        Objects.equals(this.type, termsOfServiceAcceptanceInfo.type);
+        Objects.equals(this.type, termsOfServiceAcceptanceInfo.type) &&
+        Objects.equals(this.validTo, termsOfServiceAcceptanceInfo.validTo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptedBy, acceptedFor, createdAt, id, type);
+    return Objects.hash(acceptedBy, acceptedFor, createdAt, id, type, validTo);
   }
 
   @Override
@@ -298,6 +335,7 @@ public class TermsOfServiceAcceptanceInfo {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    validTo: ").append(toIndentedString(validTo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

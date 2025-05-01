@@ -141,7 +141,7 @@ public class LegalEntityCapability {
   private CapabilitySettings requestedSettings;
 
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENTS = "transferInstruments";
-  private List<SupportingEntityCapability> transferInstruments = new ArrayList<>();
+  private List<SupportingEntityCapability> transferInstruments;
 
   public static final String JSON_PROPERTY_VERIFICATION_STATUS = "verificationStatus";
   private String verificationStatus;
@@ -169,7 +169,7 @@ public class LegalEntityCapability {
 
   /**
    * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
-   * @return allowed
+   * @return allowed Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful.
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class LegalEntityCapability {
 
   /**
    * The capability level that is allowed for the legal entity.  Possible values: **notApplicable**, **low**, **medium**, **high**.
-   * @return allowedLevel
+   * @return allowedLevel The capability level that is allowed for the legal entity.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +192,7 @@ public class LegalEntityCapability {
   /**
    * allowedSettings
    *
-   * @param allowedSettings
+   * @param allowedSettings 
    * @return the current {@code LegalEntityCapability} instance, allowing for method chaining
    */
   public LegalEntityCapability allowedSettings(CapabilitySettings allowedSettings) {
@@ -202,7 +202,7 @@ public class LegalEntityCapability {
 
   /**
    * Get allowedSettings
-   * @return allowedSettings
+   * @return allowedSettings 
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +213,7 @@ public class LegalEntityCapability {
   /**
    * allowedSettings
    *
-   * @param allowedSettings
+   * @param allowedSettings 
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class LegalEntityCapability {
 
   /**
    * Indicates whether the capability is requested. To check whether the legal entity is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
-   * @return requested
+   * @return requested Indicates whether the capability is requested. To check whether the legal entity is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class LegalEntityCapability {
 
   /**
    * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
-   * @return requestedLevel
+   * @return requestedLevel The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +246,7 @@ public class LegalEntityCapability {
   /**
    * requestedSettings
    *
-   * @param requestedSettings
+   * @param requestedSettings 
    * @return the current {@code LegalEntityCapability} instance, allowing for method chaining
    */
   public LegalEntityCapability requestedSettings(CapabilitySettings requestedSettings) {
@@ -256,7 +256,7 @@ public class LegalEntityCapability {
 
   /**
    * Get requestedSettings
-   * @return requestedSettings
+   * @return requestedSettings 
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +267,7 @@ public class LegalEntityCapability {
   /**
    * requestedSettings
    *
-   * @param requestedSettings
+   * @param requestedSettings 
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,7 +277,7 @@ public class LegalEntityCapability {
 
   /**
    * The capability status of transfer instruments associated with the legal entity.
-   * @return transferInstruments
+   * @return transferInstruments The capability status of transfer instruments associated with the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,7 +288,7 @@ public class LegalEntityCapability {
 
   /**
    * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
-   * @return verificationStatus
+   * @return verificationStatus The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

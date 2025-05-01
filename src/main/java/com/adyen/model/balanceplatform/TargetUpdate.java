@@ -83,7 +83,7 @@ public class TargetUpdate {
   /**
    * The unique identifier of the &#x60;target.type&#x60;. This can be the ID of your:  * balance platform * account holder * account holder&#39;s balance account
    *
-   * @param id
+   * @param id The unique identifier of the &#x60;target.type&#x60;. This can be the ID of your:  * balance platform * account holder * account holder&#39;s balance account
    * @return the current {@code TargetUpdate} instance, allowing for method chaining
    */
   public TargetUpdate id(String id) {
@@ -93,7 +93,7 @@ public class TargetUpdate {
 
   /**
    * The unique identifier of the &#x60;target.type&#x60;. This can be the ID of your:  * balance platform * account holder * account holder&#39;s balance account
-   * @return id
+   * @return id The unique identifier of the &#x60;target.type&#x60;. This can be the ID of your:  * balance platform * account holder * account holder&#39;s balance account
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class TargetUpdate {
   /**
    * The unique identifier of the &#x60;target.type&#x60;. This can be the ID of your:  * balance platform * account holder * account holder&#39;s balance account
    *
-   * @param id
+   * @param id The unique identifier of the &#x60;target.type&#x60;. This can be the ID of your:  * balance platform * account holder * account holder&#39;s balance account
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class TargetUpdate {
   /**
    * The resource for which you want to receive notifications. Possible values:  * **balancePlatform**: receive notifications about balance changes in your entire balance platform.  * **accountHolder**: receive notifications about balance changes of a specific user.  * **balanceAccount**: receive notifications about balance changes in a specific balance account.
    *
-   * @param type
+   * @param type The resource for which you want to receive notifications. Possible values:  * **balancePlatform**: receive notifications about balance changes in your entire balance platform.  * **accountHolder**: receive notifications about balance changes of a specific user.  * **balanceAccount**: receive notifications about balance changes in a specific balance account.
    * @return the current {@code TargetUpdate} instance, allowing for method chaining
    */
   public TargetUpdate type(TypeEnum type) {
@@ -125,7 +125,7 @@ public class TargetUpdate {
 
   /**
    * The resource for which you want to receive notifications. Possible values:  * **balancePlatform**: receive notifications about balance changes in your entire balance platform.  * **accountHolder**: receive notifications about balance changes of a specific user.  * **balanceAccount**: receive notifications about balance changes in a specific balance account.
-   * @return type
+   * @return type The resource for which you want to receive notifications. Possible values:  * **balancePlatform**: receive notifications about balance changes in your entire balance platform.  * **accountHolder**: receive notifications about balance changes of a specific user.  * **balanceAccount**: receive notifications about balance changes in a specific balance account.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class TargetUpdate {
   /**
    * The resource for which you want to receive notifications. Possible values:  * **balancePlatform**: receive notifications about balance changes in your entire balance platform.  * **accountHolder**: receive notifications about balance changes of a specific user.  * **balanceAccount**: receive notifications about balance changes in a specific balance account.
    *
-   * @param type
+   * @param type The resource for which you want to receive notifications. Possible values:  * **balancePlatform**: receive notifications about balance changes in your entire balance platform.  * **accountHolder**: receive notifications about balance changes of a specific user.  * **balanceAccount**: receive notifications about balance changes in a specific balance account.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

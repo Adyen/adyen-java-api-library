@@ -54,7 +54,7 @@ public class WebData {
   /**
    * The URL of the website or the app store URL.
    *
-   * @param webAddress
+   * @param webAddress The URL of the website or the app store URL.
    * @return the current {@code WebData} instance, allowing for method chaining
    */
   public WebData webAddress(String webAddress) {
@@ -64,7 +64,7 @@ public class WebData {
 
   /**
    * The URL of the website or the app store URL.
-   * @return webAddress
+   * @return webAddress The URL of the website or the app store URL.
    */
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,7 +75,7 @@ public class WebData {
   /**
    * The URL of the website or the app store URL.
    *
-   * @param webAddress
+   * @param webAddress The URL of the website or the app store URL.
    */
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +85,7 @@ public class WebData {
 
   /**
    * The unique identifier of the web address.
-   * @return webAddressId
+   * @return webAddressId The unique identifier of the web address.
    */
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

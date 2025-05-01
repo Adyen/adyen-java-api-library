@@ -71,7 +71,6 @@ public class ReviewingApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public ModifyResponse confirmThirdParty(ModifyRequest modifyRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = modifyRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/confirmThirdParty", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -98,7 +97,6 @@ public class ReviewingApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public ModifyResponse declineThirdParty(ModifyRequest modifyRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = modifyRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/declineThirdParty", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

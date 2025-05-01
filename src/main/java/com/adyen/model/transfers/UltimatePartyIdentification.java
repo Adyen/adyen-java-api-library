@@ -105,7 +105,7 @@ public class UltimatePartyIdentification {
   /**
    * address
    *
-   * @param address
+   * @param address 
    * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
    */
   public UltimatePartyIdentification address(Address address) {
@@ -115,7 +115,7 @@ public class UltimatePartyIdentification {
 
   /**
    * Get address
-   * @return address
+   * @return address 
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class UltimatePartyIdentification {
   /**
    * address
    *
-   * @param address
+   * @param address 
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class UltimatePartyIdentification {
   /**
    * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
    * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
    */
   public UltimatePartyIdentification dateOfBirth(LocalDate dateOfBirth) {
@@ -147,7 +147,7 @@ public class UltimatePartyIdentification {
 
   /**
    * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
-   * @return dateOfBirth
+   * @return dateOfBirth The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class UltimatePartyIdentification {
   /**
    * The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The date of birth of the individual in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format. For example, **YYYY-MM-DD**.  Allowed only when &#x60;type&#x60; is **individual**.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class UltimatePartyIdentification {
   /**
    * The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    *
-   * @param firstName
+   * @param firstName The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
    */
   public UltimatePartyIdentification firstName(String firstName) {
@@ -179,7 +179,7 @@ public class UltimatePartyIdentification {
 
   /**
    * The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
-   * @return firstName
+   * @return firstName The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class UltimatePartyIdentification {
   /**
    * The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    *
-   * @param firstName
+   * @param firstName The first name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class UltimatePartyIdentification {
   /**
    * The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and space.  Required when &#x60;category&#x60; is **bank**.
    *
-   * @param fullName
+   * @param fullName The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and space.  Required when &#x60;category&#x60; is **bank**.
    * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
    */
   public UltimatePartyIdentification fullName(String fullName) {
@@ -211,7 +211,7 @@ public class UltimatePartyIdentification {
 
   /**
    * The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and space.  Required when &#x60;category&#x60; is **bank**.
-   * @return fullName
+   * @return fullName The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and space.  Required when &#x60;category&#x60; is **bank**.
    */
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class UltimatePartyIdentification {
   /**
    * The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and space.  Required when &#x60;category&#x60; is **bank**.
    *
-   * @param fullName
+   * @param fullName The full name of the entity that owns the bank account or card.  Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \\ + &amp; ! ? @ ( ) \&quot; &#39; and space.  Required when &#x60;category&#x60; is **bank**.
    */
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class UltimatePartyIdentification {
   /**
    * The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    *
-   * @param lastName
+   * @param lastName The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
    */
   public UltimatePartyIdentification lastName(String lastName) {
@@ -243,7 +243,7 @@ public class UltimatePartyIdentification {
 
   /**
    * The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
-   * @return lastName
+   * @return lastName The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +254,7 @@ public class UltimatePartyIdentification {
   /**
    * The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    *
-   * @param lastName
+   * @param lastName The last name of the individual.  Supported characters: [a-z] [A-Z] - . / — and space.  This parameter is: - Allowed only when &#x60;type&#x60; is **individual**. - Required when &#x60;category&#x60; is **card**.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class UltimatePartyIdentification {
   /**
    * A unique reference to identify the party or counterparty involved in the transfer. For example, your client&#39;s unique wallet or payee ID.  Required when you include &#x60;cardIdentification.storedPaymentMethodId&#x60;.
    *
-   * @param reference
+   * @param reference A unique reference to identify the party or counterparty involved in the transfer. For example, your client&#39;s unique wallet or payee ID.  Required when you include &#x60;cardIdentification.storedPaymentMethodId&#x60;.
    * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
    */
   public UltimatePartyIdentification reference(String reference) {
@@ -275,7 +275,7 @@ public class UltimatePartyIdentification {
 
   /**
    * A unique reference to identify the party or counterparty involved in the transfer. For example, your client&#39;s unique wallet or payee ID.  Required when you include &#x60;cardIdentification.storedPaymentMethodId&#x60;.
-   * @return reference
+   * @return reference A unique reference to identify the party or counterparty involved in the transfer. For example, your client&#39;s unique wallet or payee ID.  Required when you include &#x60;cardIdentification.storedPaymentMethodId&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +286,7 @@ public class UltimatePartyIdentification {
   /**
    * A unique reference to identify the party or counterparty involved in the transfer. For example, your client&#39;s unique wallet or payee ID.  Required when you include &#x60;cardIdentification.storedPaymentMethodId&#x60;.
    *
-   * @param reference
+   * @param reference A unique reference to identify the party or counterparty involved in the transfer. For example, your client&#39;s unique wallet or payee ID.  Required when you include &#x60;cardIdentification.storedPaymentMethodId&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +297,7 @@ public class UltimatePartyIdentification {
   /**
    * The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
    *
-   * @param type
+   * @param type The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
    * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
    */
   public UltimatePartyIdentification type(TypeEnum type) {
@@ -307,7 +307,7 @@ public class UltimatePartyIdentification {
 
   /**
    * The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
-   * @return type
+   * @return type The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,7 +318,7 @@ public class UltimatePartyIdentification {
   /**
    * The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
    *
-   * @param type
+   * @param type The type of entity that owns the bank account or card.  Possible values: **individual**, **organization**, or **unknown**.  Required when &#x60;category&#x60; is **card**. In this case, the value must be **individual**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

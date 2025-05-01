@@ -85,7 +85,7 @@ public class AssociationFinaliseResponse {
   /**
    * The unique identifier of the SCA device you associated with a resource.
    *
-   * @param deviceId
+   * @param deviceId The unique identifier of the SCA device you associated with a resource.
    * @return the current {@code AssociationFinaliseResponse} instance, allowing for method chaining
    */
   public AssociationFinaliseResponse deviceId(String deviceId) {
@@ -95,7 +95,7 @@ public class AssociationFinaliseResponse {
 
   /**
    * The unique identifier of the SCA device you associated with a resource.
-   * @return deviceId
+   * @return deviceId The unique identifier of the SCA device you associated with a resource.
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +106,7 @@ public class AssociationFinaliseResponse {
   /**
    * The unique identifier of the SCA device you associated with a resource.
    *
-   * @param deviceId
+   * @param deviceId The unique identifier of the SCA device you associated with a resource.
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class AssociationFinaliseResponse {
   /**
    * The list of unique identifiers of the resources that you associated with the SCA device.
    *
-   * @param ids
+   * @param ids The list of unique identifiers of the resources that you associated with the SCA device.
    * @return the current {@code AssociationFinaliseResponse} instance, allowing for method chaining
    */
   public AssociationFinaliseResponse ids(List<String> ids) {
@@ -135,7 +135,7 @@ public class AssociationFinaliseResponse {
 
   /**
    * The list of unique identifiers of the resources that you associated with the SCA device.
-   * @return ids
+   * @return ids The list of unique identifiers of the resources that you associated with the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class AssociationFinaliseResponse {
   /**
    * The list of unique identifiers of the resources that you associated with the SCA device.
    *
-   * @param ids
+   * @param ids The list of unique identifiers of the resources that you associated with the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class AssociationFinaliseResponse {
   /**
    * The type of resource that you associated with the SCA device.
    *
-   * @param type
+   * @param type The type of resource that you associated with the SCA device.
    * @return the current {@code AssociationFinaliseResponse} instance, allowing for method chaining
    */
   public AssociationFinaliseResponse type(TypeEnum type) {
@@ -167,7 +167,7 @@ public class AssociationFinaliseResponse {
 
   /**
    * The type of resource that you associated with the SCA device.
-   * @return type
+   * @return type The type of resource that you associated with the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +178,7 @@ public class AssociationFinaliseResponse {
   /**
    * The type of resource that you associated with the SCA device.
    *
-   * @param type
+   * @param type The type of resource that you associated with the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

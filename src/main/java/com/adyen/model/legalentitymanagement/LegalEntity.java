@@ -65,17 +65,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class LegalEntity {
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private Map<String, LegalEntityCapability> capabilities = new HashMap<>();
+  private Map<String, LegalEntityCapability> capabilities;
 
   public static final String JSON_PROPERTY_DOCUMENT_DETAILS = "documentDetails";
-  private List<DocumentReference> documentDetails = new ArrayList<>();
+  private List<DocumentReference> documentDetails;
 
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
   @Deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array instead.
-  private List<EntityReference> documents = new ArrayList<>();
+  private List<EntityReference> documents;
 
   public static final String JSON_PROPERTY_ENTITY_ASSOCIATIONS = "entityAssociations";
-  private List<LegalEntityAssociation> entityAssociations = new ArrayList<>();
+  private List<LegalEntityAssociation> entityAssociations;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -87,7 +87,7 @@ public class LegalEntity {
   private Organization organization;
 
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
-  private List<CapabilityProblem> problems = new ArrayList<>();
+  private List<CapabilityProblem> problems;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -96,7 +96,7 @@ public class LegalEntity {
   private SoleProprietorship soleProprietorship;
 
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENTS = "transferInstruments";
-  private List<TransferInstrumentReference> transferInstruments = new ArrayList<>();
+  private List<TransferInstrumentReference> transferInstruments;
 
   public static final String JSON_PROPERTY_TRUST = "trust";
   private Trust trust;
@@ -149,7 +149,7 @@ public class LegalEntity {
   private UnincorporatedPartnership unincorporatedPartnership;
 
   public static final String JSON_PROPERTY_VERIFICATION_DEADLINES = "verificationDeadlines";
-  private List<VerificationDeadline> verificationDeadlines = new ArrayList<>();
+  private List<VerificationDeadline> verificationDeadlines;
 
   public static final String JSON_PROPERTY_VERIFICATION_PLAN = "verificationPlan";
   private String verificationPlan;
@@ -173,7 +173,7 @@ public class LegalEntity {
 
   /**
    * Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
-   * @return capabilities
+   * @return capabilities Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +185,7 @@ public class LegalEntity {
   /**
    * List of documents uploaded for the legal entity.
    *
-   * @param documentDetails
+   * @param documentDetails List of documents uploaded for the legal entity.
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity documentDetails(List<DocumentReference> documentDetails) {
@@ -203,7 +203,7 @@ public class LegalEntity {
 
   /**
    * List of documents uploaded for the legal entity.
-   * @return documentDetails
+   * @return documentDetails List of documents uploaded for the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +214,7 @@ public class LegalEntity {
   /**
    * List of documents uploaded for the legal entity.
    *
-   * @param documentDetails
+   * @param documentDetails List of documents uploaded for the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +225,7 @@ public class LegalEntity {
   /**
    * List of documents uploaded for the legal entity.
    *
-   * @param documents
+   * @param documents List of documents uploaded for the legal entity.
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v1
@@ -247,7 +247,7 @@ public class LegalEntity {
 
   /**
    * List of documents uploaded for the legal entity.
-   * @return documents
+   * @return documents List of documents uploaded for the legal entity.
    * @deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array instead.
    */
   @Deprecated // deprecated since Legal Entity Management API v1: Use the `documentDetails` array instead.
@@ -260,7 +260,7 @@ public class LegalEntity {
   /**
    * List of documents uploaded for the legal entity.
    *
-   * @param documents
+   * @param documents List of documents uploaded for the legal entity.
    *
    * @deprecated since Legal Entity Management API v1
    * Use the &#x60;documentDetails&#x60; array instead.
@@ -275,7 +275,7 @@ public class LegalEntity {
   /**
    * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    *
-   * @param entityAssociations
+   * @param entityAssociations List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity entityAssociations(List<LegalEntityAssociation> entityAssociations) {
@@ -293,7 +293,7 @@ public class LegalEntity {
 
   /**
    * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
-   * @return entityAssociations
+   * @return entityAssociations List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    */
   @JsonProperty(JSON_PROPERTY_ENTITY_ASSOCIATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +304,7 @@ public class LegalEntity {
   /**
    * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    *
-   * @param entityAssociations
+   * @param entityAssociations List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    */
   @JsonProperty(JSON_PROPERTY_ENTITY_ASSOCIATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -314,7 +314,7 @@ public class LegalEntity {
 
   /**
    * The unique identifier of the legal entity.
-   * @return id
+   * @return id The unique identifier of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -326,7 +326,7 @@ public class LegalEntity {
   /**
    * individual
    *
-   * @param individual
+   * @param individual 
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity individual(Individual individual) {
@@ -336,7 +336,7 @@ public class LegalEntity {
 
   /**
    * Get individual
-   * @return individual
+   * @return individual 
    */
   @JsonProperty(JSON_PROPERTY_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -347,7 +347,7 @@ public class LegalEntity {
   /**
    * individual
    *
-   * @param individual
+   * @param individual 
    */
   @JsonProperty(JSON_PROPERTY_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -358,7 +358,7 @@ public class LegalEntity {
   /**
    * organization
    *
-   * @param organization
+   * @param organization 
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity organization(Organization organization) {
@@ -368,7 +368,7 @@ public class LegalEntity {
 
   /**
    * Get organization
-   * @return organization
+   * @return organization 
    */
   @JsonProperty(JSON_PROPERTY_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,7 +379,7 @@ public class LegalEntity {
   /**
    * organization
    *
-   * @param organization
+   * @param organization 
    */
   @JsonProperty(JSON_PROPERTY_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -390,7 +390,7 @@ public class LegalEntity {
   /**
    * List of verification errors related to capabilities for the legal entity.
    *
-   * @param problems
+   * @param problems List of verification errors related to capabilities for the legal entity.
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity problems(List<CapabilityProblem> problems) {
@@ -408,7 +408,7 @@ public class LegalEntity {
 
   /**
    * List of verification errors related to capabilities for the legal entity.
-   * @return problems
+   * @return problems List of verification errors related to capabilities for the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -419,7 +419,7 @@ public class LegalEntity {
   /**
    * List of verification errors related to capabilities for the legal entity.
    *
-   * @param problems
+   * @param problems List of verification errors related to capabilities for the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -430,7 +430,7 @@ public class LegalEntity {
   /**
    * Your reference for the legal entity, maximum 150 characters.
    *
-   * @param reference
+   * @param reference Your reference for the legal entity, maximum 150 characters.
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity reference(String reference) {
@@ -440,7 +440,7 @@ public class LegalEntity {
 
   /**
    * Your reference for the legal entity, maximum 150 characters.
-   * @return reference
+   * @return reference Your reference for the legal entity, maximum 150 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -451,7 +451,7 @@ public class LegalEntity {
   /**
    * Your reference for the legal entity, maximum 150 characters.
    *
-   * @param reference
+   * @param reference Your reference for the legal entity, maximum 150 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -462,7 +462,7 @@ public class LegalEntity {
   /**
    * soleProprietorship
    *
-   * @param soleProprietorship
+   * @param soleProprietorship 
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity soleProprietorship(SoleProprietorship soleProprietorship) {
@@ -472,7 +472,7 @@ public class LegalEntity {
 
   /**
    * Get soleProprietorship
-   * @return soleProprietorship
+   * @return soleProprietorship 
    */
   @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -483,7 +483,7 @@ public class LegalEntity {
   /**
    * soleProprietorship
    *
-   * @param soleProprietorship
+   * @param soleProprietorship 
    */
   @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -493,7 +493,7 @@ public class LegalEntity {
 
   /**
    * List of transfer instruments that the legal entity owns.
-   * @return transferInstruments
+   * @return transferInstruments List of transfer instruments that the legal entity owns.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -505,7 +505,7 @@ public class LegalEntity {
   /**
    * trust
    *
-   * @param trust
+   * @param trust 
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity trust(Trust trust) {
@@ -515,7 +515,7 @@ public class LegalEntity {
 
   /**
    * Get trust
-   * @return trust
+   * @return trust 
    */
   @JsonProperty(JSON_PROPERTY_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -526,7 +526,7 @@ public class LegalEntity {
   /**
    * trust
    *
-   * @param trust
+   * @param trust 
    */
   @JsonProperty(JSON_PROPERTY_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -537,7 +537,7 @@ public class LegalEntity {
   /**
    * The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    *
-   * @param type
+   * @param type The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity type(TypeEnum type) {
@@ -547,7 +547,7 @@ public class LegalEntity {
 
   /**
    * The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
-   * @return type
+   * @return type The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -558,7 +558,7 @@ public class LegalEntity {
   /**
    * The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    *
-   * @param type
+   * @param type The type of legal entity.  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -569,7 +569,7 @@ public class LegalEntity {
   /**
    * unincorporatedPartnership
    *
-   * @param unincorporatedPartnership
+   * @param unincorporatedPartnership 
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity unincorporatedPartnership(UnincorporatedPartnership unincorporatedPartnership) {
@@ -579,7 +579,7 @@ public class LegalEntity {
 
   /**
    * Get unincorporatedPartnership
-   * @return unincorporatedPartnership
+   * @return unincorporatedPartnership 
    */
   @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -590,7 +590,7 @@ public class LegalEntity {
   /**
    * unincorporatedPartnership
    *
-   * @param unincorporatedPartnership
+   * @param unincorporatedPartnership 
    */
   @JsonProperty(JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -600,7 +600,7 @@ public class LegalEntity {
 
   /**
    * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
-   * @return verificationDeadlines
+   * @return verificationDeadlines List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -612,7 +612,7 @@ public class LegalEntity {
   /**
    * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
    *
-   * @param verificationPlan
+   * @param verificationPlan A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity verificationPlan(String verificationPlan) {
@@ -622,7 +622,7 @@ public class LegalEntity {
 
   /**
    * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
-   * @return verificationPlan
+   * @return verificationPlan A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -633,7 +633,7 @@ public class LegalEntity {
   /**
    * A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
    *
-   * @param verificationPlan
+   * @param verificationPlan A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_PLAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

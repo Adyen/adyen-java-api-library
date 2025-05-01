@@ -45,7 +45,7 @@ public class GrantOffers {
   /**
    * A list of available grant offers.
    *
-   * @param grantOffers
+   * @param grantOffers A list of available grant offers.
    * @return the current {@code GrantOffers} instance, allowing for method chaining
    */
   public GrantOffers grantOffers(List<GrantOffer> grantOffers) {
@@ -63,7 +63,7 @@ public class GrantOffers {
 
   /**
    * A list of available grant offers.
-   * @return grantOffers
+   * @return grantOffers A list of available grant offers.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class GrantOffers {
   /**
    * A list of available grant offers.
    *
-   * @param grantOffers
+   * @param grantOffers A list of available grant offers.
    */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

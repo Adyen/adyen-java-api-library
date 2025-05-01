@@ -79,7 +79,7 @@ public class NZLocalAccountIdentification {
   /**
    * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    *
-   * @param accountNumber
+   * @param accountNumber The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    * @return the current {@code NZLocalAccountIdentification} instance, allowing for method chaining
    */
   public NZLocalAccountIdentification accountNumber(String accountNumber) {
@@ -89,7 +89,7 @@ public class NZLocalAccountIdentification {
 
   /**
    * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
-   * @return accountNumber
+   * @return accountNumber The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class NZLocalAccountIdentification {
   /**
    * The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    *
-   * @param accountNumber
+   * @param accountNumber The 15-16 digit bank account number. The first 2 digits are the bank number, the next 4 digits are the branch number, the next 7 digits are the account number, and the final 2-3 digits are the suffix.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class NZLocalAccountIdentification {
   /**
    * **nzLocal**
    *
-   * @param type
+   * @param type **nzLocal**
    * @return the current {@code NZLocalAccountIdentification} instance, allowing for method chaining
    */
   public NZLocalAccountIdentification type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class NZLocalAccountIdentification {
 
   /**
    * **nzLocal**
-   * @return type
+   * @return type **nzLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class NZLocalAccountIdentification {
   /**
    * **nzLocal**
    *
-   * @param type
+   * @param type **nzLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

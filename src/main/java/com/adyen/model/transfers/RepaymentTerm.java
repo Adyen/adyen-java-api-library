@@ -46,7 +46,7 @@ public class RepaymentTerm {
   /**
    * The estimated term for repaying the grant, in days.
    *
-   * @param estimatedDays
+   * @param estimatedDays The estimated term for repaying the grant, in days.
    * @return the current {@code RepaymentTerm} instance, allowing for method chaining
    */
   public RepaymentTerm estimatedDays(Integer estimatedDays) {
@@ -56,7 +56,7 @@ public class RepaymentTerm {
 
   /**
    * The estimated term for repaying the grant, in days.
-   * @return estimatedDays
+   * @return estimatedDays The estimated term for repaying the grant, in days.
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class RepaymentTerm {
   /**
    * The estimated term for repaying the grant, in days.
    *
-   * @param estimatedDays
+   * @param estimatedDays The estimated term for repaying the grant, in days.
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class RepaymentTerm {
   /**
    * The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
    *
-   * @param maximumDays
+   * @param maximumDays The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
    * @return the current {@code RepaymentTerm} instance, allowing for method chaining
    */
   public RepaymentTerm maximumDays(Integer maximumDays) {
@@ -88,7 +88,7 @@ public class RepaymentTerm {
 
   /**
    * The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
-   * @return maximumDays
+   * @return maximumDays The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
    */
   @JsonProperty(JSON_PROPERTY_MAXIMUM_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class RepaymentTerm {
   /**
    * The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
    *
-   * @param maximumDays
+   * @param maximumDays The maximum term for repaying the grant, in days. Only applies when &#x60;contractType&#x60; is **loan**.
    */
   @JsonProperty(JSON_PROPERTY_MAXIMUM_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

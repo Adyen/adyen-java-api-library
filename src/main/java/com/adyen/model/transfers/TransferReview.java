@@ -83,7 +83,7 @@ public class TransferReview {
   /**
    * Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    *
-   * @param numberOfApprovalsRequired
+   * @param numberOfApprovalsRequired Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    * @return the current {@code TransferReview} instance, allowing for method chaining
    */
   public TransferReview numberOfApprovalsRequired(Integer numberOfApprovalsRequired) {
@@ -93,7 +93,7 @@ public class TransferReview {
 
   /**
    * Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
-   * @return numberOfApprovalsRequired
+   * @return numberOfApprovalsRequired Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class TransferReview {
   /**
    * Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    *
-   * @param numberOfApprovalsRequired
+   * @param numberOfApprovalsRequired Shows the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class TransferReview {
   /**
    * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
    *
-   * @param scaOnApproval
+   * @param scaOnApproval Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
    * @return the current {@code TransferReview} instance, allowing for method chaining
    */
   public TransferReview scaOnApproval(ScaOnApprovalEnum scaOnApproval) {
@@ -125,7 +125,7 @@ public class TransferReview {
 
   /**
    * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
-   * @return scaOnApproval
+   * @return scaOnApproval Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
    */
   @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class TransferReview {
   /**
    * Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
    *
-   * @param scaOnApproval
+   * @param scaOnApproval Shows the status of the Strong Customer Authentication (SCA) process.  Possible values: **required**, **notApplicable**.
    */
   @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

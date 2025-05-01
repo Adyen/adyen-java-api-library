@@ -53,7 +53,7 @@ public class PaginatedBalanceAccountsResponse {
   /**
    * List of balance accounts.
    *
-   * @param balanceAccounts
+   * @param balanceAccounts List of balance accounts.
    * @return the current {@code PaginatedBalanceAccountsResponse} instance, allowing for method chaining
    */
   public PaginatedBalanceAccountsResponse balanceAccounts(List<BalanceAccountBase> balanceAccounts) {
@@ -71,7 +71,7 @@ public class PaginatedBalanceAccountsResponse {
 
   /**
    * List of balance accounts.
-   * @return balanceAccounts
+   * @return balanceAccounts List of balance accounts.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class PaginatedBalanceAccountsResponse {
   /**
    * List of balance accounts.
    *
-   * @param balanceAccounts
+   * @param balanceAccounts List of balance accounts.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +93,7 @@ public class PaginatedBalanceAccountsResponse {
   /**
    * Indicates whether there are more items on the next page.
    *
-   * @param hasNext
+   * @param hasNext Indicates whether there are more items on the next page.
    * @return the current {@code PaginatedBalanceAccountsResponse} instance, allowing for method chaining
    */
   public PaginatedBalanceAccountsResponse hasNext(Boolean hasNext) {
@@ -103,7 +103,7 @@ public class PaginatedBalanceAccountsResponse {
 
   /**
    * Indicates whether there are more items on the next page.
-   * @return hasNext
+   * @return hasNext Indicates whether there are more items on the next page.
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class PaginatedBalanceAccountsResponse {
   /**
    * Indicates whether there are more items on the next page.
    *
-   * @param hasNext
+   * @param hasNext Indicates whether there are more items on the next page.
    */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class PaginatedBalanceAccountsResponse {
   /**
    * Indicates whether there are more items on the previous page.
    *
-   * @param hasPrevious
+   * @param hasPrevious Indicates whether there are more items on the previous page.
    * @return the current {@code PaginatedBalanceAccountsResponse} instance, allowing for method chaining
    */
   public PaginatedBalanceAccountsResponse hasPrevious(Boolean hasPrevious) {
@@ -135,7 +135,7 @@ public class PaginatedBalanceAccountsResponse {
 
   /**
    * Indicates whether there are more items on the previous page.
-   * @return hasPrevious
+   * @return hasPrevious Indicates whether there are more items on the previous page.
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class PaginatedBalanceAccountsResponse {
   /**
    * Indicates whether there are more items on the previous page.
    *
-   * @param hasPrevious
+   * @param hasPrevious Indicates whether there are more items on the previous page.
    */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

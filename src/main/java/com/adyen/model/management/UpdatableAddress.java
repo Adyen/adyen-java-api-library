@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -64,7 +62,7 @@ public class UpdatableAddress {
   /**
    * The name of the city.
    *
-   * @param city
+   * @param city The name of the city.
    * @return the current {@code UpdatableAddress} instance, allowing for method chaining
    */
   public UpdatableAddress city(String city) {
@@ -74,9 +72,8 @@ public class UpdatableAddress {
 
   /**
    * The name of the city.
-   * @return city
+   * @return city The name of the city.
    */
-  @ApiModelProperty(value = "The name of the city.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCity() {
@@ -86,8 +83,8 @@ public class UpdatableAddress {
   /**
    * The name of the city.
    *
-   * @param city
-   */ 
+   * @param city The name of the city.
+   */
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -97,7 +94,7 @@ public class UpdatableAddress {
   /**
    * The street address.
    *
-   * @param line1
+   * @param line1 The street address.
    * @return the current {@code UpdatableAddress} instance, allowing for method chaining
    */
   public UpdatableAddress line1(String line1) {
@@ -107,9 +104,8 @@ public class UpdatableAddress {
 
   /**
    * The street address.
-   * @return line1
+   * @return line1 The street address.
    */
-  @ApiModelProperty(value = "The street address.")
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLine1() {
@@ -119,8 +115,8 @@ public class UpdatableAddress {
   /**
    * The street address.
    *
-   * @param line1
-   */ 
+   * @param line1 The street address.
+   */
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
@@ -130,7 +126,7 @@ public class UpdatableAddress {
   /**
    * Second address line.
    *
-   * @param line2
+   * @param line2 Second address line.
    * @return the current {@code UpdatableAddress} instance, allowing for method chaining
    */
   public UpdatableAddress line2(String line2) {
@@ -140,9 +136,8 @@ public class UpdatableAddress {
 
   /**
    * Second address line.
-   * @return line2
+   * @return line2 Second address line.
    */
-  @ApiModelProperty(value = "Second address line.")
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLine2() {
@@ -152,8 +147,8 @@ public class UpdatableAddress {
   /**
    * Second address line.
    *
-   * @param line2
-   */ 
+   * @param line2 Second address line.
+   */
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
@@ -163,7 +158,7 @@ public class UpdatableAddress {
   /**
    * Third address line.
    *
-   * @param line3
+   * @param line3 Third address line.
    * @return the current {@code UpdatableAddress} instance, allowing for method chaining
    */
   public UpdatableAddress line3(String line3) {
@@ -173,9 +168,8 @@ public class UpdatableAddress {
 
   /**
    * Third address line.
-   * @return line3
+   * @return line3 Third address line.
    */
-  @ApiModelProperty(value = "Third address line.")
   @JsonProperty(JSON_PROPERTY_LINE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLine3() {
@@ -185,8 +179,8 @@ public class UpdatableAddress {
   /**
    * Third address line.
    *
-   * @param line3
-   */ 
+   * @param line3 Third address line.
+   */
   @JsonProperty(JSON_PROPERTY_LINE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine3(String line3) {
@@ -196,7 +190,7 @@ public class UpdatableAddress {
   /**
    * The postal code.
    *
-   * @param postalCode
+   * @param postalCode The postal code.
    * @return the current {@code UpdatableAddress} instance, allowing for method chaining
    */
   public UpdatableAddress postalCode(String postalCode) {
@@ -206,9 +200,8 @@ public class UpdatableAddress {
 
   /**
    * The postal code.
-   * @return postalCode
+   * @return postalCode The postal code.
    */
-  @ApiModelProperty(value = "The postal code.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
@@ -218,8 +211,8 @@ public class UpdatableAddress {
   /**
    * The postal code.
    *
-   * @param postalCode
-   */ 
+   * @param postalCode The postal code.
+   */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -229,7 +222,7 @@ public class UpdatableAddress {
   /**
    * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    *
-   * @param stateOrProvince
+   * @param stateOrProvince The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    * @return the current {@code UpdatableAddress} instance, allowing for method chaining
    */
   public UpdatableAddress stateOrProvince(String stateOrProvince) {
@@ -239,9 +232,8 @@ public class UpdatableAddress {
 
   /**
    * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
-   * @return stateOrProvince
+   * @return stateOrProvince The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    */
-  @ApiModelProperty(value = "The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStateOrProvince() {
@@ -251,8 +243,8 @@ public class UpdatableAddress {
   /**
    * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    *
-   * @param stateOrProvince
-   */ 
+   * @param stateOrProvince The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
+   */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {

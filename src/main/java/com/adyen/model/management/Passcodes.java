@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class Passcodes {
   /**
    * The passcode for the Admin menu and the Settings menu.
    *
-   * @param adminMenuPin
+   * @param adminMenuPin The passcode for the Admin menu and the Settings menu.
    * @return the current {@code Passcodes} instance, allowing for method chaining
    */
   public Passcodes adminMenuPin(String adminMenuPin) {
@@ -66,9 +64,8 @@ public class Passcodes {
 
   /**
    * The passcode for the Admin menu and the Settings menu.
-   * @return adminMenuPin
+   * @return adminMenuPin The passcode for the Admin menu and the Settings menu.
    */
-  @ApiModelProperty(value = "The passcode for the Admin menu and the Settings menu.")
   @JsonProperty(JSON_PROPERTY_ADMIN_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAdminMenuPin() {
@@ -78,8 +75,8 @@ public class Passcodes {
   /**
    * The passcode for the Admin menu and the Settings menu.
    *
-   * @param adminMenuPin
-   */ 
+   * @param adminMenuPin The passcode for the Admin menu and the Settings menu.
+   */
   @JsonProperty(JSON_PROPERTY_ADMIN_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdminMenuPin(String adminMenuPin) {
@@ -89,7 +86,7 @@ public class Passcodes {
   /**
    * The passcode for referenced and unreferenced refunds on standalone terminals.
    *
-   * @param refundPin
+   * @param refundPin The passcode for referenced and unreferenced refunds on standalone terminals.
    * @return the current {@code Passcodes} instance, allowing for method chaining
    */
   public Passcodes refundPin(String refundPin) {
@@ -99,9 +96,8 @@ public class Passcodes {
 
   /**
    * The passcode for referenced and unreferenced refunds on standalone terminals.
-   * @return refundPin
+   * @return refundPin The passcode for referenced and unreferenced refunds on standalone terminals.
    */
-  @ApiModelProperty(value = "The passcode for referenced and unreferenced refunds on standalone terminals.")
   @JsonProperty(JSON_PROPERTY_REFUND_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRefundPin() {
@@ -111,8 +107,8 @@ public class Passcodes {
   /**
    * The passcode for referenced and unreferenced refunds on standalone terminals.
    *
-   * @param refundPin
-   */ 
+   * @param refundPin The passcode for referenced and unreferenced refunds on standalone terminals.
+   */
   @JsonProperty(JSON_PROPERTY_REFUND_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefundPin(String refundPin) {
@@ -122,7 +118,7 @@ public class Passcodes {
   /**
    * The passcode to unlock the terminal screen after a timeout.
    *
-   * @param screenLockPin
+   * @param screenLockPin The passcode to unlock the terminal screen after a timeout.
    * @return the current {@code Passcodes} instance, allowing for method chaining
    */
   public Passcodes screenLockPin(String screenLockPin) {
@@ -132,9 +128,8 @@ public class Passcodes {
 
   /**
    * The passcode to unlock the terminal screen after a timeout.
-   * @return screenLockPin
+   * @return screenLockPin The passcode to unlock the terminal screen after a timeout.
    */
-  @ApiModelProperty(value = "The passcode to unlock the terminal screen after a timeout.")
   @JsonProperty(JSON_PROPERTY_SCREEN_LOCK_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScreenLockPin() {
@@ -144,8 +139,8 @@ public class Passcodes {
   /**
    * The passcode to unlock the terminal screen after a timeout.
    *
-   * @param screenLockPin
-   */ 
+   * @param screenLockPin The passcode to unlock the terminal screen after a timeout.
+   */
   @JsonProperty(JSON_PROPERTY_SCREEN_LOCK_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenLockPin(String screenLockPin) {
@@ -155,7 +150,7 @@ public class Passcodes {
   /**
    * The passcode for the Transactions menu.
    *
-   * @param txMenuPin
+   * @param txMenuPin The passcode for the Transactions menu.
    * @return the current {@code Passcodes} instance, allowing for method chaining
    */
   public Passcodes txMenuPin(String txMenuPin) {
@@ -165,9 +160,8 @@ public class Passcodes {
 
   /**
    * The passcode for the Transactions menu.
-   * @return txMenuPin
+   * @return txMenuPin The passcode for the Transactions menu.
    */
-  @ApiModelProperty(value = "The passcode for the Transactions menu.")
   @JsonProperty(JSON_PROPERTY_TX_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTxMenuPin() {
@@ -177,8 +171,8 @@ public class Passcodes {
   /**
    * The passcode for the Transactions menu.
    *
-   * @param txMenuPin
-   */ 
+   * @param txMenuPin The passcode for the Transactions menu.
+   */
   @JsonProperty(JSON_PROPERTY_TX_MENU_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxMenuPin(String txMenuPin) {

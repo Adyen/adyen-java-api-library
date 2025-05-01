@@ -97,7 +97,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * An error message.
    *
-   * @param errorMessage
+   * @param errorMessage An error message.
    * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
    */
   public CardOrderItemDeliveryStatus errorMessage(String errorMessage) {
@@ -107,7 +107,7 @@ public class CardOrderItemDeliveryStatus {
 
   /**
    * An error message.
-   * @return errorMessage
+   * @return errorMessage An error message.
    */
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * An error message.
    *
-   * @param errorMessage
+   * @param errorMessage An error message.
    */
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +129,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * The status of the PIN delivery.
    *
-   * @param status
+   * @param status The status of the PIN delivery.
    * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
    */
   public CardOrderItemDeliveryStatus status(StatusEnum status) {
@@ -139,7 +139,7 @@ public class CardOrderItemDeliveryStatus {
 
   /**
    * The status of the PIN delivery.
-   * @return status
+   * @return status The status of the PIN delivery.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * The status of the PIN delivery.
    *
-   * @param status
+   * @param status The status of the PIN delivery.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * The tracking number of the PIN delivery.
    *
-   * @param trackingNumber
+   * @param trackingNumber The tracking number of the PIN delivery.
    * @return the current {@code CardOrderItemDeliveryStatus} instance, allowing for method chaining
    */
   public CardOrderItemDeliveryStatus trackingNumber(String trackingNumber) {
@@ -171,7 +171,7 @@ public class CardOrderItemDeliveryStatus {
 
   /**
    * The tracking number of the PIN delivery.
-   * @return trackingNumber
+   * @return trackingNumber The tracking number of the PIN delivery.
    */
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +182,7 @@ public class CardOrderItemDeliveryStatus {
   /**
    * The tracking number of the PIN delivery.
    *
-   * @param trackingNumber
+   * @param trackingNumber The tracking number of the PIN delivery.
    */
   @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -39,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CapabilityProblemEntityRecursive {
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
-  private List<String> documents = new ArrayList<>();
+  private List<String> documents;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -92,7 +92,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * List of document IDs corresponding to the verification errors from capabilities.
    *
-   * @param documents
+   * @param documents List of document IDs corresponding to the verification errors from capabilities.
    * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
    */
   public CapabilityProblemEntityRecursive documents(List<String> documents) {
@@ -110,7 +110,7 @@ public class CapabilityProblemEntityRecursive {
 
   /**
    * List of document IDs corresponding to the verification errors from capabilities.
-   * @return documents
+   * @return documents List of document IDs corresponding to the verification errors from capabilities.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +121,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * List of document IDs corresponding to the verification errors from capabilities.
    *
-   * @param documents
+   * @param documents List of document IDs corresponding to the verification errors from capabilities.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * id
    *
-   * @param id
+   * @param id 
    * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
    */
   public CapabilityProblemEntityRecursive id(String id) {
@@ -142,7 +142,7 @@ public class CapabilityProblemEntityRecursive {
 
   /**
    * Get id
-   * @return id
+   * @return id 
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +153,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * id
    *
-   * @param id
+   * @param id 
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +164,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * type
    *
-   * @param type
+   * @param type 
    * @return the current {@code CapabilityProblemEntityRecursive} instance, allowing for method chaining
    */
   public CapabilityProblemEntityRecursive type(TypeEnum type) {
@@ -174,7 +174,7 @@ public class CapabilityProblemEntityRecursive {
 
   /**
    * Get type
-   * @return type
+   * @return type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +185,7 @@ public class CapabilityProblemEntityRecursive {
   /**
    * type
    *
-   * @param type
+   * @param type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

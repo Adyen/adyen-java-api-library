@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,7 +44,7 @@ public class MealVoucherFRInfo {
   private String siret;
 
   public static final String JSON_PROPERTY_SUB_TYPES = "subTypes";
-  private List<String> subTypes = new ArrayList<>();
+  private List<String> subTypes;
 
   public MealVoucherFRInfo() { 
   }
@@ -54,7 +52,7 @@ public class MealVoucherFRInfo {
   /**
    * Meal Voucher conecsId. Format: digits only
    *
-   * @param conecsId
+   * @param conecsId Meal Voucher conecsId. Format: digits only
    * @return the current {@code MealVoucherFRInfo} instance, allowing for method chaining
    */
   public MealVoucherFRInfo conecsId(String conecsId) {
@@ -64,9 +62,8 @@ public class MealVoucherFRInfo {
 
   /**
    * Meal Voucher conecsId. Format: digits only
-   * @return conecsId
+   * @return conecsId Meal Voucher conecsId. Format: digits only
    */
-  @ApiModelProperty(required = true, value = "Meal Voucher conecsId. Format: digits only")
   @JsonProperty(JSON_PROPERTY_CONECS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getConecsId() {
@@ -76,8 +73,8 @@ public class MealVoucherFRInfo {
   /**
    * Meal Voucher conecsId. Format: digits only
    *
-   * @param conecsId
-   */ 
+   * @param conecsId Meal Voucher conecsId. Format: digits only
+   */
   @JsonProperty(JSON_PROPERTY_CONECS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConecsId(String conecsId) {
@@ -87,7 +84,7 @@ public class MealVoucherFRInfo {
   /**
    * Meal Voucher siret. Format: 14 digits.
    *
-   * @param siret
+   * @param siret Meal Voucher siret. Format: 14 digits.
    * @return the current {@code MealVoucherFRInfo} instance, allowing for method chaining
    */
   public MealVoucherFRInfo siret(String siret) {
@@ -97,9 +94,8 @@ public class MealVoucherFRInfo {
 
   /**
    * Meal Voucher siret. Format: 14 digits.
-   * @return siret
+   * @return siret Meal Voucher siret. Format: 14 digits.
    */
-  @ApiModelProperty(required = true, value = "Meal Voucher siret. Format: 14 digits.")
   @JsonProperty(JSON_PROPERTY_SIRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSiret() {
@@ -109,8 +105,8 @@ public class MealVoucherFRInfo {
   /**
    * Meal Voucher siret. Format: 14 digits.
    *
-   * @param siret
-   */ 
+   * @param siret Meal Voucher siret. Format: 14 digits.
+   */
   @JsonProperty(JSON_PROPERTY_SIRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiret(String siret) {
@@ -120,7 +116,7 @@ public class MealVoucherFRInfo {
   /**
    * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    *
-   * @param subTypes
+   * @param subTypes The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    * @return the current {@code MealVoucherFRInfo} instance, allowing for method chaining
    */
   public MealVoucherFRInfo subTypes(List<String> subTypes) {
@@ -129,15 +125,17 @@ public class MealVoucherFRInfo {
   }
 
   public MealVoucherFRInfo addSubTypesItem(String subTypesItem) {
+    if (this.subTypes == null) {
+      this.subTypes = new ArrayList<>();
+    }
     this.subTypes.add(subTypesItem);
     return this;
   }
 
   /**
    * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
-   * @return subTypes
+   * @return subTypes The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    */
-  @ApiModelProperty(required = true, value = "The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.")
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSubTypes() {
@@ -147,8 +145,8 @@ public class MealVoucherFRInfo {
   /**
    * The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
    *
-   * @param subTypes
-   */ 
+   * @param subTypes The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
+   */
   @JsonProperty(JSON_PROPERTY_SUB_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubTypes(List<String> subTypes) {

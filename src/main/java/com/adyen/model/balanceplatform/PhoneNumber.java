@@ -89,7 +89,7 @@ public class PhoneNumber {
   /**
    * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    *
-   * @param phoneCountryCode
+   * @param phoneCountryCode The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    * @return the current {@code PhoneNumber} instance, allowing for method chaining
    */
   public PhoneNumber phoneCountryCode(String phoneCountryCode) {
@@ -99,7 +99,7 @@ public class PhoneNumber {
 
   /**
    * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
-   * @return phoneCountryCode
+   * @return phoneCountryCode The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class PhoneNumber {
   /**
    * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    *
-   * @param phoneCountryCode
+   * @param phoneCountryCode The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +121,7 @@ public class PhoneNumber {
   /**
    * The phone number. The inclusion of the phone number country code is not necessary.
    *
-   * @param phoneNumber
+   * @param phoneNumber The phone number. The inclusion of the phone number country code is not necessary.
    * @return the current {@code PhoneNumber} instance, allowing for method chaining
    */
   public PhoneNumber phoneNumber(String phoneNumber) {
@@ -131,7 +131,7 @@ public class PhoneNumber {
 
   /**
    * The phone number. The inclusion of the phone number country code is not necessary.
-   * @return phoneNumber
+   * @return phoneNumber The phone number. The inclusion of the phone number country code is not necessary.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class PhoneNumber {
   /**
    * The phone number. The inclusion of the phone number country code is not necessary.
    *
-   * @param phoneNumber
+   * @param phoneNumber The phone number. The inclusion of the phone number country code is not necessary.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +153,7 @@ public class PhoneNumber {
   /**
    * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    *
-   * @param phoneType
+   * @param phoneType The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    * @return the current {@code PhoneNumber} instance, allowing for method chaining
    */
   public PhoneNumber phoneType(PhoneTypeEnum phoneType) {
@@ -163,7 +163,7 @@ public class PhoneNumber {
 
   /**
    * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
-   * @return phoneType
+   * @return phoneType The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +174,7 @@ public class PhoneNumber {
   /**
    * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    *
-   * @param phoneType
+   * @param phoneType The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

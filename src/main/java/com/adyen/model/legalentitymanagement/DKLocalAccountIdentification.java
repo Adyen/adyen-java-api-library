@@ -83,7 +83,7 @@ public class DKLocalAccountIdentification {
   /**
    * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
    *
-   * @param accountNumber
+   * @param accountNumber The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
    * @return the current {@code DKLocalAccountIdentification} instance, allowing for method chaining
    */
   public DKLocalAccountIdentification accountNumber(String accountNumber) {
@@ -93,7 +93,7 @@ public class DKLocalAccountIdentification {
 
   /**
    * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
-   * @return accountNumber
+   * @return accountNumber The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class DKLocalAccountIdentification {
   /**
    * The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
    *
-   * @param accountNumber
+   * @param accountNumber The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class DKLocalAccountIdentification {
   /**
    * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
    *
-   * @param bankCode
+   * @param bankCode The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
    * @return the current {@code DKLocalAccountIdentification} instance, allowing for method chaining
    */
   public DKLocalAccountIdentification bankCode(String bankCode) {
@@ -125,7 +125,7 @@ public class DKLocalAccountIdentification {
 
   /**
    * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
-   * @return bankCode
+   * @return bankCode The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
    */
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class DKLocalAccountIdentification {
   /**
    * The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
    *
-   * @param bankCode
+   * @param bankCode The 4-digit bank code (Registreringsnummer) (without separators or whitespace).
    */
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class DKLocalAccountIdentification {
   /**
    * **dkLocal**
    *
-   * @param type
+   * @param type **dkLocal**
    * @return the current {@code DKLocalAccountIdentification} instance, allowing for method chaining
    */
   public DKLocalAccountIdentification type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class DKLocalAccountIdentification {
 
   /**
    * **dkLocal**
-   * @return type
+   * @return type **dkLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class DKLocalAccountIdentification {
   /**
    * **dkLocal**
    *
-   * @param type
+   * @param type **dkLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

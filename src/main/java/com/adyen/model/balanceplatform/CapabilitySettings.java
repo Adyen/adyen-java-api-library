@@ -137,7 +137,7 @@ public class CapabilitySettings {
   /**
    * 
    *
-   * @param amountPerIndustry
+   * @param amountPerIndustry 
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings amountPerIndustry(Map<String, Amount> amountPerIndustry) {
@@ -155,7 +155,7 @@ public class CapabilitySettings {
 
   /**
    * 
-   * @return amountPerIndustry
+   * @return amountPerIndustry 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +166,7 @@ public class CapabilitySettings {
   /**
    * 
    *
-   * @param amountPerIndustry
+   * @param amountPerIndustry 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class CapabilitySettings {
   /**
    * 
    *
-   * @param authorizedCardUsers
+   * @param authorizedCardUsers 
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings authorizedCardUsers(Boolean authorizedCardUsers) {
@@ -187,7 +187,7 @@ public class CapabilitySettings {
 
   /**
    * 
-   * @return authorizedCardUsers
+   * @return authorizedCardUsers 
    */
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class CapabilitySettings {
   /**
    * 
    *
-   * @param authorizedCardUsers
+   * @param authorizedCardUsers 
    */
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class CapabilitySettings {
   /**
    * 
    *
-   * @param fundingSource
+   * @param fundingSource 
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings fundingSource(List<FundingSourceEnum> fundingSource) {
@@ -227,7 +227,7 @@ public class CapabilitySettings {
 
   /**
    * 
-   * @return fundingSource
+   * @return fundingSource 
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +238,7 @@ public class CapabilitySettings {
   /**
    * 
    *
-   * @param fundingSource
+   * @param fundingSource 
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -249,7 +249,7 @@ public class CapabilitySettings {
   /**
    * 
    *
-   * @param interval
+   * @param interval 
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings interval(IntervalEnum interval) {
@@ -259,7 +259,7 @@ public class CapabilitySettings {
 
   /**
    * 
-   * @return interval
+   * @return interval 
    */
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +270,7 @@ public class CapabilitySettings {
   /**
    * 
    *
-   * @param interval
+   * @param interval 
    */
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +281,7 @@ public class CapabilitySettings {
   /**
    * maxAmount
    *
-   * @param maxAmount
+   * @param maxAmount 
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings maxAmount(Amount maxAmount) {
@@ -291,7 +291,7 @@ public class CapabilitySettings {
 
   /**
    * Get maxAmount
-   * @return maxAmount
+   * @return maxAmount 
    */
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +302,7 @@ public class CapabilitySettings {
   /**
    * maxAmount
    *
-   * @param maxAmount
+   * @param maxAmount 
    */
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

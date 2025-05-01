@@ -79,6 +79,7 @@ public class TerminalSettingsCompanyLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the companyId path parameter");
         }
         pathParams.put("companyId", companyId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (model != null) {
@@ -154,6 +155,7 @@ public class TerminalSettingsCompanyLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the companyId path parameter");
         }
         pathParams.put("companyId", companyId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (model != null) {

@@ -88,7 +88,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
    */
   public NumberAndBicAccountIdentification accountNumber(String accountNumber) {
@@ -98,7 +98,7 @@ public class NumberAndBicAccountIdentification {
 
   /**
    * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
-   * @return accountNumber
+   * @return accountNumber The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +109,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +120,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * additionalBankIdentification
    *
-   * @param additionalBankIdentification
+   * @param additionalBankIdentification 
    * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
    */
   public NumberAndBicAccountIdentification additionalBankIdentification(AdditionalBankIdentification additionalBankIdentification) {
@@ -130,7 +130,7 @@ public class NumberAndBicAccountIdentification {
 
   /**
    * Get additionalBankIdentification
-   * @return additionalBankIdentification
+   * @return additionalBankIdentification 
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +141,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * additionalBankIdentification
    *
-   * @param additionalBankIdentification
+   * @param additionalBankIdentification 
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +152,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
-   * @param bic
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
    */
   public NumberAndBicAccountIdentification bic(String bic) {
@@ -162,7 +162,7 @@ public class NumberAndBicAccountIdentification {
 
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
-   * @return bic
+   * @return bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +173,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
-   * @param bic
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +184,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * **numberAndBic**
    *
-   * @param type
+   * @param type **numberAndBic**
    * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
    */
   public NumberAndBicAccountIdentification type(TypeEnum type) {
@@ -194,7 +194,7 @@ public class NumberAndBicAccountIdentification {
 
   /**
    * **numberAndBic**
-   * @return type
+   * @return type **numberAndBic**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +205,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * **numberAndBic**
    *
-   * @param type
+   * @param type **numberAndBic**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

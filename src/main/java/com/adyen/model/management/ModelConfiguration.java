@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Currency;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -50,13 +48,13 @@ public class ModelConfiguration {
   private Boolean commercial;
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
-  private List<String> country = null;
+  private List<String> country;
 
   public static final String JSON_PROPERTY_CURRENCIES = "currencies";
-  private List<Currency> currencies = new ArrayList<>();
+  private List<Currency> currencies;
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
-  private List<String> sources = null;
+  private List<String> sources;
 
   public ModelConfiguration() { 
   }
@@ -64,7 +62,7 @@ public class ModelConfiguration {
   /**
    * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
    *
-   * @param brand
+   * @param brand Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
    * @return the current {@code ModelConfiguration} instance, allowing for method chaining
    */
   public ModelConfiguration brand(String brand) {
@@ -74,9 +72,8 @@ public class ModelConfiguration {
 
   /**
    * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
-   * @return brand
+   * @return brand Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
    */
-  @ApiModelProperty(required = true, value = "Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). ")
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBrand() {
@@ -86,8 +83,8 @@ public class ModelConfiguration {
   /**
    * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
    *
-   * @param brand
-   */ 
+   * @param brand Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
+   */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
@@ -97,7 +94,7 @@ public class ModelConfiguration {
   /**
    * Set to **true** to apply surcharges only to commercial/business cards.
    *
-   * @param commercial
+   * @param commercial Set to **true** to apply surcharges only to commercial/business cards.
    * @return the current {@code ModelConfiguration} instance, allowing for method chaining
    */
   public ModelConfiguration commercial(Boolean commercial) {
@@ -107,9 +104,8 @@ public class ModelConfiguration {
 
   /**
    * Set to **true** to apply surcharges only to commercial/business cards.
-   * @return commercial
+   * @return commercial Set to **true** to apply surcharges only to commercial/business cards.
    */
-  @ApiModelProperty(value = "Set to **true** to apply surcharges only to commercial/business cards.")
   @JsonProperty(JSON_PROPERTY_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getCommercial() {
@@ -119,8 +115,8 @@ public class ModelConfiguration {
   /**
    * Set to **true** to apply surcharges only to commercial/business cards.
    *
-   * @param commercial
-   */ 
+   * @param commercial Set to **true** to apply surcharges only to commercial/business cards.
+   */
   @JsonProperty(JSON_PROPERTY_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommercial(Boolean commercial) {
@@ -130,7 +126,7 @@ public class ModelConfiguration {
   /**
    * The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
    *
-   * @param country
+   * @param country The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
    * @return the current {@code ModelConfiguration} instance, allowing for method chaining
    */
   public ModelConfiguration country(List<String> country) {
@@ -148,9 +144,8 @@ public class ModelConfiguration {
 
   /**
    * The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
-   * @return country
+   * @return country The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
    */
-  @ApiModelProperty(value = "The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getCountry() {
@@ -160,8 +155,8 @@ public class ModelConfiguration {
   /**
    * The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
    *
-   * @param country
-   */ 
+   * @param country The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region.
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(List<String> country) {
@@ -171,7 +166,7 @@ public class ModelConfiguration {
   /**
    * Currency and percentage or amount of the surcharge.
    *
-   * @param currencies
+   * @param currencies Currency and percentage or amount of the surcharge.
    * @return the current {@code ModelConfiguration} instance, allowing for method chaining
    */
   public ModelConfiguration currencies(List<Currency> currencies) {
@@ -180,15 +175,17 @@ public class ModelConfiguration {
   }
 
   public ModelConfiguration addCurrenciesItem(Currency currenciesItem) {
+    if (this.currencies == null) {
+      this.currencies = new ArrayList<>();
+    }
     this.currencies.add(currenciesItem);
     return this;
   }
 
   /**
    * Currency and percentage or amount of the surcharge.
-   * @return currencies
+   * @return currencies Currency and percentage or amount of the surcharge.
    */
-  @ApiModelProperty(required = true, value = "Currency and percentage or amount of the surcharge.")
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Currency> getCurrencies() {
@@ -198,8 +195,8 @@ public class ModelConfiguration {
   /**
    * Currency and percentage or amount of the surcharge.
    *
-   * @param currencies
-   */ 
+   * @param currencies Currency and percentage or amount of the surcharge.
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<Currency> currencies) {
@@ -209,7 +206,7 @@ public class ModelConfiguration {
   /**
    * Funding source. Possible values: * **Credit** * **Debit**
    *
-   * @param sources
+   * @param sources Funding source. Possible values: * **Credit** * **Debit**
    * @return the current {@code ModelConfiguration} instance, allowing for method chaining
    */
   public ModelConfiguration sources(List<String> sources) {
@@ -227,9 +224,8 @@ public class ModelConfiguration {
 
   /**
    * Funding source. Possible values: * **Credit** * **Debit**
-   * @return sources
+   * @return sources Funding source. Possible values: * **Credit** * **Debit**
    */
-  @ApiModelProperty(value = "Funding source. Possible values: * **Credit** * **Debit**")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getSources() {
@@ -239,8 +235,8 @@ public class ModelConfiguration {
   /**
    * Funding source. Possible values: * **Credit** * **Debit**
    *
-   * @param sources
-   */ 
+   * @param sources Funding source. Possible values: * **Credit** * **Debit**
+   */
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSources(List<String> sources) {

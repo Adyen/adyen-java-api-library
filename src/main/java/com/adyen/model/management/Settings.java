@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class Settings {
   /**
    * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
    *
-   * @param band
+   * @param band The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
    * @return the current {@code Settings} instance, allowing for method chaining
    */
   public Settings band(String band) {
@@ -62,9 +60,8 @@ public class Settings {
 
   /**
    * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
-   * @return band
+   * @return band The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
    */
-  @ApiModelProperty(value = "The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.")
   @JsonProperty(JSON_PROPERTY_BAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBand() {
@@ -74,8 +71,8 @@ public class Settings {
   /**
    * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
    *
-   * @param band
-   */ 
+   * @param band The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
+   */
   @JsonProperty(JSON_PROPERTY_BAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBand(String band) {
@@ -85,7 +82,7 @@ public class Settings {
   /**
    * Indicates whether roaming is enabled on the terminals.
    *
-   * @param roaming
+   * @param roaming Indicates whether roaming is enabled on the terminals.
    * @return the current {@code Settings} instance, allowing for method chaining
    */
   public Settings roaming(Boolean roaming) {
@@ -95,9 +92,8 @@ public class Settings {
 
   /**
    * Indicates whether roaming is enabled on the terminals.
-   * @return roaming
+   * @return roaming Indicates whether roaming is enabled on the terminals.
    */
-  @ApiModelProperty(value = "Indicates whether roaming is enabled on the terminals.")
   @JsonProperty(JSON_PROPERTY_ROAMING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getRoaming() {
@@ -107,8 +103,8 @@ public class Settings {
   /**
    * Indicates whether roaming is enabled on the terminals.
    *
-   * @param roaming
-   */ 
+   * @param roaming Indicates whether roaming is enabled on the terminals.
+   */
   @JsonProperty(JSON_PROPERTY_ROAMING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoaming(Boolean roaming) {
@@ -118,7 +114,7 @@ public class Settings {
   /**
    * The connection time-out in seconds. Minimum value: 0.
    *
-   * @param timeout
+   * @param timeout The connection time-out in seconds. Minimum value: 0.
    * @return the current {@code Settings} instance, allowing for method chaining
    */
   public Settings timeout(Integer timeout) {
@@ -128,9 +124,8 @@ public class Settings {
 
   /**
    * The connection time-out in seconds. Minimum value: 0.
-   * @return timeout
+   * @return timeout The connection time-out in seconds. Minimum value: 0.
    */
-  @ApiModelProperty(value = "The connection time-out in seconds. Minimum value: 0.")
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getTimeout() {
@@ -140,8 +135,8 @@ public class Settings {
   /**
    * The connection time-out in seconds. Minimum value: 0.
    *
-   * @param timeout
-   */ 
+   * @param timeout The connection time-out in seconds. Minimum value: 0.
+   */
   @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeout(Integer timeout) {

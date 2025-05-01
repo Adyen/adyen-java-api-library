@@ -150,7 +150,7 @@ public class BankAccountIdentificationTypeRequirement {
   /**
    * List of bank account identification types: eg.; [iban , numberAndBic]
    *
-   * @param bankAccountIdentificationTypes
+   * @param bankAccountIdentificationTypes List of bank account identification types: eg.; [iban , numberAndBic]
    * @return the current {@code BankAccountIdentificationTypeRequirement} instance, allowing for method chaining
    */
   public BankAccountIdentificationTypeRequirement bankAccountIdentificationTypes(List<BankAccountIdentificationTypesEnum> bankAccountIdentificationTypes) {
@@ -168,7 +168,7 @@ public class BankAccountIdentificationTypeRequirement {
 
   /**
    * List of bank account identification types: eg.; [iban , numberAndBic]
-   * @return bankAccountIdentificationTypes
+   * @return bankAccountIdentificationTypes List of bank account identification types: eg.; [iban , numberAndBic]
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_IDENTIFICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class BankAccountIdentificationTypeRequirement {
   /**
    * List of bank account identification types: eg.; [iban , numberAndBic]
    *
-   * @param bankAccountIdentificationTypes
+   * @param bankAccountIdentificationTypes List of bank account identification types: eg.; [iban , numberAndBic]
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_IDENTIFICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class BankAccountIdentificationTypeRequirement {
   /**
    * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
    *
-   * @param description
+   * @param description Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
    * @return the current {@code BankAccountIdentificationTypeRequirement} instance, allowing for method chaining
    */
   public BankAccountIdentificationTypeRequirement description(String description) {
@@ -200,7 +200,7 @@ public class BankAccountIdentificationTypeRequirement {
 
   /**
    * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
-   * @return description
+   * @return description Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class BankAccountIdentificationTypeRequirement {
   /**
    * Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
    *
-   * @param description
+   * @param description Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class BankAccountIdentificationTypeRequirement {
   /**
    * **bankAccountIdentificationTypeRequirement**
    *
-   * @param type
+   * @param type **bankAccountIdentificationTypeRequirement**
    * @return the current {@code BankAccountIdentificationTypeRequirement} instance, allowing for method chaining
    */
   public BankAccountIdentificationTypeRequirement type(TypeEnum type) {
@@ -232,7 +232,7 @@ public class BankAccountIdentificationTypeRequirement {
 
   /**
    * **bankAccountIdentificationTypeRequirement**
-   * @return type
+   * @return type **bankAccountIdentificationTypeRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class BankAccountIdentificationTypeRequirement {
   /**
    * **bankAccountIdentificationTypeRequirement**
    *
-   * @param type
+   * @param type **bankAccountIdentificationTypeRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

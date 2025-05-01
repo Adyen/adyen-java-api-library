@@ -111,7 +111,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The Terms of Service document in Base64-encoded format.
    *
-   * @param document
+   * @param document The Terms of Service document in Base64-encoded format.
    * @return the current {@code GetTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetTermsOfServiceDocumentResponse document(byte[] document) {
@@ -121,7 +121,7 @@ public class GetTermsOfServiceDocumentResponse {
 
   /**
    * The Terms of Service document in Base64-encoded format.
-   * @return document
+   * @return document The Terms of Service document in Base64-encoded format.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The Terms of Service document in Base64-encoded format.
    *
-   * @param document
+   * @param document The Terms of Service document in Base64-encoded format.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The unique identifier of the legal entity.
    *
-   * @param id
+   * @param id The unique identifier of the legal entity.
    * @return the current {@code GetTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetTermsOfServiceDocumentResponse id(String id) {
@@ -153,7 +153,7 @@ public class GetTermsOfServiceDocumentResponse {
 
   /**
    * The unique identifier of the legal entity.
-   * @return id
+   * @return id The unique identifier of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +164,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The unique identifier of the legal entity.
    *
-   * @param id
+   * @param id The unique identifier of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    *
-   * @param language
+   * @param language The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    * @return the current {@code GetTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetTermsOfServiceDocumentResponse language(String language) {
@@ -185,7 +185,7 @@ public class GetTermsOfServiceDocumentResponse {
 
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
-   * @return language
+   * @return language The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +196,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    *
-   * @param language
+   * @param language The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The format of the Terms of Service document.
    *
-   * @param termsOfServiceDocumentFormat
+   * @param termsOfServiceDocumentFormat The format of the Terms of Service document.
    * @return the current {@code GetTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetTermsOfServiceDocumentResponse termsOfServiceDocumentFormat(String termsOfServiceDocumentFormat) {
@@ -217,7 +217,7 @@ public class GetTermsOfServiceDocumentResponse {
 
   /**
    * The format of the Terms of Service document.
-   * @return termsOfServiceDocumentFormat
+   * @return termsOfServiceDocumentFormat The format of the Terms of Service document.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,7 +228,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The format of the Terms of Service document.
    *
-   * @param termsOfServiceDocumentFormat
+   * @param termsOfServiceDocumentFormat The format of the Terms of Service document.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The unique identifier of the Terms of Service document.
    *
-   * @param termsOfServiceDocumentId
+   * @param termsOfServiceDocumentId The unique identifier of the Terms of Service document.
    * @return the current {@code GetTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetTermsOfServiceDocumentResponse termsOfServiceDocumentId(String termsOfServiceDocumentId) {
@@ -249,7 +249,7 @@ public class GetTermsOfServiceDocumentResponse {
 
   /**
    * The unique identifier of the Terms of Service document.
-   * @return termsOfServiceDocumentId
+   * @return termsOfServiceDocumentId The unique identifier of the Terms of Service document.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +260,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The unique identifier of the Terms of Service document.
    *
-   * @param termsOfServiceDocumentId
+   * @param termsOfServiceDocumentId The unique identifier of the Terms of Service document.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +271,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
-   * @param type
+   * @param type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    * @return the current {@code GetTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetTermsOfServiceDocumentResponse type(TypeEnum type) {
@@ -281,7 +281,7 @@ public class GetTermsOfServiceDocumentResponse {
 
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
-   * @return type
+   * @return type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,7 +292,7 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
-   * @param type
+   * @param type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

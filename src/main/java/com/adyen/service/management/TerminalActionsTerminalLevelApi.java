@@ -71,7 +71,6 @@ public class TerminalActionsTerminalLevelApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public ScheduleTerminalActionsResponse createTerminalAction(ScheduleTerminalActionsRequest scheduleTerminalActionsRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = scheduleTerminalActionsRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/terminals/scheduleActions", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

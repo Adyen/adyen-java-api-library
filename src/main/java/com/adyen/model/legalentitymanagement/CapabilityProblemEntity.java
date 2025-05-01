@@ -40,7 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CapabilityProblemEntity {
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
-  private List<String> documents = new ArrayList<>();
+  private List<String> documents;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -96,7 +96,7 @@ public class CapabilityProblemEntity {
   /**
    * List of document IDs corresponding to the verification errors from capabilities.
    *
-   * @param documents
+   * @param documents List of document IDs corresponding to the verification errors from capabilities.
    * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
   public CapabilityProblemEntity documents(List<String> documents) {
@@ -114,7 +114,7 @@ public class CapabilityProblemEntity {
 
   /**
    * List of document IDs corresponding to the verification errors from capabilities.
-   * @return documents
+   * @return documents List of document IDs corresponding to the verification errors from capabilities.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class CapabilityProblemEntity {
   /**
    * List of document IDs corresponding to the verification errors from capabilities.
    *
-   * @param documents
+   * @param documents List of document IDs corresponding to the verification errors from capabilities.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class CapabilityProblemEntity {
   /**
    * id
    *
-   * @param id
+   * @param id 
    * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
   public CapabilityProblemEntity id(String id) {
@@ -146,7 +146,7 @@ public class CapabilityProblemEntity {
 
   /**
    * Get id
-   * @return id
+   * @return id 
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class CapabilityProblemEntity {
   /**
    * id
    *
-   * @param id
+   * @param id 
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class CapabilityProblemEntity {
   /**
    * owner
    *
-   * @param owner
+   * @param owner 
    * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
   public CapabilityProblemEntity owner(CapabilityProblemEntityRecursive owner) {
@@ -178,7 +178,7 @@ public class CapabilityProblemEntity {
 
   /**
    * Get owner
-   * @return owner
+   * @return owner 
    */
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class CapabilityProblemEntity {
   /**
    * owner
    *
-   * @param owner
+   * @param owner 
    */
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class CapabilityProblemEntity {
   /**
    * type
    *
-   * @param type
+   * @param type 
    * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
   public CapabilityProblemEntity type(TypeEnum type) {
@@ -210,7 +210,7 @@ public class CapabilityProblemEntity {
 
   /**
    * Get type
-   * @return type
+   * @return type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +221,7 @@ public class CapabilityProblemEntity {
   /**
    * type
    *
-   * @param type
+   * @param type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

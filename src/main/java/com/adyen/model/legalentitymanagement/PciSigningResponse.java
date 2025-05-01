@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class PciSigningResponse {
   public static final String JSON_PROPERTY_PCI_QUESTIONNAIRE_IDS = "pciQuestionnaireIds";
-  private List<String> pciQuestionnaireIds = new ArrayList<>();
+  private List<String> pciQuestionnaireIds;
 
   public static final String JSON_PROPERTY_SIGNED_BY = "signedBy";
   private String signedBy;
@@ -48,7 +48,7 @@ public class PciSigningResponse {
   /**
    * The unique identifiers of the signed PCI documents.
    *
-   * @param pciQuestionnaireIds
+   * @param pciQuestionnaireIds The unique identifiers of the signed PCI documents.
    * @return the current {@code PciSigningResponse} instance, allowing for method chaining
    */
   public PciSigningResponse pciQuestionnaireIds(List<String> pciQuestionnaireIds) {
@@ -66,7 +66,7 @@ public class PciSigningResponse {
 
   /**
    * The unique identifiers of the signed PCI documents.
-   * @return pciQuestionnaireIds
+   * @return pciQuestionnaireIds The unique identifiers of the signed PCI documents.
    */
   @JsonProperty(JSON_PROPERTY_PCI_QUESTIONNAIRE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,7 +77,7 @@ public class PciSigningResponse {
   /**
    * The unique identifiers of the signed PCI documents.
    *
-   * @param pciQuestionnaireIds
+   * @param pciQuestionnaireIds The unique identifiers of the signed PCI documents.
    */
   @JsonProperty(JSON_PROPERTY_PCI_QUESTIONNAIRE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +88,7 @@ public class PciSigningResponse {
   /**
    * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
    *
-   * @param signedBy
+   * @param signedBy The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
    * @return the current {@code PciSigningResponse} instance, allowing for method chaining
    */
   public PciSigningResponse signedBy(String signedBy) {
@@ -98,7 +98,7 @@ public class PciSigningResponse {
 
   /**
    * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
-   * @return signedBy
+   * @return signedBy The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
    */
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +109,7 @@ public class PciSigningResponse {
   /**
    * The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
    *
-   * @param signedBy
+   * @param signedBy The [legal entity ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) of the individual who signed the PCI questionnaire.
    */
   @JsonProperty(JSON_PROPERTY_SIGNED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
