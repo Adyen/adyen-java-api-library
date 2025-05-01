@@ -102,7 +102,7 @@ public class RatepayDetails {
   /**
    * The address where to send the invoice.
    *
-   * @param billingAddress
+   * @param billingAddress The address where to send the invoice.
    * @return the current {@code RatepayDetails} instance, allowing for method chaining
    */
   public RatepayDetails billingAddress(String billingAddress) {
@@ -112,7 +112,7 @@ public class RatepayDetails {
 
   /**
    * The address where to send the invoice.
-   * @return billingAddress
+   * @return billingAddress The address where to send the invoice.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class RatepayDetails {
   /**
    * The address where to send the invoice.
    *
-   * @param billingAddress
+   * @param billingAddress The address where to send the invoice.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +134,7 @@ public class RatepayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code RatepayDetails} instance, allowing for method chaining
    */
   public RatepayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -144,7 +144,7 @@ public class RatepayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class RatepayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +166,7 @@ public class RatepayDetails {
   /**
    * The address where the goods should be delivered.
    *
-   * @param deliveryAddress
+   * @param deliveryAddress The address where the goods should be delivered.
    * @return the current {@code RatepayDetails} instance, allowing for method chaining
    */
   public RatepayDetails deliveryAddress(String deliveryAddress) {
@@ -176,7 +176,7 @@ public class RatepayDetails {
 
   /**
    * The address where the goods should be delivered.
-   * @return deliveryAddress
+   * @return deliveryAddress The address where the goods should be delivered.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class RatepayDetails {
   /**
    * The address where the goods should be delivered.
    *
-   * @param deliveryAddress
+   * @param deliveryAddress The address where the goods should be delivered.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class RatepayDetails {
   /**
    * Shopper name, date of birth, phone number, and email address.
    *
-   * @param personalDetails
+   * @param personalDetails Shopper name, date of birth, phone number, and email address.
    * @return the current {@code RatepayDetails} instance, allowing for method chaining
    */
   public RatepayDetails personalDetails(String personalDetails) {
@@ -208,7 +208,7 @@ public class RatepayDetails {
 
   /**
    * Shopper name, date of birth, phone number, and email address.
-   * @return personalDetails
+   * @return personalDetails Shopper name, date of birth, phone number, and email address.
    */
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class RatepayDetails {
   /**
    * Shopper name, date of birth, phone number, and email address.
    *
-   * @param personalDetails
+   * @param personalDetails Shopper name, date of birth, phone number, and email address.
    */
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class RatepayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code RatepayDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -244,7 +244,7 @@ public class RatepayDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -257,7 +257,7 @@ public class RatepayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -272,7 +272,7 @@ public class RatepayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code RatepayDetails} instance, allowing for method chaining
    */
   public RatepayDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -282,7 +282,7 @@ public class RatepayDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +293,7 @@ public class RatepayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +304,7 @@ public class RatepayDetails {
   /**
    * **ratepay**
    *
-   * @param type
+   * @param type **ratepay**
    * @return the current {@code RatepayDetails} instance, allowing for method chaining
    */
   public RatepayDetails type(TypeEnum type) {
@@ -314,7 +314,7 @@ public class RatepayDetails {
 
   /**
    * **ratepay**
-   * @return type
+   * @return type **ratepay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -325,7 +325,7 @@ public class RatepayDetails {
   /**
    * **ratepay**
    *
-   * @param type
+   * @param type **ratepay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

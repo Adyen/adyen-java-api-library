@@ -93,7 +93,7 @@ public class DragonpayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code DragonpayDetails} instance, allowing for method chaining
    */
   public DragonpayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -103,7 +103,7 @@ public class DragonpayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class DragonpayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class DragonpayDetails {
   /**
    * The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    *
-   * @param issuer
+   * @param issuer The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    * @return the current {@code DragonpayDetails} instance, allowing for method chaining
    */
   public DragonpayDetails issuer(String issuer) {
@@ -135,7 +135,7 @@ public class DragonpayDetails {
 
   /**
    * The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
-   * @return issuer
+   * @return issuer The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class DragonpayDetails {
   /**
    * The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    *
-   * @param issuer
+   * @param issuer The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class DragonpayDetails {
   /**
    * The shopper’s email address.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper’s email address.
    * @return the current {@code DragonpayDetails} instance, allowing for method chaining
    */
   public DragonpayDetails shopperEmail(String shopperEmail) {
@@ -167,7 +167,7 @@ public class DragonpayDetails {
 
   /**
    * The shopper’s email address.
-   * @return shopperEmail
+   * @return shopperEmail The shopper’s email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +178,7 @@ public class DragonpayDetails {
   /**
    * The shopper’s email address.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper’s email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class DragonpayDetails {
   /**
    * **dragonpay**
    *
-   * @param type
+   * @param type **dragonpay**
    * @return the current {@code DragonpayDetails} instance, allowing for method chaining
    */
   public DragonpayDetails type(TypeEnum type) {
@@ -199,7 +199,7 @@ public class DragonpayDetails {
 
   /**
    * **dragonpay**
-   * @return type
+   * @return type **dragonpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +210,7 @@ public class DragonpayDetails {
   /**
    * **dragonpay**
    *
-   * @param type
+   * @param type **dragonpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -51,7 +51,7 @@ public class PaymentCancelRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    * @return the current {@code PaymentCancelRequest} instance, allowing for method chaining
    */
   public PaymentCancelRequest applicationInfo(ApplicationInfo applicationInfo) {
@@ -61,7 +61,7 @@ public class PaymentCancelRequest {
 
   /**
    * Get applicationInfo
-   * @return applicationInfo
+   * @return applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,7 +72,7 @@ public class PaymentCancelRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class PaymentCancelRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    * @return the current {@code PaymentCancelRequest} instance, allowing for method chaining
    */
   public PaymentCancelRequest merchantAccount(String merchantAccount) {
@@ -93,7 +93,7 @@ public class PaymentCancelRequest {
 
   /**
    * The merchant account that is used to process the payment.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class PaymentCancelRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class PaymentCancelRequest {
   /**
    * Your reference for the cancel request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the cancel request. Maximum length: 80 characters.
    * @return the current {@code PaymentCancelRequest} instance, allowing for method chaining
    */
   public PaymentCancelRequest reference(String reference) {
@@ -125,7 +125,7 @@ public class PaymentCancelRequest {
 
   /**
    * Your reference for the cancel request. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the cancel request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class PaymentCancelRequest {
   /**
    * Your reference for the cancel request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the cancel request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

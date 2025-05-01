@@ -87,7 +87,7 @@ public class MbwayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code MbwayDetails} instance, allowing for method chaining
    */
   public MbwayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -97,7 +97,7 @@ public class MbwayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class MbwayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class MbwayDetails {
   /**
    * 
    *
-   * @param shopperEmail
+   * @param shopperEmail 
    * @return the current {@code MbwayDetails} instance, allowing for method chaining
    */
   public MbwayDetails shopperEmail(String shopperEmail) {
@@ -129,7 +129,7 @@ public class MbwayDetails {
 
   /**
    * 
-   * @return shopperEmail
+   * @return shopperEmail 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class MbwayDetails {
   /**
    * 
    *
-   * @param shopperEmail
+   * @param shopperEmail 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class MbwayDetails {
   /**
    * 
    *
-   * @param telephoneNumber
+   * @param telephoneNumber 
    * @return the current {@code MbwayDetails} instance, allowing for method chaining
    */
   public MbwayDetails telephoneNumber(String telephoneNumber) {
@@ -161,7 +161,7 @@ public class MbwayDetails {
 
   /**
    * 
-   * @return telephoneNumber
+   * @return telephoneNumber 
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class MbwayDetails {
   /**
    * 
    *
-   * @param telephoneNumber
+   * @param telephoneNumber 
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class MbwayDetails {
   /**
    * **mbway**
    *
-   * @param type
+   * @param type **mbway**
    * @return the current {@code MbwayDetails} instance, allowing for method chaining
    */
   public MbwayDetails type(TypeEnum type) {
@@ -193,7 +193,7 @@ public class MbwayDetails {
 
   /**
    * **mbway**
-   * @return type
+   * @return type **mbway**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +204,7 @@ public class MbwayDetails {
   /**
    * **mbway**
    *
-   * @param type
+   * @param type **mbway**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

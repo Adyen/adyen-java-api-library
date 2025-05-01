@@ -202,7 +202,7 @@ public class AchDetails {
   /**
    * The account holder type (personal or business).
    *
-   * @param accountHolderType
+   * @param accountHolderType The account holder type (personal or business).
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails accountHolderType(AccountHolderTypeEnum accountHolderType) {
@@ -212,7 +212,7 @@ public class AchDetails {
 
   /**
    * The account holder type (personal or business).
-   * @return accountHolderType
+   * @return accountHolderType The account holder type (personal or business).
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class AchDetails {
   /**
    * The account holder type (personal or business).
    *
-   * @param accountHolderType
+   * @param accountHolderType The account holder type (personal or business).
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class AchDetails {
   /**
    * The bank account number (without separators).
    *
-   * @param bankAccountNumber
+   * @param bankAccountNumber The bank account number (without separators).
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails bankAccountNumber(String bankAccountNumber) {
@@ -244,7 +244,7 @@ public class AchDetails {
 
   /**
    * The bank account number (without separators).
-   * @return bankAccountNumber
+   * @return bankAccountNumber The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class AchDetails {
   /**
    * The bank account number (without separators).
    *
-   * @param bankAccountNumber
+   * @param bankAccountNumber The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +266,7 @@ public class AchDetails {
   /**
    * The bank account type (checking, savings...).
    *
-   * @param bankAccountType
+   * @param bankAccountType The bank account type (checking, savings...).
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails bankAccountType(BankAccountTypeEnum bankAccountType) {
@@ -276,7 +276,7 @@ public class AchDetails {
 
   /**
    * The bank account type (checking, savings...).
-   * @return bankAccountType
+   * @return bankAccountType The bank account type (checking, savings...).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +287,7 @@ public class AchDetails {
   /**
    * The bank account type (checking, savings...).
    *
-   * @param bankAccountType
+   * @param bankAccountType The bank account type (checking, savings...).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +298,7 @@ public class AchDetails {
   /**
    * The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    *
-   * @param bankLocationId
+   * @param bankLocationId The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails bankLocationId(String bankLocationId) {
@@ -308,7 +308,7 @@ public class AchDetails {
 
   /**
    * The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
-   * @return bankLocationId
+   * @return bankLocationId The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    */
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +319,7 @@ public class AchDetails {
   /**
    * The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    *
-   * @param bankLocationId
+   * @param bankLocationId The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    */
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +330,7 @@ public class AchDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -340,7 +340,7 @@ public class AchDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,7 +351,7 @@ public class AchDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +362,7 @@ public class AchDetails {
   /**
    * Encrypted bank account number. The bank account number (without separators).
    *
-   * @param encryptedBankAccountNumber
+   * @param encryptedBankAccountNumber Encrypted bank account number. The bank account number (without separators).
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails encryptedBankAccountNumber(String encryptedBankAccountNumber) {
@@ -372,7 +372,7 @@ public class AchDetails {
 
   /**
    * Encrypted bank account number. The bank account number (without separators).
-   * @return encryptedBankAccountNumber
+   * @return encryptedBankAccountNumber Encrypted bank account number. The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -383,7 +383,7 @@ public class AchDetails {
   /**
    * Encrypted bank account number. The bank account number (without separators).
    *
-   * @param encryptedBankAccountNumber
+   * @param encryptedBankAccountNumber Encrypted bank account number. The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,7 +394,7 @@ public class AchDetails {
   /**
    * Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    *
-   * @param encryptedBankLocationId
+   * @param encryptedBankLocationId Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails encryptedBankLocationId(String encryptedBankLocationId) {
@@ -404,7 +404,7 @@ public class AchDetails {
 
   /**
    * Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
-   * @return encryptedBankLocationId
+   * @return encryptedBankLocationId Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,7 +415,7 @@ public class AchDetails {
   /**
    * Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    *
-   * @param encryptedBankLocationId
+   * @param encryptedBankLocationId Encrypted location id. The bank routing number of the account. The field value is &#x60;nil&#x60; in most cases.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,7 +426,7 @@ public class AchDetails {
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails ownerName(String ownerName) {
@@ -436,7 +436,7 @@ public class AchDetails {
 
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
-   * @return ownerName
+   * @return ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -447,7 +447,7 @@ public class AchDetails {
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -458,7 +458,7 @@ public class AchDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code AchDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -472,7 +472,7 @@ public class AchDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -485,7 +485,7 @@ public class AchDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -500,7 +500,7 @@ public class AchDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -510,7 +510,7 @@ public class AchDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -521,7 +521,7 @@ public class AchDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -532,7 +532,7 @@ public class AchDetails {
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails transferInstrumentId(String transferInstrumentId) {
@@ -542,7 +542,7 @@ public class AchDetails {
 
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
-   * @return transferInstrumentId
+   * @return transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -553,7 +553,7 @@ public class AchDetails {
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -564,7 +564,7 @@ public class AchDetails {
   /**
    * **ach**
    *
-   * @param type
+   * @param type **ach**
    * @return the current {@code AchDetails} instance, allowing for method chaining
    */
   public AchDetails type(TypeEnum type) {
@@ -574,7 +574,7 @@ public class AchDetails {
 
   /**
    * **ach**
-   * @return type
+   * @return type **ach**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -585,7 +585,7 @@ public class AchDetails {
   /**
    * **ach**
    *
-   * @param type
+   * @param type **ach**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

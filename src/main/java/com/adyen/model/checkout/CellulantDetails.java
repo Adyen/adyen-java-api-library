@@ -83,7 +83,7 @@ public class CellulantDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code CellulantDetails} instance, allowing for method chaining
    */
   public CellulantDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -93,7 +93,7 @@ public class CellulantDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class CellulantDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class CellulantDetails {
   /**
    * The Cellulant issuer.
    *
-   * @param issuer
+   * @param issuer The Cellulant issuer.
    * @return the current {@code CellulantDetails} instance, allowing for method chaining
    */
   public CellulantDetails issuer(String issuer) {
@@ -125,7 +125,7 @@ public class CellulantDetails {
 
   /**
    * The Cellulant issuer.
-   * @return issuer
+   * @return issuer The Cellulant issuer.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class CellulantDetails {
   /**
    * The Cellulant issuer.
    *
-   * @param issuer
+   * @param issuer The Cellulant issuer.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class CellulantDetails {
   /**
    * **Cellulant**
    *
-   * @param type
+   * @param type **Cellulant**
    * @return the current {@code CellulantDetails} instance, allowing for method chaining
    */
   public CellulantDetails type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class CellulantDetails {
 
   /**
    * **Cellulant**
-   * @return type
+   * @return type **Cellulant**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class CellulantDetails {
   /**
    * **Cellulant**
    *
-   * @param type
+   * @param type **Cellulant**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

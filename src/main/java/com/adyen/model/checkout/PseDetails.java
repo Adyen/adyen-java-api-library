@@ -95,7 +95,7 @@ public class PseDetails {
   /**
    * The shopper&#39;s bank.
    *
-   * @param bank
+   * @param bank The shopper&#39;s bank.
    * @return the current {@code PseDetails} instance, allowing for method chaining
    */
   public PseDetails bank(String bank) {
@@ -105,7 +105,7 @@ public class PseDetails {
 
   /**
    * The shopper&#39;s bank.
-   * @return bank
+   * @return bank The shopper&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class PseDetails {
   /**
    * The shopper&#39;s bank.
    *
-   * @param bank
+   * @param bank The shopper&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class PseDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code PseDetails} instance, allowing for method chaining
    */
   public PseDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -137,7 +137,7 @@ public class PseDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class PseDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class PseDetails {
   /**
    * The client type.
    *
-   * @param clientType
+   * @param clientType The client type.
    * @return the current {@code PseDetails} instance, allowing for method chaining
    */
   public PseDetails clientType(String clientType) {
@@ -169,7 +169,7 @@ public class PseDetails {
 
   /**
    * The client type.
-   * @return clientType
+   * @return clientType The client type.
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class PseDetails {
   /**
    * The client type.
    *
-   * @param clientType
+   * @param clientType The client type.
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class PseDetails {
   /**
    * The identification code.
    *
-   * @param identification
+   * @param identification The identification code.
    * @return the current {@code PseDetails} instance, allowing for method chaining
    */
   public PseDetails identification(String identification) {
@@ -201,7 +201,7 @@ public class PseDetails {
 
   /**
    * The identification code.
-   * @return identification
+   * @return identification The identification code.
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class PseDetails {
   /**
    * The identification code.
    *
-   * @param identification
+   * @param identification The identification code.
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class PseDetails {
   /**
    * The identification type.
    *
-   * @param identificationType
+   * @param identificationType The identification type.
    * @return the current {@code PseDetails} instance, allowing for method chaining
    */
   public PseDetails identificationType(String identificationType) {
@@ -233,7 +233,7 @@ public class PseDetails {
 
   /**
    * The identification type.
-   * @return identificationType
+   * @return identificationType The identification type.
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class PseDetails {
   /**
    * The identification type.
    *
-   * @param identificationType
+   * @param identificationType The identification type.
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class PseDetails {
   /**
    * The payment method type.
    *
-   * @param type
+   * @param type The payment method type.
    * @return the current {@code PseDetails} instance, allowing for method chaining
    */
   public PseDetails type(TypeEnum type) {
@@ -265,7 +265,7 @@ public class PseDetails {
 
   /**
    * The payment method type.
-   * @return type
+   * @return type The payment method type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class PseDetails {
   /**
    * The payment method type.
    *
-   * @param type
+   * @param type The payment method type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

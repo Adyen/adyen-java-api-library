@@ -63,7 +63,7 @@ public class CheckoutOrderResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
    */
   public CheckoutOrderResponse amount(Amount amount) {
@@ -73,7 +73,7 @@ public class CheckoutOrderResponse {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +84,7 @@ public class CheckoutOrderResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +95,7 @@ public class CheckoutOrderResponse {
   /**
    * The expiry date for the order.
    *
-   * @param expiresAt
+   * @param expiresAt The expiry date for the order.
    * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
    */
   public CheckoutOrderResponse expiresAt(String expiresAt) {
@@ -105,7 +105,7 @@ public class CheckoutOrderResponse {
 
   /**
    * The expiry date for the order.
-   * @return expiresAt
+   * @return expiresAt The expiry date for the order.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class CheckoutOrderResponse {
   /**
    * The expiry date for the order.
    *
-   * @param expiresAt
+   * @param expiresAt The expiry date for the order.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class CheckoutOrderResponse {
   /**
    * The encrypted order data.
    *
-   * @param orderData
+   * @param orderData The encrypted order data.
    * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
    */
   public CheckoutOrderResponse orderData(String orderData) {
@@ -137,7 +137,7 @@ public class CheckoutOrderResponse {
 
   /**
    * The encrypted order data.
-   * @return orderData
+   * @return orderData The encrypted order data.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class CheckoutOrderResponse {
   /**
    * The encrypted order data.
    *
-   * @param orderData
+   * @param orderData The encrypted order data.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class CheckoutOrderResponse {
   /**
    * The &#x60;pspReference&#x60; that belongs to the order.
    *
-   * @param pspReference
+   * @param pspReference The &#x60;pspReference&#x60; that belongs to the order.
    * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
    */
   public CheckoutOrderResponse pspReference(String pspReference) {
@@ -169,7 +169,7 @@ public class CheckoutOrderResponse {
 
   /**
    * The &#x60;pspReference&#x60; that belongs to the order.
-   * @return pspReference
+   * @return pspReference The &#x60;pspReference&#x60; that belongs to the order.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class CheckoutOrderResponse {
   /**
    * The &#x60;pspReference&#x60; that belongs to the order.
    *
-   * @param pspReference
+   * @param pspReference The &#x60;pspReference&#x60; that belongs to the order.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class CheckoutOrderResponse {
   /**
    * The merchant reference for the order.
    *
-   * @param reference
+   * @param reference The merchant reference for the order.
    * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
    */
   public CheckoutOrderResponse reference(String reference) {
@@ -201,7 +201,7 @@ public class CheckoutOrderResponse {
 
   /**
    * The merchant reference for the order.
-   * @return reference
+   * @return reference The merchant reference for the order.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class CheckoutOrderResponse {
   /**
    * The merchant reference for the order.
    *
-   * @param reference
+   * @param reference The merchant reference for the order.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class CheckoutOrderResponse {
   /**
    * remainingAmount
    *
-   * @param remainingAmount
+   * @param remainingAmount 
    * @return the current {@code CheckoutOrderResponse} instance, allowing for method chaining
    */
   public CheckoutOrderResponse remainingAmount(Amount remainingAmount) {
@@ -233,7 +233,7 @@ public class CheckoutOrderResponse {
 
   /**
    * Get remainingAmount
-   * @return remainingAmount
+   * @return remainingAmount 
    */
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class CheckoutOrderResponse {
   /**
    * remainingAmount
    *
-   * @param remainingAmount
+   * @param remainingAmount 
    */
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

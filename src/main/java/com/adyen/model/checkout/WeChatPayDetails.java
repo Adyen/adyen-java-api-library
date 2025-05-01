@@ -81,7 +81,7 @@ public class WeChatPayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
    */
   public WeChatPayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -91,7 +91,7 @@ public class WeChatPayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +102,7 @@ public class WeChatPayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +113,7 @@ public class WeChatPayDetails {
   /**
    * **wechatpay**
    *
-   * @param type
+   * @param type **wechatpay**
    * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
    */
   public WeChatPayDetails type(TypeEnum type) {
@@ -123,7 +123,7 @@ public class WeChatPayDetails {
 
   /**
    * **wechatpay**
-   * @return type
+   * @return type **wechatpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +134,7 @@ public class WeChatPayDetails {
   /**
    * **wechatpay**
    *
-   * @param type
+   * @param type **wechatpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -79,7 +79,7 @@ public class AndroidPayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code AndroidPayDetails} instance, allowing for method chaining
    */
   public AndroidPayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -89,7 +89,7 @@ public class AndroidPayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class AndroidPayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class AndroidPayDetails {
   /**
    * **androidpay**
    *
-   * @param type
+   * @param type **androidpay**
    * @return the current {@code AndroidPayDetails} instance, allowing for method chaining
    */
   public AndroidPayDetails type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class AndroidPayDetails {
 
   /**
    * **androidpay**
-   * @return type
+   * @return type **androidpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class AndroidPayDetails {
   /**
    * **androidpay**
    *
-   * @param type
+   * @param type **androidpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

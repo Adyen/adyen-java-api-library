@@ -78,7 +78,7 @@ public class PaymentCaptureRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
    */
   public PaymentCaptureRequest amount(Amount amount) {
@@ -88,7 +88,7 @@ public class PaymentCaptureRequest {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class PaymentCaptureRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class PaymentCaptureRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
    */
   public PaymentCaptureRequest applicationInfo(ApplicationInfo applicationInfo) {
@@ -120,7 +120,7 @@ public class PaymentCaptureRequest {
 
   /**
    * Get applicationInfo
-   * @return applicationInfo
+   * @return applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +131,7 @@ public class PaymentCaptureRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class PaymentCaptureRequest {
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
    */
   public PaymentCaptureRequest lineItems(List<LineItem> lineItems) {
@@ -160,7 +160,7 @@ public class PaymentCaptureRequest {
 
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
-   * @return lineItems
+   * @return lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class PaymentCaptureRequest {
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +182,7 @@ public class PaymentCaptureRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
    */
   public PaymentCaptureRequest merchantAccount(String merchantAccount) {
@@ -192,7 +192,7 @@ public class PaymentCaptureRequest {
 
   /**
    * The merchant account that is used to process the payment.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class PaymentCaptureRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +214,7 @@ public class PaymentCaptureRequest {
   /**
    * platformChargebackLogic
    *
-   * @param platformChargebackLogic
+   * @param platformChargebackLogic 
    * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
    */
   public PaymentCaptureRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
@@ -224,7 +224,7 @@ public class PaymentCaptureRequest {
 
   /**
    * Get platformChargebackLogic
-   * @return platformChargebackLogic
+   * @return platformChargebackLogic 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +235,7 @@ public class PaymentCaptureRequest {
   /**
    * platformChargebackLogic
    *
-   * @param platformChargebackLogic
+   * @param platformChargebackLogic 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +246,7 @@ public class PaymentCaptureRequest {
   /**
    * Your reference for the capture request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the capture request. Maximum length: 80 characters.
    * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
    */
   public PaymentCaptureRequest reference(String reference) {
@@ -256,7 +256,7 @@ public class PaymentCaptureRequest {
 
   /**
    * Your reference for the capture request. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the capture request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +267,7 @@ public class PaymentCaptureRequest {
   /**
    * Your reference for the capture request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the capture request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +278,7 @@ public class PaymentCaptureRequest {
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    *
-   * @param splits
+   * @param splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
    */
   public PaymentCaptureRequest splits(List<Split> splits) {
@@ -296,7 +296,7 @@ public class PaymentCaptureRequest {
 
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
-   * @return splits
+   * @return splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +307,7 @@ public class PaymentCaptureRequest {
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    *
-   * @param splits
+   * @param splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,7 +318,7 @@ public class PaymentCaptureRequest {
   /**
    * A List of sub-merchants.
    *
-   * @param subMerchants
+   * @param subMerchants A List of sub-merchants.
    * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
    */
   public PaymentCaptureRequest subMerchants(List<SubMerchantInfo> subMerchants) {
@@ -336,7 +336,7 @@ public class PaymentCaptureRequest {
 
   /**
    * A List of sub-merchants.
-   * @return subMerchants
+   * @return subMerchants A List of sub-merchants.
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -347,7 +347,7 @@ public class PaymentCaptureRequest {
   /**
    * A List of sub-merchants.
    *
-   * @param subMerchants
+   * @param subMerchants A List of sub-merchants.
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

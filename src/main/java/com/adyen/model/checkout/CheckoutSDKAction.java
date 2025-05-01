@@ -95,7 +95,7 @@ public class CheckoutSDKAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    * @return the current {@code CheckoutSDKAction} instance, allowing for method chaining
    */
   public CheckoutSDKAction paymentData(String paymentData) {
@@ -105,7 +105,7 @@ public class CheckoutSDKAction {
 
   /**
    * Encoded payment data.
-   * @return paymentData
+   * @return paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class CheckoutSDKAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class CheckoutSDKAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutSDKAction} instance, allowing for method chaining
    */
   public CheckoutSDKAction paymentMethodType(String paymentMethodType) {
@@ -137,7 +137,7 @@ public class CheckoutSDKAction {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class CheckoutSDKAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class CheckoutSDKAction {
   /**
    * The data to pass to the SDK.
    *
-   * @param sdkData
+   * @param sdkData The data to pass to the SDK.
    * @return the current {@code CheckoutSDKAction} instance, allowing for method chaining
    */
   public CheckoutSDKAction sdkData(Map<String, String> sdkData) {
@@ -177,7 +177,7 @@ public class CheckoutSDKAction {
 
   /**
    * The data to pass to the SDK.
-   * @return sdkData
+   * @return sdkData The data to pass to the SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +188,7 @@ public class CheckoutSDKAction {
   /**
    * The data to pass to the SDK.
    *
-   * @param sdkData
+   * @param sdkData The data to pass to the SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,7 +199,7 @@ public class CheckoutSDKAction {
   /**
    * The type of the action.
    *
-   * @param type
+   * @param type The type of the action.
    * @return the current {@code CheckoutSDKAction} instance, allowing for method chaining
    */
   public CheckoutSDKAction type(TypeEnum type) {
@@ -209,7 +209,7 @@ public class CheckoutSDKAction {
 
   /**
    * The type of the action.
-   * @return type
+   * @return type The type of the action.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +220,7 @@ public class CheckoutSDKAction {
   /**
    * The type of the action.
    *
-   * @param type
+   * @param type The type of the action.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +231,7 @@ public class CheckoutSDKAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutSDKAction} instance, allowing for method chaining
    */
   public CheckoutSDKAction url(String url) {
@@ -241,7 +241,7 @@ public class CheckoutSDKAction {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +252,7 @@ public class CheckoutSDKAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

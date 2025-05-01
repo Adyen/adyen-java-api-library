@@ -62,7 +62,7 @@ public class Company {
   /**
    * The company website&#39;s home page.
    *
-   * @param homepage
+   * @param homepage The company website&#39;s home page.
    * @return the current {@code Company} instance, allowing for method chaining
    */
   public Company homepage(String homepage) {
@@ -72,7 +72,7 @@ public class Company {
 
   /**
    * The company website&#39;s home page.
-   * @return homepage
+   * @return homepage The company website&#39;s home page.
    */
   @JsonProperty(JSON_PROPERTY_HOMEPAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class Company {
   /**
    * The company website&#39;s home page.
    *
-   * @param homepage
+   * @param homepage The company website&#39;s home page.
    */
   @JsonProperty(JSON_PROPERTY_HOMEPAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +94,7 @@ public class Company {
   /**
    * The company name.
    *
-   * @param name
+   * @param name The company name.
    * @return the current {@code Company} instance, allowing for method chaining
    */
   public Company name(String name) {
@@ -104,7 +104,7 @@ public class Company {
 
   /**
    * The company name.
-   * @return name
+   * @return name The company name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class Company {
   /**
    * The company name.
    *
-   * @param name
+   * @param name The company name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class Company {
   /**
    * Registration number of the company.
    *
-   * @param registrationNumber
+   * @param registrationNumber Registration number of the company.
    * @return the current {@code Company} instance, allowing for method chaining
    */
   public Company registrationNumber(String registrationNumber) {
@@ -136,7 +136,7 @@ public class Company {
 
   /**
    * Registration number of the company.
-   * @return registrationNumber
+   * @return registrationNumber Registration number of the company.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class Company {
   /**
    * Registration number of the company.
    *
-   * @param registrationNumber
+   * @param registrationNumber Registration number of the company.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class Company {
   /**
    * Registry location of the company.
    *
-   * @param registryLocation
+   * @param registryLocation Registry location of the company.
    * @return the current {@code Company} instance, allowing for method chaining
    */
   public Company registryLocation(String registryLocation) {
@@ -168,7 +168,7 @@ public class Company {
 
   /**
    * Registry location of the company.
-   * @return registryLocation
+   * @return registryLocation Registry location of the company.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class Company {
   /**
    * Registry location of the company.
    *
-   * @param registryLocation
+   * @param registryLocation Registry location of the company.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class Company {
   /**
    * Tax ID of the company.
    *
-   * @param taxId
+   * @param taxId Tax ID of the company.
    * @return the current {@code Company} instance, allowing for method chaining
    */
   public Company taxId(String taxId) {
@@ -200,7 +200,7 @@ public class Company {
 
   /**
    * Tax ID of the company.
-   * @return taxId
+   * @return taxId Tax ID of the company.
    */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class Company {
   /**
    * Tax ID of the company.
    *
-   * @param taxId
+   * @param taxId Tax ID of the company.
    */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class Company {
   /**
    * The company type.
    *
-   * @param type
+   * @param type The company type.
    * @return the current {@code Company} instance, allowing for method chaining
    */
   public Company type(String type) {
@@ -232,7 +232,7 @@ public class Company {
 
   /**
    * The company type.
-   * @return type
+   * @return type The company type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class Company {
   /**
    * The company type.
    *
-   * @param type
+   * @param type The company type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

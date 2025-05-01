@@ -67,7 +67,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
    */
   public PaypalUpdateOrderRequest amount(Amount amount) {
@@ -77,7 +77,7 @@ public class PaypalUpdateOrderRequest {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +88,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * The list of new delivery methods and the cost of each.
    *
-   * @param deliveryMethods
+   * @param deliveryMethods The list of new delivery methods and the cost of each.
    * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
    */
   public PaypalUpdateOrderRequest deliveryMethods(List<DeliveryMethod> deliveryMethods) {
@@ -117,7 +117,7 @@ public class PaypalUpdateOrderRequest {
 
   /**
    * The list of new delivery methods and the cost of each.
-   * @return deliveryMethods
+   * @return deliveryMethods The list of new delivery methods and the cost of each.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +128,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * The list of new delivery methods and the cost of each.
    *
-   * @param deliveryMethods
+   * @param deliveryMethods The list of new delivery methods and the cost of each.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
    *
-   * @param paymentData
+   * @param paymentData The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
    * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
    */
   public PaypalUpdateOrderRequest paymentData(String paymentData) {
@@ -149,7 +149,7 @@ public class PaypalUpdateOrderRequest {
 
   /**
    * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
-   * @return paymentData
+   * @return paymentData The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +160,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
    *
-   * @param paymentData
+   * @param paymentData The &#x60;paymentData&#x60; from the client side. This value changes every time you make a &#x60;/paypal/updateOrder&#x60; request.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
    *
-   * @param pspReference
+   * @param pspReference The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
    * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
    */
   public PaypalUpdateOrderRequest pspReference(String pspReference) {
@@ -181,7 +181,7 @@ public class PaypalUpdateOrderRequest {
 
   /**
    * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
-   * @return pspReference
+   * @return pspReference The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +192,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
    *
-   * @param pspReference
+   * @param pspReference The original &#x60;pspReference&#x60; from the &#x60;/payments&#x60; response.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
    *
-   * @param sessionId
+   * @param sessionId The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
    * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
    */
   public PaypalUpdateOrderRequest sessionId(String sessionId) {
@@ -213,7 +213,7 @@ public class PaypalUpdateOrderRequest {
 
   /**
    * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
-   * @return sessionId
+   * @return sessionId The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
    */
   @JsonProperty(JSON_PROPERTY_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +224,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
    *
-   * @param sessionId
+   * @param sessionId The original &#x60;sessionId&#x60; from the &#x60;/sessions&#x60; response.
    */
   @JsonProperty(JSON_PROPERTY_SESSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +235,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * taxTotal
    *
-   * @param taxTotal
+   * @param taxTotal 
    * @return the current {@code PaypalUpdateOrderRequest} instance, allowing for method chaining
    */
   public PaypalUpdateOrderRequest taxTotal(TaxTotal taxTotal) {
@@ -245,7 +245,7 @@ public class PaypalUpdateOrderRequest {
 
   /**
    * Get taxTotal
-   * @return taxTotal
+   * @return taxTotal 
    */
   @JsonProperty(JSON_PROPERTY_TAX_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,7 +256,7 @@ public class PaypalUpdateOrderRequest {
   /**
    * taxTotal
    *
-   * @param taxTotal
+   * @param taxTotal 
    */
   @JsonProperty(JSON_PROPERTY_TAX_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

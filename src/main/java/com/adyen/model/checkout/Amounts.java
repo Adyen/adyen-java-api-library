@@ -48,7 +48,7 @@ public class Amounts {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    * @return the current {@code Amounts} instance, allowing for method chaining
    */
   public Amounts currency(String currency) {
@@ -58,7 +58,7 @@ public class Amounts {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -69,7 +69,7 @@ public class Amounts {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,7 +80,7 @@ public class Amounts {
   /**
    * The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).
    *
-   * @param values
+   * @param values The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).
    * @return the current {@code Amounts} instance, allowing for method chaining
    */
   public Amounts values(List<Long> values) {
@@ -98,7 +98,7 @@ public class Amounts {
 
   /**
    * The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).
-   * @return values
+   * @return values The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +109,7 @@ public class Amounts {
   /**
    * The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).
    *
-   * @param values
+   * @param values The amounts of the donation (in [minor units](https://docs.adyen.com/development-resources/currency-codes/)).
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -126,7 +126,7 @@ public class DeviceRenderOptions {
   /**
    * Supported SDK interface types. Allowed values: * native * html * both
    *
-   * @param sdkInterface
+   * @param sdkInterface Supported SDK interface types. Allowed values: * native * html * both
    * @return the current {@code DeviceRenderOptions} instance, allowing for method chaining
    */
   public DeviceRenderOptions sdkInterface(SdkInterfaceEnum sdkInterface) {
@@ -136,7 +136,7 @@ public class DeviceRenderOptions {
 
   /**
    * Supported SDK interface types. Allowed values: * native * html * both
-   * @return sdkInterface
+   * @return sdkInterface Supported SDK interface types. Allowed values: * native * html * both
    */
   @JsonProperty(JSON_PROPERTY_SDK_INTERFACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class DeviceRenderOptions {
   /**
    * Supported SDK interface types. Allowed values: * native * html * both
    *
-   * @param sdkInterface
+   * @param sdkInterface Supported SDK interface types. Allowed values: * native * html * both
    */
   @JsonProperty(JSON_PROPERTY_SDK_INTERFACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class DeviceRenderOptions {
   /**
    * UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
    *
-   * @param sdkUiType
+   * @param sdkUiType UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
    * @return the current {@code DeviceRenderOptions} instance, allowing for method chaining
    */
   public DeviceRenderOptions sdkUiType(List<SdkUiTypeEnum> sdkUiType) {
@@ -176,7 +176,7 @@ public class DeviceRenderOptions {
 
   /**
    * UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
-   * @return sdkUiType
+   * @return sdkUiType UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
    */
   @JsonProperty(JSON_PROPERTY_SDK_UI_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class DeviceRenderOptions {
   /**
    * UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
    *
-   * @param sdkUiType
+   * @param sdkUiType UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
    */
   @JsonProperty(JSON_PROPERTY_SDK_UI_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

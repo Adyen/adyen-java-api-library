@@ -339,7 +339,7 @@ public class DonationPaymentRequest {
   /**
    * accountInfo
    *
-   * @param accountInfo
+   * @param accountInfo 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest accountInfo(AccountInfo accountInfo) {
@@ -349,7 +349,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get accountInfo
-   * @return accountInfo
+   * @return accountInfo 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,7 +360,7 @@ public class DonationPaymentRequest {
   /**
    * accountInfo
    *
-   * @param accountInfo
+   * @param accountInfo 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -371,7 +371,7 @@ public class DonationPaymentRequest {
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest additionalData(Map<String, String> additionalData) {
@@ -389,7 +389,7 @@ public class DonationPaymentRequest {
 
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
-   * @return additionalData
+   * @return additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -400,7 +400,7 @@ public class DonationPaymentRequest {
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -411,7 +411,7 @@ public class DonationPaymentRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest amount(Amount amount) {
@@ -421,7 +421,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -432,7 +432,7 @@ public class DonationPaymentRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -443,7 +443,7 @@ public class DonationPaymentRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest applicationInfo(ApplicationInfo applicationInfo) {
@@ -453,7 +453,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get applicationInfo
-   * @return applicationInfo
+   * @return applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -464,7 +464,7 @@ public class DonationPaymentRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -475,7 +475,7 @@ public class DonationPaymentRequest {
   /**
    * authenticationData
    *
-   * @param authenticationData
+   * @param authenticationData 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest authenticationData(AuthenticationData authenticationData) {
@@ -485,7 +485,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get authenticationData
-   * @return authenticationData
+   * @return authenticationData 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -496,7 +496,7 @@ public class DonationPaymentRequest {
   /**
    * authenticationData
    *
-   * @param authenticationData
+   * @param authenticationData 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -507,7 +507,7 @@ public class DonationPaymentRequest {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest billingAddress(BillingAddress billingAddress) {
@@ -517,7 +517,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get billingAddress
-   * @return billingAddress
+   * @return billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -528,7 +528,7 @@ public class DonationPaymentRequest {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -539,7 +539,7 @@ public class DonationPaymentRequest {
   /**
    * browserInfo
    *
-   * @param browserInfo
+   * @param browserInfo 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest browserInfo(BrowserInfo browserInfo) {
@@ -549,7 +549,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get browserInfo
-   * @return browserInfo
+   * @return browserInfo 
    */
   @JsonProperty(JSON_PROPERTY_BROWSER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -560,7 +560,7 @@ public class DonationPaymentRequest {
   /**
    * browserInfo
    *
-   * @param browserInfo
+   * @param browserInfo 
    */
   @JsonProperty(JSON_PROPERTY_BROWSER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -571,7 +571,7 @@ public class DonationPaymentRequest {
   /**
    * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
    *
-   * @param channel
+   * @param channel The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest channel(ChannelEnum channel) {
@@ -581,7 +581,7 @@ public class DonationPaymentRequest {
 
   /**
    * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
-   * @return channel
+   * @return channel The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
    */
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -592,7 +592,7 @@ public class DonationPaymentRequest {
   /**
    * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
    *
-   * @param channel
+   * @param channel The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
    */
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -603,7 +603,7 @@ public class DonationPaymentRequest {
   /**
    * Checkout attempt ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId Checkout attempt ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest checkoutAttemptId(String checkoutAttemptId) {
@@ -613,7 +613,7 @@ public class DonationPaymentRequest {
 
   /**
    * Checkout attempt ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId Checkout attempt ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -624,7 +624,7 @@ public class DonationPaymentRequest {
   /**
    * Checkout attempt ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId Checkout attempt ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -635,7 +635,7 @@ public class DonationPaymentRequest {
   /**
    * Conversion ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    *
-   * @param conversionId
+   * @param conversionId Conversion ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v68
@@ -649,7 +649,7 @@ public class DonationPaymentRequest {
 
   /**
    * Conversion ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
-   * @return conversionId
+   * @return conversionId Conversion ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    * @deprecated // deprecated since Adyen Checkout API v68: Use `checkoutAttemptId` instead
    */
   @Deprecated // deprecated since Adyen Checkout API v68: Use `checkoutAttemptId` instead
@@ -662,7 +662,7 @@ public class DonationPaymentRequest {
   /**
    * Conversion ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    *
-   * @param conversionId
+   * @param conversionId Conversion ID that corresponds to the Id generated by the client SDK for tracking user payment journey.
    *
    * @deprecated since Adyen Checkout API v68
    * Use &#x60;checkoutAttemptId&#x60; instead
@@ -677,7 +677,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
    *
-   * @param countryCode
+   * @param countryCode The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest countryCode(String countryCode) {
@@ -687,7 +687,7 @@ public class DonationPaymentRequest {
 
   /**
    * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
-   * @return countryCode
+   * @return countryCode The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -698,7 +698,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
    *
-   * @param countryCode
+   * @param countryCode The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -709,7 +709,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest dateOfBirth(OffsetDateTime dateOfBirth) {
@@ -719,7 +719,7 @@ public class DonationPaymentRequest {
 
   /**
    * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
-   * @return dateOfBirth
+   * @return dateOfBirth The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -730,7 +730,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -741,7 +741,7 @@ public class DonationPaymentRequest {
   /**
    * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    *
-   * @param deliverAt
+   * @param deliverAt The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest deliverAt(OffsetDateTime deliverAt) {
@@ -751,7 +751,7 @@ public class DonationPaymentRequest {
 
   /**
    * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
-   * @return deliverAt
+   * @return deliverAt The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    */
   @JsonProperty(JSON_PROPERTY_DELIVER_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -762,7 +762,7 @@ public class DonationPaymentRequest {
   /**
    * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    *
-   * @param deliverAt
+   * @param deliverAt The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    */
   @JsonProperty(JSON_PROPERTY_DELIVER_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -773,7 +773,7 @@ public class DonationPaymentRequest {
   /**
    * deliveryAddress
    *
-   * @param deliveryAddress
+   * @param deliveryAddress 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest deliveryAddress(DeliveryAddress deliveryAddress) {
@@ -783,7 +783,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get deliveryAddress
-   * @return deliveryAddress
+   * @return deliveryAddress 
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -794,7 +794,7 @@ public class DonationPaymentRequest {
   /**
    * deliveryAddress
    *
-   * @param deliveryAddress
+   * @param deliveryAddress 
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -805,7 +805,7 @@ public class DonationPaymentRequest {
   /**
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    *
-   * @param deviceFingerprint
+   * @param deviceFingerprint A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest deviceFingerprint(String deviceFingerprint) {
@@ -815,7 +815,7 @@ public class DonationPaymentRequest {
 
   /**
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
-   * @return deviceFingerprint
+   * @return deviceFingerprint A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -826,7 +826,7 @@ public class DonationPaymentRequest {
   /**
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    *
-   * @param deviceFingerprint
+   * @param deviceFingerprint A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -837,7 +837,7 @@ public class DonationPaymentRequest {
   /**
    * Donation account to which the transaction is credited.
    *
-   * @param donationAccount
+   * @param donationAccount Donation account to which the transaction is credited.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest donationAccount(String donationAccount) {
@@ -847,7 +847,7 @@ public class DonationPaymentRequest {
 
   /**
    * Donation account to which the transaction is credited.
-   * @return donationAccount
+   * @return donationAccount Donation account to which the transaction is credited.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -858,7 +858,7 @@ public class DonationPaymentRequest {
   /**
    * Donation account to which the transaction is credited.
    *
-   * @param donationAccount
+   * @param donationAccount Donation account to which the transaction is credited.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -869,7 +869,7 @@ public class DonationPaymentRequest {
   /**
    * The donation campaign ID received in the &#x60;/donationCampaigns&#x60; call.
    *
-   * @param donationCampaignId
+   * @param donationCampaignId The donation campaign ID received in the &#x60;/donationCampaigns&#x60; call.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest donationCampaignId(String donationCampaignId) {
@@ -879,7 +879,7 @@ public class DonationPaymentRequest {
 
   /**
    * The donation campaign ID received in the &#x60;/donationCampaigns&#x60; call.
-   * @return donationCampaignId
+   * @return donationCampaignId The donation campaign ID received in the &#x60;/donationCampaigns&#x60; call.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGN_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -890,7 +890,7 @@ public class DonationPaymentRequest {
   /**
    * The donation campaign ID received in the &#x60;/donationCampaigns&#x60; call.
    *
-   * @param donationCampaignId
+   * @param donationCampaignId The donation campaign ID received in the &#x60;/donationCampaigns&#x60; call.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGN_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -901,7 +901,7 @@ public class DonationPaymentRequest {
   /**
    * PSP reference of the transaction from which the donation token is generated. Required when &#x60;donationToken&#x60; is provided.
    *
-   * @param donationOriginalPspReference
+   * @param donationOriginalPspReference PSP reference of the transaction from which the donation token is generated. Required when &#x60;donationToken&#x60; is provided.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest donationOriginalPspReference(String donationOriginalPspReference) {
@@ -911,7 +911,7 @@ public class DonationPaymentRequest {
 
   /**
    * PSP reference of the transaction from which the donation token is generated. Required when &#x60;donationToken&#x60; is provided.
-   * @return donationOriginalPspReference
+   * @return donationOriginalPspReference PSP reference of the transaction from which the donation token is generated. Required when &#x60;donationToken&#x60; is provided.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -922,7 +922,7 @@ public class DonationPaymentRequest {
   /**
    * PSP reference of the transaction from which the donation token is generated. Required when &#x60;donationToken&#x60; is provided.
    *
-   * @param donationOriginalPspReference
+   * @param donationOriginalPspReference PSP reference of the transaction from which the donation token is generated. Required when &#x60;donationToken&#x60; is provided.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ORIGINAL_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -933,7 +933,7 @@ public class DonationPaymentRequest {
   /**
    * Donation token received in the &#x60;/payments&#x60; call.
    *
-   * @param donationToken
+   * @param donationToken Donation token received in the &#x60;/payments&#x60; call.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest donationToken(String donationToken) {
@@ -943,7 +943,7 @@ public class DonationPaymentRequest {
 
   /**
    * Donation token received in the &#x60;/payments&#x60; call.
-   * @return donationToken
+   * @return donationToken Donation token received in the &#x60;/payments&#x60; call.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -954,7 +954,7 @@ public class DonationPaymentRequest {
   /**
    * Donation token received in the &#x60;/payments&#x60; call.
    *
-   * @param donationToken
+   * @param donationToken Donation token received in the &#x60;/payments&#x60; call.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -965,7 +965,7 @@ public class DonationPaymentRequest {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest lineItems(List<LineItem> lineItems) {
@@ -983,7 +983,7 @@ public class DonationPaymentRequest {
 
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
-   * @return lineItems
+   * @return lineItems Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -994,7 +994,7 @@ public class DonationPaymentRequest {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1005,7 +1005,7 @@ public class DonationPaymentRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest merchantAccount(String merchantAccount) {
@@ -1015,7 +1015,7 @@ public class DonationPaymentRequest {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1026,7 +1026,7 @@ public class DonationPaymentRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1037,7 +1037,7 @@ public class DonationPaymentRequest {
   /**
    * merchantRiskIndicator
    *
-   * @param merchantRiskIndicator
+   * @param merchantRiskIndicator 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
@@ -1047,7 +1047,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get merchantRiskIndicator
-   * @return merchantRiskIndicator
+   * @return merchantRiskIndicator 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_RISK_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1058,7 +1058,7 @@ public class DonationPaymentRequest {
   /**
    * merchantRiskIndicator
    *
-   * @param merchantRiskIndicator
+   * @param merchantRiskIndicator 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_RISK_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1069,7 +1069,7 @@ public class DonationPaymentRequest {
   /**
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    *
-   * @param metadata
+   * @param metadata Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest metadata(Map<String, String> metadata) {
@@ -1087,7 +1087,7 @@ public class DonationPaymentRequest {
 
   /**
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
-   * @return metadata
+   * @return metadata Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1098,7 +1098,7 @@ public class DonationPaymentRequest {
   /**
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    *
-   * @param metadata
+   * @param metadata Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1109,7 +1109,7 @@ public class DonationPaymentRequest {
   /**
    * mpiData
    *
-   * @param mpiData
+   * @param mpiData 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest mpiData(ThreeDSecureData mpiData) {
@@ -1119,7 +1119,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get mpiData
-   * @return mpiData
+   * @return mpiData 
    */
   @JsonProperty(JSON_PROPERTY_MPI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1130,7 +1130,7 @@ public class DonationPaymentRequest {
   /**
    * mpiData
    *
-   * @param mpiData
+   * @param mpiData 
    */
   @JsonProperty(JSON_PROPERTY_MPI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1141,7 +1141,7 @@ public class DonationPaymentRequest {
   /**
    * Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.
    *
-   * @param origin
+   * @param origin Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest origin(String origin) {
@@ -1151,7 +1151,7 @@ public class DonationPaymentRequest {
 
   /**
    * Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.
-   * @return origin
+   * @return origin Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1162,7 +1162,7 @@ public class DonationPaymentRequest {
   /**
    * Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.
    *
-   * @param origin
+   * @param origin Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1173,7 +1173,7 @@ public class DonationPaymentRequest {
   /**
    * paymentMethod
    *
-   * @param paymentMethod
+   * @param paymentMethod 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest paymentMethod(DonationPaymentMethod paymentMethod) {
@@ -1183,7 +1183,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get paymentMethod
-   * @return paymentMethod
+   * @return paymentMethod 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1194,7 +1194,7 @@ public class DonationPaymentRequest {
   /**
    * paymentMethod
    *
-   * @param paymentMethod
+   * @param paymentMethod 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1205,7 +1205,7 @@ public class DonationPaymentRequest {
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    *
-   * @param recurringProcessingModel
+   * @param recurringProcessingModel Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
@@ -1215,7 +1215,7 @@ public class DonationPaymentRequest {
 
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
-   * @return recurringProcessingModel
+   * @return recurringProcessingModel Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1226,7 +1226,7 @@ public class DonationPaymentRequest {
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    *
-   * @param recurringProcessingModel
+   * @param recurringProcessingModel Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1237,7 +1237,7 @@ public class DonationPaymentRequest {
   /**
    * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    *
-   * @param redirectFromIssuerMethod
+   * @param redirectFromIssuerMethod Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest redirectFromIssuerMethod(String redirectFromIssuerMethod) {
@@ -1247,7 +1247,7 @@ public class DonationPaymentRequest {
 
   /**
    * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
-   * @return redirectFromIssuerMethod
+   * @return redirectFromIssuerMethod Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1258,7 +1258,7 @@ public class DonationPaymentRequest {
   /**
    * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    *
-   * @param redirectFromIssuerMethod
+   * @param redirectFromIssuerMethod Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1269,7 +1269,7 @@ public class DonationPaymentRequest {
   /**
    * Specifies the redirect method (GET or POST) when redirecting to the issuer.
    *
-   * @param redirectToIssuerMethod
+   * @param redirectToIssuerMethod Specifies the redirect method (GET or POST) when redirecting to the issuer.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest redirectToIssuerMethod(String redirectToIssuerMethod) {
@@ -1279,7 +1279,7 @@ public class DonationPaymentRequest {
 
   /**
    * Specifies the redirect method (GET or POST) when redirecting to the issuer.
-   * @return redirectToIssuerMethod
+   * @return redirectToIssuerMethod Specifies the redirect method (GET or POST) when redirecting to the issuer.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1290,7 +1290,7 @@ public class DonationPaymentRequest {
   /**
    * Specifies the redirect method (GET or POST) when redirecting to the issuer.
    *
-   * @param redirectToIssuerMethod
+   * @param redirectToIssuerMethod Specifies the redirect method (GET or POST) when redirecting to the issuer.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1301,7 +1301,7 @@ public class DonationPaymentRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest reference(String reference) {
@@ -1311,7 +1311,7 @@ public class DonationPaymentRequest {
 
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-   * @return reference
+   * @return reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1322,7 +1322,7 @@ public class DonationPaymentRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1333,7 +1333,7 @@ public class DonationPaymentRequest {
   /**
    * The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param returnUrl
+   * @param returnUrl The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest returnUrl(String returnUrl) {
@@ -1343,7 +1343,7 @@ public class DonationPaymentRequest {
 
   /**
    * The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
-   * @return returnUrl
+   * @return returnUrl The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1354,7 +1354,7 @@ public class DonationPaymentRequest {
   /**
    * The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param returnUrl
+   * @param returnUrl The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1365,7 +1365,7 @@ public class DonationPaymentRequest {
   /**
    * The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00
    *
-   * @param sessionValidity
+   * @param sessionValidity The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest sessionValidity(String sessionValidity) {
@@ -1375,7 +1375,7 @@ public class DonationPaymentRequest {
 
   /**
    * The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00
-   * @return sessionValidity
+   * @return sessionValidity The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00
    */
   @JsonProperty(JSON_PROPERTY_SESSION_VALIDITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1386,7 +1386,7 @@ public class DonationPaymentRequest {
   /**
    * The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00
    *
-   * @param sessionValidity
+   * @param sessionValidity The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00
    */
   @JsonProperty(JSON_PROPERTY_SESSION_VALIDITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1397,7 +1397,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest shopperEmail(String shopperEmail) {
@@ -1407,7 +1407,7 @@ public class DonationPaymentRequest {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
-   * @return shopperEmail
+   * @return shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1418,7 +1418,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1429,7 +1429,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @param shopperIP
+   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest shopperIP(String shopperIP) {
@@ -1439,7 +1439,7 @@ public class DonationPaymentRequest {
 
   /**
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
-   * @return shopperIP
+   * @return shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1450,7 +1450,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @param shopperIP
+   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1461,7 +1461,7 @@ public class DonationPaymentRequest {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -1471,7 +1471,7 @@ public class DonationPaymentRequest {
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
-   * @return shopperInteraction
+   * @return shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1482,7 +1482,7 @@ public class DonationPaymentRequest {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1493,7 +1493,7 @@ public class DonationPaymentRequest {
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
    *
-   * @param shopperLocale
+   * @param shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest shopperLocale(String shopperLocale) {
@@ -1503,7 +1503,7 @@ public class DonationPaymentRequest {
 
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
-   * @return shopperLocale
+   * @return shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1514,7 +1514,7 @@ public class DonationPaymentRequest {
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
    *
-   * @param shopperLocale
+   * @param shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1525,7 +1525,7 @@ public class DonationPaymentRequest {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest shopperName(Name shopperName) {
@@ -1535,7 +1535,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get shopperName
-   * @return shopperName
+   * @return shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1546,7 +1546,7 @@ public class DonationPaymentRequest {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1557,7 +1557,7 @@ public class DonationPaymentRequest {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest shopperReference(String shopperReference) {
@@ -1567,7 +1567,7 @@ public class DonationPaymentRequest {
 
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
-   * @return shopperReference
+   * @return shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1578,7 +1578,7 @@ public class DonationPaymentRequest {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1589,7 +1589,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s social security number.
    *
-   * @param socialSecurityNumber
+   * @param socialSecurityNumber The shopper&#39;s social security number.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest socialSecurityNumber(String socialSecurityNumber) {
@@ -1599,7 +1599,7 @@ public class DonationPaymentRequest {
 
   /**
    * The shopper&#39;s social security number.
-   * @return socialSecurityNumber
+   * @return socialSecurityNumber The shopper&#39;s social security number.
    */
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1610,7 +1610,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s social security number.
    *
-   * @param socialSecurityNumber
+   * @param socialSecurityNumber The shopper&#39;s social security number.
    */
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1621,7 +1621,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s telephone number.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The shopper&#39;s telephone number.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest telephoneNumber(String telephoneNumber) {
@@ -1631,7 +1631,7 @@ public class DonationPaymentRequest {
 
   /**
    * The shopper&#39;s telephone number.
-   * @return telephoneNumber
+   * @return telephoneNumber The shopper&#39;s telephone number.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1642,7 +1642,7 @@ public class DonationPaymentRequest {
   /**
    * The shopper&#39;s telephone number.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The shopper&#39;s telephone number.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1653,7 +1653,7 @@ public class DonationPaymentRequest {
   /**
    * threeDS2RequestData
    *
-   * @param threeDS2RequestData
+   * @param threeDS2RequestData 
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest threeDS2RequestData(ThreeDS2RequestFields threeDS2RequestData) {
@@ -1663,7 +1663,7 @@ public class DonationPaymentRequest {
 
   /**
    * Get threeDS2RequestData
-   * @return threeDS2RequestData
+   * @return threeDS2RequestData 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1674,7 +1674,7 @@ public class DonationPaymentRequest {
   /**
    * threeDS2RequestData
    *
-   * @param threeDS2RequestData
+   * @param threeDS2RequestData 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1685,7 +1685,7 @@ public class DonationPaymentRequest {
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
-   * @param threeDSAuthenticationOnly
+   * @param threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v69
@@ -1699,7 +1699,7 @@ public class DonationPaymentRequest {
 
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
-   * @return threeDSAuthenticationOnly
+   * @return threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    * @deprecated // deprecated since Adyen Checkout API v69: Use `authenticationData.authenticationOnly` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v69: Use `authenticationData.authenticationOnly` instead.
@@ -1712,7 +1712,7 @@ public class DonationPaymentRequest {
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
-   * @param threeDSAuthenticationOnly
+   * @param threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
    * @deprecated since Adyen Checkout API v69
    * Use &#x60;authenticationData.authenticationOnly&#x60; instead.

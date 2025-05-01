@@ -145,7 +145,7 @@ public class PayPalDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    */
   public PayPalDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -155,7 +155,7 @@ public class PayPalDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +166,7 @@ public class PayPalDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class PayPalDetails {
   /**
    * The unique ID associated with the order.
    *
-   * @param orderID
+   * @param orderID The unique ID associated with the order.
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    */
   public PayPalDetails orderID(String orderID) {
@@ -187,7 +187,7 @@ public class PayPalDetails {
 
   /**
    * The unique ID associated with the order.
-   * @return orderID
+   * @return orderID The unique ID associated with the order.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class PayPalDetails {
   /**
    * The unique ID associated with the order.
    *
-   * @param orderID
+   * @param orderID The unique ID associated with the order.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class PayPalDetails {
   /**
    * IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
    *
-   * @param payeePreferred
+   * @param payeePreferred IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    */
   public PayPalDetails payeePreferred(String payeePreferred) {
@@ -219,7 +219,7 @@ public class PayPalDetails {
 
   /**
    * IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
-   * @return payeePreferred
+   * @return payeePreferred IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
    */
   @JsonProperty(JSON_PROPERTY_PAYEE_PREFERRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class PayPalDetails {
   /**
    * IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
    *
-   * @param payeePreferred
+   * @param payeePreferred IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
    */
   @JsonProperty(JSON_PROPERTY_PAYEE_PREFERRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +241,7 @@ public class PayPalDetails {
   /**
    * The unique ID associated with the payer.
    *
-   * @param payerID
+   * @param payerID The unique ID associated with the payer.
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    */
   public PayPalDetails payerID(String payerID) {
@@ -251,7 +251,7 @@ public class PayPalDetails {
 
   /**
    * The unique ID associated with the payer.
-   * @return payerID
+   * @return payerID The unique ID associated with the payer.
    */
   @JsonProperty(JSON_PROPERTY_PAYER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,7 +262,7 @@ public class PayPalDetails {
   /**
    * The unique ID associated with the payer.
    *
-   * @param payerID
+   * @param payerID The unique ID associated with the payer.
    */
   @JsonProperty(JSON_PROPERTY_PAYER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +273,7 @@ public class PayPalDetails {
   /**
    * PAYPAL or PAYPAL_CREDIT
    *
-   * @param payerSelected
+   * @param payerSelected PAYPAL or PAYPAL_CREDIT
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    */
   public PayPalDetails payerSelected(String payerSelected) {
@@ -283,7 +283,7 @@ public class PayPalDetails {
 
   /**
    * PAYPAL or PAYPAL_CREDIT
-   * @return payerSelected
+   * @return payerSelected PAYPAL or PAYPAL_CREDIT
    */
   @JsonProperty(JSON_PROPERTY_PAYER_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +294,7 @@ public class PayPalDetails {
   /**
    * PAYPAL or PAYPAL_CREDIT
    *
-   * @param payerSelected
+   * @param payerSelected PAYPAL or PAYPAL_CREDIT
    */
   @JsonProperty(JSON_PROPERTY_PAYER_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,7 +305,7 @@ public class PayPalDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -319,7 +319,7 @@ public class PayPalDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -332,7 +332,7 @@ public class PayPalDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -347,7 +347,7 @@ public class PayPalDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    */
   public PayPalDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -357,7 +357,7 @@ public class PayPalDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +368,7 @@ public class PayPalDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,7 +379,7 @@ public class PayPalDetails {
   /**
    * The type of flow to initiate.
    *
-   * @param subtype
+   * @param subtype The type of flow to initiate.
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    */
   public PayPalDetails subtype(SubtypeEnum subtype) {
@@ -389,7 +389,7 @@ public class PayPalDetails {
 
   /**
    * The type of flow to initiate.
-   * @return subtype
+   * @return subtype The type of flow to initiate.
    */
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -400,7 +400,7 @@ public class PayPalDetails {
   /**
    * The type of flow to initiate.
    *
-   * @param subtype
+   * @param subtype The type of flow to initiate.
    */
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -411,7 +411,7 @@ public class PayPalDetails {
   /**
    * **paypal**
    *
-   * @param type
+   * @param type **paypal**
    * @return the current {@code PayPalDetails} instance, allowing for method chaining
    */
   public PayPalDetails type(TypeEnum type) {
@@ -421,7 +421,7 @@ public class PayPalDetails {
 
   /**
    * **paypal**
-   * @return type
+   * @return type **paypal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -432,7 +432,7 @@ public class PayPalDetails {
   /**
    * **paypal**
    *
-   * @param type
+   * @param type **paypal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -131,7 +131,7 @@ public class ApplePayDonations {
   /**
    * The stringified and base64 encoded &#x60;paymentData&#x60; you retrieved from the Apple framework.
    *
-   * @param applePayToken
+   * @param applePayToken The stringified and base64 encoded &#x60;paymentData&#x60; you retrieved from the Apple framework.
    * @return the current {@code ApplePayDonations} instance, allowing for method chaining
    */
   public ApplePayDonations applePayToken(String applePayToken) {
@@ -141,7 +141,7 @@ public class ApplePayDonations {
 
   /**
    * The stringified and base64 encoded &#x60;paymentData&#x60; you retrieved from the Apple framework.
-   * @return applePayToken
+   * @return applePayToken The stringified and base64 encoded &#x60;paymentData&#x60; you retrieved from the Apple framework.
    */
   @JsonProperty(JSON_PROPERTY_APPLE_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +152,7 @@ public class ApplePayDonations {
   /**
    * The stringified and base64 encoded &#x60;paymentData&#x60; you retrieved from the Apple framework.
    *
-   * @param applePayToken
+   * @param applePayToken The stringified and base64 encoded &#x60;paymentData&#x60; you retrieved from the Apple framework.
    */
   @JsonProperty(JSON_PROPERTY_APPLE_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +163,7 @@ public class ApplePayDonations {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code ApplePayDonations} instance, allowing for method chaining
    */
   public ApplePayDonations checkoutAttemptId(String checkoutAttemptId) {
@@ -173,7 +173,7 @@ public class ApplePayDonations {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +184,7 @@ public class ApplePayDonations {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +195,7 @@ public class ApplePayDonations {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return the current {@code ApplePayDonations} instance, allowing for method chaining
    */
   public ApplePayDonations fundingSource(FundingSourceEnum fundingSource) {
@@ -205,7 +205,7 @@ public class ApplePayDonations {
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
-   * @return fundingSource
+   * @return fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +216,7 @@ public class ApplePayDonations {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +227,7 @@ public class ApplePayDonations {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code ApplePayDonations} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -241,7 +241,7 @@ public class ApplePayDonations {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -254,7 +254,7 @@ public class ApplePayDonations {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -269,7 +269,7 @@ public class ApplePayDonations {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code ApplePayDonations} instance, allowing for method chaining
    */
   public ApplePayDonations storedPaymentMethodId(String storedPaymentMethodId) {
@@ -279,7 +279,7 @@ public class ApplePayDonations {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +290,7 @@ public class ApplePayDonations {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +301,7 @@ public class ApplePayDonations {
   /**
    * **applepay**
    *
-   * @param type
+   * @param type **applepay**
    * @return the current {@code ApplePayDonations} instance, allowing for method chaining
    */
   public ApplePayDonations type(TypeEnum type) {
@@ -311,7 +311,7 @@ public class ApplePayDonations {
 
   /**
    * **applepay**
-   * @return type
+   * @return type **applepay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class ApplePayDonations {
   /**
    * **applepay**
    *
-   * @param type
+   * @param type **applepay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

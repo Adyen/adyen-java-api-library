@@ -66,7 +66,7 @@ public class ApplicationInfo {
   /**
    * adyenLibrary
    *
-   * @param adyenLibrary
+   * @param adyenLibrary 
    * @return the current {@code ApplicationInfo} instance, allowing for method chaining
    */
   public ApplicationInfo adyenLibrary(CommonField adyenLibrary) {
@@ -76,7 +76,7 @@ public class ApplicationInfo {
 
   /**
    * Get adyenLibrary
-   * @return adyenLibrary
+   * @return adyenLibrary 
    */
   @JsonProperty(JSON_PROPERTY_ADYEN_LIBRARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +87,7 @@ public class ApplicationInfo {
   /**
    * adyenLibrary
    *
-   * @param adyenLibrary
+   * @param adyenLibrary 
    */
   @JsonProperty(JSON_PROPERTY_ADYEN_LIBRARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +98,7 @@ public class ApplicationInfo {
   /**
    * adyenPaymentSource
    *
-   * @param adyenPaymentSource
+   * @param adyenPaymentSource 
    * @return the current {@code ApplicationInfo} instance, allowing for method chaining
    */
   public ApplicationInfo adyenPaymentSource(CommonField adyenPaymentSource) {
@@ -108,7 +108,7 @@ public class ApplicationInfo {
 
   /**
    * Get adyenPaymentSource
-   * @return adyenPaymentSource
+   * @return adyenPaymentSource 
    */
   @JsonProperty(JSON_PROPERTY_ADYEN_PAYMENT_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class ApplicationInfo {
   /**
    * adyenPaymentSource
    *
-   * @param adyenPaymentSource
+   * @param adyenPaymentSource 
    */
   @JsonProperty(JSON_PROPERTY_ADYEN_PAYMENT_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class ApplicationInfo {
   /**
    * externalPlatform
    *
-   * @param externalPlatform
+   * @param externalPlatform 
    * @return the current {@code ApplicationInfo} instance, allowing for method chaining
    */
   public ApplicationInfo externalPlatform(ExternalPlatform externalPlatform) {
@@ -140,7 +140,7 @@ public class ApplicationInfo {
 
   /**
    * Get externalPlatform
-   * @return externalPlatform
+   * @return externalPlatform 
    */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class ApplicationInfo {
   /**
    * externalPlatform
    *
-   * @param externalPlatform
+   * @param externalPlatform 
    */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class ApplicationInfo {
   /**
    * merchantApplication
    *
-   * @param merchantApplication
+   * @param merchantApplication 
    * @return the current {@code ApplicationInfo} instance, allowing for method chaining
    */
   public ApplicationInfo merchantApplication(CommonField merchantApplication) {
@@ -172,7 +172,7 @@ public class ApplicationInfo {
 
   /**
    * Get merchantApplication
-   * @return merchantApplication
+   * @return merchantApplication 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPLICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class ApplicationInfo {
   /**
    * merchantApplication
    *
-   * @param merchantApplication
+   * @param merchantApplication 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_APPLICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class ApplicationInfo {
   /**
    * merchantDevice
    *
-   * @param merchantDevice
+   * @param merchantDevice 
    * @return the current {@code ApplicationInfo} instance, allowing for method chaining
    */
   public ApplicationInfo merchantDevice(MerchantDevice merchantDevice) {
@@ -204,7 +204,7 @@ public class ApplicationInfo {
 
   /**
    * Get merchantDevice
-   * @return merchantDevice
+   * @return merchantDevice 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +215,7 @@ public class ApplicationInfo {
   /**
    * merchantDevice
    *
-   * @param merchantDevice
+   * @param merchantDevice 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +226,7 @@ public class ApplicationInfo {
   /**
    * shopperInteractionDevice
    *
-   * @param shopperInteractionDevice
+   * @param shopperInteractionDevice 
    * @return the current {@code ApplicationInfo} instance, allowing for method chaining
    */
   public ApplicationInfo shopperInteractionDevice(ShopperInteractionDevice shopperInteractionDevice) {
@@ -236,7 +236,7 @@ public class ApplicationInfo {
 
   /**
    * Get shopperInteractionDevice
-   * @return shopperInteractionDevice
+   * @return shopperInteractionDevice 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +247,7 @@ public class ApplicationInfo {
   /**
    * shopperInteractionDevice
    *
-   * @param shopperInteractionDevice
+   * @param shopperInteractionDevice 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -75,7 +75,7 @@ public class UpdatePaymentLinkRequest {
   /**
    * Status of the payment link. Possible values: * **expired**
    *
-   * @param status
+   * @param status Status of the payment link. Possible values: * **expired**
    * @return the current {@code UpdatePaymentLinkRequest} instance, allowing for method chaining
    */
   public UpdatePaymentLinkRequest status(StatusEnum status) {
@@ -85,7 +85,7 @@ public class UpdatePaymentLinkRequest {
 
   /**
    * Status of the payment link. Possible values: * **expired**
-   * @return status
+   * @return status Status of the payment link. Possible values: * **expired**
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +96,7 @@ public class UpdatePaymentLinkRequest {
   /**
    * Status of the payment link. Possible values: * **expired**
    *
-   * @param status
+   * @param status Status of the payment link. Possible values: * **expired**
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

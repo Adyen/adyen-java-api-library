@@ -92,7 +92,7 @@ public class DeliveryMethod {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code DeliveryMethod} instance, allowing for method chaining
    */
   public DeliveryMethod amount(Amount amount) {
@@ -102,7 +102,7 @@ public class DeliveryMethod {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +113,7 @@ public class DeliveryMethod {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +124,7 @@ public class DeliveryMethod {
   /**
    * The name of the delivery method as shown to the shopper.
    *
-   * @param description
+   * @param description The name of the delivery method as shown to the shopper.
    * @return the current {@code DeliveryMethod} instance, allowing for method chaining
    */
   public DeliveryMethod description(String description) {
@@ -134,7 +134,7 @@ public class DeliveryMethod {
 
   /**
    * The name of the delivery method as shown to the shopper.
-   * @return description
+   * @return description The name of the delivery method as shown to the shopper.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +145,7 @@ public class DeliveryMethod {
   /**
    * The name of the delivery method as shown to the shopper.
    *
-   * @param description
+   * @param description The name of the delivery method as shown to the shopper.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +156,7 @@ public class DeliveryMethod {
   /**
    * The reference of the delivery method.
    *
-   * @param reference
+   * @param reference The reference of the delivery method.
    * @return the current {@code DeliveryMethod} instance, allowing for method chaining
    */
   public DeliveryMethod reference(String reference) {
@@ -166,7 +166,7 @@ public class DeliveryMethod {
 
   /**
    * The reference of the delivery method.
-   * @return reference
+   * @return reference The reference of the delivery method.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class DeliveryMethod {
   /**
    * The reference of the delivery method.
    *
-   * @param reference
+   * @param reference The reference of the delivery method.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +188,7 @@ public class DeliveryMethod {
   /**
    * If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.
    *
-   * @param selected
+   * @param selected If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.
    * @return the current {@code DeliveryMethod} instance, allowing for method chaining
    */
   public DeliveryMethod selected(Boolean selected) {
@@ -198,7 +198,7 @@ public class DeliveryMethod {
 
   /**
    * If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.
-   * @return selected
+   * @return selected If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.
    */
   @JsonProperty(JSON_PROPERTY_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class DeliveryMethod {
   /**
    * If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.
    *
-   * @param selected
+   * @param selected If you display the PayPal lightbox with delivery methods, set to **true** for the delivery method that is selected. Only one delivery method can be selected at a time.
    */
   @JsonProperty(JSON_PROPERTY_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +220,7 @@ public class DeliveryMethod {
   /**
    * The type of the delivery method.
    *
-   * @param type
+   * @param type The type of the delivery method.
    * @return the current {@code DeliveryMethod} instance, allowing for method chaining
    */
   public DeliveryMethod type(TypeEnum type) {
@@ -230,7 +230,7 @@ public class DeliveryMethod {
 
   /**
    * The type of the delivery method.
-   * @return type
+   * @return type The type of the delivery method.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +241,7 @@ public class DeliveryMethod {
   /**
    * The type of the delivery method.
    *
-   * @param type
+   * @param type The type of the delivery method.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

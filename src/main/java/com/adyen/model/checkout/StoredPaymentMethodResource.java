@@ -108,7 +108,7 @@ public class StoredPaymentMethodResource {
   /**
    * The brand of the card.
    *
-   * @param brand
+   * @param brand The brand of the card.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource brand(String brand) {
@@ -118,7 +118,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The brand of the card.
-   * @return brand
+   * @return brand The brand of the card.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +129,7 @@ public class StoredPaymentMethodResource {
   /**
    * The brand of the card.
    *
-   * @param brand
+   * @param brand The brand of the card.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class StoredPaymentMethodResource {
   /**
    * The month the card expires.
    *
-   * @param expiryMonth
+   * @param expiryMonth The month the card expires.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource expiryMonth(String expiryMonth) {
@@ -150,7 +150,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The month the card expires.
-   * @return expiryMonth
+   * @return expiryMonth The month the card expires.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class StoredPaymentMethodResource {
   /**
    * The month the card expires.
    *
-   * @param expiryMonth
+   * @param expiryMonth The month the card expires.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class StoredPaymentMethodResource {
   /**
    * The last two digits of the year the card expires. For example, **22** for the year 2022.
    *
-   * @param expiryYear
+   * @param expiryYear The last two digits of the year the card expires. For example, **22** for the year 2022.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource expiryYear(String expiryYear) {
@@ -182,7 +182,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The last two digits of the year the card expires. For example, **22** for the year 2022.
-   * @return expiryYear
+   * @return expiryYear The last two digits of the year the card expires. For example, **22** for the year 2022.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,7 +193,7 @@ public class StoredPaymentMethodResource {
   /**
    * The last two digits of the year the card expires. For example, **22** for the year 2022.
    *
-   * @param expiryYear
+   * @param expiryYear The last two digits of the year the card expires. For example, **22** for the year 2022.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +204,7 @@ public class StoredPaymentMethodResource {
   /**
    * The response code returned by an external system (for example after a provisioning operation).
    *
-   * @param externalResponseCode
+   * @param externalResponseCode The response code returned by an external system (for example after a provisioning operation).
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource externalResponseCode(String externalResponseCode) {
@@ -214,7 +214,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The response code returned by an external system (for example after a provisioning operation).
-   * @return externalResponseCode
+   * @return externalResponseCode The response code returned by an external system (for example after a provisioning operation).
    */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_RESPONSE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +225,7 @@ public class StoredPaymentMethodResource {
   /**
    * The response code returned by an external system (for example after a provisioning operation).
    *
-   * @param externalResponseCode
+   * @param externalResponseCode The response code returned by an external system (for example after a provisioning operation).
    */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_RESPONSE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +236,7 @@ public class StoredPaymentMethodResource {
   /**
    * The token reference of a linked token in an external system (for example a network token reference).
    *
-   * @param externalTokenReference
+   * @param externalTokenReference The token reference of a linked token in an external system (for example a network token reference).
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource externalTokenReference(String externalTokenReference) {
@@ -246,7 +246,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The token reference of a linked token in an external system (for example a network token reference).
-   * @return externalTokenReference
+   * @return externalTokenReference The token reference of a linked token in an external system (for example a network token reference).
    */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_TOKEN_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +257,7 @@ public class StoredPaymentMethodResource {
   /**
    * The token reference of a linked token in an external system (for example a network token reference).
    *
-   * @param externalTokenReference
+   * @param externalTokenReference The token reference of a linked token in an external system (for example a network token reference).
    */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_TOKEN_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,7 +268,7 @@ public class StoredPaymentMethodResource {
   /**
    * The unique payment method code.
    *
-   * @param holderName
+   * @param holderName The unique payment method code.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource holderName(String holderName) {
@@ -278,7 +278,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The unique payment method code.
-   * @return holderName
+   * @return holderName The unique payment method code.
    */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -289,7 +289,7 @@ public class StoredPaymentMethodResource {
   /**
    * The unique payment method code.
    *
-   * @param holderName
+   * @param holderName The unique payment method code.
    */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -300,7 +300,7 @@ public class StoredPaymentMethodResource {
   /**
    * The IBAN of the bank account.
    *
-   * @param iban
+   * @param iban The IBAN of the bank account.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource iban(String iban) {
@@ -310,7 +310,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The IBAN of the bank account.
-   * @return iban
+   * @return iban The IBAN of the bank account.
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,7 +321,7 @@ public class StoredPaymentMethodResource {
   /**
    * The IBAN of the bank account.
    *
-   * @param iban
+   * @param iban The IBAN of the bank account.
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -332,7 +332,7 @@ public class StoredPaymentMethodResource {
   /**
    * A unique identifier of this stored payment method.
    *
-   * @param id
+   * @param id A unique identifier of this stored payment method.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource id(String id) {
@@ -342,7 +342,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * A unique identifier of this stored payment method.
-   * @return id
+   * @return id A unique identifier of this stored payment method.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -353,7 +353,7 @@ public class StoredPaymentMethodResource {
   /**
    * A unique identifier of this stored payment method.
    *
-   * @param id
+   * @param id A unique identifier of this stored payment method.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -364,7 +364,7 @@ public class StoredPaymentMethodResource {
   /**
    * The name of the issuer of token or card.
    *
-   * @param issuerName
+   * @param issuerName The name of the issuer of token or card.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource issuerName(String issuerName) {
@@ -374,7 +374,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The name of the issuer of token or card.
-   * @return issuerName
+   * @return issuerName The name of the issuer of token or card.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -385,7 +385,7 @@ public class StoredPaymentMethodResource {
   /**
    * The name of the issuer of token or card.
    *
-   * @param issuerName
+   * @param issuerName The name of the issuer of token or card.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -396,7 +396,7 @@ public class StoredPaymentMethodResource {
   /**
    * The last four digits of the PAN.
    *
-   * @param lastFour
+   * @param lastFour The last four digits of the PAN.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource lastFour(String lastFour) {
@@ -406,7 +406,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The last four digits of the PAN.
-   * @return lastFour
+   * @return lastFour The last four digits of the PAN.
    */
   @JsonProperty(JSON_PROPERTY_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -417,7 +417,7 @@ public class StoredPaymentMethodResource {
   /**
    * The last four digits of the PAN.
    *
-   * @param lastFour
+   * @param lastFour The last four digits of the PAN.
    */
   @JsonProperty(JSON_PROPERTY_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -428,7 +428,7 @@ public class StoredPaymentMethodResource {
   /**
    * The display name of the stored payment method.
    *
-   * @param name
+   * @param name The display name of the stored payment method.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource name(String name) {
@@ -438,7 +438,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The display name of the stored payment method.
-   * @return name
+   * @return name The display name of the stored payment method.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -449,7 +449,7 @@ public class StoredPaymentMethodResource {
   /**
    * The display name of the stored payment method.
    *
-   * @param name
+   * @param name The display name of the stored payment method.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -460,7 +460,7 @@ public class StoredPaymentMethodResource {
   /**
    * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    *
-   * @param networkTxReference
+   * @param networkTxReference Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource networkTxReference(String networkTxReference) {
@@ -470,7 +470,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
-   * @return networkTxReference
+   * @return networkTxReference Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -481,7 +481,7 @@ public class StoredPaymentMethodResource {
   /**
    * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    *
-   * @param networkTxReference
+   * @param networkTxReference Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_TX_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -492,7 +492,7 @@ public class StoredPaymentMethodResource {
   /**
    * The name of the bank account holder.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource ownerName(String ownerName) {
@@ -502,7 +502,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The name of the bank account holder.
-   * @return ownerName
+   * @return ownerName The name of the bank account holder.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -513,7 +513,7 @@ public class StoredPaymentMethodResource {
   /**
    * The name of the bank account holder.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -524,7 +524,7 @@ public class StoredPaymentMethodResource {
   /**
    * The shopper’s email address.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper’s email address.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource shopperEmail(String shopperEmail) {
@@ -534,7 +534,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The shopper’s email address.
-   * @return shopperEmail
+   * @return shopperEmail The shopper’s email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -545,7 +545,7 @@ public class StoredPaymentMethodResource {
   /**
    * The shopper’s email address.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper’s email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -556,7 +556,7 @@ public class StoredPaymentMethodResource {
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource shopperReference(String shopperReference) {
@@ -566,7 +566,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
-   * @return shopperReference
+   * @return shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -577,7 +577,7 @@ public class StoredPaymentMethodResource {
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -588,7 +588,7 @@ public class StoredPaymentMethodResource {
   /**
    * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount.
    *
-   * @param supportedRecurringProcessingModels
+   * @param supportedRecurringProcessingModels Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource supportedRecurringProcessingModels(List<String> supportedRecurringProcessingModels) {
@@ -606,7 +606,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount.
-   * @return supportedRecurringProcessingModels
+   * @return supportedRecurringProcessingModels Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount.
    */
   @JsonProperty(JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -617,7 +617,7 @@ public class StoredPaymentMethodResource {
   /**
    * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount.
    *
-   * @param supportedRecurringProcessingModels
+   * @param supportedRecurringProcessingModels Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount.
    */
   @JsonProperty(JSON_PROPERTY_SUPPORTED_RECURRING_PROCESSING_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -628,7 +628,7 @@ public class StoredPaymentMethodResource {
   /**
    * The type of payment method.
    *
-   * @param type
+   * @param type The type of payment method.
    * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
    */
   public StoredPaymentMethodResource type(String type) {
@@ -638,7 +638,7 @@ public class StoredPaymentMethodResource {
 
   /**
    * The type of payment method.
-   * @return type
+   * @return type The type of payment method.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -649,7 +649,7 @@ public class StoredPaymentMethodResource {
   /**
    * The type of payment method.
    *
-   * @param type
+   * @param type The type of payment method.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

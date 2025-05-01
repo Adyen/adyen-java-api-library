@@ -103,7 +103,7 @@ public class EcontextVoucherDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code EcontextVoucherDetails} instance, allowing for method chaining
    */
   public EcontextVoucherDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -113,7 +113,7 @@ public class EcontextVoucherDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +124,7 @@ public class EcontextVoucherDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class EcontextVoucherDetails {
   /**
    * The shopper&#39;s first name.
    *
-   * @param firstName
+   * @param firstName The shopper&#39;s first name.
    * @return the current {@code EcontextVoucherDetails} instance, allowing for method chaining
    */
   public EcontextVoucherDetails firstName(String firstName) {
@@ -145,7 +145,7 @@ public class EcontextVoucherDetails {
 
   /**
    * The shopper&#39;s first name.
-   * @return firstName
+   * @return firstName The shopper&#39;s first name.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +156,7 @@ public class EcontextVoucherDetails {
   /**
    * The shopper&#39;s first name.
    *
-   * @param firstName
+   * @param firstName The shopper&#39;s first name.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,7 +167,7 @@ public class EcontextVoucherDetails {
   /**
    * The shopper&#39;s last name.
    *
-   * @param lastName
+   * @param lastName The shopper&#39;s last name.
    * @return the current {@code EcontextVoucherDetails} instance, allowing for method chaining
    */
   public EcontextVoucherDetails lastName(String lastName) {
@@ -177,7 +177,7 @@ public class EcontextVoucherDetails {
 
   /**
    * The shopper&#39;s last name.
-   * @return lastName
+   * @return lastName The shopper&#39;s last name.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +188,7 @@ public class EcontextVoucherDetails {
   /**
    * The shopper&#39;s last name.
    *
-   * @param lastName
+   * @param lastName The shopper&#39;s last name.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,7 +199,7 @@ public class EcontextVoucherDetails {
   /**
    * The shopper&#39;s email.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email.
    * @return the current {@code EcontextVoucherDetails} instance, allowing for method chaining
    */
   public EcontextVoucherDetails shopperEmail(String shopperEmail) {
@@ -209,7 +209,7 @@ public class EcontextVoucherDetails {
 
   /**
    * The shopper&#39;s email.
-   * @return shopperEmail
+   * @return shopperEmail The shopper&#39;s email.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +220,7 @@ public class EcontextVoucherDetails {
   /**
    * The shopper&#39;s email.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +231,7 @@ public class EcontextVoucherDetails {
   /**
    * The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    * @return the current {@code EcontextVoucherDetails} instance, allowing for method chaining
    */
   public EcontextVoucherDetails telephoneNumber(String telephoneNumber) {
@@ -241,7 +241,7 @@ public class EcontextVoucherDetails {
 
   /**
    * The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
-   * @return telephoneNumber
+   * @return telephoneNumber The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +252,7 @@ public class EcontextVoucherDetails {
   /**
    * The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,7 +263,7 @@ public class EcontextVoucherDetails {
   /**
    * **econtextvoucher**
    *
-   * @param type
+   * @param type **econtextvoucher**
    * @return the current {@code EcontextVoucherDetails} instance, allowing for method chaining
    */
   public EcontextVoucherDetails type(TypeEnum type) {
@@ -273,7 +273,7 @@ public class EcontextVoucherDetails {
 
   /**
    * **econtextvoucher**
-   * @return type
+   * @return type **econtextvoucher**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +284,7 @@ public class EcontextVoucherDetails {
   /**
    * **econtextvoucher**
    *
-   * @param type
+   * @param type **econtextvoucher**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

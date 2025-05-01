@@ -55,7 +55,7 @@ public class StandalonePaymentCancelRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method chaining
    */
   public StandalonePaymentCancelRequest applicationInfo(ApplicationInfo applicationInfo) {
@@ -65,7 +65,7 @@ public class StandalonePaymentCancelRequest {
 
   /**
    * Get applicationInfo
-   * @return applicationInfo
+   * @return applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -76,7 +76,7 @@ public class StandalonePaymentCancelRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +87,7 @@ public class StandalonePaymentCancelRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method chaining
    */
   public StandalonePaymentCancelRequest merchantAccount(String merchantAccount) {
@@ -97,7 +97,7 @@ public class StandalonePaymentCancelRequest {
 
   /**
    * The merchant account that is used to process the payment.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class StandalonePaymentCancelRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class StandalonePaymentCancelRequest {
   /**
    * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
    *
-   * @param paymentReference
+   * @param paymentReference The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
    * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method chaining
    */
   public StandalonePaymentCancelRequest paymentReference(String paymentReference) {
@@ -129,7 +129,7 @@ public class StandalonePaymentCancelRequest {
 
   /**
    * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
-   * @return paymentReference
+   * @return paymentReference The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class StandalonePaymentCancelRequest {
   /**
    * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
    *
-   * @param paymentReference
+   * @param paymentReference The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class StandalonePaymentCancelRequest {
   /**
    * Your reference for the cancel request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the cancel request. Maximum length: 80 characters.
    * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method chaining
    */
   public StandalonePaymentCancelRequest reference(String reference) {
@@ -161,7 +161,7 @@ public class StandalonePaymentCancelRequest {
 
   /**
    * Your reference for the cancel request. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the cancel request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class StandalonePaymentCancelRequest {
   /**
    * Your reference for the cancel request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the cancel request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

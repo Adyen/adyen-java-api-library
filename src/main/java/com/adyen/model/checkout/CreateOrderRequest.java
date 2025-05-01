@@ -55,7 +55,7 @@ public class CreateOrderRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code CreateOrderRequest} instance, allowing for method chaining
    */
   public CreateOrderRequest amount(Amount amount) {
@@ -65,7 +65,7 @@ public class CreateOrderRequest {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -76,7 +76,7 @@ public class CreateOrderRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +87,7 @@ public class CreateOrderRequest {
   /**
    * The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param expiresAt
+   * @param expiresAt The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    * @return the current {@code CreateOrderRequest} instance, allowing for method chaining
    */
   public CreateOrderRequest expiresAt(String expiresAt) {
@@ -97,7 +97,7 @@ public class CreateOrderRequest {
 
   /**
    * The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
-   * @return expiresAt
+   * @return expiresAt The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class CreateOrderRequest {
   /**
    * The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param expiresAt
+   * @param expiresAt The date when the order should expire. If not provided, the default expiry duration is 1 day.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class CreateOrderRequest {
   /**
    * The merchant account identifier, with which you want to process the order.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the order.
    * @return the current {@code CreateOrderRequest} instance, allowing for method chaining
    */
   public CreateOrderRequest merchantAccount(String merchantAccount) {
@@ -129,7 +129,7 @@ public class CreateOrderRequest {
 
   /**
    * The merchant account identifier, with which you want to process the order.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the order.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class CreateOrderRequest {
   /**
    * The merchant account identifier, with which you want to process the order.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the order.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class CreateOrderRequest {
   /**
    * A custom reference identifying the order.
    *
-   * @param reference
+   * @param reference A custom reference identifying the order.
    * @return the current {@code CreateOrderRequest} instance, allowing for method chaining
    */
   public CreateOrderRequest reference(String reference) {
@@ -161,7 +161,7 @@ public class CreateOrderRequest {
 
   /**
    * A custom reference identifying the order.
-   * @return reference
+   * @return reference A custom reference identifying the order.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class CreateOrderRequest {
   /**
    * A custom reference identifying the order.
    *
-   * @param reference
+   * @param reference A custom reference identifying the order.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

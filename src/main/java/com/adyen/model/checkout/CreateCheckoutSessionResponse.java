@@ -548,7 +548,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * accountInfo
    *
-   * @param accountInfo
+   * @param accountInfo 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse accountInfo(AccountInfo accountInfo) {
@@ -558,7 +558,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get accountInfo
-   * @return accountInfo
+   * @return accountInfo 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -569,7 +569,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * accountInfo
    *
-   * @param accountInfo
+   * @param accountInfo 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -580,7 +580,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * additionalAmount
    *
-   * @param additionalAmount
+   * @param additionalAmount 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse additionalAmount(Amount additionalAmount) {
@@ -590,7 +590,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get additionalAmount
-   * @return additionalAmount
+   * @return additionalAmount 
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -601,7 +601,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * additionalAmount
    *
-   * @param additionalAmount
+   * @param additionalAmount 
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -612,7 +612,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse additionalData(Map<String, String> additionalData) {
@@ -630,7 +630,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
-   * @return additionalData
+   * @return additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -641,7 +641,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -652,7 +652,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    *
-   * @param allowedPaymentMethods
+   * @param allowedPaymentMethods List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse allowedPaymentMethods(List<String> allowedPaymentMethods) {
@@ -670,7 +670,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
-   * @return allowedPaymentMethods
+   * @return allowedPaymentMethods List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -681,7 +681,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    *
-   * @param allowedPaymentMethods
+   * @param allowedPaymentMethods List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -692,7 +692,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse amount(Amount amount) {
@@ -702,7 +702,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -713,7 +713,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -724,7 +724,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse applicationInfo(ApplicationInfo applicationInfo) {
@@ -734,7 +734,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get applicationInfo
-   * @return applicationInfo
+   * @return applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -745,7 +745,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -756,7 +756,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * authenticationData
    *
-   * @param authenticationData
+   * @param authenticationData 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse authenticationData(AuthenticationData authenticationData) {
@@ -766,7 +766,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get authenticationData
-   * @return authenticationData
+   * @return authenticationData 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -777,7 +777,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * authenticationData
    *
-   * @param authenticationData
+   * @param authenticationData 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -788,7 +788,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse billingAddress(BillingAddress billingAddress) {
@@ -798,7 +798,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get billingAddress
-   * @return billingAddress
+   * @return billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -809,7 +809,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -820,7 +820,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    *
-   * @param blockedPaymentMethods
+   * @param blockedPaymentMethods List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse blockedPaymentMethods(List<String> blockedPaymentMethods) {
@@ -838,7 +838,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
-   * @return blockedPaymentMethods
+   * @return blockedPaymentMethods List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    */
   @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -849,7 +849,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    *
-   * @param blockedPaymentMethods
+   * @param blockedPaymentMethods List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    */
   @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -860,7 +860,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The delay between the authorisation and scheduled auto-capture, specified in hours.
    *
-   * @param captureDelayHours
+   * @param captureDelayHours The delay between the authorisation and scheduled auto-capture, specified in hours.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse captureDelayHours(Integer captureDelayHours) {
@@ -870,7 +870,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The delay between the authorisation and scheduled auto-capture, specified in hours.
-   * @return captureDelayHours
+   * @return captureDelayHours The delay between the authorisation and scheduled auto-capture, specified in hours.
    */
   @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -881,7 +881,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The delay between the authorisation and scheduled auto-capture, specified in hours.
    *
-   * @param captureDelayHours
+   * @param captureDelayHours The delay between the authorisation and scheduled auto-capture, specified in hours.
    */
   @JsonProperty(JSON_PROPERTY_CAPTURE_DELAY_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -892,7 +892,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * **iOS** * **Android** * **Web**
    *
-   * @param channel
+   * @param channel The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * **iOS** * **Android** * **Web**
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse channel(ChannelEnum channel) {
@@ -902,7 +902,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * **iOS** * **Android** * **Web**
-   * @return channel
+   * @return channel The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * **iOS** * **Android** * **Web**
    */
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -913,7 +913,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * **iOS** * **Android** * **Web**
    *
-   * @param channel
+   * @param channel The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * **iOS** * **Android** * **Web**
    */
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -924,7 +924,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * company
    *
-   * @param company
+   * @param company 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse company(Company company) {
@@ -934,7 +934,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get company
-   * @return company
+   * @return company 
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -945,7 +945,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * company
    *
-   * @param company
+   * @param company 
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -956,7 +956,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s two-letter country code.
    *
-   * @param countryCode
+   * @param countryCode The shopper&#39;s two-letter country code.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse countryCode(String countryCode) {
@@ -966,7 +966,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The shopper&#39;s two-letter country code.
-   * @return countryCode
+   * @return countryCode The shopper&#39;s two-letter country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -977,7 +977,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s two-letter country code.
    *
-   * @param countryCode
+   * @param countryCode The shopper&#39;s two-letter country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -988,7 +988,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s date of birth in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The shopper&#39;s date of birth in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse dateOfBirth(OffsetDateTime dateOfBirth) {
@@ -998,7 +998,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The shopper&#39;s date of birth in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
-   * @return dateOfBirth
+   * @return dateOfBirth The shopper&#39;s date of birth in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1009,7 +1009,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s date of birth in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The shopper&#39;s date of birth in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1020,7 +1020,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param deliverAt
+   * @param deliverAt The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse deliverAt(OffsetDateTime deliverAt) {
@@ -1030,7 +1030,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
-   * @return deliverAt
+   * @return deliverAt The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_DELIVER_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1041,7 +1041,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param deliverAt
+   * @param deliverAt The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_DELIVER_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1052,7 +1052,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * deliveryAddress
    *
-   * @param deliveryAddress
+   * @param deliveryAddress 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse deliveryAddress(DeliveryAddress deliveryAddress) {
@@ -1062,7 +1062,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get deliveryAddress
-   * @return deliveryAddress
+   * @return deliveryAddress 
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1073,7 +1073,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * deliveryAddress
    *
-   * @param deliveryAddress
+   * @param deliveryAddress 
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1084,7 +1084,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
    *
-   * @param enableOneClick
+   * @param enableOneClick When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse enableOneClick(Boolean enableOneClick) {
@@ -1094,7 +1094,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
-   * @return enableOneClick
+   * @return enableOneClick When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_ONE_CLICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1105,7 +1105,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
    *
-   * @param enableOneClick
+   * @param enableOneClick When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_ONE_CLICK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1116,7 +1116,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
    *
-   * @param enablePayOut
+   * @param enablePayOut When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse enablePayOut(Boolean enablePayOut) {
@@ -1126,7 +1126,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
-   * @return enablePayOut
+   * @return enablePayOut When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_OUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1137,7 +1137,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
    *
-   * @param enablePayOut
+   * @param enablePayOut When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_PAY_OUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1148,7 +1148,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
    *
-   * @param enableRecurring
+   * @param enableRecurring When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse enableRecurring(Boolean enableRecurring) {
@@ -1158,7 +1158,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
-   * @return enableRecurring
+   * @return enableRecurring When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1169,7 +1169,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
    *
-   * @param enableRecurring
+   * @param enableRecurring When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
    */
   @JsonProperty(JSON_PROPERTY_ENABLE_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1180,7 +1180,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
    *
-   * @param expiresAt
+   * @param expiresAt The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse expiresAt(OffsetDateTime expiresAt) {
@@ -1190,7 +1190,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
-   * @return expiresAt
+   * @return expiresAt The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1201,7 +1201,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
    *
-   * @param expiresAt
+   * @param expiresAt The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1212,7 +1212,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * fundOrigin
    *
-   * @param fundOrigin
+   * @param fundOrigin 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse fundOrigin(FundOrigin fundOrigin) {
@@ -1222,7 +1222,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get fundOrigin
-   * @return fundOrigin
+   * @return fundOrigin 
    */
   @JsonProperty(JSON_PROPERTY_FUND_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1233,7 +1233,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * fundOrigin
    *
-   * @param fundOrigin
+   * @param fundOrigin 
    */
   @JsonProperty(JSON_PROPERTY_FUND_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1244,7 +1244,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * fundRecipient
    *
-   * @param fundRecipient
+   * @param fundRecipient 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse fundRecipient(FundRecipient fundRecipient) {
@@ -1254,7 +1254,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get fundRecipient
-   * @return fundRecipient
+   * @return fundRecipient 
    */
   @JsonProperty(JSON_PROPERTY_FUND_RECIPIENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1265,7 +1265,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * fundRecipient
    *
-   * @param fundRecipient
+   * @param fundRecipient 
    */
   @JsonProperty(JSON_PROPERTY_FUND_RECIPIENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1275,7 +1275,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * A unique identifier of the session.
-   * @return id
+   * @return id A unique identifier of the session.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1287,7 +1287,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
    *
-   * @param installmentOptions
+   * @param installmentOptions A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse installmentOptions(Map<String, CheckoutSessionInstallmentOption> installmentOptions) {
@@ -1305,7 +1305,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
-   * @return installmentOptions
+   * @return installmentOptions A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1316,7 +1316,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
    *
-   * @param installmentOptions
+   * @param installmentOptions A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1327,7 +1327,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse lineItems(List<LineItem> lineItems) {
@@ -1345,7 +1345,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
-   * @return lineItems
+   * @return lineItems Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1356,7 +1356,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1367,7 +1367,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * mandate
    *
-   * @param mandate
+   * @param mandate 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse mandate(Mandate mandate) {
@@ -1377,7 +1377,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get mandate
-   * @return mandate
+   * @return mandate 
    */
   @JsonProperty(JSON_PROPERTY_MANDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1388,7 +1388,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * mandate
    *
-   * @param mandate
+   * @param mandate 
    */
   @JsonProperty(JSON_PROPERTY_MANDATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1399,7 +1399,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    *
-   * @param mcc
+   * @param mcc The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse mcc(String mcc) {
@@ -1409,7 +1409,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
-   * @return mcc
+   * @return mcc The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1420,7 +1420,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    *
-   * @param mcc
+   * @param mcc The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1431,7 +1431,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse merchantAccount(String merchantAccount) {
@@ -1441,7 +1441,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1452,7 +1452,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1463,7 +1463,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    *
-   * @param merchantOrderReference
+   * @param merchantOrderReference This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse merchantOrderReference(String merchantOrderReference) {
@@ -1473,7 +1473,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
-   * @return merchantOrderReference
+   * @return merchantOrderReference This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1484,7 +1484,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    *
-   * @param merchantOrderReference
+   * @param merchantOrderReference This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ORDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1495,7 +1495,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    *
-   * @param metadata
+   * @param metadata Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse metadata(Map<String, String> metadata) {
@@ -1513,7 +1513,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. 
-   * @return metadata
+   * @return metadata Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1524,7 +1524,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    *
-   * @param metadata
+   * @param metadata Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1535,7 +1535,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in or Components integration * **hosted**: Hosted Checkout integration
    *
-   * @param mode
+   * @param mode Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in or Components integration * **hosted**: Hosted Checkout integration
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse mode(ModeEnum mode) {
@@ -1545,7 +1545,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in or Components integration * **hosted**: Hosted Checkout integration
-   * @return mode
+   * @return mode Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in or Components integration * **hosted**: Hosted Checkout integration
    */
   @JsonProperty(JSON_PROPERTY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1556,7 +1556,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in or Components integration * **hosted**: Hosted Checkout integration
    *
-   * @param mode
+   * @param mode Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in or Components integration * **hosted**: Hosted Checkout integration
    */
   @JsonProperty(JSON_PROPERTY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1567,7 +1567,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * mpiData
    *
-   * @param mpiData
+   * @param mpiData 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse mpiData(ThreeDSecureData mpiData) {
@@ -1577,7 +1577,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get mpiData
-   * @return mpiData
+   * @return mpiData 
    */
   @JsonProperty(JSON_PROPERTY_MPI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1588,7 +1588,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * mpiData
    *
-   * @param mpiData
+   * @param mpiData 
    */
   @JsonProperty(JSON_PROPERTY_MPI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1599,7 +1599,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * platformChargebackLogic
    *
-   * @param platformChargebackLogic
+   * @param platformChargebackLogic 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
@@ -1609,7 +1609,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get platformChargebackLogic
-   * @return platformChargebackLogic
+   * @return platformChargebackLogic 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1620,7 +1620,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * platformChargebackLogic
    *
-   * @param platformChargebackLogic
+   * @param platformChargebackLogic 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1631,7 +1631,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
    *
-   * @param recurringExpiry
+   * @param recurringExpiry Date after which no further authorisations shall be performed. Only for 3D Secure 2.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse recurringExpiry(String recurringExpiry) {
@@ -1641,7 +1641,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
-   * @return recurringExpiry
+   * @return recurringExpiry Date after which no further authorisations shall be performed. Only for 3D Secure 2.
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1652,7 +1652,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
    *
-   * @param recurringExpiry
+   * @param recurringExpiry Date after which no further authorisations shall be performed. Only for 3D Secure 2.
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1663,7 +1663,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Minimum number of days between authorisations. Only for 3D Secure 2.
    *
-   * @param recurringFrequency
+   * @param recurringFrequency Minimum number of days between authorisations. Only for 3D Secure 2.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse recurringFrequency(String recurringFrequency) {
@@ -1673,7 +1673,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Minimum number of days between authorisations. Only for 3D Secure 2.
-   * @return recurringFrequency
+   * @return recurringFrequency Minimum number of days between authorisations. Only for 3D Secure 2.
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1684,7 +1684,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Minimum number of days between authorisations. Only for 3D Secure 2.
    *
-   * @param recurringFrequency
+   * @param recurringFrequency Minimum number of days between authorisations. Only for 3D Secure 2.
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1695,7 +1695,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    *
-   * @param recurringProcessingModel
+   * @param recurringProcessingModel Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
@@ -1705,7 +1705,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
-   * @return recurringProcessingModel
+   * @return recurringProcessingModel Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1716,7 +1716,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    *
-   * @param recurringProcessingModel
+   * @param recurringProcessingModel Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_PROCESSING_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1727,7 +1727,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    *
-   * @param redirectFromIssuerMethod
+   * @param redirectFromIssuerMethod Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse redirectFromIssuerMethod(String redirectFromIssuerMethod) {
@@ -1737,7 +1737,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
-   * @return redirectFromIssuerMethod
+   * @return redirectFromIssuerMethod Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1748,7 +1748,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    *
-   * @param redirectFromIssuerMethod
+   * @param redirectFromIssuerMethod Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_FROM_ISSUER_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1759,7 +1759,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Specifies the redirect method (GET or POST) when redirecting to the issuer.
    *
-   * @param redirectToIssuerMethod
+   * @param redirectToIssuerMethod Specifies the redirect method (GET or POST) when redirecting to the issuer.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse redirectToIssuerMethod(String redirectToIssuerMethod) {
@@ -1769,7 +1769,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Specifies the redirect method (GET or POST) when redirecting to the issuer.
-   * @return redirectToIssuerMethod
+   * @return redirectToIssuerMethod Specifies the redirect method (GET or POST) when redirecting to the issuer.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1780,7 +1780,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Specifies the redirect method (GET or POST) when redirecting to the issuer.
    *
-   * @param redirectToIssuerMethod
+   * @param redirectToIssuerMethod Specifies the redirect method (GET or POST) when redirecting to the issuer.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_TO_ISSUER_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1791,7 +1791,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The reference to uniquely identify a payment.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse reference(String reference) {
@@ -1801,7 +1801,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The reference to uniquely identify a payment.
-   * @return reference
+   * @return reference The reference to uniquely identify a payment.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1812,7 +1812,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The reference to uniquely identify a payment.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1823,7 +1823,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param returnUrl
+   * @param returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse returnUrl(String returnUrl) {
@@ -1833,7 +1833,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
-   * @return returnUrl
+   * @return returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1844,7 +1844,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param returnUrl
+   * @param returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1855,7 +1855,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * riskData
    *
-   * @param riskData
+   * @param riskData 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse riskData(RiskData riskData) {
@@ -1865,7 +1865,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get riskData
-   * @return riskData
+   * @return riskData 
    */
   @JsonProperty(JSON_PROPERTY_RISK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1876,7 +1876,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * riskData
    *
-   * @param riskData
+   * @param riskData 
    */
   @JsonProperty(JSON_PROPERTY_RISK_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1887,7 +1887,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The payment session data you need to pass to your front end.
    *
-   * @param sessionData
+   * @param sessionData The payment session data you need to pass to your front end.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse sessionData(String sessionData) {
@@ -1897,7 +1897,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The payment session data you need to pass to your front end.
-   * @return sessionData
+   * @return sessionData The payment session data you need to pass to your front end.
    */
   @JsonProperty(JSON_PROPERTY_SESSION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1908,7 +1908,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The payment session data you need to pass to your front end.
    *
-   * @param sessionData
+   * @param sessionData The payment session data you need to pass to your front end.
    */
   @JsonProperty(JSON_PROPERTY_SESSION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1919,7 +1919,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s email address.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email address.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse shopperEmail(String shopperEmail) {
@@ -1929,7 +1929,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The shopper&#39;s email address.
-   * @return shopperEmail
+   * @return shopperEmail The shopper&#39;s email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1940,7 +1940,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s email address.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1951,7 +1951,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @param shopperIP
+   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse shopperIP(String shopperIP) {
@@ -1961,7 +1961,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
-   * @return shopperIP
+   * @return shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1972,7 +1972,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @param shopperIP
+   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1983,7 +1983,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse shopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -1993,7 +1993,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
-   * @return shopperInteraction
+   * @return shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2004,7 +2004,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2015,7 +2015,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
    *
-   * @param shopperLocale
+   * @param shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse shopperLocale(String shopperLocale) {
@@ -2025,7 +2025,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
-   * @return shopperLocale
+   * @return shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2036,7 +2036,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
    *
-   * @param shopperLocale
+   * @param shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2047,7 +2047,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse shopperName(Name shopperName) {
@@ -2057,7 +2057,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get shopperName
-   * @return shopperName
+   * @return shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2068,7 +2068,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2079,7 +2079,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse shopperReference(String shopperReference) {
@@ -2089,7 +2089,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
-   * @return shopperReference
+   * @return shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2100,7 +2100,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2111,7 +2111,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    *
-   * @param shopperStatement
+   * @param shopperStatement The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse shopperStatement(String shopperStatement) {
@@ -2121,7 +2121,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
-   * @return shopperStatement
+   * @return shopperStatement The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2132,7 +2132,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    *
-   * @param shopperStatement
+   * @param shopperStatement The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2143,7 +2143,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Set to true to show the payment amount per installment.
    *
-   * @param showInstallmentAmount
+   * @param showInstallmentAmount Set to true to show the payment amount per installment.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse showInstallmentAmount(Boolean showInstallmentAmount) {
@@ -2153,7 +2153,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Set to true to show the payment amount per installment.
-   * @return showInstallmentAmount
+   * @return showInstallmentAmount Set to true to show the payment amount per installment.
    */
   @JsonProperty(JSON_PROPERTY_SHOW_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2164,7 +2164,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Set to true to show the payment amount per installment.
    *
-   * @param showInstallmentAmount
+   * @param showInstallmentAmount Set to true to show the payment amount per installment.
    */
   @JsonProperty(JSON_PROPERTY_SHOW_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2175,7 +2175,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Set to **true** to show a button that lets the shopper remove a stored payment method.
    *
-   * @param showRemovePaymentMethodButton
+   * @param showRemovePaymentMethodButton Set to **true** to show a button that lets the shopper remove a stored payment method.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse showRemovePaymentMethodButton(Boolean showRemovePaymentMethodButton) {
@@ -2185,7 +2185,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Set to **true** to show a button that lets the shopper remove a stored payment method.
-   * @return showRemovePaymentMethodButton
+   * @return showRemovePaymentMethodButton Set to **true** to show a button that lets the shopper remove a stored payment method.
    */
   @JsonProperty(JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2196,7 +2196,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Set to **true** to show a button that lets the shopper remove a stored payment method.
    *
-   * @param showRemovePaymentMethodButton
+   * @param showRemovePaymentMethodButton Set to **true** to show a button that lets the shopper remove a stored payment method.
    */
   @JsonProperty(JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2207,7 +2207,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s social security number.
    *
-   * @param socialSecurityNumber
+   * @param socialSecurityNumber The shopper&#39;s social security number.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse socialSecurityNumber(String socialSecurityNumber) {
@@ -2217,7 +2217,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The shopper&#39;s social security number.
-   * @return socialSecurityNumber
+   * @return socialSecurityNumber The shopper&#39;s social security number.
    */
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2228,7 +2228,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s social security number.
    *
-   * @param socialSecurityNumber
+   * @param socialSecurityNumber The shopper&#39;s social security number.
    */
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2239,7 +2239,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    *
-   * @param splitCardFundingSources
+   * @param splitCardFundingSources Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse splitCardFundingSources(Boolean splitCardFundingSources) {
@@ -2249,7 +2249,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
-   * @return splitCardFundingSources
+   * @return splitCardFundingSources Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2260,7 +2260,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    *
-   * @param splitCardFundingSources
+   * @param splitCardFundingSources Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2271,7 +2271,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    *
-   * @param splits
+   * @param splits An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse splits(List<Split> splits) {
@@ -2289,7 +2289,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
-   * @return splits
+   * @return splits An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2300,7 +2300,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    *
-   * @param splits
+   * @param splits An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2311,7 +2311,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    *
-   * @param store
+   * @param store Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse store(String store) {
@@ -2321,7 +2321,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
-   * @return store
+   * @return store Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2332,7 +2332,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    *
-   * @param store
+   * @param store Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2343,7 +2343,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    *
-   * @param storeFiltrationMode
+   * @param storeFiltrationMode Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse storeFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
@@ -2353,7 +2353,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
-   * @return storeFiltrationMode
+   * @return storeFiltrationMode Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    */
   @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2364,7 +2364,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    *
-   * @param storeFiltrationMode
+   * @param storeFiltrationMode Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    */
   @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2375,7 +2375,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
    *
-   * @param storePaymentMethod
+   * @param storePaymentMethod When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse storePaymentMethod(Boolean storePaymentMethod) {
@@ -2385,7 +2385,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
-   * @return storePaymentMethod
+   * @return storePaymentMethod When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
    */
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2396,7 +2396,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
    *
-   * @param storePaymentMethod
+   * @param storePaymentMethod When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored for future [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types).
    */
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2407,7 +2407,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper for consent.
    *
-   * @param storePaymentMethodMode
+   * @param storePaymentMethodMode Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper for consent.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse storePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
@@ -2417,7 +2417,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper for consent.
-   * @return storePaymentMethodMode
+   * @return storePaymentMethodMode Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper for consent.
    */
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2428,7 +2428,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper for consent.
    *
-   * @param storePaymentMethodMode
+   * @param storePaymentMethodMode Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the &#x60;shopperReference&#x60; is provided, the UI lets the shopper choose if they want their payment details to be stored. * **enabled** – If the &#x60;shopperReference&#x60; is provided, the details will be stored without asking the shopper for consent.
    */
   @JsonProperty(JSON_PROPERTY_STORE_PAYMENT_METHOD_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2439,7 +2439,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s telephone number.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The shopper&#39;s telephone number.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse telephoneNumber(String telephoneNumber) {
@@ -2449,7 +2449,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The shopper&#39;s telephone number.
-   * @return telephoneNumber
+   * @return telephoneNumber The shopper&#39;s telephone number.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2460,7 +2460,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The shopper&#39;s telephone number.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The shopper&#39;s telephone number.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2471,7 +2471,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Sets a custom theme for [Hosted Checkout](https://docs.adyen.com/online-payments/build-your-integration/?platform&#x3D;Web&amp;integration&#x3D;Hosted+Checkout). The value can be any of the **Theme ID** values from your Customer Area.
    *
-   * @param themeId
+   * @param themeId Sets a custom theme for [Hosted Checkout](https://docs.adyen.com/online-payments/build-your-integration/?platform&#x3D;Web&amp;integration&#x3D;Hosted+Checkout). The value can be any of the **Theme ID** values from your Customer Area.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse themeId(String themeId) {
@@ -2481,7 +2481,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Sets a custom theme for [Hosted Checkout](https://docs.adyen.com/online-payments/build-your-integration/?platform&#x3D;Web&amp;integration&#x3D;Hosted+Checkout). The value can be any of the **Theme ID** values from your Customer Area.
-   * @return themeId
+   * @return themeId Sets a custom theme for [Hosted Checkout](https://docs.adyen.com/online-payments/build-your-integration/?platform&#x3D;Web&amp;integration&#x3D;Hosted+Checkout). The value can be any of the **Theme ID** values from your Customer Area.
    */
   @JsonProperty(JSON_PROPERTY_THEME_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2492,7 +2492,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Sets a custom theme for [Hosted Checkout](https://docs.adyen.com/online-payments/build-your-integration/?platform&#x3D;Web&amp;integration&#x3D;Hosted+Checkout). The value can be any of the **Theme ID** values from your Customer Area.
    *
-   * @param themeId
+   * @param themeId Sets a custom theme for [Hosted Checkout](https://docs.adyen.com/online-payments/build-your-integration/?platform&#x3D;Web&amp;integration&#x3D;Hosted+Checkout). The value can be any of the **Theme ID** values from your Customer Area.
    */
   @JsonProperty(JSON_PROPERTY_THEME_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2503,7 +2503,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * threeDS2RequestData
    *
-   * @param threeDS2RequestData
+   * @param threeDS2RequestData 
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse threeDS2RequestData(CheckoutSessionThreeDS2RequestData threeDS2RequestData) {
@@ -2513,7 +2513,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Get threeDS2RequestData
-   * @return threeDS2RequestData
+   * @return threeDS2RequestData 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2524,7 +2524,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * threeDS2RequestData
    *
-   * @param threeDS2RequestData
+   * @param threeDS2RequestData 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2535,7 +2535,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
-   * @param threeDSAuthenticationOnly
+   * @param threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v69
@@ -2549,7 +2549,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
-   * @return threeDSAuthenticationOnly
+   * @return threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    * @deprecated // deprecated since Adyen Checkout API v69: Use `authenticationData.authenticationOnly` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v69: Use `authenticationData.authenticationOnly` instead.
@@ -2562,7 +2562,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
-   * @param threeDSAuthenticationOnly
+   * @param threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
    * @deprecated since Adyen Checkout API v69
    * Use &#x60;authenticationData.authenticationOnly&#x60; instead.
@@ -2577,7 +2577,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Set to true if the payment should be routed to a trusted MID.
    *
-   * @param trustedShopper
+   * @param trustedShopper Set to true if the payment should be routed to a trusted MID.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse trustedShopper(Boolean trustedShopper) {
@@ -2587,7 +2587,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * Set to true if the payment should be routed to a trusted MID.
-   * @return trustedShopper
+   * @return trustedShopper Set to true if the payment should be routed to a trusted MID.
    */
   @JsonProperty(JSON_PROPERTY_TRUSTED_SHOPPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2598,7 +2598,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * Set to true if the payment should be routed to a trusted MID.
    *
-   * @param trustedShopper
+   * @param trustedShopper Set to true if the payment should be routed to a trusted MID.
    */
   @JsonProperty(JSON_PROPERTY_TRUSTED_SHOPPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2609,7 +2609,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The URL for the Hosted Checkout page. Redirect the shopper to this URL so they can make the payment.
    *
-   * @param url
+   * @param url The URL for the Hosted Checkout page. Redirect the shopper to this URL so they can make the payment.
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method chaining
    */
   public CreateCheckoutSessionResponse url(String url) {
@@ -2619,7 +2619,7 @@ public class CreateCheckoutSessionResponse {
 
   /**
    * The URL for the Hosted Checkout page. Redirect the shopper to this URL so they can make the payment.
-   * @return url
+   * @return url The URL for the Hosted Checkout page. Redirect the shopper to this URL so they can make the payment.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2630,7 +2630,7 @@ public class CreateCheckoutSessionResponse {
   /**
    * The URL for the Hosted Checkout page. Redirect the shopper to this URL so they can make the payment.
    *
-   * @param url
+   * @param url The URL for the Hosted Checkout page. Redirect the shopper to this URL so they can make the payment.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

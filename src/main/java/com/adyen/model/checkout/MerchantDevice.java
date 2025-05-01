@@ -50,7 +50,7 @@ public class MerchantDevice {
   /**
    * Operating system running on the merchant device.
    *
-   * @param os
+   * @param os Operating system running on the merchant device.
    * @return the current {@code MerchantDevice} instance, allowing for method chaining
    */
   public MerchantDevice os(String os) {
@@ -60,7 +60,7 @@ public class MerchantDevice {
 
   /**
    * Operating system running on the merchant device.
-   * @return os
+   * @return os Operating system running on the merchant device.
    */
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class MerchantDevice {
   /**
    * Operating system running on the merchant device.
    *
-   * @param os
+   * @param os Operating system running on the merchant device.
    */
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class MerchantDevice {
   /**
    * Version of the operating system on the merchant device.
    *
-   * @param osVersion
+   * @param osVersion Version of the operating system on the merchant device.
    * @return the current {@code MerchantDevice} instance, allowing for method chaining
    */
   public MerchantDevice osVersion(String osVersion) {
@@ -92,7 +92,7 @@ public class MerchantDevice {
 
   /**
    * Version of the operating system on the merchant device.
-   * @return osVersion
+   * @return osVersion Version of the operating system on the merchant device.
    */
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class MerchantDevice {
   /**
    * Version of the operating system on the merchant device.
    *
-   * @param osVersion
+   * @param osVersion Version of the operating system on the merchant device.
    */
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class MerchantDevice {
   /**
    * Merchant device reference.
    *
-   * @param reference
+   * @param reference Merchant device reference.
    * @return the current {@code MerchantDevice} instance, allowing for method chaining
    */
   public MerchantDevice reference(String reference) {
@@ -124,7 +124,7 @@ public class MerchantDevice {
 
   /**
    * Merchant device reference.
-   * @return reference
+   * @return reference Merchant device reference.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class MerchantDevice {
   /**
    * Merchant device reference.
    *
-   * @param reference
+   * @param reference Merchant device reference.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

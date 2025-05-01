@@ -95,7 +95,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * A token needed to authorise a payment.
    *
-   * @param authorisationToken
+   * @param authorisationToken A token needed to authorise a payment.
    * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
    */
   public CheckoutDelegatedAuthenticationAction authorisationToken(String authorisationToken) {
@@ -105,7 +105,7 @@ public class CheckoutDelegatedAuthenticationAction {
 
   /**
    * A token needed to authorise a payment.
-   * @return authorisationToken
+   * @return authorisationToken A token needed to authorise a payment.
    */
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * A token needed to authorise a payment.
    *
-   * @param authorisationToken
+   * @param authorisationToken A token needed to authorise a payment.
    */
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
    */
   public CheckoutDelegatedAuthenticationAction paymentData(String paymentData) {
@@ -137,7 +137,7 @@ public class CheckoutDelegatedAuthenticationAction {
 
   /**
    * Encoded payment data.
-   * @return paymentData
+   * @return paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
    */
   public CheckoutDelegatedAuthenticationAction paymentMethodType(String paymentMethodType) {
@@ -169,7 +169,7 @@ public class CheckoutDelegatedAuthenticationAction {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * A token to pass to the delegatedAuthentication component.
    *
-   * @param token
+   * @param token A token to pass to the delegatedAuthentication component.
    * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
    */
   public CheckoutDelegatedAuthenticationAction token(String token) {
@@ -201,7 +201,7 @@ public class CheckoutDelegatedAuthenticationAction {
 
   /**
    * A token to pass to the delegatedAuthentication component.
-   * @return token
+   * @return token A token to pass to the delegatedAuthentication component.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * A token to pass to the delegatedAuthentication component.
    *
-   * @param token
+   * @param token A token to pass to the delegatedAuthentication component.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * **delegatedAuthentication**
    *
-   * @param type
+   * @param type **delegatedAuthentication**
    * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
    */
   public CheckoutDelegatedAuthenticationAction type(TypeEnum type) {
@@ -233,7 +233,7 @@ public class CheckoutDelegatedAuthenticationAction {
 
   /**
    * **delegatedAuthentication**
-   * @return type
+   * @return type **delegatedAuthentication**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * **delegatedAuthentication**
    *
-   * @param type
+   * @param type **delegatedAuthentication**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutDelegatedAuthenticationAction} instance, allowing for method chaining
    */
   public CheckoutDelegatedAuthenticationAction url(String url) {
@@ -265,7 +265,7 @@ public class CheckoutDelegatedAuthenticationAction {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class CheckoutDelegatedAuthenticationAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

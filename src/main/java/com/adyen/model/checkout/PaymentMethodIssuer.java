@@ -50,7 +50,7 @@ public class PaymentMethodIssuer {
   /**
    * A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
    *
-   * @param disabled
+   * @param disabled A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
    * @return the current {@code PaymentMethodIssuer} instance, allowing for method chaining
    */
   public PaymentMethodIssuer disabled(Boolean disabled) {
@@ -60,7 +60,7 @@ public class PaymentMethodIssuer {
 
   /**
    * A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
-   * @return disabled
+   * @return disabled A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
    */
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class PaymentMethodIssuer {
   /**
    * A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
    *
-   * @param disabled
+   * @param disabled A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
    */
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class PaymentMethodIssuer {
   /**
    * The unique identifier of this issuer, to submit in requests to /payments.
    *
-   * @param id
+   * @param id The unique identifier of this issuer, to submit in requests to /payments.
    * @return the current {@code PaymentMethodIssuer} instance, allowing for method chaining
    */
   public PaymentMethodIssuer id(String id) {
@@ -92,7 +92,7 @@ public class PaymentMethodIssuer {
 
   /**
    * The unique identifier of this issuer, to submit in requests to /payments.
-   * @return id
+   * @return id The unique identifier of this issuer, to submit in requests to /payments.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class PaymentMethodIssuer {
   /**
    * The unique identifier of this issuer, to submit in requests to /payments.
    *
-   * @param id
+   * @param id The unique identifier of this issuer, to submit in requests to /payments.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class PaymentMethodIssuer {
   /**
    * A localized name of the issuer.
    *
-   * @param name
+   * @param name A localized name of the issuer.
    * @return the current {@code PaymentMethodIssuer} instance, allowing for method chaining
    */
   public PaymentMethodIssuer name(String name) {
@@ -124,7 +124,7 @@ public class PaymentMethodIssuer {
 
   /**
    * A localized name of the issuer.
-   * @return name
+   * @return name A localized name of the issuer.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class PaymentMethodIssuer {
   /**
    * A localized name of the issuer.
    *
-   * @param name
+   * @param name A localized name of the issuer.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

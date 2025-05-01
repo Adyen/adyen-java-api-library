@@ -106,7 +106,7 @@ public class AdditionalDataLodging {
   /**
    * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
    *
-   * @param lodgingSpecialProgramCode
+   * @param lodgingSpecialProgramCode A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingSpecialProgramCode(String lodgingSpecialProgramCode) {
@@ -116,7 +116,7 @@ public class AdditionalDataLodging {
 
   /**
    * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
-   * @return lodgingSpecialProgramCode
+   * @return lodgingSpecialProgramCode A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
    */
   @JsonProperty(JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class AdditionalDataLodging {
   /**
    * A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
    *
-   * @param lodgingSpecialProgramCode
+   * @param lodgingSpecialProgramCode A code that corresponds to the category of lodging charges for the payment. Possible values: * 1: Lodging * 2: No show reservation * 3: Advanced deposit
    */
   @JsonProperty(JSON_PROPERTY_LODGING_SPECIAL_PROGRAM_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class AdditionalDataLodging {
   /**
    * The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    *
-   * @param lodgingCheckInDate
+   * @param lodgingCheckInDate The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingCheckInDate(String lodgingCheckInDate) {
@@ -148,7 +148,7 @@ public class AdditionalDataLodging {
 
   /**
    * The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
-   * @return lodgingCheckInDate
+   * @return lodgingCheckInDate The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_CHECK_IN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class AdditionalDataLodging {
   /**
    * The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    *
-   * @param lodgingCheckInDate
+   * @param lodgingCheckInDate The arrival date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_CHECK_IN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class AdditionalDataLodging {
   /**
    * The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    *
-   * @param lodgingCheckOutDate
+   * @param lodgingCheckOutDate The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingCheckOutDate(String lodgingCheckOutDate) {
@@ -180,7 +180,7 @@ public class AdditionalDataLodging {
 
   /**
    * The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
-   * @return lodgingCheckOutDate
+   * @return lodgingCheckOutDate The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_CHECK_OUT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class AdditionalDataLodging {
   /**
    * The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    *
-   * @param lodgingCheckOutDate
+   * @param lodgingCheckOutDate The departure date. * Date format: **yyyyMmDd**. For example, for 2023 April 22, **20230422**.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_CHECK_OUT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,7 +202,7 @@ public class AdditionalDataLodging {
   /**
    * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    *
-   * @param lodgingCustomerServiceTollFreeNumber
+   * @param lodgingCustomerServiceTollFreeNumber The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingCustomerServiceTollFreeNumber(String lodgingCustomerServiceTollFreeNumber) {
@@ -212,7 +212,7 @@ public class AdditionalDataLodging {
 
   /**
    * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
-   * @return lodgingCustomerServiceTollFreeNumber
+   * @return lodgingCustomerServiceTollFreeNumber The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class AdditionalDataLodging {
   /**
    * The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    *
-   * @param lodgingCustomerServiceTollFreeNumber
+   * @param lodgingCustomerServiceTollFreeNumber The toll-free phone number for the lodging. * Format: numeric * Max length: 17 characters. * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class AdditionalDataLodging {
   /**
    * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
    *
-   * @param lodgingFireSafetyActIndicator
+   * @param lodgingFireSafetyActIndicator Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingFireSafetyActIndicator(String lodgingFireSafetyActIndicator) {
@@ -244,7 +244,7 @@ public class AdditionalDataLodging {
 
   /**
    * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
-   * @return lodgingFireSafetyActIndicator
+   * @return lodgingFireSafetyActIndicator Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
    */
   @JsonProperty(JSON_PROPERTY_LODGING_FIRE_SAFETY_ACT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class AdditionalDataLodging {
   /**
    * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
    *
-   * @param lodgingFireSafetyActIndicator
+   * @param lodgingFireSafetyActIndicator Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Must be &#39;Y&#39; or &#39;N&#39;. * Format: alphabetic * Max length: 1 character
    */
   @JsonProperty(JSON_PROPERTY_LODGING_FIRE_SAFETY_ACT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +266,7 @@ public class AdditionalDataLodging {
   /**
    * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    *
-   * @param lodgingFolioCashAdvances
+   * @param lodgingFolioCashAdvances The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingFolioCashAdvances(String lodgingFolioCashAdvances) {
@@ -276,7 +276,7 @@ public class AdditionalDataLodging {
 
   /**
    * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
-   * @return lodgingFolioCashAdvances
+   * @return lodgingFolioCashAdvances The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    */
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_CASH_ADVANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +287,7 @@ public class AdditionalDataLodging {
   /**
    * The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    *
-   * @param lodgingFolioCashAdvances
+   * @param lodgingFolioCashAdvances The folio cash advances, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    */
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_CASH_ADVANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +298,7 @@ public class AdditionalDataLodging {
   /**
    * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
    *
-   * @param lodgingFolioNumber
+   * @param lodgingFolioNumber The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingFolioNumber(String lodgingFolioNumber) {
@@ -308,7 +308,7 @@ public class AdditionalDataLodging {
 
   /**
    * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
-   * @return lodgingFolioNumber
+   * @return lodgingFolioNumber The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +319,7 @@ public class AdditionalDataLodging {
   /**
    * The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
    *
-   * @param lodgingFolioNumber
+   * @param lodgingFolioNumber The card acceptor’s internal invoice or billing ID reference number. * Max length: 25 characters * Must not start with a space * Must not contain any special characters * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_FOLIO_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +330,7 @@ public class AdditionalDataLodging {
   /**
    * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    *
-   * @param lodgingFoodBeverageCharges
+   * @param lodgingFoodBeverageCharges Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingFoodBeverageCharges(String lodgingFoodBeverageCharges) {
@@ -340,7 +340,7 @@ public class AdditionalDataLodging {
 
   /**
    * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
-   * @return lodgingFoodBeverageCharges
+   * @return lodgingFoodBeverageCharges Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    */
   @JsonProperty(JSON_PROPERTY_LODGING_FOOD_BEVERAGE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,7 +351,7 @@ public class AdditionalDataLodging {
   /**
    * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    *
-   * @param lodgingFoodBeverageCharges
+   * @param lodgingFoodBeverageCharges Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters
    */
   @JsonProperty(JSON_PROPERTY_LODGING_FOOD_BEVERAGE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +362,7 @@ public class AdditionalDataLodging {
   /**
    * Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
    *
-   * @param lodgingNoShowIndicator
+   * @param lodgingNoShowIndicator Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingNoShowIndicator(String lodgingNoShowIndicator) {
@@ -372,7 +372,7 @@ public class AdditionalDataLodging {
 
   /**
    * Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
-   * @return lodgingNoShowIndicator
+   * @return lodgingNoShowIndicator Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
    */
   @JsonProperty(JSON_PROPERTY_LODGING_NO_SHOW_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -383,7 +383,7 @@ public class AdditionalDataLodging {
   /**
    * Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
    *
-   * @param lodgingNoShowIndicator
+   * @param lodgingNoShowIndicator Indicates if the customer didn&#39;t check in for their booking.  Possible values:  * **Y**: the customer didn&#39;t check in  * **N**: the customer checked in
    */
   @JsonProperty(JSON_PROPERTY_LODGING_NO_SHOW_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,7 +394,7 @@ public class AdditionalDataLodging {
   /**
    * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
    *
-   * @param lodgingPrepaidExpenses
+   * @param lodgingPrepaidExpenses The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingPrepaidExpenses(String lodgingPrepaidExpenses) {
@@ -404,7 +404,7 @@ public class AdditionalDataLodging {
 
   /**
    * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
-   * @return lodgingPrepaidExpenses
+   * @return lodgingPrepaidExpenses The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
    */
   @JsonProperty(JSON_PROPERTY_LODGING_PREPAID_EXPENSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,7 +415,7 @@ public class AdditionalDataLodging {
   /**
    * The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
    *
-   * @param lodgingPrepaidExpenses
+   * @param lodgingPrepaidExpenses The prepaid expenses for the booking. * Format: numeric * Max length: 12 characters
    */
   @JsonProperty(JSON_PROPERTY_LODGING_PREPAID_EXPENSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,7 +426,7 @@ public class AdditionalDataLodging {
   /**
    * The lodging property location&#39;s phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    *
-   * @param lodgingPropertyPhoneNumber
+   * @param lodgingPropertyPhoneNumber The lodging property location&#39;s phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingPropertyPhoneNumber(String lodgingPropertyPhoneNumber) {
@@ -436,7 +436,7 @@ public class AdditionalDataLodging {
 
   /**
    * The lodging property location&#39;s phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
-   * @return lodgingPropertyPhoneNumber
+   * @return lodgingPropertyPhoneNumber The lodging property location&#39;s phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -447,7 +447,7 @@ public class AdditionalDataLodging {
   /**
    * The lodging property location&#39;s phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    *
-   * @param lodgingPropertyPhoneNumber
+   * @param lodgingPropertyPhoneNumber The lodging property location&#39;s phone number. * Format: numeric * Min length: 10 characters * Max length: 17 characters * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_LODGING_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -458,7 +458,7 @@ public class AdditionalDataLodging {
   /**
    * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
    *
-   * @param lodgingRoom1NumberOfNights
+   * @param lodgingRoom1NumberOfNights The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingRoom1NumberOfNights(String lodgingRoom1NumberOfNights) {
@@ -468,7 +468,7 @@ public class AdditionalDataLodging {
 
   /**
    * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
-   * @return lodgingRoom1NumberOfNights
+   * @return lodgingRoom1NumberOfNights The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
    */
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -479,7 +479,7 @@ public class AdditionalDataLodging {
   /**
    * The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
    *
-   * @param lodgingRoom1NumberOfNights
+   * @param lodgingRoom1NumberOfNights The total number of nights the room is booked for. * Format: numeric * Must be a number between 0 and 99 * Max length: 4 characters
    */
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -490,7 +490,7 @@ public class AdditionalDataLodging {
   /**
    * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    *
-   * @param lodgingRoom1Rate
+   * @param lodgingRoom1Rate The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingRoom1Rate(String lodgingRoom1Rate) {
@@ -500,7 +500,7 @@ public class AdditionalDataLodging {
 
   /**
    * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
-   * @return lodgingRoom1Rate
+   * @return lodgingRoom1Rate The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    */
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -511,7 +511,7 @@ public class AdditionalDataLodging {
   /**
    * The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    *
-   * @param lodgingRoom1Rate
+   * @param lodgingRoom1Rate The rate for the room, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    */
   @JsonProperty(JSON_PROPERTY_LODGING_ROOM1_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -522,7 +522,7 @@ public class AdditionalDataLodging {
   /**
    * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    *
-   * @param lodgingTotalRoomTax
+   * @param lodgingTotalRoomTax The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingTotalRoomTax(String lodgingTotalRoomTax) {
@@ -532,7 +532,7 @@ public class AdditionalDataLodging {
 
   /**
    * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
-   * @return lodgingTotalRoomTax
+   * @return lodgingTotalRoomTax The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    */
   @JsonProperty(JSON_PROPERTY_LODGING_TOTAL_ROOM_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -543,7 +543,7 @@ public class AdditionalDataLodging {
   /**
    * The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    *
-   * @param lodgingTotalRoomTax
+   * @param lodgingTotalRoomTax The total room tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    */
   @JsonProperty(JSON_PROPERTY_LODGING_TOTAL_ROOM_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -554,7 +554,7 @@ public class AdditionalDataLodging {
   /**
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    *
-   * @param lodgingTotalTax
+   * @param lodgingTotalTax The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging lodgingTotalTax(String lodgingTotalTax) {
@@ -564,7 +564,7 @@ public class AdditionalDataLodging {
 
   /**
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
-   * @return lodgingTotalTax
+   * @return lodgingTotalTax The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    */
   @JsonProperty(JSON_PROPERTY_LODGING_TOTAL_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -575,7 +575,7 @@ public class AdditionalDataLodging {
   /**
    * The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    *
-   * @param lodgingTotalTax
+   * @param lodgingTotalTax The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: numeric * Max length: 12 characters * Must not be a negative number
    */
   @JsonProperty(JSON_PROPERTY_LODGING_TOTAL_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -586,7 +586,7 @@ public class AdditionalDataLodging {
   /**
    * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
    *
-   * @param travelEntertainmentAuthDataDuration
+   * @param travelEntertainmentAuthDataDuration The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging travelEntertainmentAuthDataDuration(String travelEntertainmentAuthDataDuration) {
@@ -596,7 +596,7 @@ public class AdditionalDataLodging {
 
   /**
    * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
-   * @return travelEntertainmentAuthDataDuration
+   * @return travelEntertainmentAuthDataDuration The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
    */
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -607,7 +607,7 @@ public class AdditionalDataLodging {
   /**
    * The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
    *
-   * @param travelEntertainmentAuthDataDuration
+   * @param travelEntertainmentAuthDataDuration The number of nights. This should be included in the auth message. * Format: numeric * Max length: 4 characters
    */
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -618,7 +618,7 @@ public class AdditionalDataLodging {
   /**
    * Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
    *
-   * @param travelEntertainmentAuthDataMarket
+   * @param travelEntertainmentAuthDataMarket Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
    * @return the current {@code AdditionalDataLodging} instance, allowing for method chaining
    */
   public AdditionalDataLodging travelEntertainmentAuthDataMarket(String travelEntertainmentAuthDataMarket) {
@@ -628,7 +628,7 @@ public class AdditionalDataLodging {
 
   /**
    * Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
-   * @return travelEntertainmentAuthDataMarket
+   * @return travelEntertainmentAuthDataMarket Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
    */
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -639,7 +639,7 @@ public class AdditionalDataLodging {
   /**
    * Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
    *
-   * @param travelEntertainmentAuthDataMarket
+   * @param travelEntertainmentAuthDataMarket Indicates what market-specific dataset will be submitted. Must be &#39;H&#39; for Hotel. This should be included in the auth message.  * Format: alphanumeric * Max length: 1 character
    */
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

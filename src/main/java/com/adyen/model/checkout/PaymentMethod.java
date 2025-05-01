@@ -122,7 +122,7 @@ public class PaymentMethod {
   /**
    * A list of apps for this payment method.
    *
-   * @param apps
+   * @param apps A list of apps for this payment method.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod apps(List<PaymentMethodUPIApps> apps) {
@@ -140,7 +140,7 @@ public class PaymentMethod {
 
   /**
    * A list of apps for this payment method.
-   * @return apps
+   * @return apps A list of apps for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class PaymentMethod {
   /**
    * A list of apps for this payment method.
    *
-   * @param apps
+   * @param apps A list of apps for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class PaymentMethod {
   /**
    * Brand for the selected gift card. For example: plastix, hmclub.
    *
-   * @param brand
+   * @param brand Brand for the selected gift card. For example: plastix, hmclub.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod brand(String brand) {
@@ -172,7 +172,7 @@ public class PaymentMethod {
 
   /**
    * Brand for the selected gift card. For example: plastix, hmclub.
-   * @return brand
+   * @return brand Brand for the selected gift card. For example: plastix, hmclub.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class PaymentMethod {
   /**
    * Brand for the selected gift card. For example: plastix, hmclub.
    *
-   * @param brand
+   * @param brand Brand for the selected gift card. For example: plastix, hmclub.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class PaymentMethod {
   /**
    * List of possible brands. For example: visa, mc.
    *
-   * @param brands
+   * @param brands List of possible brands. For example: visa, mc.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod brands(List<String> brands) {
@@ -212,7 +212,7 @@ public class PaymentMethod {
 
   /**
    * List of possible brands. For example: visa, mc.
-   * @return brands
+   * @return brands List of possible brands. For example: visa, mc.
    */
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class PaymentMethod {
   /**
    * List of possible brands. For example: visa, mc.
    *
-   * @param brands
+   * @param brands List of possible brands. For example: visa, mc.
    */
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class PaymentMethod {
   /**
    * The configuration of the payment method.
    *
-   * @param configuration
+   * @param configuration The configuration of the payment method.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod configuration(Map<String, String> configuration) {
@@ -252,7 +252,7 @@ public class PaymentMethod {
 
   /**
    * The configuration of the payment method.
-   * @return configuration
+   * @return configuration The configuration of the payment method.
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,7 +263,7 @@ public class PaymentMethod {
   /**
    * The configuration of the payment method.
    *
-   * @param configuration
+   * @param configuration The configuration of the payment method.
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +274,7 @@ public class PaymentMethod {
   /**
    * The funding source of the payment method.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source of the payment method.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod fundingSource(FundingSourceEnum fundingSource) {
@@ -284,7 +284,7 @@ public class PaymentMethod {
 
   /**
    * The funding source of the payment method.
-   * @return fundingSource
+   * @return fundingSource The funding source of the payment method.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +295,7 @@ public class PaymentMethod {
   /**
    * The funding source of the payment method.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source of the payment method.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,7 +306,7 @@ public class PaymentMethod {
   /**
    * group
    *
-   * @param group
+   * @param group 
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod group(PaymentMethodGroup group) {
@@ -316,7 +316,7 @@ public class PaymentMethod {
 
   /**
    * Get group
-   * @return group
+   * @return group 
    */
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +327,7 @@ public class PaymentMethod {
   /**
    * group
    *
-   * @param group
+   * @param group 
    */
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,7 +338,7 @@ public class PaymentMethod {
   /**
    * All input details to be provided to complete the payment with this payment method.
    *
-   * @param inputDetails
+   * @param inputDetails All input details to be provided to complete the payment with this payment method.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    *
    * @deprecated 
@@ -359,7 +359,7 @@ public class PaymentMethod {
 
   /**
    * All input details to be provided to complete the payment with this payment method.
-   * @return inputDetails
+   * @return inputDetails All input details to be provided to complete the payment with this payment method.
    * @deprecated // deprecated 
    */
   @Deprecated // deprecated 
@@ -372,7 +372,7 @@ public class PaymentMethod {
   /**
    * All input details to be provided to complete the payment with this payment method.
    *
-   * @param inputDetails
+   * @param inputDetails All input details to be provided to complete the payment with this payment method.
    *
    * @deprecated 
    */
@@ -386,7 +386,7 @@ public class PaymentMethod {
   /**
    * A list of issuers for this payment method.
    *
-   * @param issuers
+   * @param issuers A list of issuers for this payment method.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod issuers(List<PaymentMethodIssuer> issuers) {
@@ -404,7 +404,7 @@ public class PaymentMethod {
 
   /**
    * A list of issuers for this payment method.
-   * @return issuers
+   * @return issuers A list of issuers for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_ISSUERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,7 +415,7 @@ public class PaymentMethod {
   /**
    * A list of issuers for this payment method.
    *
-   * @param issuers
+   * @param issuers A list of issuers for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_ISSUERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,7 +426,7 @@ public class PaymentMethod {
   /**
    * The displayable name of this payment method.
    *
-   * @param name
+   * @param name The displayable name of this payment method.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod name(String name) {
@@ -436,7 +436,7 @@ public class PaymentMethod {
 
   /**
    * The displayable name of this payment method.
-   * @return name
+   * @return name The displayable name of this payment method.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -447,7 +447,7 @@ public class PaymentMethod {
   /**
    * The displayable name of this payment method.
    *
-   * @param name
+   * @param name The displayable name of this payment method.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -458,7 +458,7 @@ public class PaymentMethod {
   /**
    * The unique payment method code.
    *
-   * @param type
+   * @param type The unique payment method code.
    * @return the current {@code PaymentMethod} instance, allowing for method chaining
    */
   public PaymentMethod type(String type) {
@@ -468,7 +468,7 @@ public class PaymentMethod {
 
   /**
    * The unique payment method code.
-   * @return type
+   * @return type The unique payment method code.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -479,7 +479,7 @@ public class PaymentMethod {
   /**
    * The unique payment method code.
    *
-   * @param type
+   * @param type The unique payment method code.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -356,7 +356,7 @@ public class AccountInfo {
   /**
    * Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param accountAgeIndicator
+   * @param accountAgeIndicator Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo accountAgeIndicator(AccountAgeIndicatorEnum accountAgeIndicator) {
@@ -366,7 +366,7 @@ public class AccountInfo {
 
   /**
    * Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
-   * @return accountAgeIndicator
+   * @return accountAgeIndicator Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_AGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,7 +377,7 @@ public class AccountInfo {
   /**
    * Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param accountAgeIndicator
+   * @param accountAgeIndicator Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_AGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -388,7 +388,7 @@ public class AccountInfo {
   /**
    * Date when the shopper&#39;s account was last changed.
    *
-   * @param accountChangeDate
+   * @param accountChangeDate Date when the shopper&#39;s account was last changed.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo accountChangeDate(OffsetDateTime accountChangeDate) {
@@ -398,7 +398,7 @@ public class AccountInfo {
 
   /**
    * Date when the shopper&#39;s account was last changed.
-   * @return accountChangeDate
+   * @return accountChangeDate Date when the shopper&#39;s account was last changed.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CHANGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -409,7 +409,7 @@ public class AccountInfo {
   /**
    * Date when the shopper&#39;s account was last changed.
    *
-   * @param accountChangeDate
+   * @param accountChangeDate Date when the shopper&#39;s account was last changed.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CHANGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -420,7 +420,7 @@ public class AccountInfo {
   /**
    * Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param accountChangeIndicator
+   * @param accountChangeIndicator Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo accountChangeIndicator(AccountChangeIndicatorEnum accountChangeIndicator) {
@@ -430,7 +430,7 @@ public class AccountInfo {
 
   /**
    * Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
-   * @return accountChangeIndicator
+   * @return accountChangeIndicator Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CHANGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -441,7 +441,7 @@ public class AccountInfo {
   /**
    * Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param accountChangeIndicator
+   * @param accountChangeIndicator Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CHANGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -452,7 +452,7 @@ public class AccountInfo {
   /**
    * Date when the shopper&#39;s account was created.
    *
-   * @param accountCreationDate
+   * @param accountCreationDate Date when the shopper&#39;s account was created.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo accountCreationDate(OffsetDateTime accountCreationDate) {
@@ -462,7 +462,7 @@ public class AccountInfo {
 
   /**
    * Date when the shopper&#39;s account was created.
-   * @return accountCreationDate
+   * @return accountCreationDate Date when the shopper&#39;s account was created.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -473,7 +473,7 @@ public class AccountInfo {
   /**
    * Date when the shopper&#39;s account was created.
    *
-   * @param accountCreationDate
+   * @param accountCreationDate Date when the shopper&#39;s account was created.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -484,7 +484,7 @@ public class AccountInfo {
   /**
    * Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
    *
-   * @param accountType
+   * @param accountType Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo accountType(AccountTypeEnum accountType) {
@@ -494,7 +494,7 @@ public class AccountInfo {
 
   /**
    * Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
-   * @return accountType
+   * @return accountType Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -505,7 +505,7 @@ public class AccountInfo {
   /**
    * Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
    *
-   * @param accountType
+   * @param accountType Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -516,7 +516,7 @@ public class AccountInfo {
   /**
    * Number of attempts the shopper tried to add a card to their account in the last day.
    *
-   * @param addCardAttemptsDay
+   * @param addCardAttemptsDay Number of attempts the shopper tried to add a card to their account in the last day.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo addCardAttemptsDay(Integer addCardAttemptsDay) {
@@ -526,7 +526,7 @@ public class AccountInfo {
 
   /**
    * Number of attempts the shopper tried to add a card to their account in the last day.
-   * @return addCardAttemptsDay
+   * @return addCardAttemptsDay Number of attempts the shopper tried to add a card to their account in the last day.
    */
   @JsonProperty(JSON_PROPERTY_ADD_CARD_ATTEMPTS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -537,7 +537,7 @@ public class AccountInfo {
   /**
    * Number of attempts the shopper tried to add a card to their account in the last day.
    *
-   * @param addCardAttemptsDay
+   * @param addCardAttemptsDay Number of attempts the shopper tried to add a card to their account in the last day.
    */
   @JsonProperty(JSON_PROPERTY_ADD_CARD_ATTEMPTS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -548,7 +548,7 @@ public class AccountInfo {
   /**
    * Date the selected delivery address was first used.
    *
-   * @param deliveryAddressUsageDate
+   * @param deliveryAddressUsageDate Date the selected delivery address was first used.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo deliveryAddressUsageDate(OffsetDateTime deliveryAddressUsageDate) {
@@ -558,7 +558,7 @@ public class AccountInfo {
 
   /**
    * Date the selected delivery address was first used.
-   * @return deliveryAddressUsageDate
+   * @return deliveryAddressUsageDate Date the selected delivery address was first used.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -569,7 +569,7 @@ public class AccountInfo {
   /**
    * Date the selected delivery address was first used.
    *
-   * @param deliveryAddressUsageDate
+   * @param deliveryAddressUsageDate Date the selected delivery address was first used.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -580,7 +580,7 @@ public class AccountInfo {
   /**
    * Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param deliveryAddressUsageIndicator
+   * @param deliveryAddressUsageIndicator Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo deliveryAddressUsageIndicator(DeliveryAddressUsageIndicatorEnum deliveryAddressUsageIndicator) {
@@ -590,7 +590,7 @@ public class AccountInfo {
 
   /**
    * Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
-   * @return deliveryAddressUsageIndicator
+   * @return deliveryAddressUsageIndicator Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -601,7 +601,7 @@ public class AccountInfo {
   /**
    * Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param deliveryAddressUsageIndicator
+   * @param deliveryAddressUsageIndicator Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS_USAGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -612,7 +612,7 @@ public class AccountInfo {
   /**
    * Shopper&#39;s home phone number (including the country code).
    *
-   * @param homePhone
+   * @param homePhone Shopper&#39;s home phone number (including the country code).
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v68
@@ -626,7 +626,7 @@ public class AccountInfo {
 
   /**
    * Shopper&#39;s home phone number (including the country code).
-   * @return homePhone
+   * @return homePhone Shopper&#39;s home phone number (including the country code).
    * @deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.homePhone` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.homePhone` instead.
@@ -639,7 +639,7 @@ public class AccountInfo {
   /**
    * Shopper&#39;s home phone number (including the country code).
    *
-   * @param homePhone
+   * @param homePhone Shopper&#39;s home phone number (including the country code).
    *
    * @deprecated since Adyen Checkout API v68
    * Use &#x60;ThreeDS2RequestData.homePhone&#x60; instead.
@@ -654,7 +654,7 @@ public class AccountInfo {
   /**
    * Shopper&#39;s mobile phone number (including the country code).
    *
-   * @param mobilePhone
+   * @param mobilePhone Shopper&#39;s mobile phone number (including the country code).
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v68
@@ -668,7 +668,7 @@ public class AccountInfo {
 
   /**
    * Shopper&#39;s mobile phone number (including the country code).
-   * @return mobilePhone
+   * @return mobilePhone Shopper&#39;s mobile phone number (including the country code).
    * @deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.mobilePhone` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.mobilePhone` instead.
@@ -681,7 +681,7 @@ public class AccountInfo {
   /**
    * Shopper&#39;s mobile phone number (including the country code).
    *
-   * @param mobilePhone
+   * @param mobilePhone Shopper&#39;s mobile phone number (including the country code).
    *
    * @deprecated since Adyen Checkout API v68
    * Use &#x60;ThreeDS2RequestData.mobilePhone&#x60; instead.
@@ -696,7 +696,7 @@ public class AccountInfo {
   /**
    * Date when the shopper last changed their password.
    *
-   * @param passwordChangeDate
+   * @param passwordChangeDate Date when the shopper last changed their password.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo passwordChangeDate(OffsetDateTime passwordChangeDate) {
@@ -706,7 +706,7 @@ public class AccountInfo {
 
   /**
    * Date when the shopper last changed their password.
-   * @return passwordChangeDate
+   * @return passwordChangeDate Date when the shopper last changed their password.
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD_CHANGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -717,7 +717,7 @@ public class AccountInfo {
   /**
    * Date when the shopper last changed their password.
    *
-   * @param passwordChangeDate
+   * @param passwordChangeDate Date when the shopper last changed their password.
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD_CHANGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -728,7 +728,7 @@ public class AccountInfo {
   /**
    * Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param passwordChangeIndicator
+   * @param passwordChangeIndicator Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo passwordChangeIndicator(PasswordChangeIndicatorEnum passwordChangeIndicator) {
@@ -738,7 +738,7 @@ public class AccountInfo {
 
   /**
    * Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
-   * @return passwordChangeIndicator
+   * @return passwordChangeIndicator Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD_CHANGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -749,7 +749,7 @@ public class AccountInfo {
   /**
    * Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param passwordChangeIndicator
+   * @param passwordChangeIndicator Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_PASSWORD_CHANGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -760,7 +760,7 @@ public class AccountInfo {
   /**
    * Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
    *
-   * @param pastTransactionsDay
+   * @param pastTransactionsDay Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo pastTransactionsDay(Integer pastTransactionsDay) {
@@ -770,7 +770,7 @@ public class AccountInfo {
 
   /**
    * Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
-   * @return pastTransactionsDay
+   * @return pastTransactionsDay Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
    */
   @JsonProperty(JSON_PROPERTY_PAST_TRANSACTIONS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -781,7 +781,7 @@ public class AccountInfo {
   /**
    * Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
    *
-   * @param pastTransactionsDay
+   * @param pastTransactionsDay Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
    */
   @JsonProperty(JSON_PROPERTY_PAST_TRANSACTIONS_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -792,7 +792,7 @@ public class AccountInfo {
   /**
    * Number of all transactions (successful and abandoned) from this shopper in the past year.
    *
-   * @param pastTransactionsYear
+   * @param pastTransactionsYear Number of all transactions (successful and abandoned) from this shopper in the past year.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo pastTransactionsYear(Integer pastTransactionsYear) {
@@ -802,7 +802,7 @@ public class AccountInfo {
 
   /**
    * Number of all transactions (successful and abandoned) from this shopper in the past year.
-   * @return pastTransactionsYear
+   * @return pastTransactionsYear Number of all transactions (successful and abandoned) from this shopper in the past year.
    */
   @JsonProperty(JSON_PROPERTY_PAST_TRANSACTIONS_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -813,7 +813,7 @@ public class AccountInfo {
   /**
    * Number of all transactions (successful and abandoned) from this shopper in the past year.
    *
-   * @param pastTransactionsYear
+   * @param pastTransactionsYear Number of all transactions (successful and abandoned) from this shopper in the past year.
    */
   @JsonProperty(JSON_PROPERTY_PAST_TRANSACTIONS_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -824,7 +824,7 @@ public class AccountInfo {
   /**
    * Date this payment method was added to the shopper&#39;s account.
    *
-   * @param paymentAccountAge
+   * @param paymentAccountAge Date this payment method was added to the shopper&#39;s account.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo paymentAccountAge(OffsetDateTime paymentAccountAge) {
@@ -834,7 +834,7 @@ public class AccountInfo {
 
   /**
    * Date this payment method was added to the shopper&#39;s account.
-   * @return paymentAccountAge
+   * @return paymentAccountAge Date this payment method was added to the shopper&#39;s account.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -845,7 +845,7 @@ public class AccountInfo {
   /**
    * Date this payment method was added to the shopper&#39;s account.
    *
-   * @param paymentAccountAge
+   * @param paymentAccountAge Date this payment method was added to the shopper&#39;s account.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -856,7 +856,7 @@ public class AccountInfo {
   /**
    * Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param paymentAccountIndicator
+   * @param paymentAccountIndicator Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo paymentAccountIndicator(PaymentAccountIndicatorEnum paymentAccountIndicator) {
@@ -866,7 +866,7 @@ public class AccountInfo {
 
   /**
    * Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
-   * @return paymentAccountIndicator
+   * @return paymentAccountIndicator Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -877,7 +877,7 @@ public class AccountInfo {
   /**
    * Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    *
-   * @param paymentAccountIndicator
+   * @param paymentAccountIndicator Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_ACCOUNT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -888,7 +888,7 @@ public class AccountInfo {
   /**
    * Number of successful purchases in the last six months.
    *
-   * @param purchasesLast6Months
+   * @param purchasesLast6Months Number of successful purchases in the last six months.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo purchasesLast6Months(Integer purchasesLast6Months) {
@@ -898,7 +898,7 @@ public class AccountInfo {
 
   /**
    * Number of successful purchases in the last six months.
-   * @return purchasesLast6Months
+   * @return purchasesLast6Months Number of successful purchases in the last six months.
    */
   @JsonProperty(JSON_PROPERTY_PURCHASES_LAST6_MONTHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -909,7 +909,7 @@ public class AccountInfo {
   /**
    * Number of successful purchases in the last six months.
    *
-   * @param purchasesLast6Months
+   * @param purchasesLast6Months Number of successful purchases in the last six months.
    */
   @JsonProperty(JSON_PROPERTY_PURCHASES_LAST6_MONTHS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -920,7 +920,7 @@ public class AccountInfo {
   /**
    * Whether suspicious activity was recorded on this account.
    *
-   * @param suspiciousActivity
+   * @param suspiciousActivity Whether suspicious activity was recorded on this account.
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    */
   public AccountInfo suspiciousActivity(Boolean suspiciousActivity) {
@@ -930,7 +930,7 @@ public class AccountInfo {
 
   /**
    * Whether suspicious activity was recorded on this account.
-   * @return suspiciousActivity
+   * @return suspiciousActivity Whether suspicious activity was recorded on this account.
    */
   @JsonProperty(JSON_PROPERTY_SUSPICIOUS_ACTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -941,7 +941,7 @@ public class AccountInfo {
   /**
    * Whether suspicious activity was recorded on this account.
    *
-   * @param suspiciousActivity
+   * @param suspiciousActivity Whether suspicious activity was recorded on this account.
    */
   @JsonProperty(JSON_PROPERTY_SUSPICIOUS_ACTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -952,7 +952,7 @@ public class AccountInfo {
   /**
    * Shopper&#39;s work phone number (including the country code).
    *
-   * @param workPhone
+   * @param workPhone Shopper&#39;s work phone number (including the country code).
    * @return the current {@code AccountInfo} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v68
@@ -966,7 +966,7 @@ public class AccountInfo {
 
   /**
    * Shopper&#39;s work phone number (including the country code).
-   * @return workPhone
+   * @return workPhone Shopper&#39;s work phone number (including the country code).
    * @deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.workPhone` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v68: Use `ThreeDS2RequestData.workPhone` instead.
@@ -979,7 +979,7 @@ public class AccountInfo {
   /**
    * Shopper&#39;s work phone number (including the country code).
    *
-   * @param workPhone
+   * @param workPhone Shopper&#39;s work phone number (including the country code).
    *
    * @deprecated since Adyen Checkout API v68
    * Use &#x60;ThreeDS2RequestData.workPhone&#x60; instead.

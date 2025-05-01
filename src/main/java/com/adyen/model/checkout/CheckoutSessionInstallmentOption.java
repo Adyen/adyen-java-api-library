@@ -103,7 +103,7 @@ public class CheckoutSessionInstallmentOption {
   /**
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
    *
-   * @param plans
+   * @param plans Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
    * @return the current {@code CheckoutSessionInstallmentOption} instance, allowing for method chaining
    */
   public CheckoutSessionInstallmentOption plans(List<PlansEnum> plans) {
@@ -121,7 +121,7 @@ public class CheckoutSessionInstallmentOption {
 
   /**
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
-   * @return plans
+   * @return plans Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
    */
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class CheckoutSessionInstallmentOption {
   /**
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
    *
-   * @param plans
+   * @param plans Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving*** **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
    */
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class CheckoutSessionInstallmentOption {
   /**
    * Preselected number of installments offered for this payment method.
    *
-   * @param preselectedValue
+   * @param preselectedValue Preselected number of installments offered for this payment method.
    * @return the current {@code CheckoutSessionInstallmentOption} instance, allowing for method chaining
    */
   public CheckoutSessionInstallmentOption preselectedValue(Integer preselectedValue) {
@@ -153,7 +153,7 @@ public class CheckoutSessionInstallmentOption {
 
   /**
    * Preselected number of installments offered for this payment method.
-   * @return preselectedValue
+   * @return preselectedValue Preselected number of installments offered for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +164,7 @@ public class CheckoutSessionInstallmentOption {
   /**
    * Preselected number of installments offered for this payment method.
    *
-   * @param preselectedValue
+   * @param preselectedValue Preselected number of installments offered for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class CheckoutSessionInstallmentOption {
   /**
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    *
-   * @param values
+   * @param values An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    * @return the current {@code CheckoutSessionInstallmentOption} instance, allowing for method chaining
    */
   public CheckoutSessionInstallmentOption values(List<Integer> values) {
@@ -193,7 +193,7 @@ public class CheckoutSessionInstallmentOption {
 
   /**
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
-   * @return values
+   * @return values An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +204,7 @@ public class CheckoutSessionInstallmentOption {
   /**
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    *
-   * @param values
+   * @param values An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

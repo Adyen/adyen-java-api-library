@@ -46,7 +46,7 @@ public class CommonField {
   /**
    * Name of the field. For example, Name of External Platform.
    *
-   * @param name
+   * @param name Name of the field. For example, Name of External Platform.
    * @return the current {@code CommonField} instance, allowing for method chaining
    */
   public CommonField name(String name) {
@@ -56,7 +56,7 @@ public class CommonField {
 
   /**
    * Name of the field. For example, Name of External Platform.
-   * @return name
+   * @return name Name of the field. For example, Name of External Platform.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class CommonField {
   /**
    * Name of the field. For example, Name of External Platform.
    *
-   * @param name
+   * @param name Name of the field. For example, Name of External Platform.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class CommonField {
   /**
    * Version of the field. For example, Version of External Platform.
    *
-   * @param version
+   * @param version Version of the field. For example, Version of External Platform.
    * @return the current {@code CommonField} instance, allowing for method chaining
    */
   public CommonField version(String version) {
@@ -88,7 +88,7 @@ public class CommonField {
 
   /**
    * Version of the field. For example, Version of External Platform.
-   * @return version
+   * @return version Version of the field. For example, Version of External Platform.
    */
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class CommonField {
   /**
    * Version of the field. For example, Version of External Platform.
    *
-   * @param version
+   * @param version Version of the field. For example, Version of External Platform.
    */
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

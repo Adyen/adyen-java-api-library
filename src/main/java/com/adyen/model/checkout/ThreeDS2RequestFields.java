@@ -426,7 +426,7 @@ public class ThreeDS2RequestFields {
   /**
    * acctInfo
    *
-   * @param acctInfo
+   * @param acctInfo 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields acctInfo(AcctInfo acctInfo) {
@@ -436,7 +436,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Get acctInfo
-   * @return acctInfo
+   * @return acctInfo 
    */
   @JsonProperty(JSON_PROPERTY_ACCT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -447,7 +447,7 @@ public class ThreeDS2RequestFields {
   /**
    * acctInfo
    *
-   * @param acctInfo
+   * @param acctInfo 
    */
   @JsonProperty(JSON_PROPERTY_ACCT_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -458,7 +458,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
    *
-   * @param acctType
+   * @param acctType Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields acctType(AcctTypeEnum acctType) {
@@ -468,7 +468,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
-   * @return acctType
+   * @return acctType Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
    */
   @JsonProperty(JSON_PROPERTY_ACCT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -479,7 +479,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
    *
-   * @param acctType
+   * @param acctType Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
    */
   @JsonProperty(JSON_PROPERTY_ACCT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -490,7 +490,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    *
-   * @param acquirerBIN
+   * @param acquirerBIN Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields acquirerBIN(String acquirerBIN) {
@@ -500,7 +500,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
-   * @return acquirerBIN
+   * @return acquirerBIN Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_B_I_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -511,7 +511,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    *
-   * @param acquirerBIN
+   * @param acquirerBIN Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_B_I_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -522,7 +522,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant&#39;s acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    *
-   * @param acquirerMerchantID
+   * @param acquirerMerchantID Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant&#39;s acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields acquirerMerchantID(String acquirerMerchantID) {
@@ -532,7 +532,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant&#39;s acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
-   * @return acquirerMerchantID
+   * @return acquirerMerchantID Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant&#39;s acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_MERCHANT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -543,7 +543,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant&#39;s acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    *
-   * @param acquirerMerchantID
+   * @param acquirerMerchantID Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant&#39;s acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_MERCHANT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -554,7 +554,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
    *
-   * @param addrMatch
+   * @param addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields addrMatch(AddrMatchEnum addrMatch) {
@@ -564,7 +564,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
-   * @return addrMatch
+   * @return addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
    */
   @JsonProperty(JSON_PROPERTY_ADDR_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -575,7 +575,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
    *
-   * @param addrMatch
+   * @param addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
    */
   @JsonProperty(JSON_PROPERTY_ADDR_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -586,7 +586,7 @@ public class ThreeDS2RequestFields {
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
-   * @param authenticationOnly
+   * @param authenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v50
@@ -600,7 +600,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
-   * @return authenticationOnly
+   * @return authenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    * @deprecated // deprecated since Adyen Checkout API v50: Use `threeDSAuthenticationOnly` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v50: Use `threeDSAuthenticationOnly` instead.
@@ -613,7 +613,7 @@ public class ThreeDS2RequestFields {
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
-   * @param authenticationOnly
+   * @param authenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    *
    * @deprecated since Adyen Checkout API v50
    * Use &#x60;threeDSAuthenticationOnly&#x60; instead.
@@ -628,7 +628,7 @@ public class ThreeDS2RequestFields {
   /**
    * Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
    *
-   * @param challengeIndicator
+   * @param challengeIndicator Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v68
@@ -642,7 +642,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
-   * @return challengeIndicator
+   * @return challengeIndicator Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
    * @deprecated // deprecated since Adyen Checkout API v68: Use `threeDSRequestorChallengeInd` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v68: Use `threeDSRequestorChallengeInd` instead.
@@ -655,7 +655,7 @@ public class ThreeDS2RequestFields {
   /**
    * Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
    *
-   * @param challengeIndicator
+   * @param challengeIndicator Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
    *
    * @deprecated since Adyen Checkout API v68
    * Use &#x60;threeDSRequestorChallengeInd&#x60; instead.
@@ -670,7 +670,7 @@ public class ThreeDS2RequestFields {
   /**
    * deviceRenderOptions
    *
-   * @param deviceRenderOptions
+   * @param deviceRenderOptions 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields deviceRenderOptions(DeviceRenderOptions deviceRenderOptions) {
@@ -680,7 +680,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Get deviceRenderOptions
-   * @return deviceRenderOptions
+   * @return deviceRenderOptions 
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_RENDER_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -691,7 +691,7 @@ public class ThreeDS2RequestFields {
   /**
    * deviceRenderOptions
    *
-   * @param deviceRenderOptions
+   * @param deviceRenderOptions 
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_RENDER_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -702,7 +702,7 @@ public class ThreeDS2RequestFields {
   /**
    * homePhone
    *
-   * @param homePhone
+   * @param homePhone 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields homePhone(Phone homePhone) {
@@ -712,7 +712,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Get homePhone
-   * @return homePhone
+   * @return homePhone 
    */
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -723,7 +723,7 @@ public class ThreeDS2RequestFields {
   /**
    * homePhone
    *
-   * @param homePhone
+   * @param homePhone 
    */
   @JsonProperty(JSON_PROPERTY_HOME_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -734,7 +734,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The &#x60;mcc&#x60; is a four-digit code with which the previously given &#x60;acquirerMerchantID&#x60; is registered at the scheme.
    *
-   * @param mcc
+   * @param mcc Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The &#x60;mcc&#x60; is a four-digit code with which the previously given &#x60;acquirerMerchantID&#x60; is registered at the scheme.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields mcc(String mcc) {
@@ -744,7 +744,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The &#x60;mcc&#x60; is a four-digit code with which the previously given &#x60;acquirerMerchantID&#x60; is registered at the scheme.
-   * @return mcc
+   * @return mcc Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The &#x60;mcc&#x60; is a four-digit code with which the previously given &#x60;acquirerMerchantID&#x60; is registered at the scheme.
    */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -755,7 +755,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The &#x60;mcc&#x60; is a four-digit code with which the previously given &#x60;acquirerMerchantID&#x60; is registered at the scheme.
    *
-   * @param mcc
+   * @param mcc Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The &#x60;mcc&#x60; is a four-digit code with which the previously given &#x60;acquirerMerchantID&#x60; is registered at the scheme.
    */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -766,7 +766,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. &gt; Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.
    *
-   * @param merchantName
+   * @param merchantName Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. &gt; Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields merchantName(String merchantName) {
@@ -776,7 +776,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. &gt; Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.
-   * @return merchantName
+   * @return merchantName Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. &gt; Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -787,7 +787,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. &gt; Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.
    *
-   * @param merchantName
+   * @param merchantName Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. &gt; Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -798,7 +798,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;messageVersion&#x60; value indicating the 3D Secure 2 protocol version.
    *
-   * @param messageVersion
+   * @param messageVersion The &#x60;messageVersion&#x60; value indicating the 3D Secure 2 protocol version.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields messageVersion(String messageVersion) {
@@ -808,7 +808,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * The &#x60;messageVersion&#x60; value indicating the 3D Secure 2 protocol version.
-   * @return messageVersion
+   * @return messageVersion The &#x60;messageVersion&#x60; value indicating the 3D Secure 2 protocol version.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -819,7 +819,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;messageVersion&#x60; value indicating the 3D Secure 2 protocol version.
    *
-   * @param messageVersion
+   * @param messageVersion The &#x60;messageVersion&#x60; value indicating the 3D Secure 2 protocol version.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -830,7 +830,7 @@ public class ThreeDS2RequestFields {
   /**
    * mobilePhone
    *
-   * @param mobilePhone
+   * @param mobilePhone 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields mobilePhone(Phone mobilePhone) {
@@ -840,7 +840,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Get mobilePhone
-   * @return mobilePhone
+   * @return mobilePhone 
    */
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -851,7 +851,7 @@ public class ThreeDS2RequestFields {
   /**
    * mobilePhone
    *
-   * @param mobilePhone
+   * @param mobilePhone 
    */
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -862,7 +862,7 @@ public class ThreeDS2RequestFields {
   /**
    * URL to where the issuer should send the &#x60;CRes&#x60;. Required if you are not using components for &#x60;channel&#x60; **Web** or if you are using classic integration &#x60;deviceChannel&#x60; **browser**.
    *
-   * @param notificationURL
+   * @param notificationURL URL to where the issuer should send the &#x60;CRes&#x60;. Required if you are not using components for &#x60;channel&#x60; **Web** or if you are using classic integration &#x60;deviceChannel&#x60; **browser**.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields notificationURL(String notificationURL) {
@@ -872,7 +872,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * URL to where the issuer should send the &#x60;CRes&#x60;. Required if you are not using components for &#x60;channel&#x60; **Web** or if you are using classic integration &#x60;deviceChannel&#x60; **browser**.
-   * @return notificationURL
+   * @return notificationURL URL to where the issuer should send the &#x60;CRes&#x60;. Required if you are not using components for &#x60;channel&#x60; **Web** or if you are using classic integration &#x60;deviceChannel&#x60; **browser**.
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -883,7 +883,7 @@ public class ThreeDS2RequestFields {
   /**
    * URL to where the issuer should send the &#x60;CRes&#x60;. Required if you are not using components for &#x60;channel&#x60; **Web** or if you are using classic integration &#x60;deviceChannel&#x60; **browser**.
    *
-   * @param notificationURL
+   * @param notificationURL URL to where the issuer should send the &#x60;CRes&#x60;. Required if you are not using components for &#x60;channel&#x60; **Web** or if you are using classic integration &#x60;deviceChannel&#x60; **browser**.
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -894,7 +894,7 @@ public class ThreeDS2RequestFields {
   /**
    * Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.
    *
-   * @param payTokenInd
+   * @param payTokenInd Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields payTokenInd(Boolean payTokenInd) {
@@ -904,7 +904,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.
-   * @return payTokenInd
+   * @return payTokenInd Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.
    */
   @JsonProperty(JSON_PROPERTY_PAY_TOKEN_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -915,7 +915,7 @@ public class ThreeDS2RequestFields {
   /**
    * Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.
    *
-   * @param payTokenInd
+   * @param payTokenInd Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.
    */
   @JsonProperty(JSON_PROPERTY_PAY_TOKEN_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -926,7 +926,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the type of payment for which an authentication is requested (message extension)
    *
-   * @param paymentAuthenticationUseCase
+   * @param paymentAuthenticationUseCase Indicates the type of payment for which an authentication is requested (message extension)
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields paymentAuthenticationUseCase(String paymentAuthenticationUseCase) {
@@ -936,7 +936,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Indicates the type of payment for which an authentication is requested (message extension)
-   * @return paymentAuthenticationUseCase
+   * @return paymentAuthenticationUseCase Indicates the type of payment for which an authentication is requested (message extension)
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -947,7 +947,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the type of payment for which an authentication is requested (message extension)
    *
-   * @param paymentAuthenticationUseCase
+   * @param paymentAuthenticationUseCase Indicates the type of payment for which an authentication is requested (message extension)
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_AUTHENTICATION_USE_CASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -958,7 +958,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.
    *
-   * @param purchaseInstalData
+   * @param purchaseInstalData Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields purchaseInstalData(String purchaseInstalData) {
@@ -968,7 +968,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.
-   * @return purchaseInstalData
+   * @return purchaseInstalData Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.
    */
   @JsonProperty(JSON_PROPERTY_PURCHASE_INSTAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -979,7 +979,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.
    *
-   * @param purchaseInstalData
+   * @param purchaseInstalData Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.
    */
   @JsonProperty(JSON_PROPERTY_PURCHASE_INSTAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -990,7 +990,7 @@ public class ThreeDS2RequestFields {
   /**
    * Date after which no further authorisations shall be performed. Format: YYYYMMDD
    *
-   * @param recurringExpiry
+   * @param recurringExpiry Date after which no further authorisations shall be performed. Format: YYYYMMDD
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields recurringExpiry(String recurringExpiry) {
@@ -1000,7 +1000,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Date after which no further authorisations shall be performed. Format: YYYYMMDD
-   * @return recurringExpiry
+   * @return recurringExpiry Date after which no further authorisations shall be performed. Format: YYYYMMDD
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1011,7 +1011,7 @@ public class ThreeDS2RequestFields {
   /**
    * Date after which no further authorisations shall be performed. Format: YYYYMMDD
    *
-   * @param recurringExpiry
+   * @param recurringExpiry Date after which no further authorisations shall be performed. Format: YYYYMMDD
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_EXPIRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1022,7 +1022,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the minimum number of days between authorisations. Maximum length: 4 characters.
    *
-   * @param recurringFrequency
+   * @param recurringFrequency Indicates the minimum number of days between authorisations. Maximum length: 4 characters.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields recurringFrequency(String recurringFrequency) {
@@ -1032,7 +1032,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Indicates the minimum number of days between authorisations. Maximum length: 4 characters.
-   * @return recurringFrequency
+   * @return recurringFrequency Indicates the minimum number of days between authorisations. Maximum length: 4 characters.
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1043,7 +1043,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the minimum number of days between authorisations. Maximum length: 4 characters.
    *
-   * @param recurringFrequency
+   * @param recurringFrequency Indicates the minimum number of days between authorisations. Maximum length: 4 characters.
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1054,7 +1054,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param sdkAppID
+   * @param sdkAppID The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields sdkAppID(String sdkAppID) {
@@ -1064,7 +1064,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK.
-   * @return sdkAppID
+   * @return sdkAppID The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_APP_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1075,7 +1075,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param sdkAppID
+   * @param sdkAppID The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_APP_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1086,7 +1086,7 @@ public class ThreeDS2RequestFields {
   /**
    * sdkEphemPubKey
    *
-   * @param sdkEphemPubKey
+   * @param sdkEphemPubKey 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields sdkEphemPubKey(SDKEphemPubKey sdkEphemPubKey) {
@@ -1096,7 +1096,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Get sdkEphemPubKey
-   * @return sdkEphemPubKey
+   * @return sdkEphemPubKey 
    */
   @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1107,7 +1107,7 @@ public class ThreeDS2RequestFields {
   /**
    * sdkEphemPubKey
    *
-   * @param sdkEphemPubKey
+   * @param sdkEphemPubKey 
    */
   @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1118,7 +1118,7 @@ public class ThreeDS2RequestFields {
   /**
    * The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for &#x60;deviceChannel&#x60; set to **app**. Defaults to **60** minutes.
    *
-   * @param sdkMaxTimeout
+   * @param sdkMaxTimeout The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for &#x60;deviceChannel&#x60; set to **app**. Defaults to **60** minutes.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields sdkMaxTimeout(Integer sdkMaxTimeout) {
@@ -1128,7 +1128,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for &#x60;deviceChannel&#x60; set to **app**. Defaults to **60** minutes.
-   * @return sdkMaxTimeout
+   * @return sdkMaxTimeout The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for &#x60;deviceChannel&#x60; set to **app**. Defaults to **60** minutes.
    */
   @JsonProperty(JSON_PROPERTY_SDK_MAX_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1139,7 +1139,7 @@ public class ThreeDS2RequestFields {
   /**
    * The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for &#x60;deviceChannel&#x60; set to **app**. Defaults to **60** minutes.
    *
-   * @param sdkMaxTimeout
+   * @param sdkMaxTimeout The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for &#x60;deviceChannel&#x60; set to **app**. Defaults to **60** minutes.
    */
   @JsonProperty(JSON_PROPERTY_SDK_MAX_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1150,7 +1150,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param sdkReferenceNumber
+   * @param sdkReferenceNumber The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields sdkReferenceNumber(String sdkReferenceNumber) {
@@ -1160,7 +1160,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK.
-   * @return sdkReferenceNumber
+   * @return sdkReferenceNumber The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1171,7 +1171,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param sdkReferenceNumber
+   * @param sdkReferenceNumber The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1182,7 +1182,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param sdkTransID
+   * @param sdkTransID The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields sdkTransID(String sdkTransID) {
@@ -1192,7 +1192,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK.
-   * @return sdkTransID
+   * @return sdkTransID The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1203,7 +1203,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param sdkTransID
+   * @param sdkTransID The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1214,7 +1214,7 @@ public class ThreeDS2RequestFields {
   /**
    * Completion indicator for the device fingerprinting.
    *
-   * @param threeDSCompInd
+   * @param threeDSCompInd Completion indicator for the device fingerprinting.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields threeDSCompInd(String threeDSCompInd) {
@@ -1224,7 +1224,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Completion indicator for the device fingerprinting.
-   * @return threeDSCompInd
+   * @return threeDSCompInd Completion indicator for the device fingerprinting.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_COMP_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1235,7 +1235,7 @@ public class ThreeDS2RequestFields {
   /**
    * Completion indicator for the device fingerprinting.
    *
-   * @param threeDSCompInd
+   * @param threeDSCompInd Completion indicator for the device fingerprinting.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_COMP_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1246,7 +1246,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the type of Authentication request.
    *
-   * @param threeDSRequestorAuthenticationInd
+   * @param threeDSRequestorAuthenticationInd Indicates the type of Authentication request.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields threeDSRequestorAuthenticationInd(String threeDSRequestorAuthenticationInd) {
@@ -1256,7 +1256,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Indicates the type of Authentication request.
-   * @return threeDSRequestorAuthenticationInd
+   * @return threeDSRequestorAuthenticationInd Indicates the type of Authentication request.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1267,7 +1267,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates the type of Authentication request.
    *
-   * @param threeDSRequestorAuthenticationInd
+   * @param threeDSRequestorAuthenticationInd Indicates the type of Authentication request.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1278,7 +1278,7 @@ public class ThreeDS2RequestFields {
   /**
    * threeDSRequestorAuthenticationInfo
    *
-   * @param threeDSRequestorAuthenticationInfo
+   * @param threeDSRequestorAuthenticationInfo 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields threeDSRequestorAuthenticationInfo(ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo) {
@@ -1288,7 +1288,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Get threeDSRequestorAuthenticationInfo
-   * @return threeDSRequestorAuthenticationInfo
+   * @return threeDSRequestorAuthenticationInfo 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1299,7 +1299,7 @@ public class ThreeDS2RequestFields {
   /**
    * threeDSRequestorAuthenticationInfo
    *
-   * @param threeDSRequestorAuthenticationInfo
+   * @param threeDSRequestorAuthenticationInfo 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_AUTHENTICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1310,7 +1310,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    *
-   * @param threeDSRequestorChallengeInd
+   * @param threeDSRequestorChallengeInd Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields threeDSRequestorChallengeInd(ThreeDSRequestorChallengeIndEnum threeDSRequestorChallengeInd) {
@@ -1320,7 +1320,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
-   * @return threeDSRequestorChallengeInd
+   * @return threeDSRequestorChallengeInd Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1331,7 +1331,7 @@ public class ThreeDS2RequestFields {
   /**
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    *
-   * @param threeDSRequestorChallengeInd
+   * @param threeDSRequestorChallengeInd Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_CHALLENGE_IND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1342,7 +1342,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
    *
-   * @param threeDSRequestorID
+   * @param threeDSRequestorID Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields threeDSRequestorID(String threeDSRequestorID) {
@@ -1352,7 +1352,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
-   * @return threeDSRequestorID
+   * @return threeDSRequestorID Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1363,7 +1363,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
    *
-   * @param threeDSRequestorID
+   * @param threeDSRequestorID Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1374,7 +1374,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
    *
-   * @param threeDSRequestorName
+   * @param threeDSRequestorName Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields threeDSRequestorName(String threeDSRequestorName) {
@@ -1384,7 +1384,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
-   * @return threeDSRequestorName
+   * @return threeDSRequestorName Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1395,7 +1395,7 @@ public class ThreeDS2RequestFields {
   /**
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
    *
-   * @param threeDSRequestorName
+   * @param threeDSRequestorName Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1406,7 +1406,7 @@ public class ThreeDS2RequestFields {
   /**
    * threeDSRequestorPriorAuthenticationInfo
    *
-   * @param threeDSRequestorPriorAuthenticationInfo
+   * @param threeDSRequestorPriorAuthenticationInfo 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields threeDSRequestorPriorAuthenticationInfo(ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo) {
@@ -1416,7 +1416,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Get threeDSRequestorPriorAuthenticationInfo
-   * @return threeDSRequestorPriorAuthenticationInfo
+   * @return threeDSRequestorPriorAuthenticationInfo 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1427,7 +1427,7 @@ public class ThreeDS2RequestFields {
   /**
    * threeDSRequestorPriorAuthenticationInfo
    *
-   * @param threeDSRequestorPriorAuthenticationInfo
+   * @param threeDSRequestorPriorAuthenticationInfo 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_PRIOR_AUTHENTICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1438,7 +1438,7 @@ public class ThreeDS2RequestFields {
   /**
    * URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
    *
-   * @param threeDSRequestorURL
+   * @param threeDSRequestorURL URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields threeDSRequestorURL(String threeDSRequestorURL) {
@@ -1448,7 +1448,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
-   * @return threeDSRequestorURL
+   * @return threeDSRequestorURL URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1459,7 +1459,7 @@ public class ThreeDS2RequestFields {
   /**
    * URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
    *
-   * @param threeDSRequestorURL
+   * @param threeDSRequestorURL URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1470,7 +1470,7 @@ public class ThreeDS2RequestFields {
   /**
    * Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
    *
-   * @param transType
+   * @param transType Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields transType(TransTypeEnum transType) {
@@ -1480,7 +1480,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
-   * @return transType
+   * @return transType Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
    */
   @JsonProperty(JSON_PROPERTY_TRANS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1491,7 +1491,7 @@ public class ThreeDS2RequestFields {
   /**
    * Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
    *
-   * @param transType
+   * @param transType Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
    */
   @JsonProperty(JSON_PROPERTY_TRANS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1502,7 +1502,7 @@ public class ThreeDS2RequestFields {
   /**
    * Identify the type of the transaction being authenticated.
    *
-   * @param transactionType
+   * @param transactionType Identify the type of the transaction being authenticated.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields transactionType(TransactionTypeEnum transactionType) {
@@ -1512,7 +1512,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Identify the type of the transaction being authenticated.
-   * @return transactionType
+   * @return transactionType Identify the type of the transaction being authenticated.
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1523,7 +1523,7 @@ public class ThreeDS2RequestFields {
   /**
    * Identify the type of the transaction being authenticated.
    *
-   * @param transactionType
+   * @param transactionType Identify the type of the transaction being authenticated.
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1534,7 +1534,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
    *
-   * @param whiteListStatus
+   * @param whiteListStatus The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields whiteListStatus(String whiteListStatus) {
@@ -1544,7 +1544,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
-   * @return whiteListStatus
+   * @return whiteListStatus The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
    */
   @JsonProperty(JSON_PROPERTY_WHITE_LIST_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1555,7 +1555,7 @@ public class ThreeDS2RequestFields {
   /**
    * The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
    *
-   * @param whiteListStatus
+   * @param whiteListStatus The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
    */
   @JsonProperty(JSON_PROPERTY_WHITE_LIST_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1566,7 +1566,7 @@ public class ThreeDS2RequestFields {
   /**
    * workPhone
    *
-   * @param workPhone
+   * @param workPhone 
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
   public ThreeDS2RequestFields workPhone(Phone workPhone) {
@@ -1576,7 +1576,7 @@ public class ThreeDS2RequestFields {
 
   /**
    * Get workPhone
-   * @return workPhone
+   * @return workPhone 
    */
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1587,7 +1587,7 @@ public class ThreeDS2RequestFields {
   /**
    * workPhone
    *
-   * @param workPhone
+   * @param workPhone 
    */
   @JsonProperty(JSON_PROPERTY_WORK_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

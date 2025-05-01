@@ -46,7 +46,7 @@ public class CardBrandDetails {
   /**
    * Indicates if you support the card brand.
    *
-   * @param supported
+   * @param supported Indicates if you support the card brand.
    * @return the current {@code CardBrandDetails} instance, allowing for method chaining
    */
   public CardBrandDetails supported(Boolean supported) {
@@ -56,7 +56,7 @@ public class CardBrandDetails {
 
   /**
    * Indicates if you support the card brand.
-   * @return supported
+   * @return supported Indicates if you support the card brand.
    */
   @JsonProperty(JSON_PROPERTY_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class CardBrandDetails {
   /**
    * Indicates if you support the card brand.
    *
-   * @param supported
+   * @param supported Indicates if you support the card brand.
    */
   @JsonProperty(JSON_PROPERTY_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class CardBrandDetails {
   /**
    * The name of the card brand.
    *
-   * @param type
+   * @param type The name of the card brand.
    * @return the current {@code CardBrandDetails} instance, allowing for method chaining
    */
   public CardBrandDetails type(String type) {
@@ -88,7 +88,7 @@ public class CardBrandDetails {
 
   /**
    * The name of the card brand.
-   * @return type
+   * @return type The name of the card brand.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class CardBrandDetails {
   /**
    * The name of the card brand.
    *
-   * @param type
+   * @param type The name of the card brand.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

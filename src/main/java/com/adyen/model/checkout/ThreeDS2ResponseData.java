@@ -114,7 +114,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsChallengeMandated
    *
-   * @param acsChallengeMandated
+   * @param acsChallengeMandated 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData acsChallengeMandated(String acsChallengeMandated) {
@@ -124,7 +124,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get acsChallengeMandated
-   * @return acsChallengeMandated
+   * @return acsChallengeMandated 
    */
   @JsonProperty(JSON_PROPERTY_ACS_CHALLENGE_MANDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsChallengeMandated
    *
-   * @param acsChallengeMandated
+   * @param acsChallengeMandated 
    */
   @JsonProperty(JSON_PROPERTY_ACS_CHALLENGE_MANDATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsOperatorID
    *
-   * @param acsOperatorID
+   * @param acsOperatorID 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData acsOperatorID(String acsOperatorID) {
@@ -156,7 +156,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get acsOperatorID
-   * @return acsOperatorID
+   * @return acsOperatorID 
    */
   @JsonProperty(JSON_PROPERTY_ACS_OPERATOR_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,7 +167,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsOperatorID
    *
-   * @param acsOperatorID
+   * @param acsOperatorID 
    */
   @JsonProperty(JSON_PROPERTY_ACS_OPERATOR_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +178,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsReferenceNumber
    *
-   * @param acsReferenceNumber
+   * @param acsReferenceNumber 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData acsReferenceNumber(String acsReferenceNumber) {
@@ -188,7 +188,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get acsReferenceNumber
-   * @return acsReferenceNumber
+   * @return acsReferenceNumber 
    */
   @JsonProperty(JSON_PROPERTY_ACS_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,7 +199,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsReferenceNumber
    *
-   * @param acsReferenceNumber
+   * @param acsReferenceNumber 
    */
   @JsonProperty(JSON_PROPERTY_ACS_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +210,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsSignedContent
    *
-   * @param acsSignedContent
+   * @param acsSignedContent 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData acsSignedContent(String acsSignedContent) {
@@ -220,7 +220,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get acsSignedContent
-   * @return acsSignedContent
+   * @return acsSignedContent 
    */
   @JsonProperty(JSON_PROPERTY_ACS_SIGNED_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +231,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsSignedContent
    *
-   * @param acsSignedContent
+   * @param acsSignedContent 
    */
   @JsonProperty(JSON_PROPERTY_ACS_SIGNED_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +242,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsTransID
    *
-   * @param acsTransID
+   * @param acsTransID 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData acsTransID(String acsTransID) {
@@ -252,7 +252,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get acsTransID
-   * @return acsTransID
+   * @return acsTransID 
    */
   @JsonProperty(JSON_PROPERTY_ACS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,7 +263,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsTransID
    *
-   * @param acsTransID
+   * @param acsTransID 
    */
   @JsonProperty(JSON_PROPERTY_ACS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +274,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsURL
    *
-   * @param acsURL
+   * @param acsURL 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData acsURL(String acsURL) {
@@ -284,7 +284,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get acsURL
-   * @return acsURL
+   * @return acsURL 
    */
   @JsonProperty(JSON_PROPERTY_ACS_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +295,7 @@ public class ThreeDS2ResponseData {
   /**
    * acsURL
    *
-   * @param acsURL
+   * @param acsURL 
    */
   @JsonProperty(JSON_PROPERTY_ACS_U_R_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,7 +306,7 @@ public class ThreeDS2ResponseData {
   /**
    * authenticationType
    *
-   * @param authenticationType
+   * @param authenticationType 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData authenticationType(String authenticationType) {
@@ -316,7 +316,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get authenticationType
-   * @return authenticationType
+   * @return authenticationType 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +327,7 @@ public class ThreeDS2ResponseData {
   /**
    * authenticationType
    *
-   * @param authenticationType
+   * @param authenticationType 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,7 +338,7 @@ public class ThreeDS2ResponseData {
   /**
    * cardHolderInfo
    *
-   * @param cardHolderInfo
+   * @param cardHolderInfo 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData cardHolderInfo(String cardHolderInfo) {
@@ -348,7 +348,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get cardHolderInfo
-   * @return cardHolderInfo
+   * @return cardHolderInfo 
    */
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +359,7 @@ public class ThreeDS2ResponseData {
   /**
    * cardHolderInfo
    *
-   * @param cardHolderInfo
+   * @param cardHolderInfo 
    */
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -370,7 +370,7 @@ public class ThreeDS2ResponseData {
   /**
    * cavvAlgorithm
    *
-   * @param cavvAlgorithm
+   * @param cavvAlgorithm 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData cavvAlgorithm(String cavvAlgorithm) {
@@ -380,7 +380,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get cavvAlgorithm
-   * @return cavvAlgorithm
+   * @return cavvAlgorithm 
    */
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -391,7 +391,7 @@ public class ThreeDS2ResponseData {
   /**
    * cavvAlgorithm
    *
-   * @param cavvAlgorithm
+   * @param cavvAlgorithm 
    */
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -402,7 +402,7 @@ public class ThreeDS2ResponseData {
   /**
    * challengeIndicator
    *
-   * @param challengeIndicator
+   * @param challengeIndicator 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData challengeIndicator(String challengeIndicator) {
@@ -412,7 +412,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get challengeIndicator
-   * @return challengeIndicator
+   * @return challengeIndicator 
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -423,7 +423,7 @@ public class ThreeDS2ResponseData {
   /**
    * challengeIndicator
    *
-   * @param challengeIndicator
+   * @param challengeIndicator 
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -434,7 +434,7 @@ public class ThreeDS2ResponseData {
   /**
    * dsReferenceNumber
    *
-   * @param dsReferenceNumber
+   * @param dsReferenceNumber 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData dsReferenceNumber(String dsReferenceNumber) {
@@ -444,7 +444,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get dsReferenceNumber
-   * @return dsReferenceNumber
+   * @return dsReferenceNumber 
    */
   @JsonProperty(JSON_PROPERTY_DS_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -455,7 +455,7 @@ public class ThreeDS2ResponseData {
   /**
    * dsReferenceNumber
    *
-   * @param dsReferenceNumber
+   * @param dsReferenceNumber 
    */
   @JsonProperty(JSON_PROPERTY_DS_REFERENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -466,7 +466,7 @@ public class ThreeDS2ResponseData {
   /**
    * dsTransID
    *
-   * @param dsTransID
+   * @param dsTransID 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData dsTransID(String dsTransID) {
@@ -476,7 +476,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get dsTransID
-   * @return dsTransID
+   * @return dsTransID 
    */
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -487,7 +487,7 @@ public class ThreeDS2ResponseData {
   /**
    * dsTransID
    *
-   * @param dsTransID
+   * @param dsTransID 
    */
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -498,7 +498,7 @@ public class ThreeDS2ResponseData {
   /**
    * exemptionIndicator
    *
-   * @param exemptionIndicator
+   * @param exemptionIndicator 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData exemptionIndicator(String exemptionIndicator) {
@@ -508,7 +508,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get exemptionIndicator
-   * @return exemptionIndicator
+   * @return exemptionIndicator 
    */
   @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -519,7 +519,7 @@ public class ThreeDS2ResponseData {
   /**
    * exemptionIndicator
    *
-   * @param exemptionIndicator
+   * @param exemptionIndicator 
    */
   @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -530,7 +530,7 @@ public class ThreeDS2ResponseData {
   /**
    * messageVersion
    *
-   * @param messageVersion
+   * @param messageVersion 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData messageVersion(String messageVersion) {
@@ -540,7 +540,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get messageVersion
-   * @return messageVersion
+   * @return messageVersion 
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -551,7 +551,7 @@ public class ThreeDS2ResponseData {
   /**
    * messageVersion
    *
-   * @param messageVersion
+   * @param messageVersion 
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -562,7 +562,7 @@ public class ThreeDS2ResponseData {
   /**
    * riskScore
    *
-   * @param riskScore
+   * @param riskScore 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData riskScore(String riskScore) {
@@ -572,7 +572,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get riskScore
-   * @return riskScore
+   * @return riskScore 
    */
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -583,7 +583,7 @@ public class ThreeDS2ResponseData {
   /**
    * riskScore
    *
-   * @param riskScore
+   * @param riskScore 
    */
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -594,7 +594,7 @@ public class ThreeDS2ResponseData {
   /**
    * sdkEphemPubKey
    *
-   * @param sdkEphemPubKey
+   * @param sdkEphemPubKey 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData sdkEphemPubKey(String sdkEphemPubKey) {
@@ -604,7 +604,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get sdkEphemPubKey
-   * @return sdkEphemPubKey
+   * @return sdkEphemPubKey 
    */
   @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -615,7 +615,7 @@ public class ThreeDS2ResponseData {
   /**
    * sdkEphemPubKey
    *
-   * @param sdkEphemPubKey
+   * @param sdkEphemPubKey 
    */
   @JsonProperty(JSON_PROPERTY_SDK_EPHEM_PUB_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -626,7 +626,7 @@ public class ThreeDS2ResponseData {
   /**
    * threeDSServerTransID
    *
-   * @param threeDSServerTransID
+   * @param threeDSServerTransID 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData threeDSServerTransID(String threeDSServerTransID) {
@@ -636,7 +636,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get threeDSServerTransID
-   * @return threeDSServerTransID
+   * @return threeDSServerTransID 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -647,7 +647,7 @@ public class ThreeDS2ResponseData {
   /**
    * threeDSServerTransID
    *
-   * @param threeDSServerTransID
+   * @param threeDSServerTransID 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -658,7 +658,7 @@ public class ThreeDS2ResponseData {
   /**
    * transStatus
    *
-   * @param transStatus
+   * @param transStatus 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData transStatus(String transStatus) {
@@ -668,7 +668,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get transStatus
-   * @return transStatus
+   * @return transStatus 
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -679,7 +679,7 @@ public class ThreeDS2ResponseData {
   /**
    * transStatus
    *
-   * @param transStatus
+   * @param transStatus 
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -690,7 +690,7 @@ public class ThreeDS2ResponseData {
   /**
    * transStatusReason
    *
-   * @param transStatusReason
+   * @param transStatusReason 
    * @return the current {@code ThreeDS2ResponseData} instance, allowing for method chaining
    */
   public ThreeDS2ResponseData transStatusReason(String transStatusReason) {
@@ -700,7 +700,7 @@ public class ThreeDS2ResponseData {
 
   /**
    * Get transStatusReason
-   * @return transStatusReason
+   * @return transStatusReason 
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -711,7 +711,7 @@ public class ThreeDS2ResponseData {
   /**
    * transStatusReason
    *
-   * @param transStatusReason
+   * @param transStatusReason 
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

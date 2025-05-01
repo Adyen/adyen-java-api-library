@@ -92,7 +92,7 @@ public class PayToDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code PayToDetails} instance, allowing for method chaining
    */
   public PayToDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -102,7 +102,7 @@ public class PayToDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +113,7 @@ public class PayToDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +124,7 @@ public class PayToDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code PayToDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -138,7 +138,7 @@ public class PayToDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -151,7 +151,7 @@ public class PayToDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -166,7 +166,7 @@ public class PayToDetails {
   /**
    * The shopper&#39;s banking details or payId reference, used to complete payment.
    *
-   * @param shopperAccountIdentifier
+   * @param shopperAccountIdentifier The shopper&#39;s banking details or payId reference, used to complete payment.
    * @return the current {@code PayToDetails} instance, allowing for method chaining
    */
   public PayToDetails shopperAccountIdentifier(String shopperAccountIdentifier) {
@@ -176,7 +176,7 @@ public class PayToDetails {
 
   /**
    * The shopper&#39;s banking details or payId reference, used to complete payment.
-   * @return shopperAccountIdentifier
+   * @return shopperAccountIdentifier The shopper&#39;s banking details or payId reference, used to complete payment.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_ACCOUNT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class PayToDetails {
   /**
    * The shopper&#39;s banking details or payId reference, used to complete payment.
    *
-   * @param shopperAccountIdentifier
+   * @param shopperAccountIdentifier The shopper&#39;s banking details or payId reference, used to complete payment.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_ACCOUNT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class PayToDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code PayToDetails} instance, allowing for method chaining
    */
   public PayToDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -208,7 +208,7 @@ public class PayToDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class PayToDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class PayToDetails {
   /**
    * **payto**
    *
-   * @param type
+   * @param type **payto**
    * @return the current {@code PayToDetails} instance, allowing for method chaining
    */
   public PayToDetails type(TypeEnum type) {
@@ -240,7 +240,7 @@ public class PayToDetails {
 
   /**
    * **payto**
-   * @return type
+   * @return type **payto**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +251,7 @@ public class PayToDetails {
   /**
    * **payto**
    *
-   * @param type
+   * @param type **payto**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

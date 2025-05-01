@@ -112,7 +112,7 @@ public class RivertyDetails {
   /**
    * The address where to send the invoice.
    *
-   * @param billingAddress
+   * @param billingAddress The address where to send the invoice.
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    */
   public RivertyDetails billingAddress(String billingAddress) {
@@ -122,7 +122,7 @@ public class RivertyDetails {
 
   /**
    * The address where to send the invoice.
-   * @return billingAddress
+   * @return billingAddress The address where to send the invoice.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +133,7 @@ public class RivertyDetails {
   /**
    * The address where to send the invoice.
    *
-   * @param billingAddress
+   * @param billingAddress The address where to send the invoice.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class RivertyDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    */
   public RivertyDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -154,7 +154,7 @@ public class RivertyDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +165,7 @@ public class RivertyDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class RivertyDetails {
   /**
    * The address where the goods should be delivered.
    *
-   * @param deliveryAddress
+   * @param deliveryAddress The address where the goods should be delivered.
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    */
   public RivertyDetails deliveryAddress(String deliveryAddress) {
@@ -186,7 +186,7 @@ public class RivertyDetails {
 
   /**
    * The address where the goods should be delivered.
-   * @return deliveryAddress
+   * @return deliveryAddress The address where the goods should be delivered.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,7 +197,7 @@ public class RivertyDetails {
   /**
    * The address where the goods should be delivered.
    *
-   * @param deliveryAddress
+   * @param deliveryAddress The address where the goods should be delivered.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class RivertyDetails {
   /**
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    *
-   * @param deviceFingerprint
+   * @param deviceFingerprint A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    */
   public RivertyDetails deviceFingerprint(String deviceFingerprint) {
@@ -218,7 +218,7 @@ public class RivertyDetails {
 
   /**
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
-   * @return deviceFingerprint
+   * @return deviceFingerprint A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +229,7 @@ public class RivertyDetails {
   /**
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    *
-   * @param deviceFingerprint
+   * @param deviceFingerprint A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class RivertyDetails {
   /**
    * The iban number of the customer 
    *
-   * @param iban
+   * @param iban The iban number of the customer 
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    */
   public RivertyDetails iban(String iban) {
@@ -250,7 +250,7 @@ public class RivertyDetails {
 
   /**
    * The iban number of the customer 
-   * @return iban
+   * @return iban The iban number of the customer 
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,7 +261,7 @@ public class RivertyDetails {
   /**
    * The iban number of the customer 
    *
-   * @param iban
+   * @param iban The iban number of the customer 
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,7 +272,7 @@ public class RivertyDetails {
   /**
    * Shopper name, date of birth, phone number, and email address.
    *
-   * @param personalDetails
+   * @param personalDetails Shopper name, date of birth, phone number, and email address.
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    */
   public RivertyDetails personalDetails(String personalDetails) {
@@ -282,7 +282,7 @@ public class RivertyDetails {
 
   /**
    * Shopper name, date of birth, phone number, and email address.
-   * @return personalDetails
+   * @return personalDetails Shopper name, date of birth, phone number, and email address.
    */
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +293,7 @@ public class RivertyDetails {
   /**
    * Shopper name, date of birth, phone number, and email address.
    *
-   * @param personalDetails
+   * @param personalDetails Shopper name, date of birth, phone number, and email address.
    */
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +304,7 @@ public class RivertyDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -318,7 +318,7 @@ public class RivertyDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -331,7 +331,7 @@ public class RivertyDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -346,7 +346,7 @@ public class RivertyDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    */
   public RivertyDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -356,7 +356,7 @@ public class RivertyDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -367,7 +367,7 @@ public class RivertyDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -378,7 +378,7 @@ public class RivertyDetails {
   /**
    * **riverty**
    *
-   * @param type
+   * @param type **riverty**
    * @return the current {@code RivertyDetails} instance, allowing for method chaining
    */
   public RivertyDetails type(TypeEnum type) {
@@ -388,7 +388,7 @@ public class RivertyDetails {
 
   /**
    * **riverty**
-   * @return type
+   * @return type **riverty**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -399,7 +399,7 @@ public class RivertyDetails {
   /**
    * **riverty**
    *
-   * @param type
+   * @param type **riverty**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

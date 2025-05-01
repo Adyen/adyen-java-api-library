@@ -124,7 +124,7 @@ public class CheckoutBankTransferAction {
   /**
    * The account number of the bank transfer.
    *
-   * @param accountNumber
+   * @param accountNumber The account number of the bank transfer.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction accountNumber(String accountNumber) {
@@ -134,7 +134,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The account number of the bank transfer.
-   * @return accountNumber
+   * @return accountNumber The account number of the bank transfer.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +145,7 @@ public class CheckoutBankTransferAction {
   /**
    * The account number of the bank transfer.
    *
-   * @param accountNumber
+   * @param accountNumber The account number of the bank transfer.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +156,7 @@ public class CheckoutBankTransferAction {
   /**
    * The name of the account holder.
    *
-   * @param beneficiary
+   * @param beneficiary The name of the account holder.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction beneficiary(String beneficiary) {
@@ -166,7 +166,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The name of the account holder.
-   * @return beneficiary
+   * @return beneficiary The name of the account holder.
    */
   @JsonProperty(JSON_PROPERTY_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class CheckoutBankTransferAction {
   /**
    * The name of the account holder.
    *
-   * @param beneficiary
+   * @param beneficiary The name of the account holder.
    */
   @JsonProperty(JSON_PROPERTY_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +188,7 @@ public class CheckoutBankTransferAction {
   /**
    * The BIC of the IBAN.
    *
-   * @param bic
+   * @param bic The BIC of the IBAN.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction bic(String bic) {
@@ -198,7 +198,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The BIC of the IBAN.
-   * @return bic
+   * @return bic The BIC of the IBAN.
    */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class CheckoutBankTransferAction {
   /**
    * The BIC of the IBAN.
    *
-   * @param bic
+   * @param bic The BIC of the IBAN.
    */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +220,7 @@ public class CheckoutBankTransferAction {
   /**
    * The url to download payment details with.
    *
-   * @param downloadUrl
+   * @param downloadUrl The url to download payment details with.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction downloadUrl(String downloadUrl) {
@@ -230,7 +230,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The url to download payment details with.
-   * @return downloadUrl
+   * @return downloadUrl The url to download payment details with.
    */
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +241,7 @@ public class CheckoutBankTransferAction {
   /**
    * The url to download payment details with.
    *
-   * @param downloadUrl
+   * @param downloadUrl The url to download payment details with.
    */
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +252,7 @@ public class CheckoutBankTransferAction {
   /**
    * The IBAN of the bank transfer.
    *
-   * @param iban
+   * @param iban The IBAN of the bank transfer.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction iban(String iban) {
@@ -262,7 +262,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The IBAN of the bank transfer.
-   * @return iban
+   * @return iban The IBAN of the bank transfer.
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +273,7 @@ public class CheckoutBankTransferAction {
   /**
    * The IBAN of the bank transfer.
    *
-   * @param iban
+   * @param iban The IBAN of the bank transfer.
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +284,7 @@ public class CheckoutBankTransferAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction paymentMethodType(String paymentMethodType) {
@@ -294,7 +294,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,7 +305,7 @@ public class CheckoutBankTransferAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +316,7 @@ public class CheckoutBankTransferAction {
   /**
    * The transfer reference.
    *
-   * @param reference
+   * @param reference The transfer reference.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction reference(String reference) {
@@ -326,7 +326,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The transfer reference.
-   * @return reference
+   * @return reference The transfer reference.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,7 +337,7 @@ public class CheckoutBankTransferAction {
   /**
    * The transfer reference.
    *
-   * @param reference
+   * @param reference The transfer reference.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -348,7 +348,7 @@ public class CheckoutBankTransferAction {
   /**
    * The routing number of the bank transfer.
    *
-   * @param routingNumber
+   * @param routingNumber The routing number of the bank transfer.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction routingNumber(String routingNumber) {
@@ -358,7 +358,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The routing number of the bank transfer.
-   * @return routingNumber
+   * @return routingNumber The routing number of the bank transfer.
    */
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -369,7 +369,7 @@ public class CheckoutBankTransferAction {
   /**
    * The routing number of the bank transfer.
    *
-   * @param routingNumber
+   * @param routingNumber The routing number of the bank transfer.
    */
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,7 +380,7 @@ public class CheckoutBankTransferAction {
   /**
    * The e-mail of the shopper, included if an e-mail was sent to the shopper.
    *
-   * @param shopperEmail
+   * @param shopperEmail The e-mail of the shopper, included if an e-mail was sent to the shopper.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction shopperEmail(String shopperEmail) {
@@ -390,7 +390,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The e-mail of the shopper, included if an e-mail was sent to the shopper.
-   * @return shopperEmail
+   * @return shopperEmail The e-mail of the shopper, included if an e-mail was sent to the shopper.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -401,7 +401,7 @@ public class CheckoutBankTransferAction {
   /**
    * The e-mail of the shopper, included if an e-mail was sent to the shopper.
    *
-   * @param shopperEmail
+   * @param shopperEmail The e-mail of the shopper, included if an e-mail was sent to the shopper.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -412,7 +412,7 @@ public class CheckoutBankTransferAction {
   /**
    * The sort code of the bank transfer.
    *
-   * @param sortCode
+   * @param sortCode The sort code of the bank transfer.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction sortCode(String sortCode) {
@@ -422,7 +422,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The sort code of the bank transfer.
-   * @return sortCode
+   * @return sortCode The sort code of the bank transfer.
    */
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,7 +433,7 @@ public class CheckoutBankTransferAction {
   /**
    * The sort code of the bank transfer.
    *
-   * @param sortCode
+   * @param sortCode The sort code of the bank transfer.
    */
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -444,7 +444,7 @@ public class CheckoutBankTransferAction {
   /**
    * totalAmount
    *
-   * @param totalAmount
+   * @param totalAmount 
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction totalAmount(Amount totalAmount) {
@@ -454,7 +454,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * Get totalAmount
-   * @return totalAmount
+   * @return totalAmount 
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -465,7 +465,7 @@ public class CheckoutBankTransferAction {
   /**
    * totalAmount
    *
-   * @param totalAmount
+   * @param totalAmount 
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -476,7 +476,7 @@ public class CheckoutBankTransferAction {
   /**
    * The type of the action.
    *
-   * @param type
+   * @param type The type of the action.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction type(TypeEnum type) {
@@ -486,7 +486,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * The type of the action.
-   * @return type
+   * @return type The type of the action.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -497,7 +497,7 @@ public class CheckoutBankTransferAction {
   /**
    * The type of the action.
    *
-   * @param type
+   * @param type The type of the action.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -508,7 +508,7 @@ public class CheckoutBankTransferAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
    */
   public CheckoutBankTransferAction url(String url) {
@@ -518,7 +518,7 @@ public class CheckoutBankTransferAction {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -529,7 +529,7 @@ public class CheckoutBankTransferAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -80,7 +80,7 @@ public class SubMerchantInfo {
   /**
    * address
    *
-   * @param address
+   * @param address 
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo address(BillingAddress address) {
@@ -90,7 +90,7 @@ public class SubMerchantInfo {
 
   /**
    * Get address
-   * @return address
+   * @return address 
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +101,7 @@ public class SubMerchantInfo {
   /**
    * address
    *
-   * @param address
+   * @param address 
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class SubMerchantInfo {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo amount(Amount amount) {
@@ -122,7 +122,7 @@ public class SubMerchantInfo {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +133,7 @@ public class SubMerchantInfo {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant&#39;s account.
    *
-   * @param email
+   * @param email Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant&#39;s account.
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo email(String email) {
@@ -154,7 +154,7 @@ public class SubMerchantInfo {
 
   /**
    * Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant&#39;s account.
-   * @return email
+   * @return email Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant&#39;s account.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +165,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant&#39;s account.
    *
-   * @param email
+   * @param email Required for transactions performed by registered payment facilitators. The email associated with the sub-merchant&#39;s account.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
    *
-   * @param id
+   * @param id Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo id(String id) {
@@ -186,7 +186,7 @@ public class SubMerchantInfo {
 
   /**
    * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
-   * @return id
+   * @return id Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,7 +197,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
    *
-   * @param id
+   * @param id Required for transactions performed by registered payment facilitators. A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.  * Format: Alphanumeric * Maximum length: 15 characters
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    *
-   * @param mcc
+   * @param mcc Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo mcc(String mcc) {
@@ -218,7 +218,7 @@ public class SubMerchantInfo {
 
   /**
    * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
-   * @return mcc
+   * @return mcc Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +229,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    *
-   * @param mcc
+   * @param mcc Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s 4-digit Merchant Category Code (MCC).  * Format: Numeric * Fixed length: 4 digits
    */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    *
-   * @param name
+   * @param name Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo name(String name) {
@@ -250,7 +250,7 @@ public class SubMerchantInfo {
 
   /**
    * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
-   * @return name
+   * @return name Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,7 +261,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    *
-   * @param name
+   * @param name Required for transactions performed by registered payment facilitators. The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,7 +272,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant&#39;s account.
    *
-   * @param phoneNumber
+   * @param phoneNumber Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant&#39;s account.
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo phoneNumber(String phoneNumber) {
@@ -282,7 +282,7 @@ public class SubMerchantInfo {
 
   /**
    * Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant&#39;s account.
-   * @return phoneNumber
+   * @return phoneNumber Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant&#39;s account.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +293,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant&#39;s account.
    *
-   * @param phoneNumber
+   * @param phoneNumber Required for transactions performed by registered payment facilitators. The phone number associated with the sub-merchant&#39;s account.
    */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +304,7 @@ public class SubMerchantInfo {
   /**
    * registeredSince
    *
-   * @param registeredSince
+   * @param registeredSince 
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo registeredSince(String registeredSince) {
@@ -314,7 +314,7 @@ public class SubMerchantInfo {
 
   /**
    * Get registeredSince
-   * @return registeredSince
+   * @return registeredSince 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -325,7 +325,7 @@ public class SubMerchantInfo {
   /**
    * registeredSince
    *
-   * @param registeredSince
+   * @param registeredSince 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +336,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    *
-   * @param taxId
+   * @param taxId Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo taxId(String taxId) {
@@ -346,7 +346,7 @@ public class SubMerchantInfo {
 
   /**
    * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
-   * @return taxId
+   * @return taxId Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -357,7 +357,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    *
-   * @param taxId
+   * @param taxId Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
    */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +368,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s URL on the platform, i.e. the sub-merchant&#39;s shop.
    *
-   * @param url
+   * @param url Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s URL on the platform, i.e. the sub-merchant&#39;s shop.
    * @return the current {@code SubMerchantInfo} instance, allowing for method chaining
    */
   public SubMerchantInfo url(String url) {
@@ -378,7 +378,7 @@ public class SubMerchantInfo {
 
   /**
    * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s URL on the platform, i.e. the sub-merchant&#39;s shop.
-   * @return url
+   * @return url Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s URL on the platform, i.e. the sub-merchant&#39;s shop.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -389,7 +389,7 @@ public class SubMerchantInfo {
   /**
    * Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s URL on the platform, i.e. the sub-merchant&#39;s shop.
    *
-   * @param url
+   * @param url Required for transactions performed by registered payment facilitators. The sub-merchant&#39;s URL on the platform, i.e. the sub-merchant&#39;s shop.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -123,7 +123,7 @@ public class CheckoutBankAccount {
   /**
    * The type of the bank account.
    *
-   * @param accountType
+   * @param accountType The type of the bank account.
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount accountType(AccountTypeEnum accountType) {
@@ -133,7 +133,7 @@ public class CheckoutBankAccount {
 
   /**
    * The type of the bank account.
-   * @return accountType
+   * @return accountType The type of the bank account.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class CheckoutBankAccount {
   /**
    * The type of the bank account.
    *
-   * @param accountType
+   * @param accountType The type of the bank account.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class CheckoutBankAccount {
   /**
    * The bank account number (without separators).
    *
-   * @param bankAccountNumber
+   * @param bankAccountNumber The bank account number (without separators).
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount bankAccountNumber(String bankAccountNumber) {
@@ -165,7 +165,7 @@ public class CheckoutBankAccount {
 
   /**
    * The bank account number (without separators).
-   * @return bankAccountNumber
+   * @return bankAccountNumber The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class CheckoutBankAccount {
   /**
    * The bank account number (without separators).
    *
-   * @param bankAccountNumber
+   * @param bankAccountNumber The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class CheckoutBankAccount {
   /**
    * The bank city.
    *
-   * @param bankCity
+   * @param bankCity The bank city.
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount bankCity(String bankCity) {
@@ -197,7 +197,7 @@ public class CheckoutBankAccount {
 
   /**
    * The bank city.
-   * @return bankCity
+   * @return bankCity The bank city.
    */
   @JsonProperty(JSON_PROPERTY_BANK_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class CheckoutBankAccount {
   /**
    * The bank city.
    *
-   * @param bankCity
+   * @param bankCity The bank city.
    */
   @JsonProperty(JSON_PROPERTY_BANK_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class CheckoutBankAccount {
   /**
    * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
    *
-   * @param bankLocationId
+   * @param bankLocationId The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount bankLocationId(String bankLocationId) {
@@ -229,7 +229,7 @@ public class CheckoutBankAccount {
 
   /**
    * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
-   * @return bankLocationId
+   * @return bankLocationId The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
    */
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class CheckoutBankAccount {
   /**
    * The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
    *
-   * @param bankLocationId
+   * @param bankLocationId The location id of the bank. The field value is &#x60;nil&#x60; in most cases.
    */
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +251,7 @@ public class CheckoutBankAccount {
   /**
    * The name of the bank.
    *
-   * @param bankName
+   * @param bankName The name of the bank.
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount bankName(String bankName) {
@@ -261,7 +261,7 @@ public class CheckoutBankAccount {
 
   /**
    * The name of the bank.
-   * @return bankName
+   * @return bankName The name of the bank.
    */
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,7 +272,7 @@ public class CheckoutBankAccount {
   /**
    * The name of the bank.
    *
-   * @param bankName
+   * @param bankName The name of the bank.
    */
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +283,7 @@ public class CheckoutBankAccount {
   /**
    * The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
    *
-   * @param bic
+   * @param bic The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount bic(String bic) {
@@ -293,7 +293,7 @@ public class CheckoutBankAccount {
 
   /**
    * The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
-   * @return bic
+   * @return bic The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
    */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +304,7 @@ public class CheckoutBankAccount {
   /**
    * The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
    *
-   * @param bic
+   * @param bic The [Business Identifier Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address assigned to a bank. The field value is &#x60;nil&#x60; in most cases.
    */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -315,7 +315,7 @@ public class CheckoutBankAccount {
   /**
    * Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
    *
-   * @param countryCode
+   * @param countryCode Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount countryCode(String countryCode) {
@@ -325,7 +325,7 @@ public class CheckoutBankAccount {
 
   /**
    * Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
-   * @return countryCode
+   * @return countryCode Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +336,7 @@ public class CheckoutBankAccount {
   /**
    * Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
    *
-   * @param countryCode
+   * @param countryCode Country code where the bank is located.  A valid value is an ISO two-character country code (e.g. &#39;NL&#39;).
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -347,7 +347,7 @@ public class CheckoutBankAccount {
   /**
    * The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
    *
-   * @param iban
+   * @param iban The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount iban(String iban) {
@@ -357,7 +357,7 @@ public class CheckoutBankAccount {
 
   /**
    * The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
-   * @return iban
+   * @return iban The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +368,7 @@ public class CheckoutBankAccount {
   /**
    * The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
    *
-   * @param iban
+   * @param iban The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,7 +379,7 @@ public class CheckoutBankAccount {
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount ownerName(String ownerName) {
@@ -389,7 +389,7 @@ public class CheckoutBankAccount {
 
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
-   * @return ownerName
+   * @return ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -400,7 +400,7 @@ public class CheckoutBankAccount {
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -411,7 +411,7 @@ public class CheckoutBankAccount {
   /**
    * The bank account holder&#39;s tax ID.
    *
-   * @param taxId
+   * @param taxId The bank account holder&#39;s tax ID.
    * @return the current {@code CheckoutBankAccount} instance, allowing for method chaining
    */
   public CheckoutBankAccount taxId(String taxId) {
@@ -421,7 +421,7 @@ public class CheckoutBankAccount {
 
   /**
    * The bank account holder&#39;s tax ID.
-   * @return taxId
+   * @return taxId The bank account holder&#39;s tax ID.
    */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -432,7 +432,7 @@ public class CheckoutBankAccount {
   /**
    * The bank account holder&#39;s tax ID.
    *
-   * @param taxId
+   * @param taxId The bank account holder&#39;s tax ID.
    */
   @JsonProperty(JSON_PROPERTY_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

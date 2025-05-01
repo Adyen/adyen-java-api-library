@@ -116,7 +116,7 @@ public class PixRecurring {
   /**
    * The date on which the shopper&#39;s payment method will be charged, in YYYY-MM-DD format.
    *
-   * @param billingDate
+   * @param billingDate The date on which the shopper&#39;s payment method will be charged, in YYYY-MM-DD format.
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring billingDate(String billingDate) {
@@ -126,7 +126,7 @@ public class PixRecurring {
 
   /**
    * The date on which the shopper&#39;s payment method will be charged, in YYYY-MM-DD format.
-   * @return billingDate
+   * @return billingDate The date on which the shopper&#39;s payment method will be charged, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class PixRecurring {
   /**
    * The date on which the shopper&#39;s payment method will be charged, in YYYY-MM-DD format.
    *
-   * @param billingDate
+   * @param billingDate The date on which the shopper&#39;s payment method will be charged, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class PixRecurring {
   /**
    * End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.
    *
-   * @param endsAt
+   * @param endsAt End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring endsAt(String endsAt) {
@@ -158,7 +158,7 @@ public class PixRecurring {
 
   /**
    * End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.
-   * @return endsAt
+   * @return endsAt End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.
    */
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class PixRecurring {
   /**
    * End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.
    *
-   * @param endsAt
+   * @param endsAt End date of the billing plan, in YYYY-MM-DD format. The end date must align with the frequency and the start date of the billing plan. If left blank, the subscription will continue indefinitely unless it is cancelled by the shopper.
    */
   @JsonProperty(JSON_PROPERTY_ENDS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class PixRecurring {
   /**
    * The frequency at which the shopper will be charged.
    *
-   * @param frequency
+   * @param frequency The frequency at which the shopper will be charged.
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring frequency(FrequencyEnum frequency) {
@@ -190,7 +190,7 @@ public class PixRecurring {
 
   /**
    * The frequency at which the shopper will be charged.
-   * @return frequency
+   * @return frequency The frequency at which the shopper will be charged.
    */
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class PixRecurring {
   /**
    * The frequency at which the shopper will be charged.
    *
-   * @param frequency
+   * @param frequency The frequency at which the shopper will be charged.
    */
   @JsonProperty(JSON_PROPERTY_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class PixRecurring {
   /**
    * minAmount
    *
-   * @param minAmount
+   * @param minAmount 
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring minAmount(Amount minAmount) {
@@ -222,7 +222,7 @@ public class PixRecurring {
 
   /**
    * Get minAmount
-   * @return minAmount
+   * @return minAmount 
    */
   @JsonProperty(JSON_PROPERTY_MIN_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class PixRecurring {
   /**
    * minAmount
    *
-   * @param minAmount
+   * @param minAmount 
    */
   @JsonProperty(JSON_PROPERTY_MIN_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class PixRecurring {
   /**
    * The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
    *
-   * @param originalPspReference
+   * @param originalPspReference The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring originalPspReference(String originalPspReference) {
@@ -254,7 +254,7 @@ public class PixRecurring {
 
   /**
    * The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
-   * @return originalPspReference
+   * @return originalPspReference The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class PixRecurring {
   /**
    * The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
    *
-   * @param originalPspReference
+   * @param originalPspReference The pspReference for the failed recurring payment. Find this in AUTHORISATION webhook you received after the billing date.
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class PixRecurring {
   /**
    * recurringAmount
    *
-   * @param recurringAmount
+   * @param recurringAmount 
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring recurringAmount(Amount recurringAmount) {
@@ -286,7 +286,7 @@ public class PixRecurring {
 
   /**
    * Get recurringAmount
-   * @return recurringAmount
+   * @return recurringAmount 
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +297,7 @@ public class PixRecurring {
   /**
    * recurringAmount
    *
-   * @param recurringAmount
+   * @param recurringAmount 
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +308,7 @@ public class PixRecurring {
   /**
    * The text that that will be shown on the shopper&#39;s bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
    *
-   * @param recurringStatement
+   * @param recurringStatement The text that that will be shown on the shopper&#39;s bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring recurringStatement(String recurringStatement) {
@@ -318,7 +318,7 @@ public class PixRecurring {
 
   /**
    * The text that that will be shown on the shopper&#39;s bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
-   * @return recurringStatement
+   * @return recurringStatement The text that that will be shown on the shopper&#39;s bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +329,7 @@ public class PixRecurring {
   /**
    * The text that that will be shown on the shopper&#39;s bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
    *
-   * @param recurringStatement
+   * @param recurringStatement The text that that will be shown on the shopper&#39;s bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
    */
   @JsonProperty(JSON_PROPERTY_RECURRING_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +340,7 @@ public class PixRecurring {
   /**
    * When set to true, you can retry for failed recurring payments. The default value is true.
    *
-   * @param retryPolicy
+   * @param retryPolicy When set to true, you can retry for failed recurring payments. The default value is true.
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring retryPolicy(Boolean retryPolicy) {
@@ -350,7 +350,7 @@ public class PixRecurring {
 
   /**
    * When set to true, you can retry for failed recurring payments. The default value is true.
-   * @return retryPolicy
+   * @return retryPolicy When set to true, you can retry for failed recurring payments. The default value is true.
    */
   @JsonProperty(JSON_PROPERTY_RETRY_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -361,7 +361,7 @@ public class PixRecurring {
   /**
    * When set to true, you can retry for failed recurring payments. The default value is true.
    *
-   * @param retryPolicy
+   * @param retryPolicy When set to true, you can retry for failed recurring payments. The default value is true.
    */
   @JsonProperty(JSON_PROPERTY_RETRY_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,7 +372,7 @@ public class PixRecurring {
   /**
    * Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.
    *
-   * @param startsAt
+   * @param startsAt Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.
    * @return the current {@code PixRecurring} instance, allowing for method chaining
    */
   public PixRecurring startsAt(String startsAt) {
@@ -382,7 +382,7 @@ public class PixRecurring {
 
   /**
    * Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.
-   * @return startsAt
+   * @return startsAt Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.
    */
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -393,7 +393,7 @@ public class PixRecurring {
   /**
    * Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.
    *
-   * @param startsAt
+   * @param startsAt Start date of the billing plan, in YYYY-MM-DD format. The default value is the transaction date.
    */
   @JsonProperty(JSON_PROPERTY_STARTS_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

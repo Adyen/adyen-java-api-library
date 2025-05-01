@@ -85,7 +85,7 @@ public class MolPayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code MolPayDetails} instance, allowing for method chaining
    */
   public MolPayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -95,7 +95,7 @@ public class MolPayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +106,7 @@ public class MolPayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class MolPayDetails {
   /**
    * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
    *
-   * @param issuer
+   * @param issuer The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
    * @return the current {@code MolPayDetails} instance, allowing for method chaining
    */
   public MolPayDetails issuer(String issuer) {
@@ -127,7 +127,7 @@ public class MolPayDetails {
 
   /**
    * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
-   * @return issuer
+   * @return issuer The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class MolPayDetails {
   /**
    * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
    *
-   * @param issuer
+   * @param issuer The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +149,7 @@ public class MolPayDetails {
   /**
    * **molpay**
    *
-   * @param type
+   * @param type **molpay**
    * @return the current {@code MolPayDetails} instance, allowing for method chaining
    */
   public MolPayDetails type(TypeEnum type) {
@@ -159,7 +159,7 @@ public class MolPayDetails {
 
   /**
    * **molpay**
-   * @return type
+   * @return type **molpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class MolPayDetails {
   /**
    * **molpay**
    *
-   * @param type
+   * @param type **molpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

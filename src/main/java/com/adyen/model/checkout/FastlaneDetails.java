@@ -92,7 +92,7 @@ public class FastlaneDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code FastlaneDetails} instance, allowing for method chaining
    */
   public FastlaneDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -102,7 +102,7 @@ public class FastlaneDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +113,7 @@ public class FastlaneDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +124,7 @@ public class FastlaneDetails {
   /**
    * The encoded fastlane data blob
    *
-   * @param fastlaneData
+   * @param fastlaneData The encoded fastlane data blob
    * @return the current {@code FastlaneDetails} instance, allowing for method chaining
    */
   public FastlaneDetails fastlaneData(String fastlaneData) {
@@ -134,7 +134,7 @@ public class FastlaneDetails {
 
   /**
    * The encoded fastlane data blob
-   * @return fastlaneData
+   * @return fastlaneData The encoded fastlane data blob
    */
   @JsonProperty(JSON_PROPERTY_FASTLANE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +145,7 @@ public class FastlaneDetails {
   /**
    * The encoded fastlane data blob
    *
-   * @param fastlaneData
+   * @param fastlaneData The encoded fastlane data blob
    */
   @JsonProperty(JSON_PROPERTY_FASTLANE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +156,7 @@ public class FastlaneDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code FastlaneDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -170,7 +170,7 @@ public class FastlaneDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -183,7 +183,7 @@ public class FastlaneDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -198,7 +198,7 @@ public class FastlaneDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code FastlaneDetails} instance, allowing for method chaining
    */
   public FastlaneDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -208,7 +208,7 @@ public class FastlaneDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class FastlaneDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class FastlaneDetails {
   /**
    * **fastlane**
    *
-   * @param type
+   * @param type **fastlane**
    * @return the current {@code FastlaneDetails} instance, allowing for method chaining
    */
   public FastlaneDetails type(TypeEnum type) {
@@ -240,7 +240,7 @@ public class FastlaneDetails {
 
   /**
    * **fastlane**
-   * @return type
+   * @return type **fastlane**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +251,7 @@ public class FastlaneDetails {
   /**
    * **fastlane**
    *
-   * @param type
+   * @param type **fastlane**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

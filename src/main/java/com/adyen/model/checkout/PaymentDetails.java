@@ -253,7 +253,7 @@ public class PaymentDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code PaymentDetails} instance, allowing for method chaining
    */
   public PaymentDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -263,7 +263,7 @@ public class PaymentDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +274,7 @@ public class PaymentDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,7 +285,7 @@ public class PaymentDetails {
   /**
    * The payment method type.
    *
-   * @param type
+   * @param type The payment method type.
    * @return the current {@code PaymentDetails} instance, allowing for method chaining
    */
   public PaymentDetails type(TypeEnum type) {
@@ -295,7 +295,7 @@ public class PaymentDetails {
 
   /**
    * The payment method type.
-   * @return type
+   * @return type The payment method type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,7 +306,7 @@ public class PaymentDetails {
   /**
    * The payment method type.
    *
-   * @param type
+   * @param type The payment method type.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

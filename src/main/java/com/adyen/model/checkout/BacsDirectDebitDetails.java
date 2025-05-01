@@ -104,7 +104,7 @@ public class BacsDirectDebitDetails {
   /**
    * The bank account number (without separators).
    *
-   * @param bankAccountNumber
+   * @param bankAccountNumber The bank account number (without separators).
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
    */
   public BacsDirectDebitDetails bankAccountNumber(String bankAccountNumber) {
@@ -114,7 +114,7 @@ public class BacsDirectDebitDetails {
 
   /**
    * The bank account number (without separators).
-   * @return bankAccountNumber
+   * @return bankAccountNumber The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class BacsDirectDebitDetails {
   /**
    * The bank account number (without separators).
    *
-   * @param bankAccountNumber
+   * @param bankAccountNumber The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class BacsDirectDebitDetails {
   /**
    * The bank routing number of the account.
    *
-   * @param bankLocationId
+   * @param bankLocationId The bank routing number of the account.
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
    */
   public BacsDirectDebitDetails bankLocationId(String bankLocationId) {
@@ -146,7 +146,7 @@ public class BacsDirectDebitDetails {
 
   /**
    * The bank routing number of the account.
-   * @return bankLocationId
+   * @return bankLocationId The bank routing number of the account.
    */
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class BacsDirectDebitDetails {
   /**
    * The bank routing number of the account.
    *
-   * @param bankLocationId
+   * @param bankLocationId The bank routing number of the account.
    */
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class BacsDirectDebitDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
    */
   public BacsDirectDebitDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -178,7 +178,7 @@ public class BacsDirectDebitDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class BacsDirectDebitDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class BacsDirectDebitDetails {
   /**
    * The name of the bank account holder.
    *
-   * @param holderName
+   * @param holderName The name of the bank account holder.
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
    */
   public BacsDirectDebitDetails holderName(String holderName) {
@@ -210,7 +210,7 @@ public class BacsDirectDebitDetails {
 
   /**
    * The name of the bank account holder.
-   * @return holderName
+   * @return holderName The name of the bank account holder.
    */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +221,7 @@ public class BacsDirectDebitDetails {
   /**
    * The name of the bank account holder.
    *
-   * @param holderName
+   * @param holderName The name of the bank account holder.
    */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +232,7 @@ public class BacsDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -246,7 +246,7 @@ public class BacsDirectDebitDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -259,7 +259,7 @@ public class BacsDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -274,7 +274,7 @@ public class BacsDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
    */
   public BacsDirectDebitDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -284,7 +284,7 @@ public class BacsDirectDebitDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +295,7 @@ public class BacsDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,7 +306,7 @@ public class BacsDirectDebitDetails {
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
    */
   public BacsDirectDebitDetails transferInstrumentId(String transferInstrumentId) {
@@ -316,7 +316,7 @@ public class BacsDirectDebitDetails {
 
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
-   * @return transferInstrumentId
+   * @return transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +327,7 @@ public class BacsDirectDebitDetails {
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,7 +338,7 @@ public class BacsDirectDebitDetails {
   /**
    * **directdebit_GB**
    *
-   * @param type
+   * @param type **directdebit_GB**
    * @return the current {@code BacsDirectDebitDetails} instance, allowing for method chaining
    */
   public BacsDirectDebitDetails type(TypeEnum type) {
@@ -348,7 +348,7 @@ public class BacsDirectDebitDetails {
 
   /**
    * **directdebit_GB**
-   * @return type
+   * @return type **directdebit_GB**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +359,7 @@ public class BacsDirectDebitDetails {
   /**
    * **directdebit_GB**
    *
-   * @param type
+   * @param type **directdebit_GB**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

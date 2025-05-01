@@ -54,7 +54,7 @@ public class SDKEphemPubKey {
   /**
    * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param crv
+   * @param crv The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
    * @return the current {@code SDKEphemPubKey} instance, allowing for method chaining
    */
   public SDKEphemPubKey crv(String crv) {
@@ -64,7 +64,7 @@ public class SDKEphemPubKey {
 
   /**
    * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
-   * @return crv
+   * @return crv The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_CRV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,7 +75,7 @@ public class SDKEphemPubKey {
   /**
    * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param crv
+   * @param crv The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_CRV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +86,7 @@ public class SDKEphemPubKey {
   /**
    * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param kty
+   * @param kty The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
    * @return the current {@code SDKEphemPubKey} instance, allowing for method chaining
    */
   public SDKEphemPubKey kty(String kty) {
@@ -96,7 +96,7 @@ public class SDKEphemPubKey {
 
   /**
    * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
-   * @return kty
+   * @return kty The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_KTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class SDKEphemPubKey {
   /**
    * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param kty
+   * @param kty The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_KTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class SDKEphemPubKey {
   /**
    * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param x
+   * @param x The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
    * @return the current {@code SDKEphemPubKey} instance, allowing for method chaining
    */
   public SDKEphemPubKey x(String x) {
@@ -128,7 +128,7 @@ public class SDKEphemPubKey {
 
   /**
    * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
-   * @return x
+   * @return x The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class SDKEphemPubKey {
   /**
    * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param x
+   * @param x The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class SDKEphemPubKey {
   /**
    * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param y
+   * @param y The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
    * @return the current {@code SDKEphemPubKey} instance, allowing for method chaining
    */
   public SDKEphemPubKey y(String y) {
@@ -160,7 +160,7 @@ public class SDKEphemPubKey {
 
   /**
    * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
-   * @return y
+   * @return y The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class SDKEphemPubKey {
   /**
    * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
    *
-   * @param y
+   * @param y The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
    */
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

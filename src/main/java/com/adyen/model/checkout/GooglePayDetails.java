@@ -139,7 +139,7 @@ public class GooglePayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code GooglePayDetails} instance, allowing for method chaining
    */
   public GooglePayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -149,7 +149,7 @@ public class GooglePayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +160,7 @@ public class GooglePayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class GooglePayDetails {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return the current {@code GooglePayDetails} instance, allowing for method chaining
    */
   public GooglePayDetails fundingSource(FundingSourceEnum fundingSource) {
@@ -181,7 +181,7 @@ public class GooglePayDetails {
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
-   * @return fundingSource
+   * @return fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +192,7 @@ public class GooglePayDetails {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class GooglePayDetails {
   /**
    * The selected payment card network. 
    *
-   * @param googlePayCardNetwork
+   * @param googlePayCardNetwork The selected payment card network. 
    * @return the current {@code GooglePayDetails} instance, allowing for method chaining
    */
   public GooglePayDetails googlePayCardNetwork(String googlePayCardNetwork) {
@@ -213,7 +213,7 @@ public class GooglePayDetails {
 
   /**
    * The selected payment card network. 
-   * @return googlePayCardNetwork
+   * @return googlePayCardNetwork The selected payment card network. 
    */
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_CARD_NETWORK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +224,7 @@ public class GooglePayDetails {
   /**
    * The selected payment card network. 
    *
-   * @param googlePayCardNetwork
+   * @param googlePayCardNetwork The selected payment card network. 
    */
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_CARD_NETWORK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +235,7 @@ public class GooglePayDetails {
   /**
    * The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
    *
-   * @param googlePayToken
+   * @param googlePayToken The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
    * @return the current {@code GooglePayDetails} instance, allowing for method chaining
    */
   public GooglePayDetails googlePayToken(String googlePayToken) {
@@ -245,7 +245,7 @@ public class GooglePayDetails {
 
   /**
    * The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
-   * @return googlePayToken
+   * @return googlePayToken The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
    */
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,7 +256,7 @@ public class GooglePayDetails {
   /**
    * The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
    *
-   * @param googlePayToken
+   * @param googlePayToken The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
    */
   @JsonProperty(JSON_PROPERTY_GOOGLE_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +267,7 @@ public class GooglePayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code GooglePayDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -281,7 +281,7 @@ public class GooglePayDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -294,7 +294,7 @@ public class GooglePayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -309,7 +309,7 @@ public class GooglePayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code GooglePayDetails} instance, allowing for method chaining
    */
   public GooglePayDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -319,7 +319,7 @@ public class GooglePayDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +330,7 @@ public class GooglePayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -341,7 +341,7 @@ public class GooglePayDetails {
   /**
    * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    *
-   * @param threeDS2SdkVersion
+   * @param threeDS2SdkVersion Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    * @return the current {@code GooglePayDetails} instance, allowing for method chaining
    */
   public GooglePayDetails threeDS2SdkVersion(String threeDS2SdkVersion) {
@@ -351,7 +351,7 @@ public class GooglePayDetails {
 
   /**
    * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
-   * @return threeDS2SdkVersion
+   * @return threeDS2SdkVersion Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +362,7 @@ public class GooglePayDetails {
   /**
    * Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    *
-   * @param threeDS2SdkVersion
+   * @param threeDS2SdkVersion Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -373,7 +373,7 @@ public class GooglePayDetails {
   /**
    * **googlepay**, **paywithgoogle**
    *
-   * @param type
+   * @param type **googlepay**, **paywithgoogle**
    * @return the current {@code GooglePayDetails} instance, allowing for method chaining
    */
   public GooglePayDetails type(TypeEnum type) {
@@ -383,7 +383,7 @@ public class GooglePayDetails {
 
   /**
    * **googlepay**, **paywithgoogle**
-   * @return type
+   * @return type **googlepay**, **paywithgoogle**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,7 +394,7 @@ public class GooglePayDetails {
   /**
    * **googlepay**, **paywithgoogle**
    *
-   * @param type
+   * @param type **googlepay**, **paywithgoogle**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

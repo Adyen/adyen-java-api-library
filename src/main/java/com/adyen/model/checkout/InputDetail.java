@@ -81,7 +81,7 @@ public class InputDetail {
   /**
    * Configuration parameters for the required input.
    *
-   * @param configuration
+   * @param configuration Configuration parameters for the required input.
    * @return the current {@code InputDetail} instance, allowing for method chaining
    */
   public InputDetail configuration(Map<String, String> configuration) {
@@ -99,7 +99,7 @@ public class InputDetail {
 
   /**
    * Configuration parameters for the required input.
-   * @return configuration
+   * @return configuration Configuration parameters for the required input.
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class InputDetail {
   /**
    * Configuration parameters for the required input.
    *
-   * @param configuration
+   * @param configuration Configuration parameters for the required input.
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +121,7 @@ public class InputDetail {
   /**
    * Input details can also be provided recursively.
    *
-   * @param details
+   * @param details Input details can also be provided recursively.
    * @return the current {@code InputDetail} instance, allowing for method chaining
    */
   public InputDetail details(List<SubInputDetail> details) {
@@ -139,7 +139,7 @@ public class InputDetail {
 
   /**
    * Input details can also be provided recursively.
-   * @return details
+   * @return details Input details can also be provided recursively.
    */
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class InputDetail {
   /**
    * Input details can also be provided recursively.
    *
-   * @param details
+   * @param details Input details can also be provided recursively.
    */
   @JsonProperty(JSON_PROPERTY_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class InputDetail {
   /**
    * Input details can also be provided recursively (deprecated).
    *
-   * @param inputDetails
+   * @param inputDetails Input details can also be provided recursively (deprecated).
    * @return the current {@code InputDetail} instance, allowing for method chaining
    *
    * @deprecated 
@@ -182,7 +182,7 @@ public class InputDetail {
 
   /**
    * Input details can also be provided recursively (deprecated).
-   * @return inputDetails
+   * @return inputDetails Input details can also be provided recursively (deprecated).
    * @deprecated // deprecated 
    */
   @Deprecated // deprecated 
@@ -195,7 +195,7 @@ public class InputDetail {
   /**
    * Input details can also be provided recursively (deprecated).
    *
-   * @param inputDetails
+   * @param inputDetails Input details can also be provided recursively (deprecated).
    *
    * @deprecated 
    */
@@ -209,7 +209,7 @@ public class InputDetail {
   /**
    * In case of a select, the URL from which to query the items.
    *
-   * @param itemSearchUrl
+   * @param itemSearchUrl In case of a select, the URL from which to query the items.
    * @return the current {@code InputDetail} instance, allowing for method chaining
    */
   public InputDetail itemSearchUrl(String itemSearchUrl) {
@@ -219,7 +219,7 @@ public class InputDetail {
 
   /**
    * In case of a select, the URL from which to query the items.
-   * @return itemSearchUrl
+   * @return itemSearchUrl In case of a select, the URL from which to query the items.
    */
   @JsonProperty(JSON_PROPERTY_ITEM_SEARCH_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class InputDetail {
   /**
    * In case of a select, the URL from which to query the items.
    *
-   * @param itemSearchUrl
+   * @param itemSearchUrl In case of a select, the URL from which to query the items.
    */
   @JsonProperty(JSON_PROPERTY_ITEM_SEARCH_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +241,7 @@ public class InputDetail {
   /**
    * In case of a select, the items to choose from.
    *
-   * @param items
+   * @param items In case of a select, the items to choose from.
    * @return the current {@code InputDetail} instance, allowing for method chaining
    */
   public InputDetail items(List<Item> items) {
@@ -259,7 +259,7 @@ public class InputDetail {
 
   /**
    * In case of a select, the items to choose from.
-   * @return items
+   * @return items In case of a select, the items to choose from.
    */
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +270,7 @@ public class InputDetail {
   /**
    * In case of a select, the items to choose from.
    *
-   * @param items
+   * @param items In case of a select, the items to choose from.
    */
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +281,7 @@ public class InputDetail {
   /**
    * The value to provide in the result.
    *
-   * @param key
+   * @param key The value to provide in the result.
    * @return the current {@code InputDetail} instance, allowing for method chaining
    */
   public InputDetail key(String key) {
@@ -291,7 +291,7 @@ public class InputDetail {
 
   /**
    * The value to provide in the result.
-   * @return key
+   * @return key The value to provide in the result.
    */
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +302,7 @@ public class InputDetail {
   /**
    * The value to provide in the result.
    *
-   * @param key
+   * @param key The value to provide in the result.
    */
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -313,7 +313,7 @@ public class InputDetail {
   /**
    * True if this input value is optional.
    *
-   * @param optional
+   * @param optional True if this input value is optional.
    * @return the current {@code InputDetail} instance, allowing for method chaining
    */
   public InputDetail optional(Boolean optional) {
@@ -323,7 +323,7 @@ public class InputDetail {
 
   /**
    * True if this input value is optional.
-   * @return optional
+   * @return optional True if this input value is optional.
    */
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,7 +334,7 @@ public class InputDetail {
   /**
    * True if this input value is optional.
    *
-   * @param optional
+   * @param optional True if this input value is optional.
    */
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,7 +345,7 @@ public class InputDetail {
   /**
    * The type of the required input.
    *
-   * @param type
+   * @param type The type of the required input.
    * @return the current {@code InputDetail} instance, allowing for method chaining
    */
   public InputDetail type(String type) {
@@ -355,7 +355,7 @@ public class InputDetail {
 
   /**
    * The type of the required input.
-   * @return type
+   * @return type The type of the required input.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,7 +366,7 @@ public class InputDetail {
   /**
    * The type of the required input.
    *
-   * @param type
+   * @param type The type of the required input.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,7 +377,7 @@ public class InputDetail {
   /**
    * The value can be pre-filled, if available.
    *
-   * @param value
+   * @param value The value can be pre-filled, if available.
    * @return the current {@code InputDetail} instance, allowing for method chaining
    */
   public InputDetail value(String value) {
@@ -387,7 +387,7 @@ public class InputDetail {
 
   /**
    * The value can be pre-filled, if available.
-   * @return value
+   * @return value The value can be pre-filled, if available.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -398,7 +398,7 @@ public class InputDetail {
   /**
    * The value can be pre-filled, if available.
    *
-   * @param value
+   * @param value The value can be pre-filled, if available.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

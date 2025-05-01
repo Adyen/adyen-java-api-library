@@ -83,7 +83,7 @@ public class EBankingFinlandDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code EBankingFinlandDetails} instance, allowing for method chaining
    */
   public EBankingFinlandDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -93,7 +93,7 @@ public class EBankingFinlandDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class EBankingFinlandDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class EBankingFinlandDetails {
   /**
    * The Ebanking Finland issuer value of the shopper&#39;s selected bank.
    *
-   * @param issuer
+   * @param issuer The Ebanking Finland issuer value of the shopper&#39;s selected bank.
    * @return the current {@code EBankingFinlandDetails} instance, allowing for method chaining
    */
   public EBankingFinlandDetails issuer(String issuer) {
@@ -125,7 +125,7 @@ public class EBankingFinlandDetails {
 
   /**
    * The Ebanking Finland issuer value of the shopper&#39;s selected bank.
-   * @return issuer
+   * @return issuer The Ebanking Finland issuer value of the shopper&#39;s selected bank.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class EBankingFinlandDetails {
   /**
    * The Ebanking Finland issuer value of the shopper&#39;s selected bank.
    *
-   * @param issuer
+   * @param issuer The Ebanking Finland issuer value of the shopper&#39;s selected bank.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class EBankingFinlandDetails {
   /**
    * **ebanking_FI**
    *
-   * @param type
+   * @param type **ebanking_FI**
    * @return the current {@code EBankingFinlandDetails} instance, allowing for method chaining
    */
   public EBankingFinlandDetails type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class EBankingFinlandDetails {
 
   /**
    * **ebanking_FI**
-   * @return type
+   * @return type **ebanking_FI**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class EBankingFinlandDetails {
   /**
    * **ebanking_FI**
    *
-   * @param type
+   * @param type **ebanking_FI**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

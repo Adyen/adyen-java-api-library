@@ -107,7 +107,7 @@ public class InstallmentOption {
   /**
    * The maximum number of installments offered for this payment method.
    *
-   * @param maxValue
+   * @param maxValue The maximum number of installments offered for this payment method.
    * @return the current {@code InstallmentOption} instance, allowing for method chaining
    */
   public InstallmentOption maxValue(Integer maxValue) {
@@ -117,7 +117,7 @@ public class InstallmentOption {
 
   /**
    * The maximum number of installments offered for this payment method.
-   * @return maxValue
+   * @return maxValue The maximum number of installments offered for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_MAX_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +128,7 @@ public class InstallmentOption {
   /**
    * The maximum number of installments offered for this payment method.
    *
-   * @param maxValue
+   * @param maxValue The maximum number of installments offered for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_MAX_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class InstallmentOption {
   /**
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    *
-   * @param plans
+   * @param plans Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    * @return the current {@code InstallmentOption} instance, allowing for method chaining
    */
   public InstallmentOption plans(List<PlansEnum> plans) {
@@ -157,7 +157,7 @@ public class InstallmentOption {
 
   /**
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
-   * @return plans
+   * @return plans Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    */
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class InstallmentOption {
   /**
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    *
-   * @param plans
+   * @param plans Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    */
   @JsonProperty(JSON_PROPERTY_PLANS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class InstallmentOption {
   /**
    * Preselected number of installments offered for this payment method.
    *
-   * @param preselectedValue
+   * @param preselectedValue Preselected number of installments offered for this payment method.
    * @return the current {@code InstallmentOption} instance, allowing for method chaining
    */
   public InstallmentOption preselectedValue(Integer preselectedValue) {
@@ -189,7 +189,7 @@ public class InstallmentOption {
 
   /**
    * Preselected number of installments offered for this payment method.
-   * @return preselectedValue
+   * @return preselectedValue Preselected number of installments offered for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class InstallmentOption {
   /**
    * Preselected number of installments offered for this payment method.
    *
-   * @param preselectedValue
+   * @param preselectedValue Preselected number of installments offered for this payment method.
    */
   @JsonProperty(JSON_PROPERTY_PRESELECTED_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class InstallmentOption {
   /**
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    *
-   * @param values
+   * @param values An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    * @return the current {@code InstallmentOption} instance, allowing for method chaining
    */
   public InstallmentOption values(List<Integer> values) {
@@ -229,7 +229,7 @@ public class InstallmentOption {
 
   /**
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
-   * @return values
+   * @return values An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class InstallmentOption {
   /**
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    *
-   * @param values
+   * @param values An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

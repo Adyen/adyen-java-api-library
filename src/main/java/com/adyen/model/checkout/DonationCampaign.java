@@ -84,7 +84,7 @@ public class DonationCampaign {
   /**
    * amounts
    *
-   * @param amounts
+   * @param amounts 
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign amounts(Amounts amounts) {
@@ -94,7 +94,7 @@ public class DonationCampaign {
 
   /**
    * Get amounts
-   * @return amounts
+   * @return amounts 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +105,7 @@ public class DonationCampaign {
   /**
    * amounts
    *
-   * @param amounts
+   * @param amounts 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class DonationCampaign {
   /**
    * The URL for the banner of the nonprofit or campaign.
    *
-   * @param bannerUrl
+   * @param bannerUrl The URL for the banner of the nonprofit or campaign.
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign bannerUrl(String bannerUrl) {
@@ -126,7 +126,7 @@ public class DonationCampaign {
 
   /**
    * The URL for the banner of the nonprofit or campaign.
-   * @return bannerUrl
+   * @return bannerUrl The URL for the banner of the nonprofit or campaign.
    */
   @JsonProperty(JSON_PROPERTY_BANNER_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class DonationCampaign {
   /**
    * The URL for the banner of the nonprofit or campaign.
    *
-   * @param bannerUrl
+   * @param bannerUrl The URL for the banner of the nonprofit or campaign.
    */
   @JsonProperty(JSON_PROPERTY_BANNER_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class DonationCampaign {
   /**
    * The name of the donation campaign..
    *
-   * @param campaignName
+   * @param campaignName The name of the donation campaign..
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign campaignName(String campaignName) {
@@ -158,7 +158,7 @@ public class DonationCampaign {
 
   /**
    * The name of the donation campaign..
-   * @return campaignName
+   * @return campaignName The name of the donation campaign..
    */
   @JsonProperty(JSON_PROPERTY_CAMPAIGN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class DonationCampaign {
   /**
    * The name of the donation campaign..
    *
-   * @param campaignName
+   * @param campaignName The name of the donation campaign..
    */
   @JsonProperty(JSON_PROPERTY_CAMPAIGN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class DonationCampaign {
   /**
    * The cause of the nonprofit.
    *
-   * @param causeName
+   * @param causeName The cause of the nonprofit.
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign causeName(String causeName) {
@@ -190,7 +190,7 @@ public class DonationCampaign {
 
   /**
    * The cause of the nonprofit.
-   * @return causeName
+   * @return causeName The cause of the nonprofit.
    */
   @JsonProperty(JSON_PROPERTY_CAUSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class DonationCampaign {
   /**
    * The cause of the nonprofit.
    *
-   * @param causeName
+   * @param causeName The cause of the nonprofit.
    */
   @JsonProperty(JSON_PROPERTY_CAUSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class DonationCampaign {
   /**
    * donation
    *
-   * @param donation
+   * @param donation 
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign donation(Donation donation) {
@@ -222,7 +222,7 @@ public class DonationCampaign {
 
   /**
    * Get donation
-   * @return donation
+   * @return donation 
    */
   @JsonProperty(JSON_PROPERTY_DONATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class DonationCampaign {
   /**
    * donation
    *
-   * @param donation
+   * @param donation 
    */
   @JsonProperty(JSON_PROPERTY_DONATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class DonationCampaign {
   /**
    * The unique campaign ID of the donation campaign.
    *
-   * @param id
+   * @param id The unique campaign ID of the donation campaign.
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign id(String id) {
@@ -254,7 +254,7 @@ public class DonationCampaign {
 
   /**
    * The unique campaign ID of the donation campaign.
-   * @return id
+   * @return id The unique campaign ID of the donation campaign.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class DonationCampaign {
   /**
    * The unique campaign ID of the donation campaign.
    *
-   * @param id
+   * @param id The unique campaign ID of the donation campaign.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class DonationCampaign {
   /**
    * The URL for the logo of the nonprofit.
    *
-   * @param logoUrl
+   * @param logoUrl The URL for the logo of the nonprofit.
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign logoUrl(String logoUrl) {
@@ -286,7 +286,7 @@ public class DonationCampaign {
 
   /**
    * The URL for the logo of the nonprofit.
-   * @return logoUrl
+   * @return logoUrl The URL for the logo of the nonprofit.
    */
   @JsonProperty(JSON_PROPERTY_LOGO_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +297,7 @@ public class DonationCampaign {
   /**
    * The URL for the logo of the nonprofit.
    *
-   * @param logoUrl
+   * @param logoUrl The URL for the logo of the nonprofit.
    */
   @JsonProperty(JSON_PROPERTY_LOGO_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +308,7 @@ public class DonationCampaign {
   /**
    * The description of the nonprofit.
    *
-   * @param nonprofitDescription
+   * @param nonprofitDescription The description of the nonprofit.
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign nonprofitDescription(String nonprofitDescription) {
@@ -318,7 +318,7 @@ public class DonationCampaign {
 
   /**
    * The description of the nonprofit.
-   * @return nonprofitDescription
+   * @return nonprofitDescription The description of the nonprofit.
    */
   @JsonProperty(JSON_PROPERTY_NONPROFIT_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +329,7 @@ public class DonationCampaign {
   /**
    * The description of the nonprofit.
    *
-   * @param nonprofitDescription
+   * @param nonprofitDescription The description of the nonprofit.
    */
   @JsonProperty(JSON_PROPERTY_NONPROFIT_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +340,7 @@ public class DonationCampaign {
   /**
    * The name of the nonprofit organization that receives the donation.
    *
-   * @param nonprofitName
+   * @param nonprofitName The name of the nonprofit organization that receives the donation.
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign nonprofitName(String nonprofitName) {
@@ -350,7 +350,7 @@ public class DonationCampaign {
 
   /**
    * The name of the nonprofit organization that receives the donation.
-   * @return nonprofitName
+   * @return nonprofitName The name of the nonprofit organization that receives the donation.
    */
   @JsonProperty(JSON_PROPERTY_NONPROFIT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -361,7 +361,7 @@ public class DonationCampaign {
   /**
    * The name of the nonprofit organization that receives the donation.
    *
-   * @param nonprofitName
+   * @param nonprofitName The name of the nonprofit organization that receives the donation.
    */
   @JsonProperty(JSON_PROPERTY_NONPROFIT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,7 +372,7 @@ public class DonationCampaign {
   /**
    * The website URL of the nonprofit.
    *
-   * @param nonprofitUrl
+   * @param nonprofitUrl The website URL of the nonprofit.
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign nonprofitUrl(String nonprofitUrl) {
@@ -382,7 +382,7 @@ public class DonationCampaign {
 
   /**
    * The website URL of the nonprofit.
-   * @return nonprofitUrl
+   * @return nonprofitUrl The website URL of the nonprofit.
    */
   @JsonProperty(JSON_PROPERTY_NONPROFIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -393,7 +393,7 @@ public class DonationCampaign {
   /**
    * The website URL of the nonprofit.
    *
-   * @param nonprofitUrl
+   * @param nonprofitUrl The website URL of the nonprofit.
    */
   @JsonProperty(JSON_PROPERTY_NONPROFIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,7 +404,7 @@ public class DonationCampaign {
   /**
    * The URL of the terms and conditions page of the nonprofit and the campaign.
    *
-   * @param termsAndConditionsUrl
+   * @param termsAndConditionsUrl The URL of the terms and conditions page of the nonprofit and the campaign.
    * @return the current {@code DonationCampaign} instance, allowing for method chaining
    */
   public DonationCampaign termsAndConditionsUrl(String termsAndConditionsUrl) {
@@ -414,7 +414,7 @@ public class DonationCampaign {
 
   /**
    * The URL of the terms and conditions page of the nonprofit and the campaign.
-   * @return termsAndConditionsUrl
+   * @return termsAndConditionsUrl The URL of the terms and conditions page of the nonprofit and the campaign.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_AND_CONDITIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -425,7 +425,7 @@ public class DonationCampaign {
   /**
    * The URL of the terms and conditions page of the nonprofit and the campaign.
    *
-   * @param termsAndConditionsUrl
+   * @param termsAndConditionsUrl The URL of the terms and conditions page of the nonprofit and the campaign.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_AND_CONDITIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -200,7 +200,7 @@ public class ThreeDSRequestData {
   /**
    * Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    *
-   * @param challengeWindowSize
+   * @param challengeWindowSize Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    * @return the current {@code ThreeDSRequestData} instance, allowing for method chaining
    */
   public ThreeDSRequestData challengeWindowSize(ChallengeWindowSizeEnum challengeWindowSize) {
@@ -210,7 +210,7 @@ public class ThreeDSRequestData {
 
   /**
    * Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
-   * @return challengeWindowSize
+   * @return challengeWindowSize Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_WINDOW_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +221,7 @@ public class ThreeDSRequestData {
   /**
    * Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    *
-   * @param challengeWindowSize
+   * @param challengeWindowSize Dimensions of the 3DS2 challenge window to be displayed to the cardholder.  Possible values:  * **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of 500x600 * **04** - size of 600x400 * **05** - Fullscreen
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_WINDOW_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +232,7 @@ public class ThreeDSRequestData {
   /**
    * Flag for data only flow.
    *
-   * @param dataOnly
+   * @param dataOnly Flag for data only flow.
    * @return the current {@code ThreeDSRequestData} instance, allowing for method chaining
    */
   public ThreeDSRequestData dataOnly(DataOnlyEnum dataOnly) {
@@ -242,7 +242,7 @@ public class ThreeDSRequestData {
 
   /**
    * Flag for data only flow.
-   * @return dataOnly
+   * @return dataOnly Flag for data only flow.
    */
   @JsonProperty(JSON_PROPERTY_DATA_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,7 +253,7 @@ public class ThreeDSRequestData {
   /**
    * Flag for data only flow.
    *
-   * @param dataOnly
+   * @param dataOnly Flag for data only flow.
    */
   @JsonProperty(JSON_PROPERTY_DATA_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +264,7 @@ public class ThreeDSRequestData {
   /**
    * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    *
-   * @param nativeThreeDS
+   * @param nativeThreeDS Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    * @return the current {@code ThreeDSRequestData} instance, allowing for method chaining
    */
   public ThreeDSRequestData nativeThreeDS(NativeThreeDSEnum nativeThreeDS) {
@@ -274,7 +274,7 @@ public class ThreeDSRequestData {
 
   /**
    * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
-   * @return nativeThreeDS
+   * @return nativeThreeDS Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    */
   @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,7 +285,7 @@ public class ThreeDSRequestData {
   /**
    * Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    *
-   * @param nativeThreeDS
+   * @param nativeThreeDS Indicates if [native 3D Secure authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used when available.  Possible values: * **preferred**: Use native 3D Secure authentication when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
    */
   @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -296,7 +296,7 @@ public class ThreeDSRequestData {
   /**
    * The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    *
-   * @param threeDSVersion
+   * @param threeDSVersion The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    * @return the current {@code ThreeDSRequestData} instance, allowing for method chaining
    */
   public ThreeDSRequestData threeDSVersion(ThreeDSVersionEnum threeDSVersion) {
@@ -306,7 +306,7 @@ public class ThreeDSRequestData {
 
   /**
    * The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
-   * @return threeDSVersion
+   * @return threeDSVersion The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -317,7 +317,7 @@ public class ThreeDSRequestData {
   /**
    * The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    *
-   * @param threeDSVersion
+   * @param threeDSVersion The version of 3D Secure to use.  Possible values:  * **2.1.0** * **2.2.0**
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -86,7 +86,7 @@ public class PaymentMethodToStore {
   /**
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
    *
-   * @param brand
+   * @param brand Secondary brand of the card. For example: **plastix**, **hmclub**.
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore brand(String brand) {
@@ -96,7 +96,7 @@ public class PaymentMethodToStore {
 
   /**
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
-   * @return brand
+   * @return brand Secondary brand of the card. For example: **plastix**, **hmclub**.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class PaymentMethodToStore {
   /**
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
    *
-   * @param brand
+   * @param brand Secondary brand of the card. For example: **plastix**, **hmclub**.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class PaymentMethodToStore {
   /**
    * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
-   * @param cvc
+   * @param cvc The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore cvc(String cvc) {
@@ -128,7 +128,7 @@ public class PaymentMethodToStore {
 
   /**
    * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
-   * @return cvc
+   * @return cvc The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    */
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class PaymentMethodToStore {
   /**
    * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
-   * @param cvc
+   * @param cvc The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    */
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card.
    *
-   * @param encryptedCard
+   * @param encryptedCard The encrypted card.
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore encryptedCard(String encryptedCard) {
@@ -160,7 +160,7 @@ public class PaymentMethodToStore {
 
   /**
    * The encrypted card.
-   * @return encryptedCard
+   * @return encryptedCard The encrypted card.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card.
    *
-   * @param encryptedCard
+   * @param encryptedCard The encrypted card.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +182,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card number.
    *
-   * @param encryptedCardNumber
+   * @param encryptedCardNumber The encrypted card number.
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore encryptedCardNumber(String encryptedCardNumber) {
@@ -192,7 +192,7 @@ public class PaymentMethodToStore {
 
   /**
    * The encrypted card number.
-   * @return encryptedCardNumber
+   * @return encryptedCardNumber The encrypted card number.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card number.
    *
-   * @param encryptedCardNumber
+   * @param encryptedCardNumber The encrypted card number.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_CARD_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +214,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card expiry month.
    *
-   * @param encryptedExpiryMonth
+   * @param encryptedExpiryMonth The encrypted card expiry month.
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore encryptedExpiryMonth(String encryptedExpiryMonth) {
@@ -224,7 +224,7 @@ public class PaymentMethodToStore {
 
   /**
    * The encrypted card expiry month.
-   * @return encryptedExpiryMonth
+   * @return encryptedExpiryMonth The encrypted card expiry month.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +235,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card expiry month.
    *
-   * @param encryptedExpiryMonth
+   * @param encryptedExpiryMonth The encrypted card expiry month.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +246,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card expiry year.
    *
-   * @param encryptedExpiryYear
+   * @param encryptedExpiryYear The encrypted card expiry year.
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore encryptedExpiryYear(String encryptedExpiryYear) {
@@ -256,7 +256,7 @@ public class PaymentMethodToStore {
 
   /**
    * The encrypted card expiry year.
-   * @return encryptedExpiryYear
+   * @return encryptedExpiryYear The encrypted card expiry year.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +267,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card expiry year.
    *
-   * @param encryptedExpiryYear
+   * @param encryptedExpiryYear The encrypted card expiry year.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +278,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card verification code.
    *
-   * @param encryptedSecurityCode
+   * @param encryptedSecurityCode The encrypted card verification code.
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore encryptedSecurityCode(String encryptedSecurityCode) {
@@ -288,7 +288,7 @@ public class PaymentMethodToStore {
 
   /**
    * The encrypted card verification code.
-   * @return encryptedSecurityCode
+   * @return encryptedSecurityCode The encrypted card verification code.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,7 +299,7 @@ public class PaymentMethodToStore {
   /**
    * The encrypted card verification code.
    *
-   * @param encryptedSecurityCode
+   * @param encryptedSecurityCode The encrypted card verification code.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_SECURITY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +310,7 @@ public class PaymentMethodToStore {
   /**
    * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
-   * @param expiryMonth
+   * @param expiryMonth The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore expiryMonth(String expiryMonth) {
@@ -320,7 +320,7 @@ public class PaymentMethodToStore {
 
   /**
    * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
-   * @return expiryMonth
+   * @return expiryMonth The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -331,7 +331,7 @@ public class PaymentMethodToStore {
   /**
    * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
-   * @param expiryMonth
+   * @param expiryMonth The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +342,7 @@ public class PaymentMethodToStore {
   /**
    * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
-   * @param expiryYear
+   * @param expiryYear The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore expiryYear(String expiryYear) {
@@ -352,7 +352,7 @@ public class PaymentMethodToStore {
 
   /**
    * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
-   * @return expiryYear
+   * @return expiryYear The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,7 +363,7 @@ public class PaymentMethodToStore {
   /**
    * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
-   * @param expiryYear
+   * @param expiryYear The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    */
   @JsonProperty(JSON_PROPERTY_EXPIRY_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -374,7 +374,7 @@ public class PaymentMethodToStore {
   /**
    * The name of the card holder.
    *
-   * @param holderName
+   * @param holderName The name of the card holder.
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore holderName(String holderName) {
@@ -384,7 +384,7 @@ public class PaymentMethodToStore {
 
   /**
    * The name of the card holder.
-   * @return holderName
+   * @return holderName The name of the card holder.
    */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -395,7 +395,7 @@ public class PaymentMethodToStore {
   /**
    * The name of the card holder.
    *
-   * @param holderName
+   * @param holderName The name of the card holder.
    */
   @JsonProperty(JSON_PROPERTY_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -406,7 +406,7 @@ public class PaymentMethodToStore {
   /**
    * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
-   * @param number
+   * @param number The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore number(String number) {
@@ -416,7 +416,7 @@ public class PaymentMethodToStore {
 
   /**
    * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
-   * @return number
+   * @return number The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -427,7 +427,7 @@ public class PaymentMethodToStore {
   /**
    * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    *
-   * @param number
+   * @param number The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -438,7 +438,7 @@ public class PaymentMethodToStore {
   /**
    * Set to **scheme**.
    *
-   * @param type
+   * @param type Set to **scheme**.
    * @return the current {@code PaymentMethodToStore} instance, allowing for method chaining
    */
   public PaymentMethodToStore type(String type) {
@@ -448,7 +448,7 @@ public class PaymentMethodToStore {
 
   /**
    * Set to **scheme**.
-   * @return type
+   * @return type Set to **scheme**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -459,7 +459,7 @@ public class PaymentMethodToStore {
   /**
    * Set to **scheme**.
    *
-   * @param type
+   * @param type Set to **scheme**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
