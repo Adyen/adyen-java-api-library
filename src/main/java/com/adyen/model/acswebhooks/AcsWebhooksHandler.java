@@ -14,24 +14,51 @@ package com.adyen.model.acswebhooks;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+/**
+ * Handler for processing AcsWebhooks.
+ * <p>
+ * This class provides functionality to deserialize the payload of AcsWebhooks events.
+ */
 public class AcsWebhooksHandler {
 
     private static final Logger LOG = Logger.getLogger(AcsWebhooksHandler.class.getName());
 
     private final String payload;
 
+    /**
+     * Constructs a new handler for the given webhook payload
+     *
+     * @param payload the raw JSON payload from the webhook
+     */
     public AcsWebhooksHandler(String payload) {
         this.payload = payload;
     }
 
+    /**
+     * Attempts to deserialize the webhook payload into a AuthenticationNotificationRequest
+     *
+     * @return an Optional containing the deserialized object, or empty if deserialization fails
+     */
     public Optional<AuthenticationNotificationRequest> getAuthenticationNotificationRequest() {
         return getOptionalField(AuthenticationNotificationRequest.class);
     }
 
+    /**
+     * Attempts to deserialize the webhook payload into a RelayedAuthenticationRequest
+     *
+     * @return an Optional containing the deserialized object, or empty if deserialization fails
+     */
     public Optional<RelayedAuthenticationRequest> getRelayedAuthenticationRequest() {
         return getOptionalField(RelayedAuthenticationRequest.class);
     }
 
+    /**
+     * Deserializes the payload into the specified class type.
+     *
+     * @param clazz the class to deserialize into
+     * @param <T>   the type of the class
+     * @return an Optional containing the deserialized object, or empty if an error occurs
+    */
     private <T> Optional<T> getOptionalField(Class<T> clazz) {
         try {
             T val = JSON.getMapper().readValue(payload, clazz);

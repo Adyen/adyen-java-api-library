@@ -14,20 +14,42 @@ package com.adyen.model.transferwebhooks;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+/**
+ * Handler for processing TransferWebhooks.
+ * <p>
+ * This class provides functionality to deserialize the payload of TransferWebhooks events.
+ */
 public class TransferWebhooksHandler {
 
     private static final Logger LOG = Logger.getLogger(TransferWebhooksHandler.class.getName());
 
     private final String payload;
 
+    /**
+     * Constructs a new handler for the given webhook payload
+     *
+     * @param payload the raw JSON payload from the webhook
+     */
     public TransferWebhooksHandler(String payload) {
         this.payload = payload;
     }
 
+    /**
+     * Attempts to deserialize the webhook payload into a TransferNotificationRequest
+     *
+     * @return an Optional containing the deserialized object, or empty if deserialization fails
+     */
     public Optional<TransferNotificationRequest> getTransferNotificationRequest() {
         return getOptionalField(TransferNotificationRequest.class);
     }
 
+    /**
+     * Deserializes the payload into the specified class type.
+     *
+     * @param clazz the class to deserialize into
+     * @param <T>   the type of the class
+     * @return an Optional containing the deserialized object, or empty if an error occurs
+    */
     private <T> Optional<T> getOptionalField(Class<T> clazz) {
         try {
             T val = JSON.getMapper().readValue(payload, clazz);
