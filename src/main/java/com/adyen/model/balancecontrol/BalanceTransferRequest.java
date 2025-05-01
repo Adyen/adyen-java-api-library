@@ -13,7 +13,6 @@
 package com.adyen.model.balancecontrol;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balancecontrol.Amount;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,17 +58,17 @@ public class BalanceTransferRequest {
    * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
    */
   public enum TypeEnum {
-    TAX("tax"),
+    TAX(String.valueOf("tax")),
     
-    FEE("fee"),
+    FEE(String.valueOf("fee")),
     
-    TERMINALSALE("terminalSale"),
+    TERMINALSALE(String.valueOf("terminalSale")),
     
-    CREDIT("credit"),
+    CREDIT(String.valueOf("credit")),
     
-    DEBIT("debit"),
+    DEBIT(String.valueOf("debit")),
     
-    ADJUSTMENT("adjustment");
+    ADJUSTMENT(String.valueOf("adjustment"));
 
     private String value;
 
@@ -108,7 +106,7 @@ public class BalanceTransferRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
   public BalanceTransferRequest amount(Amount amount) {
@@ -117,10 +115,9 @@ public class BalanceTransferRequest {
   }
 
   /**
-   * amount
-   * @return amount
+   * Get amount
+   * @return amount 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -130,8 +127,8 @@ public class BalanceTransferRequest {
   /**
    * amount
    *
-   * @param amount
-   */ 
+   * @param amount 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -141,7 +138,7 @@ public class BalanceTransferRequest {
   /**
    * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
    *
-   * @param description
+   * @param description A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
    * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
   public BalanceTransferRequest description(String description) {
@@ -151,9 +148,8 @@ public class BalanceTransferRequest {
 
   /**
    * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
-   * @return description
+   * @return description A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
    */
-  @ApiModelProperty(value = "A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -163,8 +159,8 @@ public class BalanceTransferRequest {
   /**
    * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
    *
-   * @param description
-   */ 
+   * @param description A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -174,7 +170,7 @@ public class BalanceTransferRequest {
   /**
    * The unique identifier of the source merchant account from which funds are deducted.
    *
-   * @param fromMerchant
+   * @param fromMerchant The unique identifier of the source merchant account from which funds are deducted.
    * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
   public BalanceTransferRequest fromMerchant(String fromMerchant) {
@@ -184,9 +180,8 @@ public class BalanceTransferRequest {
 
   /**
    * The unique identifier of the source merchant account from which funds are deducted.
-   * @return fromMerchant
+   * @return fromMerchant The unique identifier of the source merchant account from which funds are deducted.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the source merchant account from which funds are deducted.")
   @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFromMerchant() {
@@ -196,8 +191,8 @@ public class BalanceTransferRequest {
   /**
    * The unique identifier of the source merchant account from which funds are deducted.
    *
-   * @param fromMerchant
-   */ 
+   * @param fromMerchant The unique identifier of the source merchant account from which funds are deducted.
+   */
   @JsonProperty(JSON_PROPERTY_FROM_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFromMerchant(String fromMerchant) {
@@ -207,7 +202,7 @@ public class BalanceTransferRequest {
   /**
    * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
    * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
   public BalanceTransferRequest reference(String reference) {
@@ -217,9 +212,8 @@ public class BalanceTransferRequest {
 
   /**
    * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
-   * @return reference
+   * @return reference A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
    */
-  @ApiModelProperty(value = "A reference for the balance transfer. If you don't provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -229,8 +223,8 @@ public class BalanceTransferRequest {
   /**
    * A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
    *
-   * @param reference
-   */ 
+   * @param reference A reference for the balance transfer. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -240,7 +234,7 @@ public class BalanceTransferRequest {
   /**
    * The unique identifier of the destination merchant account from which funds are transferred.
    *
-   * @param toMerchant
+   * @param toMerchant The unique identifier of the destination merchant account from which funds are transferred.
    * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
   public BalanceTransferRequest toMerchant(String toMerchant) {
@@ -250,9 +244,8 @@ public class BalanceTransferRequest {
 
   /**
    * The unique identifier of the destination merchant account from which funds are transferred.
-   * @return toMerchant
+   * @return toMerchant The unique identifier of the destination merchant account from which funds are transferred.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the destination merchant account from which funds are transferred.")
   @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToMerchant() {
@@ -262,8 +255,8 @@ public class BalanceTransferRequest {
   /**
    * The unique identifier of the destination merchant account from which funds are transferred.
    *
-   * @param toMerchant
-   */ 
+   * @param toMerchant The unique identifier of the destination merchant account from which funds are transferred.
+   */
   @JsonProperty(JSON_PROPERTY_TO_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToMerchant(String toMerchant) {
@@ -273,7 +266,7 @@ public class BalanceTransferRequest {
   /**
    * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
    *
-   * @param type
+   * @param type The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
    * @return the current {@code BalanceTransferRequest} instance, allowing for method chaining
    */
   public BalanceTransferRequest type(TypeEnum type) {
@@ -283,9 +276,8 @@ public class BalanceTransferRequest {
 
   /**
    * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
-   * @return type
+   * @return type The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
    */
-  @ApiModelProperty(required = true, value = "The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -295,8 +287,8 @@ public class BalanceTransferRequest {
   /**
    * The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
    *
-   * @param type
-   */ 
+   * @param type The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale**, **credit**, **debit**, and **adjustment**.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

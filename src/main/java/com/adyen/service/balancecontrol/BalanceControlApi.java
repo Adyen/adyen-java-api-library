@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.service;
+package com.adyen.service.balancecontrol;
 
 import com.adyen.Client;
 import com.adyen.Service;
@@ -24,12 +24,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * The service has been moved to a different package 'com.adyen.balancecontrol.BalanceControlApi'
- * @deprecated Use instead com.adyen.service.balancecontrol.BalanceControlApi
- *
- */
-@Deprecated(since = "v37.0.0", forRemoval = true)
 public class BalanceControlApi extends Service {
 
     public static final String API_VERSION = "1";
@@ -37,22 +31,20 @@ public class BalanceControlApi extends Service {
     protected String baseURL;
 
     /**
-    * Default constructor in {@link com.adyen.service package}.
-    * @param client {@link Client }  (required)
+    * BalanceControl constructor in {@link com.adyen.service.balancecontrol package}.
+    * @param client {@link Client } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.balancecontrol.BalanceControlApi
     public BalanceControlApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/BalanceControl/v1");
     }
 
     /**
-    * Alternative constructor in {@link com.adyen.service package}.
+    * BalanceControl constructor in {@link com.adyen.service.balancecontrol package}.
     * Please use this constructor only if you would like to pass along your own url for routing or testing purposes. The latest API version is defined in this class as a constant.
-    * @param client {@link Client }  (required)
-    * @param baseURL {@link String }  (required)
+    * @param client {@link Client } (required)
+    * @param baseURL {@link String } (required)
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.balancecontrol.BalanceControlApi
     public BalanceControlApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -64,8 +56,9 @@ public class BalanceControlApi extends Service {
     * @param balanceTransferRequest {@link BalanceTransferRequest }  (required)
     * @return {@link BalanceTransferResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Balance Control API v1
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.balancecontrol.BalanceControlApi
+    @Deprecated
     public BalanceTransferResponse balanceTransfer(BalanceTransferRequest balanceTransferRequest) throws ApiException, IOException {
         return balanceTransfer(balanceTransferRequest, null);
     }
@@ -77,10 +70,10 @@ public class BalanceControlApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link BalanceTransferResponse }
     * @throws ApiException if fails to make API call
+    * @deprecated since Adyen Balance Control API v1
     */
-    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.balancecontrol.BalanceControlApi
+   @Deprecated
     public BalanceTransferResponse balanceTransfer(BalanceTransferRequest balanceTransferRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = balanceTransferRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/balanceTransfer", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

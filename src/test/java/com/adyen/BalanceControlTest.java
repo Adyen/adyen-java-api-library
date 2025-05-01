@@ -4,7 +4,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.balancecontrol.BalanceTransferRequest;
 import com.adyen.model.balancecontrol.BalanceTransferResponse;
-import com.adyen.service.BalanceControlApi;
+import com.adyen.service.balancecontrol.BalanceControlApi;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
