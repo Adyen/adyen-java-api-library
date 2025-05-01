@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,7 @@ public class TransactionRuleReference {
   /**
    * The description of the resource.
    *
-   * @param description
+   * @param description The description of the resource.
    * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
    */
   public TransactionRuleReference description(String description) {
@@ -70,9 +68,8 @@ public class TransactionRuleReference {
 
   /**
    * The description of the resource.
-   * @return description
+   * @return description The description of the resource.
    */
-  @ApiModelProperty(value = "The description of the resource.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -82,8 +79,8 @@ public class TransactionRuleReference {
   /**
    * The description of the resource.
    *
-   * @param description
-   */ 
+   * @param description The description of the resource.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -93,7 +90,7 @@ public class TransactionRuleReference {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
    */
   public TransactionRuleReference id(String id) {
@@ -103,9 +100,8 @@ public class TransactionRuleReference {
 
   /**
    * The unique identifier of the resource.
-   * @return id
+   * @return id The unique identifier of the resource.
    */
-  @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -115,8 +111,8 @@ public class TransactionRuleReference {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the resource.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -126,7 +122,7 @@ public class TransactionRuleReference {
   /**
    * The outcome type of the rule.
    *
-   * @param outcomeType
+   * @param outcomeType The outcome type of the rule.
    * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
    */
   public TransactionRuleReference outcomeType(String outcomeType) {
@@ -136,9 +132,8 @@ public class TransactionRuleReference {
 
   /**
    * The outcome type of the rule.
-   * @return outcomeType
+   * @return outcomeType The outcome type of the rule.
    */
-  @ApiModelProperty(value = "The outcome type of the rule.")
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getOutcomeType() {
@@ -148,8 +143,8 @@ public class TransactionRuleReference {
   /**
    * The outcome type of the rule.
    *
-   * @param outcomeType
-   */ 
+   * @param outcomeType The outcome type of the rule.
+   */
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOutcomeType(String outcomeType) {
@@ -159,7 +154,7 @@ public class TransactionRuleReference {
   /**
    * The reference for the resource.
    *
-   * @param reference
+   * @param reference The reference for the resource.
    * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
    */
   public TransactionRuleReference reference(String reference) {
@@ -169,9 +164,8 @@ public class TransactionRuleReference {
 
   /**
    * The reference for the resource.
-   * @return reference
+   * @return reference The reference for the resource.
    */
-  @ApiModelProperty(value = "The reference for the resource.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -181,8 +175,8 @@ public class TransactionRuleReference {
   /**
    * The reference for the resource.
    *
-   * @param reference
-   */ 
+   * @param reference The reference for the resource.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -192,7 +186,7 @@ public class TransactionRuleReference {
   /**
    * The score of the rule in case it&#39;s a scoreBased rule.
    *
-   * @param score
+   * @param score The score of the rule in case it&#39;s a scoreBased rule.
    * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
    */
   public TransactionRuleReference score(Integer score) {
@@ -202,9 +196,8 @@ public class TransactionRuleReference {
 
   /**
    * The score of the rule in case it&#39;s a scoreBased rule.
-   * @return score
+   * @return score The score of the rule in case it&#39;s a scoreBased rule.
    */
-  @ApiModelProperty(value = "The score of the rule in case it's a scoreBased rule.")
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getScore() {
@@ -214,8 +207,8 @@ public class TransactionRuleReference {
   /**
    * The score of the rule in case it&#39;s a scoreBased rule.
    *
-   * @param score
-   */ 
+   * @param score The score of the rule in case it&#39;s a scoreBased rule.
+   */
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScore(Integer score) {

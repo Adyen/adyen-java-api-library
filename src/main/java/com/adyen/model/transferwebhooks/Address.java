@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,9 +60,9 @@ public class Address {
   }
 
   /**
-   * The name of the city.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
+   * The name of the city.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    *
-   * @param city
+   * @param city The name of the city.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address city(String city) {
@@ -73,10 +71,9 @@ public class Address {
   }
 
   /**
-   * The name of the city.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
-   * @return city
+   * The name of the city.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
+   * @return city The name of the city.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    */
-  @ApiModelProperty(value = "The name of the city.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \\ | and Space.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCity() {
@@ -84,10 +81,10 @@ public class Address {
   }
 
   /**
-   * The name of the city.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
+   * The name of the city.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    *
-   * @param city
-   */ 
+   * @param city The name of the city.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
+   */
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -97,7 +94,7 @@ public class Address {
   /**
    * The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.
    *
-   * @param country
+   * @param country The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address country(String country) {
@@ -107,9 +104,8 @@ public class Address {
 
   /**
    * The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.
-   * @return country
+   * @return country The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.
    */
-  @ApiModelProperty(required = true, value = "The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountry() {
@@ -119,8 +115,8 @@ public class Address {
   /**
    * The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.
    *
-   * @param country
-   */ 
+   * @param country The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**.
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -128,9 +124,9 @@ public class Address {
   }
 
   /**
-   * First line of the street address.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
+   * The first line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    *
-   * @param line1
+   * @param line1 The first line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address line1(String line1) {
@@ -139,10 +135,9 @@ public class Address {
   }
 
   /**
-   * First line of the street address.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
-   * @return line1
+   * The first line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
+   * @return line1 The first line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    */
-  @ApiModelProperty(value = "First line of the street address.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \\ | and Space.")
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLine1() {
@@ -150,10 +145,10 @@ public class Address {
   }
 
   /**
-   * First line of the street address.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
+   * The first line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    *
-   * @param line1
-   */ 
+   * @param line1 The first line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
+   */
   @JsonProperty(JSON_PROPERTY_LINE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
@@ -161,9 +156,9 @@ public class Address {
   }
 
   /**
-   * Second line of the street address.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
+   * The second line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    *
-   * @param line2
+   * @param line2 The second line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address line2(String line2) {
@@ -172,10 +167,9 @@ public class Address {
   }
 
   /**
-   * Second line of the street address.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
-   * @return line2
+   * The second line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
+   * @return line2 The second line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    */
-  @ApiModelProperty(value = "Second line of the street address.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \\ | and Space.")
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLine2() {
@@ -183,10 +177,10 @@ public class Address {
   }
 
   /**
-   * Second line of the street address.  Supported characters: [a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ | and Space.
+   * The second line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
    *
-   * @param line2
-   */ 
+   * @param line2 The second line of the street address.  Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] &amp; \\ |** and Space.  &gt; Required when the &#x60;category&#x60; is **card**. 
+   */
   @JsonProperty(JSON_PROPERTY_LINE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
@@ -194,9 +188,9 @@ public class Address {
   }
 
   /**
-   * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: [a-z] [A-Z] [0-9] and Space. 
+   * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: **[a-z] [A-Z] [0-9]** and Space.  &gt; Required for addresses in the US. 
    *
-   * @param postalCode
+   * @param postalCode The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: **[a-z] [A-Z] [0-9]** and Space.  &gt; Required for addresses in the US. 
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address postalCode(String postalCode) {
@@ -205,10 +199,9 @@ public class Address {
   }
 
   /**
-   * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: [a-z] [A-Z] [0-9] and Space. 
-   * @return postalCode
+   * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: **[a-z] [A-Z] [0-9]** and Space.  &gt; Required for addresses in the US. 
+   * @return postalCode The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: **[a-z] [A-Z] [0-9]** and Space.  &gt; Required for addresses in the US. 
    */
-  @ApiModelProperty(value = "The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: [a-z] [A-Z] [0-9] and Space. ")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
@@ -216,10 +209,10 @@ public class Address {
   }
 
   /**
-   * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: [a-z] [A-Z] [0-9] and Space. 
+   * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: **[a-z] [A-Z] [0-9]** and Space.  &gt; Required for addresses in the US. 
    *
-   * @param postalCode
-   */ 
+   * @param postalCode The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.  Supported characters: **[a-z] [A-Z] [0-9]** and Space.  &gt; Required for addresses in the US. 
+   */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -227,9 +220,9 @@ public class Address {
   }
 
   /**
-   *    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.    &gt; Required for the US and Canada. 
+   *    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.     &gt; Required for the US and Canada. 
    *
-   * @param stateOrProvince
+   * @param stateOrProvince    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.     &gt; Required for the US and Canada. 
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address stateOrProvince(String stateOrProvince) {
@@ -238,10 +231,9 @@ public class Address {
   }
 
   /**
-   *    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.    &gt; Required for the US and Canada. 
-   * @return stateOrProvince
+   *    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.     &gt; Required for the US and Canada. 
+   * @return stateOrProvince    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.     &gt; Required for the US and Canada. 
    */
-  @ApiModelProperty(value = "   The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.    > Required for the US and Canada. ")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStateOrProvince() {
@@ -249,10 +241,10 @@ public class Address {
   }
 
   /**
-   *    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.    &gt; Required for the US and Canada. 
+   *    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.     &gt; Required for the US and Canada. 
    *
-   * @param stateOrProvince
-   */ 
+   * @param stateOrProvince    The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.     &gt; Required for the US and Canada. 
+   */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {

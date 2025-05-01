@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.CardIdentification;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -50,7 +48,7 @@ public class Card {
   /**
    * cardHolder
    *
-   * @param cardHolder
+   * @param cardHolder 
    * @return the current {@code Card} instance, allowing for method chaining
    */
   public Card cardHolder(PartyIdentification cardHolder) {
@@ -59,10 +57,9 @@ public class Card {
   }
 
   /**
-   * cardHolder
-   * @return cardHolder
+   * Get cardHolder
+   * @return cardHolder 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PartyIdentification getCardHolder() {
@@ -72,8 +69,8 @@ public class Card {
   /**
    * cardHolder
    *
-   * @param cardHolder
-   */ 
+   * @param cardHolder 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardHolder(PartyIdentification cardHolder) {
@@ -83,7 +80,7 @@ public class Card {
   /**
    * cardIdentification
    *
-   * @param cardIdentification
+   * @param cardIdentification 
    * @return the current {@code Card} instance, allowing for method chaining
    */
   public Card cardIdentification(CardIdentification cardIdentification) {
@@ -92,10 +89,9 @@ public class Card {
   }
 
   /**
-   * cardIdentification
-   * @return cardIdentification
+   * Get cardIdentification
+   * @return cardIdentification 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CARD_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardIdentification getCardIdentification() {
@@ -105,8 +101,8 @@ public class Card {
   /**
    * cardIdentification
    *
-   * @param cardIdentification
-   */ 
+   * @param cardIdentification 
+   */
   @JsonProperty(JSON_PROPERTY_CARD_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardIdentification(CardIdentification cardIdentification) {

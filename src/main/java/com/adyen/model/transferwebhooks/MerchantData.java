@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.NameLocation;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -61,7 +59,7 @@ public class MerchantData {
   /**
    * The unique identifier of the merchant&#39;s acquirer.
    *
-   * @param acquirerId
+   * @param acquirerId The unique identifier of the merchant&#39;s acquirer.
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData acquirerId(String acquirerId) {
@@ -71,9 +69,8 @@ public class MerchantData {
 
   /**
    * The unique identifier of the merchant&#39;s acquirer.
-   * @return acquirerId
+   * @return acquirerId The unique identifier of the merchant&#39;s acquirer.
    */
-  @ApiModelProperty(value = "The unique identifier of the merchant's acquirer.")
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAcquirerId() {
@@ -83,8 +80,8 @@ public class MerchantData {
   /**
    * The unique identifier of the merchant&#39;s acquirer.
    *
-   * @param acquirerId
-   */ 
+   * @param acquirerId The unique identifier of the merchant&#39;s acquirer.
+   */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcquirerId(String acquirerId) {
@@ -94,7 +91,7 @@ public class MerchantData {
   /**
    * The merchant category code.
    *
-   * @param mcc
+   * @param mcc The merchant category code.
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData mcc(String mcc) {
@@ -104,9 +101,8 @@ public class MerchantData {
 
   /**
    * The merchant category code.
-   * @return mcc
+   * @return mcc The merchant category code.
    */
-  @ApiModelProperty(value = "The merchant category code.")
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMcc() {
@@ -116,8 +112,8 @@ public class MerchantData {
   /**
    * The merchant category code.
    *
-   * @param mcc
-   */ 
+   * @param mcc The merchant category code.
+   */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMcc(String mcc) {
@@ -125,9 +121,9 @@ public class MerchantData {
   }
 
   /**
-   * The merchant identifier.
+   * The unique identifier of the merchant.
    *
-   * @param merchantId
+   * @param merchantId The unique identifier of the merchant.
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData merchantId(String merchantId) {
@@ -136,10 +132,9 @@ public class MerchantData {
   }
 
   /**
-   * The merchant identifier.
-   * @return merchantId
+   * The unique identifier of the merchant.
+   * @return merchantId The unique identifier of the merchant.
    */
-  @ApiModelProperty(value = "The merchant identifier.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -147,10 +142,10 @@ public class MerchantData {
   }
 
   /**
-   * The merchant identifier.
+   * The unique identifier of the merchant.
    *
-   * @param merchantId
-   */ 
+   * @param merchantId The unique identifier of the merchant.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -160,7 +155,7 @@ public class MerchantData {
   /**
    * nameLocation
    *
-   * @param nameLocation
+   * @param nameLocation 
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData nameLocation(NameLocation nameLocation) {
@@ -169,10 +164,9 @@ public class MerchantData {
   }
 
   /**
-   * nameLocation
-   * @return nameLocation
+   * Get nameLocation
+   * @return nameLocation 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NameLocation getNameLocation() {
@@ -182,8 +176,8 @@ public class MerchantData {
   /**
    * nameLocation
    *
-   * @param nameLocation
-   */ 
+   * @param nameLocation 
+   */
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNameLocation(NameLocation nameLocation) {
@@ -191,9 +185,9 @@ public class MerchantData {
   }
 
   /**
-   * The merchant postal code.
+   * The postal code of the merchant.
    *
-   * @param postalCode
+   * @param postalCode The postal code of the merchant.
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData postalCode(String postalCode) {
@@ -202,10 +196,9 @@ public class MerchantData {
   }
 
   /**
-   * The merchant postal code.
-   * @return postalCode
+   * The postal code of the merchant.
+   * @return postalCode The postal code of the merchant.
    */
-  @ApiModelProperty(value = "The merchant postal code.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
@@ -213,10 +206,10 @@ public class MerchantData {
   }
 
   /**
-   * The merchant postal code.
+   * The postal code of the merchant.
    *
-   * @param postalCode
-   */ 
+   * @param postalCode The postal code of the merchant.
+   */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {

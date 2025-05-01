@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.TransactionRuleReference;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -54,7 +52,7 @@ public class TransactionEventViolation {
   /**
    * An explanation about why the transaction rule failed.
    *
-   * @param reason
+   * @param reason An explanation about why the transaction rule failed.
    * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
    */
   public TransactionEventViolation reason(String reason) {
@@ -64,9 +62,8 @@ public class TransactionEventViolation {
 
   /**
    * An explanation about why the transaction rule failed.
-   * @return reason
+   * @return reason An explanation about why the transaction rule failed.
    */
-  @ApiModelProperty(value = "An explanation about why the transaction rule failed.")
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReason() {
@@ -76,8 +73,8 @@ public class TransactionEventViolation {
   /**
    * An explanation about why the transaction rule failed.
    *
-   * @param reason
-   */ 
+   * @param reason An explanation about why the transaction rule failed.
+   */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(String reason) {
@@ -87,7 +84,7 @@ public class TransactionEventViolation {
   /**
    * transactionRule
    *
-   * @param transactionRule
+   * @param transactionRule 
    * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
    */
   public TransactionEventViolation transactionRule(TransactionRuleReference transactionRule) {
@@ -96,10 +93,9 @@ public class TransactionEventViolation {
   }
 
   /**
-   * transactionRule
-   * @return transactionRule
+   * Get transactionRule
+   * @return transactionRule 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransactionRuleReference getTransactionRule() {
@@ -109,8 +105,8 @@ public class TransactionEventViolation {
   /**
    * transactionRule
    *
-   * @param transactionRule
-   */ 
+   * @param transactionRule 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRule(TransactionRuleReference transactionRule) {
@@ -120,7 +116,7 @@ public class TransactionEventViolation {
   /**
    * transactionRuleSource
    *
-   * @param transactionRuleSource
+   * @param transactionRuleSource 
    * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
    */
   public TransactionEventViolation transactionRuleSource(TransactionRuleSource transactionRuleSource) {
@@ -129,10 +125,9 @@ public class TransactionEventViolation {
   }
 
   /**
-   * transactionRuleSource
-   * @return transactionRuleSource
+   * Get transactionRuleSource
+   * @return transactionRuleSource 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransactionRuleSource getTransactionRuleSource() {
@@ -142,8 +137,8 @@ public class TransactionEventViolation {
   /**
    * transactionRuleSource
    *
-   * @param transactionRuleSource
-   */ 
+   * @param transactionRuleSource 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRuleSource(TransactionRuleSource transactionRuleSource) {

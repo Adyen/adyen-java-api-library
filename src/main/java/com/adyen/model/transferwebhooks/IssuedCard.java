@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.RelayedAuthorisationData;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -53,19 +51,19 @@ public class IssuedCard {
    * Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
    */
   public enum PanEntryModeEnum {
-    CHIP("chip"),
+    CHIP(String.valueOf("chip")),
     
-    COF("cof"),
+    COF(String.valueOf("cof")),
     
-    CONTACTLESS("contactless"),
+    CONTACTLESS(String.valueOf("contactless")),
     
-    ECOMMERCE("ecommerce"),
+    ECOMMERCE(String.valueOf("ecommerce")),
     
-    MAGSTRIPE("magstripe"),
+    MAGSTRIPE(String.valueOf("magstripe")),
     
-    MANUAL("manual"),
+    MANUAL(String.valueOf("manual")),
     
-    TOKEN("token");
+    TOKEN(String.valueOf("token"));
 
     private String value;
 
@@ -101,21 +99,21 @@ public class IssuedCard {
    * Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
    */
   public enum ProcessingTypeEnum {
-    ATMWITHDRAW("atmWithdraw"),
+    ATMWITHDRAW(String.valueOf("atmWithdraw")),
     
-    BALANCEINQUIRY("balanceInquiry"),
+    BALANCEINQUIRY(String.valueOf("balanceInquiry")),
     
-    ECOMMERCE("ecommerce"),
+    ECOMMERCE(String.valueOf("ecommerce")),
     
-    MOTO("moto"),
+    MOTO(String.valueOf("moto")),
     
-    POS("pos"),
+    POS(String.valueOf("pos")),
     
-    PURCHASEWITHCASHBACK("purchaseWithCashback"),
+    PURCHASEWITHCASHBACK(String.valueOf("purchaseWithCashback")),
     
-    RECURRING("recurring"),
+    RECURRING(String.valueOf("recurring")),
     
-    TOKEN("token");
+    TOKEN(String.valueOf("token"));
 
     private String value;
 
@@ -160,7 +158,7 @@ public class IssuedCard {
    * **issuedCard**
    */
   public enum TypeEnum {
-    ISSUEDCARD("issuedCard");
+    ISSUEDCARD(String.valueOf("issuedCard"));
 
     private String value;
 
@@ -190,10 +188,10 @@ public class IssuedCard {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.ISSUEDCARD;
 
   public static final String JSON_PROPERTY_VALIDATION_FACTS = "validationFacts";
-  private List<TransferNotificationValidationFact> validationFacts = null;
+  private List<TransferNotificationValidationFact> validationFacts;
 
   public IssuedCard() { 
   }
@@ -201,7 +199,7 @@ public class IssuedCard {
   /**
    * The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
    *
-   * @param authorisationType
+   * @param authorisationType The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard authorisationType(String authorisationType) {
@@ -211,9 +209,8 @@ public class IssuedCard {
 
   /**
    * The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
-   * @return authorisationType
+   * @return authorisationType The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
    */
-  @ApiModelProperty(value = "The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**")
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthorisationType() {
@@ -223,8 +220,8 @@ public class IssuedCard {
   /**
    * The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
    *
-   * @param authorisationType
-   */ 
+   * @param authorisationType The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
+   */
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorisationType(String authorisationType) {
@@ -234,7 +231,7 @@ public class IssuedCard {
   /**
    * Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
    *
-   * @param panEntryMode
+   * @param panEntryMode Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard panEntryMode(PanEntryModeEnum panEntryMode) {
@@ -244,9 +241,8 @@ public class IssuedCard {
 
   /**
    * Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
-   * @return panEntryMode
+   * @return panEntryMode Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
    */
-  @ApiModelProperty(value = "Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.")
   @JsonProperty(JSON_PROPERTY_PAN_ENTRY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PanEntryModeEnum getPanEntryMode() {
@@ -256,8 +252,8 @@ public class IssuedCard {
   /**
    * Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
    *
-   * @param panEntryMode
-   */ 
+   * @param panEntryMode Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
+   */
   @JsonProperty(JSON_PROPERTY_PAN_ENTRY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPanEntryMode(PanEntryModeEnum panEntryMode) {
@@ -267,7 +263,7 @@ public class IssuedCard {
   /**
    * Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
    *
-   * @param processingType
+   * @param processingType Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard processingType(ProcessingTypeEnum processingType) {
@@ -277,9 +273,8 @@ public class IssuedCard {
 
   /**
    * Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
-   * @return processingType
+   * @return processingType Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
    */
-  @ApiModelProperty(value = "Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.")
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ProcessingTypeEnum getProcessingType() {
@@ -289,8 +284,8 @@ public class IssuedCard {
   /**
    * Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
    *
-   * @param processingType
-   */ 
+   * @param processingType Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+   */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProcessingType(ProcessingTypeEnum processingType) {
@@ -300,7 +295,7 @@ public class IssuedCard {
   /**
    * relayedAuthorisationData
    *
-   * @param relayedAuthorisationData
+   * @param relayedAuthorisationData 
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard relayedAuthorisationData(RelayedAuthorisationData relayedAuthorisationData) {
@@ -309,10 +304,9 @@ public class IssuedCard {
   }
 
   /**
-   * relayedAuthorisationData
-   * @return relayedAuthorisationData
+   * Get relayedAuthorisationData
+   * @return relayedAuthorisationData 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELAYED_AUTHORISATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public RelayedAuthorisationData getRelayedAuthorisationData() {
@@ -322,8 +316,8 @@ public class IssuedCard {
   /**
    * relayedAuthorisationData
    *
-   * @param relayedAuthorisationData
-   */ 
+   * @param relayedAuthorisationData 
+   */
   @JsonProperty(JSON_PROPERTY_RELAYED_AUTHORISATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelayedAuthorisationData(RelayedAuthorisationData relayedAuthorisationData) {
@@ -333,7 +327,7 @@ public class IssuedCard {
   /**
    * The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The &#x60;schemeTraceID&#x60; should refer to an original &#x60;schemeUniqueTransactionID&#x60; provided in an earlier payment (not necessarily processed by Adyen). A &#x60;schemeTraceId&#x60; is typically available for authorization adjustments or recurring payments.
    *
-   * @param schemeTraceId
+   * @param schemeTraceId The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The &#x60;schemeTraceID&#x60; should refer to an original &#x60;schemeUniqueTransactionID&#x60; provided in an earlier payment (not necessarily processed by Adyen). A &#x60;schemeTraceId&#x60; is typically available for authorization adjustments or recurring payments.
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard schemeTraceId(String schemeTraceId) {
@@ -343,9 +337,8 @@ public class IssuedCard {
 
   /**
    * The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The &#x60;schemeTraceID&#x60; should refer to an original &#x60;schemeUniqueTransactionID&#x60; provided in an earlier payment (not necessarily processed by Adyen). A &#x60;schemeTraceId&#x60; is typically available for authorization adjustments or recurring payments.
-   * @return schemeTraceId
+   * @return schemeTraceId The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The &#x60;schemeTraceID&#x60; should refer to an original &#x60;schemeUniqueTransactionID&#x60; provided in an earlier payment (not necessarily processed by Adyen). A &#x60;schemeTraceId&#x60; is typically available for authorization adjustments or recurring payments.
    */
-  @ApiModelProperty(value = "The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The `schemeTraceID` should refer to an original `schemeUniqueTransactionID` provided in an earlier payment (not necessarily processed by Adyen). A `schemeTraceId` is typically available for authorization adjustments or recurring payments.")
   @JsonProperty(JSON_PROPERTY_SCHEME_TRACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSchemeTraceId() {
@@ -355,8 +348,8 @@ public class IssuedCard {
   /**
    * The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The &#x60;schemeTraceID&#x60; should refer to an original &#x60;schemeUniqueTransactionID&#x60; provided in an earlier payment (not necessarily processed by Adyen). A &#x60;schemeTraceId&#x60; is typically available for authorization adjustments or recurring payments.
    *
-   * @param schemeTraceId
-   */ 
+   * @param schemeTraceId The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The &#x60;schemeTraceID&#x60; should refer to an original &#x60;schemeUniqueTransactionID&#x60; provided in an earlier payment (not necessarily processed by Adyen). A &#x60;schemeTraceId&#x60; is typically available for authorization adjustments or recurring payments.
+   */
   @JsonProperty(JSON_PROPERTY_SCHEME_TRACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeTraceId(String schemeTraceId) {
@@ -366,7 +359,7 @@ public class IssuedCard {
   /**
    * The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
    *
-   * @param schemeUniqueTransactionId
+   * @param schemeUniqueTransactionId The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard schemeUniqueTransactionId(String schemeUniqueTransactionId) {
@@ -376,9 +369,8 @@ public class IssuedCard {
 
   /**
    * The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
-   * @return schemeUniqueTransactionId
+   * @return schemeUniqueTransactionId The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
    */
-  @ApiModelProperty(value = "The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.")
   @JsonProperty(JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSchemeUniqueTransactionId() {
@@ -388,8 +380,8 @@ public class IssuedCard {
   /**
    * The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
    *
-   * @param schemeUniqueTransactionId
-   */ 
+   * @param schemeUniqueTransactionId The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
+   */
   @JsonProperty(JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeUniqueTransactionId(String schemeUniqueTransactionId) {
@@ -399,7 +391,7 @@ public class IssuedCard {
   /**
    * **issuedCard**
    *
-   * @param type
+   * @param type **issuedCard**
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard type(TypeEnum type) {
@@ -409,9 +401,8 @@ public class IssuedCard {
 
   /**
    * **issuedCard**
-   * @return type
+   * @return type **issuedCard**
    */
-  @ApiModelProperty(value = "**issuedCard**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -421,8 +412,8 @@ public class IssuedCard {
   /**
    * **issuedCard**
    *
-   * @param type
-   */ 
+   * @param type **issuedCard**
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -432,7 +423,7 @@ public class IssuedCard {
   /**
    * The evaluation of the validation facts. See [validation checks](https://docs.adyen.com/issuing/validation-checks) for more information.
    *
-   * @param validationFacts
+   * @param validationFacts The evaluation of the validation facts. See [validation checks](https://docs.adyen.com/issuing/validation-checks) for more information.
    * @return the current {@code IssuedCard} instance, allowing for method chaining
    */
   public IssuedCard validationFacts(List<TransferNotificationValidationFact> validationFacts) {
@@ -450,9 +441,8 @@ public class IssuedCard {
 
   /**
    * The evaluation of the validation facts. See [validation checks](https://docs.adyen.com/issuing/validation-checks) for more information.
-   * @return validationFacts
+   * @return validationFacts The evaluation of the validation facts. See [validation checks](https://docs.adyen.com/issuing/validation-checks) for more information.
    */
-  @ApiModelProperty(value = "The evaluation of the validation facts. See [validation checks](https://docs.adyen.com/issuing/validation-checks) for more information.")
   @JsonProperty(JSON_PROPERTY_VALIDATION_FACTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TransferNotificationValidationFact> getValidationFacts() {
@@ -462,8 +452,8 @@ public class IssuedCard {
   /**
    * The evaluation of the validation facts. See [validation checks](https://docs.adyen.com/issuing/validation-checks) for more information.
    *
-   * @param validationFacts
-   */ 
+   * @param validationFacts The evaluation of the validation facts. See [validation checks](https://docs.adyen.com/issuing/validation-checks) for more information.
+   */
   @JsonProperty(JSON_PROPERTY_VALIDATION_FACTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidationFacts(List<TransferNotificationValidationFact> validationFacts) {

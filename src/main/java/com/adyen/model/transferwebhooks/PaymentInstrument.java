@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class PaymentInstrument {
   /**
    * The description of the resource.
    *
-   * @param description
+   * @param description The description of the resource.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
    */
   public PaymentInstrument description(String description) {
@@ -66,9 +64,8 @@ public class PaymentInstrument {
 
   /**
    * The description of the resource.
-   * @return description
+   * @return description The description of the resource.
    */
-  @ApiModelProperty(value = "The description of the resource.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -78,8 +75,8 @@ public class PaymentInstrument {
   /**
    * The description of the resource.
    *
-   * @param description
-   */ 
+   * @param description The description of the resource.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -89,7 +86,7 @@ public class PaymentInstrument {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
    */
   public PaymentInstrument id(String id) {
@@ -99,9 +96,8 @@ public class PaymentInstrument {
 
   /**
    * The unique identifier of the resource.
-   * @return id
+   * @return id The unique identifier of the resource.
    */
-  @ApiModelProperty(value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -111,8 +107,8 @@ public class PaymentInstrument {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the resource.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -122,7 +118,7 @@ public class PaymentInstrument {
   /**
    * The reference for the resource.
    *
-   * @param reference
+   * @param reference The reference for the resource.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
    */
   public PaymentInstrument reference(String reference) {
@@ -132,9 +128,8 @@ public class PaymentInstrument {
 
   /**
    * The reference for the resource.
-   * @return reference
+   * @return reference The reference for the resource.
    */
-  @ApiModelProperty(value = "The reference for the resource.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -144,8 +139,8 @@ public class PaymentInstrument {
   /**
    * The reference for the resource.
    *
-   * @param reference
-   */ 
+   * @param reference The reference for the resource.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -155,7 +150,7 @@ public class PaymentInstrument {
   /**
    * The type of wallet that the network token is associated with.
    *
-   * @param tokenType
+   * @param tokenType The type of wallet that the network token is associated with.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
    */
   public PaymentInstrument tokenType(String tokenType) {
@@ -165,9 +160,8 @@ public class PaymentInstrument {
 
   /**
    * The type of wallet that the network token is associated with.
-   * @return tokenType
+   * @return tokenType The type of wallet that the network token is associated with.
    */
-  @ApiModelProperty(value = "The type of wallet that the network token is associated with.")
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTokenType() {
@@ -177,8 +171,8 @@ public class PaymentInstrument {
   /**
    * The type of wallet that the network token is associated with.
    *
-   * @param tokenType
-   */ 
+   * @param tokenType The type of wallet that the network token is associated with.
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenType(String tokenType) {

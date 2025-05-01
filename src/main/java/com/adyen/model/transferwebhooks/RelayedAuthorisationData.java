@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class RelayedAuthorisationData {
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = null;
+  private Map<String, String> metadata;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -51,7 +48,7 @@ public class RelayedAuthorisationData {
   /**
    * Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    *
-   * @param metadata
+   * @param metadata Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    * @return the current {@code RelayedAuthorisationData} instance, allowing for method chaining
    */
   public RelayedAuthorisationData metadata(Map<String, String> metadata) {
@@ -69,9 +66,8 @@ public class RelayedAuthorisationData {
 
   /**
    * Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
-   * @return metadata
+   * @return metadata Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    */
-  @ApiModelProperty(value = "Contains key-value pairs of your references and descriptions, for example, `customId`:`your-own-custom-field-12345`.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getMetadata() {
@@ -81,8 +77,8 @@ public class RelayedAuthorisationData {
   /**
    * Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    *
-   * @param metadata
-   */ 
+   * @param metadata Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
+   */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, String> metadata) {
@@ -92,7 +88,7 @@ public class RelayedAuthorisationData {
   /**
    * Your reference for the relayed authorisation data.
    *
-   * @param reference
+   * @param reference Your reference for the relayed authorisation data.
    * @return the current {@code RelayedAuthorisationData} instance, allowing for method chaining
    */
   public RelayedAuthorisationData reference(String reference) {
@@ -102,9 +98,8 @@ public class RelayedAuthorisationData {
 
   /**
    * Your reference for the relayed authorisation data.
-   * @return reference
+   * @return reference Your reference for the relayed authorisation data.
    */
-  @ApiModelProperty(value = "Your reference for the relayed authorisation data.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -114,8 +109,8 @@ public class RelayedAuthorisationData {
   /**
    * Your reference for the relayed authorisation data.
    *
-   * @param reference
-   */ 
+   * @param reference Your reference for the relayed authorisation data.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {

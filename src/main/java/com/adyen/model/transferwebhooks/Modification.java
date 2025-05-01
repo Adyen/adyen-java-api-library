@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,139 +50,139 @@ public class Modification {
    * The status of the transfer event.
    */
   public enum StatusEnum {
-    APPROVALPENDING("approvalPending"),
+    APPROVALPENDING(String.valueOf("approvalPending")),
     
-    ATMWITHDRAWAL("atmWithdrawal"),
+    ATMWITHDRAWAL(String.valueOf("atmWithdrawal")),
     
-    ATMWITHDRAWALREVERSALPENDING("atmWithdrawalReversalPending"),
+    ATMWITHDRAWALREVERSALPENDING(String.valueOf("atmWithdrawalReversalPending")),
     
-    ATMWITHDRAWALREVERSED("atmWithdrawalReversed"),
+    ATMWITHDRAWALREVERSED(String.valueOf("atmWithdrawalReversed")),
     
-    AUTHADJUSTMENTAUTHORISED("authAdjustmentAuthorised"),
+    AUTHADJUSTMENTAUTHORISED(String.valueOf("authAdjustmentAuthorised")),
     
-    AUTHADJUSTMENTERROR("authAdjustmentError"),
+    AUTHADJUSTMENTERROR(String.valueOf("authAdjustmentError")),
     
-    AUTHADJUSTMENTREFUSED("authAdjustmentRefused"),
+    AUTHADJUSTMENTREFUSED(String.valueOf("authAdjustmentRefused")),
     
-    AUTHORISED("authorised"),
+    AUTHORISED(String.valueOf("authorised")),
     
-    BANKTRANSFER("bankTransfer"),
+    BANKTRANSFER(String.valueOf("bankTransfer")),
     
-    BANKTRANSFERPENDING("bankTransferPending"),
+    BANKTRANSFERPENDING(String.valueOf("bankTransferPending")),
     
-    BOOKED("booked"),
+    BOOKED(String.valueOf("booked")),
     
-    BOOKINGPENDING("bookingPending"),
+    BOOKINGPENDING(String.valueOf("bookingPending")),
     
-    CANCELLED("cancelled"),
+    CANCELLED(String.valueOf("cancelled")),
     
-    CAPTUREPENDING("capturePending"),
+    CAPTUREPENDING(String.valueOf("capturePending")),
     
-    CAPTUREREVERSALPENDING("captureReversalPending"),
+    CAPTUREREVERSALPENDING(String.valueOf("captureReversalPending")),
     
-    CAPTUREREVERSED("captureReversed"),
+    CAPTUREREVERSED(String.valueOf("captureReversed")),
     
-    CAPTURED("captured"),
+    CAPTURED(String.valueOf("captured")),
     
-    CAPTUREDEXTERNALLY("capturedExternally"),
+    CAPTUREDEXTERNALLY(String.valueOf("capturedExternally")),
     
-    CHARGEBACK("chargeback"),
+    CHARGEBACK(String.valueOf("chargeback")),
     
-    CHARGEBACKEXTERNALLY("chargebackExternally"),
+    CHARGEBACKEXTERNALLY(String.valueOf("chargebackExternally")),
     
-    CHARGEBACKPENDING("chargebackPending"),
+    CHARGEBACKPENDING(String.valueOf("chargebackPending")),
     
-    CHARGEBACKREVERSALPENDING("chargebackReversalPending"),
+    CHARGEBACKREVERSALPENDING(String.valueOf("chargebackReversalPending")),
     
-    CHARGEBACKREVERSED("chargebackReversed"),
+    CHARGEBACKREVERSED(String.valueOf("chargebackReversed")),
     
-    CREDITED("credited"),
+    CREDITED(String.valueOf("credited")),
     
-    DEPOSITCORRECTION("depositCorrection"),
+    DEPOSITCORRECTION(String.valueOf("depositCorrection")),
     
-    DEPOSITCORRECTIONPENDING("depositCorrectionPending"),
+    DEPOSITCORRECTIONPENDING(String.valueOf("depositCorrectionPending")),
     
-    DISPUTE("dispute"),
+    DISPUTE(String.valueOf("dispute")),
     
-    DISPUTECLOSED("disputeClosed"),
+    DISPUTECLOSED(String.valueOf("disputeClosed")),
     
-    DISPUTEEXPIRED("disputeExpired"),
+    DISPUTEEXPIRED(String.valueOf("disputeExpired")),
     
-    DISPUTENEEDSREVIEW("disputeNeedsReview"),
+    DISPUTENEEDSREVIEW(String.valueOf("disputeNeedsReview")),
     
-    ERROR("error"),
+    ERROR(String.valueOf("error")),
     
-    EXPIRED("expired"),
+    EXPIRED(String.valueOf("expired")),
     
-    FAILED("failed"),
+    FAILED(String.valueOf("failed")),
     
-    FEE("fee"),
+    FEE(String.valueOf("fee")),
     
-    FEEPENDING("feePending"),
+    FEEPENDING(String.valueOf("feePending")),
     
-    INTERNALTRANSFER("internalTransfer"),
+    INTERNALTRANSFER(String.valueOf("internalTransfer")),
     
-    INTERNALTRANSFERPENDING("internalTransferPending"),
+    INTERNALTRANSFERPENDING(String.valueOf("internalTransferPending")),
     
-    INVOICEDEDUCTION("invoiceDeduction"),
+    INVOICEDEDUCTION(String.valueOf("invoiceDeduction")),
     
-    INVOICEDEDUCTIONPENDING("invoiceDeductionPending"),
+    INVOICEDEDUCTIONPENDING(String.valueOf("invoiceDeductionPending")),
     
-    MANUALCORRECTIONPENDING("manualCorrectionPending"),
+    MANUALCORRECTIONPENDING(String.valueOf("manualCorrectionPending")),
     
-    MANUALLYCORRECTED("manuallyCorrected"),
+    MANUALLYCORRECTED(String.valueOf("manuallyCorrected")),
     
-    MATCHEDSTATEMENT("matchedStatement"),
+    MATCHEDSTATEMENT(String.valueOf("matchedStatement")),
     
-    MATCHEDSTATEMENTPENDING("matchedStatementPending"),
+    MATCHEDSTATEMENTPENDING(String.valueOf("matchedStatementPending")),
     
-    MERCHANTPAYIN("merchantPayin"),
+    MERCHANTPAYIN(String.valueOf("merchantPayin")),
     
-    MERCHANTPAYINPENDING("merchantPayinPending"),
+    MERCHANTPAYINPENDING(String.valueOf("merchantPayinPending")),
     
-    MERCHANTPAYINREVERSED("merchantPayinReversed"),
+    MERCHANTPAYINREVERSED(String.valueOf("merchantPayinReversed")),
     
-    MERCHANTPAYINREVERSEDPENDING("merchantPayinReversedPending"),
+    MERCHANTPAYINREVERSEDPENDING(String.valueOf("merchantPayinReversedPending")),
     
-    MISCCOST("miscCost"),
+    MISCCOST(String.valueOf("miscCost")),
     
-    MISCCOSTPENDING("miscCostPending"),
+    MISCCOSTPENDING(String.valueOf("miscCostPending")),
     
-    PAYMENTCOST("paymentCost"),
+    PAYMENTCOST(String.valueOf("paymentCost")),
     
-    PAYMENTCOSTPENDING("paymentCostPending"),
+    PAYMENTCOSTPENDING(String.valueOf("paymentCostPending")),
     
-    PENDINGAPPROVAL("pendingApproval"),
+    PENDINGAPPROVAL(String.valueOf("pendingApproval")),
     
-    PENDINGEXECUTION("pendingExecution"),
+    PENDINGEXECUTION(String.valueOf("pendingExecution")),
     
-    RECEIVED("received"),
+    RECEIVED(String.valueOf("received")),
     
-    REFUNDPENDING("refundPending"),
+    REFUNDPENDING(String.valueOf("refundPending")),
     
-    REFUNDREVERSALPENDING("refundReversalPending"),
+    REFUNDREVERSALPENDING(String.valueOf("refundReversalPending")),
     
-    REFUNDREVERSED("refundReversed"),
+    REFUNDREVERSED(String.valueOf("refundReversed")),
     
-    REFUNDED("refunded"),
+    REFUNDED(String.valueOf("refunded")),
     
-    REFUNDEDEXTERNALLY("refundedExternally"),
+    REFUNDEDEXTERNALLY(String.valueOf("refundedExternally")),
     
-    REFUSED("refused"),
+    REFUSED(String.valueOf("refused")),
     
-    REJECTED("rejected"),
+    REJECTED(String.valueOf("rejected")),
     
-    RESERVEADJUSTMENT("reserveAdjustment"),
+    RESERVEADJUSTMENT(String.valueOf("reserveAdjustment")),
     
-    RESERVEADJUSTMENTPENDING("reserveAdjustmentPending"),
+    RESERVEADJUSTMENTPENDING(String.valueOf("reserveAdjustmentPending")),
     
-    RETURNED("returned"),
+    RETURNED(String.valueOf("returned")),
     
-    SECONDCHARGEBACK("secondChargeback"),
+    SECONDCHARGEBACK(String.valueOf("secondChargeback")),
     
-    SECONDCHARGEBACKPENDING("secondChargebackPending"),
+    SECONDCHARGEBACKPENDING(String.valueOf("secondChargebackPending")),
     
-    UNDEFINED("undefined");
+    UNDEFINED(String.valueOf("undefined"));
 
     private String value;
 
@@ -225,7 +223,7 @@ public class Modification {
   /**
    * The direction of the money movement.
    *
-   * @param direction
+   * @param direction The direction of the money movement.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification direction(String direction) {
@@ -235,9 +233,8 @@ public class Modification {
 
   /**
    * The direction of the money movement.
-   * @return direction
+   * @return direction The direction of the money movement.
    */
-  @ApiModelProperty(value = "The direction of the money movement.")
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDirection() {
@@ -247,8 +244,8 @@ public class Modification {
   /**
    * The direction of the money movement.
    *
-   * @param direction
-   */ 
+   * @param direction The direction of the money movement.
+   */
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirection(String direction) {
@@ -258,7 +255,7 @@ public class Modification {
   /**
    * Our reference for the modification.
    *
-   * @param id
+   * @param id Our reference for the modification.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification id(String id) {
@@ -268,9 +265,8 @@ public class Modification {
 
   /**
    * Our reference for the modification.
-   * @return id
+   * @return id Our reference for the modification.
    */
-  @ApiModelProperty(value = "Our reference for the modification.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -280,8 +276,8 @@ public class Modification {
   /**
    * Our reference for the modification.
    *
-   * @param id
-   */ 
+   * @param id Our reference for the modification.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -291,7 +287,7 @@ public class Modification {
   /**
    * Your reference for the modification, used internally within your platform.
    *
-   * @param reference
+   * @param reference Your reference for the modification, used internally within your platform.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification reference(String reference) {
@@ -301,9 +297,8 @@ public class Modification {
 
   /**
    * Your reference for the modification, used internally within your platform.
-   * @return reference
+   * @return reference Your reference for the modification, used internally within your platform.
    */
-  @ApiModelProperty(value = "Your reference for the modification, used internally within your platform.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -313,8 +308,8 @@ public class Modification {
   /**
    * Your reference for the modification, used internally within your platform.
    *
-   * @param reference
-   */ 
+   * @param reference Your reference for the modification, used internally within your platform.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -324,7 +319,7 @@ public class Modification {
   /**
    * The status of the transfer event.
    *
-   * @param status
+   * @param status The status of the transfer event.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification status(StatusEnum status) {
@@ -334,9 +329,8 @@ public class Modification {
 
   /**
    * The status of the transfer event.
-   * @return status
+   * @return status The status of the transfer event.
    */
-  @ApiModelProperty(value = "The status of the transfer event.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -346,8 +340,8 @@ public class Modification {
   /**
    * The status of the transfer event.
    *
-   * @param status
-   */ 
+   * @param status The status of the transfer event.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -357,7 +351,7 @@ public class Modification {
   /**
    * The type of transfer modification.
    *
-   * @param type
+   * @param type The type of transfer modification.
    * @return the current {@code Modification} instance, allowing for method chaining
    */
   public Modification type(String type) {
@@ -367,9 +361,8 @@ public class Modification {
 
   /**
    * The type of transfer modification.
-   * @return type
+   * @return type The type of transfer modification.
    */
-  @ApiModelProperty(value = "The type of transfer modification.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -379,8 +372,8 @@ public class Modification {
   /**
    * The type of transfer modification.
    *
-   * @param type
-   */ 
+   * @param type The type of transfer modification.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
