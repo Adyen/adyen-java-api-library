@@ -46,7 +46,7 @@ public class TransferNotificationValidationFact {
   /**
    * The evaluation result of the validation fact.
    *
-   * @param result
+   * @param result The evaluation result of the validation fact.
    * @return the current {@code TransferNotificationValidationFact} instance, allowing for method chaining
    */
   public TransferNotificationValidationFact result(String result) {
@@ -56,7 +56,7 @@ public class TransferNotificationValidationFact {
 
   /**
    * The evaluation result of the validation fact.
-   * @return result
+   * @return result The evaluation result of the validation fact.
    */
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class TransferNotificationValidationFact {
   /**
    * The evaluation result of the validation fact.
    *
-   * @param result
+   * @param result The evaluation result of the validation fact.
    */
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class TransferNotificationValidationFact {
   /**
    * The type of the validation fact.
    *
-   * @param type
+   * @param type The type of the validation fact.
    * @return the current {@code TransferNotificationValidationFact} instance, allowing for method chaining
    */
   public TransferNotificationValidationFact type(String type) {
@@ -88,7 +88,7 @@ public class TransferNotificationValidationFact {
 
   /**
    * The type of the validation fact.
-   * @return type
+   * @return type The type of the validation fact.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class TransferNotificationValidationFact {
   /**
    * The type of the validation fact.
    *
-   * @param type
+   * @param type The type of the validation fact.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

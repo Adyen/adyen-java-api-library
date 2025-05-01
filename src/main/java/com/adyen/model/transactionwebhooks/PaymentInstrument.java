@@ -54,7 +54,7 @@ public class PaymentInstrument {
   /**
    * The description of the resource.
    *
-   * @param description
+   * @param description The description of the resource.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
    */
   public PaymentInstrument description(String description) {
@@ -64,7 +64,7 @@ public class PaymentInstrument {
 
   /**
    * The description of the resource.
-   * @return description
+   * @return description The description of the resource.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,7 +75,7 @@ public class PaymentInstrument {
   /**
    * The description of the resource.
    *
-   * @param description
+   * @param description The description of the resource.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +86,7 @@ public class PaymentInstrument {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
    */
   public PaymentInstrument id(String id) {
@@ -96,7 +96,7 @@ public class PaymentInstrument {
 
   /**
    * The unique identifier of the resource.
-   * @return id
+   * @return id The unique identifier of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class PaymentInstrument {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class PaymentInstrument {
   /**
    * The reference for the resource.
    *
-   * @param reference
+   * @param reference The reference for the resource.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
    */
   public PaymentInstrument reference(String reference) {
@@ -128,7 +128,7 @@ public class PaymentInstrument {
 
   /**
    * The reference for the resource.
-   * @return reference
+   * @return reference The reference for the resource.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class PaymentInstrument {
   /**
    * The reference for the resource.
    *
-   * @param reference
+   * @param reference The reference for the resource.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class PaymentInstrument {
   /**
    * The type of wallet that the network token is associated with.
    *
-   * @param tokenType
+   * @param tokenType The type of wallet that the network token is associated with.
    * @return the current {@code PaymentInstrument} instance, allowing for method chaining
    */
   public PaymentInstrument tokenType(String tokenType) {
@@ -160,7 +160,7 @@ public class PaymentInstrument {
 
   /**
    * The type of wallet that the network token is associated with.
-   * @return tokenType
+   * @return tokenType The type of wallet that the network token is associated with.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class PaymentInstrument {
   /**
    * The type of wallet that the network token is associated with.
    *
-   * @param tokenType
+   * @param tokenType The type of wallet that the network token is associated with.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
