@@ -23,6 +23,13 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * The service has been moved to a different package 'com.adyen.balancecontrol.BalanceControlApi'
+ * @deprecated Use instead com.adyen.service.balancecontrol.BalanceControlApi
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class BalanceControlApi extends Service {
 
     public static final String API_VERSION = "1";
@@ -33,6 +40,7 @@ public class BalanceControlApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.balancecontrol.BalanceControlApi
     public BalanceControlApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/BalanceControl/v1");
@@ -44,6 +52,7 @@ public class BalanceControlApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.balancecontrol.BalanceControlApi
     public BalanceControlApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -56,6 +65,7 @@ public class BalanceControlApi extends Service {
     * @return {@link BalanceTransferResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.balancecontrol.BalanceControlApi
     public BalanceTransferResponse balanceTransfer(BalanceTransferRequest balanceTransferRequest) throws ApiException, IOException {
         return balanceTransfer(balanceTransferRequest, null);
     }
@@ -68,6 +78,7 @@ public class BalanceControlApi extends Service {
     * @return {@link BalanceTransferResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.balancecontrol.BalanceControlApi
     public BalanceTransferResponse balanceTransfer(BalanceTransferRequest balanceTransferRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = balanceTransferRequest.toJson();
