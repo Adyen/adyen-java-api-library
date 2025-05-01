@@ -13,7 +13,6 @@
 package com.adyen.model.disputewebhooks;
 
 import java.util.Objects;
-import java.lang.reflect.Type;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
@@ -22,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
-
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object
@@ -34,6 +32,11 @@ public abstract class AbstractOpenApiSchema {
     // schema type (e.g. oneOf, anyOf)
     private final String schemaType;
 
+    /**
+     *
+     * @param schemaType the schema type
+     * @param isNullable whether the instance is nullable
+    */
     public AbstractOpenApiSchema(String schemaType, Boolean isNullable) {
         this.schemaType = schemaType;
         this.isNullable = isNullable;
@@ -44,7 +47,7 @@ public abstract class AbstractOpenApiSchema {
      *
      * @return an instance of the actual schema/object
      */
-    public abstract Map<String, GenericType> getSchemas();
+    public abstract Map<String, GenericType<?>> getSchemas();
 
     /**
      * Get the actual instance

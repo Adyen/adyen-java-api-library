@@ -13,7 +13,6 @@
 package com.adyen.model.disputewebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class Amount {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount currency(String currency) {
@@ -58,9 +56,8 @@ public class Amount {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    */
-  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -70,8 +67,8 @@ public class Amount {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
    *
-   * @param currency
-   */ 
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -81,7 +78,7 @@ public class Amount {
   /**
    * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value
+   * @param value The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount value(Long value) {
@@ -91,9 +88,8 @@ public class Amount {
 
   /**
    * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
-   * @return value
+   * @return value The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
-  @ApiModelProperty(required = true, value = "The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getValue() {
@@ -103,8 +99,8 @@ public class Amount {
   /**
    * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value
-   */ 
+   * @param value The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {

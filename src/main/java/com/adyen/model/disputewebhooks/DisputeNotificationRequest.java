@@ -13,7 +13,6 @@
 package com.adyen.model.disputewebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.disputewebhooks.DisputeEventNotification;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,9 +42,9 @@ public class DisputeNotificationRequest {
    * Type of webhook.
    */
   public enum TypeEnum {
-    CREATED("balancePlatform.dispute.created"),
+    BALANCEPLATFORM_DISPUTE_CREATED(String.valueOf("balancePlatform.dispute.created")),
     
-    UPDATED("balancePlatform.dispute.updated");
+    BALANCEPLATFORM_DISPUTE_UPDATED(String.valueOf("balancePlatform.dispute.updated"));
 
     private String value;
 
@@ -84,7 +82,7 @@ public class DisputeNotificationRequest {
   /**
    * data
    *
-   * @param data
+   * @param data 
    * @return the current {@code DisputeNotificationRequest} instance, allowing for method chaining
    */
   public DisputeNotificationRequest data(DisputeEventNotification data) {
@@ -93,10 +91,9 @@ public class DisputeNotificationRequest {
   }
 
   /**
-   * data
-   * @return data
+   * Get data
+   * @return data 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DisputeEventNotification getData() {
@@ -106,8 +103,8 @@ public class DisputeNotificationRequest {
   /**
    * data
    *
-   * @param data
-   */ 
+   * @param data 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(DisputeEventNotification data) {
@@ -117,7 +114,7 @@ public class DisputeNotificationRequest {
   /**
    * Type of webhook.
    *
-   * @param type
+   * @param type Type of webhook.
    * @return the current {@code DisputeNotificationRequest} instance, allowing for method chaining
    */
   public DisputeNotificationRequest type(TypeEnum type) {
@@ -127,9 +124,8 @@ public class DisputeNotificationRequest {
 
   /**
    * Type of webhook.
-   * @return type
+   * @return type Type of webhook.
    */
-  @ApiModelProperty(required = true, value = "Type of webhook.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -139,8 +135,8 @@ public class DisputeNotificationRequest {
   /**
    * Type of webhook.
    *
-   * @param type
-   */ 
+   * @param type Type of webhook.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
