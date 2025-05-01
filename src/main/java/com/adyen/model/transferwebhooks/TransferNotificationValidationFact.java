@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class TransferNotificationValidationFact {
   /**
    * The evaluation result of the validation fact.
    *
-   * @param result
+   * @param result The evaluation result of the validation fact.
    * @return the current {@code TransferNotificationValidationFact} instance, allowing for method chaining
    */
   public TransferNotificationValidationFact result(String result) {
@@ -58,9 +56,8 @@ public class TransferNotificationValidationFact {
 
   /**
    * The evaluation result of the validation fact.
-   * @return result
+   * @return result The evaluation result of the validation fact.
    */
-  @ApiModelProperty(value = "The evaluation result of the validation fact.")
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResult() {
@@ -70,8 +67,8 @@ public class TransferNotificationValidationFact {
   /**
    * The evaluation result of the validation fact.
    *
-   * @param result
-   */ 
+   * @param result The evaluation result of the validation fact.
+   */
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
@@ -81,7 +78,7 @@ public class TransferNotificationValidationFact {
   /**
    * The type of the validation fact.
    *
-   * @param type
+   * @param type The type of the validation fact.
    * @return the current {@code TransferNotificationValidationFact} instance, allowing for method chaining
    */
   public TransferNotificationValidationFact type(String type) {
@@ -91,9 +88,8 @@ public class TransferNotificationValidationFact {
 
   /**
    * The type of the validation fact.
-   * @return type
+   * @return type The type of the validation fact.
    */
-  @ApiModelProperty(value = "The type of the validation fact.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -103,8 +99,8 @@ public class TransferNotificationValidationFact {
   /**
    * The type of the validation fact.
    *
-   * @param type
-   */ 
+   * @param type The type of the validation fact.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

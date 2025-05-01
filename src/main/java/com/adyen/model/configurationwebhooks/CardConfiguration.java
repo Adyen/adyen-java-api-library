@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.BulkAddress;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -97,7 +95,7 @@ public class CardConfiguration {
   /**
    * Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The activation label is attached to the card and contains the activation instructions.
    *
-   * @param activation
+   * @param activation Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The activation label is attached to the card and contains the activation instructions.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration activation(String activation) {
@@ -107,9 +105,8 @@ public class CardConfiguration {
 
   /**
    * Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The activation label is attached to the card and contains the activation instructions.
-   * @return activation
+   * @return activation Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The activation label is attached to the card and contains the activation instructions.
    */
-  @ApiModelProperty(value = "Overrides the activation label design ID defined in the `configurationProfileId`. The activation label is attached to the card and contains the activation instructions.")
   @JsonProperty(JSON_PROPERTY_ACTIVATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getActivation() {
@@ -119,8 +116,8 @@ public class CardConfiguration {
   /**
    * Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The activation label is attached to the card and contains the activation instructions.
    *
-   * @param activation
-   */ 
+   * @param activation Overrides the activation label design ID defined in the &#x60;configurationProfileId&#x60;. The activation label is attached to the card and contains the activation instructions.
+   */
   @JsonProperty(JSON_PROPERTY_ACTIVATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActivation(String activation) {
@@ -130,7 +127,7 @@ public class CardConfiguration {
   /**
    * Your app&#39;s URL, if you want to activate cards through your app. For example, **my-app://ref1236a7d**. A QR code is created based on this URL, and is included in the carrier. Before you use this field, reach out to your Adyen contact to set up the QR code process.   Maximum length: 255 characters.
    *
-   * @param activationUrl
+   * @param activationUrl Your app&#39;s URL, if you want to activate cards through your app. For example, **my-app://ref1236a7d**. A QR code is created based on this URL, and is included in the carrier. Before you use this field, reach out to your Adyen contact to set up the QR code process.   Maximum length: 255 characters.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration activationUrl(String activationUrl) {
@@ -140,9 +137,8 @@ public class CardConfiguration {
 
   /**
    * Your app&#39;s URL, if you want to activate cards through your app. For example, **my-app://ref1236a7d**. A QR code is created based on this URL, and is included in the carrier. Before you use this field, reach out to your Adyen contact to set up the QR code process.   Maximum length: 255 characters.
-   * @return activationUrl
+   * @return activationUrl Your app&#39;s URL, if you want to activate cards through your app. For example, **my-app://ref1236a7d**. A QR code is created based on this URL, and is included in the carrier. Before you use this field, reach out to your Adyen contact to set up the QR code process.   Maximum length: 255 characters.
    */
-  @ApiModelProperty(value = "Your app's URL, if you want to activate cards through your app. For example, **my-app://ref1236a7d**. A QR code is created based on this URL, and is included in the carrier. Before you use this field, reach out to your Adyen contact to set up the QR code process.   Maximum length: 255 characters.")
   @JsonProperty(JSON_PROPERTY_ACTIVATION_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getActivationUrl() {
@@ -152,8 +148,8 @@ public class CardConfiguration {
   /**
    * Your app&#39;s URL, if you want to activate cards through your app. For example, **my-app://ref1236a7d**. A QR code is created based on this URL, and is included in the carrier. Before you use this field, reach out to your Adyen contact to set up the QR code process.   Maximum length: 255 characters.
    *
-   * @param activationUrl
-   */ 
+   * @param activationUrl Your app&#39;s URL, if you want to activate cards through your app. For example, **my-app://ref1236a7d**. A QR code is created based on this URL, and is included in the carrier. Before you use this field, reach out to your Adyen contact to set up the QR code process.   Maximum length: 255 characters.
+   */
   @JsonProperty(JSON_PROPERTY_ACTIVATION_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActivationUrl(String activationUrl) {
@@ -163,7 +159,7 @@ public class CardConfiguration {
   /**
    * bulkAddress
    *
-   * @param bulkAddress
+   * @param bulkAddress 
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration bulkAddress(BulkAddress bulkAddress) {
@@ -172,10 +168,9 @@ public class CardConfiguration {
   }
 
   /**
-   * bulkAddress
-   * @return bulkAddress
+   * Get bulkAddress
+   * @return bulkAddress 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BULK_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BulkAddress getBulkAddress() {
@@ -185,8 +180,8 @@ public class CardConfiguration {
   /**
    * bulkAddress
    *
-   * @param bulkAddress
-   */ 
+   * @param bulkAddress 
+   */
   @JsonProperty(JSON_PROPERTY_BULK_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBulkAddress(BulkAddress bulkAddress) {
@@ -196,7 +191,7 @@ public class CardConfiguration {
   /**
    * The ID of the card image. This is the image that will be printed on the full front of the card.
    *
-   * @param cardImageId
+   * @param cardImageId The ID of the card image. This is the image that will be printed on the full front of the card.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration cardImageId(String cardImageId) {
@@ -206,9 +201,8 @@ public class CardConfiguration {
 
   /**
    * The ID of the card image. This is the image that will be printed on the full front of the card.
-   * @return cardImageId
+   * @return cardImageId The ID of the card image. This is the image that will be printed on the full front of the card.
    */
-  @ApiModelProperty(value = "The ID of the card image. This is the image that will be printed on the full front of the card.")
   @JsonProperty(JSON_PROPERTY_CARD_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCardImageId() {
@@ -218,8 +212,8 @@ public class CardConfiguration {
   /**
    * The ID of the card image. This is the image that will be printed on the full front of the card.
    *
-   * @param cardImageId
-   */ 
+   * @param cardImageId The ID of the card image. This is the image that will be printed on the full front of the card.
+   */
   @JsonProperty(JSON_PROPERTY_CARD_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardImageId(String cardImageId) {
@@ -229,7 +223,7 @@ public class CardConfiguration {
   /**
    * Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the card is attached.
    *
-   * @param carrier
+   * @param carrier Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the card is attached.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration carrier(String carrier) {
@@ -239,9 +233,8 @@ public class CardConfiguration {
 
   /**
    * Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the card is attached.
-   * @return carrier
+   * @return carrier Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the card is attached.
    */
-  @ApiModelProperty(value = "Overrides the carrier design ID defined in the `configurationProfileId`. The carrier is the letter or packaging to which the card is attached.")
   @JsonProperty(JSON_PROPERTY_CARRIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCarrier() {
@@ -251,8 +244,8 @@ public class CardConfiguration {
   /**
    * Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the card is attached.
    *
-   * @param carrier
-   */ 
+   * @param carrier Overrides the carrier design ID defined in the &#x60;configurationProfileId&#x60;. The carrier is the letter or packaging to which the card is attached.
+   */
   @JsonProperty(JSON_PROPERTY_CARRIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarrier(String carrier) {
@@ -262,7 +255,7 @@ public class CardConfiguration {
   /**
    * The ID of the carrier image. This is the image that will printed on the letter to which the card is attached.
    *
-   * @param carrierImageId
+   * @param carrierImageId The ID of the carrier image. This is the image that will printed on the letter to which the card is attached.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration carrierImageId(String carrierImageId) {
@@ -272,9 +265,8 @@ public class CardConfiguration {
 
   /**
    * The ID of the carrier image. This is the image that will printed on the letter to which the card is attached.
-   * @return carrierImageId
+   * @return carrierImageId The ID of the carrier image. This is the image that will printed on the letter to which the card is attached.
    */
-  @ApiModelProperty(value = "The ID of the carrier image. This is the image that will printed on the letter to which the card is attached.")
   @JsonProperty(JSON_PROPERTY_CARRIER_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCarrierImageId() {
@@ -284,8 +276,8 @@ public class CardConfiguration {
   /**
    * The ID of the carrier image. This is the image that will printed on the letter to which the card is attached.
    *
-   * @param carrierImageId
-   */ 
+   * @param carrierImageId The ID of the carrier image. This is the image that will printed on the letter to which the card is attached.
+   */
   @JsonProperty(JSON_PROPERTY_CARRIER_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCarrierImageId(String carrierImageId) {
@@ -295,7 +287,7 @@ public class CardConfiguration {
   /**
    * The ID of the card configuration profile that contains the settings of the card. For example, the envelope and PIN mailer designs or the logistics company handling the shipment. All the settings in the profile are applied to the card, unless you provide other fields to override them.  For example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the card configuration profile.
    *
-   * @param configurationProfileId
+   * @param configurationProfileId The ID of the card configuration profile that contains the settings of the card. For example, the envelope and PIN mailer designs or the logistics company handling the shipment. All the settings in the profile are applied to the card, unless you provide other fields to override them.  For example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the card configuration profile.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration configurationProfileId(String configurationProfileId) {
@@ -305,9 +297,8 @@ public class CardConfiguration {
 
   /**
    * The ID of the card configuration profile that contains the settings of the card. For example, the envelope and PIN mailer designs or the logistics company handling the shipment. All the settings in the profile are applied to the card, unless you provide other fields to override them.  For example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the card configuration profile.
-   * @return configurationProfileId
+   * @return configurationProfileId The ID of the card configuration profile that contains the settings of the card. For example, the envelope and PIN mailer designs or the logistics company handling the shipment. All the settings in the profile are applied to the card, unless you provide other fields to override them.  For example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the card configuration profile.
    */
-  @ApiModelProperty(required = true, value = "The ID of the card configuration profile that contains the settings of the card. For example, the envelope and PIN mailer designs or the logistics company handling the shipment. All the settings in the profile are applied to the card, unless you provide other fields to override them.  For example, send the `shipmentMethod` to override the logistics company defined in the card configuration profile.")
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getConfigurationProfileId() {
@@ -317,8 +308,8 @@ public class CardConfiguration {
   /**
    * The ID of the card configuration profile that contains the settings of the card. For example, the envelope and PIN mailer designs or the logistics company handling the shipment. All the settings in the profile are applied to the card, unless you provide other fields to override them.  For example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the card configuration profile.
    *
-   * @param configurationProfileId
-   */ 
+   * @param configurationProfileId The ID of the card configuration profile that contains the settings of the card. For example, the envelope and PIN mailer designs or the logistics company handling the shipment. All the settings in the profile are applied to the card, unless you provide other fields to override them.  For example, send the &#x60;shipmentMethod&#x60; to override the logistics company defined in the card configuration profile.
+   */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConfigurationProfileId(String configurationProfileId) {
@@ -328,7 +319,7 @@ public class CardConfiguration {
   /**
    * The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card. For example, **EUR**.
    *
-   * @param currency
+   * @param currency The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card. For example, **EUR**.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration currency(String currency) {
@@ -338,9 +329,8 @@ public class CardConfiguration {
 
   /**
    * The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card. For example, **EUR**.
-   * @return currency
+   * @return currency The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card. For example, **EUR**.
    */
-  @ApiModelProperty(value = "The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card. For example, **EUR**.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -350,8 +340,8 @@ public class CardConfiguration {
   /**
    * The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card. For example, **EUR**.
    *
-   * @param currency
-   */ 
+   * @param currency The three-letter [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of the card. For example, **EUR**.
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -361,7 +351,7 @@ public class CardConfiguration {
   /**
    * Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;. 
    *
-   * @param envelope
+   * @param envelope Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;. 
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration envelope(String envelope) {
@@ -371,9 +361,8 @@ public class CardConfiguration {
 
   /**
    * Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;. 
-   * @return envelope
+   * @return envelope Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;. 
    */
-  @ApiModelProperty(value = "Overrides the envelope design ID defined in the `configurationProfileId`. ")
   @JsonProperty(JSON_PROPERTY_ENVELOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnvelope() {
@@ -383,8 +372,8 @@ public class CardConfiguration {
   /**
    * Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;. 
    *
-   * @param envelope
-   */ 
+   * @param envelope Overrides the envelope design ID defined in the &#x60;configurationProfileId&#x60;. 
+   */
   @JsonProperty(JSON_PROPERTY_ENVELOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvelope(String envelope) {
@@ -394,7 +383,7 @@ public class CardConfiguration {
   /**
    * Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is any additional material, such as marketing materials, that are shipped together with the card.
    *
-   * @param insert
+   * @param insert Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is any additional material, such as marketing materials, that are shipped together with the card.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration insert(String insert) {
@@ -404,9 +393,8 @@ public class CardConfiguration {
 
   /**
    * Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is any additional material, such as marketing materials, that are shipped together with the card.
-   * @return insert
+   * @return insert Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is any additional material, such as marketing materials, that are shipped together with the card.
    */
-  @ApiModelProperty(value = "Overrides the insert design ID defined in the `configurationProfileId`. An insert is any additional material, such as marketing materials, that are shipped together with the card.")
   @JsonProperty(JSON_PROPERTY_INSERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInsert() {
@@ -416,8 +404,8 @@ public class CardConfiguration {
   /**
    * Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is any additional material, such as marketing materials, that are shipped together with the card.
    *
-   * @param insert
-   */ 
+   * @param insert Overrides the insert design ID defined in the &#x60;configurationProfileId&#x60;. An insert is any additional material, such as marketing materials, that are shipped together with the card.
+   */
   @JsonProperty(JSON_PROPERTY_INSERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInsert(String insert) {
@@ -427,7 +415,7 @@ public class CardConfiguration {
   /**
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code of the card. For example, **en**.
    *
-   * @param language
+   * @param language The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code of the card. For example, **en**.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration language(String language) {
@@ -437,9 +425,8 @@ public class CardConfiguration {
 
   /**
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code of the card. For example, **en**.
-   * @return language
+   * @return language The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code of the card. For example, **en**.
    */
-  @ApiModelProperty(value = "The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code of the card. For example, **en**.")
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLanguage() {
@@ -449,8 +436,8 @@ public class CardConfiguration {
   /**
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code of the card. For example, **en**.
    *
-   * @param language
-   */ 
+   * @param language The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code of the card. For example, **en**.
+   */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLanguage(String language) {
@@ -460,7 +447,7 @@ public class CardConfiguration {
   /**
    * The ID of the logo image. This is the image that will be printed on the partial front of the card, such as a logo on the upper right corner.
    *
-   * @param logoImageId
+   * @param logoImageId The ID of the logo image. This is the image that will be printed on the partial front of the card, such as a logo on the upper right corner.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration logoImageId(String logoImageId) {
@@ -470,9 +457,8 @@ public class CardConfiguration {
 
   /**
    * The ID of the logo image. This is the image that will be printed on the partial front of the card, such as a logo on the upper right corner.
-   * @return logoImageId
+   * @return logoImageId The ID of the logo image. This is the image that will be printed on the partial front of the card, such as a logo on the upper right corner.
    */
-  @ApiModelProperty(value = "The ID of the logo image. This is the image that will be printed on the partial front of the card, such as a logo on the upper right corner.")
   @JsonProperty(JSON_PROPERTY_LOGO_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogoImageId() {
@@ -482,8 +468,8 @@ public class CardConfiguration {
   /**
    * The ID of the logo image. This is the image that will be printed on the partial front of the card, such as a logo on the upper right corner.
    *
-   * @param logoImageId
-   */ 
+   * @param logoImageId The ID of the logo image. This is the image that will be printed on the partial front of the card, such as a logo on the upper right corner.
+   */
   @JsonProperty(JSON_PROPERTY_LOGO_IMAGE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogoImageId(String logoImageId) {
@@ -493,7 +479,7 @@ public class CardConfiguration {
   /**
    * Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is printed.
    *
-   * @param pinMailer
+   * @param pinMailer Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is printed.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration pinMailer(String pinMailer) {
@@ -503,9 +489,8 @@ public class CardConfiguration {
 
   /**
    * Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is printed.
-   * @return pinMailer
+   * @return pinMailer Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is printed.
    */
-  @ApiModelProperty(value = "Overrides the PIN mailer design ID defined in the `configurationProfileId`. The PIN mailer is the letter on which the PIN is printed.")
   @JsonProperty(JSON_PROPERTY_PIN_MAILER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPinMailer() {
@@ -515,8 +500,8 @@ public class CardConfiguration {
   /**
    * Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is printed.
    *
-   * @param pinMailer
-   */ 
+   * @param pinMailer Overrides the PIN mailer design ID defined in the &#x60;configurationProfileId&#x60;. The PIN mailer is the letter on which the PIN is printed.
+   */
   @JsonProperty(JSON_PROPERTY_PIN_MAILER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPinMailer(String pinMailer) {
@@ -526,7 +511,7 @@ public class CardConfiguration {
   /**
    * Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
    *
-   * @param shipmentMethod
+   * @param shipmentMethod Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
    * @return the current {@code CardConfiguration} instance, allowing for method chaining
    */
   public CardConfiguration shipmentMethod(String shipmentMethod) {
@@ -536,9 +521,8 @@ public class CardConfiguration {
 
   /**
    * Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
-   * @return shipmentMethod
+   * @return shipmentMethod Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
    */
-  @ApiModelProperty(value = "Overrides the logistics company defined in the `configurationProfileId`.")
   @JsonProperty(JSON_PROPERTY_SHIPMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShipmentMethod() {
@@ -548,8 +532,8 @@ public class CardConfiguration {
   /**
    * Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
    *
-   * @param shipmentMethod
-   */ 
+   * @param shipmentMethod Overrides the logistics company defined in the &#x60;configurationProfileId&#x60;.
+   */
   @JsonProperty(JSON_PROPERTY_SHIPMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShipmentMethod(String shipmentMethod) {

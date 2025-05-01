@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,7 +41,7 @@ public class IbanAccountIdentification {
    * **iban**
    */
   public enum TypeEnum {
-    IBAN("iban");
+    IBAN(String.valueOf("iban"));
 
     private String value;
 
@@ -73,7 +71,7 @@ public class IbanAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.IBAN;
 
   public IbanAccountIdentification() { 
   }
@@ -81,7 +79,7 @@ public class IbanAccountIdentification {
   /**
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    *
-   * @param iban
+   * @param iban The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    * @return the current {@code IbanAccountIdentification} instance, allowing for method chaining
    */
   public IbanAccountIdentification iban(String iban) {
@@ -91,9 +89,8 @@ public class IbanAccountIdentification {
 
   /**
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
-   * @return iban
+   * @return iban The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    */
-  @ApiModelProperty(required = true, value = "The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.")
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIban() {
@@ -103,8 +100,8 @@ public class IbanAccountIdentification {
   /**
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    *
-   * @param iban
-   */ 
+   * @param iban The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
+   */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
@@ -114,7 +111,7 @@ public class IbanAccountIdentification {
   /**
    * **iban**
    *
-   * @param type
+   * @param type **iban**
    * @return the current {@code IbanAccountIdentification} instance, allowing for method chaining
    */
   public IbanAccountIdentification type(TypeEnum type) {
@@ -124,9 +121,8 @@ public class IbanAccountIdentification {
 
   /**
    * **iban**
-   * @return type
+   * @return type **iban**
    */
-  @ApiModelProperty(required = true, value = "**iban**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -136,8 +132,8 @@ public class IbanAccountIdentification {
   /**
    * **iban**
    *
-   * @param type
-   */ 
+   * @param type **iban**
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

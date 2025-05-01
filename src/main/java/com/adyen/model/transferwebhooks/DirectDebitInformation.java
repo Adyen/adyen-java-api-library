@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -57,7 +55,7 @@ public class DirectDebitInformation {
   /**
    * The date when the direct debit mandate was accepted by your user, in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format.
    *
-   * @param dateOfSignature
+   * @param dateOfSignature The date when the direct debit mandate was accepted by your user, in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format.
    * @return the current {@code DirectDebitInformation} instance, allowing for method chaining
    */
   public DirectDebitInformation dateOfSignature(OffsetDateTime dateOfSignature) {
@@ -67,9 +65,8 @@ public class DirectDebitInformation {
 
   /**
    * The date when the direct debit mandate was accepted by your user, in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format.
-   * @return dateOfSignature
+   * @return dateOfSignature The date when the direct debit mandate was accepted by your user, in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format.
    */
-  @ApiModelProperty(value = "The date when the direct debit mandate was accepted by your user, in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDateOfSignature() {
@@ -79,8 +76,8 @@ public class DirectDebitInformation {
   /**
    * The date when the direct debit mandate was accepted by your user, in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format.
    *
-   * @param dateOfSignature
-   */ 
+   * @param dateOfSignature The date when the direct debit mandate was accepted by your user, in [ISO-8601](https://www.w3.org/TR/NOTE-datetime) format.
+   */
   @JsonProperty(JSON_PROPERTY_DATE_OF_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfSignature(OffsetDateTime dateOfSignature) {
@@ -90,7 +87,7 @@ public class DirectDebitInformation {
   /**
    * The date when the funds are deducted from your user&#39;s balance account.
    *
-   * @param dueDate
+   * @param dueDate The date when the funds are deducted from your user&#39;s balance account.
    * @return the current {@code DirectDebitInformation} instance, allowing for method chaining
    */
   public DirectDebitInformation dueDate(OffsetDateTime dueDate) {
@@ -100,9 +97,8 @@ public class DirectDebitInformation {
 
   /**
    * The date when the funds are deducted from your user&#39;s balance account.
-   * @return dueDate
+   * @return dueDate The date when the funds are deducted from your user&#39;s balance account.
    */
-  @ApiModelProperty(value = "The date when the funds are deducted from your user's balance account.")
   @JsonProperty(JSON_PROPERTY_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getDueDate() {
@@ -112,8 +108,8 @@ public class DirectDebitInformation {
   /**
    * The date when the funds are deducted from your user&#39;s balance account.
    *
-   * @param dueDate
-   */ 
+   * @param dueDate The date when the funds are deducted from your user&#39;s balance account.
+   */
   @JsonProperty(JSON_PROPERTY_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDueDate(OffsetDateTime dueDate) {
@@ -123,7 +119,7 @@ public class DirectDebitInformation {
   /**
    * Your unique identifier for the direct debit mandate.
    *
-   * @param mandateId
+   * @param mandateId Your unique identifier for the direct debit mandate.
    * @return the current {@code DirectDebitInformation} instance, allowing for method chaining
    */
   public DirectDebitInformation mandateId(String mandateId) {
@@ -133,9 +129,8 @@ public class DirectDebitInformation {
 
   /**
    * Your unique identifier for the direct debit mandate.
-   * @return mandateId
+   * @return mandateId Your unique identifier for the direct debit mandate.
    */
-  @ApiModelProperty(value = "Your unique identifier for the direct debit mandate.")
   @JsonProperty(JSON_PROPERTY_MANDATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMandateId() {
@@ -145,8 +140,8 @@ public class DirectDebitInformation {
   /**
    * Your unique identifier for the direct debit mandate.
    *
-   * @param mandateId
-   */ 
+   * @param mandateId Your unique identifier for the direct debit mandate.
+   */
   @JsonProperty(JSON_PROPERTY_MANDATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMandateId(String mandateId) {
@@ -156,7 +151,7 @@ public class DirectDebitInformation {
   /**
    * Identifies the direct debit transfer&#39;s type. Possible values: **OneOff**, **First**, **Recurring**, **Final**.
    *
-   * @param sequenceType
+   * @param sequenceType Identifies the direct debit transfer&#39;s type. Possible values: **OneOff**, **First**, **Recurring**, **Final**.
    * @return the current {@code DirectDebitInformation} instance, allowing for method chaining
    */
   public DirectDebitInformation sequenceType(String sequenceType) {
@@ -166,9 +161,8 @@ public class DirectDebitInformation {
 
   /**
    * Identifies the direct debit transfer&#39;s type. Possible values: **OneOff**, **First**, **Recurring**, **Final**.
-   * @return sequenceType
+   * @return sequenceType Identifies the direct debit transfer&#39;s type. Possible values: **OneOff**, **First**, **Recurring**, **Final**.
    */
-  @ApiModelProperty(value = "Identifies the direct debit transfer's type. Possible values: **OneOff**, **First**, **Recurring**, **Final**.")
   @JsonProperty(JSON_PROPERTY_SEQUENCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSequenceType() {
@@ -178,8 +172,8 @@ public class DirectDebitInformation {
   /**
    * Identifies the direct debit transfer&#39;s type. Possible values: **OneOff**, **First**, **Recurring**, **Final**.
    *
-   * @param sequenceType
-   */ 
+   * @param sequenceType Identifies the direct debit transfer&#39;s type. Possible values: **OneOff**, **First**, **Recurring**, **Final**.
+   */
   @JsonProperty(JSON_PROPERTY_SEQUENCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSequenceType(String sequenceType) {

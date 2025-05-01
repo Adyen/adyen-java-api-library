@@ -58,7 +58,7 @@ public class ServiceError {
   /**
    * The error code mapped to the error message.
    *
-   * @param errorCode
+   * @param errorCode The error code mapped to the error message.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError errorCode(String errorCode) {
@@ -68,7 +68,7 @@ public class ServiceError {
 
   /**
    * The error code mapped to the error message.
-   * @return errorCode
+   * @return errorCode The error code mapped to the error message.
    */
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class ServiceError {
   /**
    * The error code mapped to the error message.
    *
-   * @param errorCode
+   * @param errorCode The error code mapped to the error message.
    */
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +90,7 @@ public class ServiceError {
   /**
    * The category of the error.
    *
-   * @param errorType
+   * @param errorType The category of the error.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError errorType(String errorType) {
@@ -100,7 +100,7 @@ public class ServiceError {
 
   /**
    * The category of the error.
-   * @return errorType
+   * @return errorType The category of the error.
    */
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class ServiceError {
   /**
    * The category of the error.
    *
-   * @param errorType
+   * @param errorType The category of the error.
    */
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class ServiceError {
   /**
    * A short explanation of the issue.
    *
-   * @param message
+   * @param message A short explanation of the issue.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError message(String message) {
@@ -132,7 +132,7 @@ public class ServiceError {
 
   /**
    * A short explanation of the issue.
-   * @return message
+   * @return message A short explanation of the issue.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class ServiceError {
   /**
    * A short explanation of the issue.
    *
-   * @param message
+   * @param message A short explanation of the issue.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class ServiceError {
   /**
    * The PSP reference of the payment.
    *
-   * @param pspReference
+   * @param pspReference The PSP reference of the payment.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError pspReference(String pspReference) {
@@ -164,7 +164,7 @@ public class ServiceError {
 
   /**
    * The PSP reference of the payment.
-   * @return pspReference
+   * @return pspReference The PSP reference of the payment.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class ServiceError {
   /**
    * The PSP reference of the payment.
    *
-   * @param pspReference
+   * @param pspReference The PSP reference of the payment.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class ServiceError {
   /**
    * The HTTP response status.
    *
-   * @param status
+   * @param status The HTTP response status.
    * @return the current {@code ServiceError} instance, allowing for method chaining
    */
   public ServiceError status(Integer status) {
@@ -196,7 +196,7 @@ public class ServiceError {
 
   /**
    * The HTTP response status.
-   * @return status
+   * @return status The HTTP response status.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class ServiceError {
   /**
    * The HTTP response status.
    *
-   * @param status
+   * @param status The HTTP response status.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

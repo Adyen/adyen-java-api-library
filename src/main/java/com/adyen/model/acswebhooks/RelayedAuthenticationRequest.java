@@ -51,7 +51,7 @@ public class RelayedAuthenticationRequest {
   /**
    * The unique identifier of the challenge.
    *
-   * @param id
+   * @param id The unique identifier of the challenge.
    * @return the current {@code RelayedAuthenticationRequest} instance, allowing for method chaining
    */
   public RelayedAuthenticationRequest id(String id) {
@@ -61,7 +61,7 @@ public class RelayedAuthenticationRequest {
 
   /**
    * The unique identifier of the challenge.
-   * @return id
+   * @return id The unique identifier of the challenge.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,7 +72,7 @@ public class RelayedAuthenticationRequest {
   /**
    * The unique identifier of the challenge.
    *
-   * @param id
+   * @param id The unique identifier of the challenge.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class RelayedAuthenticationRequest {
   /**
    * The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_) used for the purchase.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_) used for the purchase.
    * @return the current {@code RelayedAuthenticationRequest} instance, allowing for method chaining
    */
   public RelayedAuthenticationRequest paymentInstrumentId(String paymentInstrumentId) {
@@ -93,7 +93,7 @@ public class RelayedAuthenticationRequest {
 
   /**
    * The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_) used for the purchase.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_) used for the purchase.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class RelayedAuthenticationRequest {
   /**
    * The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_) used for the purchase.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_) used for the purchase.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class RelayedAuthenticationRequest {
   /**
    * purchase
    *
-   * @param purchase
+   * @param purchase 
    * @return the current {@code RelayedAuthenticationRequest} instance, allowing for method chaining
    */
   public RelayedAuthenticationRequest purchase(Purchase purchase) {
@@ -125,7 +125,7 @@ public class RelayedAuthenticationRequest {
 
   /**
    * Get purchase
-   * @return purchase
+   * @return purchase 
    */
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class RelayedAuthenticationRequest {
   /**
    * purchase
    *
-   * @param purchase
+   * @param purchase 
    */
   @JsonProperty(JSON_PROPERTY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

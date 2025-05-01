@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.Address;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,7 @@ public class ContactDetails {
   /**
    * address
    *
-   * @param address
+   * @param address 
    * @return the current {@code ContactDetails} instance, allowing for method chaining
    */
   public ContactDetails address(Address address) {
@@ -69,10 +67,9 @@ public class ContactDetails {
   }
 
   /**
-   * address
-   * @return address
+   * Get address
+   * @return address 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getAddress() {
@@ -82,8 +79,8 @@ public class ContactDetails {
   /**
    * address
    *
-   * @param address
-   */ 
+   * @param address 
+   */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -93,7 +90,7 @@ public class ContactDetails {
   /**
    * The email address of the account holder.
    *
-   * @param email
+   * @param email The email address of the account holder.
    * @return the current {@code ContactDetails} instance, allowing for method chaining
    */
   public ContactDetails email(String email) {
@@ -103,9 +100,8 @@ public class ContactDetails {
 
   /**
    * The email address of the account holder.
-   * @return email
+   * @return email The email address of the account holder.
    */
-  @ApiModelProperty(required = true, value = "The email address of the account holder.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -115,8 +111,8 @@ public class ContactDetails {
   /**
    * The email address of the account holder.
    *
-   * @param email
-   */ 
+   * @param email The email address of the account holder.
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -126,7 +122,7 @@ public class ContactDetails {
   /**
    * phone
    *
-   * @param phone
+   * @param phone 
    * @return the current {@code ContactDetails} instance, allowing for method chaining
    */
   public ContactDetails phone(Phone phone) {
@@ -135,10 +131,9 @@ public class ContactDetails {
   }
 
   /**
-   * phone
-   * @return phone
+   * Get phone
+   * @return phone 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Phone getPhone() {
@@ -148,8 +143,8 @@ public class ContactDetails {
   /**
    * phone
    *
-   * @param phone
-   */ 
+   * @param phone 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(Phone phone) {
@@ -159,7 +154,7 @@ public class ContactDetails {
   /**
    * The URL of the account holder&#39;s website.
    *
-   * @param webAddress
+   * @param webAddress The URL of the account holder&#39;s website.
    * @return the current {@code ContactDetails} instance, allowing for method chaining
    */
   public ContactDetails webAddress(String webAddress) {
@@ -169,9 +164,8 @@ public class ContactDetails {
 
   /**
    * The URL of the account holder&#39;s website.
-   * @return webAddress
+   * @return webAddress The URL of the account holder&#39;s website.
    */
-  @ApiModelProperty(value = "The URL of the account holder's website.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWebAddress() {
@@ -181,8 +175,8 @@ public class ContactDetails {
   /**
    * The URL of the account holder&#39;s website.
    *
-   * @param webAddress
-   */ 
+   * @param webAddress The URL of the account holder&#39;s website.
+   */
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {

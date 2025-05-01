@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class ExternalReason {
   /**
    * The reason code.
    *
-   * @param code
+   * @param code The reason code.
    * @return the current {@code ExternalReason} instance, allowing for method chaining
    */
   public ExternalReason code(String code) {
@@ -62,9 +60,8 @@ public class ExternalReason {
 
   /**
    * The reason code.
-   * @return code
+   * @return code The reason code.
    */
-  @ApiModelProperty(value = "The reason code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -74,8 +71,8 @@ public class ExternalReason {
   /**
    * The reason code.
    *
-   * @param code
-   */ 
+   * @param code The reason code.
+   */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
@@ -85,7 +82,7 @@ public class ExternalReason {
   /**
    * The description of the reason code.
    *
-   * @param description
+   * @param description The description of the reason code.
    * @return the current {@code ExternalReason} instance, allowing for method chaining
    */
   public ExternalReason description(String description) {
@@ -95,9 +92,8 @@ public class ExternalReason {
 
   /**
    * The description of the reason code.
-   * @return description
+   * @return description The description of the reason code.
    */
-  @ApiModelProperty(value = "The description of the reason code.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -107,8 +103,8 @@ public class ExternalReason {
   /**
    * The description of the reason code.
    *
-   * @param description
-   */ 
+   * @param description The description of the reason code.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -118,7 +114,7 @@ public class ExternalReason {
   /**
    * The namespace for the reason code.
    *
-   * @param namespace
+   * @param namespace The namespace for the reason code.
    * @return the current {@code ExternalReason} instance, allowing for method chaining
    */
   public ExternalReason namespace(String namespace) {
@@ -128,9 +124,8 @@ public class ExternalReason {
 
   /**
    * The namespace for the reason code.
-   * @return namespace
+   * @return namespace The namespace for the reason code.
    */
-  @ApiModelProperty(value = "The namespace for the reason code.")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNamespace() {
@@ -140,8 +135,8 @@ public class ExternalReason {
   /**
    * The namespace for the reason code.
    *
-   * @param namespace
-   */ 
+   * @param namespace The namespace for the reason code.
+   */
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNamespace(String namespace) {

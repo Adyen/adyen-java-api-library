@@ -51,7 +51,7 @@ public class PurchaseInfo {
   /**
    * Date of the purchase.
    *
-   * @param date
+   * @param date Date of the purchase.
    * @return the current {@code PurchaseInfo} instance, allowing for method chaining
    */
   public PurchaseInfo date(String date) {
@@ -61,7 +61,7 @@ public class PurchaseInfo {
 
   /**
    * Date of the purchase.
-   * @return date
+   * @return date Date of the purchase.
    */
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,7 +72,7 @@ public class PurchaseInfo {
   /**
    * Date of the purchase.
    *
-   * @param date
+   * @param date Date of the purchase.
    */
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class PurchaseInfo {
   /**
    * Name of the merchant.
    *
-   * @param merchantName
+   * @param merchantName Name of the merchant.
    * @return the current {@code PurchaseInfo} instance, allowing for method chaining
    */
   public PurchaseInfo merchantName(String merchantName) {
@@ -93,7 +93,7 @@ public class PurchaseInfo {
 
   /**
    * Name of the merchant.
-   * @return merchantName
+   * @return merchantName Name of the merchant.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class PurchaseInfo {
   /**
    * Name of the merchant.
    *
-   * @param merchantName
+   * @param merchantName Name of the merchant.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class PurchaseInfo {
   /**
    * originalAmount
    *
-   * @param originalAmount
+   * @param originalAmount 
    * @return the current {@code PurchaseInfo} instance, allowing for method chaining
    */
   public PurchaseInfo originalAmount(Amount originalAmount) {
@@ -125,7 +125,7 @@ public class PurchaseInfo {
 
   /**
    * Get originalAmount
-   * @return originalAmount
+   * @return originalAmount 
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class PurchaseInfo {
   /**
    * originalAmount
    *
-   * @param originalAmount
+   * @param originalAmount 
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

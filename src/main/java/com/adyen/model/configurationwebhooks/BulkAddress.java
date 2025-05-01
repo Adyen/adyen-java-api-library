@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -76,7 +74,7 @@ public class BulkAddress {
   /**
    * The name of the city.
    *
-   * @param city
+   * @param city The name of the city.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress city(String city) {
@@ -86,9 +84,8 @@ public class BulkAddress {
 
   /**
    * The name of the city.
-   * @return city
+   * @return city The name of the city.
    */
-  @ApiModelProperty(value = "The name of the city.")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCity() {
@@ -98,8 +95,8 @@ public class BulkAddress {
   /**
    * The name of the city.
    *
-   * @param city
-   */ 
+   * @param city The name of the city.
+   */
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
@@ -109,7 +106,7 @@ public class BulkAddress {
   /**
    * The name of the company.
    *
-   * @param company
+   * @param company The name of the company.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress company(String company) {
@@ -119,9 +116,8 @@ public class BulkAddress {
 
   /**
    * The name of the company.
-   * @return company
+   * @return company The name of the company.
    */
-  @ApiModelProperty(value = "The name of the company.")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompany() {
@@ -131,8 +127,8 @@ public class BulkAddress {
   /**
    * The name of the company.
    *
-   * @param company
-   */ 
+   * @param company The name of the company.
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(String company) {
@@ -142,7 +138,7 @@ public class BulkAddress {
   /**
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**.
    *
-   * @param country
+   * @param country The two-character ISO-3166-1 alpha-2 country code. For example, **US**.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress country(String country) {
@@ -152,9 +148,8 @@ public class BulkAddress {
 
   /**
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**.
-   * @return country
+   * @return country The two-character ISO-3166-1 alpha-2 country code. For example, **US**.
    */
-  @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code. For example, **US**.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountry() {
@@ -164,8 +159,8 @@ public class BulkAddress {
   /**
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**.
    *
-   * @param country
-   */ 
+   * @param country The two-character ISO-3166-1 alpha-2 country code. For example, **US**.
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -175,7 +170,7 @@ public class BulkAddress {
   /**
    * The email address.
    *
-   * @param email
+   * @param email The email address.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress email(String email) {
@@ -185,9 +180,8 @@ public class BulkAddress {
 
   /**
    * The email address.
-   * @return email
+   * @return email The email address.
    */
-  @ApiModelProperty(value = "The email address.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -197,8 +191,8 @@ public class BulkAddress {
   /**
    * The email address.
    *
-   * @param email
-   */ 
+   * @param email The email address.
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -208,7 +202,7 @@ public class BulkAddress {
   /**
    * The house number or name.
    *
-   * @param houseNumberOrName
+   * @param houseNumberOrName The house number or name.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress houseNumberOrName(String houseNumberOrName) {
@@ -218,9 +212,8 @@ public class BulkAddress {
 
   /**
    * The house number or name.
-   * @return houseNumberOrName
+   * @return houseNumberOrName The house number or name.
    */
-  @ApiModelProperty(value = "The house number or name.")
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHouseNumberOrName() {
@@ -230,8 +223,8 @@ public class BulkAddress {
   /**
    * The house number or name.
    *
-   * @param houseNumberOrName
-   */ 
+   * @param houseNumberOrName The house number or name.
+   */
   @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER_OR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHouseNumberOrName(String houseNumberOrName) {
@@ -241,7 +234,7 @@ public class BulkAddress {
   /**
    * The full telephone number.
    *
-   * @param mobile
+   * @param mobile The full telephone number.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress mobile(String mobile) {
@@ -251,9 +244,8 @@ public class BulkAddress {
 
   /**
    * The full telephone number.
-   * @return mobile
+   * @return mobile The full telephone number.
    */
-  @ApiModelProperty(value = "The full telephone number.")
   @JsonProperty(JSON_PROPERTY_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMobile() {
@@ -263,8 +255,8 @@ public class BulkAddress {
   /**
    * The full telephone number.
    *
-   * @param mobile
-   */ 
+   * @param mobile The full telephone number.
+   */
   @JsonProperty(JSON_PROPERTY_MOBILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobile(String mobile) {
@@ -274,7 +266,7 @@ public class BulkAddress {
   /**
    * The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.
    *
-   * @param postalCode
+   * @param postalCode The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress postalCode(String postalCode) {
@@ -284,9 +276,8 @@ public class BulkAddress {
 
   /**
    * The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.
-   * @return postalCode
+   * @return postalCode The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.
    */
-  @ApiModelProperty(value = "The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.")
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
@@ -296,8 +287,8 @@ public class BulkAddress {
   /**
    * The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.
    *
-   * @param postalCode
-   */ 
+   * @param postalCode The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.
+   */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
@@ -307,7 +298,7 @@ public class BulkAddress {
   /**
    * The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.
    *
-   * @param stateOrProvince
+   * @param stateOrProvince The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress stateOrProvince(String stateOrProvince) {
@@ -317,9 +308,8 @@ public class BulkAddress {
 
   /**
    * The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.
-   * @return stateOrProvince
+   * @return stateOrProvince The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.
    */
-  @ApiModelProperty(value = "The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.")
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStateOrProvince() {
@@ -329,8 +319,8 @@ public class BulkAddress {
   /**
    * The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.
    *
-   * @param stateOrProvince
-   */ 
+   * @param stateOrProvince The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.
+   */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
@@ -340,7 +330,7 @@ public class BulkAddress {
   /**
    * The streetname of the house.
    *
-   * @param street
+   * @param street The streetname of the house.
    * @return the current {@code BulkAddress} instance, allowing for method chaining
    */
   public BulkAddress street(String street) {
@@ -350,9 +340,8 @@ public class BulkAddress {
 
   /**
    * The streetname of the house.
-   * @return street
+   * @return street The streetname of the house.
    */
-  @ApiModelProperty(value = "The streetname of the house.")
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStreet() {
@@ -362,8 +351,8 @@ public class BulkAddress {
   /**
    * The streetname of the house.
    *
-   * @param street
-   */ 
+   * @param street The streetname of the house.
+   */
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {

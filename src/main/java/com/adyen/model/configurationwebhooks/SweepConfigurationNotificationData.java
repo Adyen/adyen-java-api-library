@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.SweepConfigurationV2;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,7 +51,7 @@ public class SweepConfigurationNotificationData {
   /**
    * The unique identifier of the balance account for which the sweep was configured.
    *
-   * @param accountId
+   * @param accountId The unique identifier of the balance account for which the sweep was configured.
    * @return the current {@code SweepConfigurationNotificationData} instance, allowing for method chaining
    */
   public SweepConfigurationNotificationData accountId(String accountId) {
@@ -63,9 +61,8 @@ public class SweepConfigurationNotificationData {
 
   /**
    * The unique identifier of the balance account for which the sweep was configured.
-   * @return accountId
+   * @return accountId The unique identifier of the balance account for which the sweep was configured.
    */
-  @ApiModelProperty(value = "The unique identifier of the balance account for which the sweep was configured.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountId() {
@@ -75,8 +72,8 @@ public class SweepConfigurationNotificationData {
   /**
    * The unique identifier of the balance account for which the sweep was configured.
    *
-   * @param accountId
-   */ 
+   * @param accountId The unique identifier of the balance account for which the sweep was configured.
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(String accountId) {
@@ -86,7 +83,7 @@ public class SweepConfigurationNotificationData {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    * @return the current {@code SweepConfigurationNotificationData} instance, allowing for method chaining
    */
   public SweepConfigurationNotificationData balancePlatform(String balancePlatform) {
@@ -96,9 +93,8 @@ public class SweepConfigurationNotificationData {
 
   /**
    * The unique identifier of the balance platform.
-   * @return balancePlatform
+   * @return balancePlatform The unique identifier of the balance platform.
    */
-  @ApiModelProperty(value = "The unique identifier of the balance platform.")
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBalancePlatform() {
@@ -108,8 +104,8 @@ public class SweepConfigurationNotificationData {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
-   */ 
+   * @param balancePlatform The unique identifier of the balance platform.
+   */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalancePlatform(String balancePlatform) {
@@ -119,7 +115,7 @@ public class SweepConfigurationNotificationData {
   /**
    * sweep
    *
-   * @param sweep
+   * @param sweep 
    * @return the current {@code SweepConfigurationNotificationData} instance, allowing for method chaining
    */
   public SweepConfigurationNotificationData sweep(SweepConfigurationV2 sweep) {
@@ -128,10 +124,9 @@ public class SweepConfigurationNotificationData {
   }
 
   /**
-   * sweep
-   * @return sweep
+   * Get sweep
+   * @return sweep 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SWEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SweepConfigurationV2 getSweep() {
@@ -141,8 +136,8 @@ public class SweepConfigurationNotificationData {
   /**
    * sweep
    *
-   * @param sweep
-   */ 
+   * @param sweep 
+   */
   @JsonProperty(JSON_PROPERTY_SWEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSweep(SweepConfigurationV2 sweep) {

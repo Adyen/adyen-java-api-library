@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.managementwebhooks.TerminalBoardingData;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,7 +51,7 @@ public class TerminalBoardingNotificationRequest {
    * Type of notification.
    */
   public enum TypeEnum {
-    TERMINALBOARDING_TRIGGERED("terminalBoarding.triggered");
+    TERMINALBOARDING_TRIGGERED(String.valueOf("terminalBoarding.triggered"));
 
     private String value;
 
@@ -91,7 +89,7 @@ public class TerminalBoardingNotificationRequest {
   /**
    * Timestamp for when the webhook was created.
    *
-   * @param createdAt
+   * @param createdAt Timestamp for when the webhook was created.
    * @return the current {@code TerminalBoardingNotificationRequest} instance, allowing for method chaining
    */
   public TerminalBoardingNotificationRequest createdAt(OffsetDateTime createdAt) {
@@ -101,9 +99,8 @@ public class TerminalBoardingNotificationRequest {
 
   /**
    * Timestamp for when the webhook was created.
-   * @return createdAt
+   * @return createdAt Timestamp for when the webhook was created.
    */
-  @ApiModelProperty(required = true, value = "Timestamp for when the webhook was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -113,8 +110,8 @@ public class TerminalBoardingNotificationRequest {
   /**
    * Timestamp for when the webhook was created.
    *
-   * @param createdAt
-   */ 
+   * @param createdAt Timestamp for when the webhook was created.
+   */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -124,7 +121,7 @@ public class TerminalBoardingNotificationRequest {
   /**
    * data
    *
-   * @param data
+   * @param data 
    * @return the current {@code TerminalBoardingNotificationRequest} instance, allowing for method chaining
    */
   public TerminalBoardingNotificationRequest data(TerminalBoardingData data) {
@@ -133,10 +130,9 @@ public class TerminalBoardingNotificationRequest {
   }
 
   /**
-   * data
-   * @return data
+   * Get data
+   * @return data 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalBoardingData getData() {
@@ -146,8 +142,8 @@ public class TerminalBoardingNotificationRequest {
   /**
    * data
    *
-   * @param data
-   */ 
+   * @param data 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(TerminalBoardingData data) {
@@ -157,7 +153,7 @@ public class TerminalBoardingNotificationRequest {
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
-   * @param environment
+   * @param environment The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return the current {@code TerminalBoardingNotificationRequest} instance, allowing for method chaining
    */
   public TerminalBoardingNotificationRequest environment(String environment) {
@@ -167,9 +163,8 @@ public class TerminalBoardingNotificationRequest {
 
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
-   * @return environment
+   * @return environment The environment from which the webhook originated.  Possible values: **test**, **live**.
    */
-  @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnvironment() {
@@ -179,8 +174,8 @@ public class TerminalBoardingNotificationRequest {
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
-   * @param environment
-   */ 
+   * @param environment The environment from which the webhook originated.  Possible values: **test**, **live**.
+   */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
@@ -190,7 +185,7 @@ public class TerminalBoardingNotificationRequest {
   /**
    * Type of notification.
    *
-   * @param type
+   * @param type Type of notification.
    * @return the current {@code TerminalBoardingNotificationRequest} instance, allowing for method chaining
    */
   public TerminalBoardingNotificationRequest type(TypeEnum type) {
@@ -200,9 +195,8 @@ public class TerminalBoardingNotificationRequest {
 
   /**
    * Type of notification.
-   * @return type
+   * @return type Type of notification.
    */
-  @ApiModelProperty(required = true, value = "Type of notification.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -212,8 +206,8 @@ public class TerminalBoardingNotificationRequest {
   /**
    * Type of notification.
    *
-   * @param type
-   */ 
+   * @param type Type of notification.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

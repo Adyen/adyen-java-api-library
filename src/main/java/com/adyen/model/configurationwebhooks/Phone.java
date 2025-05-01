@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,9 +41,9 @@ public class Phone {
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
    */
   public enum TypeEnum {
-    LANDLINE("landline"),
+    LANDLINE(String.valueOf("landline")),
     
-    MOBILE("mobile");
+    MOBILE(String.valueOf("mobile"));
 
     private String value;
 
@@ -83,7 +81,7 @@ public class Phone {
   /**
    * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    *
-   * @param number
+   * @param number The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    * @return the current {@code Phone} instance, allowing for method chaining
    */
   public Phone number(String number) {
@@ -93,9 +91,8 @@ public class Phone {
 
   /**
    * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
-   * @return number
+   * @return number The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    */
-  @ApiModelProperty(required = true, value = "The full phone number provided as a single string.  For example, **\"0031 6 11 22 33 44\"**, **\"+316/1122-3344\"**,    or **\"(0031) 611223344\"**.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNumber() {
@@ -105,8 +102,8 @@ public class Phone {
   /**
    * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    *
-   * @param number
-   */ 
+   * @param number The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
+   */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumber(String number) {
@@ -116,7 +113,7 @@ public class Phone {
   /**
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
    *
-   * @param type
+   * @param type Type of phone number. Possible values:  **Landline**, **Mobile**. 
    * @return the current {@code Phone} instance, allowing for method chaining
    */
   public Phone type(TypeEnum type) {
@@ -126,9 +123,8 @@ public class Phone {
 
   /**
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
-   * @return type
+   * @return type Type of phone number. Possible values:  **Landline**, **Mobile**. 
    */
-  @ApiModelProperty(required = true, value = "Type of phone number. Possible values:  **Landline**, **Mobile**. ")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -138,8 +134,8 @@ public class Phone {
   /**
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
    *
-   * @param type
-   */ 
+   * @param type Type of phone number. Possible values:  **Landline**, **Mobile**. 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -62,15 +60,15 @@ public class MidServiceNotificationData {
    * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
    */
   public enum StatusEnum {
-    SUCCESS("success"),
+    SUCCESS(String.valueOf("success")),
     
-    FAILURE("failure"),
+    FAILURE(String.valueOf("failure")),
     
-    CAPABILITYPENDING("capabilityPending"),
+    CAPABILITYPENDING(String.valueOf("capabilityPending")),
     
-    DATAREQUIRED("dataRequired"),
+    DATAREQUIRED(String.valueOf("dataRequired")),
     
-    UPDATESEXPECTED("updatesExpected");
+    UPDATESEXPECTED(String.valueOf("updatesExpected"));
 
     private String value;
 
@@ -112,13 +110,13 @@ public class MidServiceNotificationData {
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    */
   public enum VerificationStatusEnum {
-    VALID("valid"),
+    VALID(String.valueOf("valid")),
     
-    PENDING("pending"),
+    PENDING(String.valueOf("pending")),
     
-    INVALID("invalid"),
+    INVALID(String.valueOf("invalid")),
     
-    REJECTED("rejected");
+    REJECTED(String.valueOf("rejected"));
 
     private String value;
 
@@ -156,7 +154,7 @@ public class MidServiceNotificationData {
   /**
    * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
    *
-   * @param allowed
+   * @param allowed Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData allowed(Boolean allowed) {
@@ -166,9 +164,8 @@ public class MidServiceNotificationData {
 
   /**
    * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
-   * @return allowed
+   * @return allowed Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
    */
-  @ApiModelProperty(value = "Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.")
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAllowed() {
@@ -178,8 +175,8 @@ public class MidServiceNotificationData {
   /**
    * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
    *
-   * @param allowed
-   */ 
+   * @param allowed Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowed(Boolean allowed) {
@@ -189,7 +186,7 @@ public class MidServiceNotificationData {
   /**
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    *
-   * @param enabled
+   * @param enabled Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData enabled(Boolean enabled) {
@@ -199,9 +196,8 @@ public class MidServiceNotificationData {
 
   /**
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
-   * @return enabled
+   * @return enabled Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    */
-  @ApiModelProperty(value = "Indicates whether the payment method is enabled (**true**) or disabled (**false**).")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getEnabled() {
@@ -211,8 +207,8 @@ public class MidServiceNotificationData {
   /**
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    *
-   * @param enabled
-   */ 
+   * @param enabled Indicates whether the payment method is enabled (**true**) or disabled (**false**).
+   */
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
@@ -222,7 +218,7 @@ public class MidServiceNotificationData {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData id(String id) {
@@ -232,9 +228,8 @@ public class MidServiceNotificationData {
 
   /**
    * The unique identifier of the resource.
-   * @return id
+   * @return id The unique identifier of the resource.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the resource.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -244,8 +239,8 @@ public class MidServiceNotificationData {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the resource.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -255,7 +250,7 @@ public class MidServiceNotificationData {
   /**
    * The unique identifier of the merchant account.
    *
-   * @param merchantId
+   * @param merchantId The unique identifier of the merchant account.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData merchantId(String merchantId) {
@@ -265,9 +260,8 @@ public class MidServiceNotificationData {
 
   /**
    * The unique identifier of the merchant account.
-   * @return merchantId
+   * @return merchantId The unique identifier of the merchant account.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the merchant account.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -277,8 +271,8 @@ public class MidServiceNotificationData {
   /**
    * The unique identifier of the merchant account.
    *
-   * @param merchantId
-   */ 
+   * @param merchantId The unique identifier of the merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -288,7 +282,7 @@ public class MidServiceNotificationData {
   /**
    * Your reference for the payment method.
    *
-   * @param reference
+   * @param reference Your reference for the payment method.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData reference(String reference) {
@@ -298,9 +292,8 @@ public class MidServiceNotificationData {
 
   /**
    * Your reference for the payment method.
-   * @return reference
+   * @return reference Your reference for the payment method.
    */
-  @ApiModelProperty(value = "Your reference for the payment method.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -310,8 +303,8 @@ public class MidServiceNotificationData {
   /**
    * Your reference for the payment method.
    *
-   * @param reference
-   */ 
+   * @param reference Your reference for the payment method.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -321,7 +314,7 @@ public class MidServiceNotificationData {
   /**
    * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
    *
-   * @param status
+   * @param status The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData status(StatusEnum status) {
@@ -331,9 +324,8 @@ public class MidServiceNotificationData {
 
   /**
    * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
-   * @return status
+   * @return status The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
    */
-  @ApiModelProperty(required = true, value = "The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. ")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -343,8 +335,8 @@ public class MidServiceNotificationData {
   /**
    * The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
    *
-   * @param status
-   */ 
+   * @param status The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
@@ -354,7 +346,7 @@ public class MidServiceNotificationData {
   /**
    * The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.
    *
-   * @param storeId
+   * @param storeId The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData storeId(String storeId) {
@@ -364,9 +356,8 @@ public class MidServiceNotificationData {
 
   /**
    * The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.
-   * @return storeId
+   * @return storeId The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.
    */
-  @ApiModelProperty(value = "The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoreId() {
@@ -376,8 +367,8 @@ public class MidServiceNotificationData {
   /**
    * The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.
    *
-   * @param storeId
-   */ 
+   * @param storeId The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.
+   */
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
@@ -387,7 +378,7 @@ public class MidServiceNotificationData {
   /**
    * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    *
-   * @param type
+   * @param type Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData type(String type) {
@@ -397,9 +388,8 @@ public class MidServiceNotificationData {
 
   /**
    * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
-   * @return type
+   * @return type Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    */
-  @ApiModelProperty(required = true, value = "Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -409,8 +399,8 @@ public class MidServiceNotificationData {
   /**
    * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    *
-   * @param type
-   */ 
+   * @param type Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
@@ -420,7 +410,7 @@ public class MidServiceNotificationData {
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    *
-   * @param verificationStatus
+   * @param verificationStatus Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    * @return the current {@code MidServiceNotificationData} instance, allowing for method chaining
    */
   public MidServiceNotificationData verificationStatus(VerificationStatusEnum verificationStatus) {
@@ -430,9 +420,8 @@ public class MidServiceNotificationData {
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
-   * @return verificationStatus
+   * @return verificationStatus Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    */
-  @ApiModelProperty(value = "Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**")
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public VerificationStatusEnum getVerificationStatus() {
@@ -442,8 +431,8 @@ public class MidServiceNotificationData {
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    *
-   * @param verificationStatus
-   */ 
+   * @param verificationStatus Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
+   */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVerificationStatus(VerificationStatusEnum verificationStatus) {

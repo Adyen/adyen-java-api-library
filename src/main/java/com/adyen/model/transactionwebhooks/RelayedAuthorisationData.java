@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class RelayedAuthorisationData {
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, String> metadata = new HashMap<>();
+  private Map<String, String> metadata;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
@@ -48,7 +48,7 @@ public class RelayedAuthorisationData {
   /**
    * Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    *
-   * @param metadata
+   * @param metadata Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    * @return the current {@code RelayedAuthorisationData} instance, allowing for method chaining
    */
   public RelayedAuthorisationData metadata(Map<String, String> metadata) {
@@ -66,7 +66,7 @@ public class RelayedAuthorisationData {
 
   /**
    * Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
-   * @return metadata
+   * @return metadata Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,7 +77,7 @@ public class RelayedAuthorisationData {
   /**
    * Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    *
-   * @param metadata
+   * @param metadata Contains key-value pairs of your references and descriptions, for example, &#x60;customId&#x60;:&#x60;your-own-custom-field-12345&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +88,7 @@ public class RelayedAuthorisationData {
   /**
    * Your reference for the relayed authorisation data.
    *
-   * @param reference
+   * @param reference Your reference for the relayed authorisation data.
    * @return the current {@code RelayedAuthorisationData} instance, allowing for method chaining
    */
   public RelayedAuthorisationData reference(String reference) {
@@ -98,7 +98,7 @@ public class RelayedAuthorisationData {
 
   /**
    * Your reference for the relayed authorisation data.
-   * @return reference
+   * @return reference Your reference for the relayed authorisation data.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +109,7 @@ public class RelayedAuthorisationData {
   /**
    * Your reference for the relayed authorisation data.
    *
-   * @param reference
+   * @param reference Your reference for the relayed authorisation data.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -47,7 +45,7 @@ public class SELocalAccountIdentification {
    * **seLocal**
    */
   public enum TypeEnum {
-    SELOCAL("seLocal");
+    SELOCAL(String.valueOf("seLocal"));
 
     private String value;
 
@@ -77,7 +75,7 @@ public class SELocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.SELOCAL;
 
   public SELocalAccountIdentification() { 
   }
@@ -85,7 +83,7 @@ public class SELocalAccountIdentification {
   /**
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
    */
   public SELocalAccountIdentification accountNumber(String accountNumber) {
@@ -95,9 +93,8 @@ public class SELocalAccountIdentification {
 
   /**
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
-   * @return accountNumber
+   * @return accountNumber The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    */
-  @ApiModelProperty(required = true, value = "The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -107,8 +104,8 @@ public class SELocalAccountIdentification {
   /**
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    *
-   * @param accountNumber
-   */ 
+   * @param accountNumber The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -118,7 +115,7 @@ public class SELocalAccountIdentification {
   /**
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    *
-   * @param clearingNumber
+   * @param clearingNumber The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
    */
   public SELocalAccountIdentification clearingNumber(String clearingNumber) {
@@ -128,9 +125,8 @@ public class SELocalAccountIdentification {
 
   /**
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
-   * @return clearingNumber
+   * @return clearingNumber The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    */
-  @ApiModelProperty(required = true, value = "The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClearingNumber() {
@@ -140,8 +136,8 @@ public class SELocalAccountIdentification {
   /**
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    *
-   * @param clearingNumber
-   */ 
+   * @param clearingNumber The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
+   */
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClearingNumber(String clearingNumber) {
@@ -151,7 +147,7 @@ public class SELocalAccountIdentification {
   /**
    * **seLocal**
    *
-   * @param type
+   * @param type **seLocal**
    * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
    */
   public SELocalAccountIdentification type(TypeEnum type) {
@@ -161,9 +157,8 @@ public class SELocalAccountIdentification {
 
   /**
    * **seLocal**
-   * @return type
+   * @return type **seLocal**
    */
-  @ApiModelProperty(required = true, value = "**seLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -173,8 +168,8 @@ public class SELocalAccountIdentification {
   /**
    * **seLocal**
    *
-   * @param type
-   */ 
+   * @param type **seLocal**
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

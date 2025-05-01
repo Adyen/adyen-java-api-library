@@ -158,7 +158,7 @@ public class PlatformPayment {
   /**
    * The capture&#39;s merchant reference included in the transfer.
    *
-   * @param modificationMerchantReference
+   * @param modificationMerchantReference The capture&#39;s merchant reference included in the transfer.
    * @return the current {@code PlatformPayment} instance, allowing for method chaining
    */
   public PlatformPayment modificationMerchantReference(String modificationMerchantReference) {
@@ -168,7 +168,7 @@ public class PlatformPayment {
 
   /**
    * The capture&#39;s merchant reference included in the transfer.
-   * @return modificationMerchantReference
+   * @return modificationMerchantReference The capture&#39;s merchant reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class PlatformPayment {
   /**
    * The capture&#39;s merchant reference included in the transfer.
    *
-   * @param modificationMerchantReference
+   * @param modificationMerchantReference The capture&#39;s merchant reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class PlatformPayment {
   /**
    * The capture reference included in the transfer.
    *
-   * @param modificationPspReference
+   * @param modificationPspReference The capture reference included in the transfer.
    * @return the current {@code PlatformPayment} instance, allowing for method chaining
    */
   public PlatformPayment modificationPspReference(String modificationPspReference) {
@@ -200,7 +200,7 @@ public class PlatformPayment {
 
   /**
    * The capture reference included in the transfer.
-   * @return modificationPspReference
+   * @return modificationPspReference The capture reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class PlatformPayment {
   /**
    * The capture reference included in the transfer.
    *
-   * @param modificationPspReference
+   * @param modificationPspReference The capture reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class PlatformPayment {
   /**
    * The payment&#39;s merchant reference included in the transfer.
    *
-   * @param paymentMerchantReference
+   * @param paymentMerchantReference The payment&#39;s merchant reference included in the transfer.
    * @return the current {@code PlatformPayment} instance, allowing for method chaining
    */
   public PlatformPayment paymentMerchantReference(String paymentMerchantReference) {
@@ -232,7 +232,7 @@ public class PlatformPayment {
 
   /**
    * The payment&#39;s merchant reference included in the transfer.
-   * @return paymentMerchantReference
+   * @return paymentMerchantReference The payment&#39;s merchant reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class PlatformPayment {
   /**
    * The payment&#39;s merchant reference included in the transfer.
    *
-   * @param paymentMerchantReference
+   * @param paymentMerchantReference The payment&#39;s merchant reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +254,7 @@ public class PlatformPayment {
   /**
    * Specifies the nature of the transfer. This parameter helps categorize transfers so you can reconcile transactions at a later time, using the Balance Platform Accounting Report for [marketplaces](https://docs.adyen.com/marketplaces/reports-and-fees/balance-platform-accounting-report/) or [platforms](https://docs.adyen.com/platforms/reports-and-fees/balance-platform-accounting-report/).  Possible values:  * **AcquiringFees**: for the acquiring fee incurred on a transaction.  * **AdyenCommission**: for the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing).  * **AdyenFees**: for all the transaction fees due to Adyen. This is the sum of Adyen&#39;s commission and Adyen&#39;s markup.  * **AdyenMarkup**: for the transaction fee due to Adyen under [Interchange++ pricing](https://www.adyen.com/pricing).  * **BalanceAccount**: or the sale amount of a transaction.  * **Commission**: for your platform&#39;s commission on a transaction.  * **DCCPlatformCommission**: for the DCC Commission for the platform on a transaction.  * **Interchange**: for the interchange fee (fee paid to the issuer) incurred on a transaction.  * **PaymentFee**: for all of the transaction fees.  * **Remainder**: for the left over amount after currency conversion.  * **SchemeFee**: for the scheme fee incurred on a transaction. This is the sum of the interchange fees and the acquiring fees.  * **Surcharge**: for the surcharge paid by the customer on a transaction.  * **Tip**: for the tip paid by the customer.  * **TopUp**: for an incoming transfer to top up your user&#39;s balance account.  * **VAT**: for the Value Added Tax.
    *
-   * @param platformPaymentType
+   * @param platformPaymentType Specifies the nature of the transfer. This parameter helps categorize transfers so you can reconcile transactions at a later time, using the Balance Platform Accounting Report for [marketplaces](https://docs.adyen.com/marketplaces/reports-and-fees/balance-platform-accounting-report/) or [platforms](https://docs.adyen.com/platforms/reports-and-fees/balance-platform-accounting-report/).  Possible values:  * **AcquiringFees**: for the acquiring fee incurred on a transaction.  * **AdyenCommission**: for the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing).  * **AdyenFees**: for all the transaction fees due to Adyen. This is the sum of Adyen&#39;s commission and Adyen&#39;s markup.  * **AdyenMarkup**: for the transaction fee due to Adyen under [Interchange++ pricing](https://www.adyen.com/pricing).  * **BalanceAccount**: or the sale amount of a transaction.  * **Commission**: for your platform&#39;s commission on a transaction.  * **DCCPlatformCommission**: for the DCC Commission for the platform on a transaction.  * **Interchange**: for the interchange fee (fee paid to the issuer) incurred on a transaction.  * **PaymentFee**: for all of the transaction fees.  * **Remainder**: for the left over amount after currency conversion.  * **SchemeFee**: for the scheme fee incurred on a transaction. This is the sum of the interchange fees and the acquiring fees.  * **Surcharge**: for the surcharge paid by the customer on a transaction.  * **Tip**: for the tip paid by the customer.  * **TopUp**: for an incoming transfer to top up your user&#39;s balance account.  * **VAT**: for the Value Added Tax.
    * @return the current {@code PlatformPayment} instance, allowing for method chaining
    */
   public PlatformPayment platformPaymentType(PlatformPaymentTypeEnum platformPaymentType) {
@@ -264,7 +264,7 @@ public class PlatformPayment {
 
   /**
    * Specifies the nature of the transfer. This parameter helps categorize transfers so you can reconcile transactions at a later time, using the Balance Platform Accounting Report for [marketplaces](https://docs.adyen.com/marketplaces/reports-and-fees/balance-platform-accounting-report/) or [platforms](https://docs.adyen.com/platforms/reports-and-fees/balance-platform-accounting-report/).  Possible values:  * **AcquiringFees**: for the acquiring fee incurred on a transaction.  * **AdyenCommission**: for the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing).  * **AdyenFees**: for all the transaction fees due to Adyen. This is the sum of Adyen&#39;s commission and Adyen&#39;s markup.  * **AdyenMarkup**: for the transaction fee due to Adyen under [Interchange++ pricing](https://www.adyen.com/pricing).  * **BalanceAccount**: or the sale amount of a transaction.  * **Commission**: for your platform&#39;s commission on a transaction.  * **DCCPlatformCommission**: for the DCC Commission for the platform on a transaction.  * **Interchange**: for the interchange fee (fee paid to the issuer) incurred on a transaction.  * **PaymentFee**: for all of the transaction fees.  * **Remainder**: for the left over amount after currency conversion.  * **SchemeFee**: for the scheme fee incurred on a transaction. This is the sum of the interchange fees and the acquiring fees.  * **Surcharge**: for the surcharge paid by the customer on a transaction.  * **Tip**: for the tip paid by the customer.  * **TopUp**: for an incoming transfer to top up your user&#39;s balance account.  * **VAT**: for the Value Added Tax.
-   * @return platformPaymentType
+   * @return platformPaymentType Specifies the nature of the transfer. This parameter helps categorize transfers so you can reconcile transactions at a later time, using the Balance Platform Accounting Report for [marketplaces](https://docs.adyen.com/marketplaces/reports-and-fees/balance-platform-accounting-report/) or [platforms](https://docs.adyen.com/platforms/reports-and-fees/balance-platform-accounting-report/).  Possible values:  * **AcquiringFees**: for the acquiring fee incurred on a transaction.  * **AdyenCommission**: for the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing).  * **AdyenFees**: for all the transaction fees due to Adyen. This is the sum of Adyen&#39;s commission and Adyen&#39;s markup.  * **AdyenMarkup**: for the transaction fee due to Adyen under [Interchange++ pricing](https://www.adyen.com/pricing).  * **BalanceAccount**: or the sale amount of a transaction.  * **Commission**: for your platform&#39;s commission on a transaction.  * **DCCPlatformCommission**: for the DCC Commission for the platform on a transaction.  * **Interchange**: for the interchange fee (fee paid to the issuer) incurred on a transaction.  * **PaymentFee**: for all of the transaction fees.  * **Remainder**: for the left over amount after currency conversion.  * **SchemeFee**: for the scheme fee incurred on a transaction. This is the sum of the interchange fees and the acquiring fees.  * **Surcharge**: for the surcharge paid by the customer on a transaction.  * **Tip**: for the tip paid by the customer.  * **TopUp**: for an incoming transfer to top up your user&#39;s balance account.  * **VAT**: for the Value Added Tax.
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +275,7 @@ public class PlatformPayment {
   /**
    * Specifies the nature of the transfer. This parameter helps categorize transfers so you can reconcile transactions at a later time, using the Balance Platform Accounting Report for [marketplaces](https://docs.adyen.com/marketplaces/reports-and-fees/balance-platform-accounting-report/) or [platforms](https://docs.adyen.com/platforms/reports-and-fees/balance-platform-accounting-report/).  Possible values:  * **AcquiringFees**: for the acquiring fee incurred on a transaction.  * **AdyenCommission**: for the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing).  * **AdyenFees**: for all the transaction fees due to Adyen. This is the sum of Adyen&#39;s commission and Adyen&#39;s markup.  * **AdyenMarkup**: for the transaction fee due to Adyen under [Interchange++ pricing](https://www.adyen.com/pricing).  * **BalanceAccount**: or the sale amount of a transaction.  * **Commission**: for your platform&#39;s commission on a transaction.  * **DCCPlatformCommission**: for the DCC Commission for the platform on a transaction.  * **Interchange**: for the interchange fee (fee paid to the issuer) incurred on a transaction.  * **PaymentFee**: for all of the transaction fees.  * **Remainder**: for the left over amount after currency conversion.  * **SchemeFee**: for the scheme fee incurred on a transaction. This is the sum of the interchange fees and the acquiring fees.  * **Surcharge**: for the surcharge paid by the customer on a transaction.  * **Tip**: for the tip paid by the customer.  * **TopUp**: for an incoming transfer to top up your user&#39;s balance account.  * **VAT**: for the Value Added Tax.
    *
-   * @param platformPaymentType
+   * @param platformPaymentType Specifies the nature of the transfer. This parameter helps categorize transfers so you can reconcile transactions at a later time, using the Balance Platform Accounting Report for [marketplaces](https://docs.adyen.com/marketplaces/reports-and-fees/balance-platform-accounting-report/) or [platforms](https://docs.adyen.com/platforms/reports-and-fees/balance-platform-accounting-report/).  Possible values:  * **AcquiringFees**: for the acquiring fee incurred on a transaction.  * **AdyenCommission**: for the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing).  * **AdyenFees**: for all the transaction fees due to Adyen. This is the sum of Adyen&#39;s commission and Adyen&#39;s markup.  * **AdyenMarkup**: for the transaction fee due to Adyen under [Interchange++ pricing](https://www.adyen.com/pricing).  * **BalanceAccount**: or the sale amount of a transaction.  * **Commission**: for your platform&#39;s commission on a transaction.  * **DCCPlatformCommission**: for the DCC Commission for the platform on a transaction.  * **Interchange**: for the interchange fee (fee paid to the issuer) incurred on a transaction.  * **PaymentFee**: for all of the transaction fees.  * **Remainder**: for the left over amount after currency conversion.  * **SchemeFee**: for the scheme fee incurred on a transaction. This is the sum of the interchange fees and the acquiring fees.  * **Surcharge**: for the surcharge paid by the customer on a transaction.  * **Tip**: for the tip paid by the customer.  * **TopUp**: for an incoming transfer to top up your user&#39;s balance account.  * **VAT**: for the Value Added Tax.
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +286,7 @@ public class PlatformPayment {
   /**
    * The payment reference included in the transfer.
    *
-   * @param pspPaymentReference
+   * @param pspPaymentReference The payment reference included in the transfer.
    * @return the current {@code PlatformPayment} instance, allowing for method chaining
    */
   public PlatformPayment pspPaymentReference(String pspPaymentReference) {
@@ -296,7 +296,7 @@ public class PlatformPayment {
 
   /**
    * The payment reference included in the transfer.
-   * @return pspPaymentReference
+   * @return pspPaymentReference The payment reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_PSP_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +307,7 @@ public class PlatformPayment {
   /**
    * The payment reference included in the transfer.
    *
-   * @param pspPaymentReference
+   * @param pspPaymentReference The payment reference included in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_PSP_PAYMENT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,7 +318,7 @@ public class PlatformPayment {
   /**
    * **platformPayment**
    *
-   * @param type
+   * @param type **platformPayment**
    * @return the current {@code PlatformPayment} instance, allowing for method chaining
    */
   public PlatformPayment type(TypeEnum type) {
@@ -328,7 +328,7 @@ public class PlatformPayment {
 
   /**
    * **platformPayment**
-   * @return type
+   * @return type **platformPayment**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -339,7 +339,7 @@ public class PlatformPayment {
   /**
    * **platformPayment**
    *
-   * @param type
+   * @param type **platformPayment**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

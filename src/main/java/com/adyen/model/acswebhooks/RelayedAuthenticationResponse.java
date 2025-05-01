@@ -43,7 +43,7 @@ public class RelayedAuthenticationResponse {
   /**
    * authenticationDecision
    *
-   * @param authenticationDecision
+   * @param authenticationDecision 
    * @return the current {@code RelayedAuthenticationResponse} instance, allowing for method chaining
    */
   public RelayedAuthenticationResponse authenticationDecision(AuthenticationDecision authenticationDecision) {
@@ -53,7 +53,7 @@ public class RelayedAuthenticationResponse {
 
   /**
    * Get authenticationDecision
-   * @return authenticationDecision
+   * @return authenticationDecision 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -64,7 +64,7 @@ public class RelayedAuthenticationResponse {
   /**
    * authenticationDecision
    *
-   * @param authenticationDecision
+   * @param authenticationDecision 
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_DECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

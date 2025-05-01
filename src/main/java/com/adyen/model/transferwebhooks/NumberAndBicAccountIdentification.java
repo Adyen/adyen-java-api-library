@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transferwebhooks.AdditionalBankIdentification;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class NumberAndBicAccountIdentification {
    * **numberAndBic**
    */
   public enum TypeEnum {
-    NUMBERANDBIC("numberAndBic");
+    NUMBERANDBIC(String.valueOf("numberAndBic"));
 
     private String value;
 
@@ -82,7 +80,7 @@ public class NumberAndBicAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.NUMBERANDBIC;
 
   public NumberAndBicAccountIdentification() { 
   }
@@ -90,7 +88,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
    */
   public NumberAndBicAccountIdentification accountNumber(String accountNumber) {
@@ -100,9 +98,8 @@ public class NumberAndBicAccountIdentification {
 
   /**
    * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
-   * @return accountNumber
+   * @return accountNumber The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    */
-  @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace. The length and format depends on the bank or country.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -112,8 +109,8 @@ public class NumberAndBicAccountIdentification {
   /**
    * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    *
-   * @param accountNumber
-   */ 
+   * @param accountNumber The bank account number, without separators or whitespace. The length and format depends on the bank or country.
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -123,7 +120,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * additionalBankIdentification
    *
-   * @param additionalBankIdentification
+   * @param additionalBankIdentification 
    * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
    */
   public NumberAndBicAccountIdentification additionalBankIdentification(AdditionalBankIdentification additionalBankIdentification) {
@@ -132,10 +129,9 @@ public class NumberAndBicAccountIdentification {
   }
 
   /**
-   * additionalBankIdentification
-   * @return additionalBankIdentification
+   * Get additionalBankIdentification
+   * @return additionalBankIdentification 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AdditionalBankIdentification getAdditionalBankIdentification() {
@@ -145,8 +141,8 @@ public class NumberAndBicAccountIdentification {
   /**
    * additionalBankIdentification
    *
-   * @param additionalBankIdentification
-   */ 
+   * @param additionalBankIdentification 
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_BANK_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalBankIdentification(AdditionalBankIdentification additionalBankIdentification) {
@@ -156,7 +152,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
-   * @param bic
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
    */
   public NumberAndBicAccountIdentification bic(String bic) {
@@ -166,9 +162,8 @@ public class NumberAndBicAccountIdentification {
 
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
-   * @return bic
+   * @return bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    */
-  @ApiModelProperty(required = true, value = "The bank's 8- or 11-character BIC or SWIFT code.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBic() {
@@ -178,8 +173,8 @@ public class NumberAndBicAccountIdentification {
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
-   * @param bic
-   */ 
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
@@ -189,7 +184,7 @@ public class NumberAndBicAccountIdentification {
   /**
    * **numberAndBic**
    *
-   * @param type
+   * @param type **numberAndBic**
    * @return the current {@code NumberAndBicAccountIdentification} instance, allowing for method chaining
    */
   public NumberAndBicAccountIdentification type(TypeEnum type) {
@@ -199,9 +194,8 @@ public class NumberAndBicAccountIdentification {
 
   /**
    * **numberAndBic**
-   * @return type
+   * @return type **numberAndBic**
    */
-  @ApiModelProperty(required = true, value = "**numberAndBic**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -211,8 +205,8 @@ public class NumberAndBicAccountIdentification {
   /**
    * **numberAndBic**
    *
-   * @param type
-   */ 
+   * @param type **numberAndBic**
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

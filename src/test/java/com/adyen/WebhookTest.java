@@ -20,8 +20,6 @@
  */
 package com.adyen;
 
-import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
-import com.adyen.model.configurationwebhooks.AccountHolderNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantCreatedNotificationRequest;
 import com.adyen.model.managementwebhooks.MerchantUpdatedNotificationRequest;
 import com.adyen.model.managementwebhooks.PaymentMethodCreatedNotificationRequest;
@@ -34,11 +32,9 @@ import com.adyen.model.nexo.InfoQualifyType;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.terminal.TerminalAPIRequest;
-import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.notification.ClassicPlatformWebhookHandler;
-import com.adyen.notification.ManagementWebhookHandler;
+import com.adyen.model.managementwebhooks.ManagementWebhooksHandler;
 import com.adyen.notification.WebhookHandler;
-import com.adyen.util.HMACValidator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.JsonParser;
 import org.junit.Assert;
@@ -290,7 +286,7 @@ public class WebhookTest extends BaseTest {
                 "  \"environment\": \"test\",\n" +
                 "  \"type\": \"paymentMethod.created\"\n" +
                 "}";
-        ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(notification);
+        ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(notification);
         Assert.assertTrue(webhookHandler.getPaymentMethodCreatedNotificationRequest().isPresent());
         PaymentMethodCreatedNotificationRequest request = webhookHandler.getPaymentMethodCreatedNotificationRequest().get();
         Assert.assertEquals("PM3224R223224K5FH4M2K9B86", request.getData().getId());
@@ -317,7 +313,7 @@ public class WebhookTest extends BaseTest {
                 "      \"status\": \"PreActive\"\n" +
                 "   }\n" +
                 "}";
-        ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(notification);
+        ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(notification);
         Assert.assertTrue(webhookHandler.getMerchantUpdatedNotificationRequest().isPresent());
         MerchantUpdatedNotificationRequest request = webhookHandler.getMerchantUpdatedNotificationRequest().get();
         Assert.assertEquals("LE322KH223222F5GNNW694PZN", request.getData().getLegalEntityId());
@@ -342,7 +338,7 @@ public class WebhookTest extends BaseTest {
                 "      \"status\": \"PreActive\"\n" +
                 "   }\n" +
                 "}";
-        ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(notification);
+        ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(notification);
         Assert.assertTrue(webhookHandler.getMerchantCreatedNotificationRequest().isPresent());
         MerchantCreatedNotificationRequest request = webhookHandler.getMerchantCreatedNotificationRequest().get();
         Assert.assertEquals("MC3224X22322535GH8D537TJR", request.getData().getMerchantId());

@@ -13,7 +13,6 @@
 package com.adyen.model.transferwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -47,7 +45,7 @@ public class SGLocalAccountIdentification {
    * **sgLocal**
    */
   public enum TypeEnum {
-    SGLOCAL("sgLocal");
+    SGLOCAL(String.valueOf("sgLocal"));
 
     private String value;
 
@@ -77,7 +75,7 @@ public class SGLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.SGLOCAL;
 
   public SGLocalAccountIdentification() { 
   }
@@ -85,7 +83,7 @@ public class SGLocalAccountIdentification {
   /**
    * The 4- to 19-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 4- to 19-digit bank account number, without separators or whitespace.
    * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
    */
   public SGLocalAccountIdentification accountNumber(String accountNumber) {
@@ -95,9 +93,8 @@ public class SGLocalAccountIdentification {
 
   /**
    * The 4- to 19-digit bank account number, without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The 4- to 19-digit bank account number, without separators or whitespace.
    */
-  @ApiModelProperty(required = true, value = "The 4- to 19-digit bank account number, without separators or whitespace.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountNumber() {
@@ -107,8 +104,8 @@ public class SGLocalAccountIdentification {
   /**
    * The 4- to 19-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
-   */ 
+   * @param accountNumber The 4- to 19-digit bank account number, without separators or whitespace.
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
@@ -118,7 +115,7 @@ public class SGLocalAccountIdentification {
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
-   * @param bic
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
    */
   public SGLocalAccountIdentification bic(String bic) {
@@ -128,9 +125,8 @@ public class SGLocalAccountIdentification {
 
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
-   * @return bic
+   * @return bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    */
-  @ApiModelProperty(required = true, value = "The bank's 8- or 11-character BIC or SWIFT code.")
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBic() {
@@ -140,8 +136,8 @@ public class SGLocalAccountIdentification {
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
-   * @param bic
-   */ 
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
+   */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
@@ -151,7 +147,7 @@ public class SGLocalAccountIdentification {
   /**
    * **sgLocal**
    *
-   * @param type
+   * @param type **sgLocal**
    * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
    */
   public SGLocalAccountIdentification type(TypeEnum type) {
@@ -161,9 +157,8 @@ public class SGLocalAccountIdentification {
 
   /**
    * **sgLocal**
-   * @return type
+   * @return type **sgLocal**
    */
-  @ApiModelProperty(value = "**sgLocal**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -173,8 +168,8 @@ public class SGLocalAccountIdentification {
   /**
    * **sgLocal**
    *
-   * @param type
-   */ 
+   * @param type **sgLocal**
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

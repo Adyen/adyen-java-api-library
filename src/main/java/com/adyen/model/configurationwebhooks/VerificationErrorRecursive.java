@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.RemediatingAction;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,115 +45,115 @@ public class VerificationErrorRecursive {
    * Gets or Sets capabilities
    */
   public enum CapabilitiesEnum {
-    ACCEPTEXTERNALFUNDING("acceptExternalFunding"),
+    ACCEPTEXTERNALFUNDING(String.valueOf("acceptExternalFunding")),
     
-    ACCEPTPSPFUNDING("acceptPspFunding"),
+    ACCEPTPSPFUNDING(String.valueOf("acceptPspFunding")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIES("acceptTransactionInRestrictedCountries"),
+    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIES(String.valueOf("acceptTransactionInRestrictedCountries")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIESCOMMERCIAL("acceptTransactionInRestrictedCountriesCommercial"),
+    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIESCOMMERCIAL(String.valueOf("acceptTransactionInRestrictedCountriesCommercial")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIESCONSUMER("acceptTransactionInRestrictedCountriesConsumer"),
+    ACCEPTTRANSACTIONINRESTRICTEDCOUNTRIESCONSUMER(String.valueOf("acceptTransactionInRestrictedCountriesConsumer")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIES("acceptTransactionInRestrictedIndustries"),
+    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIES(String.valueOf("acceptTransactionInRestrictedIndustries")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIESCOMMERCIAL("acceptTransactionInRestrictedIndustriesCommercial"),
+    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIESCOMMERCIAL(String.valueOf("acceptTransactionInRestrictedIndustriesCommercial")),
     
-    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIESCONSUMER("acceptTransactionInRestrictedIndustriesConsumer"),
+    ACCEPTTRANSACTIONINRESTRICTEDINDUSTRIESCONSUMER(String.valueOf("acceptTransactionInRestrictedIndustriesConsumer")),
     
-    ACQUIRING("acquiring"),
+    ACQUIRING(String.valueOf("acquiring")),
     
-    ATMWITHDRAWAL("atmWithdrawal"),
+    ATMWITHDRAWAL(String.valueOf("atmWithdrawal")),
     
-    ATMWITHDRAWALCOMMERCIAL("atmWithdrawalCommercial"),
+    ATMWITHDRAWALCOMMERCIAL(String.valueOf("atmWithdrawalCommercial")),
     
-    ATMWITHDRAWALCONSUMER("atmWithdrawalConsumer"),
+    ATMWITHDRAWALCONSUMER(String.valueOf("atmWithdrawalConsumer")),
     
-    ATMWITHDRAWALINRESTRICTEDCOUNTRIES("atmWithdrawalInRestrictedCountries"),
+    ATMWITHDRAWALINRESTRICTEDCOUNTRIES(String.valueOf("atmWithdrawalInRestrictedCountries")),
     
-    ATMWITHDRAWALINRESTRICTEDCOUNTRIESCOMMERCIAL("atmWithdrawalInRestrictedCountriesCommercial"),
+    ATMWITHDRAWALINRESTRICTEDCOUNTRIESCOMMERCIAL(String.valueOf("atmWithdrawalInRestrictedCountriesCommercial")),
     
-    ATMWITHDRAWALINRESTRICTEDCOUNTRIESCONSUMER("atmWithdrawalInRestrictedCountriesConsumer"),
+    ATMWITHDRAWALINRESTRICTEDCOUNTRIESCONSUMER(String.valueOf("atmWithdrawalInRestrictedCountriesConsumer")),
     
-    AUTHORISEDPAYMENTINSTRUMENTUSER("authorisedPaymentInstrumentUser"),
+    AUTHORISEDPAYMENTINSTRUMENTUSER(String.valueOf("authorisedPaymentInstrumentUser")),
     
-    GETGRANTOFFERS("getGrantOffers"),
+    GETGRANTOFFERS(String.valueOf("getGrantOffers")),
     
-    ISSUEBANKACCOUNT("issueBankAccount"),
+    ISSUEBANKACCOUNT(String.valueOf("issueBankAccount")),
     
-    ISSUECARD("issueCard"),
+    ISSUECARD(String.valueOf("issueCard")),
     
-    ISSUECARDCOMMERCIAL("issueCardCommercial"),
+    ISSUECARDCOMMERCIAL(String.valueOf("issueCardCommercial")),
     
-    ISSUECARDCONSUMER("issueCardConsumer"),
+    ISSUECARDCONSUMER(String.valueOf("issueCardConsumer")),
     
-    ISSUECHARGECARD("issueChargeCard"),
+    ISSUECHARGECARD(String.valueOf("issueChargeCard")),
     
-    ISSUECHARGECARDCOMMERCIAL("issueChargeCardCommercial"),
+    ISSUECHARGECARDCOMMERCIAL(String.valueOf("issueChargeCardCommercial")),
     
-    ISSUECREDITLIMIT("issueCreditLimit"),
+    ISSUECREDITLIMIT(String.valueOf("issueCreditLimit")),
     
-    LOCALACCEPTANCE("localAcceptance"),
+    LOCALACCEPTANCE(String.valueOf("localAcceptance")),
     
-    PAYOUT("payout"),
+    PAYOUT(String.valueOf("payout")),
     
-    PAYOUTTOTRANSFERINSTRUMENT("payoutToTransferInstrument"),
+    PAYOUTTOTRANSFERINSTRUMENT(String.valueOf("payoutToTransferInstrument")),
     
-    PROCESSING("processing"),
+    PROCESSING(String.valueOf("processing")),
     
-    RECEIVEFROMBALANCEACCOUNT("receiveFromBalanceAccount"),
+    RECEIVEFROMBALANCEACCOUNT(String.valueOf("receiveFromBalanceAccount")),
     
-    RECEIVEFROMPLATFORMPAYMENTS("receiveFromPlatformPayments"),
+    RECEIVEFROMPLATFORMPAYMENTS(String.valueOf("receiveFromPlatformPayments")),
     
-    RECEIVEFROMTHIRDPARTY("receiveFromThirdParty"),
+    RECEIVEFROMTHIRDPARTY(String.valueOf("receiveFromThirdParty")),
     
-    RECEIVEFROMTRANSFERINSTRUMENT("receiveFromTransferInstrument"),
+    RECEIVEFROMTRANSFERINSTRUMENT(String.valueOf("receiveFromTransferInstrument")),
     
-    RECEIVEGRANTS("receiveGrants"),
+    RECEIVEGRANTS(String.valueOf("receiveGrants")),
     
-    RECEIVEPAYMENTS("receivePayments"),
+    RECEIVEPAYMENTS(String.valueOf("receivePayments")),
     
-    SENDTOBALANCEACCOUNT("sendToBalanceAccount"),
+    SENDTOBALANCEACCOUNT(String.valueOf("sendToBalanceAccount")),
     
-    SENDTOTHIRDPARTY("sendToThirdParty"),
+    SENDTOTHIRDPARTY(String.valueOf("sendToThirdParty")),
     
-    SENDTOTRANSFERINSTRUMENT("sendToTransferInstrument"),
+    SENDTOTRANSFERINSTRUMENT(String.valueOf("sendToTransferInstrument")),
     
-    THIRDPARTYFUNDING("thirdPartyFunding"),
+    THIRDPARTYFUNDING(String.valueOf("thirdPartyFunding")),
     
-    USECARD("useCard"),
+    USECARD(String.valueOf("useCard")),
     
-    USECARDCOMMERCIAL("useCardCommercial"),
+    USECARDCOMMERCIAL(String.valueOf("useCardCommercial")),
     
-    USECARDCONSUMER("useCardConsumer"),
+    USECARDCONSUMER(String.valueOf("useCardConsumer")),
     
-    USECARDINRESTRICTEDCOUNTRIES("useCardInRestrictedCountries"),
+    USECARDINRESTRICTEDCOUNTRIES(String.valueOf("useCardInRestrictedCountries")),
     
-    USECARDINRESTRICTEDCOUNTRIESCOMMERCIAL("useCardInRestrictedCountriesCommercial"),
+    USECARDINRESTRICTEDCOUNTRIESCOMMERCIAL(String.valueOf("useCardInRestrictedCountriesCommercial")),
     
-    USECARDINRESTRICTEDCOUNTRIESCONSUMER("useCardInRestrictedCountriesConsumer"),
+    USECARDINRESTRICTEDCOUNTRIESCONSUMER(String.valueOf("useCardInRestrictedCountriesConsumer")),
     
-    USECARDINRESTRICTEDINDUSTRIES("useCardInRestrictedIndustries"),
+    USECARDINRESTRICTEDINDUSTRIES(String.valueOf("useCardInRestrictedIndustries")),
     
-    USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL("useCardInRestrictedIndustriesCommercial"),
+    USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL(String.valueOf("useCardInRestrictedIndustriesCommercial")),
     
-    USECARDINRESTRICTEDINDUSTRIESCONSUMER("useCardInRestrictedIndustriesConsumer"),
+    USECARDINRESTRICTEDINDUSTRIESCONSUMER(String.valueOf("useCardInRestrictedIndustriesConsumer")),
     
-    USECHARGECARD("useChargeCard"),
+    USECHARGECARD(String.valueOf("useChargeCard")),
     
-    USECHARGECARDCOMMERCIAL("useChargeCardCommercial"),
+    USECHARGECARDCOMMERCIAL(String.valueOf("useChargeCardCommercial")),
     
-    WITHDRAWFROMATM("withdrawFromAtm"),
+    WITHDRAWFROMATM(String.valueOf("withdrawFromAtm")),
     
-    WITHDRAWFROMATMCOMMERCIAL("withdrawFromAtmCommercial"),
+    WITHDRAWFROMATMCOMMERCIAL(String.valueOf("withdrawFromAtmCommercial")),
     
-    WITHDRAWFROMATMCONSUMER("withdrawFromAtmConsumer"),
+    WITHDRAWFROMATMCONSUMER(String.valueOf("withdrawFromAtmConsumer")),
     
-    WITHDRAWFROMATMINRESTRICTEDCOUNTRIES("withdrawFromAtmInRestrictedCountries"),
+    WITHDRAWFROMATMINRESTRICTEDCOUNTRIES(String.valueOf("withdrawFromAtmInRestrictedCountries")),
     
-    WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCOMMERCIAL("withdrawFromAtmInRestrictedCountriesCommercial"),
+    WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCOMMERCIAL(String.valueOf("withdrawFromAtmInRestrictedCountriesCommercial")),
     
-    WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCONSUMER("withdrawFromAtmInRestrictedCountriesConsumer");
+    WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCONSUMER(String.valueOf("withdrawFromAtmInRestrictedCountriesConsumer"));
 
     private String value;
 
@@ -185,7 +183,7 @@ public class VerificationErrorRecursive {
   }
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private List<CapabilitiesEnum> capabilities = null;
+  private List<CapabilitiesEnum> capabilities;
 
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
@@ -197,11 +195,11 @@ public class VerificationErrorRecursive {
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    */
   public enum TypeEnum {
-    DATAMISSING("dataMissing"),
+    DATAMISSING(String.valueOf("dataMissing")),
     
-    INVALIDINPUT("invalidInput"),
+    INVALIDINPUT(String.valueOf("invalidInput")),
     
-    PENDINGSTATUS("pendingStatus");
+    PENDINGSTATUS(String.valueOf("pendingStatus"));
 
     private String value;
 
@@ -234,7 +232,7 @@ public class VerificationErrorRecursive {
   private TypeEnum type;
 
   public static final String JSON_PROPERTY_REMEDIATING_ACTIONS = "remediatingActions";
-  private List<RemediatingAction> remediatingActions = null;
+  private List<RemediatingAction> remediatingActions;
 
   public VerificationErrorRecursive() { 
   }
@@ -242,7 +240,7 @@ public class VerificationErrorRecursive {
   /**
    * Contains the capabilities that the verification error applies to.
    *
-   * @param capabilities
+   * @param capabilities Contains the capabilities that the verification error applies to.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive capabilities(List<CapabilitiesEnum> capabilities) {
@@ -260,9 +258,8 @@ public class VerificationErrorRecursive {
 
   /**
    * Contains the capabilities that the verification error applies to.
-   * @return capabilities
+   * @return capabilities Contains the capabilities that the verification error applies to.
    */
-  @ApiModelProperty(value = "Contains the capabilities that the verification error applies to.")
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<CapabilitiesEnum> getCapabilities() {
@@ -272,8 +269,8 @@ public class VerificationErrorRecursive {
   /**
    * Contains the capabilities that the verification error applies to.
    *
-   * @param capabilities
-   */ 
+   * @param capabilities Contains the capabilities that the verification error applies to.
+   */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapabilities(List<CapabilitiesEnum> capabilities) {
@@ -283,7 +280,7 @@ public class VerificationErrorRecursive {
   /**
    * The verification error code.
    *
-   * @param code
+   * @param code The verification error code.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive code(String code) {
@@ -293,9 +290,8 @@ public class VerificationErrorRecursive {
 
   /**
    * The verification error code.
-   * @return code
+   * @return code The verification error code.
    */
-  @ApiModelProperty(value = "The verification error code.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCode() {
@@ -305,8 +301,8 @@ public class VerificationErrorRecursive {
   /**
    * The verification error code.
    *
-   * @param code
-   */ 
+   * @param code The verification error code.
+   */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(String code) {
@@ -316,7 +312,7 @@ public class VerificationErrorRecursive {
   /**
    * A description of the error.
    *
-   * @param message
+   * @param message A description of the error.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive message(String message) {
@@ -326,9 +322,8 @@ public class VerificationErrorRecursive {
 
   /**
    * A description of the error.
-   * @return message
+   * @return message A description of the error.
    */
-  @ApiModelProperty(value = "A description of the error.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -338,8 +333,8 @@ public class VerificationErrorRecursive {
   /**
    * A description of the error.
    *
-   * @param message
-   */ 
+   * @param message A description of the error.
+   */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(String message) {
@@ -349,7 +344,7 @@ public class VerificationErrorRecursive {
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    *
-   * @param type
+   * @param type The type of error.   Possible values: **invalidInput**, **dataMissing**.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive type(TypeEnum type) {
@@ -359,9 +354,8 @@ public class VerificationErrorRecursive {
 
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
-   * @return type
+   * @return type The type of error.   Possible values: **invalidInput**, **dataMissing**.
    */
-  @ApiModelProperty(value = "The type of error.   Possible values: **invalidInput**, **dataMissing**.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -371,8 +365,8 @@ public class VerificationErrorRecursive {
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    *
-   * @param type
-   */ 
+   * @param type The type of error.   Possible values: **invalidInput**, **dataMissing**.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
@@ -382,7 +376,7 @@ public class VerificationErrorRecursive {
   /**
    * Contains the actions that you can take to resolve the verification error.
    *
-   * @param remediatingActions
+   * @param remediatingActions Contains the actions that you can take to resolve the verification error.
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive remediatingActions(List<RemediatingAction> remediatingActions) {
@@ -400,9 +394,8 @@ public class VerificationErrorRecursive {
 
   /**
    * Contains the actions that you can take to resolve the verification error.
-   * @return remediatingActions
+   * @return remediatingActions Contains the actions that you can take to resolve the verification error.
    */
-  @ApiModelProperty(value = "Contains the actions that you can take to resolve the verification error.")
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<RemediatingAction> getRemediatingActions() {
@@ -412,8 +405,8 @@ public class VerificationErrorRecursive {
   /**
    * Contains the actions that you can take to resolve the verification error.
    *
-   * @param remediatingActions
-   */ 
+   * @param remediatingActions Contains the actions that you can take to resolve the verification error.
+   */
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRemediatingActions(List<RemediatingAction> remediatingActions) {

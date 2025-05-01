@@ -445,7 +445,7 @@ public class AuthenticationInfo {
   /**
    * Universally unique transaction identifier assigned by the Access Control Server (ACS) to identify a single transaction.
    *
-   * @param acsTransId
+   * @param acsTransId Universally unique transaction identifier assigned by the Access Control Server (ACS) to identify a single transaction.
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo acsTransId(String acsTransId) {
@@ -455,7 +455,7 @@ public class AuthenticationInfo {
 
   /**
    * Universally unique transaction identifier assigned by the Access Control Server (ACS) to identify a single transaction.
-   * @return acsTransId
+   * @return acsTransId Universally unique transaction identifier assigned by the Access Control Server (ACS) to identify a single transaction.
    */
   @JsonProperty(JSON_PROPERTY_ACS_TRANS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -466,7 +466,7 @@ public class AuthenticationInfo {
   /**
    * Universally unique transaction identifier assigned by the Access Control Server (ACS) to identify a single transaction.
    *
-   * @param acsTransId
+   * @param acsTransId Universally unique transaction identifier assigned by the Access Control Server (ACS) to identify a single transaction.
    */
   @JsonProperty(JSON_PROPERTY_ACS_TRANS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -477,7 +477,7 @@ public class AuthenticationInfo {
   /**
    * challenge
    *
-   * @param challenge
+   * @param challenge 
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo challenge(ChallengeInfo challenge) {
@@ -487,7 +487,7 @@ public class AuthenticationInfo {
 
   /**
    * Get challenge
-   * @return challenge
+   * @return challenge 
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -498,7 +498,7 @@ public class AuthenticationInfo {
   /**
    * challenge
    *
-   * @param challenge
+   * @param challenge 
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -509,7 +509,7 @@ public class AuthenticationInfo {
   /**
    * Specifies a preference for receiving a challenge. Possible values:  * **01**: No preference * **02**: No challenge requested * **03**: Challenge requested (preference) * **04**: Challenge requested (mandate) * **05**: No challenge requested (transactional risk analysis is already performed) * **07**: No challenge requested (SCA is already performed) * **08**: No challenge requested (trusted beneficiaries exemption of no challenge required) * **09**: Challenge requested (trusted beneficiaries prompt requested if challenge required) * **80**: No challenge requested (secure corporate payment with Mastercard) * **82**: No challenge requested (secure corporate payment with Visa) 
    *
-   * @param challengeIndicator
+   * @param challengeIndicator Specifies a preference for receiving a challenge. Possible values:  * **01**: No preference * **02**: No challenge requested * **03**: Challenge requested (preference) * **04**: Challenge requested (mandate) * **05**: No challenge requested (transactional risk analysis is already performed) * **07**: No challenge requested (SCA is already performed) * **08**: No challenge requested (trusted beneficiaries exemption of no challenge required) * **09**: Challenge requested (trusted beneficiaries prompt requested if challenge required) * **80**: No challenge requested (secure corporate payment with Mastercard) * **82**: No challenge requested (secure corporate payment with Visa) 
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
@@ -519,7 +519,7 @@ public class AuthenticationInfo {
 
   /**
    * Specifies a preference for receiving a challenge. Possible values:  * **01**: No preference * **02**: No challenge requested * **03**: Challenge requested (preference) * **04**: Challenge requested (mandate) * **05**: No challenge requested (transactional risk analysis is already performed) * **07**: No challenge requested (SCA is already performed) * **08**: No challenge requested (trusted beneficiaries exemption of no challenge required) * **09**: Challenge requested (trusted beneficiaries prompt requested if challenge required) * **80**: No challenge requested (secure corporate payment with Mastercard) * **82**: No challenge requested (secure corporate payment with Visa) 
-   * @return challengeIndicator
+   * @return challengeIndicator Specifies a preference for receiving a challenge. Possible values:  * **01**: No preference * **02**: No challenge requested * **03**: Challenge requested (preference) * **04**: Challenge requested (mandate) * **05**: No challenge requested (transactional risk analysis is already performed) * **07**: No challenge requested (SCA is already performed) * **08**: No challenge requested (trusted beneficiaries exemption of no challenge required) * **09**: Challenge requested (trusted beneficiaries prompt requested if challenge required) * **80**: No challenge requested (secure corporate payment with Mastercard) * **82**: No challenge requested (secure corporate payment with Visa) 
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -530,7 +530,7 @@ public class AuthenticationInfo {
   /**
    * Specifies a preference for receiving a challenge. Possible values:  * **01**: No preference * **02**: No challenge requested * **03**: Challenge requested (preference) * **04**: Challenge requested (mandate) * **05**: No challenge requested (transactional risk analysis is already performed) * **07**: No challenge requested (SCA is already performed) * **08**: No challenge requested (trusted beneficiaries exemption of no challenge required) * **09**: Challenge requested (trusted beneficiaries prompt requested if challenge required) * **80**: No challenge requested (secure corporate payment with Mastercard) * **82**: No challenge requested (secure corporate payment with Visa) 
    *
-   * @param challengeIndicator
+   * @param challengeIndicator Specifies a preference for receiving a challenge. Possible values:  * **01**: No preference * **02**: No challenge requested * **03**: Challenge requested (preference) * **04**: Challenge requested (mandate) * **05**: No challenge requested (transactional risk analysis is already performed) * **07**: No challenge requested (SCA is already performed) * **08**: No challenge requested (trusted beneficiaries exemption of no challenge required) * **09**: Challenge requested (trusted beneficiaries prompt requested if challenge required) * **80**: No challenge requested (secure corporate payment with Mastercard) * **82**: No challenge requested (secure corporate payment with Visa) 
    */
   @JsonProperty(JSON_PROPERTY_CHALLENGE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -541,7 +541,7 @@ public class AuthenticationInfo {
   /**
    * Date and time in UTC of the cardholder authentication.   [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param createdAt
+   * @param createdAt Date and time in UTC of the cardholder authentication.   [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo createdAt(OffsetDateTime createdAt) {
@@ -551,7 +551,7 @@ public class AuthenticationInfo {
 
   /**
    * Date and time in UTC of the cardholder authentication.   [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
-   * @return createdAt
+   * @return createdAt Date and time in UTC of the cardholder authentication.   [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -562,7 +562,7 @@ public class AuthenticationInfo {
   /**
    * Date and time in UTC of the cardholder authentication.   [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param createdAt
+   * @param createdAt Date and time in UTC of the cardholder authentication.   [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -573,7 +573,7 @@ public class AuthenticationInfo {
   /**
    * Indicates the type of channel interface being used to initiate the transaction. Possible values:  * **app** * **browser** * **3DSRequestorInitiated** (initiated by a merchant when the cardholder is not available)
    *
-   * @param deviceChannel
+   * @param deviceChannel Indicates the type of channel interface being used to initiate the transaction. Possible values:  * **app** * **browser** * **3DSRequestorInitiated** (initiated by a merchant when the cardholder is not available)
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo deviceChannel(DeviceChannelEnum deviceChannel) {
@@ -583,7 +583,7 @@ public class AuthenticationInfo {
 
   /**
    * Indicates the type of channel interface being used to initiate the transaction. Possible values:  * **app** * **browser** * **3DSRequestorInitiated** (initiated by a merchant when the cardholder is not available)
-   * @return deviceChannel
+   * @return deviceChannel Indicates the type of channel interface being used to initiate the transaction. Possible values:  * **app** * **browser** * **3DSRequestorInitiated** (initiated by a merchant when the cardholder is not available)
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -594,7 +594,7 @@ public class AuthenticationInfo {
   /**
    * Indicates the type of channel interface being used to initiate the transaction. Possible values:  * **app** * **browser** * **3DSRequestorInitiated** (initiated by a merchant when the cardholder is not available)
    *
-   * @param deviceChannel
+   * @param deviceChannel Indicates the type of channel interface being used to initiate the transaction. Possible values:  * **app** * **browser** * **3DSRequestorInitiated** (initiated by a merchant when the cardholder is not available)
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -605,7 +605,7 @@ public class AuthenticationInfo {
   /**
    * Universally unique transaction identifier assigned by the DS (card scheme) to identify a single transaction.
    *
-   * @param dsTransID
+   * @param dsTransID Universally unique transaction identifier assigned by the DS (card scheme) to identify a single transaction.
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo dsTransID(String dsTransID) {
@@ -615,7 +615,7 @@ public class AuthenticationInfo {
 
   /**
    * Universally unique transaction identifier assigned by the DS (card scheme) to identify a single transaction.
-   * @return dsTransID
+   * @return dsTransID Universally unique transaction identifier assigned by the DS (card scheme) to identify a single transaction.
    */
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -626,7 +626,7 @@ public class AuthenticationInfo {
   /**
    * Universally unique transaction identifier assigned by the DS (card scheme) to identify a single transaction.
    *
-   * @param dsTransID
+   * @param dsTransID Universally unique transaction identifier assigned by the DS (card scheme) to identify a single transaction.
    */
   @JsonProperty(JSON_PROPERTY_DS_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -637,7 +637,7 @@ public class AuthenticationInfo {
   /**
    * Indicates the exemption type that was applied to the authentication by the issuer, if exemption applied. Possible values:  * **lowValue** * **secureCorporate** * **trustedBeneficiary** * **transactionRiskAnalysis** * **acquirerExemption** * **noExemptionApplied** * **visaDAFExemption** 
    *
-   * @param exemptionIndicator
+   * @param exemptionIndicator Indicates the exemption type that was applied to the authentication by the issuer, if exemption applied. Possible values:  * **lowValue** * **secureCorporate** * **trustedBeneficiary** * **transactionRiskAnalysis** * **acquirerExemption** * **noExemptionApplied** * **visaDAFExemption** 
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo exemptionIndicator(ExemptionIndicatorEnum exemptionIndicator) {
@@ -647,7 +647,7 @@ public class AuthenticationInfo {
 
   /**
    * Indicates the exemption type that was applied to the authentication by the issuer, if exemption applied. Possible values:  * **lowValue** * **secureCorporate** * **trustedBeneficiary** * **transactionRiskAnalysis** * **acquirerExemption** * **noExemptionApplied** * **visaDAFExemption** 
-   * @return exemptionIndicator
+   * @return exemptionIndicator Indicates the exemption type that was applied to the authentication by the issuer, if exemption applied. Possible values:  * **lowValue** * **secureCorporate** * **trustedBeneficiary** * **transactionRiskAnalysis** * **acquirerExemption** * **noExemptionApplied** * **visaDAFExemption** 
    */
   @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -658,7 +658,7 @@ public class AuthenticationInfo {
   /**
    * Indicates the exemption type that was applied to the authentication by the issuer, if exemption applied. Possible values:  * **lowValue** * **secureCorporate** * **trustedBeneficiary** * **transactionRiskAnalysis** * **acquirerExemption** * **noExemptionApplied** * **visaDAFExemption** 
    *
-   * @param exemptionIndicator
+   * @param exemptionIndicator Indicates the exemption type that was applied to the authentication by the issuer, if exemption applied. Possible values:  * **lowValue** * **secureCorporate** * **trustedBeneficiary** * **transactionRiskAnalysis** * **acquirerExemption** * **noExemptionApplied** * **visaDAFExemption** 
    */
   @JsonProperty(JSON_PROPERTY_EXEMPTION_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -669,7 +669,7 @@ public class AuthenticationInfo {
   /**
    * Indicates if the purchase was in the PSD2 scope.
    *
-   * @param inPSD2Scope
+   * @param inPSD2Scope Indicates if the purchase was in the PSD2 scope.
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo inPSD2Scope(Boolean inPSD2Scope) {
@@ -679,7 +679,7 @@ public class AuthenticationInfo {
 
   /**
    * Indicates if the purchase was in the PSD2 scope.
-   * @return inPSD2Scope
+   * @return inPSD2Scope Indicates if the purchase was in the PSD2 scope.
    */
   @JsonProperty(JSON_PROPERTY_IN_P_S_D2_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -690,7 +690,7 @@ public class AuthenticationInfo {
   /**
    * Indicates if the purchase was in the PSD2 scope.
    *
-   * @param inPSD2Scope
+   * @param inPSD2Scope Indicates if the purchase was in the PSD2 scope.
    */
   @JsonProperty(JSON_PROPERTY_IN_P_S_D2_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -701,7 +701,7 @@ public class AuthenticationInfo {
   /**
    * Identifies the category of the message for a specific use case. Possible values:  * **payment** * **nonPayment**
    *
-   * @param messageCategory
+   * @param messageCategory Identifies the category of the message for a specific use case. Possible values:  * **payment** * **nonPayment**
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo messageCategory(MessageCategoryEnum messageCategory) {
@@ -711,7 +711,7 @@ public class AuthenticationInfo {
 
   /**
    * Identifies the category of the message for a specific use case. Possible values:  * **payment** * **nonPayment**
-   * @return messageCategory
+   * @return messageCategory Identifies the category of the message for a specific use case. Possible values:  * **payment** * **nonPayment**
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -722,7 +722,7 @@ public class AuthenticationInfo {
   /**
    * Identifies the category of the message for a specific use case. Possible values:  * **payment** * **nonPayment**
    *
-   * @param messageCategory
+   * @param messageCategory Identifies the category of the message for a specific use case. Possible values:  * **payment** * **nonPayment**
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -733,7 +733,7 @@ public class AuthenticationInfo {
   /**
    * The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
    *
-   * @param messageVersion
+   * @param messageVersion The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo messageVersion(String messageVersion) {
@@ -743,7 +743,7 @@ public class AuthenticationInfo {
 
   /**
    * The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
-   * @return messageVersion
+   * @return messageVersion The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -754,7 +754,7 @@ public class AuthenticationInfo {
   /**
    * The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
    *
-   * @param messageVersion
+   * @param messageVersion The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -765,7 +765,7 @@ public class AuthenticationInfo {
   /**
    * Risk score calculated from the transaction rules.
    *
-   * @param riskScore
+   * @param riskScore Risk score calculated from the transaction rules.
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo riskScore(Integer riskScore) {
@@ -775,7 +775,7 @@ public class AuthenticationInfo {
 
   /**
    * Risk score calculated from the transaction rules.
-   * @return riskScore
+   * @return riskScore Risk score calculated from the transaction rules.
    */
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -786,7 +786,7 @@ public class AuthenticationInfo {
   /**
    * Risk score calculated from the transaction rules.
    *
-   * @param riskScore
+   * @param riskScore Risk score calculated from the transaction rules.
    */
   @JsonProperty(JSON_PROPERTY_RISK_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -797,7 +797,7 @@ public class AuthenticationInfo {
   /**
    * The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
    *
-   * @param threeDSServerTransID
+   * @param threeDSServerTransID The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo threeDSServerTransID(String threeDSServerTransID) {
@@ -807,7 +807,7 @@ public class AuthenticationInfo {
 
   /**
    * The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
-   * @return threeDSServerTransID
+   * @return threeDSServerTransID The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -818,7 +818,7 @@ public class AuthenticationInfo {
   /**
    * The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
    *
-   * @param threeDSServerTransID
+   * @param threeDSServerTransID The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_SERVER_TRANS_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -829,7 +829,7 @@ public class AuthenticationInfo {
   /**
    * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification. Possible values:  * **Y**: Authentication / Account verification successful. * **N**: Not Authenticated / Account not verified. Transaction denied. * **U**: Authentication / Account verification could not be performed. * **I**: Informational Only / 3D Secure Requestor challenge preference acknowledged. * **R**: Authentication / Account verification rejected by the Issuer. 
    *
-   * @param transStatus
+   * @param transStatus The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification. Possible values:  * **Y**: Authentication / Account verification successful. * **N**: Not Authenticated / Account not verified. Transaction denied. * **U**: Authentication / Account verification could not be performed. * **I**: Informational Only / 3D Secure Requestor challenge preference acknowledged. * **R**: Authentication / Account verification rejected by the Issuer. 
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo transStatus(TransStatusEnum transStatus) {
@@ -839,7 +839,7 @@ public class AuthenticationInfo {
 
   /**
    * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification. Possible values:  * **Y**: Authentication / Account verification successful. * **N**: Not Authenticated / Account not verified. Transaction denied. * **U**: Authentication / Account verification could not be performed. * **I**: Informational Only / 3D Secure Requestor challenge preference acknowledged. * **R**: Authentication / Account verification rejected by the Issuer. 
-   * @return transStatus
+   * @return transStatus The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification. Possible values:  * **Y**: Authentication / Account verification successful. * **N**: Not Authenticated / Account not verified. Transaction denied. * **U**: Authentication / Account verification could not be performed. * **I**: Informational Only / 3D Secure Requestor challenge preference acknowledged. * **R**: Authentication / Account verification rejected by the Issuer. 
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -850,7 +850,7 @@ public class AuthenticationInfo {
   /**
    * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification. Possible values:  * **Y**: Authentication / Account verification successful. * **N**: Not Authenticated / Account not verified. Transaction denied. * **U**: Authentication / Account verification could not be performed. * **I**: Informational Only / 3D Secure Requestor challenge preference acknowledged. * **R**: Authentication / Account verification rejected by the Issuer. 
    *
-   * @param transStatus
+   * @param transStatus The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification. Possible values:  * **Y**: Authentication / Account verification successful. * **N**: Not Authenticated / Account not verified. Transaction denied. * **U**: Authentication / Account verification could not be performed. * **I**: Informational Only / 3D Secure Requestor challenge preference acknowledged. * **R**: Authentication / Account verification rejected by the Issuer. 
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -861,7 +861,7 @@ public class AuthenticationInfo {
   /**
    * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    *
-   * @param transStatusReason
+   * @param transStatusReason Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo transStatusReason(TransStatusReasonEnum transStatusReason) {
@@ -871,7 +871,7 @@ public class AuthenticationInfo {
 
   /**
    * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
-   * @return transStatusReason
+   * @return transStatusReason Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -882,7 +882,7 @@ public class AuthenticationInfo {
   /**
    * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    *
-   * @param transStatusReason
+   * @param transStatusReason Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    */
   @JsonProperty(JSON_PROPERTY_TRANS_STATUS_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -893,7 +893,7 @@ public class AuthenticationInfo {
   /**
    * The type of authentication performed. Possible values:  * **frictionless** * **challenge**
    *
-   * @param type
+   * @param type The type of authentication performed. Possible values:  * **frictionless** * **challenge**
    * @return the current {@code AuthenticationInfo} instance, allowing for method chaining
    */
   public AuthenticationInfo type(TypeEnum type) {
@@ -903,7 +903,7 @@ public class AuthenticationInfo {
 
   /**
    * The type of authentication performed. Possible values:  * **frictionless** * **challenge**
-   * @return type
+   * @return type The type of authentication performed. Possible values:  * **frictionless** * **challenge**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -914,7 +914,7 @@ public class AuthenticationInfo {
   /**
    * The type of authentication performed. Possible values:  * **frictionless** * **challenge**
    *
-   * @param type
+   * @param type The type of authentication performed. Possible values:  * **frictionless** * **challenge**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

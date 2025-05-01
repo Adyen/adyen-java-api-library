@@ -13,7 +13,6 @@
 package com.adyen.model.configurationwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.configurationwebhooks.DeliveryAddress;
@@ -24,8 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -71,7 +69,7 @@ public class DeliveryContact {
   /**
    * address
    *
-   * @param address
+   * @param address 
    * @return the current {@code DeliveryContact} instance, allowing for method chaining
    */
   public DeliveryContact address(DeliveryAddress address) {
@@ -80,10 +78,9 @@ public class DeliveryContact {
   }
 
   /**
-   * address
-   * @return address
+   * Get address
+   * @return address 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public DeliveryAddress getAddress() {
@@ -93,8 +90,8 @@ public class DeliveryContact {
   /**
    * address
    *
-   * @param address
-   */ 
+   * @param address 
+   */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(DeliveryAddress address) {
@@ -104,7 +101,7 @@ public class DeliveryContact {
   /**
    * The company name of the contact.
    *
-   * @param company
+   * @param company The company name of the contact.
    * @return the current {@code DeliveryContact} instance, allowing for method chaining
    */
   public DeliveryContact company(String company) {
@@ -114,9 +111,8 @@ public class DeliveryContact {
 
   /**
    * The company name of the contact.
-   * @return company
+   * @return company The company name of the contact.
    */
-  @ApiModelProperty(value = "The company name of the contact.")
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCompany() {
@@ -126,8 +122,8 @@ public class DeliveryContact {
   /**
    * The company name of the contact.
    *
-   * @param company
-   */ 
+   * @param company The company name of the contact.
+   */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(String company) {
@@ -137,7 +133,7 @@ public class DeliveryContact {
   /**
    * The email address of the contact.
    *
-   * @param email
+   * @param email The email address of the contact.
    * @return the current {@code DeliveryContact} instance, allowing for method chaining
    */
   public DeliveryContact email(String email) {
@@ -147,9 +143,8 @@ public class DeliveryContact {
 
   /**
    * The email address of the contact.
-   * @return email
+   * @return email The email address of the contact.
    */
-  @ApiModelProperty(value = "The email address of the contact.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -159,8 +154,8 @@ public class DeliveryContact {
   /**
    * The email address of the contact.
    *
-   * @param email
-   */ 
+   * @param email The email address of the contact.
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -170,7 +165,7 @@ public class DeliveryContact {
   /**
    * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
    *
-   * @param fullPhoneNumber
+   * @param fullPhoneNumber The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
    * @return the current {@code DeliveryContact} instance, allowing for method chaining
    */
   public DeliveryContact fullPhoneNumber(String fullPhoneNumber) {
@@ -180,9 +175,8 @@ public class DeliveryContact {
 
   /**
    * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
-   * @return fullPhoneNumber
+   * @return fullPhoneNumber The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
    */
-  @ApiModelProperty(value = "The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \"0031 6 11 22 33 44\", \"+316/1122-3344\", \"(0031) 611223344\"")
   @JsonProperty(JSON_PROPERTY_FULL_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFullPhoneNumber() {
@@ -192,8 +186,8 @@ public class DeliveryContact {
   /**
    * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
    *
-   * @param fullPhoneNumber
-   */ 
+   * @param fullPhoneNumber The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
+   */
   @JsonProperty(JSON_PROPERTY_FULL_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFullPhoneNumber(String fullPhoneNumber) {
@@ -203,7 +197,7 @@ public class DeliveryContact {
   /**
    * name
    *
-   * @param name
+   * @param name 
    * @return the current {@code DeliveryContact} instance, allowing for method chaining
    */
   public DeliveryContact name(Name name) {
@@ -212,10 +206,9 @@ public class DeliveryContact {
   }
 
   /**
-   * name
-   * @return name
+   * Get name
+   * @return name 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getName() {
@@ -225,8 +218,8 @@ public class DeliveryContact {
   /**
    * name
    *
-   * @param name
-   */ 
+   * @param name 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
@@ -236,7 +229,7 @@ public class DeliveryContact {
   /**
    * phoneNumber
    *
-   * @param phoneNumber
+   * @param phoneNumber 
    * @return the current {@code DeliveryContact} instance, allowing for method chaining
    */
   public DeliveryContact phoneNumber(PhoneNumber phoneNumber) {
@@ -245,10 +238,9 @@ public class DeliveryContact {
   }
 
   /**
-   * phoneNumber
-   * @return phoneNumber
+   * Get phoneNumber
+   * @return phoneNumber 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PhoneNumber getPhoneNumber() {
@@ -258,8 +250,8 @@ public class DeliveryContact {
   /**
    * phoneNumber
    *
-   * @param phoneNumber
-   */ 
+   * @param phoneNumber 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(PhoneNumber phoneNumber) {
@@ -269,7 +261,7 @@ public class DeliveryContact {
   /**
    * The URL of the contact&#39;s website.
    *
-   * @param webAddress
+   * @param webAddress The URL of the contact&#39;s website.
    * @return the current {@code DeliveryContact} instance, allowing for method chaining
    */
   public DeliveryContact webAddress(String webAddress) {
@@ -279,9 +271,8 @@ public class DeliveryContact {
 
   /**
    * The URL of the contact&#39;s website.
-   * @return webAddress
+   * @return webAddress The URL of the contact&#39;s website.
    */
-  @ApiModelProperty(value = "The URL of the contact's website.")
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getWebAddress() {
@@ -291,8 +282,8 @@ public class DeliveryContact {
   /**
    * The URL of the contact&#39;s website.
    *
-   * @param webAddress
-   */ 
+   * @param webAddress The URL of the contact&#39;s website.
+   */
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWebAddress(String webAddress) {

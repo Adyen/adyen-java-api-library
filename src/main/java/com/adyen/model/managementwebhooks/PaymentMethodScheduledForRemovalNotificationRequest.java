@@ -13,7 +13,6 @@
 package com.adyen.model.managementwebhooks;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.managementwebhooks.MidServiceNotificationData;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -53,7 +51,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
    * Type of notification.
    */
   public enum TypeEnum {
-    PAYMENTMETHODREQUEST_SCHEDULEDFORREMOVAL("paymentMethodRequest.scheduledForRemoval");
+    PAYMENTMETHODREQUEST_SCHEDULEDFORREMOVAL(String.valueOf("paymentMethodRequest.scheduledForRemoval"));
 
     private String value;
 
@@ -91,7 +89,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   /**
    * Timestamp for when the webhook was created.
    *
-   * @param createdAt
+   * @param createdAt Timestamp for when the webhook was created.
    * @return the current {@code PaymentMethodScheduledForRemovalNotificationRequest} instance, allowing for method chaining
    */
   public PaymentMethodScheduledForRemovalNotificationRequest createdAt(OffsetDateTime createdAt) {
@@ -101,9 +99,8 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
 
   /**
    * Timestamp for when the webhook was created.
-   * @return createdAt
+   * @return createdAt Timestamp for when the webhook was created.
    */
-  @ApiModelProperty(required = true, value = "Timestamp for when the webhook was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreatedAt() {
@@ -113,8 +110,8 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   /**
    * Timestamp for when the webhook was created.
    *
-   * @param createdAt
-   */ 
+   * @param createdAt Timestamp for when the webhook was created.
+   */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
@@ -124,7 +121,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   /**
    * data
    *
-   * @param data
+   * @param data 
    * @return the current {@code PaymentMethodScheduledForRemovalNotificationRequest} instance, allowing for method chaining
    */
   public PaymentMethodScheduledForRemovalNotificationRequest data(MidServiceNotificationData data) {
@@ -133,10 +130,9 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   }
 
   /**
-   * data
-   * @return data
+   * Get data
+   * @return data 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public MidServiceNotificationData getData() {
@@ -146,8 +142,8 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   /**
    * data
    *
-   * @param data
-   */ 
+   * @param data 
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(MidServiceNotificationData data) {
@@ -157,7 +153,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
-   * @param environment
+   * @param environment The environment from which the webhook originated.  Possible values: **test**, **live**.
    * @return the current {@code PaymentMethodScheduledForRemovalNotificationRequest} instance, allowing for method chaining
    */
   public PaymentMethodScheduledForRemovalNotificationRequest environment(String environment) {
@@ -167,9 +163,8 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
 
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
-   * @return environment
+   * @return environment The environment from which the webhook originated.  Possible values: **test**, **live**.
    */
-  @ApiModelProperty(required = true, value = "The environment from which the webhook originated.  Possible values: **test**, **live**.")
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEnvironment() {
@@ -179,8 +174,8 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   /**
    * The environment from which the webhook originated.  Possible values: **test**, **live**.
    *
-   * @param environment
-   */ 
+   * @param environment The environment from which the webhook originated.  Possible values: **test**, **live**.
+   */
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnvironment(String environment) {
@@ -190,7 +185,7 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   /**
    * Type of notification.
    *
-   * @param type
+   * @param type Type of notification.
    * @return the current {@code PaymentMethodScheduledForRemovalNotificationRequest} instance, allowing for method chaining
    */
   public PaymentMethodScheduledForRemovalNotificationRequest type(TypeEnum type) {
@@ -200,9 +195,8 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
 
   /**
    * Type of notification.
-   * @return type
+   * @return type Type of notification.
    */
-  @ApiModelProperty(required = true, value = "Type of notification.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -212,8 +206,8 @@ public class PaymentMethodScheduledForRemovalNotificationRequest {
   /**
    * Type of notification.
    *
-   * @param type
-   */ 
+   * @param type Type of notification.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
