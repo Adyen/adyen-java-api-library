@@ -79,7 +79,7 @@ public class AffirmDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code AffirmDetails} instance, allowing for method chaining
    */
   public AffirmDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -89,7 +89,7 @@ public class AffirmDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class AffirmDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class AffirmDetails {
   /**
    * **affirm**
    *
-   * @param type
+   * @param type **affirm**
    * @return the current {@code AffirmDetails} instance, allowing for method chaining
    */
   public AffirmDetails type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class AffirmDetails {
 
   /**
    * **affirm**
-   * @return type
+   * @return type **affirm**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class AffirmDetails {
   /**
    * **affirm**
    *
-   * @param type
+   * @param type **affirm**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

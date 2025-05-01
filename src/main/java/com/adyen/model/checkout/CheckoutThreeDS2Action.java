@@ -99,7 +99,7 @@ public class CheckoutThreeDS2Action {
   /**
    * A token needed to authorise a payment.
    *
-   * @param authorisationToken
+   * @param authorisationToken A token needed to authorise a payment.
    * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
    */
   public CheckoutThreeDS2Action authorisationToken(String authorisationToken) {
@@ -109,7 +109,7 @@ public class CheckoutThreeDS2Action {
 
   /**
    * A token needed to authorise a payment.
-   * @return authorisationToken
+   * @return authorisationToken A token needed to authorise a payment.
    */
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +120,7 @@ public class CheckoutThreeDS2Action {
   /**
    * A token needed to authorise a payment.
    *
-   * @param authorisationToken
+   * @param authorisationToken A token needed to authorise a payment.
    */
   @JsonProperty(JSON_PROPERTY_AUTHORISATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +131,7 @@ public class CheckoutThreeDS2Action {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
    */
   public CheckoutThreeDS2Action paymentData(String paymentData) {
@@ -141,7 +141,7 @@ public class CheckoutThreeDS2Action {
 
   /**
    * Encoded payment data.
-   * @return paymentData
+   * @return paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +152,7 @@ public class CheckoutThreeDS2Action {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +163,7 @@ public class CheckoutThreeDS2Action {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
    */
   public CheckoutThreeDS2Action paymentMethodType(String paymentMethodType) {
@@ -173,7 +173,7 @@ public class CheckoutThreeDS2Action {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +184,7 @@ public class CheckoutThreeDS2Action {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +195,7 @@ public class CheckoutThreeDS2Action {
   /**
    * A subtype of the token.
    *
-   * @param subtype
+   * @param subtype A subtype of the token.
    * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
    */
   public CheckoutThreeDS2Action subtype(String subtype) {
@@ -205,7 +205,7 @@ public class CheckoutThreeDS2Action {
 
   /**
    * A subtype of the token.
-   * @return subtype
+   * @return subtype A subtype of the token.
    */
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +216,7 @@ public class CheckoutThreeDS2Action {
   /**
    * A subtype of the token.
    *
-   * @param subtype
+   * @param subtype A subtype of the token.
    */
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +227,7 @@ public class CheckoutThreeDS2Action {
   /**
    * A token to pass to the 3DS2 Component to get the fingerprint.
    *
-   * @param token
+   * @param token A token to pass to the 3DS2 Component to get the fingerprint.
    * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
    */
   public CheckoutThreeDS2Action token(String token) {
@@ -237,7 +237,7 @@ public class CheckoutThreeDS2Action {
 
   /**
    * A token to pass to the 3DS2 Component to get the fingerprint.
-   * @return token
+   * @return token A token to pass to the 3DS2 Component to get the fingerprint.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +248,7 @@ public class CheckoutThreeDS2Action {
   /**
    * A token to pass to the 3DS2 Component to get the fingerprint.
    *
-   * @param token
+   * @param token A token to pass to the 3DS2 Component to get the fingerprint.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +259,7 @@ public class CheckoutThreeDS2Action {
   /**
    * **threeDS2**
    *
-   * @param type
+   * @param type **threeDS2**
    * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
    */
   public CheckoutThreeDS2Action type(TypeEnum type) {
@@ -269,7 +269,7 @@ public class CheckoutThreeDS2Action {
 
   /**
    * **threeDS2**
-   * @return type
+   * @return type **threeDS2**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,7 +280,7 @@ public class CheckoutThreeDS2Action {
   /**
    * **threeDS2**
    *
-   * @param type
+   * @param type **threeDS2**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,7 +291,7 @@ public class CheckoutThreeDS2Action {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutThreeDS2Action} instance, allowing for method chaining
    */
   public CheckoutThreeDS2Action url(String url) {
@@ -301,7 +301,7 @@ public class CheckoutThreeDS2Action {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +312,7 @@ public class CheckoutThreeDS2Action {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

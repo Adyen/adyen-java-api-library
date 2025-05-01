@@ -91,7 +91,7 @@ public class PaymentReversalResponse {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    * @return the current {@code PaymentReversalResponse} instance, allowing for method chaining
    */
   public PaymentReversalResponse merchantAccount(String merchantAccount) {
@@ -101,7 +101,7 @@ public class PaymentReversalResponse {
 
   /**
    * The merchant account that is used to process the payment.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class PaymentReversalResponse {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class PaymentReversalResponse {
   /**
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
    *
-   * @param paymentPspReference
+   * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
    * @return the current {@code PaymentReversalResponse} instance, allowing for method chaining
    */
   public PaymentReversalResponse paymentPspReference(String paymentPspReference) {
@@ -133,7 +133,7 @@ public class PaymentReversalResponse {
 
   /**
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
-   * @return paymentPspReference
+   * @return paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class PaymentReversalResponse {
   /**
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
    *
-   * @param paymentPspReference
+   * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class PaymentReversalResponse {
   /**
    * Adyen&#39;s 16-character reference associated with the reversal request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character reference associated with the reversal request.
    * @return the current {@code PaymentReversalResponse} instance, allowing for method chaining
    */
   public PaymentReversalResponse pspReference(String pspReference) {
@@ -165,7 +165,7 @@ public class PaymentReversalResponse {
 
   /**
    * Adyen&#39;s 16-character reference associated with the reversal request.
-   * @return pspReference
+   * @return pspReference Adyen&#39;s 16-character reference associated with the reversal request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class PaymentReversalResponse {
   /**
    * Adyen&#39;s 16-character reference associated with the reversal request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character reference associated with the reversal request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class PaymentReversalResponse {
   /**
    * Your reference for the reversal request.
    *
-   * @param reference
+   * @param reference Your reference for the reversal request.
    * @return the current {@code PaymentReversalResponse} instance, allowing for method chaining
    */
   public PaymentReversalResponse reference(String reference) {
@@ -197,7 +197,7 @@ public class PaymentReversalResponse {
 
   /**
    * Your reference for the reversal request.
-   * @return reference
+   * @return reference Your reference for the reversal request.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class PaymentReversalResponse {
   /**
    * Your reference for the reversal request.
    *
-   * @param reference
+   * @param reference Your reference for the reversal request.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class PaymentReversalResponse {
   /**
    * The status of your request. This will always have the value **received**.
    *
-   * @param status
+   * @param status The status of your request. This will always have the value **received**.
    * @return the current {@code PaymentReversalResponse} instance, allowing for method chaining
    */
   public PaymentReversalResponse status(StatusEnum status) {
@@ -229,7 +229,7 @@ public class PaymentReversalResponse {
 
   /**
    * The status of your request. This will always have the value **received**.
-   * @return status
+   * @return status The status of your request. This will always have the value **received**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class PaymentReversalResponse {
   /**
    * The status of your request. This will always have the value **received**.
    *
-   * @param status
+   * @param status The status of your request. This will always have the value **received**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

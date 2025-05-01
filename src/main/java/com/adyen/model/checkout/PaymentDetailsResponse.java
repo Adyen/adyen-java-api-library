@@ -165,7 +165,7 @@ public class PaymentDetailsResponse {
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
-   * @param additionalData
+   * @param additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse additionalData(Map<String, String> additionalData) {
@@ -183,7 +183,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
-   * @return additionalData
+   * @return additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class PaymentDetailsResponse {
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
-   * @param additionalData
+   * @param additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +205,7 @@ public class PaymentDetailsResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse amount(Amount amount) {
@@ -215,7 +215,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +226,7 @@ public class PaymentDetailsResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -237,7 +237,7 @@ public class PaymentDetailsResponse {
   /**
    * Donation Token containing payment details for Adyen Giving.
    *
-   * @param donationToken
+   * @param donationToken Donation Token containing payment details for Adyen Giving.
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse donationToken(String donationToken) {
@@ -247,7 +247,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Donation Token containing payment details for Adyen Giving.
-   * @return donationToken
+   * @return donationToken Donation Token containing payment details for Adyen Giving.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +258,7 @@ public class PaymentDetailsResponse {
   /**
    * Donation Token containing payment details for Adyen Giving.
    *
-   * @param donationToken
+   * @param donationToken Donation Token containing payment details for Adyen Giving.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +269,7 @@ public class PaymentDetailsResponse {
   /**
    * fraudResult
    *
-   * @param fraudResult
+   * @param fraudResult 
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse fraudResult(FraudResult fraudResult) {
@@ -279,7 +279,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Get fraudResult
-   * @return fraudResult
+   * @return fraudResult 
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +290,7 @@ public class PaymentDetailsResponse {
   /**
    * fraudResult
    *
-   * @param fraudResult
+   * @param fraudResult 
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +301,7 @@ public class PaymentDetailsResponse {
   /**
    * The reference used during the /payments request.
    *
-   * @param merchantReference
+   * @param merchantReference The reference used during the /payments request.
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse merchantReference(String merchantReference) {
@@ -311,7 +311,7 @@ public class PaymentDetailsResponse {
 
   /**
    * The reference used during the /payments request.
-   * @return merchantReference
+   * @return merchantReference The reference used during the /payments request.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class PaymentDetailsResponse {
   /**
    * The reference used during the /payments request.
    *
-   * @param merchantReference
+   * @param merchantReference The reference used during the /payments request.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +333,7 @@ public class PaymentDetailsResponse {
   /**
    * order
    *
-   * @param order
+   * @param order 
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse order(CheckoutOrderResponse order) {
@@ -343,7 +343,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Get order
-   * @return order
+   * @return order 
    */
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,7 +354,7 @@ public class PaymentDetailsResponse {
   /**
    * order
    *
-   * @param order
+   * @param order 
    */
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,7 +365,7 @@ public class PaymentDetailsResponse {
   /**
    * paymentMethod
    *
-   * @param paymentMethod
+   * @param paymentMethod 
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse paymentMethod(ResponsePaymentMethod paymentMethod) {
@@ -375,7 +375,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Get paymentMethod
-   * @return paymentMethod
+   * @return paymentMethod 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,7 +386,7 @@ public class PaymentDetailsResponse {
   /**
    * paymentMethod
    *
-   * @param paymentMethod
+   * @param paymentMethod 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,7 +397,7 @@ public class PaymentDetailsResponse {
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse pspReference(String pspReference) {
@@ -407,7 +407,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-   * @return pspReference
+   * @return pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -418,7 +418,7 @@ public class PaymentDetailsResponse {
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -429,7 +429,7 @@ public class PaymentDetailsResponse {
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
-   * @param refusalReason
+   * @param refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse refusalReason(String refusalReason) {
@@ -439,7 +439,7 @@ public class PaymentDetailsResponse {
 
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
-   * @return refusalReason
+   * @return refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +450,7 @@ public class PaymentDetailsResponse {
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
-   * @param refusalReason
+   * @param refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -461,7 +461,7 @@ public class PaymentDetailsResponse {
   /**
    * Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
-   * @param refusalReasonCode
+   * @param refusalReasonCode Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse refusalReasonCode(String refusalReasonCode) {
@@ -471,7 +471,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
-   * @return refusalReasonCode
+   * @return refusalReasonCode Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -482,7 +482,7 @@ public class PaymentDetailsResponse {
   /**
    * Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
-   * @param refusalReasonCode
+   * @param refusalReasonCode Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -493,7 +493,7 @@ public class PaymentDetailsResponse {
   /**
    * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    *
-   * @param resultCode
+   * @param resultCode The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse resultCode(ResultCodeEnum resultCode) {
@@ -503,7 +503,7 @@ public class PaymentDetailsResponse {
 
   /**
    * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
-   * @return resultCode
+   * @return resultCode The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,7 +514,7 @@ public class PaymentDetailsResponse {
   /**
    * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    *
-   * @param resultCode
+   * @param resultCode The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **PartiallyAuthorised** – The payment has been authorised for a partial amount. This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -525,7 +525,7 @@ public class PaymentDetailsResponse {
   /**
    * The shopperLocale.
    *
-   * @param shopperLocale
+   * @param shopperLocale The shopperLocale.
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse shopperLocale(String shopperLocale) {
@@ -535,7 +535,7 @@ public class PaymentDetailsResponse {
 
   /**
    * The shopperLocale.
-   * @return shopperLocale
+   * @return shopperLocale The shopperLocale.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -546,7 +546,7 @@ public class PaymentDetailsResponse {
   /**
    * The shopperLocale.
    *
-   * @param shopperLocale
+   * @param shopperLocale The shopperLocale.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -557,7 +557,7 @@ public class PaymentDetailsResponse {
   /**
    * threeDS2ResponseData
    *
-   * @param threeDS2ResponseData
+   * @param threeDS2ResponseData 
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse threeDS2ResponseData(ThreeDS2ResponseData threeDS2ResponseData) {
@@ -567,7 +567,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Get threeDS2ResponseData
-   * @return threeDS2ResponseData
+   * @return threeDS2ResponseData 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESPONSE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -578,7 +578,7 @@ public class PaymentDetailsResponse {
   /**
    * threeDS2ResponseData
    *
-   * @param threeDS2ResponseData
+   * @param threeDS2ResponseData 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESPONSE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -589,7 +589,7 @@ public class PaymentDetailsResponse {
   /**
    * threeDS2Result
    *
-   * @param threeDS2Result
+   * @param threeDS2Result 
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
@@ -599,7 +599,7 @@ public class PaymentDetailsResponse {
 
   /**
    * Get threeDS2Result
-   * @return threeDS2Result
+   * @return threeDS2Result 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -610,7 +610,7 @@ public class PaymentDetailsResponse {
   /**
    * threeDS2Result
    *
-   * @param threeDS2Result
+   * @param threeDS2Result 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -621,7 +621,7 @@ public class PaymentDetailsResponse {
   /**
    * When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint as &#x60;paymentData&#x60;.
    *
-   * @param threeDSPaymentData
+   * @param threeDSPaymentData When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint as &#x60;paymentData&#x60;.
    * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
    */
   public PaymentDetailsResponse threeDSPaymentData(String threeDSPaymentData) {
@@ -631,7 +631,7 @@ public class PaymentDetailsResponse {
 
   /**
    * When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint as &#x60;paymentData&#x60;.
-   * @return threeDSPaymentData
+   * @return threeDSPaymentData When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint as &#x60;paymentData&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -642,7 +642,7 @@ public class PaymentDetailsResponse {
   /**
    * When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint as &#x60;paymentData&#x60;.
    *
-   * @param threeDSPaymentData
+   * @param threeDSPaymentData When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint as &#x60;paymentData&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

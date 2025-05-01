@@ -107,7 +107,7 @@ public class BalanceCheckResponse {
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
-   * @param additionalData
+   * @param additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
    */
   public BalanceCheckResponse additionalData(Map<String, String> additionalData) {
@@ -125,7 +125,7 @@ public class BalanceCheckResponse {
 
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
-   * @return additionalData
+   * @return additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class BalanceCheckResponse {
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
-   * @param additionalData
+   * @param additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class BalanceCheckResponse {
   /**
    * balance
    *
-   * @param balance
+   * @param balance 
    * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
    */
   public BalanceCheckResponse balance(Amount balance) {
@@ -157,7 +157,7 @@ public class BalanceCheckResponse {
 
   /**
    * Get balance
-   * @return balance
+   * @return balance 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class BalanceCheckResponse {
   /**
    * balance
    *
-   * @param balance
+   * @param balance 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class BalanceCheckResponse {
   /**
    * fraudResult
    *
-   * @param fraudResult
+   * @param fraudResult 
    * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
    */
   public BalanceCheckResponse fraudResult(FraudResult fraudResult) {
@@ -189,7 +189,7 @@ public class BalanceCheckResponse {
 
   /**
    * Get fraudResult
-   * @return fraudResult
+   * @return fraudResult 
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class BalanceCheckResponse {
   /**
    * fraudResult
    *
-   * @param fraudResult
+   * @param fraudResult 
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class BalanceCheckResponse {
   /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
    */
   public BalanceCheckResponse pspReference(String pspReference) {
@@ -221,7 +221,7 @@ public class BalanceCheckResponse {
 
   /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-   * @return pspReference
+   * @return pspReference Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +232,7 @@ public class BalanceCheckResponse {
   /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class BalanceCheckResponse {
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
-   * @param refusalReason
+   * @param refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
    */
   public BalanceCheckResponse refusalReason(String refusalReason) {
@@ -253,7 +253,7 @@ public class BalanceCheckResponse {
 
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
-   * @return refusalReason
+   * @return refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +264,7 @@ public class BalanceCheckResponse {
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
-   * @param refusalReason
+   * @param refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +275,7 @@ public class BalanceCheckResponse {
   /**
    * The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
    *
-   * @param resultCode
+   * @param resultCode The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
    * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
    */
   public BalanceCheckResponse resultCode(ResultCodeEnum resultCode) {
@@ -285,7 +285,7 @@ public class BalanceCheckResponse {
 
   /**
    * The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
-   * @return resultCode
+   * @return resultCode The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -296,7 +296,7 @@ public class BalanceCheckResponse {
   /**
    * The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
    *
-   * @param resultCode
+   * @param resultCode The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +307,7 @@ public class BalanceCheckResponse {
   /**
    * transactionLimit
    *
-   * @param transactionLimit
+   * @param transactionLimit 
    * @return the current {@code BalanceCheckResponse} instance, allowing for method chaining
    */
   public BalanceCheckResponse transactionLimit(Amount transactionLimit) {
@@ -317,7 +317,7 @@ public class BalanceCheckResponse {
 
   /**
    * Get transactionLimit
-   * @return transactionLimit
+   * @return transactionLimit 
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -328,7 +328,7 @@ public class BalanceCheckResponse {
   /**
    * transactionLimit
    *
-   * @param transactionLimit
+   * @param transactionLimit 
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

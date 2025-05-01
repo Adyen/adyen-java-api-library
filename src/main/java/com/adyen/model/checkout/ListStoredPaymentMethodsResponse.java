@@ -53,7 +53,7 @@ public class ListStoredPaymentMethodsResponse {
   /**
    * Your merchant account.
    *
-   * @param merchantAccount
+   * @param merchantAccount Your merchant account.
    * @return the current {@code ListStoredPaymentMethodsResponse} instance, allowing for method chaining
    */
   public ListStoredPaymentMethodsResponse merchantAccount(String merchantAccount) {
@@ -63,7 +63,7 @@ public class ListStoredPaymentMethodsResponse {
 
   /**
    * Your merchant account.
-   * @return merchantAccount
+   * @return merchantAccount Your merchant account.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class ListStoredPaymentMethodsResponse {
   /**
    * Your merchant account.
    *
-   * @param merchantAccount
+   * @param merchantAccount Your merchant account.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +85,7 @@ public class ListStoredPaymentMethodsResponse {
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return the current {@code ListStoredPaymentMethodsResponse} instance, allowing for method chaining
    */
   public ListStoredPaymentMethodsResponse shopperReference(String shopperReference) {
@@ -95,7 +95,7 @@ public class ListStoredPaymentMethodsResponse {
 
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
-   * @return shopperReference
+   * @return shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +106,7 @@ public class ListStoredPaymentMethodsResponse {
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class ListStoredPaymentMethodsResponse {
   /**
    * List of all stored payment methods.
    *
-   * @param storedPaymentMethods
+   * @param storedPaymentMethods List of all stored payment methods.
    * @return the current {@code ListStoredPaymentMethodsResponse} instance, allowing for method chaining
    */
   public ListStoredPaymentMethodsResponse storedPaymentMethods(List<StoredPaymentMethodResource> storedPaymentMethods) {
@@ -135,7 +135,7 @@ public class ListStoredPaymentMethodsResponse {
 
   /**
    * List of all stored payment methods.
-   * @return storedPaymentMethods
+   * @return storedPaymentMethods List of all stored payment methods.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class ListStoredPaymentMethodsResponse {
   /**
    * List of all stored payment methods.
    *
-   * @param storedPaymentMethods
+   * @param storedPaymentMethods List of all stored payment methods.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

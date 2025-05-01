@@ -111,7 +111,7 @@ public class DokuDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code DokuDetails} instance, allowing for method chaining
    */
   public DokuDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -121,7 +121,7 @@ public class DokuDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class DokuDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class DokuDetails {
   /**
    * The shopper&#39;s first name.
    *
-   * @param firstName
+   * @param firstName The shopper&#39;s first name.
    * @return the current {@code DokuDetails} instance, allowing for method chaining
    */
   public DokuDetails firstName(String firstName) {
@@ -153,7 +153,7 @@ public class DokuDetails {
 
   /**
    * The shopper&#39;s first name.
-   * @return firstName
+   * @return firstName The shopper&#39;s first name.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +164,7 @@ public class DokuDetails {
   /**
    * The shopper&#39;s first name.
    *
-   * @param firstName
+   * @param firstName The shopper&#39;s first name.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class DokuDetails {
   /**
    * The shopper&#39;s last name.
    *
-   * @param lastName
+   * @param lastName The shopper&#39;s last name.
    * @return the current {@code DokuDetails} instance, allowing for method chaining
    */
   public DokuDetails lastName(String lastName) {
@@ -185,7 +185,7 @@ public class DokuDetails {
 
   /**
    * The shopper&#39;s last name.
-   * @return lastName
+   * @return lastName The shopper&#39;s last name.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +196,7 @@ public class DokuDetails {
   /**
    * The shopper&#39;s last name.
    *
-   * @param lastName
+   * @param lastName The shopper&#39;s last name.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class DokuDetails {
   /**
    * The shopper&#39;s email.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email.
    * @return the current {@code DokuDetails} instance, allowing for method chaining
    */
   public DokuDetails shopperEmail(String shopperEmail) {
@@ -217,7 +217,7 @@ public class DokuDetails {
 
   /**
    * The shopper&#39;s email.
-   * @return shopperEmail
+   * @return shopperEmail The shopper&#39;s email.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,7 +228,7 @@ public class DokuDetails {
   /**
    * The shopper&#39;s email.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class DokuDetails {
   /**
    * **doku**
    *
-   * @param type
+   * @param type **doku**
    * @return the current {@code DokuDetails} instance, allowing for method chaining
    */
   public DokuDetails type(TypeEnum type) {
@@ -249,7 +249,7 @@ public class DokuDetails {
 
   /**
    * **doku**
-   * @return type
+   * @return type **doku**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +260,7 @@ public class DokuDetails {
   /**
    * **doku**
    *
-   * @param type
+   * @param type **doku**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

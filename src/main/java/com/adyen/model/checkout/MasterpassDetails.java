@@ -122,7 +122,7 @@ public class MasterpassDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code MasterpassDetails} instance, allowing for method chaining
    */
   public MasterpassDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -132,7 +132,7 @@ public class MasterpassDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class MasterpassDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class MasterpassDetails {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return the current {@code MasterpassDetails} instance, allowing for method chaining
    */
   public MasterpassDetails fundingSource(FundingSourceEnum fundingSource) {
@@ -164,7 +164,7 @@ public class MasterpassDetails {
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
-   * @return fundingSource
+   * @return fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class MasterpassDetails {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class MasterpassDetails {
   /**
    * The Masterpass transaction ID.
    *
-   * @param masterpassTransactionId
+   * @param masterpassTransactionId The Masterpass transaction ID.
    * @return the current {@code MasterpassDetails} instance, allowing for method chaining
    */
   public MasterpassDetails masterpassTransactionId(String masterpassTransactionId) {
@@ -196,7 +196,7 @@ public class MasterpassDetails {
 
   /**
    * The Masterpass transaction ID.
-   * @return masterpassTransactionId
+   * @return masterpassTransactionId The Masterpass transaction ID.
    */
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class MasterpassDetails {
   /**
    * The Masterpass transaction ID.
    *
-   * @param masterpassTransactionId
+   * @param masterpassTransactionId The Masterpass transaction ID.
    */
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class MasterpassDetails {
   /**
    * **masterpass**
    *
-   * @param type
+   * @param type **masterpass**
    * @return the current {@code MasterpassDetails} instance, allowing for method chaining
    */
   public MasterpassDetails type(TypeEnum type) {
@@ -228,7 +228,7 @@ public class MasterpassDetails {
 
   /**
    * **masterpass**
-   * @return type
+   * @return type **masterpass**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class MasterpassDetails {
   /**
    * **masterpass**
    *
-   * @param type
+   * @param type **masterpass**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

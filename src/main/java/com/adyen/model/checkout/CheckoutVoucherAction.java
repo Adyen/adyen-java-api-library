@@ -156,7 +156,7 @@ public class CheckoutVoucherAction {
   /**
    * The voucher alternative reference code.
    *
-   * @param alternativeReference
+   * @param alternativeReference The voucher alternative reference code.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction alternativeReference(String alternativeReference) {
@@ -166,7 +166,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The voucher alternative reference code.
-   * @return alternativeReference
+   * @return alternativeReference The voucher alternative reference code.
    */
   @JsonProperty(JSON_PROPERTY_ALTERNATIVE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class CheckoutVoucherAction {
   /**
    * The voucher alternative reference code.
    *
-   * @param alternativeReference
+   * @param alternativeReference The voucher alternative reference code.
    */
   @JsonProperty(JSON_PROPERTY_ALTERNATIVE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +188,7 @@ public class CheckoutVoucherAction {
   /**
    * A collection institution number (store number) for Econtext Pay-Easy ATM.
    *
-   * @param collectionInstitutionNumber
+   * @param collectionInstitutionNumber A collection institution number (store number) for Econtext Pay-Easy ATM.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction collectionInstitutionNumber(String collectionInstitutionNumber) {
@@ -198,7 +198,7 @@ public class CheckoutVoucherAction {
 
   /**
    * A collection institution number (store number) for Econtext Pay-Easy ATM.
-   * @return collectionInstitutionNumber
+   * @return collectionInstitutionNumber A collection institution number (store number) for Econtext Pay-Easy ATM.
    */
   @JsonProperty(JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class CheckoutVoucherAction {
   /**
    * A collection institution number (store number) for Econtext Pay-Easy ATM.
    *
-   * @param collectionInstitutionNumber
+   * @param collectionInstitutionNumber A collection institution number (store number) for Econtext Pay-Easy ATM.
    */
   @JsonProperty(JSON_PROPERTY_COLLECTION_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +220,7 @@ public class CheckoutVoucherAction {
   /**
    * The URL to download the voucher.
    *
-   * @param downloadUrl
+   * @param downloadUrl The URL to download the voucher.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction downloadUrl(String downloadUrl) {
@@ -230,7 +230,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The URL to download the voucher.
-   * @return downloadUrl
+   * @return downloadUrl The URL to download the voucher.
    */
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +241,7 @@ public class CheckoutVoucherAction {
   /**
    * The URL to download the voucher.
    *
-   * @param downloadUrl
+   * @param downloadUrl The URL to download the voucher.
    */
   @JsonProperty(JSON_PROPERTY_DOWNLOAD_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +252,7 @@ public class CheckoutVoucherAction {
   /**
    * An entity number of Multibanco.
    *
-   * @param entity
+   * @param entity An entity number of Multibanco.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction entity(String entity) {
@@ -262,7 +262,7 @@ public class CheckoutVoucherAction {
 
   /**
    * An entity number of Multibanco.
-   * @return entity
+   * @return entity An entity number of Multibanco.
    */
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +273,7 @@ public class CheckoutVoucherAction {
   /**
    * An entity number of Multibanco.
    *
-   * @param entity
+   * @param entity An entity number of Multibanco.
    */
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +284,7 @@ public class CheckoutVoucherAction {
   /**
    * The date time of the voucher expiry.
    *
-   * @param expiresAt
+   * @param expiresAt The date time of the voucher expiry.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction expiresAt(String expiresAt) {
@@ -294,7 +294,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The date time of the voucher expiry.
-   * @return expiresAt
+   * @return expiresAt The date time of the voucher expiry.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,7 +305,7 @@ public class CheckoutVoucherAction {
   /**
    * The date time of the voucher expiry.
    *
-   * @param expiresAt
+   * @param expiresAt The date time of the voucher expiry.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +316,7 @@ public class CheckoutVoucherAction {
   /**
    * initialAmount
    *
-   * @param initialAmount
+   * @param initialAmount 
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction initialAmount(Amount initialAmount) {
@@ -326,7 +326,7 @@ public class CheckoutVoucherAction {
 
   /**
    * Get initialAmount
-   * @return initialAmount
+   * @return initialAmount 
    */
   @JsonProperty(JSON_PROPERTY_INITIAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,7 +337,7 @@ public class CheckoutVoucherAction {
   /**
    * initialAmount
    *
-   * @param initialAmount
+   * @param initialAmount 
    */
   @JsonProperty(JSON_PROPERTY_INITIAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -348,7 +348,7 @@ public class CheckoutVoucherAction {
   /**
    * The URL to the detailed instructions to make payment using the voucher.
    *
-   * @param instructionsUrl
+   * @param instructionsUrl The URL to the detailed instructions to make payment using the voucher.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction instructionsUrl(String instructionsUrl) {
@@ -358,7 +358,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The URL to the detailed instructions to make payment using the voucher.
-   * @return instructionsUrl
+   * @return instructionsUrl The URL to the detailed instructions to make payment using the voucher.
    */
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -369,7 +369,7 @@ public class CheckoutVoucherAction {
   /**
    * The URL to the detailed instructions to make payment using the voucher.
    *
-   * @param instructionsUrl
+   * @param instructionsUrl The URL to the detailed instructions to make payment using the voucher.
    */
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,7 +380,7 @@ public class CheckoutVoucherAction {
   /**
    * The issuer of the voucher.
    *
-   * @param issuer
+   * @param issuer The issuer of the voucher.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction issuer(String issuer) {
@@ -390,7 +390,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The issuer of the voucher.
-   * @return issuer
+   * @return issuer The issuer of the voucher.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -401,7 +401,7 @@ public class CheckoutVoucherAction {
   /**
    * The issuer of the voucher.
    *
-   * @param issuer
+   * @param issuer The issuer of the voucher.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -412,7 +412,7 @@ public class CheckoutVoucherAction {
   /**
    * The shopper telephone number (partially masked).
    *
-   * @param maskedTelephoneNumber
+   * @param maskedTelephoneNumber The shopper telephone number (partially masked).
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction maskedTelephoneNumber(String maskedTelephoneNumber) {
@@ -422,7 +422,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The shopper telephone number (partially masked).
-   * @return maskedTelephoneNumber
+   * @return maskedTelephoneNumber The shopper telephone number (partially masked).
    */
   @JsonProperty(JSON_PROPERTY_MASKED_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,7 +433,7 @@ public class CheckoutVoucherAction {
   /**
    * The shopper telephone number (partially masked).
    *
-   * @param maskedTelephoneNumber
+   * @param maskedTelephoneNumber The shopper telephone number (partially masked).
    */
   @JsonProperty(JSON_PROPERTY_MASKED_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -444,7 +444,7 @@ public class CheckoutVoucherAction {
   /**
    * The merchant name.
    *
-   * @param merchantName
+   * @param merchantName The merchant name.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction merchantName(String merchantName) {
@@ -454,7 +454,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The merchant name.
-   * @return merchantName
+   * @return merchantName The merchant name.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -465,7 +465,7 @@ public class CheckoutVoucherAction {
   /**
    * The merchant name.
    *
-   * @param merchantName
+   * @param merchantName The merchant name.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -476,7 +476,7 @@ public class CheckoutVoucherAction {
   /**
    * The merchant reference.
    *
-   * @param merchantReference
+   * @param merchantReference The merchant reference.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction merchantReference(String merchantReference) {
@@ -486,7 +486,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The merchant reference.
-   * @return merchantReference
+   * @return merchantReference The merchant reference.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -497,7 +497,7 @@ public class CheckoutVoucherAction {
   /**
    * The merchant reference.
    *
-   * @param merchantReference
+   * @param merchantReference The merchant reference.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -508,7 +508,7 @@ public class CheckoutVoucherAction {
   /**
    * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
    *
-   * @param passCreationToken
+   * @param passCreationToken A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction passCreationToken(String passCreationToken) {
@@ -518,7 +518,7 @@ public class CheckoutVoucherAction {
 
   /**
    * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
-   * @return passCreationToken
+   * @return passCreationToken A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
    */
   @JsonProperty(JSON_PROPERTY_PASS_CREATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -529,7 +529,7 @@ public class CheckoutVoucherAction {
   /**
    * A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
    *
-   * @param passCreationToken
+   * @param passCreationToken A Base64-encoded token containing all properties of the voucher. For iOS, you can use this to pass a voucher to Apple Wallet.
    */
   @JsonProperty(JSON_PROPERTY_PASS_CREATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -540,7 +540,7 @@ public class CheckoutVoucherAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction paymentData(String paymentData) {
@@ -550,7 +550,7 @@ public class CheckoutVoucherAction {
 
   /**
    * Encoded payment data.
-   * @return paymentData
+   * @return paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -561,7 +561,7 @@ public class CheckoutVoucherAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -572,7 +572,7 @@ public class CheckoutVoucherAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction paymentMethodType(String paymentMethodType) {
@@ -582,7 +582,7 @@ public class CheckoutVoucherAction {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -593,7 +593,7 @@ public class CheckoutVoucherAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -604,7 +604,7 @@ public class CheckoutVoucherAction {
   /**
    * The voucher reference code.
    *
-   * @param reference
+   * @param reference The voucher reference code.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction reference(String reference) {
@@ -614,7 +614,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The voucher reference code.
-   * @return reference
+   * @return reference The voucher reference code.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -625,7 +625,7 @@ public class CheckoutVoucherAction {
   /**
    * The voucher reference code.
    *
-   * @param reference
+   * @param reference The voucher reference code.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -636,7 +636,7 @@ public class CheckoutVoucherAction {
   /**
    * The shopper email.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper email.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction shopperEmail(String shopperEmail) {
@@ -646,7 +646,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The shopper email.
-   * @return shopperEmail
+   * @return shopperEmail The shopper email.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -657,7 +657,7 @@ public class CheckoutVoucherAction {
   /**
    * The shopper email.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper email.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -668,7 +668,7 @@ public class CheckoutVoucherAction {
   /**
    * The shopper name.
    *
-   * @param shopperName
+   * @param shopperName The shopper name.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction shopperName(String shopperName) {
@@ -678,7 +678,7 @@ public class CheckoutVoucherAction {
 
   /**
    * The shopper name.
-   * @return shopperName
+   * @return shopperName The shopper name.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -689,7 +689,7 @@ public class CheckoutVoucherAction {
   /**
    * The shopper name.
    *
-   * @param shopperName
+   * @param shopperName The shopper name.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -700,7 +700,7 @@ public class CheckoutVoucherAction {
   /**
    * surcharge
    *
-   * @param surcharge
+   * @param surcharge 
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction surcharge(Amount surcharge) {
@@ -710,7 +710,7 @@ public class CheckoutVoucherAction {
 
   /**
    * Get surcharge
-   * @return surcharge
+   * @return surcharge 
    */
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -721,7 +721,7 @@ public class CheckoutVoucherAction {
   /**
    * surcharge
    *
-   * @param surcharge
+   * @param surcharge 
    */
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -732,7 +732,7 @@ public class CheckoutVoucherAction {
   /**
    * totalAmount
    *
-   * @param totalAmount
+   * @param totalAmount 
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction totalAmount(Amount totalAmount) {
@@ -742,7 +742,7 @@ public class CheckoutVoucherAction {
 
   /**
    * Get totalAmount
-   * @return totalAmount
+   * @return totalAmount 
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -753,7 +753,7 @@ public class CheckoutVoucherAction {
   /**
    * totalAmount
    *
-   * @param totalAmount
+   * @param totalAmount 
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -764,7 +764,7 @@ public class CheckoutVoucherAction {
   /**
    * **voucher**
    *
-   * @param type
+   * @param type **voucher**
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction type(TypeEnum type) {
@@ -774,7 +774,7 @@ public class CheckoutVoucherAction {
 
   /**
    * **voucher**
-   * @return type
+   * @return type **voucher**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -785,7 +785,7 @@ public class CheckoutVoucherAction {
   /**
    * **voucher**
    *
-   * @param type
+   * @param type **voucher**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -796,7 +796,7 @@ public class CheckoutVoucherAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutVoucherAction} instance, allowing for method chaining
    */
   public CheckoutVoucherAction url(String url) {
@@ -806,7 +806,7 @@ public class CheckoutVoucherAction {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -817,7 +817,7 @@ public class CheckoutVoucherAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

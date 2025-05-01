@@ -102,7 +102,7 @@ public class SepaDirectDebitDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
    */
   public SepaDirectDebitDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -112,7 +112,7 @@ public class SepaDirectDebitDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class SepaDirectDebitDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +134,7 @@ public class SepaDirectDebitDetails {
   /**
    * The International Bank Account Number (IBAN).
    *
-   * @param iban
+   * @param iban The International Bank Account Number (IBAN).
    * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
    */
   public SepaDirectDebitDetails iban(String iban) {
@@ -144,7 +144,7 @@ public class SepaDirectDebitDetails {
 
   /**
    * The International Bank Account Number (IBAN).
-   * @return iban
+   * @return iban The International Bank Account Number (IBAN).
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class SepaDirectDebitDetails {
   /**
    * The International Bank Account Number (IBAN).
    *
-   * @param iban
+   * @param iban The International Bank Account Number (IBAN).
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +166,7 @@ public class SepaDirectDebitDetails {
   /**
    * The name of the bank account holder.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder.
    * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
    */
   public SepaDirectDebitDetails ownerName(String ownerName) {
@@ -176,7 +176,7 @@ public class SepaDirectDebitDetails {
 
   /**
    * The name of the bank account holder.
-   * @return ownerName
+   * @return ownerName The name of the bank account holder.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class SepaDirectDebitDetails {
   /**
    * The name of the bank account holder.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class SepaDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -212,7 +212,7 @@ public class SepaDirectDebitDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -225,7 +225,7 @@ public class SepaDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -240,7 +240,7 @@ public class SepaDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
    */
   public SepaDirectDebitDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -250,7 +250,7 @@ public class SepaDirectDebitDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,7 +261,7 @@ public class SepaDirectDebitDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,7 +272,7 @@ public class SepaDirectDebitDetails {
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
    */
   public SepaDirectDebitDetails transferInstrumentId(String transferInstrumentId) {
@@ -282,7 +282,7 @@ public class SepaDirectDebitDetails {
 
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
-   * @return transferInstrumentId
+   * @return transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,7 +293,7 @@ public class SepaDirectDebitDetails {
   /**
    * The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of your user&#39;s verified transfer instrument, which you can use to top up their balance accounts.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +304,7 @@ public class SepaDirectDebitDetails {
   /**
    * **sepadirectdebit**
    *
-   * @param type
+   * @param type **sepadirectdebit**
    * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
    */
   public SepaDirectDebitDetails type(TypeEnum type) {
@@ -314,7 +314,7 @@ public class SepaDirectDebitDetails {
 
   /**
    * **sepadirectdebit**
-   * @return type
+   * @return type **sepadirectdebit**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -325,7 +325,7 @@ public class SepaDirectDebitDetails {
   /**
    * **sepadirectdebit**
    *
-   * @param type
+   * @param type **sepadirectdebit**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

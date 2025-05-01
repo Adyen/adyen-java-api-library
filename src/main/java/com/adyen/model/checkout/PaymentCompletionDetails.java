@@ -118,7 +118,7 @@ public class PaymentCompletionDetails {
   /**
    * A payment session identifier returned by the card issuer.
    *
-   * @param MD
+   * @param MD A payment session identifier returned by the card issuer.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails MD(String MD) {
@@ -128,7 +128,7 @@ public class PaymentCompletionDetails {
 
   /**
    * A payment session identifier returned by the card issuer.
-   * @return MD
+   * @return MD A payment session identifier returned by the card issuer.
    */
   @JsonProperty(JSON_PROPERTY_M_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class PaymentCompletionDetails {
   /**
    * A payment session identifier returned by the card issuer.
    *
-   * @param MD
+   * @param MD A payment session identifier returned by the card issuer.
    */
   @JsonProperty(JSON_PROPERTY_M_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class PaymentCompletionDetails {
   /**
    * (3D) Payment Authentication Request data for the card issuer.
    *
-   * @param paReq
+   * @param paReq (3D) Payment Authentication Request data for the card issuer.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails paReq(String paReq) {
@@ -160,7 +160,7 @@ public class PaymentCompletionDetails {
 
   /**
    * (3D) Payment Authentication Request data for the card issuer.
-   * @return paReq
+   * @return paReq (3D) Payment Authentication Request data for the card issuer.
    */
   @JsonProperty(JSON_PROPERTY_PA_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class PaymentCompletionDetails {
   /**
    * (3D) Payment Authentication Request data for the card issuer.
    *
-   * @param paReq
+   * @param paReq (3D) Payment Authentication Request data for the card issuer.
    */
   @JsonProperty(JSON_PROPERTY_PA_REQ)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +182,7 @@ public class PaymentCompletionDetails {
   /**
    * (3D) Payment Authentication Response data by the card issuer.
    *
-   * @param paRes
+   * @param paRes (3D) Payment Authentication Response data by the card issuer.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails paRes(String paRes) {
@@ -192,7 +192,7 @@ public class PaymentCompletionDetails {
 
   /**
    * (3D) Payment Authentication Response data by the card issuer.
-   * @return paRes
+   * @return paRes (3D) Payment Authentication Response data by the card issuer.
    */
   @JsonProperty(JSON_PROPERTY_PA_RES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class PaymentCompletionDetails {
   /**
    * (3D) Payment Authentication Response data by the card issuer.
    *
-   * @param paRes
+   * @param paRes (3D) Payment Authentication Response data by the card issuer.
    */
   @JsonProperty(JSON_PROPERTY_PA_RES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +214,7 @@ public class PaymentCompletionDetails {
   /**
    * authorizationToken
    *
-   * @param authorizationToken
+   * @param authorizationToken 
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails authorizationToken(String authorizationToken) {
@@ -224,7 +224,7 @@ public class PaymentCompletionDetails {
 
   /**
    * Get authorizationToken
-   * @return authorizationToken
+   * @return authorizationToken 
    */
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +235,7 @@ public class PaymentCompletionDetails {
   /**
    * authorizationToken
    *
-   * @param authorizationToken
+   * @param authorizationToken 
    */
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +246,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-generated token for recurring payments.
    *
-   * @param billingToken
+   * @param billingToken PayPal-generated token for recurring payments.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails billingToken(String billingToken) {
@@ -256,7 +256,7 @@ public class PaymentCompletionDetails {
 
   /**
    * PayPal-generated token for recurring payments.
-   * @return billingToken
+   * @return billingToken PayPal-generated token for recurring payments.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +267,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-generated token for recurring payments.
    *
-   * @param billingToken
+   * @param billingToken PayPal-generated token for recurring payments.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +278,7 @@ public class PaymentCompletionDetails {
   /**
    * The SMS verification code collected from the shopper.
    *
-   * @param cupsecureplusSmscode
+   * @param cupsecureplusSmscode The SMS verification code collected from the shopper.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails cupsecureplusSmscode(String cupsecureplusSmscode) {
@@ -288,7 +288,7 @@ public class PaymentCompletionDetails {
 
   /**
    * The SMS verification code collected from the shopper.
-   * @return cupsecureplusSmscode
+   * @return cupsecureplusSmscode The SMS verification code collected from the shopper.
    */
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,7 +299,7 @@ public class PaymentCompletionDetails {
   /**
    * The SMS verification code collected from the shopper.
    *
-   * @param cupsecureplusSmscode
+   * @param cupsecureplusSmscode The SMS verification code collected from the shopper.
    */
   @JsonProperty(JSON_PROPERTY_CUPSECUREPLUS_SMSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +310,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-generated third party access token.
    *
-   * @param facilitatorAccessToken
+   * @param facilitatorAccessToken PayPal-generated third party access token.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails facilitatorAccessToken(String facilitatorAccessToken) {
@@ -320,7 +320,7 @@ public class PaymentCompletionDetails {
 
   /**
    * PayPal-generated third party access token.
-   * @return facilitatorAccessToken
+   * @return facilitatorAccessToken PayPal-generated third party access token.
    */
   @JsonProperty(JSON_PROPERTY_FACILITATOR_ACCESS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -331,7 +331,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-generated third party access token.
    *
-   * @param facilitatorAccessToken
+   * @param facilitatorAccessToken PayPal-generated third party access token.
    */
   @JsonProperty(JSON_PROPERTY_FACILITATOR_ACCESS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +342,7 @@ public class PaymentCompletionDetails {
   /**
    * A random number sent to the mobile phone number of the shopper to verify the payment.
    *
-   * @param oneTimePasscode
+   * @param oneTimePasscode A random number sent to the mobile phone number of the shopper to verify the payment.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails oneTimePasscode(String oneTimePasscode) {
@@ -352,7 +352,7 @@ public class PaymentCompletionDetails {
 
   /**
    * A random number sent to the mobile phone number of the shopper to verify the payment.
-   * @return oneTimePasscode
+   * @return oneTimePasscode A random number sent to the mobile phone number of the shopper to verify the payment.
    */
   @JsonProperty(JSON_PROPERTY_ONE_TIME_PASSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,7 +363,7 @@ public class PaymentCompletionDetails {
   /**
    * A random number sent to the mobile phone number of the shopper to verify the payment.
    *
-   * @param oneTimePasscode
+   * @param oneTimePasscode A random number sent to the mobile phone number of the shopper to verify the payment.
    */
   @JsonProperty(JSON_PROPERTY_ONE_TIME_PASSCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -374,7 +374,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-assigned ID for the order.
    *
-   * @param orderID
+   * @param orderID PayPal-assigned ID for the order.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails orderID(String orderID) {
@@ -384,7 +384,7 @@ public class PaymentCompletionDetails {
 
   /**
    * PayPal-assigned ID for the order.
-   * @return orderID
+   * @return orderID PayPal-assigned ID for the order.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -395,7 +395,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-assigned ID for the order.
    *
-   * @param orderID
+   * @param orderID PayPal-assigned ID for the order.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -406,7 +406,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-assigned ID for the payer (shopper).
    *
-   * @param payerID
+   * @param payerID PayPal-assigned ID for the payer (shopper).
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails payerID(String payerID) {
@@ -416,7 +416,7 @@ public class PaymentCompletionDetails {
 
   /**
    * PayPal-assigned ID for the payer (shopper).
-   * @return payerID
+   * @return payerID PayPal-assigned ID for the payer (shopper).
    */
   @JsonProperty(JSON_PROPERTY_PAYER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -427,7 +427,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-assigned ID for the payer (shopper).
    *
-   * @param payerID
+   * @param payerID PayPal-assigned ID for the payer (shopper).
    */
   @JsonProperty(JSON_PROPERTY_PAYER_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -438,7 +438,7 @@ public class PaymentCompletionDetails {
   /**
    * Payload appended to the &#x60;returnURL&#x60; as a result of the redirect.
    *
-   * @param payload
+   * @param payload Payload appended to the &#x60;returnURL&#x60; as a result of the redirect.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails payload(String payload) {
@@ -448,7 +448,7 @@ public class PaymentCompletionDetails {
 
   /**
    * Payload appended to the &#x60;returnURL&#x60; as a result of the redirect.
-   * @return payload
+   * @return payload Payload appended to the &#x60;returnURL&#x60; as a result of the redirect.
    */
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -459,7 +459,7 @@ public class PaymentCompletionDetails {
   /**
    * Payload appended to the &#x60;returnURL&#x60; as a result of the redirect.
    *
-   * @param payload
+   * @param payload Payload appended to the &#x60;returnURL&#x60; as a result of the redirect.
    */
   @JsonProperty(JSON_PROPERTY_PAYLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -470,7 +470,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-generated ID for the payment.
    *
-   * @param paymentID
+   * @param paymentID PayPal-generated ID for the payment.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails paymentID(String paymentID) {
@@ -480,7 +480,7 @@ public class PaymentCompletionDetails {
 
   /**
    * PayPal-generated ID for the payment.
-   * @return paymentID
+   * @return paymentID PayPal-generated ID for the payment.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -491,7 +491,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPal-generated ID for the payment.
    *
-   * @param paymentID
+   * @param paymentID PayPal-generated ID for the payment.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_I_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -502,7 +502,7 @@ public class PaymentCompletionDetails {
   /**
    * Value passed from the WeChat MiniProgram &#x60;wx.requestPayment&#x60; **complete** callback. Possible values: any value starting with &#x60;requestPayment:&#x60;.
    *
-   * @param paymentStatus
+   * @param paymentStatus Value passed from the WeChat MiniProgram &#x60;wx.requestPayment&#x60; **complete** callback. Possible values: any value starting with &#x60;requestPayment:&#x60;.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails paymentStatus(String paymentStatus) {
@@ -512,7 +512,7 @@ public class PaymentCompletionDetails {
 
   /**
    * Value passed from the WeChat MiniProgram &#x60;wx.requestPayment&#x60; **complete** callback. Possible values: any value starting with &#x60;requestPayment:&#x60;.
-   * @return paymentStatus
+   * @return paymentStatus Value passed from the WeChat MiniProgram &#x60;wx.requestPayment&#x60; **complete** callback. Possible values: any value starting with &#x60;requestPayment:&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -523,7 +523,7 @@ public class PaymentCompletionDetails {
   /**
    * Value passed from the WeChat MiniProgram &#x60;wx.requestPayment&#x60; **complete** callback. Possible values: any value starting with &#x60;requestPayment:&#x60;.
    *
-   * @param paymentStatus
+   * @param paymentStatus Value passed from the WeChat MiniProgram &#x60;wx.requestPayment&#x60; **complete** callback. Possible values: any value starting with &#x60;requestPayment:&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -534,7 +534,7 @@ public class PaymentCompletionDetails {
   /**
    * The result of the redirect as appended to the &#x60;returnURL&#x60;.
    *
-   * @param redirectResult
+   * @param redirectResult The result of the redirect as appended to the &#x60;returnURL&#x60;.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails redirectResult(String redirectResult) {
@@ -544,7 +544,7 @@ public class PaymentCompletionDetails {
 
   /**
    * The result of the redirect as appended to the &#x60;returnURL&#x60;.
-   * @return redirectResult
+   * @return redirectResult The result of the redirect as appended to the &#x60;returnURL&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -555,7 +555,7 @@ public class PaymentCompletionDetails {
   /**
    * The result of the redirect as appended to the &#x60;returnURL&#x60;.
    *
-   * @param redirectResult
+   * @param redirectResult The result of the redirect as appended to the &#x60;returnURL&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_REDIRECT_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -566,7 +566,7 @@ public class PaymentCompletionDetails {
   /**
    * Value you received from the WeChat Pay SDK.
    *
-   * @param resultCode
+   * @param resultCode Value you received from the WeChat Pay SDK.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails resultCode(String resultCode) {
@@ -576,7 +576,7 @@ public class PaymentCompletionDetails {
 
   /**
    * Value you received from the WeChat Pay SDK.
-   * @return resultCode
+   * @return resultCode Value you received from the WeChat Pay SDK.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -587,7 +587,7 @@ public class PaymentCompletionDetails {
   /**
    * Value you received from the WeChat Pay SDK.
    *
-   * @param resultCode
+   * @param resultCode Value you received from the WeChat Pay SDK.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -598,7 +598,7 @@ public class PaymentCompletionDetails {
   /**
    * The query string as appended to the &#x60;returnURL&#x60; when using direct issuer links .
    *
-   * @param returnUrlQueryString
+   * @param returnUrlQueryString The query string as appended to the &#x60;returnURL&#x60; when using direct issuer links .
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails returnUrlQueryString(String returnUrlQueryString) {
@@ -608,7 +608,7 @@ public class PaymentCompletionDetails {
 
   /**
    * The query string as appended to the &#x60;returnURL&#x60; when using direct issuer links .
-   * @return returnUrlQueryString
+   * @return returnUrlQueryString The query string as appended to the &#x60;returnURL&#x60; when using direct issuer links .
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL_QUERY_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -619,7 +619,7 @@ public class PaymentCompletionDetails {
   /**
    * The query string as appended to the &#x60;returnURL&#x60; when using direct issuer links .
    *
-   * @param returnUrlQueryString
+   * @param returnUrlQueryString The query string as appended to the &#x60;returnURL&#x60; when using direct issuer links .
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL_QUERY_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -630,7 +630,7 @@ public class PaymentCompletionDetails {
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: &#x60;transStatus&#x60;, &#x60;authorisationToken&#x60;.
    *
-   * @param threeDSResult
+   * @param threeDSResult Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: &#x60;transStatus&#x60;, &#x60;authorisationToken&#x60;.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails threeDSResult(String threeDSResult) {
@@ -640,7 +640,7 @@ public class PaymentCompletionDetails {
 
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: &#x60;transStatus&#x60;, &#x60;authorisationToken&#x60;.
-   * @return threeDSResult
+   * @return threeDSResult Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: &#x60;transStatus&#x60;, &#x60;authorisationToken&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -651,7 +651,7 @@ public class PaymentCompletionDetails {
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: &#x60;transStatus&#x60;, &#x60;authorisationToken&#x60;.
    *
-   * @param threeDSResult
+   * @param threeDSResult Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: &#x60;transStatus&#x60;, &#x60;authorisationToken&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -662,7 +662,7 @@ public class PaymentCompletionDetails {
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;transStatus&#x60;.
    *
-   * @param threeds2ChallengeResult
+   * @param threeds2ChallengeResult Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;transStatus&#x60;.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails threeds2ChallengeResult(String threeds2ChallengeResult) {
@@ -672,7 +672,7 @@ public class PaymentCompletionDetails {
 
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;transStatus&#x60;.
-   * @return threeds2ChallengeResult
+   * @return threeds2ChallengeResult Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;transStatus&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_THREEDS2_CHALLENGE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -683,7 +683,7 @@ public class PaymentCompletionDetails {
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;transStatus&#x60;.
    *
-   * @param threeds2ChallengeResult
+   * @param threeds2ChallengeResult Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;transStatus&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_THREEDS2_CHALLENGE_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -694,7 +694,7 @@ public class PaymentCompletionDetails {
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;threeDSCompInd&#x60;.
    *
-   * @param threeds2Fingerprint
+   * @param threeds2Fingerprint Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;threeDSCompInd&#x60;.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails threeds2Fingerprint(String threeds2Fingerprint) {
@@ -704,7 +704,7 @@ public class PaymentCompletionDetails {
 
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;threeDSCompInd&#x60;.
-   * @return threeds2Fingerprint
+   * @return threeds2Fingerprint Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;threeDSCompInd&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_THREEDS2_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -715,7 +715,7 @@ public class PaymentCompletionDetails {
   /**
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;threeDSCompInd&#x60;.
    *
-   * @param threeds2Fingerprint
+   * @param threeds2Fingerprint Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;threeDSCompInd&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_THREEDS2_FINGERPRINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -726,7 +726,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPalv2-generated token for recurring payments.
    *
-   * @param vaultToken
+   * @param vaultToken PayPalv2-generated token for recurring payments.
    * @return the current {@code PaymentCompletionDetails} instance, allowing for method chaining
    */
   public PaymentCompletionDetails vaultToken(String vaultToken) {
@@ -736,7 +736,7 @@ public class PaymentCompletionDetails {
 
   /**
    * PayPalv2-generated token for recurring payments.
-   * @return vaultToken
+   * @return vaultToken PayPalv2-generated token for recurring payments.
    */
   @JsonProperty(JSON_PROPERTY_VAULT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -747,7 +747,7 @@ public class PaymentCompletionDetails {
   /**
    * PayPalv2-generated token for recurring payments.
    *
-   * @param vaultToken
+   * @param vaultToken PayPalv2-generated token for recurring payments.
    */
   @JsonProperty(JSON_PROPERTY_VAULT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

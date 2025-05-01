@@ -44,7 +44,7 @@ public class UtilityRequest {
   /**
    * The list of origin domains, for which origin keys are requested.
    *
-   * @param originDomains
+   * @param originDomains The list of origin domains, for which origin keys are requested.
    * @return the current {@code UtilityRequest} instance, allowing for method chaining
    */
   public UtilityRequest originDomains(List<String> originDomains) {
@@ -62,7 +62,7 @@ public class UtilityRequest {
 
   /**
    * The list of origin domains, for which origin keys are requested.
-   * @return originDomains
+   * @return originDomains The list of origin domains, for which origin keys are requested.
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -73,7 +73,7 @@ public class UtilityRequest {
   /**
    * The list of origin domains, for which origin keys are requested.
    *
-   * @param originDomains
+   * @param originDomains The list of origin domains, for which origin keys are requested.
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

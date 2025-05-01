@@ -109,7 +109,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code PaymentAmountUpdateRequest} instance, allowing for method chaining
    */
   public PaymentAmountUpdateRequest amount(Amount amount) {
@@ -119,7 +119,7 @@ public class PaymentAmountUpdateRequest {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +141,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    * @return the current {@code PaymentAmountUpdateRequest} instance, allowing for method chaining
    */
   public PaymentAmountUpdateRequest applicationInfo(ApplicationInfo applicationInfo) {
@@ -151,7 +151,7 @@ public class PaymentAmountUpdateRequest {
 
   /**
    * Get applicationInfo
-   * @return applicationInfo
+   * @return applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +173,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    *
-   * @param industryUsage
+   * @param industryUsage The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    * @return the current {@code PaymentAmountUpdateRequest} instance, allowing for method chaining
    */
   public PaymentAmountUpdateRequest industryUsage(IndustryUsageEnum industryUsage) {
@@ -183,7 +183,7 @@ public class PaymentAmountUpdateRequest {
 
   /**
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
-   * @return industryUsage
+   * @return industryUsage The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    *
-   * @param industryUsage
+   * @param industryUsage The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
    */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +205,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    * @return the current {@code PaymentAmountUpdateRequest} instance, allowing for method chaining
    */
   public PaymentAmountUpdateRequest lineItems(List<LineItem> lineItems) {
@@ -223,7 +223,7 @@ public class PaymentAmountUpdateRequest {
 
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
-   * @return lineItems
+   * @return lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +245,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    * @return the current {@code PaymentAmountUpdateRequest} instance, allowing for method chaining
    */
   public PaymentAmountUpdateRequest merchantAccount(String merchantAccount) {
@@ -255,7 +255,7 @@ public class PaymentAmountUpdateRequest {
 
   /**
    * The merchant account that is used to process the payment.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +266,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,7 +277,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * Your reference for the amount update request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the amount update request. Maximum length: 80 characters.
    * @return the current {@code PaymentAmountUpdateRequest} instance, allowing for method chaining
    */
   public PaymentAmountUpdateRequest reference(String reference) {
@@ -287,7 +287,7 @@ public class PaymentAmountUpdateRequest {
 
   /**
    * Your reference for the amount update request. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the amount update request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +298,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * Your reference for the amount update request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the amount update request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +309,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
    *
-   * @param splits
+   * @param splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
    * @return the current {@code PaymentAmountUpdateRequest} instance, allowing for method chaining
    */
   public PaymentAmountUpdateRequest splits(List<Split> splits) {
@@ -327,7 +327,7 @@ public class PaymentAmountUpdateRequest {
 
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
-   * @return splits
+   * @return splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,7 +338,7 @@ public class PaymentAmountUpdateRequest {
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
    *
-   * @param splits
+   * @param splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

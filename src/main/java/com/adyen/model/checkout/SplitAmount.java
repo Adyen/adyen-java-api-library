@@ -46,7 +46,7 @@ public class SplitAmount {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
    * @return the current {@code SplitAmount} instance, allowing for method chaining
    */
   public SplitAmount currency(String currency) {
@@ -56,7 +56,7 @@ public class SplitAmount {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class SplitAmount {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class SplitAmount {
   /**
    * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param value
+   * @param value The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return the current {@code SplitAmount} instance, allowing for method chaining
    */
   public SplitAmount value(Long value) {
@@ -88,7 +88,7 @@ public class SplitAmount {
 
   /**
    * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * @return value
+   * @return value The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class SplitAmount {
   /**
    * The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param value
+   * @param value The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

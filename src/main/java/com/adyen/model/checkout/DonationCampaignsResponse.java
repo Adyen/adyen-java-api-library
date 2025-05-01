@@ -45,7 +45,7 @@ public class DonationCampaignsResponse {
   /**
    * List of active donation campaigns for your merchant account.
    *
-   * @param donationCampaigns
+   * @param donationCampaigns List of active donation campaigns for your merchant account.
    * @return the current {@code DonationCampaignsResponse} instance, allowing for method chaining
    */
   public DonationCampaignsResponse donationCampaigns(List<DonationCampaign> donationCampaigns) {
@@ -63,7 +63,7 @@ public class DonationCampaignsResponse {
 
   /**
    * List of active donation campaigns for your merchant account.
-   * @return donationCampaigns
+   * @return donationCampaigns List of active donation campaigns for your merchant account.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class DonationCampaignsResponse {
   /**
    * List of active donation campaigns for your merchant account.
    *
-   * @param donationCampaigns
+   * @param donationCampaigns List of active donation campaigns for your merchant account.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_CAMPAIGNS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

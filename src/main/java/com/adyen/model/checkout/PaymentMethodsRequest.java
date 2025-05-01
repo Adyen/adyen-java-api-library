@@ -174,7 +174,7 @@ public class PaymentMethodsRequest {
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest additionalData(Map<String, String> additionalData) {
@@ -192,7 +192,7 @@ public class PaymentMethodsRequest {
 
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
-   * @return additionalData
+   * @return additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class PaymentMethodsRequest {
   /**
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +214,7 @@ public class PaymentMethodsRequest {
   /**
    * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    *
-   * @param allowedPaymentMethods
+   * @param allowedPaymentMethods List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
@@ -232,7 +232,7 @@ public class PaymentMethodsRequest {
 
   /**
    * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
-   * @return allowedPaymentMethods
+   * @return allowedPaymentMethods List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class PaymentMethodsRequest {
   /**
    * List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    *
-   * @param allowedPaymentMethods
+   * @param allowedPaymentMethods List of payment methods to be presented to the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +254,7 @@ public class PaymentMethodsRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest amount(Amount amount) {
@@ -264,7 +264,7 @@ public class PaymentMethodsRequest {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +275,7 @@ public class PaymentMethodsRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +286,7 @@ public class PaymentMethodsRequest {
   /**
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    *
-   * @param blockedPaymentMethods
+   * @param blockedPaymentMethods List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest blockedPaymentMethods(List<String> blockedPaymentMethods) {
@@ -304,7 +304,7 @@ public class PaymentMethodsRequest {
 
   /**
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
-   * @return blockedPaymentMethods
+   * @return blockedPaymentMethods List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    */
   @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -315,7 +315,7 @@ public class PaymentMethodsRequest {
   /**
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    *
-   * @param blockedPaymentMethods
+   * @param blockedPaymentMethods List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    */
   @JsonProperty(JSON_PROPERTY_BLOCKED_PAYMENT_METHODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -326,7 +326,7 @@ public class PaymentMethodsRequest {
   /**
    * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
    *
-   * @param channel
+   * @param channel The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest channel(ChannelEnum channel) {
@@ -336,7 +336,7 @@ public class PaymentMethodsRequest {
 
   /**
    * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
-   * @return channel
+   * @return channel The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
    */
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -347,7 +347,7 @@ public class PaymentMethodsRequest {
   /**
    * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
    *
-   * @param channel
+   * @param channel The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
    */
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -358,7 +358,7 @@ public class PaymentMethodsRequest {
   /**
    * The shopper&#39;s country code.
    *
-   * @param countryCode
+   * @param countryCode The shopper&#39;s country code.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest countryCode(String countryCode) {
@@ -368,7 +368,7 @@ public class PaymentMethodsRequest {
 
   /**
    * The shopper&#39;s country code.
-   * @return countryCode
+   * @return countryCode The shopper&#39;s country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,7 +379,7 @@ public class PaymentMethodsRequest {
   /**
    * The shopper&#39;s country code.
    *
-   * @param countryCode
+   * @param countryCode The shopper&#39;s country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -390,7 +390,7 @@ public class PaymentMethodsRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest merchantAccount(String merchantAccount) {
@@ -400,7 +400,7 @@ public class PaymentMethodsRequest {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -411,7 +411,7 @@ public class PaymentMethodsRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -422,7 +422,7 @@ public class PaymentMethodsRequest {
   /**
    * order
    *
-   * @param order
+   * @param order 
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest order(EncryptedOrderData order) {
@@ -432,7 +432,7 @@ public class PaymentMethodsRequest {
 
   /**
    * Get order
-   * @return order
+   * @return order 
    */
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -443,7 +443,7 @@ public class PaymentMethodsRequest {
   /**
    * order
    *
-   * @param order
+   * @param order 
    */
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -454,7 +454,7 @@ public class PaymentMethodsRequest {
   /**
    * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
    *
-   * @param shopperConversionId
+   * @param shopperConversionId A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest shopperConversionId(String shopperConversionId) {
@@ -464,7 +464,7 @@ public class PaymentMethodsRequest {
 
   /**
    * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
-   * @return shopperConversionId
+   * @return shopperConversionId A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_CONVERSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -475,7 +475,7 @@ public class PaymentMethodsRequest {
   /**
    * A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
    *
-   * @param shopperConversionId
+   * @param shopperConversionId A unique ID that can be used to associate &#x60;/paymentMethods&#x60; and &#x60;/payments&#x60; requests with the same shopper transaction, offering insights into conversion rates.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_CONVERSION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -486,7 +486,7 @@ public class PaymentMethodsRequest {
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
    *
-   * @param shopperLocale
+   * @param shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest shopperLocale(String shopperLocale) {
@@ -496,7 +496,7 @@ public class PaymentMethodsRequest {
 
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
-   * @return shopperLocale
+   * @return shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -507,7 +507,7 @@ public class PaymentMethodsRequest {
   /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
    *
-   * @param shopperLocale
+   * @param shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -518,7 +518,7 @@ public class PaymentMethodsRequest {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest shopperReference(String shopperReference) {
@@ -528,7 +528,7 @@ public class PaymentMethodsRequest {
 
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
-   * @return shopperReference
+   * @return shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -539,7 +539,7 @@ public class PaymentMethodsRequest {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -550,7 +550,7 @@ public class PaymentMethodsRequest {
   /**
    * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    *
-   * @param splitCardFundingSources
+   * @param splitCardFundingSources Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest splitCardFundingSources(Boolean splitCardFundingSources) {
@@ -560,7 +560,7 @@ public class PaymentMethodsRequest {
 
   /**
    * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
-   * @return splitCardFundingSources
+   * @return splitCardFundingSources Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -571,7 +571,7 @@ public class PaymentMethodsRequest {
   /**
    * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    *
-   * @param splitCardFundingSources
+   * @param splitCardFundingSources Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -582,7 +582,7 @@ public class PaymentMethodsRequest {
   /**
    * Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    *
-   * @param store
+   * @param store Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest store(String store) {
@@ -592,7 +592,7 @@ public class PaymentMethodsRequest {
 
   /**
    * Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
-   * @return store
+   * @return store Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -603,7 +603,7 @@ public class PaymentMethodsRequest {
   /**
    * Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    *
-   * @param store
+   * @param store Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -614,7 +614,7 @@ public class PaymentMethodsRequest {
   /**
    * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    *
-   * @param storeFiltrationMode
+   * @param storeFiltrationMode Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
    */
   public PaymentMethodsRequest storeFiltrationMode(StoreFiltrationModeEnum storeFiltrationMode) {
@@ -624,7 +624,7 @@ public class PaymentMethodsRequest {
 
   /**
    * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
-   * @return storeFiltrationMode
+   * @return storeFiltrationMode Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    */
   @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -635,7 +635,7 @@ public class PaymentMethodsRequest {
   /**
    * Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    *
-   * @param storeFiltrationMode
+   * @param storeFiltrationMode Specifies how payment methods should be filtered based on the &#39;store&#39; parameter:   - &#39;exclusive&#39;: Only payment methods belonging to the specified &#39;store&#39; are returned.   - &#39;inclusive&#39;: Payment methods from the &#39;store&#39; and those not associated with any other store are returned.
    */
   @JsonProperty(JSON_PROPERTY_STORE_FILTRATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

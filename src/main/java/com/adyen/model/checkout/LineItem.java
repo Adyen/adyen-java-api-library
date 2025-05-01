@@ -110,7 +110,7 @@ public class LineItem {
   /**
    * Item amount excluding the tax, in minor units.
    *
-   * @param amountExcludingTax
+   * @param amountExcludingTax Item amount excluding the tax, in minor units.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem amountExcludingTax(Long amountExcludingTax) {
@@ -120,7 +120,7 @@ public class LineItem {
 
   /**
    * Item amount excluding the tax, in minor units.
-   * @return amountExcludingTax
+   * @return amountExcludingTax Item amount excluding the tax, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,7 +131,7 @@ public class LineItem {
   /**
    * Item amount excluding the tax, in minor units.
    *
-   * @param amountExcludingTax
+   * @param amountExcludingTax Item amount excluding the tax, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class LineItem {
   /**
    * Item amount including the tax, in minor units.
    *
-   * @param amountIncludingTax
+   * @param amountIncludingTax Item amount including the tax, in minor units.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem amountIncludingTax(Long amountIncludingTax) {
@@ -152,7 +152,7 @@ public class LineItem {
 
   /**
    * Item amount including the tax, in minor units.
-   * @return amountIncludingTax
+   * @return amountIncludingTax Item amount including the tax, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +163,7 @@ public class LineItem {
   /**
    * Item amount including the tax, in minor units.
    *
-   * @param amountIncludingTax
+   * @param amountIncludingTax Item amount including the tax, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +174,7 @@ public class LineItem {
   /**
    * Brand of the item.
    *
-   * @param brand
+   * @param brand Brand of the item.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem brand(String brand) {
@@ -184,7 +184,7 @@ public class LineItem {
 
   /**
    * Brand of the item.
-   * @return brand
+   * @return brand Brand of the item.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +195,7 @@ public class LineItem {
   /**
    * Brand of the item.
    *
-   * @param brand
+   * @param brand Brand of the item.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +206,7 @@ public class LineItem {
   /**
    * Color of the item.
    *
-   * @param color
+   * @param color Color of the item.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem color(String color) {
@@ -216,7 +216,7 @@ public class LineItem {
 
   /**
    * Color of the item.
-   * @return color
+   * @return color Color of the item.
    */
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +227,7 @@ public class LineItem {
   /**
    * Color of the item.
    *
-   * @param color
+   * @param color Color of the item.
    */
   @JsonProperty(JSON_PROPERTY_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +238,7 @@ public class LineItem {
   /**
    * Description of the line item.
    *
-   * @param description
+   * @param description Description of the line item.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem description(String description) {
@@ -248,7 +248,7 @@ public class LineItem {
 
   /**
    * Description of the line item.
-   * @return description
+   * @return description Description of the line item.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +259,7 @@ public class LineItem {
   /**
    * Description of the line item.
    *
-   * @param description
+   * @param description Description of the line item.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +270,7 @@ public class LineItem {
   /**
    * ID of the line item.
    *
-   * @param id
+   * @param id ID of the line item.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem id(String id) {
@@ -280,7 +280,7 @@ public class LineItem {
 
   /**
    * ID of the line item.
-   * @return id
+   * @return id ID of the line item.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,7 +291,7 @@ public class LineItem {
   /**
    * ID of the line item.
    *
-   * @param id
+   * @param id ID of the line item.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +302,7 @@ public class LineItem {
   /**
    * Link to the picture of the purchased item.
    *
-   * @param imageUrl
+   * @param imageUrl Link to the picture of the purchased item.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem imageUrl(String imageUrl) {
@@ -312,7 +312,7 @@ public class LineItem {
 
   /**
    * Link to the picture of the purchased item.
-   * @return imageUrl
+   * @return imageUrl Link to the picture of the purchased item.
    */
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,7 +323,7 @@ public class LineItem {
   /**
    * Link to the picture of the purchased item.
    *
-   * @param imageUrl
+   * @param imageUrl Link to the picture of the purchased item.
    */
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,7 +334,7 @@ public class LineItem {
   /**
    * Item category, used by the payment methods PayPal and Ratepay.
    *
-   * @param itemCategory
+   * @param itemCategory Item category, used by the payment methods PayPal and Ratepay.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem itemCategory(String itemCategory) {
@@ -344,7 +344,7 @@ public class LineItem {
 
   /**
    * Item category, used by the payment methods PayPal and Ratepay.
-   * @return itemCategory
+   * @return itemCategory Item category, used by the payment methods PayPal and Ratepay.
    */
   @JsonProperty(JSON_PROPERTY_ITEM_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,7 +355,7 @@ public class LineItem {
   /**
    * Item category, used by the payment methods PayPal and Ratepay.
    *
-   * @param itemCategory
+   * @param itemCategory Item category, used by the payment methods PayPal and Ratepay.
    */
   @JsonProperty(JSON_PROPERTY_ITEM_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,7 +366,7 @@ public class LineItem {
   /**
    * Manufacturer of the item.
    *
-   * @param manufacturer
+   * @param manufacturer Manufacturer of the item.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem manufacturer(String manufacturer) {
@@ -376,7 +376,7 @@ public class LineItem {
 
   /**
    * Manufacturer of the item.
-   * @return manufacturer
+   * @return manufacturer Manufacturer of the item.
    */
   @JsonProperty(JSON_PROPERTY_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -387,7 +387,7 @@ public class LineItem {
   /**
    * Manufacturer of the item.
    *
-   * @param manufacturer
+   * @param manufacturer Manufacturer of the item.
    */
   @JsonProperty(JSON_PROPERTY_MANUFACTURER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -398,7 +398,7 @@ public class LineItem {
   /**
    * Marketplace seller id.
    *
-   * @param marketplaceSellerId
+   * @param marketplaceSellerId Marketplace seller id.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem marketplaceSellerId(String marketplaceSellerId) {
@@ -408,7 +408,7 @@ public class LineItem {
 
   /**
    * Marketplace seller id.
-   * @return marketplaceSellerId
+   * @return marketplaceSellerId Marketplace seller id.
    */
   @JsonProperty(JSON_PROPERTY_MARKETPLACE_SELLER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -419,7 +419,7 @@ public class LineItem {
   /**
    * Marketplace seller id.
    *
-   * @param marketplaceSellerId
+   * @param marketplaceSellerId Marketplace seller id.
    */
   @JsonProperty(JSON_PROPERTY_MARKETPLACE_SELLER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -430,7 +430,7 @@ public class LineItem {
   /**
    * Link to the purchased item.
    *
-   * @param productUrl
+   * @param productUrl Link to the purchased item.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem productUrl(String productUrl) {
@@ -440,7 +440,7 @@ public class LineItem {
 
   /**
    * Link to the purchased item.
-   * @return productUrl
+   * @return productUrl Link to the purchased item.
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -451,7 +451,7 @@ public class LineItem {
   /**
    * Link to the purchased item.
    *
-   * @param productUrl
+   * @param productUrl Link to the purchased item.
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -462,7 +462,7 @@ public class LineItem {
   /**
    * Number of items.
    *
-   * @param quantity
+   * @param quantity Number of items.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem quantity(Long quantity) {
@@ -472,7 +472,7 @@ public class LineItem {
 
   /**
    * Number of items.
-   * @return quantity
+   * @return quantity Number of items.
    */
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -483,7 +483,7 @@ public class LineItem {
   /**
    * Number of items.
    *
-   * @param quantity
+   * @param quantity Number of items.
    */
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -494,7 +494,7 @@ public class LineItem {
   /**
    * Email associated with the given product in the basket (usually in electronic gift cards).
    *
-   * @param receiverEmail
+   * @param receiverEmail Email associated with the given product in the basket (usually in electronic gift cards).
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem receiverEmail(String receiverEmail) {
@@ -504,7 +504,7 @@ public class LineItem {
 
   /**
    * Email associated with the given product in the basket (usually in electronic gift cards).
-   * @return receiverEmail
+   * @return receiverEmail Email associated with the given product in the basket (usually in electronic gift cards).
    */
   @JsonProperty(JSON_PROPERTY_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -515,7 +515,7 @@ public class LineItem {
   /**
    * Email associated with the given product in the basket (usually in electronic gift cards).
    *
-   * @param receiverEmail
+   * @param receiverEmail Email associated with the given product in the basket (usually in electronic gift cards).
    */
   @JsonProperty(JSON_PROPERTY_RECEIVER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -526,7 +526,7 @@ public class LineItem {
   /**
    * Size of the item.
    *
-   * @param size
+   * @param size Size of the item.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem size(String size) {
@@ -536,7 +536,7 @@ public class LineItem {
 
   /**
    * Size of the item.
-   * @return size
+   * @return size Size of the item.
    */
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -547,7 +547,7 @@ public class LineItem {
   /**
    * Size of the item.
    *
-   * @param size
+   * @param size Size of the item.
    */
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -558,7 +558,7 @@ public class LineItem {
   /**
    * Stock keeping unit.
    *
-   * @param sku
+   * @param sku Stock keeping unit.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem sku(String sku) {
@@ -568,7 +568,7 @@ public class LineItem {
 
   /**
    * Stock keeping unit.
-   * @return sku
+   * @return sku Stock keeping unit.
    */
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -579,7 +579,7 @@ public class LineItem {
   /**
    * Stock keeping unit.
    *
-   * @param sku
+   * @param sku Stock keeping unit.
    */
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -590,7 +590,7 @@ public class LineItem {
   /**
    * Tax amount, in minor units.
    *
-   * @param taxAmount
+   * @param taxAmount Tax amount, in minor units.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem taxAmount(Long taxAmount) {
@@ -600,7 +600,7 @@ public class LineItem {
 
   /**
    * Tax amount, in minor units.
-   * @return taxAmount
+   * @return taxAmount Tax amount, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -611,7 +611,7 @@ public class LineItem {
   /**
    * Tax amount, in minor units.
    *
-   * @param taxAmount
+   * @param taxAmount Tax amount, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -622,7 +622,7 @@ public class LineItem {
   /**
    * Tax percentage, in minor units.
    *
-   * @param taxPercentage
+   * @param taxPercentage Tax percentage, in minor units.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem taxPercentage(Long taxPercentage) {
@@ -632,7 +632,7 @@ public class LineItem {
 
   /**
    * Tax percentage, in minor units.
-   * @return taxPercentage
+   * @return taxPercentage Tax percentage, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_TAX_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -643,7 +643,7 @@ public class LineItem {
   /**
    * Tax percentage, in minor units.
    *
-   * @param taxPercentage
+   * @param taxPercentage Tax percentage, in minor units.
    */
   @JsonProperty(JSON_PROPERTY_TAX_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -654,7 +654,7 @@ public class LineItem {
   /**
    * Universal Product Code.
    *
-   * @param upc
+   * @param upc Universal Product Code.
    * @return the current {@code LineItem} instance, allowing for method chaining
    */
   public LineItem upc(String upc) {
@@ -664,7 +664,7 @@ public class LineItem {
 
   /**
    * Universal Product Code.
-   * @return upc
+   * @return upc Universal Product Code.
    */
   @JsonProperty(JSON_PROPERTY_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -675,7 +675,7 @@ public class LineItem {
   /**
    * Universal Product Code.
    *
-   * @param upc
+   * @param upc Universal Product Code.
    */
   @JsonProperty(JSON_PROPERTY_UPC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -122,7 +122,7 @@ public class VisaCheckoutDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
    */
   public VisaCheckoutDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -132,7 +132,7 @@ public class VisaCheckoutDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class VisaCheckoutDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class VisaCheckoutDetails {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
    */
   public VisaCheckoutDetails fundingSource(FundingSourceEnum fundingSource) {
@@ -164,7 +164,7 @@ public class VisaCheckoutDetails {
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
-   * @return fundingSource
+   * @return fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class VisaCheckoutDetails {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class VisaCheckoutDetails {
   /**
    * **visacheckout**
    *
-   * @param type
+   * @param type **visacheckout**
    * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
    */
   public VisaCheckoutDetails type(TypeEnum type) {
@@ -196,7 +196,7 @@ public class VisaCheckoutDetails {
 
   /**
    * **visacheckout**
-   * @return type
+   * @return type **visacheckout**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class VisaCheckoutDetails {
   /**
    * **visacheckout**
    *
-   * @param type
+   * @param type **visacheckout**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class VisaCheckoutDetails {
   /**
    * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
    *
-   * @param visaCheckoutCallId
+   * @param visaCheckoutCallId The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
    * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
    */
   public VisaCheckoutDetails visaCheckoutCallId(String visaCheckoutCallId) {
@@ -228,7 +228,7 @@ public class VisaCheckoutDetails {
 
   /**
    * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
-   * @return visaCheckoutCallId
+   * @return visaCheckoutCallId The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
    */
   @JsonProperty(JSON_PROPERTY_VISA_CHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class VisaCheckoutDetails {
   /**
    * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
    *
-   * @param visaCheckoutCallId
+   * @param visaCheckoutCallId The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
    */
   @JsonProperty(JSON_PROPERTY_VISA_CHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -79,7 +79,7 @@ public class CancelOrderResponse {
   /**
    * A unique reference of the cancellation request.
    *
-   * @param pspReference
+   * @param pspReference A unique reference of the cancellation request.
    * @return the current {@code CancelOrderResponse} instance, allowing for method chaining
    */
   public CancelOrderResponse pspReference(String pspReference) {
@@ -89,7 +89,7 @@ public class CancelOrderResponse {
 
   /**
    * A unique reference of the cancellation request.
-   * @return pspReference
+   * @return pspReference A unique reference of the cancellation request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class CancelOrderResponse {
   /**
    * A unique reference of the cancellation request.
    *
-   * @param pspReference
+   * @param pspReference A unique reference of the cancellation request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class CancelOrderResponse {
   /**
    * The result of the cancellation request.  Possible values:  * **Received** – Indicates the cancellation has successfully been received by Adyen, and will be processed.
    *
-   * @param resultCode
+   * @param resultCode The result of the cancellation request.  Possible values:  * **Received** – Indicates the cancellation has successfully been received by Adyen, and will be processed.
    * @return the current {@code CancelOrderResponse} instance, allowing for method chaining
    */
   public CancelOrderResponse resultCode(ResultCodeEnum resultCode) {
@@ -121,7 +121,7 @@ public class CancelOrderResponse {
 
   /**
    * The result of the cancellation request.  Possible values:  * **Received** – Indicates the cancellation has successfully been received by Adyen, and will be processed.
-   * @return resultCode
+   * @return resultCode The result of the cancellation request.  Possible values:  * **Received** – Indicates the cancellation has successfully been received by Adyen, and will be processed.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class CancelOrderResponse {
   /**
    * The result of the cancellation request.  Possible values:  * **Received** – Indicates the cancellation has successfully been received by Adyen, and will be processed.
    *
-   * @param resultCode
+   * @param resultCode The result of the cancellation request.  Possible values:  * **Received** – Indicates the cancellation has successfully been received by Adyen, and will be processed.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

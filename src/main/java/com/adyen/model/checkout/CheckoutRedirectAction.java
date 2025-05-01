@@ -93,7 +93,7 @@ public class CheckoutRedirectAction {
   /**
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    *
-   * @param data
+   * @param data When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
    */
   public CheckoutRedirectAction data(Map<String, String> data) {
@@ -111,7 +111,7 @@ public class CheckoutRedirectAction {
 
   /**
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
-   * @return data
+   * @return data When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class CheckoutRedirectAction {
   /**
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    *
-   * @param data
+   * @param data When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +133,7 @@ public class CheckoutRedirectAction {
   /**
    * Specifies the HTTP method, for example GET or POST.
    *
-   * @param method
+   * @param method Specifies the HTTP method, for example GET or POST.
    * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
    */
   public CheckoutRedirectAction method(String method) {
@@ -143,7 +143,7 @@ public class CheckoutRedirectAction {
 
   /**
    * Specifies the HTTP method, for example GET or POST.
-   * @return method
+   * @return method Specifies the HTTP method, for example GET or POST.
    */
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class CheckoutRedirectAction {
   /**
    * Specifies the HTTP method, for example GET or POST.
    *
-   * @param method
+   * @param method Specifies the HTTP method, for example GET or POST.
    */
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +165,7 @@ public class CheckoutRedirectAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
    */
   public CheckoutRedirectAction paymentMethodType(String paymentMethodType) {
@@ -175,7 +175,7 @@ public class CheckoutRedirectAction {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class CheckoutRedirectAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,7 +197,7 @@ public class CheckoutRedirectAction {
   /**
    * **redirect**
    *
-   * @param type
+   * @param type **redirect**
    * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
    */
   public CheckoutRedirectAction type(TypeEnum type) {
@@ -207,7 +207,7 @@ public class CheckoutRedirectAction {
 
   /**
    * **redirect**
-   * @return type
+   * @return type **redirect**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class CheckoutRedirectAction {
   /**
    * **redirect**
    *
-   * @param type
+   * @param type **redirect**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +229,7 @@ public class CheckoutRedirectAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutRedirectAction} instance, allowing for method chaining
    */
   public CheckoutRedirectAction url(String url) {
@@ -239,7 +239,7 @@ public class CheckoutRedirectAction {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +250,7 @@ public class CheckoutRedirectAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

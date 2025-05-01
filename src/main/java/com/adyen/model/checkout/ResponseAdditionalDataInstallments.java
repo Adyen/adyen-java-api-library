@@ -86,7 +86,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Type of installment. The value of &#x60;installmentType&#x60; should be **IssuerFinanced**.
    *
-   * @param installmentPaymentDataInstallmentType
+   * @param installmentPaymentDataInstallmentType Type of installment. The value of &#x60;installmentType&#x60; should be **IssuerFinanced**.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataInstallmentType(String installmentPaymentDataInstallmentType) {
@@ -96,7 +96,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Type of installment. The value of &#x60;installmentType&#x60; should be **IssuerFinanced**.
-   * @return installmentPaymentDataInstallmentType
+   * @return installmentPaymentDataInstallmentType Type of installment. The value of &#x60;installmentType&#x60; should be **IssuerFinanced**.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Type of installment. The value of &#x60;installmentType&#x60; should be **IssuerFinanced**.
    *
-   * @param installmentPaymentDataInstallmentType
+   * @param installmentPaymentDataInstallmentType Type of installment. The value of &#x60;installmentType&#x60; should be **IssuerFinanced**.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Annual interest rate.
    *
-   * @param installmentPaymentDataOptionItemNrAnnualPercentageRate
+   * @param installmentPaymentDataOptionItemNrAnnualPercentageRate Annual interest rate.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrAnnualPercentageRate(String installmentPaymentDataOptionItemNrAnnualPercentageRate) {
@@ -128,7 +128,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Annual interest rate.
-   * @return installmentPaymentDataOptionItemNrAnnualPercentageRate
+   * @return installmentPaymentDataOptionItemNrAnnualPercentageRate Annual interest rate.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Annual interest rate.
    *
-   * @param installmentPaymentDataOptionItemNrAnnualPercentageRate
+   * @param installmentPaymentDataOptionItemNrAnnualPercentageRate Annual interest rate.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_ANNUAL_PERCENTAGE_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * First Installment Amount in minor units.
    *
-   * @param installmentPaymentDataOptionItemNrFirstInstallmentAmount
+   * @param installmentPaymentDataOptionItemNrFirstInstallmentAmount First Installment Amount in minor units.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrFirstInstallmentAmount(String installmentPaymentDataOptionItemNrFirstInstallmentAmount) {
@@ -160,7 +160,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * First Installment Amount in minor units.
-   * @return installmentPaymentDataOptionItemNrFirstInstallmentAmount
+   * @return installmentPaymentDataOptionItemNrFirstInstallmentAmount First Installment Amount in minor units.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * First Installment Amount in minor units.
    *
-   * @param installmentPaymentDataOptionItemNrFirstInstallmentAmount
+   * @param installmentPaymentDataOptionItemNrFirstInstallmentAmount First Installment Amount in minor units.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_FIRST_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +182,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Installment fee amount in minor units.
    *
-   * @param installmentPaymentDataOptionItemNrInstallmentFee
+   * @param installmentPaymentDataOptionItemNrInstallmentFee Installment fee amount in minor units.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrInstallmentFee(String installmentPaymentDataOptionItemNrInstallmentFee) {
@@ -192,7 +192,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Installment fee amount in minor units.
-   * @return installmentPaymentDataOptionItemNrInstallmentFee
+   * @return installmentPaymentDataOptionItemNrInstallmentFee Installment fee amount in minor units.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Installment fee amount in minor units.
    *
-   * @param installmentPaymentDataOptionItemNrInstallmentFee
+   * @param installmentPaymentDataOptionItemNrInstallmentFee Installment fee amount in minor units.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INSTALLMENT_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,7 +214,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Interest rate for the installment period.
    *
-   * @param installmentPaymentDataOptionItemNrInterestRate
+   * @param installmentPaymentDataOptionItemNrInterestRate Interest rate for the installment period.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrInterestRate(String installmentPaymentDataOptionItemNrInterestRate) {
@@ -224,7 +224,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Interest rate for the installment period.
-   * @return installmentPaymentDataOptionItemNrInterestRate
+   * @return installmentPaymentDataOptionItemNrInterestRate Interest rate for the installment period.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +235,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Interest rate for the installment period.
    *
-   * @param installmentPaymentDataOptionItemNrInterestRate
+   * @param installmentPaymentDataOptionItemNrInterestRate Interest rate for the installment period.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_INTEREST_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +246,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Maximum number of installments possible for this payment.
    *
-   * @param installmentPaymentDataOptionItemNrMaximumNumberOfInstallments
+   * @param installmentPaymentDataOptionItemNrMaximumNumberOfInstallments Maximum number of installments possible for this payment.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrMaximumNumberOfInstallments(String installmentPaymentDataOptionItemNrMaximumNumberOfInstallments) {
@@ -256,7 +256,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Maximum number of installments possible for this payment.
-   * @return installmentPaymentDataOptionItemNrMaximumNumberOfInstallments
+   * @return installmentPaymentDataOptionItemNrMaximumNumberOfInstallments Maximum number of installments possible for this payment.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,7 +267,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Maximum number of installments possible for this payment.
    *
-   * @param installmentPaymentDataOptionItemNrMaximumNumberOfInstallments
+   * @param installmentPaymentDataOptionItemNrMaximumNumberOfInstallments Maximum number of installments possible for this payment.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MAXIMUM_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,7 +278,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Minimum number of installments possible for this payment.
    *
-   * @param installmentPaymentDataOptionItemNrMinimumNumberOfInstallments
+   * @param installmentPaymentDataOptionItemNrMinimumNumberOfInstallments Minimum number of installments possible for this payment.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrMinimumNumberOfInstallments(String installmentPaymentDataOptionItemNrMinimumNumberOfInstallments) {
@@ -288,7 +288,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Minimum number of installments possible for this payment.
-   * @return installmentPaymentDataOptionItemNrMinimumNumberOfInstallments
+   * @return installmentPaymentDataOptionItemNrMinimumNumberOfInstallments Minimum number of installments possible for this payment.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,7 +299,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Minimum number of installments possible for this payment.
    *
-   * @param installmentPaymentDataOptionItemNrMinimumNumberOfInstallments
+   * @param installmentPaymentDataOptionItemNrMinimumNumberOfInstallments Minimum number of installments possible for this payment.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_MINIMUM_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,7 +310,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Total number of installments possible for this payment.
    *
-   * @param installmentPaymentDataOptionItemNrNumberOfInstallments
+   * @param installmentPaymentDataOptionItemNrNumberOfInstallments Total number of installments possible for this payment.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrNumberOfInstallments(String installmentPaymentDataOptionItemNrNumberOfInstallments) {
@@ -320,7 +320,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Total number of installments possible for this payment.
-   * @return installmentPaymentDataOptionItemNrNumberOfInstallments
+   * @return installmentPaymentDataOptionItemNrNumberOfInstallments Total number of installments possible for this payment.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -331,7 +331,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Total number of installments possible for this payment.
    *
-   * @param installmentPaymentDataOptionItemNrNumberOfInstallments
+   * @param installmentPaymentDataOptionItemNrNumberOfInstallments Total number of installments possible for this payment.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_NUMBER_OF_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +342,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Subsequent Installment Amount in minor units.
    *
-   * @param installmentPaymentDataOptionItemNrSubsequentInstallmentAmount
+   * @param installmentPaymentDataOptionItemNrSubsequentInstallmentAmount Subsequent Installment Amount in minor units.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrSubsequentInstallmentAmount(String installmentPaymentDataOptionItemNrSubsequentInstallmentAmount) {
@@ -352,7 +352,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Subsequent Installment Amount in minor units.
-   * @return installmentPaymentDataOptionItemNrSubsequentInstallmentAmount
+   * @return installmentPaymentDataOptionItemNrSubsequentInstallmentAmount Subsequent Installment Amount in minor units.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,7 +363,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Subsequent Installment Amount in minor units.
    *
-   * @param installmentPaymentDataOptionItemNrSubsequentInstallmentAmount
+   * @param installmentPaymentDataOptionItemNrSubsequentInstallmentAmount Subsequent Installment Amount in minor units.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_SUBSEQUENT_INSTALLMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -374,7 +374,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Total amount in minor units.
    *
-   * @param installmentPaymentDataOptionItemNrTotalAmountDue
+   * @param installmentPaymentDataOptionItemNrTotalAmountDue Total amount in minor units.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataOptionItemNrTotalAmountDue(String installmentPaymentDataOptionItemNrTotalAmountDue) {
@@ -384,7 +384,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Total amount in minor units.
-   * @return installmentPaymentDataOptionItemNrTotalAmountDue
+   * @return installmentPaymentDataOptionItemNrTotalAmountDue Total amount in minor units.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -395,7 +395,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Total amount in minor units.
    *
-   * @param installmentPaymentDataOptionItemNrTotalAmountDue
+   * @param installmentPaymentDataOptionItemNrTotalAmountDue Total amount in minor units.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_OPTION_ITEM_NR_TOTAL_AMOUNT_DUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -406,7 +406,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments
    *
-   * @param installmentPaymentDataPaymentOptions
+   * @param installmentPaymentDataPaymentOptions Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentPaymentDataPaymentOptions(String installmentPaymentDataPaymentOptions) {
@@ -416,7 +416,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments
-   * @return installmentPaymentDataPaymentOptions
+   * @return installmentPaymentDataPaymentOptions Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -427,7 +427,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments
    *
-   * @param installmentPaymentDataPaymentOptions
+   * @param installmentPaymentDataPaymentOptions Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_PAYMENT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -438,7 +438,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * The number of installments that the payment amount should be charged with.  Example: 5 &gt; Only relevant for card payments in countries that support installments.
    *
-   * @param installmentsValue
+   * @param installmentsValue The number of installments that the payment amount should be charged with.  Example: 5 &gt; Only relevant for card payments in countries that support installments.
    * @return the current {@code ResponseAdditionalDataInstallments} instance, allowing for method chaining
    */
   public ResponseAdditionalDataInstallments installmentsValue(String installmentsValue) {
@@ -448,7 +448,7 @@ public class ResponseAdditionalDataInstallments {
 
   /**
    * The number of installments that the payment amount should be charged with.  Example: 5 &gt; Only relevant for card payments in countries that support installments.
-   * @return installmentsValue
+   * @return installmentsValue The number of installments that the payment amount should be charged with.  Example: 5 &gt; Only relevant for card payments in countries that support installments.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -459,7 +459,7 @@ public class ResponseAdditionalDataInstallments {
   /**
    * The number of installments that the payment amount should be charged with.  Example: 5 &gt; Only relevant for card payments in countries that support installments.
    *
-   * @param installmentsValue
+   * @param installmentsValue The number of installments that the payment amount should be charged with.  Example: 5 &gt; Only relevant for card payments in countries that support installments.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

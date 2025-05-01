@@ -56,7 +56,7 @@ public class RiskData {
   /**
    * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
    *
-   * @param clientData
+   * @param clientData Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
    * @return the current {@code RiskData} instance, allowing for method chaining
    */
   public RiskData clientData(String clientData) {
@@ -66,7 +66,7 @@ public class RiskData {
 
   /**
    * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
-   * @return clientData
+   * @return clientData Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,7 +77,7 @@ public class RiskData {
   /**
    * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
    *
-   * @param clientData
+   * @param clientData Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
    */
   @JsonProperty(JSON_PROPERTY_CLIENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,7 +88,7 @@ public class RiskData {
   /**
    * Any custom fields used as part of the input to configured risk rules.
    *
-   * @param customFields
+   * @param customFields Any custom fields used as part of the input to configured risk rules.
    * @return the current {@code RiskData} instance, allowing for method chaining
    */
   public RiskData customFields(Map<String, String> customFields) {
@@ -106,7 +106,7 @@ public class RiskData {
 
   /**
    * Any custom fields used as part of the input to configured risk rules.
-   * @return customFields
+   * @return customFields Any custom fields used as part of the input to configured risk rules.
    */
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class RiskData {
   /**
    * Any custom fields used as part of the input to configured risk rules.
    *
-   * @param customFields
+   * @param customFields Any custom fields used as part of the input to configured risk rules.
    */
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +128,7 @@ public class RiskData {
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    *
-   * @param fraudOffset
+   * @param fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return the current {@code RiskData} instance, allowing for method chaining
    */
   public RiskData fraudOffset(Integer fraudOffset) {
@@ -138,7 +138,7 @@ public class RiskData {
 
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
-   * @return fraudOffset
+   * @return fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +149,7 @@ public class RiskData {
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    *
-   * @param fraudOffset
+   * @param fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +160,7 @@ public class RiskData {
   /**
    * The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
    *
-   * @param profileReference
+   * @param profileReference The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
    * @return the current {@code RiskData} instance, allowing for method chaining
    */
   public RiskData profileReference(String profileReference) {
@@ -170,7 +170,7 @@ public class RiskData {
 
   /**
    * The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
-   * @return profileReference
+   * @return profileReference The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
    */
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +181,7 @@ public class RiskData {
   /**
    * The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
    *
-   * @param profileReference
+   * @param profileReference The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
    */
   @JsonProperty(JSON_PROPERTY_PROFILE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

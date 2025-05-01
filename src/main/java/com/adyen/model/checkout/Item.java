@@ -46,7 +46,7 @@ public class Item {
   /**
    * The value to provide in the result.
    *
-   * @param id
+   * @param id The value to provide in the result.
    * @return the current {@code Item} instance, allowing for method chaining
    */
   public Item id(String id) {
@@ -56,7 +56,7 @@ public class Item {
 
   /**
    * The value to provide in the result.
-   * @return id
+   * @return id The value to provide in the result.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class Item {
   /**
    * The value to provide in the result.
    *
-   * @param id
+   * @param id The value to provide in the result.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class Item {
   /**
    * The display name.
    *
-   * @param name
+   * @param name The display name.
    * @return the current {@code Item} instance, allowing for method chaining
    */
   public Item name(String name) {
@@ -88,7 +88,7 @@ public class Item {
 
   /**
    * The display name.
-   * @return name
+   * @return name The display name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class Item {
   /**
    * The display name.
    *
-   * @param name
+   * @param name The display name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -46,7 +46,7 @@ public class ResponseAdditionalDataDomesticError {
   /**
    * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
    *
-   * @param domesticRefusalReasonRaw
+   * @param domesticRefusalReasonRaw The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
    * @return the current {@code ResponseAdditionalDataDomesticError} instance, allowing for method chaining
    */
   public ResponseAdditionalDataDomesticError domesticRefusalReasonRaw(String domesticRefusalReasonRaw) {
@@ -56,7 +56,7 @@ public class ResponseAdditionalDataDomesticError {
 
   /**
    * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
-   * @return domesticRefusalReasonRaw
+   * @return domesticRefusalReasonRaw The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
    */
   @JsonProperty(JSON_PROPERTY_DOMESTIC_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class ResponseAdditionalDataDomesticError {
   /**
    * The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
    *
-   * @param domesticRefusalReasonRaw
+   * @param domesticRefusalReasonRaw The reason the transaction was declined, given by the local issuer.  Currently available for merchants in Japan.
    */
   @JsonProperty(JSON_PROPERTY_DOMESTIC_REFUSAL_REASON_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class ResponseAdditionalDataDomesticError {
   /**
    * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
    *
-   * @param domesticShopperAdvice
+   * @param domesticShopperAdvice The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
    * @return the current {@code ResponseAdditionalDataDomesticError} instance, allowing for method chaining
    */
   public ResponseAdditionalDataDomesticError domesticShopperAdvice(String domesticShopperAdvice) {
@@ -88,7 +88,7 @@ public class ResponseAdditionalDataDomesticError {
 
   /**
    * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
-   * @return domesticShopperAdvice
+   * @return domesticShopperAdvice The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
    */
   @JsonProperty(JSON_PROPERTY_DOMESTIC_SHOPPER_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class ResponseAdditionalDataDomesticError {
   /**
    * The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
    *
-   * @param domesticShopperAdvice
+   * @param domesticShopperAdvice The action the shopper should take, in a local language.  Currently available in Japanese, for merchants in Japan.
    */
   @JsonProperty(JSON_PROPERTY_DOMESTIC_SHOPPER_ADVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

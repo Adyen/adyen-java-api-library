@@ -85,7 +85,7 @@ public class BillDeskDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code BillDeskDetails} instance, allowing for method chaining
    */
   public BillDeskDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -95,7 +95,7 @@ public class BillDeskDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +106,7 @@ public class BillDeskDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class BillDeskDetails {
   /**
    * The issuer id of the shopper&#39;s selected bank.
    *
-   * @param issuer
+   * @param issuer The issuer id of the shopper&#39;s selected bank.
    * @return the current {@code BillDeskDetails} instance, allowing for method chaining
    */
   public BillDeskDetails issuer(String issuer) {
@@ -127,7 +127,7 @@ public class BillDeskDetails {
 
   /**
    * The issuer id of the shopper&#39;s selected bank.
-   * @return issuer
+   * @return issuer The issuer id of the shopper&#39;s selected bank.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class BillDeskDetails {
   /**
    * The issuer id of the shopper&#39;s selected bank.
    *
-   * @param issuer
+   * @param issuer The issuer id of the shopper&#39;s selected bank.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +149,7 @@ public class BillDeskDetails {
   /**
    * **billdesk**
    *
-   * @param type
+   * @param type **billdesk**
    * @return the current {@code BillDeskDetails} instance, allowing for method chaining
    */
   public BillDeskDetails type(TypeEnum type) {
@@ -159,7 +159,7 @@ public class BillDeskDetails {
 
   /**
    * **billdesk**
-   * @return type
+   * @return type **billdesk**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class BillDeskDetails {
   /**
    * **billdesk**
    *
-   * @param type
+   * @param type **billdesk**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

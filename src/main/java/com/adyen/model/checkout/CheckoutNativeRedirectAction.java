@@ -97,7 +97,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    *
-   * @param data
+   * @param data When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    * @return the current {@code CheckoutNativeRedirectAction} instance, allowing for method chaining
    */
   public CheckoutNativeRedirectAction data(Map<String, String> data) {
@@ -115,7 +115,7 @@ public class CheckoutNativeRedirectAction {
 
   /**
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
-   * @return data
+   * @return data When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    *
-   * @param data
+   * @param data When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * Specifies the HTTP method, for example GET or POST.
    *
-   * @param method
+   * @param method Specifies the HTTP method, for example GET or POST.
    * @return the current {@code CheckoutNativeRedirectAction} instance, allowing for method chaining
    */
   public CheckoutNativeRedirectAction method(String method) {
@@ -147,7 +147,7 @@ public class CheckoutNativeRedirectAction {
 
   /**
    * Specifies the HTTP method, for example GET or POST.
-   * @return method
+   * @return method Specifies the HTTP method, for example GET or POST.
    */
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * Specifies the HTTP method, for example GET or POST.
    *
-   * @param method
+   * @param method Specifies the HTTP method, for example GET or POST.
    */
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * Native SDK&#39;s redirect data containing the direct issuer link and state data that must be submitted to the /v1/nativeRedirect/redirectResult.
    *
-   * @param nativeRedirectData
+   * @param nativeRedirectData Native SDK&#39;s redirect data containing the direct issuer link and state data that must be submitted to the /v1/nativeRedirect/redirectResult.
    * @return the current {@code CheckoutNativeRedirectAction} instance, allowing for method chaining
    */
   public CheckoutNativeRedirectAction nativeRedirectData(String nativeRedirectData) {
@@ -179,7 +179,7 @@ public class CheckoutNativeRedirectAction {
 
   /**
    * Native SDK&#39;s redirect data containing the direct issuer link and state data that must be submitted to the /v1/nativeRedirect/redirectResult.
-   * @return nativeRedirectData
+   * @return nativeRedirectData Native SDK&#39;s redirect data containing the direct issuer link and state data that must be submitted to the /v1/nativeRedirect/redirectResult.
    */
   @JsonProperty(JSON_PROPERTY_NATIVE_REDIRECT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * Native SDK&#39;s redirect data containing the direct issuer link and state data that must be submitted to the /v1/nativeRedirect/redirectResult.
    *
-   * @param nativeRedirectData
+   * @param nativeRedirectData Native SDK&#39;s redirect data containing the direct issuer link and state data that must be submitted to the /v1/nativeRedirect/redirectResult.
    */
   @JsonProperty(JSON_PROPERTY_NATIVE_REDIRECT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutNativeRedirectAction} instance, allowing for method chaining
    */
   public CheckoutNativeRedirectAction paymentMethodType(String paymentMethodType) {
@@ -211,7 +211,7 @@ public class CheckoutNativeRedirectAction {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * **nativeRedirect**
    *
-   * @param type
+   * @param type **nativeRedirect**
    * @return the current {@code CheckoutNativeRedirectAction} instance, allowing for method chaining
    */
   public CheckoutNativeRedirectAction type(TypeEnum type) {
@@ -243,7 +243,7 @@ public class CheckoutNativeRedirectAction {
 
   /**
    * **nativeRedirect**
-   * @return type
+   * @return type **nativeRedirect**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +254,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * **nativeRedirect**
    *
-   * @param type
+   * @param type **nativeRedirect**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutNativeRedirectAction} instance, allowing for method chaining
    */
   public CheckoutNativeRedirectAction url(String url) {
@@ -275,7 +275,7 @@ public class CheckoutNativeRedirectAction {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +286,7 @@ public class CheckoutNativeRedirectAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

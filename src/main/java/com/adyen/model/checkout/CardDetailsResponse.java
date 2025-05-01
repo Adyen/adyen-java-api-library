@@ -57,7 +57,7 @@ public class CardDetailsResponse {
   /**
    * The list of brands identified for the card.
    *
-   * @param brands
+   * @param brands The list of brands identified for the card.
    * @return the current {@code CardDetailsResponse} instance, allowing for method chaining
    */
   public CardDetailsResponse brands(List<CardBrandDetails> brands) {
@@ -75,7 +75,7 @@ public class CardDetailsResponse {
 
   /**
    * The list of brands identified for the card.
-   * @return brands
+   * @return brands The list of brands identified for the card.
    */
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +86,7 @@ public class CardDetailsResponse {
   /**
    * The list of brands identified for the card.
    *
-   * @param brands
+   * @param brands The list of brands identified for the card.
    */
   @JsonProperty(JSON_PROPERTY_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,7 +97,7 @@ public class CardDetailsResponse {
   /**
    * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
    * @return the current {@code CardDetailsResponse} instance, allowing for method chaining
    */
   public CardDetailsResponse fundingSource(String fundingSource) {
@@ -107,7 +107,7 @@ public class CardDetailsResponse {
 
   /**
    * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
-   * @return fundingSource
+   * @return fundingSource The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class CardDetailsResponse {
   /**
    * The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source of the card, for example **DEBIT**, **CREDIT**, or **PREPAID**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +129,7 @@ public class CardDetailsResponse {
   /**
    * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
    *
-   * @param isCardCommercial
+   * @param isCardCommercial Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
    * @return the current {@code CardDetailsResponse} instance, allowing for method chaining
    */
   public CardDetailsResponse isCardCommercial(Boolean isCardCommercial) {
@@ -139,7 +139,7 @@ public class CardDetailsResponse {
 
   /**
    * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
-   * @return isCardCommercial
+   * @return isCardCommercial Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
    */
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class CardDetailsResponse {
   /**
    * Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
    *
-   * @param isCardCommercial
+   * @param isCardCommercial Indicates if this is a commercial card or a consumer card. If **true**, it is a commercial card. If **false**, it is a consumer card.
    */
   @JsonProperty(JSON_PROPERTY_IS_CARD_COMMERCIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class CardDetailsResponse {
   /**
    * The two-letter country code  of the country where the card was issued.
    *
-   * @param issuingCountryCode
+   * @param issuingCountryCode The two-letter country code  of the country where the card was issued.
    * @return the current {@code CardDetailsResponse} instance, allowing for method chaining
    */
   public CardDetailsResponse issuingCountryCode(String issuingCountryCode) {
@@ -171,7 +171,7 @@ public class CardDetailsResponse {
 
   /**
    * The two-letter country code  of the country where the card was issued.
-   * @return issuingCountryCode
+   * @return issuingCountryCode The two-letter country code  of the country where the card was issued.
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,7 +182,7 @@ public class CardDetailsResponse {
   /**
    * The two-letter country code  of the country where the card was issued.
    *
-   * @param issuingCountryCode
+   * @param issuingCountryCode The two-letter country code  of the country where the card was issued.
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

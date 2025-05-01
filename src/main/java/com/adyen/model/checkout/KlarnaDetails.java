@@ -116,7 +116,7 @@ public class KlarnaDetails {
   /**
    * The address where to send the invoice.
    *
-   * @param billingAddress
+   * @param billingAddress The address where to send the invoice.
    * @return the current {@code KlarnaDetails} instance, allowing for method chaining
    */
   public KlarnaDetails billingAddress(String billingAddress) {
@@ -126,7 +126,7 @@ public class KlarnaDetails {
 
   /**
    * The address where to send the invoice.
-   * @return billingAddress
+   * @return billingAddress The address where to send the invoice.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class KlarnaDetails {
   /**
    * The address where to send the invoice.
    *
-   * @param billingAddress
+   * @param billingAddress The address where to send the invoice.
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class KlarnaDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code KlarnaDetails} instance, allowing for method chaining
    */
   public KlarnaDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -158,7 +158,7 @@ public class KlarnaDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class KlarnaDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class KlarnaDetails {
   /**
    * The address where the goods should be delivered.
    *
-   * @param deliveryAddress
+   * @param deliveryAddress The address where the goods should be delivered.
    * @return the current {@code KlarnaDetails} instance, allowing for method chaining
    */
   public KlarnaDetails deliveryAddress(String deliveryAddress) {
@@ -190,7 +190,7 @@ public class KlarnaDetails {
 
   /**
    * The address where the goods should be delivered.
-   * @return deliveryAddress
+   * @return deliveryAddress The address where the goods should be delivered.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class KlarnaDetails {
   /**
    * The address where the goods should be delivered.
    *
-   * @param deliveryAddress
+   * @param deliveryAddress The address where the goods should be delivered.
    */
   @JsonProperty(JSON_PROPERTY_DELIVERY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class KlarnaDetails {
   /**
    * Shopper name, date of birth, phone number, and email address.
    *
-   * @param personalDetails
+   * @param personalDetails Shopper name, date of birth, phone number, and email address.
    * @return the current {@code KlarnaDetails} instance, allowing for method chaining
    */
   public KlarnaDetails personalDetails(String personalDetails) {
@@ -222,7 +222,7 @@ public class KlarnaDetails {
 
   /**
    * Shopper name, date of birth, phone number, and email address.
-   * @return personalDetails
+   * @return personalDetails Shopper name, date of birth, phone number, and email address.
    */
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class KlarnaDetails {
   /**
    * Shopper name, date of birth, phone number, and email address.
    *
-   * @param personalDetails
+   * @param personalDetails Shopper name, date of birth, phone number, and email address.
    */
   @JsonProperty(JSON_PROPERTY_PERSONAL_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class KlarnaDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code KlarnaDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -258,7 +258,7 @@ public class KlarnaDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -271,7 +271,7 @@ public class KlarnaDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -286,7 +286,7 @@ public class KlarnaDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code KlarnaDetails} instance, allowing for method chaining
    */
   public KlarnaDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -296,7 +296,7 @@ public class KlarnaDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +307,7 @@ public class KlarnaDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,7 +318,7 @@ public class KlarnaDetails {
   /**
    * The type of flow to initiate.
    *
-   * @param subtype
+   * @param subtype The type of flow to initiate.
    * @return the current {@code KlarnaDetails} instance, allowing for method chaining
    */
   public KlarnaDetails subtype(String subtype) {
@@ -328,7 +328,7 @@ public class KlarnaDetails {
 
   /**
    * The type of flow to initiate.
-   * @return subtype
+   * @return subtype The type of flow to initiate.
    */
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -339,7 +339,7 @@ public class KlarnaDetails {
   /**
    * The type of flow to initiate.
    *
-   * @param subtype
+   * @param subtype The type of flow to initiate.
    */
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,7 +350,7 @@ public class KlarnaDetails {
   /**
    * **klarna**
    *
-   * @param type
+   * @param type **klarna**
    * @return the current {@code KlarnaDetails} instance, allowing for method chaining
    */
   public KlarnaDetails type(TypeEnum type) {
@@ -360,7 +360,7 @@ public class KlarnaDetails {
 
   /**
    * **klarna**
-   * @return type
+   * @return type **klarna**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -371,7 +371,7 @@ public class KlarnaDetails {
   /**
    * **klarna**
    *
-   * @param type
+   * @param type **klarna**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

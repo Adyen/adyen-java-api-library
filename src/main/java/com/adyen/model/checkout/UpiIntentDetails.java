@@ -96,7 +96,7 @@ public class UpiIntentDetails {
   /**
    * TPAP (Third Party Application) Id that is being used to make the UPI payment
    *
-   * @param appId
+   * @param appId TPAP (Third Party Application) Id that is being used to make the UPI payment
    * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
    */
   public UpiIntentDetails appId(String appId) {
@@ -106,7 +106,7 @@ public class UpiIntentDetails {
 
   /**
    * TPAP (Third Party Application) Id that is being used to make the UPI payment
-   * @return appId
+   * @return appId TPAP (Third Party Application) Id that is being used to make the UPI payment
    */
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class UpiIntentDetails {
   /**
    * TPAP (Third Party Application) Id that is being used to make the UPI payment
    *
-   * @param appId
+   * @param appId TPAP (Third Party Application) Id that is being used to make the UPI payment
    */
   @JsonProperty(JSON_PROPERTY_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +128,7 @@ public class UpiIntentDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
    */
   public UpiIntentDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -138,7 +138,7 @@ public class UpiIntentDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +149,7 @@ public class UpiIntentDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +160,7 @@ public class UpiIntentDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -174,7 +174,7 @@ public class UpiIntentDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -187,7 +187,7 @@ public class UpiIntentDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -202,7 +202,7 @@ public class UpiIntentDetails {
   /**
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    *
-   * @param shopperNotificationReference
+   * @param shopperNotificationReference The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
    */
   public UpiIntentDetails shopperNotificationReference(String shopperNotificationReference) {
@@ -212,7 +212,7 @@ public class UpiIntentDetails {
 
   /**
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
-   * @return shopperNotificationReference
+   * @return shopperNotificationReference The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class UpiIntentDetails {
   /**
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    *
-   * @param shopperNotificationReference
+   * @param shopperNotificationReference The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class UpiIntentDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
    */
   public UpiIntentDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -244,7 +244,7 @@ public class UpiIntentDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class UpiIntentDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +266,7 @@ public class UpiIntentDetails {
   /**
    * **upi_intent**
    *
-   * @param type
+   * @param type **upi_intent**
    * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
    */
   public UpiIntentDetails type(TypeEnum type) {
@@ -276,7 +276,7 @@ public class UpiIntentDetails {
 
   /**
    * **upi_intent**
-   * @return type
+   * @return type **upi_intent**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +287,7 @@ public class UpiIntentDetails {
   /**
    * **upi_intent**
    *
-   * @param type
+   * @param type **upi_intent**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

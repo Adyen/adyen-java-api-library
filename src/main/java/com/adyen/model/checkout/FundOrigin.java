@@ -60,7 +60,7 @@ public class FundOrigin {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    * @return the current {@code FundOrigin} instance, allowing for method chaining
    */
   public FundOrigin billingAddress(Address billingAddress) {
@@ -70,7 +70,7 @@ public class FundOrigin {
 
   /**
    * Get billingAddress
-   * @return billingAddress
+   * @return billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,7 +81,7 @@ public class FundOrigin {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +92,7 @@ public class FundOrigin {
   /**
    * The email address of the person funding the money.
    *
-   * @param shopperEmail
+   * @param shopperEmail The email address of the person funding the money.
    * @return the current {@code FundOrigin} instance, allowing for method chaining
    */
   public FundOrigin shopperEmail(String shopperEmail) {
@@ -102,7 +102,7 @@ public class FundOrigin {
 
   /**
    * The email address of the person funding the money.
-   * @return shopperEmail
+   * @return shopperEmail The email address of the person funding the money.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +113,7 @@ public class FundOrigin {
   /**
    * The email address of the person funding the money.
    *
-   * @param shopperEmail
+   * @param shopperEmail The email address of the person funding the money.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +124,7 @@ public class FundOrigin {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    * @return the current {@code FundOrigin} instance, allowing for method chaining
    */
   public FundOrigin shopperName(Name shopperName) {
@@ -134,7 +134,7 @@ public class FundOrigin {
 
   /**
    * Get shopperName
-   * @return shopperName
+   * @return shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +145,7 @@ public class FundOrigin {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +156,7 @@ public class FundOrigin {
   /**
    * The phone number of the person funding the money.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The phone number of the person funding the money.
    * @return the current {@code FundOrigin} instance, allowing for method chaining
    */
   public FundOrigin telephoneNumber(String telephoneNumber) {
@@ -166,7 +166,7 @@ public class FundOrigin {
 
   /**
    * The phone number of the person funding the money.
-   * @return telephoneNumber
+   * @return telephoneNumber The phone number of the person funding the money.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class FundOrigin {
   /**
    * The phone number of the person funding the money.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The phone number of the person funding the money.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +188,7 @@ public class FundOrigin {
   /**
    * The unique identifier of the wallet where the funds are coming from.
    *
-   * @param walletIdentifier
+   * @param walletIdentifier The unique identifier of the wallet where the funds are coming from.
    * @return the current {@code FundOrigin} instance, allowing for method chaining
    */
   public FundOrigin walletIdentifier(String walletIdentifier) {
@@ -198,7 +198,7 @@ public class FundOrigin {
 
   /**
    * The unique identifier of the wallet where the funds are coming from.
-   * @return walletIdentifier
+   * @return walletIdentifier The unique identifier of the wallet where the funds are coming from.
    */
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class FundOrigin {
   /**
    * The unique identifier of the wallet where the funds are coming from.
    *
-   * @param walletIdentifier
+   * @param walletIdentifier The unique identifier of the wallet where the funds are coming from.
    */
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

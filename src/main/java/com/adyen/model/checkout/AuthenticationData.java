@@ -86,7 +86,7 @@ public class AuthenticationData {
   /**
    * Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
    *
-   * @param attemptAuthentication
+   * @param attemptAuthentication Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
    * @return the current {@code AuthenticationData} instance, allowing for method chaining
    */
   public AuthenticationData attemptAuthentication(AttemptAuthenticationEnum attemptAuthentication) {
@@ -96,7 +96,7 @@ public class AuthenticationData {
 
   /**
    * Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
-   * @return attemptAuthentication
+   * @return attemptAuthentication Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
    */
   @JsonProperty(JSON_PROPERTY_ATTEMPT_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class AuthenticationData {
   /**
    * Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
    *
-   * @param attemptAuthentication
+   * @param attemptAuthentication Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).  Possible values:  * **always**: Perform 3D Secure authentication. * **never**: Don&#39;t perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
    */
   @JsonProperty(JSON_PROPERTY_ATTEMPT_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class AuthenticationData {
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
    *
-   * @param authenticationOnly
+   * @param authenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
    * @return the current {@code AuthenticationData} instance, allowing for method chaining
    */
   public AuthenticationData authenticationOnly(Boolean authenticationOnly) {
@@ -128,7 +128,7 @@ public class AuthenticationData {
 
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
-   * @return authenticationOnly
+   * @return authenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class AuthenticationData {
   /**
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
    *
-   * @param authenticationOnly
+   * @param authenticationOnly If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: **false**.
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class AuthenticationData {
   /**
    * threeDSRequestData
    *
-   * @param threeDSRequestData
+   * @param threeDSRequestData 
    * @return the current {@code AuthenticationData} instance, allowing for method chaining
    */
   public AuthenticationData threeDSRequestData(ThreeDSRequestData threeDSRequestData) {
@@ -160,7 +160,7 @@ public class AuthenticationData {
 
   /**
    * Get threeDSRequestData
-   * @return threeDSRequestData
+   * @return threeDSRequestData 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class AuthenticationData {
   /**
    * threeDSRequestData
    *
-   * @param threeDSRequestData
+   * @param threeDSRequestData 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUEST_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

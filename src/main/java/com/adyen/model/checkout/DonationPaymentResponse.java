@@ -105,7 +105,7 @@ public class DonationPaymentResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
    */
   public DonationPaymentResponse amount(Amount amount) {
@@ -115,7 +115,7 @@ public class DonationPaymentResponse {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class DonationPaymentResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class DonationPaymentResponse {
   /**
    * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
    *
-   * @param donationAccount
+   * @param donationAccount The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
    * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
    */
   public DonationPaymentResponse donationAccount(String donationAccount) {
@@ -147,7 +147,7 @@ public class DonationPaymentResponse {
 
   /**
    * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
-   * @return donationAccount
+   * @return donationAccount The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class DonationPaymentResponse {
   /**
    * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
    *
-   * @param donationAccount
+   * @param donationAccount The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class DonationPaymentResponse {
   /**
    * Your unique resource identifier.
    *
-   * @param id
+   * @param id Your unique resource identifier.
    * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
    */
   public DonationPaymentResponse id(String id) {
@@ -179,7 +179,7 @@ public class DonationPaymentResponse {
 
   /**
    * Your unique resource identifier.
-   * @return id
+   * @return id Your unique resource identifier.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class DonationPaymentResponse {
   /**
    * Your unique resource identifier.
    *
-   * @param id
+   * @param id Your unique resource identifier.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class DonationPaymentResponse {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
    */
   public DonationPaymentResponse merchantAccount(String merchantAccount) {
@@ -211,7 +211,7 @@ public class DonationPaymentResponse {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class DonationPaymentResponse {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class DonationPaymentResponse {
   /**
    * payment
    *
-   * @param payment
+   * @param payment 
    * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
    */
   public DonationPaymentResponse payment(PaymentResponse payment) {
@@ -243,7 +243,7 @@ public class DonationPaymentResponse {
 
   /**
    * Get payment
-   * @return payment
+   * @return payment 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +254,7 @@ public class DonationPaymentResponse {
   /**
    * payment
    *
-   * @param payment
+   * @param payment 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class DonationPaymentResponse {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
    */
   public DonationPaymentResponse reference(String reference) {
@@ -275,7 +275,7 @@ public class DonationPaymentResponse {
 
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-   * @return reference
+   * @return reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +286,7 @@ public class DonationPaymentResponse {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +297,7 @@ public class DonationPaymentResponse {
   /**
    * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
    *
-   * @param status
+   * @param status The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
    * @return the current {@code DonationPaymentResponse} instance, allowing for method chaining
    */
   public DonationPaymentResponse status(StatusEnum status) {
@@ -307,7 +307,7 @@ public class DonationPaymentResponse {
 
   /**
    * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
-   * @return status
+   * @return status The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,7 +318,7 @@ public class DonationPaymentResponse {
   /**
    * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
    *
-   * @param status
+   * @param status The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

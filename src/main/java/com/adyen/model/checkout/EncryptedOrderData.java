@@ -46,7 +46,7 @@ public class EncryptedOrderData {
   /**
    * The encrypted order data.
    *
-   * @param orderData
+   * @param orderData The encrypted order data.
    * @return the current {@code EncryptedOrderData} instance, allowing for method chaining
    */
   public EncryptedOrderData orderData(String orderData) {
@@ -56,7 +56,7 @@ public class EncryptedOrderData {
 
   /**
    * The encrypted order data.
-   * @return orderData
+   * @return orderData The encrypted order data.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class EncryptedOrderData {
   /**
    * The encrypted order data.
    *
-   * @param orderData
+   * @param orderData The encrypted order data.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class EncryptedOrderData {
   /**
    * The &#x60;pspReference&#x60; that belongs to the order.
    *
-   * @param pspReference
+   * @param pspReference The &#x60;pspReference&#x60; that belongs to the order.
    * @return the current {@code EncryptedOrderData} instance, allowing for method chaining
    */
   public EncryptedOrderData pspReference(String pspReference) {
@@ -88,7 +88,7 @@ public class EncryptedOrderData {
 
   /**
    * The &#x60;pspReference&#x60; that belongs to the order.
-   * @return pspReference
+   * @return pspReference The &#x60;pspReference&#x60; that belongs to the order.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class EncryptedOrderData {
   /**
    * The &#x60;pspReference&#x60; that belongs to the order.
    *
-   * @param pspReference
+   * @param pspReference The &#x60;pspReference&#x60; that belongs to the order.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

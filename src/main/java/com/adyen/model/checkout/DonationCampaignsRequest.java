@@ -50,7 +50,7 @@ public class DonationCampaignsRequest {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    * @return the current {@code DonationCampaignsRequest} instance, allowing for method chaining
    */
   public DonationCampaignsRequest currency(String currency) {
@@ -60,7 +60,7 @@ public class DonationCampaignsRequest {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class DonationCampaignsRequest {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class DonationCampaignsRequest {
   /**
    * Locale on the shopper interaction device.
    *
-   * @param locale
+   * @param locale Locale on the shopper interaction device.
    * @return the current {@code DonationCampaignsRequest} instance, allowing for method chaining
    */
   public DonationCampaignsRequest locale(String locale) {
@@ -92,7 +92,7 @@ public class DonationCampaignsRequest {
 
   /**
    * Locale on the shopper interaction device.
-   * @return locale
+   * @return locale Locale on the shopper interaction device.
    */
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class DonationCampaignsRequest {
   /**
    * Locale on the shopper interaction device.
    *
-   * @param locale
+   * @param locale Locale on the shopper interaction device.
    */
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class DonationCampaignsRequest {
   /**
    * Your merchant account identifier.
    *
-   * @param merchantAccount
+   * @param merchantAccount Your merchant account identifier.
    * @return the current {@code DonationCampaignsRequest} instance, allowing for method chaining
    */
   public DonationCampaignsRequest merchantAccount(String merchantAccount) {
@@ -124,7 +124,7 @@ public class DonationCampaignsRequest {
 
   /**
    * Your merchant account identifier.
-   * @return merchantAccount
+   * @return merchantAccount Your merchant account identifier.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class DonationCampaignsRequest {
   /**
    * Your merchant account identifier.
    *
-   * @param merchantAccount
+   * @param merchantAccount Your merchant account identifier.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

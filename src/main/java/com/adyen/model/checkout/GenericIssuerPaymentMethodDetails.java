@@ -98,7 +98,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code GenericIssuerPaymentMethodDetails} instance, allowing for method chaining
    */
   public GenericIssuerPaymentMethodDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -108,7 +108,7 @@ public class GenericIssuerPaymentMethodDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * The issuer id of the shopper&#39;s selected bank.
    *
-   * @param issuer
+   * @param issuer The issuer id of the shopper&#39;s selected bank.
    * @return the current {@code GenericIssuerPaymentMethodDetails} instance, allowing for method chaining
    */
   public GenericIssuerPaymentMethodDetails issuer(String issuer) {
@@ -140,7 +140,7 @@ public class GenericIssuerPaymentMethodDetails {
 
   /**
    * The issuer id of the shopper&#39;s selected bank.
-   * @return issuer
+   * @return issuer The issuer id of the shopper&#39;s selected bank.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * The issuer id of the shopper&#39;s selected bank.
    *
-   * @param issuer
+   * @param issuer The issuer id of the shopper&#39;s selected bank.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code GenericIssuerPaymentMethodDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -176,7 +176,7 @@ public class GenericIssuerPaymentMethodDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -189,7 +189,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -204,7 +204,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code GenericIssuerPaymentMethodDetails} instance, allowing for method chaining
    */
   public GenericIssuerPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -214,7 +214,7 @@ public class GenericIssuerPaymentMethodDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +225,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +236,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * **genericissuer**
    *
-   * @param type
+   * @param type **genericissuer**
    * @return the current {@code GenericIssuerPaymentMethodDetails} instance, allowing for method chaining
    */
   public GenericIssuerPaymentMethodDetails type(TypeEnum type) {
@@ -246,7 +246,7 @@ public class GenericIssuerPaymentMethodDetails {
 
   /**
    * **genericissuer**
-   * @return type
+   * @return type **genericissuer**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +257,7 @@ public class GenericIssuerPaymentMethodDetails {
   /**
    * **genericissuer**
    *
-   * @param type
+   * @param type **genericissuer**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

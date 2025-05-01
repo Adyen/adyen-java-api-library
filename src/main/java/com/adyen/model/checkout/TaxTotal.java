@@ -43,7 +43,7 @@ public class TaxTotal {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code TaxTotal} instance, allowing for method chaining
    */
   public TaxTotal amount(Amount amount) {
@@ -53,7 +53,7 @@ public class TaxTotal {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -64,7 +64,7 @@ public class TaxTotal {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

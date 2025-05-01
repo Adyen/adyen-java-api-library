@@ -46,7 +46,7 @@ public class PaymentMethodUPIApps {
   /**
    * The unique identifier of this app, to submit in requests to /payments.
    *
-   * @param id
+   * @param id The unique identifier of this app, to submit in requests to /payments.
    * @return the current {@code PaymentMethodUPIApps} instance, allowing for method chaining
    */
   public PaymentMethodUPIApps id(String id) {
@@ -56,7 +56,7 @@ public class PaymentMethodUPIApps {
 
   /**
    * The unique identifier of this app, to submit in requests to /payments.
-   * @return id
+   * @return id The unique identifier of this app, to submit in requests to /payments.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class PaymentMethodUPIApps {
   /**
    * The unique identifier of this app, to submit in requests to /payments.
    *
-   * @param id
+   * @param id The unique identifier of this app, to submit in requests to /payments.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class PaymentMethodUPIApps {
   /**
    * A localized name of the app.
    *
-   * @param name
+   * @param name A localized name of the app.
    * @return the current {@code PaymentMethodUPIApps} instance, allowing for method chaining
    */
   public PaymentMethodUPIApps name(String name) {
@@ -88,7 +88,7 @@ public class PaymentMethodUPIApps {
 
   /**
    * A localized name of the app.
-   * @return name
+   * @return name A localized name of the app.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class PaymentMethodUPIApps {
   /**
    * A localized name of the app.
    *
-   * @param name
+   * @param name A localized name of the app.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

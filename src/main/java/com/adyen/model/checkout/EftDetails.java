@@ -104,7 +104,7 @@ public class EftDetails {
   /**
    * The bank account number (without separators).
    *
-   * @param bankAccountNumber
+   * @param bankAccountNumber The bank account number (without separators).
    * @return the current {@code EftDetails} instance, allowing for method chaining
    */
   public EftDetails bankAccountNumber(String bankAccountNumber) {
@@ -114,7 +114,7 @@ public class EftDetails {
 
   /**
    * The bank account number (without separators).
-   * @return bankAccountNumber
+   * @return bankAccountNumber The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class EftDetails {
   /**
    * The bank account number (without separators).
    *
-   * @param bankAccountNumber
+   * @param bankAccountNumber The bank account number (without separators).
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class EftDetails {
   /**
    * The financial institution code.
    *
-   * @param bankCode
+   * @param bankCode The financial institution code.
    * @return the current {@code EftDetails} instance, allowing for method chaining
    */
   public EftDetails bankCode(String bankCode) {
@@ -146,7 +146,7 @@ public class EftDetails {
 
   /**
    * The financial institution code.
-   * @return bankCode
+   * @return bankCode The financial institution code.
    */
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class EftDetails {
   /**
    * The financial institution code.
    *
-   * @param bankCode
+   * @param bankCode The financial institution code.
    */
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class EftDetails {
   /**
    * The bank routing number of the account.
    *
-   * @param bankLocationId
+   * @param bankLocationId The bank routing number of the account.
    * @return the current {@code EftDetails} instance, allowing for method chaining
    */
   public EftDetails bankLocationId(String bankLocationId) {
@@ -178,7 +178,7 @@ public class EftDetails {
 
   /**
    * The bank routing number of the account.
-   * @return bankLocationId
+   * @return bankLocationId The bank routing number of the account.
    */
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class EftDetails {
   /**
    * The bank routing number of the account.
    *
-   * @param bankLocationId
+   * @param bankLocationId The bank routing number of the account.
    */
   @JsonProperty(JSON_PROPERTY_BANK_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class EftDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code EftDetails} instance, allowing for method chaining
    */
   public EftDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -210,7 +210,7 @@ public class EftDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +221,7 @@ public class EftDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +232,7 @@ public class EftDetails {
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    * @return the current {@code EftDetails} instance, allowing for method chaining
    */
   public EftDetails ownerName(String ownerName) {
@@ -242,7 +242,7 @@ public class EftDetails {
 
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
-   * @return ownerName
+   * @return ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,7 +253,7 @@ public class EftDetails {
   /**
    * The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    *
-   * @param ownerName
+   * @param ownerName The name of the bank account holder. If you submit a name with non-Latin characters, we automatically replace some of them with corresponding Latin characters to meet the FATF recommendations. For example: * χ12 is converted to ch12. * üA is converted to euA. * Peter Møller is converted to Peter Mller, because banks don&#39;t accept &#39;ø&#39;. After replacement, the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least one of them must be a valid Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 - allowed. * 171 - not allowed. * John-7 - allowed. &gt; If provided details don&#39;t match the required format, the response returns the error message: 203 &#39;Invalid bank account holder name&#39;.
    */
   @JsonProperty(JSON_PROPERTY_OWNER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +264,7 @@ public class EftDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code EftDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -278,7 +278,7 @@ public class EftDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -291,7 +291,7 @@ public class EftDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -306,7 +306,7 @@ public class EftDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code EftDetails} instance, allowing for method chaining
    */
   public EftDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -316,7 +316,7 @@ public class EftDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +327,7 @@ public class EftDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,7 +338,7 @@ public class EftDetails {
   /**
    * **eft**
    *
-   * @param type
+   * @param type **eft**
    * @return the current {@code EftDetails} instance, allowing for method chaining
    */
   public EftDetails type(TypeEnum type) {
@@ -348,7 +348,7 @@ public class EftDetails {
 
   /**
    * **eft**
-   * @return type
+   * @return type **eft**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +359,7 @@ public class EftDetails {
   /**
    * **eft**
    *
-   * @param type
+   * @param type **eft**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

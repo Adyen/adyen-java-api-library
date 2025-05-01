@@ -130,7 +130,7 @@ public class AdditionalDataCarRental {
   /**
    * The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
    *
-   * @param carRentalCheckOutDate
+   * @param carRentalCheckOutDate The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalCheckOutDate(String carRentalCheckOutDate) {
@@ -140,7 +140,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
-   * @return carRentalCheckOutDate
+   * @return carRentalCheckOutDate The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CHECK_OUT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class AdditionalDataCarRental {
   /**
    * The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
    *
-   * @param carRentalCheckOutDate
+   * @param carRentalCheckOutDate The pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CHECK_OUT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class AdditionalDataCarRental {
   /**
    * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    *
-   * @param carRentalCustomerServiceTollFreeNumber
+   * @param carRentalCustomerServiceTollFreeNumber The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalCustomerServiceTollFreeNumber(String carRentalCustomerServiceTollFreeNumber) {
@@ -172,7 +172,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
-   * @return carRentalCustomerServiceTollFreeNumber
+   * @return carRentalCustomerServiceTollFreeNumber The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class AdditionalDataCarRental {
   /**
    * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    *
-   * @param carRentalCustomerServiceTollFreeNumber
+   * @param carRentalCustomerServiceTollFreeNumber The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17 * For US and CA numbers must be 10 characters in length * Must not start with a space * Must not contain any special characters such as + or - *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_CUSTOMER_SERVICE_TOLL_FREE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class AdditionalDataCarRental {
   /**
    * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
    *
-   * @param carRentalDaysRented
+   * @param carRentalDaysRented Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalDaysRented(String carRentalDaysRented) {
@@ -204,7 +204,7 @@ public class AdditionalDataCarRental {
 
   /**
    * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
-   * @return carRentalDaysRented
+   * @return carRentalDaysRented Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_DAYS_RENTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +215,7 @@ public class AdditionalDataCarRental {
   /**
    * Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
    *
-   * @param carRentalDaysRented
+   * @param carRentalDaysRented Number of days for which the car is being rented. * Format: Numeric * maxLength: 4 * Must not be all spaces
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_DAYS_RENTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +226,7 @@ public class AdditionalDataCarRental {
   /**
    * Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
    *
-   * @param carRentalFuelCharges
+   * @param carRentalFuelCharges Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalFuelCharges(String carRentalFuelCharges) {
@@ -236,7 +236,7 @@ public class AdditionalDataCarRental {
 
   /**
    * Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
-   * @return carRentalFuelCharges
+   * @return carRentalFuelCharges Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_FUEL_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +247,7 @@ public class AdditionalDataCarRental {
   /**
    * Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
    *
-   * @param carRentalFuelCharges
+   * @param carRentalFuelCharges Any fuel charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_FUEL_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +258,7 @@ public class AdditionalDataCarRental {
   /**
    * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
    *
-   * @param carRentalInsuranceCharges
+   * @param carRentalInsuranceCharges Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalInsuranceCharges(String carRentalInsuranceCharges) {
@@ -268,7 +268,7 @@ public class AdditionalDataCarRental {
 
   /**
    * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
-   * @return carRentalInsuranceCharges
+   * @return carRentalInsuranceCharges Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_INSURANCE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,7 +279,7 @@ public class AdditionalDataCarRental {
   /**
    * Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
    *
-   * @param carRentalInsuranceCharges
+   * @param carRentalInsuranceCharges Any insurance charges associated with the rental, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Numeric * maxLength: 12 * Must not be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_INSURANCE_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +290,7 @@ public class AdditionalDataCarRental {
   /**
    * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalLocationCity
+   * @param carRentalLocationCity The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalLocationCity(String carRentalLocationCity) {
@@ -300,7 +300,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
-   * @return carRentalLocationCity
+   * @return carRentalLocationCity The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,7 +311,7 @@ public class AdditionalDataCarRental {
   /**
    * The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalLocationCity
+   * @param carRentalLocationCity The city where the car is rented. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class AdditionalDataCarRental {
   /**
    * The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    *
-   * @param carRentalLocationCountry
+   * @param carRentalLocationCountry The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalLocationCountry(String carRentalLocationCountry) {
@@ -332,7 +332,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
-   * @return carRentalLocationCountry
+   * @return carRentalLocationCountry The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -343,7 +343,7 @@ public class AdditionalDataCarRental {
   /**
    * The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    *
-   * @param carRentalLocationCountry
+   * @param carRentalLocationCountry The country where the car is rented, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,7 +354,7 @@ public class AdditionalDataCarRental {
   /**
    * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalLocationStateProvince
+   * @param carRentalLocationStateProvince The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalLocationStateProvince(String carRentalLocationStateProvince) {
@@ -364,7 +364,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
-   * @return carRentalLocationStateProvince
+   * @return carRentalLocationStateProvince The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -375,7 +375,7 @@ public class AdditionalDataCarRental {
   /**
    * The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalLocationStateProvince
+   * @param carRentalLocationStateProvince The state or province where the car is rented. * Format: Alphanumeric * maxLength: 2 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_LOCATION_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,7 +386,7 @@ public class AdditionalDataCarRental {
   /**
    * Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
    *
-   * @param carRentalNoShowIndicator
+   * @param carRentalNoShowIndicator Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalNoShowIndicator(String carRentalNoShowIndicator) {
@@ -396,7 +396,7 @@ public class AdditionalDataCarRental {
 
   /**
    * Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
-   * @return carRentalNoShowIndicator
+   * @return carRentalNoShowIndicator Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_NO_SHOW_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,7 +407,7 @@ public class AdditionalDataCarRental {
   /**
    * Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
    *
-   * @param carRentalNoShowIndicator
+   * @param carRentalNoShowIndicator Indicates if the customer didn&#39;t pick up their rental car. * Y - Customer did not pick up their car * N - Not applicable
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_NO_SHOW_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -418,7 +418,7 @@ public class AdditionalDataCarRental {
   /**
    * The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
    *
-   * @param carRentalOneWayDropOffCharges
+   * @param carRentalOneWayDropOffCharges The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalOneWayDropOffCharges(String carRentalOneWayDropOffCharges) {
@@ -428,7 +428,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
-   * @return carRentalOneWayDropOffCharges
+   * @return carRentalOneWayDropOffCharges The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_ONE_WAY_DROP_OFF_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -439,7 +439,7 @@ public class AdditionalDataCarRental {
   /**
    * The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
    *
-   * @param carRentalOneWayDropOffCharges
+   * @param carRentalOneWayDropOffCharges The charge for not returning a car to the original rental location, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * maxLength: 12
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_ONE_WAY_DROP_OFF_CHARGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +450,7 @@ public class AdditionalDataCarRental {
   /**
    * The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
    *
-   * @param carRentalRate
+   * @param carRentalRate The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalRate(String carRentalRate) {
@@ -460,7 +460,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
-   * @return carRentalRate
+   * @return carRentalRate The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -471,7 +471,7 @@ public class AdditionalDataCarRental {
   /**
    * The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
    *
-   * @param carRentalRate
+   * @param carRentalRate The daily rental rate, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Format: Alphanumeric * maxLength: 12
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -482,7 +482,7 @@ public class AdditionalDataCarRental {
   /**
    * Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
    *
-   * @param carRentalRateIndicator
+   * @param carRentalRateIndicator Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalRateIndicator(String carRentalRateIndicator) {
@@ -492,7 +492,7 @@ public class AdditionalDataCarRental {
 
   /**
    * Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
-   * @return carRentalRateIndicator
+   * @return carRentalRateIndicator Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RATE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -503,7 +503,7 @@ public class AdditionalDataCarRental {
   /**
    * Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
    *
-   * @param carRentalRateIndicator
+   * @param carRentalRateIndicator Specifies whether the given rate is applied daily or weekly. * D - Daily rate * W - Weekly rate
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RATE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,7 +514,7 @@ public class AdditionalDataCarRental {
   /**
    * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalRentalAgreementNumber
+   * @param carRentalRentalAgreementNumber The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalRentalAgreementNumber(String carRentalRentalAgreementNumber) {
@@ -524,7 +524,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
-   * @return carRentalRentalAgreementNumber
+   * @return carRentalRentalAgreementNumber The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_AGREEMENT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -535,7 +535,7 @@ public class AdditionalDataCarRental {
   /**
    * The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalRentalAgreementNumber
+   * @param carRentalRentalAgreementNumber The rental agreement number for the car rental. * Format: Alphanumeric * maxLength: 9 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_AGREEMENT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -546,7 +546,7 @@ public class AdditionalDataCarRental {
   /**
    * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalRentalClassId
+   * @param carRentalRentalClassId The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalRentalClassId(String carRentalRentalClassId) {
@@ -556,7 +556,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
-   * @return carRentalRentalClassId
+   * @return carRentalRentalClassId The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_CLASS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -567,7 +567,7 @@ public class AdditionalDataCarRental {
   /**
    * The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalRentalClassId
+   * @param carRentalRentalClassId The classification of the rental car. * Format: Alphanumeric * maxLength: 4 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTAL_CLASS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -578,7 +578,7 @@ public class AdditionalDataCarRental {
   /**
    * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalRenterName
+   * @param carRentalRenterName The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalRenterName(String carRentalRenterName) {
@@ -588,7 +588,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
-   * @return carRentalRenterName
+   * @return carRentalRenterName The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -599,7 +599,7 @@ public class AdditionalDataCarRental {
   /**
    * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalRenterName
+   * @param carRentalRenterName The name of the person renting the car. * Format: Alphanumeric * maxLength: 26 * If you send more than 26 characters, the name is truncated * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RENTER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -610,7 +610,7 @@ public class AdditionalDataCarRental {
   /**
    * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalReturnCity
+   * @param carRentalReturnCity The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalReturnCity(String carRentalReturnCity) {
@@ -620,7 +620,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
-   * @return carRentalReturnCity
+   * @return carRentalReturnCity The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -631,7 +631,7 @@ public class AdditionalDataCarRental {
   /**
    * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalReturnCity
+   * @param carRentalReturnCity The city where the car must be returned. * Format: Alphanumeric * maxLength: 18 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -642,7 +642,7 @@ public class AdditionalDataCarRental {
   /**
    * The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    *
-   * @param carRentalReturnCountry
+   * @param carRentalReturnCountry The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalReturnCountry(String carRentalReturnCountry) {
@@ -652,7 +652,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
-   * @return carRentalReturnCountry
+   * @return carRentalReturnCountry The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -663,7 +663,7 @@ public class AdditionalDataCarRental {
   /**
    * The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    *
-   * @param carRentalReturnCountry
+   * @param carRentalReturnCountry The country where the car must be returned, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. * Format: Alphanumeric * maxLength: 2
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -674,7 +674,7 @@ public class AdditionalDataCarRental {
   /**
    * The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
    *
-   * @param carRentalReturnDate
+   * @param carRentalReturnDate The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalReturnDate(String carRentalReturnDate) {
@@ -684,7 +684,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
-   * @return carRentalReturnDate
+   * @return carRentalReturnDate The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -695,7 +695,7 @@ public class AdditionalDataCarRental {
   /**
    * The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
    *
-   * @param carRentalReturnDate
+   * @param carRentalReturnDate The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60; * maxLength: 8
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -706,7 +706,7 @@ public class AdditionalDataCarRental {
   /**
    * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalReturnLocationId
+   * @param carRentalReturnLocationId The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalReturnLocationId(String carRentalReturnLocationId) {
@@ -716,7 +716,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
-   * @return carRentalReturnLocationId
+   * @return carRentalReturnLocationId The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -727,7 +727,7 @@ public class AdditionalDataCarRental {
   /**
    * The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalReturnLocationId
+   * @param carRentalReturnLocationId The agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_LOCATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -738,7 +738,7 @@ public class AdditionalDataCarRental {
   /**
    * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalReturnStateProvince
+   * @param carRentalReturnStateProvince The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalReturnStateProvince(String carRentalReturnStateProvince) {
@@ -748,7 +748,7 @@ public class AdditionalDataCarRental {
 
   /**
    * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
-   * @return carRentalReturnStateProvince
+   * @return carRentalReturnStateProvince The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -759,7 +759,7 @@ public class AdditionalDataCarRental {
   /**
    * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
    *
-   * @param carRentalReturnStateProvince
+   * @param carRentalReturnStateProvince The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3 * Must not start with a space or be all spaces *Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_RETURN_STATE_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -770,7 +770,7 @@ public class AdditionalDataCarRental {
   /**
    * Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
    *
-   * @param carRentalTaxExemptIndicator
+   * @param carRentalTaxExemptIndicator Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental carRentalTaxExemptIndicator(String carRentalTaxExemptIndicator) {
@@ -780,7 +780,7 @@ public class AdditionalDataCarRental {
 
   /**
    * Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
-   * @return carRentalTaxExemptIndicator
+   * @return carRentalTaxExemptIndicator Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_TAX_EXEMPT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -791,7 +791,7 @@ public class AdditionalDataCarRental {
   /**
    * Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
    *
-   * @param carRentalTaxExemptIndicator
+   * @param carRentalTaxExemptIndicator Indicates if the goods or services were tax-exempt, or if tax was not paid on them.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
    */
   @JsonProperty(JSON_PROPERTY_CAR_RENTAL_TAX_EXEMPT_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -802,7 +802,7 @@ public class AdditionalDataCarRental {
   /**
    * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
    *
-   * @param travelEntertainmentAuthDataDuration
+   * @param travelEntertainmentAuthDataDuration Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental travelEntertainmentAuthDataDuration(String travelEntertainmentAuthDataDuration) {
@@ -812,7 +812,7 @@ public class AdditionalDataCarRental {
 
   /**
    * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
-   * @return travelEntertainmentAuthDataDuration
+   * @return travelEntertainmentAuthDataDuration Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
    */
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -823,7 +823,7 @@ public class AdditionalDataCarRental {
   /**
    * Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
    *
-   * @param travelEntertainmentAuthDataDuration
+   * @param travelEntertainmentAuthDataDuration Number of days the car is rented for. This should be included in the auth message. * Format: Numeric * maxLength: 4
    */
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -834,7 +834,7 @@ public class AdditionalDataCarRental {
   /**
    * Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
    *
-   * @param travelEntertainmentAuthDataMarket
+   * @param travelEntertainmentAuthDataMarket Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
    * @return the current {@code AdditionalDataCarRental} instance, allowing for method chaining
    */
   public AdditionalDataCarRental travelEntertainmentAuthDataMarket(String travelEntertainmentAuthDataMarket) {
@@ -844,7 +844,7 @@ public class AdditionalDataCarRental {
 
   /**
    * Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
-   * @return travelEntertainmentAuthDataMarket
+   * @return travelEntertainmentAuthDataMarket Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
    */
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -855,7 +855,7 @@ public class AdditionalDataCarRental {
   /**
    * Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
    *
-   * @param travelEntertainmentAuthDataMarket
+   * @param travelEntertainmentAuthDataMarket Indicates what market-specific dataset will be submitted or is being submitted. Value should be &#39;A&#39; for car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
    */
   @JsonProperty(JSON_PROPERTY_TRAVEL_ENTERTAINMENT_AUTH_DATA_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

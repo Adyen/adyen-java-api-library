@@ -79,7 +79,7 @@ public class MobilePayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code MobilePayDetails} instance, allowing for method chaining
    */
   public MobilePayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -89,7 +89,7 @@ public class MobilePayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class MobilePayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class MobilePayDetails {
   /**
    * **mobilepay**
    *
-   * @param type
+   * @param type **mobilepay**
    * @return the current {@code MobilePayDetails} instance, allowing for method chaining
    */
   public MobilePayDetails type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class MobilePayDetails {
 
   /**
    * **mobilepay**
-   * @return type
+   * @return type **mobilepay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class MobilePayDetails {
   /**
    * **mobilepay**
    *
-   * @param type
+   * @param type **mobilepay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

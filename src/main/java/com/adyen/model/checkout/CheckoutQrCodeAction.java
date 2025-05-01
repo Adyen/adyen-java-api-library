@@ -95,7 +95,7 @@ public class CheckoutQrCodeAction {
   /**
    * Expiry time of the QR code.
    *
-   * @param expiresAt
+   * @param expiresAt Expiry time of the QR code.
    * @return the current {@code CheckoutQrCodeAction} instance, allowing for method chaining
    */
   public CheckoutQrCodeAction expiresAt(String expiresAt) {
@@ -105,7 +105,7 @@ public class CheckoutQrCodeAction {
 
   /**
    * Expiry time of the QR code.
-   * @return expiresAt
+   * @return expiresAt Expiry time of the QR code.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class CheckoutQrCodeAction {
   /**
    * Expiry time of the QR code.
    *
-   * @param expiresAt
+   * @param expiresAt Expiry time of the QR code.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class CheckoutQrCodeAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    * @return the current {@code CheckoutQrCodeAction} instance, allowing for method chaining
    */
   public CheckoutQrCodeAction paymentData(String paymentData) {
@@ -137,7 +137,7 @@ public class CheckoutQrCodeAction {
 
   /**
    * Encoded payment data.
-   * @return paymentData
+   * @return paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class CheckoutQrCodeAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class CheckoutQrCodeAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutQrCodeAction} instance, allowing for method chaining
    */
   public CheckoutQrCodeAction paymentMethodType(String paymentMethodType) {
@@ -169,7 +169,7 @@ public class CheckoutQrCodeAction {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class CheckoutQrCodeAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class CheckoutQrCodeAction {
   /**
    * The contents of the QR code as a UTF8 string.
    *
-   * @param qrCodeData
+   * @param qrCodeData The contents of the QR code as a UTF8 string.
    * @return the current {@code CheckoutQrCodeAction} instance, allowing for method chaining
    */
   public CheckoutQrCodeAction qrCodeData(String qrCodeData) {
@@ -201,7 +201,7 @@ public class CheckoutQrCodeAction {
 
   /**
    * The contents of the QR code as a UTF8 string.
-   * @return qrCodeData
+   * @return qrCodeData The contents of the QR code as a UTF8 string.
    */
   @JsonProperty(JSON_PROPERTY_QR_CODE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class CheckoutQrCodeAction {
   /**
    * The contents of the QR code as a UTF8 string.
    *
-   * @param qrCodeData
+   * @param qrCodeData The contents of the QR code as a UTF8 string.
    */
   @JsonProperty(JSON_PROPERTY_QR_CODE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class CheckoutQrCodeAction {
   /**
    * **qrCode**
    *
-   * @param type
+   * @param type **qrCode**
    * @return the current {@code CheckoutQrCodeAction} instance, allowing for method chaining
    */
   public CheckoutQrCodeAction type(TypeEnum type) {
@@ -233,7 +233,7 @@ public class CheckoutQrCodeAction {
 
   /**
    * **qrCode**
-   * @return type
+   * @return type **qrCode**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class CheckoutQrCodeAction {
   /**
    * **qrCode**
    *
-   * @param type
+   * @param type **qrCode**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class CheckoutQrCodeAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutQrCodeAction} instance, allowing for method chaining
    */
   public CheckoutQrCodeAction url(String url) {
@@ -265,7 +265,7 @@ public class CheckoutQrCodeAction {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class CheckoutQrCodeAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

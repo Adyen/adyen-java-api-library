@@ -50,7 +50,7 @@ public class ShopperInteractionDevice {
   /**
    * Locale on the shopper interaction device.
    *
-   * @param locale
+   * @param locale Locale on the shopper interaction device.
    * @return the current {@code ShopperInteractionDevice} instance, allowing for method chaining
    */
   public ShopperInteractionDevice locale(String locale) {
@@ -60,7 +60,7 @@ public class ShopperInteractionDevice {
 
   /**
    * Locale on the shopper interaction device.
-   * @return locale
+   * @return locale Locale on the shopper interaction device.
    */
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class ShopperInteractionDevice {
   /**
    * Locale on the shopper interaction device.
    *
-   * @param locale
+   * @param locale Locale on the shopper interaction device.
    */
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class ShopperInteractionDevice {
   /**
    * Operating system running on the shopper interaction device.
    *
-   * @param os
+   * @param os Operating system running on the shopper interaction device.
    * @return the current {@code ShopperInteractionDevice} instance, allowing for method chaining
    */
   public ShopperInteractionDevice os(String os) {
@@ -92,7 +92,7 @@ public class ShopperInteractionDevice {
 
   /**
    * Operating system running on the shopper interaction device.
-   * @return os
+   * @return os Operating system running on the shopper interaction device.
    */
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class ShopperInteractionDevice {
   /**
    * Operating system running on the shopper interaction device.
    *
-   * @param os
+   * @param os Operating system running on the shopper interaction device.
    */
   @JsonProperty(JSON_PROPERTY_OS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class ShopperInteractionDevice {
   /**
    * Version of the operating system on the shopper interaction device.
    *
-   * @param osVersion
+   * @param osVersion Version of the operating system on the shopper interaction device.
    * @return the current {@code ShopperInteractionDevice} instance, allowing for method chaining
    */
   public ShopperInteractionDevice osVersion(String osVersion) {
@@ -124,7 +124,7 @@ public class ShopperInteractionDevice {
 
   /**
    * Version of the operating system on the shopper interaction device.
-   * @return osVersion
+   * @return osVersion Version of the operating system on the shopper interaction device.
    */
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class ShopperInteractionDevice {
   /**
    * Version of the operating system on the shopper interaction device.
    *
-   * @param osVersion
+   * @param osVersion Version of the operating system on the shopper interaction device.
    */
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

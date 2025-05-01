@@ -67,7 +67,7 @@ public class SubInputDetail {
   /**
    * Configuration parameters for the required input.
    *
-   * @param configuration
+   * @param configuration Configuration parameters for the required input.
    * @return the current {@code SubInputDetail} instance, allowing for method chaining
    */
   public SubInputDetail configuration(Map<String, String> configuration) {
@@ -85,7 +85,7 @@ public class SubInputDetail {
 
   /**
    * Configuration parameters for the required input.
-   * @return configuration
+   * @return configuration Configuration parameters for the required input.
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +96,7 @@ public class SubInputDetail {
   /**
    * Configuration parameters for the required input.
    *
-   * @param configuration
+   * @param configuration Configuration parameters for the required input.
    */
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class SubInputDetail {
   /**
    * In case of a select, the items to choose from.
    *
-   * @param items
+   * @param items In case of a select, the items to choose from.
    * @return the current {@code SubInputDetail} instance, allowing for method chaining
    */
   public SubInputDetail items(List<Item> items) {
@@ -125,7 +125,7 @@ public class SubInputDetail {
 
   /**
    * In case of a select, the items to choose from.
-   * @return items
+   * @return items In case of a select, the items to choose from.
    */
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class SubInputDetail {
   /**
    * In case of a select, the items to choose from.
    *
-   * @param items
+   * @param items In case of a select, the items to choose from.
    */
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class SubInputDetail {
   /**
    * The value to provide in the result.
    *
-   * @param key
+   * @param key The value to provide in the result.
    * @return the current {@code SubInputDetail} instance, allowing for method chaining
    */
   public SubInputDetail key(String key) {
@@ -157,7 +157,7 @@ public class SubInputDetail {
 
   /**
    * The value to provide in the result.
-   * @return key
+   * @return key The value to provide in the result.
    */
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class SubInputDetail {
   /**
    * The value to provide in the result.
    *
-   * @param key
+   * @param key The value to provide in the result.
    */
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class SubInputDetail {
   /**
    * True if this input is optional to provide.
    *
-   * @param optional
+   * @param optional True if this input is optional to provide.
    * @return the current {@code SubInputDetail} instance, allowing for method chaining
    */
   public SubInputDetail optional(Boolean optional) {
@@ -189,7 +189,7 @@ public class SubInputDetail {
 
   /**
    * True if this input is optional to provide.
-   * @return optional
+   * @return optional True if this input is optional to provide.
    */
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class SubInputDetail {
   /**
    * True if this input is optional to provide.
    *
-   * @param optional
+   * @param optional True if this input is optional to provide.
    */
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class SubInputDetail {
   /**
    * The type of the required input.
    *
-   * @param type
+   * @param type The type of the required input.
    * @return the current {@code SubInputDetail} instance, allowing for method chaining
    */
   public SubInputDetail type(String type) {
@@ -221,7 +221,7 @@ public class SubInputDetail {
 
   /**
    * The type of the required input.
-   * @return type
+   * @return type The type of the required input.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +232,7 @@ public class SubInputDetail {
   /**
    * The type of the required input.
    *
-   * @param type
+   * @param type The type of the required input.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class SubInputDetail {
   /**
    * The value can be pre-filled, if available.
    *
-   * @param value
+   * @param value The value can be pre-filled, if available.
    * @return the current {@code SubInputDetail} instance, allowing for method chaining
    */
   public SubInputDetail value(String value) {
@@ -253,7 +253,7 @@ public class SubInputDetail {
 
   /**
    * The value can be pre-filled, if available.
-   * @return value
+   * @return value The value can be pre-filled, if available.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +264,7 @@ public class SubInputDetail {
   /**
    * The value can be pre-filled, if available.
    *
-   * @param value
+   * @param value The value can be pre-filled, if available.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

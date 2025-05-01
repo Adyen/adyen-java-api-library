@@ -81,7 +81,7 @@ public class PaypalUpdateOrderResponse {
   /**
    * The updated paymentData.
    *
-   * @param paymentData
+   * @param paymentData The updated paymentData.
    * @return the current {@code PaypalUpdateOrderResponse} instance, allowing for method chaining
    */
   public PaypalUpdateOrderResponse paymentData(String paymentData) {
@@ -91,7 +91,7 @@ public class PaypalUpdateOrderResponse {
 
   /**
    * The updated paymentData.
-   * @return paymentData
+   * @return paymentData The updated paymentData.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +102,7 @@ public class PaypalUpdateOrderResponse {
   /**
    * The updated paymentData.
    *
-   * @param paymentData
+   * @param paymentData The updated paymentData.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +113,7 @@ public class PaypalUpdateOrderResponse {
   /**
    * The status of the request. This indicates whether the order was successfully updated with PayPal.
    *
-   * @param status
+   * @param status The status of the request. This indicates whether the order was successfully updated with PayPal.
    * @return the current {@code PaypalUpdateOrderResponse} instance, allowing for method chaining
    */
   public PaypalUpdateOrderResponse status(StatusEnum status) {
@@ -123,7 +123,7 @@ public class PaypalUpdateOrderResponse {
 
   /**
    * The status of the request. This indicates whether the order was successfully updated with PayPal.
-   * @return status
+   * @return status The status of the request. This indicates whether the order was successfully updated with PayPal.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +134,7 @@ public class PaypalUpdateOrderResponse {
   /**
    * The status of the request. This indicates whether the order was successfully updated with PayPal.
    *
-   * @param status
+   * @param status The status of the request. This indicates whether the order was successfully updated with PayPal.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

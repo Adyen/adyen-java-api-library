@@ -46,7 +46,7 @@ public class ResponsePaymentMethod {
   /**
    * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
    *
-   * @param brand
+   * @param brand The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
    * @return the current {@code ResponsePaymentMethod} instance, allowing for method chaining
    */
   public ResponsePaymentMethod brand(String brand) {
@@ -56,7 +56,7 @@ public class ResponsePaymentMethod {
 
   /**
    * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
-   * @return brand
+   * @return brand The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class ResponsePaymentMethod {
   /**
    * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
    *
-   * @param brand
+   * @param brand The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
    */
   @JsonProperty(JSON_PROPERTY_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class ResponsePaymentMethod {
   /**
    * The &#x60;paymentMethod.type&#x60; value used in the request.
    *
-   * @param type
+   * @param type The &#x60;paymentMethod.type&#x60; value used in the request.
    * @return the current {@code ResponsePaymentMethod} instance, allowing for method chaining
    */
   public ResponsePaymentMethod type(String type) {
@@ -88,7 +88,7 @@ public class ResponsePaymentMethod {
 
   /**
    * The &#x60;paymentMethod.type&#x60; value used in the request.
-   * @return type
+   * @return type The &#x60;paymentMethod.type&#x60; value used in the request.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class ResponsePaymentMethod {
   /**
    * The &#x60;paymentMethod.type&#x60; value used in the request.
    *
-   * @param type
+   * @param type The &#x60;paymentMethod.type&#x60; value used in the request.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

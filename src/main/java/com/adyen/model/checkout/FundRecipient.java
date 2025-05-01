@@ -131,7 +131,7 @@ public class FundRecipient {
   /**
    * The IBAN of the bank account where the funds are being transferred to.
    *
-   * @param IBAN
+   * @param IBAN The IBAN of the bank account where the funds are being transferred to.
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient IBAN(String IBAN) {
@@ -141,7 +141,7 @@ public class FundRecipient {
 
   /**
    * The IBAN of the bank account where the funds are being transferred to.
-   * @return IBAN
+   * @return IBAN The IBAN of the bank account where the funds are being transferred to.
    */
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +152,7 @@ public class FundRecipient {
   /**
    * The IBAN of the bank account where the funds are being transferred to.
    *
-   * @param IBAN
+   * @param IBAN The IBAN of the bank account where the funds are being transferred to.
    */
   @JsonProperty(JSON_PROPERTY_I_B_A_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +163,7 @@ public class FundRecipient {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient billingAddress(Address billingAddress) {
@@ -173,7 +173,7 @@ public class FundRecipient {
 
   /**
    * Get billingAddress
-   * @return billingAddress
+   * @return billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +184,7 @@ public class FundRecipient {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +195,7 @@ public class FundRecipient {
   /**
    * paymentMethod
    *
-   * @param paymentMethod
+   * @param paymentMethod 
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient paymentMethod(CardDetails paymentMethod) {
@@ -205,7 +205,7 @@ public class FundRecipient {
 
   /**
    * Get paymentMethod
-   * @return paymentMethod
+   * @return paymentMethod 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +216,7 @@ public class FundRecipient {
   /**
    * paymentMethod
    *
-   * @param paymentMethod
+   * @param paymentMethod 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +227,7 @@ public class FundRecipient {
   /**
    * The email address of the shopper.
    *
-   * @param shopperEmail
+   * @param shopperEmail The email address of the shopper.
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient shopperEmail(String shopperEmail) {
@@ -237,7 +237,7 @@ public class FundRecipient {
 
   /**
    * The email address of the shopper.
-   * @return shopperEmail
+   * @return shopperEmail The email address of the shopper.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +248,7 @@ public class FundRecipient {
   /**
    * The email address of the shopper.
    *
-   * @param shopperEmail
+   * @param shopperEmail The email address of the shopper.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +259,7 @@ public class FundRecipient {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient shopperName(Name shopperName) {
@@ -269,7 +269,7 @@ public class FundRecipient {
 
   /**
    * Get shopperName
-   * @return shopperName
+   * @return shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,7 +280,7 @@ public class FundRecipient {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,7 +291,7 @@ public class FundRecipient {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient shopperReference(String shopperReference) {
@@ -301,7 +301,7 @@ public class FundRecipient {
 
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
-   * @return shopperReference
+   * @return shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +312,7 @@ public class FundRecipient {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,7 +323,7 @@ public class FundRecipient {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient storedPaymentMethodId(String storedPaymentMethodId) {
@@ -333,7 +333,7 @@ public class FundRecipient {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -344,7 +344,7 @@ public class FundRecipient {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,7 +355,7 @@ public class FundRecipient {
   /**
    * subMerchant
    *
-   * @param subMerchant
+   * @param subMerchant 
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient subMerchant(SubMerchant subMerchant) {
@@ -365,7 +365,7 @@ public class FundRecipient {
 
   /**
    * Get subMerchant
-   * @return subMerchant
+   * @return subMerchant 
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,7 +376,7 @@ public class FundRecipient {
   /**
    * subMerchant
    *
-   * @param subMerchant
+   * @param subMerchant 
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -387,7 +387,7 @@ public class FundRecipient {
   /**
    * The telephone number of the shopper.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The telephone number of the shopper.
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient telephoneNumber(String telephoneNumber) {
@@ -397,7 +397,7 @@ public class FundRecipient {
 
   /**
    * The telephone number of the shopper.
-   * @return telephoneNumber
+   * @return telephoneNumber The telephone number of the shopper.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -408,7 +408,7 @@ public class FundRecipient {
   /**
    * The telephone number of the shopper.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The telephone number of the shopper.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -419,7 +419,7 @@ public class FundRecipient {
   /**
    * The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    *
-   * @param walletIdentifier
+   * @param walletIdentifier The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient walletIdentifier(String walletIdentifier) {
@@ -429,7 +429,7 @@ public class FundRecipient {
 
   /**
    * The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
-   * @return walletIdentifier
+   * @return walletIdentifier The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    */
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,7 +440,7 @@ public class FundRecipient {
   /**
    * The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    *
-   * @param walletIdentifier
+   * @param walletIdentifier The unique identifier for the wallet the funds are being transferred to. You can use the shopper reference or any other identifier.
    */
   @JsonProperty(JSON_PROPERTY_WALLET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -451,7 +451,7 @@ public class FundRecipient {
   /**
    * The tax identifier of the person receiving the funds.
    *
-   * @param walletOwnerTaxId
+   * @param walletOwnerTaxId The tax identifier of the person receiving the funds.
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient walletOwnerTaxId(String walletOwnerTaxId) {
@@ -461,7 +461,7 @@ public class FundRecipient {
 
   /**
    * The tax identifier of the person receiving the funds.
-   * @return walletOwnerTaxId
+   * @return walletOwnerTaxId The tax identifier of the person receiving the funds.
    */
   @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -472,7 +472,7 @@ public class FundRecipient {
   /**
    * The tax identifier of the person receiving the funds.
    *
-   * @param walletOwnerTaxId
+   * @param walletOwnerTaxId The tax identifier of the person receiving the funds.
    */
   @JsonProperty(JSON_PROPERTY_WALLET_OWNER_TAX_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -483,7 +483,7 @@ public class FundRecipient {
   /**
    * The purpose of a digital wallet transaction.
    *
-   * @param walletPurpose
+   * @param walletPurpose The purpose of a digital wallet transaction.
    * @return the current {@code FundRecipient} instance, allowing for method chaining
    */
   public FundRecipient walletPurpose(WalletPurposeEnum walletPurpose) {
@@ -493,7 +493,7 @@ public class FundRecipient {
 
   /**
    * The purpose of a digital wallet transaction.
-   * @return walletPurpose
+   * @return walletPurpose The purpose of a digital wallet transaction.
    */
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -504,7 +504,7 @@ public class FundRecipient {
   /**
    * The purpose of a digital wallet transaction.
    *
-   * @param walletPurpose
+   * @param walletPurpose The purpose of a digital wallet transaction.
    */
   @JsonProperty(JSON_PROPERTY_WALLET_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

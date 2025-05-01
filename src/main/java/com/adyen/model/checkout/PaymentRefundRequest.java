@@ -117,7 +117,7 @@ public class PaymentRefundRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
    */
   public PaymentRefundRequest amount(Amount amount) {
@@ -127,7 +127,7 @@ public class PaymentRefundRequest {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class PaymentRefundRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +149,7 @@ public class PaymentRefundRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
    */
   public PaymentRefundRequest applicationInfo(ApplicationInfo applicationInfo) {
@@ -159,7 +159,7 @@ public class PaymentRefundRequest {
 
   /**
    * Get applicationInfo
-   * @return applicationInfo
+   * @return applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class PaymentRefundRequest {
   /**
    * applicationInfo
    *
-   * @param applicationInfo
+   * @param applicationInfo 
    */
   @JsonProperty(JSON_PROPERTY_APPLICATION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +181,7 @@ public class PaymentRefundRequest {
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
    */
   public PaymentRefundRequest lineItems(List<LineItem> lineItems) {
@@ -199,7 +199,7 @@ public class PaymentRefundRequest {
 
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
-   * @return lineItems
+   * @return lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +210,7 @@ public class PaymentRefundRequest {
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    *
-   * @param lineItems
+   * @param lineItems Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +221,7 @@ public class PaymentRefundRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
    */
   public PaymentRefundRequest merchantAccount(String merchantAccount) {
@@ -231,7 +231,7 @@ public class PaymentRefundRequest {
 
   /**
    * The merchant account that is used to process the payment.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,7 +242,7 @@ public class PaymentRefundRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,7 +253,7 @@ public class PaymentRefundRequest {
   /**
    * The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    *
-   * @param merchantRefundReason
+   * @param merchantRefundReason The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
    */
   public PaymentRefundRequest merchantRefundReason(MerchantRefundReasonEnum merchantRefundReason) {
@@ -263,7 +263,7 @@ public class PaymentRefundRequest {
 
   /**
    * The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
-   * @return merchantRefundReason
+   * @return merchantRefundReason The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,7 +274,7 @@ public class PaymentRefundRequest {
   /**
    * The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    *
-   * @param merchantRefundReason
+   * @param merchantRefundReason The reason for the refund request.  Possible values:  * **FRAUD**  * **CUSTOMER REQUEST**  * **RETURN**  * **DUPLICATE**  * **OTHER**  
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFUND_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,7 +285,7 @@ public class PaymentRefundRequest {
   /**
    * Your reference for the refund request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the refund request. Maximum length: 80 characters.
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
    */
   public PaymentRefundRequest reference(String reference) {
@@ -295,7 +295,7 @@ public class PaymentRefundRequest {
 
   /**
    * Your reference for the refund request. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the refund request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,7 +306,7 @@ public class PaymentRefundRequest {
   /**
    * Your reference for the refund request. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the refund request. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -317,7 +317,7 @@ public class PaymentRefundRequest {
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    *
-   * @param splits
+   * @param splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
    */
   public PaymentRefundRequest splits(List<Split> splits) {
@@ -335,7 +335,7 @@ public class PaymentRefundRequest {
 
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
-   * @return splits
+   * @return splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,7 +346,7 @@ public class PaymentRefundRequest {
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    *
-   * @param splits
+   * @param splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -357,7 +357,7 @@ public class PaymentRefundRequest {
   /**
    * The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
    *
-   * @param store
+   * @param store The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
    * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
    */
   public PaymentRefundRequest store(String store) {
@@ -367,7 +367,7 @@ public class PaymentRefundRequest {
 
   /**
    * The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
-   * @return store
+   * @return store The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -378,7 +378,7 @@ public class PaymentRefundRequest {
   /**
    * The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
    *
-   * @param store
+   * @param store The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails.
    */
   @JsonProperty(JSON_PROPERTY_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

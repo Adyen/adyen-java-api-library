@@ -87,7 +87,7 @@ public class CheckoutAwaitAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    * @return the current {@code CheckoutAwaitAction} instance, allowing for method chaining
    */
   public CheckoutAwaitAction paymentData(String paymentData) {
@@ -97,7 +97,7 @@ public class CheckoutAwaitAction {
 
   /**
    * Encoded payment data.
-   * @return paymentData
+   * @return paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class CheckoutAwaitAction {
   /**
    * Encoded payment data.
    *
-   * @param paymentData
+   * @param paymentData Encoded payment data.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class CheckoutAwaitAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    * @return the current {@code CheckoutAwaitAction} instance, allowing for method chaining
    */
   public CheckoutAwaitAction paymentMethodType(String paymentMethodType) {
@@ -129,7 +129,7 @@ public class CheckoutAwaitAction {
 
   /**
    * Specifies the payment method.
-   * @return paymentMethodType
+   * @return paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class CheckoutAwaitAction {
   /**
    * Specifies the payment method.
    *
-   * @param paymentMethodType
+   * @param paymentMethodType Specifies the payment method.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class CheckoutAwaitAction {
   /**
    * **await**
    *
-   * @param type
+   * @param type **await**
    * @return the current {@code CheckoutAwaitAction} instance, allowing for method chaining
    */
   public CheckoutAwaitAction type(TypeEnum type) {
@@ -161,7 +161,7 @@ public class CheckoutAwaitAction {
 
   /**
    * **await**
-   * @return type
+   * @return type **await**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class CheckoutAwaitAction {
   /**
    * **await**
    *
-   * @param type
+   * @param type **await**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class CheckoutAwaitAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    * @return the current {@code CheckoutAwaitAction} instance, allowing for method chaining
    */
   public CheckoutAwaitAction url(String url) {
@@ -193,7 +193,7 @@ public class CheckoutAwaitAction {
 
   /**
    * Specifies the URL to redirect to.
-   * @return url
+   * @return url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +204,7 @@ public class CheckoutAwaitAction {
   /**
    * Specifies the URL to redirect to.
    *
-   * @param url
+   * @param url Specifies the URL to redirect to.
    */
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

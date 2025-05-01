@@ -115,7 +115,7 @@ public class CreateOrderResponse {
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
-   * @param additionalData
+   * @param additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse additionalData(Map<String, String> additionalData) {
@@ -133,7 +133,7 @@ public class CreateOrderResponse {
 
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
-   * @return additionalData
+   * @return additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class CreateOrderResponse {
   /**
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    *
-   * @param additionalData
+   * @param additionalData Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class CreateOrderResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse amount(Amount amount) {
@@ -165,7 +165,7 @@ public class CreateOrderResponse {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class CreateOrderResponse {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class CreateOrderResponse {
   /**
    * The date that the order will expire.
    *
-   * @param expiresAt
+   * @param expiresAt The date that the order will expire.
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse expiresAt(String expiresAt) {
@@ -197,7 +197,7 @@ public class CreateOrderResponse {
 
   /**
    * The date that the order will expire.
-   * @return expiresAt
+   * @return expiresAt The date that the order will expire.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class CreateOrderResponse {
   /**
    * The date that the order will expire.
    *
-   * @param expiresAt
+   * @param expiresAt The date that the order will expire.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class CreateOrderResponse {
   /**
    * fraudResult
    *
-   * @param fraudResult
+   * @param fraudResult 
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse fraudResult(FraudResult fraudResult) {
@@ -229,7 +229,7 @@ public class CreateOrderResponse {
 
   /**
    * Get fraudResult
-   * @return fraudResult
+   * @return fraudResult 
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class CreateOrderResponse {
   /**
    * fraudResult
    *
-   * @param fraudResult
+   * @param fraudResult 
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +251,7 @@ public class CreateOrderResponse {
   /**
    * The encrypted data that will be used by merchant for adding payments to the order.
    *
-   * @param orderData
+   * @param orderData The encrypted data that will be used by merchant for adding payments to the order.
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse orderData(String orderData) {
@@ -261,7 +261,7 @@ public class CreateOrderResponse {
 
   /**
    * The encrypted data that will be used by merchant for adding payments to the order.
-   * @return orderData
+   * @return orderData The encrypted data that will be used by merchant for adding payments to the order.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,7 +272,7 @@ public class CreateOrderResponse {
   /**
    * The encrypted data that will be used by merchant for adding payments to the order.
    *
-   * @param orderData
+   * @param orderData The encrypted data that will be used by merchant for adding payments to the order.
    */
   @JsonProperty(JSON_PROPERTY_ORDER_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +283,7 @@ public class CreateOrderResponse {
   /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse pspReference(String pspReference) {
@@ -293,7 +293,7 @@ public class CreateOrderResponse {
 
   /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-   * @return pspReference
+   * @return pspReference Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +304,7 @@ public class CreateOrderResponse {
   /**
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -315,7 +315,7 @@ public class CreateOrderResponse {
   /**
    * The reference provided by merchant for creating the order.
    *
-   * @param reference
+   * @param reference The reference provided by merchant for creating the order.
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse reference(String reference) {
@@ -325,7 +325,7 @@ public class CreateOrderResponse {
 
   /**
    * The reference provided by merchant for creating the order.
-   * @return reference
+   * @return reference The reference provided by merchant for creating the order.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +336,7 @@ public class CreateOrderResponse {
   /**
    * The reference provided by merchant for creating the order.
    *
-   * @param reference
+   * @param reference The reference provided by merchant for creating the order.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -347,7 +347,7 @@ public class CreateOrderResponse {
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
-   * @param refusalReason
+   * @param refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse refusalReason(String refusalReason) {
@@ -357,7 +357,7 @@ public class CreateOrderResponse {
 
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
-   * @return refusalReason
+   * @return refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +368,7 @@ public class CreateOrderResponse {
   /**
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    *
-   * @param refusalReason
+   * @param refusalReason If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,7 +379,7 @@ public class CreateOrderResponse {
   /**
    * remainingAmount
    *
-   * @param remainingAmount
+   * @param remainingAmount 
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse remainingAmount(Amount remainingAmount) {
@@ -389,7 +389,7 @@ public class CreateOrderResponse {
 
   /**
    * Get remainingAmount
-   * @return remainingAmount
+   * @return remainingAmount 
    */
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -400,7 +400,7 @@ public class CreateOrderResponse {
   /**
    * remainingAmount
    *
-   * @param remainingAmount
+   * @param remainingAmount 
    */
   @JsonProperty(JSON_PROPERTY_REMAINING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -411,7 +411,7 @@ public class CreateOrderResponse {
   /**
    * The result of the order creation request.  The value is always **Success**.
    *
-   * @param resultCode
+   * @param resultCode The result of the order creation request.  The value is always **Success**.
    * @return the current {@code CreateOrderResponse} instance, allowing for method chaining
    */
   public CreateOrderResponse resultCode(ResultCodeEnum resultCode) {
@@ -421,7 +421,7 @@ public class CreateOrderResponse {
 
   /**
    * The result of the order creation request.  The value is always **Success**.
-   * @return resultCode
+   * @return resultCode The result of the order creation request.  The value is always **Success**.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -432,7 +432,7 @@ public class CreateOrderResponse {
   /**
    * The result of the order creation request.  The value is always **Success**.
    *
-   * @param resultCode
+   * @param resultCode The result of the order creation request.  The value is always **Success**.
    */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

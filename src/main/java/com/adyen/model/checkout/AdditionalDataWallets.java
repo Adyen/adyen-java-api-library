@@ -62,7 +62,7 @@ public class AdditionalDataWallets {
   /**
    * The Android Pay token retrieved from the SDK.
    *
-   * @param androidpayToken
+   * @param androidpayToken The Android Pay token retrieved from the SDK.
    * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
    */
   public AdditionalDataWallets androidpayToken(String androidpayToken) {
@@ -72,7 +72,7 @@ public class AdditionalDataWallets {
 
   /**
    * The Android Pay token retrieved from the SDK.
-   * @return androidpayToken
+   * @return androidpayToken The Android Pay token retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_ANDROIDPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class AdditionalDataWallets {
   /**
    * The Android Pay token retrieved from the SDK.
    *
-   * @param androidpayToken
+   * @param androidpayToken The Android Pay token retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_ANDROIDPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +94,7 @@ public class AdditionalDataWallets {
   /**
    * The Mastercard Masterpass Transaction ID retrieved from the SDK.
    *
-   * @param masterpassTransactionId
+   * @param masterpassTransactionId The Mastercard Masterpass Transaction ID retrieved from the SDK.
    * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
    */
   public AdditionalDataWallets masterpassTransactionId(String masterpassTransactionId) {
@@ -104,7 +104,7 @@ public class AdditionalDataWallets {
 
   /**
    * The Mastercard Masterpass Transaction ID retrieved from the SDK.
-   * @return masterpassTransactionId
+   * @return masterpassTransactionId The Mastercard Masterpass Transaction ID retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class AdditionalDataWallets {
   /**
    * The Mastercard Masterpass Transaction ID retrieved from the SDK.
    *
-   * @param masterpassTransactionId
+   * @param masterpassTransactionId The Mastercard Masterpass Transaction ID retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_MASTERPASS_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class AdditionalDataWallets {
   /**
    * The Apple Pay token retrieved from the SDK.
    *
-   * @param paymentToken
+   * @param paymentToken The Apple Pay token retrieved from the SDK.
    * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
    */
   public AdditionalDataWallets paymentToken(String paymentToken) {
@@ -136,7 +136,7 @@ public class AdditionalDataWallets {
 
   /**
    * The Apple Pay token retrieved from the SDK.
-   * @return paymentToken
+   * @return paymentToken The Apple Pay token retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class AdditionalDataWallets {
   /**
    * The Apple Pay token retrieved from the SDK.
    *
-   * @param paymentToken
+   * @param paymentToken The Apple Pay token retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class AdditionalDataWallets {
   /**
    * The Google Pay token retrieved from the SDK.
    *
-   * @param paywithgoogleToken
+   * @param paywithgoogleToken The Google Pay token retrieved from the SDK.
    * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
    */
   public AdditionalDataWallets paywithgoogleToken(String paywithgoogleToken) {
@@ -168,7 +168,7 @@ public class AdditionalDataWallets {
 
   /**
    * The Google Pay token retrieved from the SDK.
-   * @return paywithgoogleToken
+   * @return paywithgoogleToken The Google Pay token retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_PAYWITHGOOGLE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class AdditionalDataWallets {
   /**
    * The Google Pay token retrieved from the SDK.
    *
-   * @param paywithgoogleToken
+   * @param paywithgoogleToken The Google Pay token retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_PAYWITHGOOGLE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class AdditionalDataWallets {
   /**
    * The Samsung Pay token retrieved from the SDK.
    *
-   * @param samsungpayToken
+   * @param samsungpayToken The Samsung Pay token retrieved from the SDK.
    * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
    */
   public AdditionalDataWallets samsungpayToken(String samsungpayToken) {
@@ -200,7 +200,7 @@ public class AdditionalDataWallets {
 
   /**
    * The Samsung Pay token retrieved from the SDK.
-   * @return samsungpayToken
+   * @return samsungpayToken The Samsung Pay token retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_SAMSUNGPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class AdditionalDataWallets {
   /**
    * The Samsung Pay token retrieved from the SDK.
    *
-   * @param samsungpayToken
+   * @param samsungpayToken The Samsung Pay token retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_SAMSUNGPAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class AdditionalDataWallets {
   /**
    * The Visa Checkout Call ID retrieved from the SDK.
    *
-   * @param visacheckoutCallId
+   * @param visacheckoutCallId The Visa Checkout Call ID retrieved from the SDK.
    * @return the current {@code AdditionalDataWallets} instance, allowing for method chaining
    */
   public AdditionalDataWallets visacheckoutCallId(String visacheckoutCallId) {
@@ -232,7 +232,7 @@ public class AdditionalDataWallets {
 
   /**
    * The Visa Checkout Call ID retrieved from the SDK.
-   * @return visacheckoutCallId
+   * @return visacheckoutCallId The Visa Checkout Call ID retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_VISACHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class AdditionalDataWallets {
   /**
    * The Visa Checkout Call ID retrieved from the SDK.
    *
-   * @param visacheckoutCallId
+   * @param visacheckoutCallId The Visa Checkout Call ID retrieved from the SDK.
    */
   @JsonProperty(JSON_PROPERTY_VISACHECKOUT_CALL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

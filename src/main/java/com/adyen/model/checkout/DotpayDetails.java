@@ -83,7 +83,7 @@ public class DotpayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code DotpayDetails} instance, allowing for method chaining
    */
   public DotpayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -93,7 +93,7 @@ public class DotpayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class DotpayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class DotpayDetails {
   /**
    * The Dotpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
    *
-   * @param issuer
+   * @param issuer The Dotpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
    * @return the current {@code DotpayDetails} instance, allowing for method chaining
    */
   public DotpayDetails issuer(String issuer) {
@@ -125,7 +125,7 @@ public class DotpayDetails {
 
   /**
    * The Dotpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
-   * @return issuer
+   * @return issuer The Dotpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class DotpayDetails {
   /**
    * The Dotpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
    *
-   * @param issuer
+   * @param issuer The Dotpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
    */
   @JsonProperty(JSON_PROPERTY_ISSUER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class DotpayDetails {
   /**
    * **dotpay**
    *
-   * @param type
+   * @param type **dotpay**
    * @return the current {@code DotpayDetails} instance, allowing for method chaining
    */
   public DotpayDetails type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class DotpayDetails {
 
   /**
    * **dotpay**
-   * @return type
+   * @return type **dotpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class DotpayDetails {
   /**
    * **dotpay**
    *
-   * @param type
+   * @param type **dotpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

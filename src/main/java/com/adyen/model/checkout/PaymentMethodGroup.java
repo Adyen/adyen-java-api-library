@@ -50,7 +50,7 @@ public class PaymentMethodGroup {
   /**
    * The name of the group.
    *
-   * @param name
+   * @param name The name of the group.
    * @return the current {@code PaymentMethodGroup} instance, allowing for method chaining
    */
   public PaymentMethodGroup name(String name) {
@@ -60,7 +60,7 @@ public class PaymentMethodGroup {
 
   /**
    * The name of the group.
-   * @return name
+   * @return name The name of the group.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class PaymentMethodGroup {
   /**
    * The name of the group.
    *
-   * @param name
+   * @param name The name of the group.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class PaymentMethodGroup {
   /**
    * Echo data to be used if the payment method is displayed as part of this group.
    *
-   * @param paymentMethodData
+   * @param paymentMethodData Echo data to be used if the payment method is displayed as part of this group.
    * @return the current {@code PaymentMethodGroup} instance, allowing for method chaining
    */
   public PaymentMethodGroup paymentMethodData(String paymentMethodData) {
@@ -92,7 +92,7 @@ public class PaymentMethodGroup {
 
   /**
    * Echo data to be used if the payment method is displayed as part of this group.
-   * @return paymentMethodData
+   * @return paymentMethodData Echo data to be used if the payment method is displayed as part of this group.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class PaymentMethodGroup {
   /**
    * Echo data to be used if the payment method is displayed as part of this group.
    *
-   * @param paymentMethodData
+   * @param paymentMethodData Echo data to be used if the payment method is displayed as part of this group.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class PaymentMethodGroup {
   /**
    * The unique code of the group.
    *
-   * @param type
+   * @param type The unique code of the group.
    * @return the current {@code PaymentMethodGroup} instance, allowing for method chaining
    */
   public PaymentMethodGroup type(String type) {
@@ -124,7 +124,7 @@ public class PaymentMethodGroup {
 
   /**
    * The unique code of the group.
-   * @return type
+   * @return type The unique code of the group.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class PaymentMethodGroup {
   /**
    * The unique code of the group.
    *
-   * @param type
+   * @param type The unique code of the group.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

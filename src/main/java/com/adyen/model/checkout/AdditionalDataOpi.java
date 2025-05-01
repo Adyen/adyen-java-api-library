@@ -42,7 +42,7 @@ public class AdditionalDataOpi {
   /**
    * Optional boolean indicator. Set to **true** if you want an ecommerce transaction to return an &#x60;opi.transToken&#x60; as additional data in the response.  You can store this Oracle Payment Interface token in your Oracle Opera database. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
    *
-   * @param opiIncludeTransToken
+   * @param opiIncludeTransToken Optional boolean indicator. Set to **true** if you want an ecommerce transaction to return an &#x60;opi.transToken&#x60; as additional data in the response.  You can store this Oracle Payment Interface token in your Oracle Opera database. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
    * @return the current {@code AdditionalDataOpi} instance, allowing for method chaining
    */
   public AdditionalDataOpi opiIncludeTransToken(String opiIncludeTransToken) {
@@ -52,7 +52,7 @@ public class AdditionalDataOpi {
 
   /**
    * Optional boolean indicator. Set to **true** if you want an ecommerce transaction to return an &#x60;opi.transToken&#x60; as additional data in the response.  You can store this Oracle Payment Interface token in your Oracle Opera database. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
-   * @return opiIncludeTransToken
+   * @return opiIncludeTransToken Optional boolean indicator. Set to **true** if you want an ecommerce transaction to return an &#x60;opi.transToken&#x60; as additional data in the response.  You can store this Oracle Payment Interface token in your Oracle Opera database. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
    */
   @JsonProperty(JSON_PROPERTY_OPI_INCLUDE_TRANS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class AdditionalDataOpi {
   /**
    * Optional boolean indicator. Set to **true** if you want an ecommerce transaction to return an &#x60;opi.transToken&#x60; as additional data in the response.  You can store this Oracle Payment Interface token in your Oracle Opera database. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
    *
-   * @param opiIncludeTransToken
+   * @param opiIncludeTransToken Optional boolean indicator. Set to **true** if you want an ecommerce transaction to return an &#x60;opi.transToken&#x60; as additional data in the response.  You can store this Oracle Payment Interface token in your Oracle Opera database. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
    */
   @JsonProperty(JSON_PROPERTY_OPI_INCLUDE_TRANS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

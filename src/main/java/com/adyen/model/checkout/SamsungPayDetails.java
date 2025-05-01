@@ -131,7 +131,7 @@ public class SamsungPayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    * @return the current {@code SamsungPayDetails} instance, allowing for method chaining
    */
   public SamsungPayDetails checkoutAttemptId(String checkoutAttemptId) {
@@ -141,7 +141,7 @@ public class SamsungPayDetails {
 
   /**
    * The checkout attempt identifier.
-   * @return checkoutAttemptId
+   * @return checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +152,7 @@ public class SamsungPayDetails {
   /**
    * The checkout attempt identifier.
    *
-   * @param checkoutAttemptId
+   * @param checkoutAttemptId The checkout attempt identifier.
    */
   @JsonProperty(JSON_PROPERTY_CHECKOUT_ATTEMPT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,7 +163,7 @@ public class SamsungPayDetails {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return the current {@code SamsungPayDetails} instance, allowing for method chaining
    */
   public SamsungPayDetails fundingSource(FundingSourceEnum fundingSource) {
@@ -173,7 +173,7 @@ public class SamsungPayDetails {
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
-   * @return fundingSource
+   * @return fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +184,7 @@ public class SamsungPayDetails {
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +195,7 @@ public class SamsungPayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code SamsungPayDetails} instance, allowing for method chaining
    *
    * @deprecated since Adyen Checkout API v49
@@ -209,7 +209,7 @@ public class SamsungPayDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return recurringDetailReference
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
@@ -222,7 +222,7 @@ public class SamsungPayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param recurringDetailReference
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
    * @deprecated since Adyen Checkout API v49
    * Use &#x60;storedPaymentMethodId&#x60; instead.
@@ -237,7 +237,7 @@ public class SamsungPayDetails {
   /**
    * The payload you received from the Samsung Pay SDK response.
    *
-   * @param samsungPayToken
+   * @param samsungPayToken The payload you received from the Samsung Pay SDK response.
    * @return the current {@code SamsungPayDetails} instance, allowing for method chaining
    */
   public SamsungPayDetails samsungPayToken(String samsungPayToken) {
@@ -247,7 +247,7 @@ public class SamsungPayDetails {
 
   /**
    * The payload you received from the Samsung Pay SDK response.
-   * @return samsungPayToken
+   * @return samsungPayToken The payload you received from the Samsung Pay SDK response.
    */
   @JsonProperty(JSON_PROPERTY_SAMSUNG_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +258,7 @@ public class SamsungPayDetails {
   /**
    * The payload you received from the Samsung Pay SDK response.
    *
-   * @param samsungPayToken
+   * @param samsungPayToken The payload you received from the Samsung Pay SDK response.
    */
   @JsonProperty(JSON_PROPERTY_SAMSUNG_PAY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +269,7 @@ public class SamsungPayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return the current {@code SamsungPayDetails} instance, allowing for method chaining
    */
   public SamsungPayDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -279,7 +279,7 @@ public class SamsungPayDetails {
 
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-   * @return storedPaymentMethodId
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +290,7 @@ public class SamsungPayDetails {
   /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    *
-   * @param storedPaymentMethodId
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    */
   @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +301,7 @@ public class SamsungPayDetails {
   /**
    * **samsungpay**
    *
-   * @param type
+   * @param type **samsungpay**
    * @return the current {@code SamsungPayDetails} instance, allowing for method chaining
    */
   public SamsungPayDetails type(TypeEnum type) {
@@ -311,7 +311,7 @@ public class SamsungPayDetails {
 
   /**
    * **samsungpay**
-   * @return type
+   * @return type **samsungpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class SamsungPayDetails {
   /**
    * **samsungpay**
    *
-   * @param type
+   * @param type **samsungpay**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

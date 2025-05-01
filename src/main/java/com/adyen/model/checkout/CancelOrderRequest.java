@@ -47,7 +47,7 @@ public class CancelOrderRequest {
   /**
    * The merchant account identifier that orderData belongs to.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier that orderData belongs to.
    * @return the current {@code CancelOrderRequest} instance, allowing for method chaining
    */
   public CancelOrderRequest merchantAccount(String merchantAccount) {
@@ -57,7 +57,7 @@ public class CancelOrderRequest {
 
   /**
    * The merchant account identifier that orderData belongs to.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier that orderData belongs to.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -68,7 +68,7 @@ public class CancelOrderRequest {
   /**
    * The merchant account identifier that orderData belongs to.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier that orderData belongs to.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class CancelOrderRequest {
   /**
    * order
    *
-   * @param order
+   * @param order 
    * @return the current {@code CancelOrderRequest} instance, allowing for method chaining
    */
   public CancelOrderRequest order(EncryptedOrderData order) {
@@ -89,7 +89,7 @@ public class CancelOrderRequest {
 
   /**
    * Get order
-   * @return order
+   * @return order 
    */
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class CancelOrderRequest {
   /**
    * order
    *
-   * @param order
+   * @param order 
    */
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
