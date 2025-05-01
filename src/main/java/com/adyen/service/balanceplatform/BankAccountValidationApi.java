@@ -68,7 +68,6 @@ public class BankAccountValidationApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public void validateBankAccountIdentification(BankAccountIdentificationValidationRequest bankAccountIdentificationValidationRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = bankAccountIdentificationValidationRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/validateBankAccountIdentification", null);
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

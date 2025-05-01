@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.TransferRouteRequirementsInner;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,23 +44,23 @@ public class TransferRoute {
    *  The type of transfer.   Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
    */
   public enum CategoryEnum {
-    BANK("bank"),
+    BANK(String.valueOf("bank")),
     
-    CARD("card"),
+    CARD(String.valueOf("card")),
     
-    GRANTS("grants"),
+    GRANTS(String.valueOf("grants")),
     
-    INTERNAL("internal"),
+    INTERNAL(String.valueOf("internal")),
     
-    ISSUEDCARD("issuedCard"),
+    ISSUEDCARD(String.valueOf("issuedCard")),
     
-    MIGRATION("migration"),
+    MIGRATION(String.valueOf("migration")),
     
-    PLATFORMPAYMENT("platformPayment"),
+    PLATFORMPAYMENT(String.valueOf("platformPayment")),
     
-    TOPUP("topUp"),
+    TOPUP(String.valueOf("topUp")),
     
-    UPGRADE("upgrade");
+    UPGRADE(String.valueOf("upgrade"));
 
     private String value;
 
@@ -104,17 +102,17 @@ public class TransferRoute {
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    */
   public enum PriorityEnum {
-    CROSSBORDER("crossBorder"),
+    CROSSBORDER(String.valueOf("crossBorder")),
     
-    FAST("fast"),
+    FAST(String.valueOf("fast")),
     
-    INSTANT("instant"),
+    INSTANT(String.valueOf("instant")),
     
-    INTERNAL("internal"),
+    INTERNAL(String.valueOf("internal")),
     
-    REGULAR("regular"),
+    REGULAR(String.valueOf("regular")),
     
-    WIRE("wire");
+    WIRE(String.valueOf("wire"));
 
     private String value;
 
@@ -147,7 +145,7 @@ public class TransferRoute {
   private PriorityEnum priority;
 
   public static final String JSON_PROPERTY_REQUIREMENTS = "requirements";
-  private List<TransferRouteRequirementsInner> requirements = null;
+  private List<TransferRouteRequirementsInner> requirements;
 
   public TransferRoute() { 
   }
@@ -167,7 +165,6 @@ public class TransferRoute {
    *  The type of transfer.   Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
    * @return category
    */
-  @ApiModelProperty(value = " The type of transfer.   Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. ")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CategoryEnum getCategory() {
@@ -178,7 +175,7 @@ public class TransferRoute {
    *  The type of transfer.   Possible values:    - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account. 
    *
    * @param category
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
@@ -200,7 +197,6 @@ public class TransferRoute {
    * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.
    * @return country
    */
-  @ApiModelProperty(value = "The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountry() {
@@ -211,7 +207,7 @@ public class TransferRoute {
    * The two-character ISO-3166-1 alpha-2 country code of the counterparty. For example, **US** or **NL**.
    *
    * @param country
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -233,7 +229,6 @@ public class TransferRoute {
    * The three-character ISO currency code of transfer. For example, **USD** or **EUR**.
    * @return currency
    */
-  @ApiModelProperty(value = "The three-character ISO currency code of transfer. For example, **USD** or **EUR**.")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -244,7 +239,7 @@ public class TransferRoute {
    * The three-character ISO currency code of transfer. For example, **USD** or **EUR**.
    *
    * @param currency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -266,7 +261,6 @@ public class TransferRoute {
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    * @return priority
    */
-  @ApiModelProperty(value = "The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).")
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PriorityEnum getPriority() {
@@ -277,7 +271,7 @@ public class TransferRoute {
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Possible values:  * **regular**: for normal, low-value transactions.  * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.  * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: for instant funds transfers in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).  * **crossBorder**: for high-value transfers to a recipient in a different country.  * **internal**: for transfers to an Adyen-issued business bank account (by bank account number/IBAN).
    *
    * @param priority
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
@@ -307,7 +301,6 @@ public class TransferRoute {
    * A set of rules defined by clearing houses and banking partners. Your transfer request must adhere to these rules to ensure successful initiation of transfer. Based on the priority, one or more requirements may be returned. Each requirement is defined with a &#x60;type&#x60; and &#x60;description&#x60;.
    * @return requirements
    */
-  @ApiModelProperty(value = "A set of rules defined by clearing houses and banking partners. Your transfer request must adhere to these rules to ensure successful initiation of transfer. Based on the priority, one or more requirements may be returned. Each requirement is defined with a `type` and `description`.")
   @JsonProperty(JSON_PROPERTY_REQUIREMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TransferRouteRequirementsInner> getRequirements() {
@@ -318,7 +311,7 @@ public class TransferRoute {
    * A set of rules defined by clearing houses and banking partners. Your transfer request must adhere to these rules to ensure successful initiation of transfer. Based on the priority, one or more requirements may be returned. Each requirement is defined with a &#x60;type&#x60; and &#x60;description&#x60;.
    *
    * @param requirements
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_REQUIREMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirements(List<TransferRouteRequirementsInner> requirements) {

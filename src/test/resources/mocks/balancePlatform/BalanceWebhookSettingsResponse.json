@@ -1,0 +1,38 @@
+{
+  "webhookSettings": [
+    {
+      "id": "BWHS00000000000000000000000001",
+      "type": "balance",
+      "target": {
+        "type": "balancePlatform",
+        "id": "YOUR_BALANCE_PLATFORM"
+      },
+      "currency": "USD",
+      "status": "active",
+      "conditions": [
+        {
+          "balanceType": "available",
+          "conditionType": "lessThan",
+          "value": 500000
+        }
+      ]
+    },
+    {
+      "id": "BWHS00000000000000000000000002",
+      "type": "balance",
+      "target": {
+        "type": "balanceAccount",
+        "id": "BA00000000000000000LIABLE"
+      },
+      "currency": "USD",
+      "status": "active",
+      "conditions": [
+        {
+          "balanceType": "available",
+          "conditionType": "greaterThan",
+          "value": 1000000
+        }
+      ]
+    }
+  ]
+}

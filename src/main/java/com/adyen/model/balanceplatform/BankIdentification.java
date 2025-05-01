@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,14 +42,16 @@ public class BankIdentification {
   private String identification;
 
   /**
-   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    */
   public enum IdentificationTypeEnum {
-    IBAN("iban"),
+    BIC(String.valueOf("bic")),
     
-    ROUTINGNUMBER("routingNumber"),
+    IBAN(String.valueOf("iban")),
     
-    SORTCODE("sortCode");
+    ROUTINGNUMBER(String.valueOf("routingNumber")),
+    
+    SORTCODE(String.valueOf("sortCode"));
 
     private String value;
 
@@ -101,7 +101,6 @@ public class BankIdentification {
    * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return country
    */
-  @ApiModelProperty(value = "Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCountry() {
@@ -112,7 +111,7 @@ public class BankIdentification {
    * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    *
    * @param country
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
@@ -134,7 +133,6 @@ public class BankIdentification {
    * The bank identification code.
    * @return identification
    */
-  @ApiModelProperty(value = "The bank identification code.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIdentification() {
@@ -145,7 +143,7 @@ public class BankIdentification {
    * The bank identification code.
    *
    * @param identification
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentification(String identification) {
@@ -153,7 +151,7 @@ public class BankIdentification {
   }
 
   /**
-   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    *
    * @param identificationType
    * @return the current {@code BankIdentification} instance, allowing for method chaining
@@ -164,10 +162,9 @@ public class BankIdentification {
   }
 
   /**
-   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    * @return identificationType
    */
-  @ApiModelProperty(value = "The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.")
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public IdentificationTypeEnum getIdentificationType() {
@@ -175,10 +172,10 @@ public class BankIdentification {
   }
 
   /**
-   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**.
+   * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    *
    * @param identificationType
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentificationType(IdentificationTypeEnum identificationType) {

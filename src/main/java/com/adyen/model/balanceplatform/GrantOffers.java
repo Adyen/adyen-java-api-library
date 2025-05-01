@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.GrantOffer;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GrantOffers {
   public static final String JSON_PROPERTY_GRANT_OFFERS = "grantOffers";
-  private List<GrantOffer> grantOffers = new ArrayList<>();
+  private List<GrantOffer> grantOffers;
 
   public GrantOffers() { 
   }
@@ -56,6 +54,9 @@ public class GrantOffers {
   }
 
   public GrantOffers addGrantOffersItem(GrantOffer grantOffersItem) {
+    if (this.grantOffers == null) {
+      this.grantOffers = new ArrayList<>();
+    }
     this.grantOffers.add(grantOffersItem);
     return this;
   }
@@ -64,7 +65,6 @@ public class GrantOffers {
    * A list of available grant offers.
    * @return grantOffers
    */
-  @ApiModelProperty(required = true, value = "A list of available grant offers.")
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<GrantOffer> getGrantOffers() {
@@ -75,7 +75,7 @@ public class GrantOffers {
    * A list of available grant offers.
    *
    * @param grantOffers
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_GRANT_OFFERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGrantOffers(List<GrantOffer> grantOffers) {

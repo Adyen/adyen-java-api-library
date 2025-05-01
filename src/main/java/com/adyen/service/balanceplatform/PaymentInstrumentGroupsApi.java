@@ -72,7 +72,6 @@ public class PaymentInstrumentGroupsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PaymentInstrumentGroup createPaymentInstrumentGroup(PaymentInstrumentGroupInfo paymentInstrumentGroupInfo, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = paymentInstrumentGroupInfo.toJson();
         Resource resource = new Resource(this, this.baseURL + "/paymentInstrumentGroups", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

@@ -153,6 +153,7 @@ public class ManageScaDevicesApi extends Service {
             throw new IllegalArgumentException("Please provide the id path parameter");
         }
         pathParams.put("id", id);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (paymentInstrumentId != null) {
@@ -219,7 +220,6 @@ public class ManageScaDevicesApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public RegisterSCAResponse initiateRegistrationOfScaDevice(RegisterSCARequest registerSCARequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = registerSCARequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/registeredDevices", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

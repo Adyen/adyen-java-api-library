@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.AssociationDelegatedAuthenticationData;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -41,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class AssociationFinaliseRequest {
   public static final String JSON_PROPERTY_IDS = "ids";
-  private List<String> ids = new ArrayList<>();
+  private List<String> ids;
 
   public static final String JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION = "strongCustomerAuthentication";
   private AssociationDelegatedAuthenticationData strongCustomerAuthentication;
@@ -50,7 +48,7 @@ public class AssociationFinaliseRequest {
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    */
   public enum TypeEnum {
-    PAYMENTINSTRUMENT("PaymentInstrument");
+    PAYMENTINSTRUMENT(String.valueOf("PaymentInstrument"));
 
     private String value;
 
@@ -97,6 +95,9 @@ public class AssociationFinaliseRequest {
   }
 
   public AssociationFinaliseRequest addIdsItem(String idsItem) {
+    if (this.ids == null) {
+      this.ids = new ArrayList<>();
+    }
     this.ids.add(idsItem);
     return this;
   }
@@ -105,7 +106,6 @@ public class AssociationFinaliseRequest {
    * The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    * @return ids
    */
-  @ApiModelProperty(required = true, value = "The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIds() {
@@ -116,7 +116,7 @@ public class AssociationFinaliseRequest {
    * The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    *
    * @param ids
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIds(List<String> ids) {
@@ -135,10 +135,9 @@ public class AssociationFinaliseRequest {
   }
 
   /**
-   * strongCustomerAuthentication
+   * Get strongCustomerAuthentication
    * @return strongCustomerAuthentication
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public AssociationDelegatedAuthenticationData getStrongCustomerAuthentication() {
@@ -149,7 +148,7 @@ public class AssociationFinaliseRequest {
    * strongCustomerAuthentication
    *
    * @param strongCustomerAuthentication
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStrongCustomerAuthentication(AssociationDelegatedAuthenticationData strongCustomerAuthentication) {
@@ -171,7 +170,6 @@ public class AssociationFinaliseRequest {
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -182,7 +180,7 @@ public class AssociationFinaliseRequest {
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

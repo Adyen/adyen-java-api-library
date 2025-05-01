@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,6 @@ public class RevealPinResponse {
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    * @return encryptedPinBlock
    */
-  @ApiModelProperty(required = true, value = "The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).")
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEncryptedPinBlock() {
@@ -71,7 +68,7 @@ public class RevealPinResponse {
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    *
    * @param encryptedPinBlock
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptedPinBlock(String encryptedPinBlock) {
@@ -93,7 +90,6 @@ public class RevealPinResponse {
    * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    * @return token
    */
-  @ApiModelProperty(required = true, value = "The 16-digit token that you need to extract the `encryptedPinBlock`.")
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToken() {
@@ -104,7 +100,7 @@ public class RevealPinResponse {
    * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    *
    * @param token
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setToken(String token) {

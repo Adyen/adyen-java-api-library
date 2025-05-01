@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.TransactionRule;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class TransactionRulesResponse {
   public static final String JSON_PROPERTY_TRANSACTION_RULES = "transactionRules";
-  private List<TransactionRule> transactionRules = null;
+  private List<TransactionRule> transactionRules;
 
   public TransactionRulesResponse() { 
   }
@@ -67,7 +65,6 @@ public class TransactionRulesResponse {
    * List of transaction rules.
    * @return transactionRules
    */
-  @ApiModelProperty(value = "List of transaction rules.")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TransactionRule> getTransactionRules() {
@@ -78,7 +75,7 @@ public class TransactionRulesResponse {
    * List of transaction rules.
    *
    * @param transactionRules
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionRules(List<TransactionRule> transactionRules) {

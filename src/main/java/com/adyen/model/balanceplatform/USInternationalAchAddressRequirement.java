@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,7 +41,7 @@ public class USInternationalAchAddressRequirement {
    * **usInternationalAchAddressRequirement**
    */
   public enum TypeEnum {
-    USINTERNATIONALACHADDRESSREQUIREMENT("usInternationalAchAddressRequirement");
+    USINTERNATIONALACHADDRESSREQUIREMENT(String.valueOf("usInternationalAchAddressRequirement"));
 
     private String value;
 
@@ -73,7 +71,7 @@ public class USInternationalAchAddressRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.USINTERNATIONALACHADDRESSREQUIREMENT;
 
   public USInternationalAchAddressRequirement() { 
   }
@@ -93,7 +91,6 @@ public class USInternationalAchAddressRequirement {
    * Specifies that you must provide a complete street address for International ACH (IAT) transactions.
    * @return description
    */
-  @ApiModelProperty(value = "Specifies that you must provide a complete street address for International ACH (IAT) transactions.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -104,7 +101,7 @@ public class USInternationalAchAddressRequirement {
    * Specifies that you must provide a complete street address for International ACH (IAT) transactions.
    *
    * @param description
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -126,7 +123,6 @@ public class USInternationalAchAddressRequirement {
    * **usInternationalAchAddressRequirement**
    * @return type
    */
-  @ApiModelProperty(required = true, value = "**usInternationalAchAddressRequirement**")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -137,7 +133,7 @@ public class USInternationalAchAddressRequirement {
    * **usInternationalAchAddressRequirement**
    *
    * @param type
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

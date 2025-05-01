@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -68,7 +66,6 @@ public class CapitalBalance {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
    */
-  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -79,7 +76,7 @@ public class CapitalBalance {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    *
    * @param currency
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -101,7 +98,6 @@ public class CapitalBalance {
    * Fee amount.
    * @return fee
    */
-  @ApiModelProperty(required = true, value = "Fee amount.")
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getFee() {
@@ -112,7 +108,7 @@ public class CapitalBalance {
    * Fee amount.
    *
    * @param fee
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Long fee) {
@@ -134,7 +130,6 @@ public class CapitalBalance {
    * Principal amount.
    * @return principal
    */
-  @ApiModelProperty(required = true, value = "Principal amount.")
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getPrincipal() {
@@ -145,7 +140,7 @@ public class CapitalBalance {
    * Principal amount.
    *
    * @param principal
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrincipal(Long principal) {
@@ -167,7 +162,6 @@ public class CapitalBalance {
    * Total amount. A sum of principal amount and fee amount.
    * @return total
    */
-  @ApiModelProperty(required = true, value = "Total amount. A sum of principal amount and fee amount.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotal() {
@@ -178,7 +172,7 @@ public class CapitalBalance {
    * Total amount. A sum of principal amount and fee amount.
    *
    * @param total
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotal(Long total) {

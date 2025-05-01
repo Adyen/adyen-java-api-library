@@ -13,7 +13,6 @@
 package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.balanceplatform.PaymentInstrument;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,7 +45,7 @@ public class PaginatedPaymentInstrumentsResponse {
   private Boolean hasPrevious;
 
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENTS = "paymentInstruments";
-  private List<PaymentInstrument> paymentInstruments = new ArrayList<>();
+  private List<PaymentInstrument> paymentInstruments;
 
   public PaginatedPaymentInstrumentsResponse() { 
   }
@@ -67,7 +65,6 @@ public class PaginatedPaymentInstrumentsResponse {
    * Indicates whether there are more items on the next page.
    * @return hasNext
    */
-  @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasNext() {
@@ -78,7 +75,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * Indicates whether there are more items on the next page.
    *
    * @param hasNext
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HAS_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
@@ -100,7 +97,6 @@ public class PaginatedPaymentInstrumentsResponse {
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
    */
-  @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getHasPrevious() {
@@ -111,7 +107,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * Indicates whether there are more items on the previous page.
    *
    * @param hasPrevious
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_HAS_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
@@ -130,6 +126,9 @@ public class PaginatedPaymentInstrumentsResponse {
   }
 
   public PaginatedPaymentInstrumentsResponse addPaymentInstrumentsItem(PaymentInstrument paymentInstrumentsItem) {
+    if (this.paymentInstruments == null) {
+      this.paymentInstruments = new ArrayList<>();
+    }
     this.paymentInstruments.add(paymentInstrumentsItem);
     return this;
   }
@@ -138,7 +137,6 @@ public class PaginatedPaymentInstrumentsResponse {
    * List of payment instruments associated with the balance account.
    * @return paymentInstruments
    */
-  @ApiModelProperty(required = true, value = "List of payment instruments associated with the balance account.")
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<PaymentInstrument> getPaymentInstruments() {
@@ -149,7 +147,7 @@ public class PaginatedPaymentInstrumentsResponse {
    * List of payment instruments associated with the balance account.
    *
    * @param paymentInstruments
-   */ 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstruments(List<PaymentInstrument> paymentInstruments) {
