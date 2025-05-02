@@ -74,7 +74,6 @@ public class MyApiCredentialApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public AllowedOrigin addAllowedOrigin(CreateAllowedOriginRequest createAllowedOriginRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = createAllowedOriginRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/me/allowedOrigins", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -99,7 +98,6 @@ public class MyApiCredentialApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public GenerateClientKeyResponse generateClientKey(RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/me/generateClientKey", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -157,7 +155,6 @@ public class MyApiCredentialApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public AllowedOriginsResponse getAllowedOrigins(RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/me/allowedOrigins", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);
@@ -182,7 +179,6 @@ public class MyApiCredentialApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public MeApiCredential getApiCredentialDetails(RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = null;
         Resource resource = new Resource(this, this.baseURL + "/me", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null);

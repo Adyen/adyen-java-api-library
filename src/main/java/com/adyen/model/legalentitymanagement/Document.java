@@ -54,7 +54,7 @@ public class Document {
   private Attachment attachment;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<Attachment> attachments = new ArrayList<>();
+  private List<Attachment> attachments;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private OffsetDateTime creationDate;
@@ -179,7 +179,7 @@ public class Document {
   /**
    * attachment
    *
-   * @param attachment
+   * @param attachment 
    * @return the current {@code Document} instance, allowing for method chaining
    */
   public Document attachment(Attachment attachment) {
@@ -189,7 +189,7 @@ public class Document {
 
   /**
    * Get attachment
-   * @return attachment
+   * @return attachment 
    */
   @JsonProperty(JSON_PROPERTY_ATTACHMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class Document {
   /**
    * attachment
    *
-   * @param attachment
+   * @param attachment 
    */
   @JsonProperty(JSON_PROPERTY_ATTACHMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class Document {
   /**
    * Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
    *
-   * @param attachments
+   * @param attachments Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
    * @return the current {@code Document} instance, allowing for method chaining
    */
   public Document attachments(List<Attachment> attachments) {
@@ -229,7 +229,7 @@ public class Document {
 
   /**
    * Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
-   * @return attachments
+   * @return attachments Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
    */
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class Document {
   /**
    * Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
    *
-   * @param attachments
+   * @param attachments Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
    */
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +250,7 @@ public class Document {
 
   /**
    * The creation date of the document.
-   * @return creationDate
+   * @return creationDate The creation date of the document.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,7 +262,7 @@ public class Document {
   /**
    * Your description for the document.
    *
-   * @param description
+   * @param description Your description for the document.
    * @return the current {@code Document} instance, allowing for method chaining
    */
   public Document description(String description) {
@@ -272,7 +272,7 @@ public class Document {
 
   /**
    * Your description for the document.
-   * @return description
+   * @return description Your description for the document.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +283,7 @@ public class Document {
   /**
    * Your description for the document.
    *
-   * @param description
+   * @param description Your description for the document.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +294,7 @@ public class Document {
   /**
    * The expiry date of the document, in YYYY-MM-DD format.
    *
-   * @param expiryDate
+   * @param expiryDate The expiry date of the document, in YYYY-MM-DD format.
    * @return the current {@code Document} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v1
@@ -307,7 +307,7 @@ public class Document {
 
   /**
    * The expiry date of the document, in YYYY-MM-DD format.
-   * @return expiryDate
+   * @return expiryDate The expiry date of the document, in YYYY-MM-DD format.
    * @deprecated // deprecated since Legal Entity Management API v1
    */
   @Deprecated // deprecated since Legal Entity Management API v1
@@ -320,7 +320,7 @@ public class Document {
   /**
    * The expiry date of the document, in YYYY-MM-DD format.
    *
-   * @param expiryDate
+   * @param expiryDate The expiry date of the document, in YYYY-MM-DD format.
    *
    * @deprecated since Legal Entity Management API v1
    */
@@ -334,7 +334,7 @@ public class Document {
   /**
    * The filename of the document.
    *
-   * @param fileName
+   * @param fileName The filename of the document.
    * @return the current {@code Document} instance, allowing for method chaining
    */
   public Document fileName(String fileName) {
@@ -344,7 +344,7 @@ public class Document {
 
   /**
    * The filename of the document.
-   * @return fileName
+   * @return fileName The filename of the document.
    */
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,7 +355,7 @@ public class Document {
   /**
    * The filename of the document.
    *
-   * @param fileName
+   * @param fileName The filename of the document.
    */
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,7 +365,7 @@ public class Document {
 
   /**
    * The unique identifier of the document.
-   * @return id
+   * @return id The unique identifier of the document.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,7 +377,7 @@ public class Document {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    *
-   * @param issuerCountry
+   * @param issuerCountry The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    * @return the current {@code Document} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v1
@@ -390,7 +390,7 @@ public class Document {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
-   * @return issuerCountry
+   * @return issuerCountry The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    * @deprecated // deprecated since Legal Entity Management API v1
    */
   @Deprecated // deprecated since Legal Entity Management API v1
@@ -403,7 +403,7 @@ public class Document {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    *
-   * @param issuerCountry
+   * @param issuerCountry The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.
    *
    * @deprecated since Legal Entity Management API v1
    */
@@ -417,7 +417,7 @@ public class Document {
   /**
    * The state or province where the document was issued (AU only).
    *
-   * @param issuerState
+   * @param issuerState The state or province where the document was issued (AU only).
    * @return the current {@code Document} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v1
@@ -430,7 +430,7 @@ public class Document {
 
   /**
    * The state or province where the document was issued (AU only).
-   * @return issuerState
+   * @return issuerState The state or province where the document was issued (AU only).
    * @deprecated // deprecated since Legal Entity Management API v1
    */
   @Deprecated // deprecated since Legal Entity Management API v1
@@ -443,7 +443,7 @@ public class Document {
   /**
    * The state or province where the document was issued (AU only).
    *
-   * @param issuerState
+   * @param issuerState The state or province where the document was issued (AU only).
    *
    * @deprecated since Legal Entity Management API v1
    */
@@ -456,7 +456,7 @@ public class Document {
 
   /**
    * The modification date of the document.
-   * @return modificationDate
+   * @return modificationDate The modification date of the document.
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -468,7 +468,7 @@ public class Document {
   /**
    * The number in the document.
    *
-   * @param number
+   * @param number The number in the document.
    * @return the current {@code Document} instance, allowing for method chaining
    */
   public Document number(String number) {
@@ -478,7 +478,7 @@ public class Document {
 
   /**
    * The number in the document.
-   * @return number
+   * @return number The number in the document.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -489,7 +489,7 @@ public class Document {
   /**
    * The number in the document.
    *
-   * @param number
+   * @param number The number in the document.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -500,7 +500,7 @@ public class Document {
   /**
    * owner
    *
-   * @param owner
+   * @param owner 
    * @return the current {@code Document} instance, allowing for method chaining
    */
   public Document owner(OwnerEntity owner) {
@@ -510,7 +510,7 @@ public class Document {
 
   /**
    * Get owner
-   * @return owner
+   * @return owner 
    */
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -521,7 +521,7 @@ public class Document {
   /**
    * owner
    *
-   * @param owner
+   * @param owner 
    */
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -532,7 +532,7 @@ public class Document {
   /**
    * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, **proofOfSignatory**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **liveSelfie**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, **proofOfFundingOrWealthSource** or **proofOfRelationship**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * For **trust**, the &#x60;type&#x60; value is **constitutionalDocument**.  * For **unincorporatedPartnership**, the &#x60;type&#x60; value is **constitutionalDocument**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    *
-   * @param type
+   * @param type Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, **proofOfSignatory**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **liveSelfie**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, **proofOfFundingOrWealthSource** or **proofOfRelationship**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * For **trust**, the &#x60;type&#x60; value is **constitutionalDocument**.  * For **unincorporatedPartnership**, the &#x60;type&#x60; value is **constitutionalDocument**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    * @return the current {@code Document} instance, allowing for method chaining
    */
   public Document type(TypeEnum type) {
@@ -542,7 +542,7 @@ public class Document {
 
   /**
    * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, **proofOfSignatory**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **liveSelfie**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, **proofOfFundingOrWealthSource** or **proofOfRelationship**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * For **trust**, the &#x60;type&#x60; value is **constitutionalDocument**.  * For **unincorporatedPartnership**, the &#x60;type&#x60; value is **constitutionalDocument**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
-   * @return type
+   * @return type Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, **proofOfSignatory**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **liveSelfie**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, **proofOfFundingOrWealthSource** or **proofOfRelationship**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * For **trust**, the &#x60;type&#x60; value is **constitutionalDocument**.  * For **unincorporatedPartnership**, the &#x60;type&#x60; value is **constitutionalDocument**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -553,7 +553,7 @@ public class Document {
   /**
    * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, **proofOfSignatory**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **liveSelfie**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, **proofOfFundingOrWealthSource** or **proofOfRelationship**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * For **trust**, the &#x60;type&#x60; value is **constitutionalDocument**.  * For **unincorporatedPartnership**, the &#x60;type&#x60; value is **constitutionalDocument**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    *
-   * @param type
+   * @param type Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, **proofOfSignatory**, or **proofOfFundingOrWealthSource**.  * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **liveSelfie**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, **proofOfFundingOrWealthSource** or **proofOfRelationship**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * For **trust**, the &#x60;type&#x60; value is **constitutionalDocument**.  * For **unincorporatedPartnership**, the &#x60;type&#x60; value is **constitutionalDocument**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

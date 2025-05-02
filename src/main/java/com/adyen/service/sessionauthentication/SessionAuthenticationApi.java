@@ -72,7 +72,6 @@ public class SessionAuthenticationApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public AuthenticationSessionResponse createAuthenticationSession(AuthenticationSessionRequest authenticationSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = authenticationSessionRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/sessions", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

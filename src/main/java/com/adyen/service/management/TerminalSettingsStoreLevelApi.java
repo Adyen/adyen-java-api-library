@@ -85,6 +85,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the reference path parameter");
         }
         pathParams.put("reference", reference);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (model != null) {
@@ -125,6 +126,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the storeId path parameter");
         }
         pathParams.put("storeId", storeId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (model != null) {
@@ -245,6 +247,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the reference path parameter");
         }
         pathParams.put("reference", reference);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (model != null) {
@@ -287,6 +290,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the storeId path parameter");
         }
         pathParams.put("storeId", storeId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (model != null) {

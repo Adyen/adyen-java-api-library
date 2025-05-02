@@ -52,7 +52,7 @@ public class AuthenticationSessionRequest {
   /**
    * The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
    *
-   * @param allowOrigin
+   * @param allowOrigin The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
    * @return the current {@code AuthenticationSessionRequest} instance, allowing for method chaining
    */
   public AuthenticationSessionRequest allowOrigin(String allowOrigin) {
@@ -62,7 +62,7 @@ public class AuthenticationSessionRequest {
 
   /**
    * The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
-   * @return allowOrigin
+   * @return allowOrigin The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -73,7 +73,7 @@ public class AuthenticationSessionRequest {
   /**
    * The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
    *
-   * @param allowOrigin
+   * @param allowOrigin The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with &#x60;https://&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +84,7 @@ public class AuthenticationSessionRequest {
   /**
    * policy
    *
-   * @param policy
+   * @param policy 
    * @return the current {@code AuthenticationSessionRequest} instance, allowing for method chaining
    */
   public AuthenticationSessionRequest policy(Policy policy) {
@@ -94,7 +94,7 @@ public class AuthenticationSessionRequest {
 
   /**
    * Get policy
-   * @return policy
+   * @return policy 
    */
   @JsonProperty(JSON_PROPERTY_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +105,7 @@ public class AuthenticationSessionRequest {
   /**
    * policy
    *
-   * @param policy
+   * @param policy 
    */
   @JsonProperty(JSON_PROPERTY_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class AuthenticationSessionRequest {
   /**
    * product
    *
-   * @param product
+   * @param product 
    * @return the current {@code AuthenticationSessionRequest} instance, allowing for method chaining
    */
   public AuthenticationSessionRequest product(ProductType product) {
@@ -126,7 +126,7 @@ public class AuthenticationSessionRequest {
 
   /**
    * Get product
-   * @return product
+   * @return product 
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class AuthenticationSessionRequest {
   /**
    * product
    *
-   * @param product
+   * @param product 
    */
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

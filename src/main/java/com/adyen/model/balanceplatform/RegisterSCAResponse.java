@@ -54,7 +54,7 @@ public class RegisterSCAResponse {
   /**
    * The unique identifier of the SCA device you are registering.
    *
-   * @param id
+   * @param id The unique identifier of the SCA device you are registering.
    * @return the current {@code RegisterSCAResponse} instance, allowing for method chaining
    */
   public RegisterSCAResponse id(String id) {
@@ -64,7 +64,7 @@ public class RegisterSCAResponse {
 
   /**
    * The unique identifier of the SCA device you are registering.
-   * @return id
+   * @return id The unique identifier of the SCA device you are registering.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,7 +75,7 @@ public class RegisterSCAResponse {
   /**
    * The unique identifier of the SCA device you are registering.
    *
-   * @param id
+   * @param id The unique identifier of the SCA device you are registering.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +86,7 @@ public class RegisterSCAResponse {
   /**
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument for which you are registering the SCA device.
    * @return the current {@code RegisterSCAResponse} instance, allowing for method chaining
    */
   public RegisterSCAResponse paymentInstrumentId(String paymentInstrumentId) {
@@ -96,7 +96,7 @@ public class RegisterSCAResponse {
 
   /**
    * The unique identifier of the payment instrument for which you are registering the SCA device.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId The unique identifier of the payment instrument for which you are registering the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class RegisterSCAResponse {
   /**
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument for which you are registering the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class RegisterSCAResponse {
   /**
    * A string that you must pass to the authentication SDK to continue with the registration process.
    *
-   * @param sdkInput
+   * @param sdkInput A string that you must pass to the authentication SDK to continue with the registration process.
    * @return the current {@code RegisterSCAResponse} instance, allowing for method chaining
    */
   public RegisterSCAResponse sdkInput(String sdkInput) {
@@ -128,7 +128,7 @@ public class RegisterSCAResponse {
 
   /**
    * A string that you must pass to the authentication SDK to continue with the registration process.
-   * @return sdkInput
+   * @return sdkInput A string that you must pass to the authentication SDK to continue with the registration process.
    */
   @JsonProperty(JSON_PROPERTY_SDK_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class RegisterSCAResponse {
   /**
    * A string that you must pass to the authentication SDK to continue with the registration process.
    *
-   * @param sdkInput
+   * @param sdkInput A string that you must pass to the authentication SDK to continue with the registration process.
    */
   @JsonProperty(JSON_PROPERTY_SDK_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class RegisterSCAResponse {
   /**
    * Specifies if the registration was initiated successfully.
    *
-   * @param success
+   * @param success Specifies if the registration was initiated successfully.
    * @return the current {@code RegisterSCAResponse} instance, allowing for method chaining
    */
   public RegisterSCAResponse success(Boolean success) {
@@ -160,7 +160,7 @@ public class RegisterSCAResponse {
 
   /**
    * Specifies if the registration was initiated successfully.
-   * @return success
+   * @return success Specifies if the registration was initiated successfully.
    */
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class RegisterSCAResponse {
   /**
    * Specifies if the registration was initiated successfully.
    *
-   * @param success
+   * @param success Specifies if the registration was initiated successfully.
    */
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

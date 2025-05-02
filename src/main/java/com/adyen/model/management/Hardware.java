@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class Hardware {
   /**
    * The brightness of the display when the terminal is being used, expressed as a percentage.
    *
-   * @param displayMaximumBackLight
+   * @param displayMaximumBackLight The brightness of the display when the terminal is being used, expressed as a percentage.
    * @return the current {@code Hardware} instance, allowing for method chaining
    */
   public Hardware displayMaximumBackLight(Integer displayMaximumBackLight) {
@@ -62,9 +60,8 @@ public class Hardware {
 
   /**
    * The brightness of the display when the terminal is being used, expressed as a percentage.
-   * @return displayMaximumBackLight
+   * @return displayMaximumBackLight The brightness of the display when the terminal is being used, expressed as a percentage.
    */
-  @ApiModelProperty(value = "The brightness of the display when the terminal is being used, expressed as a percentage.")
   @JsonProperty(JSON_PROPERTY_DISPLAY_MAXIMUM_BACK_LIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getDisplayMaximumBackLight() {
@@ -74,8 +71,8 @@ public class Hardware {
   /**
    * The brightness of the display when the terminal is being used, expressed as a percentage.
    *
-   * @param displayMaximumBackLight
-   */ 
+   * @param displayMaximumBackLight The brightness of the display when the terminal is being used, expressed as a percentage.
+   */
   @JsonProperty(JSON_PROPERTY_DISPLAY_MAXIMUM_BACK_LIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayMaximumBackLight(Integer displayMaximumBackLight) {
@@ -85,7 +82,7 @@ public class Hardware {
   /**
    * The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    *
-   * @param resetTotalsHour
+   * @param resetTotalsHour The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    * @return the current {@code Hardware} instance, allowing for method chaining
    */
   public Hardware resetTotalsHour(Integer resetTotalsHour) {
@@ -95,9 +92,8 @@ public class Hardware {
 
   /**
    * The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
-   * @return resetTotalsHour
+   * @return resetTotalsHour The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    */
-  @ApiModelProperty(value = "The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.")
   @JsonProperty(JSON_PROPERTY_RESET_TOTALS_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getResetTotalsHour() {
@@ -107,8 +103,8 @@ public class Hardware {
   /**
    * The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    *
-   * @param resetTotalsHour
-   */ 
+   * @param resetTotalsHour The hour of the day when the terminal is set to reset the Totals report. By default, the reset hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
+   */
   @JsonProperty(JSON_PROPERTY_RESET_TOTALS_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResetTotalsHour(Integer resetTotalsHour) {
@@ -118,7 +114,7 @@ public class Hardware {
   /**
    * The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    *
-   * @param restartHour
+   * @param restartHour The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    * @return the current {@code Hardware} instance, allowing for method chaining
    */
   public Hardware restartHour(Integer restartHour) {
@@ -128,9 +124,8 @@ public class Hardware {
 
   /**
    * The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
-   * @return restartHour
+   * @return restartHour The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    */
-  @ApiModelProperty(value = "The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.")
   @JsonProperty(JSON_PROPERTY_RESTART_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getRestartHour() {
@@ -140,8 +135,8 @@ public class Hardware {
   /**
    * The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
    *
-   * @param restartHour
-   */ 
+   * @param restartHour The hour of the day when the terminal is set to reboot to apply the configuration and software updates. By default, the restart hour is at 6:00 AM in the timezone of the terminal. Minimum value: 0, maximum value: 23.
+   */
   @JsonProperty(JSON_PROPERTY_RESTART_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestartHour(Integer restartHour) {

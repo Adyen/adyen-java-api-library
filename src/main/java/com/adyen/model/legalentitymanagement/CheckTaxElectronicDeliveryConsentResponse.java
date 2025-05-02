@@ -42,7 +42,7 @@ public class CheckTaxElectronicDeliveryConsentResponse {
   /**
    * Consent to electronically deliver tax form US1099-K.
    *
-   * @param us1099k
+   * @param us1099k Consent to electronically deliver tax form US1099-K.
    * @return the current {@code CheckTaxElectronicDeliveryConsentResponse} instance, allowing for method chaining
    */
   public CheckTaxElectronicDeliveryConsentResponse us1099k(Boolean us1099k) {
@@ -52,7 +52,7 @@ public class CheckTaxElectronicDeliveryConsentResponse {
 
   /**
    * Consent to electronically deliver tax form US1099-K.
-   * @return us1099k
+   * @return us1099k Consent to electronically deliver tax form US1099-K.
    */
   @JsonProperty(JSON_PROPERTY_US1099K)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class CheckTaxElectronicDeliveryConsentResponse {
   /**
    * Consent to electronically deliver tax form US1099-K.
    *
-   * @param us1099k
+   * @param us1099k Consent to electronically deliver tax form US1099-K.
    */
   @JsonProperty(JSON_PROPERTY_US1099K)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

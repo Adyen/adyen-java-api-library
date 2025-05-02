@@ -42,7 +42,7 @@ public class TransactionSearchResponse {
   private Links links;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Transaction> data = new ArrayList<>();
+  private List<Transaction> data;
 
   public TransactionSearchResponse() { 
   }
@@ -50,7 +50,7 @@ public class TransactionSearchResponse {
   /**
    * links
    *
-   * @param links
+   * @param links 
    * @return the current {@code TransactionSearchResponse} instance, allowing for method chaining
    */
   public TransactionSearchResponse links(Links links) {
@@ -60,7 +60,7 @@ public class TransactionSearchResponse {
 
   /**
    * Get links
-   * @return links
+   * @return links 
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class TransactionSearchResponse {
   /**
    * links
    *
-   * @param links
+   * @param links 
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class TransactionSearchResponse {
   /**
    * Contains the transactions that match the query parameters.
    *
-   * @param data
+   * @param data Contains the transactions that match the query parameters.
    * @return the current {@code TransactionSearchResponse} instance, allowing for method chaining
    */
   public TransactionSearchResponse data(List<Transaction> data) {
@@ -100,7 +100,7 @@ public class TransactionSearchResponse {
 
   /**
    * Contains the transactions that match the query parameters.
-   * @return data
+   * @return data Contains the transactions that match the query parameters.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class TransactionSearchResponse {
   /**
    * Contains the transactions that match the query parameters.
    *
-   * @param data
+   * @param data Contains the transactions that match the query parameters.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -205,7 +205,7 @@ public class VerificationDeadline {
 
   /**
    * The names of the capabilities to be disallowed.
-   * @return capabilities
+   * @return capabilities The names of the capabilities to be disallowed.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +216,7 @@ public class VerificationDeadline {
 
   /**
    * The unique identifiers of the bank account(s) that the deadline applies to
-   * @return entityIds
+   * @return entityIds The unique identifiers of the bank account(s) that the deadline applies to
    */
   @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +227,7 @@ public class VerificationDeadline {
 
   /**
    * The date that verification is due by before capabilities are disallowed.
-   * @return expiresAt
+   * @return expiresAt The date that verification is due by before capabilities are disallowed.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

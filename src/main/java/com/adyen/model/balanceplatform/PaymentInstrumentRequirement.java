@@ -132,7 +132,7 @@ public class PaymentInstrumentRequirement {
   /**
    * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
    *
-   * @param description
+   * @param description Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
    * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
    */
   public PaymentInstrumentRequirement description(String description) {
@@ -142,7 +142,7 @@ public class PaymentInstrumentRequirement {
 
   /**
    * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
-   * @return description
+   * @return description Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +153,7 @@ public class PaymentInstrumentRequirement {
   /**
    * Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
    *
-   * @param description
+   * @param description Specifies the requirements for the payment instrument that need to be included in the request for a particular route.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +164,7 @@ public class PaymentInstrumentRequirement {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    *
-   * @param issuingCountryCode
+   * @param issuingCountryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
    */
   public PaymentInstrumentRequirement issuingCountryCode(String issuingCountryCode) {
@@ -174,7 +174,7 @@ public class PaymentInstrumentRequirement {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
-   * @return issuingCountryCode
+   * @return issuingCountryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +185,7 @@ public class PaymentInstrumentRequirement {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    *
-   * @param issuingCountryCode
+   * @param issuingCountryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**.
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +196,7 @@ public class PaymentInstrumentRequirement {
   /**
    * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
    *
-   * @param issuingCountryCodes
+   * @param issuingCountryCodes The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
    * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
    */
   public PaymentInstrumentRequirement issuingCountryCodes(List<String> issuingCountryCodes) {
@@ -214,7 +214,7 @@ public class PaymentInstrumentRequirement {
 
   /**
    * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
-   * @return issuingCountryCodes
+   * @return issuingCountryCodes The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +225,7 @@ public class PaymentInstrumentRequirement {
   /**
    * The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
    *
-   * @param issuingCountryCodes
+   * @param issuingCountryCodes The two-character ISO-3166-1 alpha-2 country code list for payment instruments.
    */
   @JsonProperty(JSON_PROPERTY_ISSUING_COUNTRY_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +236,7 @@ public class PaymentInstrumentRequirement {
   /**
    * Specifies if the requirement only applies to transfers to another balance platform.
    *
-   * @param onlyForCrossBalancePlatform
+   * @param onlyForCrossBalancePlatform Specifies if the requirement only applies to transfers to another balance platform.
    * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
    */
   public PaymentInstrumentRequirement onlyForCrossBalancePlatform(Boolean onlyForCrossBalancePlatform) {
@@ -246,7 +246,7 @@ public class PaymentInstrumentRequirement {
 
   /**
    * Specifies if the requirement only applies to transfers to another balance platform.
-   * @return onlyForCrossBalancePlatform
+   * @return onlyForCrossBalancePlatform Specifies if the requirement only applies to transfers to another balance platform.
    */
   @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,7 +257,7 @@ public class PaymentInstrumentRequirement {
   /**
    * Specifies if the requirement only applies to transfers to another balance platform.
    *
-   * @param onlyForCrossBalancePlatform
+   * @param onlyForCrossBalancePlatform Specifies if the requirement only applies to transfers to another balance platform.
    */
   @JsonProperty(JSON_PROPERTY_ONLY_FOR_CROSS_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,7 +268,7 @@ public class PaymentInstrumentRequirement {
   /**
    * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
    *
-   * @param paymentInstrumentType
+   * @param paymentInstrumentType The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
    * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
    */
   public PaymentInstrumentRequirement paymentInstrumentType(PaymentInstrumentTypeEnum paymentInstrumentType) {
@@ -278,7 +278,7 @@ public class PaymentInstrumentRequirement {
 
   /**
    * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
-   * @return paymentInstrumentType
+   * @return paymentInstrumentType The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -289,7 +289,7 @@ public class PaymentInstrumentRequirement {
   /**
    * The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
    *
-   * @param paymentInstrumentType
+   * @param paymentInstrumentType The type of the payment instrument. For example, \&quot;BankAccount\&quot; or \&quot;Card\&quot;.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -300,7 +300,7 @@ public class PaymentInstrumentRequirement {
   /**
    * **paymentInstrumentRequirement**
    *
-   * @param type
+   * @param type **paymentInstrumentRequirement**
    * @return the current {@code PaymentInstrumentRequirement} instance, allowing for method chaining
    */
   public PaymentInstrumentRequirement type(TypeEnum type) {
@@ -310,7 +310,7 @@ public class PaymentInstrumentRequirement {
 
   /**
    * **paymentInstrumentRequirement**
-   * @return type
+   * @return type **paymentInstrumentRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,7 +321,7 @@ public class PaymentInstrumentRequirement {
   /**
    * **paymentInstrumentRequirement**
    *
-   * @param type
+   * @param type **paymentInstrumentRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

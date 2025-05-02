@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Name2;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -45,7 +43,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class UpdateMerchantUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_GROUPS = "accountGroups";
-  private List<String> accountGroups = null;
+  private List<String> accountGroups;
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
@@ -60,7 +58,7 @@ public class UpdateMerchantUserRequest {
   private Name2 name;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  private List<String> roles = null;
+  private List<String> roles;
 
   public static final String JSON_PROPERTY_TIME_ZONE_CODE = "timeZoneCode";
   private String timeZoneCode;
@@ -71,7 +69,7 @@ public class UpdateMerchantUserRequest {
   /**
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    *
-   * @param accountGroups
+   * @param accountGroups The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return the current {@code UpdateMerchantUserRequest} instance, allowing for method chaining
    */
   public UpdateMerchantUserRequest accountGroups(List<String> accountGroups) {
@@ -89,9 +87,8 @@ public class UpdateMerchantUserRequest {
 
   /**
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
-   * @return accountGroups
+   * @return accountGroups The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    */
-  @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAccountGroups() {
@@ -101,8 +98,8 @@ public class UpdateMerchantUserRequest {
   /**
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    *
-   * @param accountGroups
-   */ 
+   * @param accountGroups The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
@@ -112,7 +109,7 @@ public class UpdateMerchantUserRequest {
   /**
    * Sets the status of the user to active (**true**) or inactive (**false**).
    *
-   * @param active
+   * @param active Sets the status of the user to active (**true**) or inactive (**false**).
    * @return the current {@code UpdateMerchantUserRequest} instance, allowing for method chaining
    */
   public UpdateMerchantUserRequest active(Boolean active) {
@@ -122,9 +119,8 @@ public class UpdateMerchantUserRequest {
 
   /**
    * Sets the status of the user to active (**true**) or inactive (**false**).
-   * @return active
+   * @return active Sets the status of the user to active (**true**) or inactive (**false**).
    */
-  @ApiModelProperty(value = "Sets the status of the user to active (**true**) or inactive (**false**).")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
@@ -134,8 +130,8 @@ public class UpdateMerchantUserRequest {
   /**
    * Sets the status of the user to active (**true**) or inactive (**false**).
    *
-   * @param active
-   */ 
+   * @param active Sets the status of the user to active (**true**) or inactive (**false**).
+   */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -145,7 +141,7 @@ public class UpdateMerchantUserRequest {
   /**
    * The email address of the user.
    *
-   * @param email
+   * @param email The email address of the user.
    * @return the current {@code UpdateMerchantUserRequest} instance, allowing for method chaining
    */
   public UpdateMerchantUserRequest email(String email) {
@@ -155,9 +151,8 @@ public class UpdateMerchantUserRequest {
 
   /**
    * The email address of the user.
-   * @return email
+   * @return email The email address of the user.
    */
-  @ApiModelProperty(value = "The email address of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -167,8 +162,8 @@ public class UpdateMerchantUserRequest {
   /**
    * The email address of the user.
    *
-   * @param email
-   */ 
+   * @param email The email address of the user.
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -178,7 +173,7 @@ public class UpdateMerchantUserRequest {
   /**
    * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
    *
-   * @param loginMethod
+   * @param loginMethod The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
    * @return the current {@code UpdateMerchantUserRequest} instance, allowing for method chaining
    */
   public UpdateMerchantUserRequest loginMethod(String loginMethod) {
@@ -188,9 +183,8 @@ public class UpdateMerchantUserRequest {
 
   /**
    * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
-   * @return loginMethod
+   * @return loginMethod The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
    */
-  @ApiModelProperty(value = "The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username & account**, **Email**, or **SSO** ")
   @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLoginMethod() {
@@ -200,8 +194,8 @@ public class UpdateMerchantUserRequest {
   /**
    * The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
    *
-   * @param loginMethod
-   */ 
+   * @param loginMethod The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username &amp; account**, **Email**, or **SSO** 
+   */
   @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLoginMethod(String loginMethod) {
@@ -211,7 +205,7 @@ public class UpdateMerchantUserRequest {
   /**
    * name
    *
-   * @param name
+   * @param name 
    * @return the current {@code UpdateMerchantUserRequest} instance, allowing for method chaining
    */
   public UpdateMerchantUserRequest name(Name2 name) {
@@ -220,10 +214,9 @@ public class UpdateMerchantUserRequest {
   }
 
   /**
-   * name
-   * @return name
+   * Get name
+   * @return name 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name2 getName() {
@@ -233,8 +226,8 @@ public class UpdateMerchantUserRequest {
   /**
    * name
    *
-   * @param name
-   */ 
+   * @param name 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name2 name) {
@@ -244,7 +237,7 @@ public class UpdateMerchantUserRequest {
   /**
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    *
-   * @param roles
+   * @param roles The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return the current {@code UpdateMerchantUserRequest} instance, allowing for method chaining
    */
   public UpdateMerchantUserRequest roles(List<String> roles) {
@@ -262,9 +255,8 @@ public class UpdateMerchantUserRequest {
 
   /**
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
-   * @return roles
+   * @return roles The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    */
-  @ApiModelProperty(value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRoles() {
@@ -274,8 +266,8 @@ public class UpdateMerchantUserRequest {
   /**
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    *
-   * @param roles
-   */ 
+   * @param roles The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
+   */
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
@@ -285,7 +277,7 @@ public class UpdateMerchantUserRequest {
   /**
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    *
-   * @param timeZoneCode
+   * @param timeZoneCode The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return the current {@code UpdateMerchantUserRequest} instance, allowing for method chaining
    */
   public UpdateMerchantUserRequest timeZoneCode(String timeZoneCode) {
@@ -295,9 +287,8 @@ public class UpdateMerchantUserRequest {
 
   /**
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
-   * @return timeZoneCode
+   * @return timeZoneCode The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    */
-  @ApiModelProperty(value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeZoneCode() {
@@ -307,8 +298,8 @@ public class UpdateMerchantUserRequest {
   /**
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    *
-   * @param timeZoneCode
-   */ 
+   * @param timeZoneCode The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
+   */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {

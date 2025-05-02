@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Address;
@@ -23,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -58,7 +56,7 @@ public class ShippingLocation {
   /**
    * address
    *
-   * @param address
+   * @param address 
    * @return the current {@code ShippingLocation} instance, allowing for method chaining
    */
   public ShippingLocation address(Address address) {
@@ -67,10 +65,9 @@ public class ShippingLocation {
   }
 
   /**
-   * address
-   * @return address
+   * Get address
+   * @return address 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getAddress() {
@@ -80,8 +77,8 @@ public class ShippingLocation {
   /**
    * address
    *
-   * @param address
-   */ 
+   * @param address 
+   */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
@@ -91,7 +88,7 @@ public class ShippingLocation {
   /**
    * contact
    *
-   * @param contact
+   * @param contact 
    * @return the current {@code ShippingLocation} instance, allowing for method chaining
    */
   public ShippingLocation contact(Contact contact) {
@@ -100,10 +97,9 @@ public class ShippingLocation {
   }
 
   /**
-   * contact
-   * @return contact
+   * Get contact
+   * @return contact 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Contact getContact() {
@@ -113,8 +109,8 @@ public class ShippingLocation {
   /**
    * contact
    *
-   * @param contact
-   */ 
+   * @param contact 
+   */
   @JsonProperty(JSON_PROPERTY_CONTACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContact(Contact contact) {
@@ -124,7 +120,7 @@ public class ShippingLocation {
   /**
    * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
    *
-   * @param id
+   * @param id The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
    * @return the current {@code ShippingLocation} instance, allowing for method chaining
    */
   public ShippingLocation id(String id) {
@@ -134,9 +130,8 @@ public class ShippingLocation {
 
   /**
    * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
-   * @return id
+   * @return id The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
    */
-  @ApiModelProperty(value = "The unique identifier of the shipping location, for use as `shippingLocationId` when creating an order.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -146,8 +141,8 @@ public class ShippingLocation {
   /**
    * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -157,7 +152,7 @@ public class ShippingLocation {
   /**
    * The unique name of the shipping location.
    *
-   * @param name
+   * @param name The unique name of the shipping location.
    * @return the current {@code ShippingLocation} instance, allowing for method chaining
    */
   public ShippingLocation name(String name) {
@@ -167,9 +162,8 @@ public class ShippingLocation {
 
   /**
    * The unique name of the shipping location.
-   * @return name
+   * @return name The unique name of the shipping location.
    */
-  @ApiModelProperty(value = "The unique name of the shipping location.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -179,8 +173,8 @@ public class ShippingLocation {
   /**
    * The unique name of the shipping location.
    *
-   * @param name
-   */ 
+   * @param name The unique name of the shipping location.
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {

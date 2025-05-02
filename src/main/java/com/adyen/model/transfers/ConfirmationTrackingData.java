@@ -112,7 +112,7 @@ public class ConfirmationTrackingData {
   /**
    * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    *
-   * @param status
+   * @param status The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    * @return the current {@code ConfirmationTrackingData} instance, allowing for method chaining
    */
   public ConfirmationTrackingData status(StatusEnum status) {
@@ -122,7 +122,7 @@ public class ConfirmationTrackingData {
 
   /**
    * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
-   * @return status
+   * @return status The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +133,7 @@ public class ConfirmationTrackingData {
   /**
    * The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    *
-   * @param status
+   * @param status The status of the transfer.  Possible values:    - **credited**: the funds are credited to your user&#39;s transfer instrument or bank account.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class ConfirmationTrackingData {
   /**
    * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    *
-   * @param type
+   * @param type The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    * @return the current {@code ConfirmationTrackingData} instance, allowing for method chaining
    */
   public ConfirmationTrackingData type(TypeEnum type) {
@@ -154,7 +154,7 @@ public class ConfirmationTrackingData {
 
   /**
    * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
-   * @return type
+   * @return type The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +165,7 @@ public class ConfirmationTrackingData {
   /**
    * The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    *
-   * @param type
+   * @param type The type of the tracking event.  Possible values:   - **confirmation**: the transfer passed Adyen&#39;s internal review.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

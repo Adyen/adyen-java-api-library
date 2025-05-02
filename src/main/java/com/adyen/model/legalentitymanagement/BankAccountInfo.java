@@ -68,7 +68,7 @@ public class BankAccountInfo {
   /**
    * accountIdentification
    *
-   * @param accountIdentification
+   * @param accountIdentification 
    * @return the current {@code BankAccountInfo} instance, allowing for method chaining
    */
   public BankAccountInfo accountIdentification(BankAccountInfoAccountIdentification accountIdentification) {
@@ -78,7 +78,7 @@ public class BankAccountInfo {
 
   /**
    * Get accountIdentification
-   * @return accountIdentification
+   * @return accountIdentification 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +89,7 @@ public class BankAccountInfo {
   /**
    * accountIdentification
    *
-   * @param accountIdentification
+   * @param accountIdentification 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class BankAccountInfo {
   /**
    * The type of bank account.
    *
-   * @param accountType
+   * @param accountType The type of bank account.
    * @return the current {@code BankAccountInfo} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v2
@@ -113,7 +113,7 @@ public class BankAccountInfo {
 
   /**
    * The type of bank account.
-   * @return accountType
+   * @return accountType The type of bank account.
    * @deprecated // deprecated since Legal Entity Management API v2
    */
   @Deprecated // deprecated since Legal Entity Management API v2
@@ -126,7 +126,7 @@ public class BankAccountInfo {
   /**
    * The type of bank account.
    *
-   * @param accountType
+   * @param accountType The type of bank account.
    *
    * @deprecated since Legal Entity Management API v2
    */
@@ -140,7 +140,7 @@ public class BankAccountInfo {
   /**
    * The name of the banking institution where the bank account is held.
    *
-   * @param bankName
+   * @param bankName The name of the banking institution where the bank account is held.
    * @return the current {@code BankAccountInfo} instance, allowing for method chaining
    */
   public BankAccountInfo bankName(String bankName) {
@@ -150,7 +150,7 @@ public class BankAccountInfo {
 
   /**
    * The name of the banking institution where the bank account is held.
-   * @return bankName
+   * @return bankName The name of the banking institution where the bank account is held.
    */
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class BankAccountInfo {
   /**
    * The name of the banking institution where the bank account is held.
    *
-   * @param bankName
+   * @param bankName The name of the banking institution where the bank account is held.
    */
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class BankAccountInfo {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    *
-   * @param countryCode
+   * @param countryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    * @return the current {@code BankAccountInfo} instance, allowing for method chaining
    */
   public BankAccountInfo countryCode(String countryCode) {
@@ -182,7 +182,7 @@ public class BankAccountInfo {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
-   * @return countryCode
+   * @return countryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,7 +193,7 @@ public class BankAccountInfo {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    *
-   * @param countryCode
+   * @param countryCode The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class BankAccountInfo {
 
   /**
    * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
-   * @return trustedSource
+   * @return trustedSource Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
    */
   @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

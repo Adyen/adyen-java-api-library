@@ -44,7 +44,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class FundSource {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
@@ -67,7 +67,7 @@ public class FundSource {
   /**
    * A map of name-value pairs for passing additional or industry-specific data.
    *
-   * @param additionalData
+   * @param additionalData A map of name-value pairs for passing additional or industry-specific data.
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource additionalData(Map<String, String> additionalData) {
@@ -85,7 +85,7 @@ public class FundSource {
 
   /**
    * A map of name-value pairs for passing additional or industry-specific data.
-   * @return additionalData
+   * @return additionalData A map of name-value pairs for passing additional or industry-specific data.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +96,7 @@ public class FundSource {
   /**
    * A map of name-value pairs for passing additional or industry-specific data.
    *
-   * @param additionalData
+   * @param additionalData A map of name-value pairs for passing additional or industry-specific data.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class FundSource {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource billingAddress(Address billingAddress) {
@@ -117,7 +117,7 @@ public class FundSource {
 
   /**
    * Get billingAddress
-   * @return billingAddress
+   * @return billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +128,7 @@ public class FundSource {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class FundSource {
   /**
    * card
    *
-   * @param card
+   * @param card 
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource card(Card card) {
@@ -149,7 +149,7 @@ public class FundSource {
 
   /**
    * Get card
-   * @return card
+   * @return card 
    */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +160,7 @@ public class FundSource {
   /**
    * card
    *
-   * @param card
+   * @param card 
    */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class FundSource {
   /**
    * Email address of the person.
    *
-   * @param shopperEmail
+   * @param shopperEmail Email address of the person.
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource shopperEmail(String shopperEmail) {
@@ -181,7 +181,7 @@ public class FundSource {
 
   /**
    * Email address of the person.
-   * @return shopperEmail
+   * @return shopperEmail Email address of the person.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +192,7 @@ public class FundSource {
   /**
    * Email address of the person.
    *
-   * @param shopperEmail
+   * @param shopperEmail Email address of the person.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class FundSource {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource shopperName(Name shopperName) {
@@ -213,7 +213,7 @@ public class FundSource {
 
   /**
    * Get shopperName
-   * @return shopperName
+   * @return shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +224,7 @@ public class FundSource {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +235,7 @@ public class FundSource {
   /**
    * Phone number of the person
    *
-   * @param telephoneNumber
+   * @param telephoneNumber Phone number of the person
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource telephoneNumber(String telephoneNumber) {
@@ -245,7 +245,7 @@ public class FundSource {
 
   /**
    * Phone number of the person
-   * @return telephoneNumber
+   * @return telephoneNumber Phone number of the person
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,7 +256,7 @@ public class FundSource {
   /**
    * Phone number of the person
    *
-   * @param telephoneNumber
+   * @param telephoneNumber Phone number of the person
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

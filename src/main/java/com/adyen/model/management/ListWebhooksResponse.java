@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.PaginationLinks;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -50,7 +48,7 @@ public class ListWebhooksResponse {
   private String accountReference;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<Webhook> data = null;
+  private List<Webhook> data;
 
   public static final String JSON_PROPERTY_ITEMS_TOTAL = "itemsTotal";
   private Integer itemsTotal;
@@ -64,7 +62,7 @@ public class ListWebhooksResponse {
   /**
    * links
    *
-   * @param links
+   * @param links 
    * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
    */
   public ListWebhooksResponse links(PaginationLinks links) {
@@ -73,10 +71,9 @@ public class ListWebhooksResponse {
   }
 
   /**
-   * links
-   * @return links
+   * Get links
+   * @return links 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PaginationLinks getLinks() {
@@ -86,8 +83,8 @@ public class ListWebhooksResponse {
   /**
    * links
    *
-   * @param links
-   */ 
+   * @param links 
+   */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(PaginationLinks links) {
@@ -97,7 +94,7 @@ public class ListWebhooksResponse {
   /**
    * Reference to the account.
    *
-   * @param accountReference
+   * @param accountReference Reference to the account.
    * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
    */
   public ListWebhooksResponse accountReference(String accountReference) {
@@ -107,9 +104,8 @@ public class ListWebhooksResponse {
 
   /**
    * Reference to the account.
-   * @return accountReference
+   * @return accountReference Reference to the account.
    */
-  @ApiModelProperty(value = "Reference to the account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAccountReference() {
@@ -119,8 +115,8 @@ public class ListWebhooksResponse {
   /**
    * Reference to the account.
    *
-   * @param accountReference
-   */ 
+   * @param accountReference Reference to the account.
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountReference(String accountReference) {
@@ -130,7 +126,7 @@ public class ListWebhooksResponse {
   /**
    * The list of webhooks configured for this account.
    *
-   * @param data
+   * @param data The list of webhooks configured for this account.
    * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
    */
   public ListWebhooksResponse data(List<Webhook> data) {
@@ -148,9 +144,8 @@ public class ListWebhooksResponse {
 
   /**
    * The list of webhooks configured for this account.
-   * @return data
+   * @return data The list of webhooks configured for this account.
    */
-  @ApiModelProperty(value = "The list of webhooks configured for this account.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Webhook> getData() {
@@ -160,8 +155,8 @@ public class ListWebhooksResponse {
   /**
    * The list of webhooks configured for this account.
    *
-   * @param data
-   */ 
+   * @param data The list of webhooks configured for this account.
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<Webhook> data) {
@@ -171,7 +166,7 @@ public class ListWebhooksResponse {
   /**
    * Total number of items.
    *
-   * @param itemsTotal
+   * @param itemsTotal Total number of items.
    * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
    */
   public ListWebhooksResponse itemsTotal(Integer itemsTotal) {
@@ -181,9 +176,8 @@ public class ListWebhooksResponse {
 
   /**
    * Total number of items.
-   * @return itemsTotal
+   * @return itemsTotal Total number of items.
    */
-  @ApiModelProperty(required = true, value = "Total number of items.")
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getItemsTotal() {
@@ -193,8 +187,8 @@ public class ListWebhooksResponse {
   /**
    * Total number of items.
    *
-   * @param itemsTotal
-   */ 
+   * @param itemsTotal Total number of items.
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsTotal(Integer itemsTotal) {
@@ -204,7 +198,7 @@ public class ListWebhooksResponse {
   /**
    * Total number of pages.
    *
-   * @param pagesTotal
+   * @param pagesTotal Total number of pages.
    * @return the current {@code ListWebhooksResponse} instance, allowing for method chaining
    */
   public ListWebhooksResponse pagesTotal(Integer pagesTotal) {
@@ -214,9 +208,8 @@ public class ListWebhooksResponse {
 
   /**
    * Total number of pages.
-   * @return pagesTotal
+   * @return pagesTotal Total number of pages.
    */
-  @ApiModelProperty(required = true, value = "Total number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getPagesTotal() {
@@ -226,8 +219,8 @@ public class ListWebhooksResponse {
   /**
    * Total number of pages.
    *
-   * @param pagesTotal
-   */ 
+   * @param pagesTotal Total number of pages.
+   */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPagesTotal(Integer pagesTotal) {

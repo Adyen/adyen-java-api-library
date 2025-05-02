@@ -62,7 +62,7 @@ public class Leg {
   /**
    * The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.
    *
-   * @param arrivalAirportCode
+   * @param arrivalAirportCode The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.
    * @return the current {@code Leg} instance, allowing for method chaining
    */
   public Leg arrivalAirportCode(String arrivalAirportCode) {
@@ -72,7 +72,7 @@ public class Leg {
 
   /**
    * The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.
-   * @return arrivalAirportCode
+   * @return arrivalAirportCode The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.
    */
   @JsonProperty(JSON_PROPERTY_ARRIVAL_AIRPORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class Leg {
   /**
    * The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.
    *
-   * @param arrivalAirportCode
+   * @param arrivalAirportCode The IATA 3-letter airport code of the destination airport. This field is required if the airline data includes leg details.
    */
   @JsonProperty(JSON_PROPERTY_ARRIVAL_AIRPORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +94,7 @@ public class Leg {
   /**
    * The basic fare code for this leg.
    *
-   * @param basicFareCode
+   * @param basicFareCode The basic fare code for this leg.
    * @return the current {@code Leg} instance, allowing for method chaining
    */
   public Leg basicFareCode(String basicFareCode) {
@@ -104,7 +104,7 @@ public class Leg {
 
   /**
    * The basic fare code for this leg.
-   * @return basicFareCode
+   * @return basicFareCode The basic fare code for this leg.
    */
   @JsonProperty(JSON_PROPERTY_BASIC_FARE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class Leg {
   /**
    * The basic fare code for this leg.
    *
-   * @param basicFareCode
+   * @param basicFareCode The basic fare code for this leg.
    */
   @JsonProperty(JSON_PROPERTY_BASIC_FARE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class Leg {
   /**
    * IATA code of the carrier operating the flight.
    *
-   * @param carrierCode
+   * @param carrierCode IATA code of the carrier operating the flight.
    * @return the current {@code Leg} instance, allowing for method chaining
    */
   public Leg carrierCode(String carrierCode) {
@@ -136,7 +136,7 @@ public class Leg {
 
   /**
    * IATA code of the carrier operating the flight.
-   * @return carrierCode
+   * @return carrierCode IATA code of the carrier operating the flight.
    */
   @JsonProperty(JSON_PROPERTY_CARRIER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class Leg {
   /**
    * IATA code of the carrier operating the flight.
    *
-   * @param carrierCode
+   * @param carrierCode IATA code of the carrier operating the flight.
    */
   @JsonProperty(JSON_PROPERTY_CARRIER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class Leg {
   /**
    * The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details
    *
-   * @param departureAirportCode
+   * @param departureAirportCode The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details
    * @return the current {@code Leg} instance, allowing for method chaining
    */
   public Leg departureAirportCode(String departureAirportCode) {
@@ -168,7 +168,7 @@ public class Leg {
 
   /**
    * The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details
-   * @return departureAirportCode
+   * @return departureAirportCode The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details
    */
   @JsonProperty(JSON_PROPERTY_DEPARTURE_AIRPORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class Leg {
   /**
    * The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details
    *
-   * @param departureAirportCode
+   * @param departureAirportCode The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details
    */
   @JsonProperty(JSON_PROPERTY_DEPARTURE_AIRPORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class Leg {
   /**
    * The flight departure date.
    *
-   * @param departureDate
+   * @param departureDate The flight departure date.
    * @return the current {@code Leg} instance, allowing for method chaining
    */
   public Leg departureDate(String departureDate) {
@@ -200,7 +200,7 @@ public class Leg {
 
   /**
    * The flight departure date.
-   * @return departureDate
+   * @return departureDate The flight departure date.
    */
   @JsonProperty(JSON_PROPERTY_DEPARTURE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class Leg {
   /**
    * The flight departure date.
    *
-   * @param departureDate
+   * @param departureDate The flight departure date.
    */
   @JsonProperty(JSON_PROPERTY_DEPARTURE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class Leg {
   /**
    * The flight identifier.
    *
-   * @param flightNumber
+   * @param flightNumber The flight identifier.
    * @return the current {@code Leg} instance, allowing for method chaining
    */
   public Leg flightNumber(String flightNumber) {
@@ -232,7 +232,7 @@ public class Leg {
 
   /**
    * The flight identifier.
-   * @return flightNumber
+   * @return flightNumber The flight identifier.
    */
   @JsonProperty(JSON_PROPERTY_FLIGHT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class Leg {
   /**
    * The flight identifier.
    *
-   * @param flightNumber
+   * @param flightNumber The flight identifier.
    */
   @JsonProperty(JSON_PROPERTY_FLIGHT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

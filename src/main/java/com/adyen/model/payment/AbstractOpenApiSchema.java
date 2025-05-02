@@ -21,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
-
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object
@@ -33,6 +32,11 @@ public abstract class AbstractOpenApiSchema {
     // schema type (e.g. oneOf, anyOf)
     private final String schemaType;
 
+    /**
+     *
+     * @param schemaType the schema type
+     * @param isNullable whether the instance is nullable
+    */
     public AbstractOpenApiSchema(String schemaType, Boolean isNullable) {
         this.schemaType = schemaType;
         this.isNullable = isNullable;

@@ -59,7 +59,7 @@ public class MerchantData {
   /**
    * The unique identifier of the merchant&#39;s acquirer.
    *
-   * @param acquirerId
+   * @param acquirerId The unique identifier of the merchant&#39;s acquirer.
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData acquirerId(String acquirerId) {
@@ -69,7 +69,7 @@ public class MerchantData {
 
   /**
    * The unique identifier of the merchant&#39;s acquirer.
-   * @return acquirerId
+   * @return acquirerId The unique identifier of the merchant&#39;s acquirer.
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,7 +80,7 @@ public class MerchantData {
   /**
    * The unique identifier of the merchant&#39;s acquirer.
    *
-   * @param acquirerId
+   * @param acquirerId The unique identifier of the merchant&#39;s acquirer.
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,7 +91,7 @@ public class MerchantData {
   /**
    * The merchant category code.
    *
-   * @param mcc
+   * @param mcc The merchant category code.
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData mcc(String mcc) {
@@ -101,7 +101,7 @@ public class MerchantData {
 
   /**
    * The merchant category code.
-   * @return mcc
+   * @return mcc The merchant category code.
    */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class MerchantData {
   /**
    * The merchant category code.
    *
-   * @param mcc
+   * @param mcc The merchant category code.
    */
   @JsonProperty(JSON_PROPERTY_MCC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class MerchantData {
   /**
    * The unique identifier of the merchant.
    *
-   * @param merchantId
+   * @param merchantId The unique identifier of the merchant.
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData merchantId(String merchantId) {
@@ -133,7 +133,7 @@ public class MerchantData {
 
   /**
    * The unique identifier of the merchant.
-   * @return merchantId
+   * @return merchantId The unique identifier of the merchant.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class MerchantData {
   /**
    * The unique identifier of the merchant.
    *
-   * @param merchantId
+   * @param merchantId The unique identifier of the merchant.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class MerchantData {
   /**
    * nameLocation
    *
-   * @param nameLocation
+   * @param nameLocation 
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData nameLocation(NameLocation nameLocation) {
@@ -165,7 +165,7 @@ public class MerchantData {
 
   /**
    * Get nameLocation
-   * @return nameLocation
+   * @return nameLocation 
    */
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class MerchantData {
   /**
    * nameLocation
    *
-   * @param nameLocation
+   * @param nameLocation 
    */
   @JsonProperty(JSON_PROPERTY_NAME_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class MerchantData {
   /**
    * The postal code of the merchant.
    *
-   * @param postalCode
+   * @param postalCode The postal code of the merchant.
    * @return the current {@code MerchantData} instance, allowing for method chaining
    */
   public MerchantData postalCode(String postalCode) {
@@ -197,7 +197,7 @@ public class MerchantData {
 
   /**
    * The postal code of the merchant.
-   * @return postalCode
+   * @return postalCode The postal code of the merchant.
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class MerchantData {
   /**
    * The postal code of the merchant.
    *
-   * @param postalCode
+   * @param postalCode The postal code of the merchant.
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

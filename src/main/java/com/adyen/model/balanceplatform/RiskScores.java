@@ -46,7 +46,7 @@ public class RiskScores {
   /**
    * Transaction risk score provided by Mastercard. Values provided by Mastercard range between 0 (lowest risk) to 998 (highest risk).
    *
-   * @param mastercard
+   * @param mastercard Transaction risk score provided by Mastercard. Values provided by Mastercard range between 0 (lowest risk) to 998 (highest risk).
    * @return the current {@code RiskScores} instance, allowing for method chaining
    */
   public RiskScores mastercard(Integer mastercard) {
@@ -56,7 +56,7 @@ public class RiskScores {
 
   /**
    * Transaction risk score provided by Mastercard. Values provided by Mastercard range between 0 (lowest risk) to 998 (highest risk).
-   * @return mastercard
+   * @return mastercard Transaction risk score provided by Mastercard. Values provided by Mastercard range between 0 (lowest risk) to 998 (highest risk).
    */
   @JsonProperty(JSON_PROPERTY_MASTERCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class RiskScores {
   /**
    * Transaction risk score provided by Mastercard. Values provided by Mastercard range between 0 (lowest risk) to 998 (highest risk).
    *
-   * @param mastercard
+   * @param mastercard Transaction risk score provided by Mastercard. Values provided by Mastercard range between 0 (lowest risk) to 998 (highest risk).
    */
   @JsonProperty(JSON_PROPERTY_MASTERCARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class RiskScores {
   /**
    * Transaction risk score provided by Visa. Values provided by Visa range between 01 (lowest risk) to 99 (highest risk).
    *
-   * @param visa
+   * @param visa Transaction risk score provided by Visa. Values provided by Visa range between 01 (lowest risk) to 99 (highest risk).
    * @return the current {@code RiskScores} instance, allowing for method chaining
    */
   public RiskScores visa(Integer visa) {
@@ -88,7 +88,7 @@ public class RiskScores {
 
   /**
    * Transaction risk score provided by Visa. Values provided by Visa range between 01 (lowest risk) to 99 (highest risk).
-   * @return visa
+   * @return visa Transaction risk score provided by Visa. Values provided by Visa range between 01 (lowest risk) to 99 (highest risk).
    */
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class RiskScores {
   /**
    * Transaction risk score provided by Visa. Values provided by Visa range between 01 (lowest risk) to 99 (highest risk).
    *
-   * @param visa
+   * @param visa Transaction risk score provided by Visa. Values provided by Visa range between 01 (lowest risk) to 99 (highest risk).
    */
   @JsonProperty(JSON_PROPERTY_VISA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -91,7 +91,7 @@ public class BRLocalAccountIdentification {
   /**
    * The bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace.
    * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
    */
   public BRLocalAccountIdentification accountNumber(String accountNumber) {
@@ -101,7 +101,7 @@ public class BRLocalAccountIdentification {
 
   /**
    * The bank account number, without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class BRLocalAccountIdentification {
   /**
    * The bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class BRLocalAccountIdentification {
   /**
    * The 3-digit bank code, with leading zeros.
    *
-   * @param bankCode
+   * @param bankCode The 3-digit bank code, with leading zeros.
    * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
    */
   public BRLocalAccountIdentification bankCode(String bankCode) {
@@ -133,7 +133,7 @@ public class BRLocalAccountIdentification {
 
   /**
    * The 3-digit bank code, with leading zeros.
-   * @return bankCode
+   * @return bankCode The 3-digit bank code, with leading zeros.
    */
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class BRLocalAccountIdentification {
   /**
    * The 3-digit bank code, with leading zeros.
    *
-   * @param bankCode
+   * @param bankCode The 3-digit bank code, with leading zeros.
    */
   @JsonProperty(JSON_PROPERTY_BANK_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class BRLocalAccountIdentification {
   /**
    * The bank account branch number, without separators or whitespace.
    *
-   * @param branchNumber
+   * @param branchNumber The bank account branch number, without separators or whitespace.
    * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
    */
   public BRLocalAccountIdentification branchNumber(String branchNumber) {
@@ -165,7 +165,7 @@ public class BRLocalAccountIdentification {
 
   /**
    * The bank account branch number, without separators or whitespace.
-   * @return branchNumber
+   * @return branchNumber The bank account branch number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class BRLocalAccountIdentification {
   /**
    * The bank account branch number, without separators or whitespace.
    *
-   * @param branchNumber
+   * @param branchNumber The bank account branch number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_BRANCH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class BRLocalAccountIdentification {
   /**
    * The 8-digit ISPB, with leading zeros.
    *
-   * @param ispb
+   * @param ispb The 8-digit ISPB, with leading zeros.
    * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
    */
   public BRLocalAccountIdentification ispb(String ispb) {
@@ -197,7 +197,7 @@ public class BRLocalAccountIdentification {
 
   /**
    * The 8-digit ISPB, with leading zeros.
-   * @return ispb
+   * @return ispb The 8-digit ISPB, with leading zeros.
    */
   @JsonProperty(JSON_PROPERTY_ISPB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class BRLocalAccountIdentification {
   /**
    * The 8-digit ISPB, with leading zeros.
    *
-   * @param ispb
+   * @param ispb The 8-digit ISPB, with leading zeros.
    */
   @JsonProperty(JSON_PROPERTY_ISPB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class BRLocalAccountIdentification {
   /**
    * **brLocal**
    *
-   * @param type
+   * @param type **brLocal**
    * @return the current {@code BRLocalAccountIdentification} instance, allowing for method chaining
    */
   public BRLocalAccountIdentification type(TypeEnum type) {
@@ -229,7 +229,7 @@ public class BRLocalAccountIdentification {
 
   /**
    * **brLocal**
-   * @return type
+   * @return type **brLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class BRLocalAccountIdentification {
   /**
    * **brLocal**
    *
-   * @param type
+   * @param type **brLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

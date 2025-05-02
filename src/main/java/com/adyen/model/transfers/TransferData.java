@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.BalanceMutation;
 import com.adyen.model.transfers.DirectDebitInformation;
+import com.adyen.model.transfers.ExternalReason;
 import com.adyen.model.transfers.PaymentInstrument;
 import com.adyen.model.transfers.ResourceReference;
 import com.adyen.model.transfers.TransactionRulesResult;
@@ -57,6 +58,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferData.JSON_PROPERTY_DIRECTION,
   TransferData.JSON_PROPERTY_EVENT_ID,
   TransferData.JSON_PROPERTY_EVENTS,
+  TransferData.JSON_PROPERTY_EXTERNAL_REASON,
   TransferData.JSON_PROPERTY_ID,
   TransferData.JSON_PROPERTY_PAYMENT_INSTRUMENT,
   TransferData.JSON_PROPERTY_REASON,
@@ -84,7 +86,7 @@ public class TransferData {
   private String balancePlatform;
 
   public static final String JSON_PROPERTY_BALANCES = "balances";
-  private List<BalanceMutation> balances = new ArrayList<>();
+  private List<BalanceMutation> balances;
 
   /**
    * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
@@ -189,7 +191,10 @@ public class TransferData {
   private String eventId;
 
   public static final String JSON_PROPERTY_EVENTS = "events";
-  private List<TransferEvent> events = new ArrayList<>();
+  private List<TransferEvent> events;
+
+  public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
+  private ExternalReason externalReason;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -581,7 +586,7 @@ public class TransferData {
   /**
    * accountHolder
    *
-   * @param accountHolder
+   * @param accountHolder 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData accountHolder(ResourceReference accountHolder) {
@@ -591,7 +596,7 @@ public class TransferData {
 
   /**
    * Get accountHolder
-   * @return accountHolder
+   * @return accountHolder 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -602,7 +607,7 @@ public class TransferData {
   /**
    * accountHolder
    *
-   * @param accountHolder
+   * @param accountHolder 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -613,7 +618,7 @@ public class TransferData {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData amount(Amount amount) {
@@ -623,7 +628,7 @@ public class TransferData {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -634,7 +639,7 @@ public class TransferData {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -645,7 +650,7 @@ public class TransferData {
   /**
    * balanceAccount
    *
-   * @param balanceAccount
+   * @param balanceAccount 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData balanceAccount(ResourceReference balanceAccount) {
@@ -655,7 +660,7 @@ public class TransferData {
 
   /**
    * Get balanceAccount
-   * @return balanceAccount
+   * @return balanceAccount 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -666,7 +671,7 @@ public class TransferData {
   /**
    * balanceAccount
    *
-   * @param balanceAccount
+   * @param balanceAccount 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -677,7 +682,7 @@ public class TransferData {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData balancePlatform(String balancePlatform) {
@@ -687,7 +692,7 @@ public class TransferData {
 
   /**
    * The unique identifier of the balance platform.
-   * @return balancePlatform
+   * @return balancePlatform The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -698,7 +703,7 @@ public class TransferData {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -709,7 +714,7 @@ public class TransferData {
   /**
    * The list of the latest balance statuses in the transfer.
    *
-   * @param balances
+   * @param balances The list of the latest balance statuses in the transfer.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData balances(List<BalanceMutation> balances) {
@@ -727,7 +732,7 @@ public class TransferData {
 
   /**
    * The list of the latest balance statuses in the transfer.
-   * @return balances
+   * @return balances The list of the latest balance statuses in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -738,7 +743,7 @@ public class TransferData {
   /**
    * The list of the latest balance statuses in the transfer.
    *
-   * @param balances
+   * @param balances The list of the latest balance statuses in the transfer.
    */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -749,7 +754,7 @@ public class TransferData {
   /**
    * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category
+   * @param category The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData category(CategoryEnum category) {
@@ -759,7 +764,7 @@ public class TransferData {
 
   /**
    * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
-   * @return category
+   * @return category The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -770,7 +775,7 @@ public class TransferData {
   /**
    * The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category
+   * @param category The category of the transfer.  Possible values:   - **bank**: a transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **card**: a transfer involving a third-party card.  - **internal**: a transfer between [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.  - **issuedCard**: a transfer initiated by a Adyen-issued card.  - **platformPayment**: funds movements related to payments that are acquired for your users.  - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -781,7 +786,7 @@ public class TransferData {
   /**
    * categoryData
    *
-   * @param categoryData
+   * @param categoryData 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData categoryData(TransferCategoryData categoryData) {
@@ -791,7 +796,7 @@ public class TransferData {
 
   /**
    * Get categoryData
-   * @return categoryData
+   * @return categoryData 
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -802,7 +807,7 @@ public class TransferData {
   /**
    * categoryData
    *
-   * @param categoryData
+   * @param categoryData 
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -813,7 +818,7 @@ public class TransferData {
   /**
    * counterparty
    *
-   * @param counterparty
+   * @param counterparty 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData counterparty(TransferNotificationCounterParty counterparty) {
@@ -823,7 +828,7 @@ public class TransferData {
 
   /**
    * Get counterparty
-   * @return counterparty
+   * @return counterparty 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -834,7 +839,7 @@ public class TransferData {
   /**
    * counterparty
    *
-   * @param counterparty
+   * @param counterparty 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -845,7 +850,7 @@ public class TransferData {
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param creationDate
+   * @param creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData creationDate(OffsetDateTime creationDate) {
@@ -855,7 +860,7 @@ public class TransferData {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
-   * @return creationDate
+   * @return creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -866,7 +871,7 @@ public class TransferData {
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param creationDate
+   * @param creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -877,7 +882,7 @@ public class TransferData {
   /**
    * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    *
-   * @param description
+   * @param description Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData description(String description) {
@@ -887,7 +892,7 @@ public class TransferData {
 
   /**
    * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
-   * @return description
+   * @return description Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -898,7 +903,7 @@ public class TransferData {
   /**
    * Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    *
-   * @param description
+   * @param description Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.  Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , &#39; + Space**  Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] &amp; $ % # @** **~ &#x3D; + - _ &#39; \&quot; ! ?**
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -909,7 +914,7 @@ public class TransferData {
   /**
    * directDebitInformation
    *
-   * @param directDebitInformation
+   * @param directDebitInformation 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData directDebitInformation(DirectDebitInformation directDebitInformation) {
@@ -919,7 +924,7 @@ public class TransferData {
 
   /**
    * Get directDebitInformation
-   * @return directDebitInformation
+   * @return directDebitInformation 
    */
   @JsonProperty(JSON_PROPERTY_DIRECT_DEBIT_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -930,7 +935,7 @@ public class TransferData {
   /**
    * directDebitInformation
    *
-   * @param directDebitInformation
+   * @param directDebitInformation 
    */
   @JsonProperty(JSON_PROPERTY_DIRECT_DEBIT_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -941,7 +946,7 @@ public class TransferData {
   /**
    * The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    *
-   * @param direction
+   * @param direction The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData direction(DirectionEnum direction) {
@@ -951,7 +956,7 @@ public class TransferData {
 
   /**
    * The direction of the transfer.  Possible values: **incoming**, **outgoing**.
-   * @return direction
+   * @return direction The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    */
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -962,7 +967,7 @@ public class TransferData {
   /**
    * The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    *
-   * @param direction
+   * @param direction The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    */
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -973,7 +978,7 @@ public class TransferData {
   /**
    * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    *
-   * @param eventId
+   * @param eventId The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData eventId(String eventId) {
@@ -983,7 +988,7 @@ public class TransferData {
 
   /**
    * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
-   * @return eventId
+   * @return eventId The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    */
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -994,7 +999,7 @@ public class TransferData {
   /**
    * The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    *
-   * @param eventId
+   * @param eventId The unique identifier of the latest transfer event. Included only when the &#x60;category&#x60; is **issuedCard**.
    */
   @JsonProperty(JSON_PROPERTY_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1005,7 +1010,7 @@ public class TransferData {
   /**
    * The list of events leading up to the current status of the transfer.
    *
-   * @param events
+   * @param events The list of events leading up to the current status of the transfer.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData events(List<TransferEvent> events) {
@@ -1023,7 +1028,7 @@ public class TransferData {
 
   /**
    * The list of events leading up to the current status of the transfer.
-   * @return events
+   * @return events The list of events leading up to the current status of the transfer.
    */
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1034,7 +1039,7 @@ public class TransferData {
   /**
    * The list of events leading up to the current status of the transfer.
    *
-   * @param events
+   * @param events The list of events leading up to the current status of the transfer.
    */
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1043,9 +1048,41 @@ public class TransferData {
   }
 
   /**
+   * externalReason
+   *
+   * @param externalReason 
+   * @return the current {@code TransferData} instance, allowing for method chaining
+   */
+  public TransferData externalReason(ExternalReason externalReason) {
+    this.externalReason = externalReason;
+    return this;
+  }
+
+  /**
+   * Get externalReason
+   * @return externalReason 
+   */
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExternalReason getExternalReason() {
+    return externalReason;
+  }
+
+  /**
+   * externalReason
+   *
+   * @param externalReason 
+   */
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExternalReason(ExternalReason externalReason) {
+    this.externalReason = externalReason;
+  }
+
+  /**
    * The ID of the resource.
    *
-   * @param id
+   * @param id The ID of the resource.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData id(String id) {
@@ -1055,7 +1092,7 @@ public class TransferData {
 
   /**
    * The ID of the resource.
-   * @return id
+   * @return id The ID of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1066,7 +1103,7 @@ public class TransferData {
   /**
    * The ID of the resource.
    *
-   * @param id
+   * @param id The ID of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1077,7 +1114,7 @@ public class TransferData {
   /**
    * paymentInstrument
    *
-   * @param paymentInstrument
+   * @param paymentInstrument 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData paymentInstrument(PaymentInstrument paymentInstrument) {
@@ -1087,7 +1124,7 @@ public class TransferData {
 
   /**
    * Get paymentInstrument
-   * @return paymentInstrument
+   * @return paymentInstrument 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1098,7 +1135,7 @@ public class TransferData {
   /**
    * paymentInstrument
    *
-   * @param paymentInstrument
+   * @param paymentInstrument 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1109,7 +1146,7 @@ public class TransferData {
   /**
    * Additional information about the status of the transfer.
    *
-   * @param reason
+   * @param reason Additional information about the status of the transfer.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData reason(ReasonEnum reason) {
@@ -1119,7 +1156,7 @@ public class TransferData {
 
   /**
    * Additional information about the status of the transfer.
-   * @return reason
+   * @return reason Additional information about the status of the transfer.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1130,7 +1167,7 @@ public class TransferData {
   /**
    * Additional information about the status of the transfer.
    *
-   * @param reason
+   * @param reason Additional information about the status of the transfer.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1141,7 +1178,7 @@ public class TransferData {
   /**
    * Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    *
-   * @param reference
+   * @param reference Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData reference(String reference) {
@@ -1151,7 +1188,7 @@ public class TransferData {
 
   /**
    * Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
-   * @return reference
+   * @return reference Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1162,7 +1199,7 @@ public class TransferData {
   /**
    * Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    *
-   * @param reference
+   * @param reference Your reference for the transfer, used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1173,7 +1210,7 @@ public class TransferData {
   /**
    *  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    *
-   * @param referenceForBeneficiary
+   * @param referenceForBeneficiary  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData referenceForBeneficiary(String referenceForBeneficiary) {
@@ -1183,7 +1220,7 @@ public class TransferData {
 
   /**
    *  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
-   * @return referenceForBeneficiary
+   * @return referenceForBeneficiary  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1194,7 +1231,7 @@ public class TransferData {
   /**
    *  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    *
-   * @param referenceForBeneficiary
+   * @param referenceForBeneficiary  A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the &#x60;category&#x60;.   - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1205,7 +1242,7 @@ public class TransferData {
   /**
    * review
    *
-   * @param review
+   * @param review 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData review(TransferReview review) {
@@ -1215,7 +1252,7 @@ public class TransferData {
 
   /**
    * Get review
-   * @return review
+   * @return review 
    */
   @JsonProperty(JSON_PROPERTY_REVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1226,7 +1263,7 @@ public class TransferData {
   /**
    * review
    *
-   * @param review
+   * @param review 
    */
   @JsonProperty(JSON_PROPERTY_REVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1237,7 +1274,7 @@ public class TransferData {
   /**
    * The sequence number of the transfer webhook. The numbers start from 1 and increase with each new webhook for a specific transfer.  The sequence number can help you restore the correct sequence of events even if they arrive out of order.
    *
-   * @param sequenceNumber
+   * @param sequenceNumber The sequence number of the transfer webhook. The numbers start from 1 and increase with each new webhook for a specific transfer.  The sequence number can help you restore the correct sequence of events even if they arrive out of order.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData sequenceNumber(Integer sequenceNumber) {
@@ -1247,7 +1284,7 @@ public class TransferData {
 
   /**
    * The sequence number of the transfer webhook. The numbers start from 1 and increase with each new webhook for a specific transfer.  The sequence number can help you restore the correct sequence of events even if they arrive out of order.
-   * @return sequenceNumber
+   * @return sequenceNumber The sequence number of the transfer webhook. The numbers start from 1 and increase with each new webhook for a specific transfer.  The sequence number can help you restore the correct sequence of events even if they arrive out of order.
    */
   @JsonProperty(JSON_PROPERTY_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1258,7 +1295,7 @@ public class TransferData {
   /**
    * The sequence number of the transfer webhook. The numbers start from 1 and increase with each new webhook for a specific transfer.  The sequence number can help you restore the correct sequence of events even if they arrive out of order.
    *
-   * @param sequenceNumber
+   * @param sequenceNumber The sequence number of the transfer webhook. The numbers start from 1 and increase with each new webhook for a specific transfer.  The sequence number can help you restore the correct sequence of events even if they arrive out of order.
    */
   @JsonProperty(JSON_PROPERTY_SEQUENCE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1269,7 +1306,7 @@ public class TransferData {
   /**
    * The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    *
-   * @param status
+   * @param status The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData status(StatusEnum status) {
@@ -1279,7 +1316,7 @@ public class TransferData {
 
   /**
    * The result of the transfer.   For example, **authorised**, **refused**, or **error**.
-   * @return status
+   * @return status The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1290,7 +1327,7 @@ public class TransferData {
   /**
    * The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    *
-   * @param status
+   * @param status The result of the transfer.   For example, **authorised**, **refused**, or **error**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1301,7 +1338,7 @@ public class TransferData {
   /**
    * tracking
    *
-   * @param tracking
+   * @param tracking 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData tracking(TransferDataTracking tracking) {
@@ -1311,7 +1348,7 @@ public class TransferData {
 
   /**
    * Get tracking
-   * @return tracking
+   * @return tracking 
    */
   @JsonProperty(JSON_PROPERTY_TRACKING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1322,7 +1359,7 @@ public class TransferData {
   /**
    * tracking
    *
-   * @param tracking
+   * @param tracking 
    */
   @JsonProperty(JSON_PROPERTY_TRACKING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1333,7 +1370,7 @@ public class TransferData {
   /**
    * transactionRulesResult
    *
-   * @param transactionRulesResult
+   * @param transactionRulesResult 
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData transactionRulesResult(TransactionRulesResult transactionRulesResult) {
@@ -1343,7 +1380,7 @@ public class TransferData {
 
   /**
    * Get transactionRulesResult
-   * @return transactionRulesResult
+   * @return transactionRulesResult 
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1354,7 +1391,7 @@ public class TransferData {
   /**
    * transactionRulesResult
    *
-   * @param transactionRulesResult
+   * @param transactionRulesResult 
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1365,7 +1402,7 @@ public class TransferData {
   /**
    * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    *
-   * @param type
+   * @param type The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    * @return the current {@code TransferData} instance, allowing for method chaining
    */
   public TransferData type(TypeEnum type) {
@@ -1375,7 +1412,7 @@ public class TransferData {
 
   /**
    * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
-   * @return type
+   * @return type The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1386,7 +1423,7 @@ public class TransferData {
   /**
    * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    *
-   * @param type
+   * @param type The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1420,6 +1457,7 @@ public class TransferData {
         Objects.equals(this.direction, transferData.direction) &&
         Objects.equals(this.eventId, transferData.eventId) &&
         Objects.equals(this.events, transferData.events) &&
+        Objects.equals(this.externalReason, transferData.externalReason) &&
         Objects.equals(this.id, transferData.id) &&
         Objects.equals(this.paymentInstrument, transferData.paymentInstrument) &&
         Objects.equals(this.reason, transferData.reason) &&
@@ -1435,7 +1473,7 @@ public class TransferData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, balances, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, eventId, events, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, sequenceNumber, status, tracking, transactionRulesResult, type);
+    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, balances, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, eventId, events, externalReason, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, sequenceNumber, status, tracking, transactionRulesResult, type);
   }
 
   @Override
@@ -1456,6 +1494,7 @@ public class TransferData {
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    externalReason: ").append(toIndentedString(externalReason)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");

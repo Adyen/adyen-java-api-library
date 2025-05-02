@@ -50,7 +50,7 @@ public class ExternalReason {
   /**
    * The reason code.
    *
-   * @param code
+   * @param code The reason code.
    * @return the current {@code ExternalReason} instance, allowing for method chaining
    */
   public ExternalReason code(String code) {
@@ -60,7 +60,7 @@ public class ExternalReason {
 
   /**
    * The reason code.
-   * @return code
+   * @return code The reason code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class ExternalReason {
   /**
    * The reason code.
    *
-   * @param code
+   * @param code The reason code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class ExternalReason {
   /**
    * The description of the reason code.
    *
-   * @param description
+   * @param description The description of the reason code.
    * @return the current {@code ExternalReason} instance, allowing for method chaining
    */
   public ExternalReason description(String description) {
@@ -92,7 +92,7 @@ public class ExternalReason {
 
   /**
    * The description of the reason code.
-   * @return description
+   * @return description The description of the reason code.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class ExternalReason {
   /**
    * The description of the reason code.
    *
-   * @param description
+   * @param description The description of the reason code.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class ExternalReason {
   /**
    * The namespace for the reason code.
    *
-   * @param namespace
+   * @param namespace The namespace for the reason code.
    * @return the current {@code ExternalReason} instance, allowing for method chaining
    */
   public ExternalReason namespace(String namespace) {
@@ -124,7 +124,7 @@ public class ExternalReason {
 
   /**
    * The namespace for the reason code.
-   * @return namespace
+   * @return namespace The namespace for the reason code.
    */
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class ExternalReason {
   /**
    * The namespace for the reason code.
    *
-   * @param namespace
+   * @param namespace The namespace for the reason code.
    */
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -50,7 +50,7 @@ public class Counterparty {
   /**
    * The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
    *
-   * @param accountHolderId
+   * @param accountHolderId The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
    * @return the current {@code Counterparty} instance, allowing for method chaining
    */
   public Counterparty accountHolderId(String accountHolderId) {
@@ -60,7 +60,7 @@ public class Counterparty {
 
   /**
    * The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
-   * @return accountHolderId
+   * @return accountHolderId The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class Counterparty {
   /**
    * The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
    *
-   * @param accountHolderId
+   * @param accountHolderId The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no &#x60;balanceAccountId&#x60; is provided.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class Counterparty {
   /**
    * The identifier of the balance account that belongs to the receiving account holder.
    *
-   * @param balanceAccountId
+   * @param balanceAccountId The identifier of the balance account that belongs to the receiving account holder.
    * @return the current {@code Counterparty} instance, allowing for method chaining
    */
   public Counterparty balanceAccountId(String balanceAccountId) {
@@ -92,7 +92,7 @@ public class Counterparty {
 
   /**
    * The identifier of the balance account that belongs to the receiving account holder.
-   * @return balanceAccountId
+   * @return balanceAccountId The identifier of the balance account that belongs to the receiving account holder.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class Counterparty {
   /**
    * The identifier of the balance account that belongs to the receiving account holder.
    *
-   * @param balanceAccountId
+   * @param balanceAccountId The identifier of the balance account that belongs to the receiving account holder.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class Counterparty {
   /**
    * The identifier of the transfer instrument that belongs to the legal entity of the account holder.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The identifier of the transfer instrument that belongs to the legal entity of the account holder.
    * @return the current {@code Counterparty} instance, allowing for method chaining
    */
   public Counterparty transferInstrumentId(String transferInstrumentId) {
@@ -124,7 +124,7 @@ public class Counterparty {
 
   /**
    * The identifier of the transfer instrument that belongs to the legal entity of the account holder.
-   * @return transferInstrumentId
+   * @return transferInstrumentId The identifier of the transfer instrument that belongs to the legal entity of the account holder.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class Counterparty {
   /**
    * The identifier of the transfer instrument that belongs to the legal entity of the account holder.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The identifier of the transfer instrument that belongs to the legal entity of the account holder.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

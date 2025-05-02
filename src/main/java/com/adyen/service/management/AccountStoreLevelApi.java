@@ -74,7 +74,6 @@ public class AccountStoreLevelApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public Store createStore(StoreCreationWithMerchantCodeRequest storeCreationWithMerchantCodeRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = storeCreationWithMerchantCodeRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/stores", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -260,6 +259,7 @@ public class AccountStoreLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the merchantId path parameter");
         }
         pathParams.put("merchantId", merchantId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (pageNumber != null) {

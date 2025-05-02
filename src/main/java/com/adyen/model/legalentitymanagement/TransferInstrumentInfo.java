@@ -86,7 +86,7 @@ public class TransferInstrumentInfo {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    * @return the current {@code TransferInstrumentInfo} instance, allowing for method chaining
    */
   public TransferInstrumentInfo bankAccount(BankAccountInfo bankAccount) {
@@ -96,7 +96,7 @@ public class TransferInstrumentInfo {
 
   /**
    * Get bankAccount
-   * @return bankAccount
+   * @return bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class TransferInstrumentInfo {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class TransferInstrumentInfo {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    * @return the current {@code TransferInstrumentInfo} instance, allowing for method chaining
    */
   public TransferInstrumentInfo legalEntityId(String legalEntityId) {
@@ -128,7 +128,7 @@ public class TransferInstrumentInfo {
 
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
-   * @return legalEntityId
+   * @return legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class TransferInstrumentInfo {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class TransferInstrumentInfo {
   /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
    *
-   * @param type
+   * @param type The type of transfer instrument.  Possible value: **bankAccount**.
    * @return the current {@code TransferInstrumentInfo} instance, allowing for method chaining
    */
   public TransferInstrumentInfo type(TypeEnum type) {
@@ -160,7 +160,7 @@ public class TransferInstrumentInfo {
 
   /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
-   * @return type
+   * @return type The type of transfer instrument.  Possible value: **bankAccount**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class TransferInstrumentInfo {
   /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
    *
-   * @param type
+   * @param type The type of transfer instrument.  Possible value: **bankAccount**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

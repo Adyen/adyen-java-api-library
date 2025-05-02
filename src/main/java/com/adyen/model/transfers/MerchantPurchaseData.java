@@ -43,7 +43,7 @@ public class MerchantPurchaseData {
   private Airline airline;
 
   public static final String JSON_PROPERTY_LODGING = "lodging";
-  private List<Lodging> lodging = new ArrayList<>();
+  private List<Lodging> lodging;
 
   /**
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
@@ -87,7 +87,7 @@ public class MerchantPurchaseData {
   /**
    * airline
    *
-   * @param airline
+   * @param airline 
    * @return the current {@code MerchantPurchaseData} instance, allowing for method chaining
    */
   public MerchantPurchaseData airline(Airline airline) {
@@ -97,7 +97,7 @@ public class MerchantPurchaseData {
 
   /**
    * Get airline
-   * @return airline
+   * @return airline 
    */
   @JsonProperty(JSON_PROPERTY_AIRLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class MerchantPurchaseData {
   /**
    * airline
    *
-   * @param airline
+   * @param airline 
    */
   @JsonProperty(JSON_PROPERTY_AIRLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class MerchantPurchaseData {
   /**
    * Lodging information.
    *
-   * @param lodging
+   * @param lodging Lodging information.
    * @return the current {@code MerchantPurchaseData} instance, allowing for method chaining
    */
   public MerchantPurchaseData lodging(List<Lodging> lodging) {
@@ -137,7 +137,7 @@ public class MerchantPurchaseData {
 
   /**
    * Lodging information.
-   * @return lodging
+   * @return lodging Lodging information.
    */
   @JsonProperty(JSON_PROPERTY_LODGING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class MerchantPurchaseData {
   /**
    * Lodging information.
    *
-   * @param lodging
+   * @param lodging Lodging information.
    */
   @JsonProperty(JSON_PROPERTY_LODGING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class MerchantPurchaseData {
   /**
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    *
-   * @param type
+   * @param type The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    * @return the current {@code MerchantPurchaseData} instance, allowing for method chaining
    */
   public MerchantPurchaseData type(TypeEnum type) {
@@ -169,7 +169,7 @@ public class MerchantPurchaseData {
 
   /**
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
-   * @return type
+   * @return type The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class MerchantPurchaseData {
   /**
    * The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    *
-   * @param type
+   * @param type The type of events data.   Possible values:    - **merchantPurchaseData**: merchant purchase data
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -46,7 +46,7 @@ public class Lodging {
   /**
    * The check-in date.
    *
-   * @param checkInDate
+   * @param checkInDate The check-in date.
    * @return the current {@code Lodging} instance, allowing for method chaining
    */
   public Lodging checkInDate(String checkInDate) {
@@ -56,7 +56,7 @@ public class Lodging {
 
   /**
    * The check-in date.
-   * @return checkInDate
+   * @return checkInDate The check-in date.
    */
   @JsonProperty(JSON_PROPERTY_CHECK_IN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class Lodging {
   /**
    * The check-in date.
    *
-   * @param checkInDate
+   * @param checkInDate The check-in date.
    */
   @JsonProperty(JSON_PROPERTY_CHECK_IN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class Lodging {
   /**
    * The total number of nights the room is booked for.
    *
-   * @param numberOfNights
+   * @param numberOfNights The total number of nights the room is booked for.
    * @return the current {@code Lodging} instance, allowing for method chaining
    */
   public Lodging numberOfNights(Integer numberOfNights) {
@@ -88,7 +88,7 @@ public class Lodging {
 
   /**
    * The total number of nights the room is booked for.
-   * @return numberOfNights
+   * @return numberOfNights The total number of nights the room is booked for.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class Lodging {
   /**
    * The total number of nights the room is booked for.
    *
-   * @param numberOfNights
+   * @param numberOfNights The total number of nights the room is booked for.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_NIGHTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

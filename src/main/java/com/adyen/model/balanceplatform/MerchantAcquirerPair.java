@@ -46,7 +46,7 @@ public class MerchantAcquirerPair {
   /**
    * The acquirer ID.
    *
-   * @param acquirerId
+   * @param acquirerId The acquirer ID.
    * @return the current {@code MerchantAcquirerPair} instance, allowing for method chaining
    */
   public MerchantAcquirerPair acquirerId(String acquirerId) {
@@ -56,7 +56,7 @@ public class MerchantAcquirerPair {
 
   /**
    * The acquirer ID.
-   * @return acquirerId
+   * @return acquirerId The acquirer ID.
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class MerchantAcquirerPair {
   /**
    * The acquirer ID.
    *
-   * @param acquirerId
+   * @param acquirerId The acquirer ID.
    */
   @JsonProperty(JSON_PROPERTY_ACQUIRER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class MerchantAcquirerPair {
   /**
    * The merchant identification number (MID).
    *
-   * @param merchantId
+   * @param merchantId The merchant identification number (MID).
    * @return the current {@code MerchantAcquirerPair} instance, allowing for method chaining
    */
   public MerchantAcquirerPair merchantId(String merchantId) {
@@ -88,7 +88,7 @@ public class MerchantAcquirerPair {
 
   /**
    * The merchant identification number (MID).
-   * @return merchantId
+   * @return merchantId The merchant identification number (MID).
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class MerchantAcquirerPair {
   /**
    * The merchant identification number (MID).
    *
-   * @param merchantId
+   * @param merchantId The merchant identification number (MID).
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

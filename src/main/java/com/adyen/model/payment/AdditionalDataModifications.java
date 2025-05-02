@@ -42,7 +42,7 @@ public class AdditionalDataModifications {
   /**
    * This is the installment option selected by the shopper. It is required only if specified by the user.
    *
-   * @param installmentPaymentDataSelectedInstallmentOption
+   * @param installmentPaymentDataSelectedInstallmentOption This is the installment option selected by the shopper. It is required only if specified by the user.
    * @return the current {@code AdditionalDataModifications} instance, allowing for method chaining
    */
   public AdditionalDataModifications installmentPaymentDataSelectedInstallmentOption(String installmentPaymentDataSelectedInstallmentOption) {
@@ -52,7 +52,7 @@ public class AdditionalDataModifications {
 
   /**
    * This is the installment option selected by the shopper. It is required only if specified by the user.
-   * @return installmentPaymentDataSelectedInstallmentOption
+   * @return installmentPaymentDataSelectedInstallmentOption This is the installment option selected by the shopper. It is required only if specified by the user.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_SELECTED_INSTALLMENT_OPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class AdditionalDataModifications {
   /**
    * This is the installment option selected by the shopper. It is required only if specified by the user.
    *
-   * @param installmentPaymentDataSelectedInstallmentOption
+   * @param installmentPaymentDataSelectedInstallmentOption This is the installment option selected by the shopper. It is required only if specified by the user.
    */
   @JsonProperty(JSON_PROPERTY_INSTALLMENT_PAYMENT_DATA_SELECTED_INSTALLMENT_OPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

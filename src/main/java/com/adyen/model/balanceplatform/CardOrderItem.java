@@ -80,7 +80,7 @@ public class CardOrderItem {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    * @return the current {@code CardOrderItem} instance, allowing for method chaining
    */
   public CardOrderItem balancePlatform(String balancePlatform) {
@@ -90,7 +90,7 @@ public class CardOrderItem {
 
   /**
    * The unique identifier of the balance platform.
-   * @return balancePlatform
+   * @return balancePlatform The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +101,7 @@ public class CardOrderItem {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class CardOrderItem {
   /**
    * card
    *
-   * @param card
+   * @param card 
    * @return the current {@code CardOrderItem} instance, allowing for method chaining
    */
   public CardOrderItem card(CardOrderItemDeliveryStatus card) {
@@ -122,7 +122,7 @@ public class CardOrderItem {
 
   /**
    * Get card
-   * @return card
+   * @return card 
    */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +133,7 @@ public class CardOrderItem {
   /**
    * card
    *
-   * @param card
+   * @param card 
    */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class CardOrderItem {
   /**
    * The unique identifier of the card order item.
    *
-   * @param cardOrderItemId
+   * @param cardOrderItemId The unique identifier of the card order item.
    * @return the current {@code CardOrderItem} instance, allowing for method chaining
    */
   public CardOrderItem cardOrderItemId(String cardOrderItemId) {
@@ -154,7 +154,7 @@ public class CardOrderItem {
 
   /**
    * The unique identifier of the card order item.
-   * @return cardOrderItemId
+   * @return cardOrderItemId The unique identifier of the card order item.
    */
   @JsonProperty(JSON_PROPERTY_CARD_ORDER_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +165,7 @@ public class CardOrderItem {
   /**
    * The unique identifier of the card order item.
    *
-   * @param cardOrderItemId
+   * @param cardOrderItemId The unique identifier of the card order item.
    */
   @JsonProperty(JSON_PROPERTY_CARD_ORDER_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class CardOrderItem {
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param creationDate
+   * @param creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return the current {@code CardOrderItem} instance, allowing for method chaining
    */
   public CardOrderItem creationDate(OffsetDateTime creationDate) {
@@ -186,7 +186,7 @@ public class CardOrderItem {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
-   * @return creationDate
+   * @return creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,7 +197,7 @@ public class CardOrderItem {
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param creationDate
+   * @param creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class CardOrderItem {
 
   /**
    * The ID of the resource.
-   * @return id
+   * @return id The ID of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class CardOrderItem {
   /**
    * The unique identifier of the payment instrument related to the card order item.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument related to the card order item.
    * @return the current {@code CardOrderItem} instance, allowing for method chaining
    */
   public CardOrderItem paymentInstrumentId(String paymentInstrumentId) {
@@ -229,7 +229,7 @@ public class CardOrderItem {
 
   /**
    * The unique identifier of the payment instrument related to the card order item.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId The unique identifier of the payment instrument related to the card order item.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class CardOrderItem {
   /**
    * The unique identifier of the payment instrument related to the card order item.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument related to the card order item.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,7 +251,7 @@ public class CardOrderItem {
   /**
    * pin
    *
-   * @param pin
+   * @param pin 
    * @return the current {@code CardOrderItem} instance, allowing for method chaining
    */
   public CardOrderItem pin(CardOrderItemDeliveryStatus pin) {
@@ -261,7 +261,7 @@ public class CardOrderItem {
 
   /**
    * Get pin
-   * @return pin
+   * @return pin 
    */
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,7 +272,7 @@ public class CardOrderItem {
   /**
    * pin
    *
-   * @param pin
+   * @param pin 
    */
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,7 +283,7 @@ public class CardOrderItem {
   /**
    * The shipping method used to deliver the card or the PIN.
    *
-   * @param shippingMethod
+   * @param shippingMethod The shipping method used to deliver the card or the PIN.
    * @return the current {@code CardOrderItem} instance, allowing for method chaining
    */
   public CardOrderItem shippingMethod(String shippingMethod) {
@@ -293,7 +293,7 @@ public class CardOrderItem {
 
   /**
    * The shipping method used to deliver the card or the PIN.
-   * @return shippingMethod
+   * @return shippingMethod The shipping method used to deliver the card or the PIN.
    */
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,7 +304,7 @@ public class CardOrderItem {
   /**
    * The shipping method used to deliver the card or the PIN.
    *
-   * @param shippingMethod
+   * @param shippingMethod The shipping method used to deliver the card or the PIN.
    */
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

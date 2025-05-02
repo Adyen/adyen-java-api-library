@@ -79,7 +79,7 @@ public class UpdateNetworkTokenRequest {
   /**
    * The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
    *
-   * @param status
+   * @param status The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
    * @return the current {@code UpdateNetworkTokenRequest} instance, allowing for method chaining
    */
   public UpdateNetworkTokenRequest status(StatusEnum status) {
@@ -89,7 +89,7 @@ public class UpdateNetworkTokenRequest {
 
   /**
    * The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
-   * @return status
+   * @return status The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class UpdateNetworkTokenRequest {
   /**
    * The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
    *
-   * @param status
+   * @param status The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

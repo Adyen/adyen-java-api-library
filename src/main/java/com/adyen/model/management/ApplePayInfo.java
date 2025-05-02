@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -38,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ApplePayInfo {
   public static final String JSON_PROPERTY_DOMAINS = "domains";
-  private List<String> domains = new ArrayList<>();
+  private List<String> domains;
 
   public ApplePayInfo() { 
   }
@@ -46,7 +44,7 @@ public class ApplePayInfo {
   /**
    * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
    *
-   * @param domains
+   * @param domains The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
    * @return the current {@code ApplePayInfo} instance, allowing for method chaining
    */
   public ApplePayInfo domains(List<String> domains) {
@@ -55,15 +53,17 @@ public class ApplePayInfo {
   }
 
   public ApplePayInfo addDomainsItem(String domainsItem) {
+    if (this.domains == null) {
+      this.domains = new ArrayList<>();
+    }
     this.domains.add(domainsItem);
     return this;
   }
 
   /**
    * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
-   * @return domains
+   * @return domains The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
    */
-  @ApiModelProperty(required = true, value = "The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live).")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getDomains() {
@@ -73,8 +73,8 @@ public class ApplePayInfo {
   /**
    * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
    *
-   * @param domains
-   */ 
+   * @param domains The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
+   */
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomains(List<String> domains) {

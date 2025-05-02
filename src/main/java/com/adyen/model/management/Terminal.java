@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TerminalAssignment;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -79,7 +77,7 @@ public class Terminal {
   /**
    * assignment
    *
-   * @param assignment
+   * @param assignment 
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal assignment(TerminalAssignment assignment) {
@@ -88,10 +86,9 @@ public class Terminal {
   }
 
   /**
-   * assignment
-   * @return assignment
+   * Get assignment
+   * @return assignment 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalAssignment getAssignment() {
@@ -101,8 +98,8 @@ public class Terminal {
   /**
    * assignment
    *
-   * @param assignment
-   */ 
+   * @param assignment 
+   */
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignment(TerminalAssignment assignment) {
@@ -112,7 +109,7 @@ public class Terminal {
   /**
    * connectivity
    *
-   * @param connectivity
+   * @param connectivity 
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal connectivity(TerminalConnectivity connectivity) {
@@ -121,10 +118,9 @@ public class Terminal {
   }
 
   /**
-   * connectivity
-   * @return connectivity
+   * Get connectivity
+   * @return connectivity 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalConnectivity getConnectivity() {
@@ -134,8 +130,8 @@ public class Terminal {
   /**
    * connectivity
    *
-   * @param connectivity
-   */ 
+   * @param connectivity 
+   */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(TerminalConnectivity connectivity) {
@@ -145,7 +141,7 @@ public class Terminal {
   /**
    * The software release currently in use on the terminal.
    *
-   * @param firmwareVersion
+   * @param firmwareVersion The software release currently in use on the terminal.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal firmwareVersion(String firmwareVersion) {
@@ -155,9 +151,8 @@ public class Terminal {
 
   /**
    * The software release currently in use on the terminal.
-   * @return firmwareVersion
+   * @return firmwareVersion The software release currently in use on the terminal.
    */
-  @ApiModelProperty(value = "The software release currently in use on the terminal.")
   @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFirmwareVersion() {
@@ -167,8 +162,8 @@ public class Terminal {
   /**
    * The software release currently in use on the terminal.
    *
-   * @param firmwareVersion
-   */ 
+   * @param firmwareVersion The software release currently in use on the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_FIRMWARE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirmwareVersion(String firmwareVersion) {
@@ -178,7 +173,7 @@ public class Terminal {
   /**
    * The unique identifier of the terminal.
    *
-   * @param id
+   * @param id The unique identifier of the terminal.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal id(String id) {
@@ -188,9 +183,8 @@ public class Terminal {
 
   /**
    * The unique identifier of the terminal.
-   * @return id
+   * @return id The unique identifier of the terminal.
    */
-  @ApiModelProperty(value = "The unique identifier of the terminal.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -200,8 +194,8 @@ public class Terminal {
   /**
    * The unique identifier of the terminal.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -211,7 +205,7 @@ public class Terminal {
   /**
    * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
    *
-   * @param lastActivityAt
+   * @param lastActivityAt Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal lastActivityAt(OffsetDateTime lastActivityAt) {
@@ -221,9 +215,8 @@ public class Terminal {
 
   /**
    * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
-   * @return lastActivityAt
+   * @return lastActivityAt Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
    */
-  @ApiModelProperty(value = "Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.")
   @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getLastActivityAt() {
@@ -233,8 +226,8 @@ public class Terminal {
   /**
    * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
    *
-   * @param lastActivityAt
-   */ 
+   * @param lastActivityAt Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
+   */
   @JsonProperty(JSON_PROPERTY_LAST_ACTIVITY_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastActivityAt(OffsetDateTime lastActivityAt) {
@@ -244,7 +237,7 @@ public class Terminal {
   /**
    * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
    *
-   * @param lastTransactionAt
+   * @param lastTransactionAt Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal lastTransactionAt(OffsetDateTime lastTransactionAt) {
@@ -254,9 +247,8 @@ public class Terminal {
 
   /**
    * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
-   * @return lastTransactionAt
+   * @return lastTransactionAt Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
    */
-  @ApiModelProperty(value = "Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.")
   @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getLastTransactionAt() {
@@ -266,8 +258,8 @@ public class Terminal {
   /**
    * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
    *
-   * @param lastTransactionAt
-   */ 
+   * @param lastTransactionAt Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
+   */
   @JsonProperty(JSON_PROPERTY_LAST_TRANSACTION_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastTransactionAt(OffsetDateTime lastTransactionAt) {
@@ -277,7 +269,7 @@ public class Terminal {
   /**
    * The model name of the terminal.
    *
-   * @param model
+   * @param model The model name of the terminal.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal model(String model) {
@@ -287,9 +279,8 @@ public class Terminal {
 
   /**
    * The model name of the terminal.
-   * @return model
+   * @return model The model name of the terminal.
    */
-  @ApiModelProperty(value = "The model name of the terminal.")
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getModel() {
@@ -299,8 +290,8 @@ public class Terminal {
   /**
    * The model name of the terminal.
    *
-   * @param model
-   */ 
+   * @param model The model name of the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModel(String model) {
@@ -310,7 +301,7 @@ public class Terminal {
   /**
    * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
    *
-   * @param restartLocalTime
+   * @param restartLocalTime The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal restartLocalTime(String restartLocalTime) {
@@ -320,9 +311,8 @@ public class Terminal {
 
   /**
    * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
-   * @return restartLocalTime
+   * @return restartLocalTime The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
    */
-  @ApiModelProperty(value = "The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.")
   @JsonProperty(JSON_PROPERTY_RESTART_LOCAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRestartLocalTime() {
@@ -332,8 +322,8 @@ public class Terminal {
   /**
    * The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
    *
-   * @param restartLocalTime
-   */ 
+   * @param restartLocalTime The exact time of the terminal reboot, in the timezone of the terminal in **HH:mm** format.
+   */
   @JsonProperty(JSON_PROPERTY_RESTART_LOCAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestartLocalTime(String restartLocalTime) {
@@ -343,7 +333,7 @@ public class Terminal {
   /**
    * The serial number of the terminal.
    *
-   * @param serialNumber
+   * @param serialNumber The serial number of the terminal.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal serialNumber(String serialNumber) {
@@ -353,9 +343,8 @@ public class Terminal {
 
   /**
    * The serial number of the terminal.
-   * @return serialNumber
+   * @return serialNumber The serial number of the terminal.
    */
-  @ApiModelProperty(value = "The serial number of the terminal.")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSerialNumber() {
@@ -365,8 +354,8 @@ public class Terminal {
   /**
    * The serial number of the terminal.
    *
-   * @param serialNumber
-   */ 
+   * @param serialNumber The serial number of the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {

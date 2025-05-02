@@ -43,7 +43,7 @@ public class FraudCheckResultWrapper {
   /**
    * fraudCheckResult
    *
-   * @param fraudCheckResult
+   * @param fraudCheckResult 
    * @return the current {@code FraudCheckResultWrapper} instance, allowing for method chaining
    */
   public FraudCheckResultWrapper fraudCheckResult(FraudCheckResult fraudCheckResult) {
@@ -53,7 +53,7 @@ public class FraudCheckResultWrapper {
 
   /**
    * Get fraudCheckResult
-   * @return fraudCheckResult
+   * @return fraudCheckResult 
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -64,7 +64,7 @@ public class FraudCheckResultWrapper {
   /**
    * fraudCheckResult
    *
-   * @param fraudCheckResult
+   * @param fraudCheckResult 
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_CHECK_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

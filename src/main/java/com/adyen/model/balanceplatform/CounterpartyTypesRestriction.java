@@ -87,7 +87,7 @@ public class CounterpartyTypesRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code CounterpartyTypesRestriction} instance, allowing for method chaining
    */
   public CounterpartyTypesRestriction operation(String operation) {
@@ -97,7 +97,7 @@ public class CounterpartyTypesRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class CounterpartyTypesRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class CounterpartyTypesRestriction {
   /**
    * The list of counterparty types to be evaluated.
    *
-   * @param value
+   * @param value The list of counterparty types to be evaluated.
    * @return the current {@code CounterpartyTypesRestriction} instance, allowing for method chaining
    */
   public CounterpartyTypesRestriction value(List<ValueEnum> value) {
@@ -137,7 +137,7 @@ public class CounterpartyTypesRestriction {
 
   /**
    * The list of counterparty types to be evaluated.
-   * @return value
+   * @return value The list of counterparty types to be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class CounterpartyTypesRestriction {
   /**
    * The list of counterparty types to be evaluated.
    *
-   * @param value
+   * @param value The list of counterparty types to be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

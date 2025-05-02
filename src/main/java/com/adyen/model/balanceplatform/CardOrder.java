@@ -106,7 +106,7 @@ public class CardOrder {
   /**
    * The date when the card order is created.
    *
-   * @param beginDate
+   * @param beginDate The date when the card order is created.
    * @return the current {@code CardOrder} instance, allowing for method chaining
    */
   public CardOrder beginDate(OffsetDateTime beginDate) {
@@ -116,7 +116,7 @@ public class CardOrder {
 
   /**
    * The date when the card order is created.
-   * @return beginDate
+   * @return beginDate The date when the card order is created.
    */
   @JsonProperty(JSON_PROPERTY_BEGIN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class CardOrder {
   /**
    * The date when the card order is created.
    *
-   * @param beginDate
+   * @param beginDate The date when the card order is created.
    */
   @JsonProperty(JSON_PROPERTY_BEGIN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class CardOrder {
   /**
    * The unique identifier of the card manufacturer profile.
    *
-   * @param cardManufacturingProfileId
+   * @param cardManufacturingProfileId The unique identifier of the card manufacturer profile.
    * @return the current {@code CardOrder} instance, allowing for method chaining
    */
   public CardOrder cardManufacturingProfileId(String cardManufacturingProfileId) {
@@ -148,7 +148,7 @@ public class CardOrder {
 
   /**
    * The unique identifier of the card manufacturer profile.
-   * @return cardManufacturingProfileId
+   * @return cardManufacturingProfileId The unique identifier of the card manufacturer profile.
    */
   @JsonProperty(JSON_PROPERTY_CARD_MANUFACTURING_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class CardOrder {
   /**
    * The unique identifier of the card manufacturer profile.
    *
-   * @param cardManufacturingProfileId
+   * @param cardManufacturingProfileId The unique identifier of the card manufacturer profile.
    */
   @JsonProperty(JSON_PROPERTY_CARD_MANUFACTURING_PROFILE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class CardOrder {
   /**
    * The date when the card order processing ends.
    *
-   * @param closedDate
+   * @param closedDate The date when the card order processing ends.
    * @return the current {@code CardOrder} instance, allowing for method chaining
    */
   public CardOrder closedDate(OffsetDateTime closedDate) {
@@ -180,7 +180,7 @@ public class CardOrder {
 
   /**
    * The date when the card order processing ends.
-   * @return closedDate
+   * @return closedDate The date when the card order processing ends.
    */
   @JsonProperty(JSON_PROPERTY_CLOSED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class CardOrder {
   /**
    * The date when the card order processing ends.
    *
-   * @param closedDate
+   * @param closedDate The date when the card order processing ends.
    */
   @JsonProperty(JSON_PROPERTY_CLOSED_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,7 +202,7 @@ public class CardOrder {
   /**
    * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
    *
-   * @param endDate
+   * @param endDate The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
    * @return the current {@code CardOrder} instance, allowing for method chaining
    */
   public CardOrder endDate(OffsetDateTime endDate) {
@@ -212,7 +212,7 @@ public class CardOrder {
 
   /**
    * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
-   * @return endDate
+   * @return endDate The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class CardOrder {
   /**
    * The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
    *
-   * @param endDate
+   * @param endDate The date when you manually closed the card order.  Card orders are automatically closed by the end of the day it was created. If you manually closed it beforehand, the closing date is shown as the &#x60;endDate&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class CardOrder {
   /**
    * The unique identifier of the card order.
    *
-   * @param id
+   * @param id The unique identifier of the card order.
    * @return the current {@code CardOrder} instance, allowing for method chaining
    */
   public CardOrder id(String id) {
@@ -244,7 +244,7 @@ public class CardOrder {
 
   /**
    * The unique identifier of the card order.
-   * @return id
+   * @return id The unique identifier of the card order.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class CardOrder {
   /**
    * The unique identifier of the card order.
    *
-   * @param id
+   * @param id The unique identifier of the card order.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +266,7 @@ public class CardOrder {
   /**
    * The date when the card order processing begins.
    *
-   * @param lockDate
+   * @param lockDate The date when the card order processing begins.
    * @return the current {@code CardOrder} instance, allowing for method chaining
    */
   public CardOrder lockDate(OffsetDateTime lockDate) {
@@ -276,7 +276,7 @@ public class CardOrder {
 
   /**
    * The date when the card order processing begins.
-   * @return lockDate
+   * @return lockDate The date when the card order processing begins.
    */
   @JsonProperty(JSON_PROPERTY_LOCK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +287,7 @@ public class CardOrder {
   /**
    * The date when the card order processing begins.
    *
-   * @param lockDate
+   * @param lockDate The date when the card order processing begins.
    */
   @JsonProperty(JSON_PROPERTY_LOCK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,7 +298,7 @@ public class CardOrder {
   /**
    * The service center.
    *
-   * @param serviceCenter
+   * @param serviceCenter The service center.
    * @return the current {@code CardOrder} instance, allowing for method chaining
    */
   public CardOrder serviceCenter(String serviceCenter) {
@@ -308,7 +308,7 @@ public class CardOrder {
 
   /**
    * The service center.
-   * @return serviceCenter
+   * @return serviceCenter The service center.
    */
   @JsonProperty(JSON_PROPERTY_SERVICE_CENTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,7 +319,7 @@ public class CardOrder {
   /**
    * The service center.
    *
-   * @param serviceCenter
+   * @param serviceCenter The service center.
    */
   @JsonProperty(JSON_PROPERTY_SERVICE_CENTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,7 +330,7 @@ public class CardOrder {
   /**
    * The status of the card order.  Possible values: **Open**, **Closed**.
    *
-   * @param status
+   * @param status The status of the card order.  Possible values: **Open**, **Closed**.
    * @return the current {@code CardOrder} instance, allowing for method chaining
    */
   public CardOrder status(StatusEnum status) {
@@ -340,7 +340,7 @@ public class CardOrder {
 
   /**
    * The status of the card order.  Possible values: **Open**, **Closed**.
-   * @return status
+   * @return status The status of the card order.  Possible values: **Open**, **Closed**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,7 +351,7 @@ public class CardOrder {
   /**
    * The status of the card order.  Possible values: **Open**, **Closed**.
    *
-   * @param status
+   * @param status The status of the card order.  Possible values: **Open**, **Closed**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -126,7 +126,7 @@ public class CALocalAccountIdentification {
   /**
    * The 5- to 12-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 5- to 12-digit bank account number, without separators or whitespace.
    * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
    */
   public CALocalAccountIdentification accountNumber(String accountNumber) {
@@ -136,7 +136,7 @@ public class CALocalAccountIdentification {
 
   /**
    * The 5- to 12-digit bank account number, without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The 5- to 12-digit bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class CALocalAccountIdentification {
   /**
    * The 5- to 12-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 5- to 12-digit bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class CALocalAccountIdentification {
   /**
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    *
-   * @param accountType
+   * @param accountType The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
    */
   public CALocalAccountIdentification accountType(AccountTypeEnum accountType) {
@@ -168,7 +168,7 @@ public class CALocalAccountIdentification {
 
   /**
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
-   * @return accountType
+   * @return accountType The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class CALocalAccountIdentification {
   /**
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    *
-   * @param accountType
+   * @param accountType The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class CALocalAccountIdentification {
   /**
    * The 3-digit institution number, without separators or whitespace.
    *
-   * @param institutionNumber
+   * @param institutionNumber The 3-digit institution number, without separators or whitespace.
    * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
    */
   public CALocalAccountIdentification institutionNumber(String institutionNumber) {
@@ -200,7 +200,7 @@ public class CALocalAccountIdentification {
 
   /**
    * The 3-digit institution number, without separators or whitespace.
-   * @return institutionNumber
+   * @return institutionNumber The 3-digit institution number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class CALocalAccountIdentification {
   /**
    * The 3-digit institution number, without separators or whitespace.
    *
-   * @param institutionNumber
+   * @param institutionNumber The 3-digit institution number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class CALocalAccountIdentification {
   /**
    * The 5-digit transit number, without separators or whitespace.
    *
-   * @param transitNumber
+   * @param transitNumber The 5-digit transit number, without separators or whitespace.
    * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
    */
   public CALocalAccountIdentification transitNumber(String transitNumber) {
@@ -232,7 +232,7 @@ public class CALocalAccountIdentification {
 
   /**
    * The 5-digit transit number, without separators or whitespace.
-   * @return transitNumber
+   * @return transitNumber The 5-digit transit number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class CALocalAccountIdentification {
   /**
    * The 5-digit transit number, without separators or whitespace.
    *
-   * @param transitNumber
+   * @param transitNumber The 5-digit transit number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_TRANSIT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +254,7 @@ public class CALocalAccountIdentification {
   /**
    * **caLocal**
    *
-   * @param type
+   * @param type **caLocal**
    * @return the current {@code CALocalAccountIdentification} instance, allowing for method chaining
    */
   public CALocalAccountIdentification type(TypeEnum type) {
@@ -264,7 +264,7 @@ public class CALocalAccountIdentification {
 
   /**
    * **caLocal**
-   * @return type
+   * @return type **caLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +275,7 @@ public class CALocalAccountIdentification {
   /**
    * **caLocal**
    *
-   * @param type
+   * @param type **caLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

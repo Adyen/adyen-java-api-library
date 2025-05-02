@@ -83,7 +83,7 @@ public class AULocalAccountIdentification {
   /**
    * The bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace.
    * @return the current {@code AULocalAccountIdentification} instance, allowing for method chaining
    */
   public AULocalAccountIdentification accountNumber(String accountNumber) {
@@ -93,7 +93,7 @@ public class AULocalAccountIdentification {
 
   /**
    * The bank account number, without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class AULocalAccountIdentification {
   /**
    * The bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class AULocalAccountIdentification {
   /**
    * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
    *
-   * @param bsbCode
+   * @param bsbCode The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
    * @return the current {@code AULocalAccountIdentification} instance, allowing for method chaining
    */
   public AULocalAccountIdentification bsbCode(String bsbCode) {
@@ -125,7 +125,7 @@ public class AULocalAccountIdentification {
 
   /**
    * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
-   * @return bsbCode
+   * @return bsbCode The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_BSB_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class AULocalAccountIdentification {
   /**
    * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
    *
-   * @param bsbCode
+   * @param bsbCode The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_BSB_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class AULocalAccountIdentification {
   /**
    * **auLocal**
    *
-   * @param type
+   * @param type **auLocal**
    * @return the current {@code AULocalAccountIdentification} instance, allowing for method chaining
    */
   public AULocalAccountIdentification type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class AULocalAccountIdentification {
 
   /**
    * **auLocal**
-   * @return type
+   * @return type **auLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class AULocalAccountIdentification {
   /**
    * **auLocal**
    *
-   * @param type
+   * @param type **auLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

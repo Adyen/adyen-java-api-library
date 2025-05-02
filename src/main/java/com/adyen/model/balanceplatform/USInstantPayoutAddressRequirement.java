@@ -79,7 +79,7 @@ public class USInstantPayoutAddressRequirement {
   /**
    * Specifies that you must provide complete street addresses for the party and counterParty for transactions greater than USD 3000.
    *
-   * @param description
+   * @param description Specifies that you must provide complete street addresses for the party and counterParty for transactions greater than USD 3000.
    * @return the current {@code USInstantPayoutAddressRequirement} instance, allowing for method chaining
    */
   public USInstantPayoutAddressRequirement description(String description) {
@@ -89,7 +89,7 @@ public class USInstantPayoutAddressRequirement {
 
   /**
    * Specifies that you must provide complete street addresses for the party and counterParty for transactions greater than USD 3000.
-   * @return description
+   * @return description Specifies that you must provide complete street addresses for the party and counterParty for transactions greater than USD 3000.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class USInstantPayoutAddressRequirement {
   /**
    * Specifies that you must provide complete street addresses for the party and counterParty for transactions greater than USD 3000.
    *
-   * @param description
+   * @param description Specifies that you must provide complete street addresses for the party and counterParty for transactions greater than USD 3000.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class USInstantPayoutAddressRequirement {
   /**
    * **usInstantPayoutAddressRequirement**
    *
-   * @param type
+   * @param type **usInstantPayoutAddressRequirement**
    * @return the current {@code USInstantPayoutAddressRequirement} instance, allowing for method chaining
    */
   public USInstantPayoutAddressRequirement type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class USInstantPayoutAddressRequirement {
 
   /**
    * **usInstantPayoutAddressRequirement**
-   * @return type
+   * @return type **usInstantPayoutAddressRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class USInstantPayoutAddressRequirement {
   /**
    * **usInstantPayoutAddressRequirement**
    *
-   * @param type
+   * @param type **usInstantPayoutAddressRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

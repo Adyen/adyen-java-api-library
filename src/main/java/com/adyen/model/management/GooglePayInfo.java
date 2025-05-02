@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class GooglePayInfo {
   /**
    * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
    *
-   * @param merchantId
+   * @param merchantId Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
    * @return the current {@code GooglePayInfo} instance, allowing for method chaining
    */
   public GooglePayInfo merchantId(String merchantId) {
@@ -58,9 +56,8 @@ public class GooglePayInfo {
 
   /**
    * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
-   * @return merchantId
+   * @return merchantId Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
    */
-  @ApiModelProperty(required = true, value = "Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantId() {
@@ -70,8 +67,8 @@ public class GooglePayInfo {
   /**
    * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
    *
-   * @param merchantId
-   */ 
+   * @param merchantId Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
@@ -81,7 +78,7 @@ public class GooglePayInfo {
   /**
    * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
    *
-   * @param reuseMerchantId
+   * @param reuseMerchantId Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
    * @return the current {@code GooglePayInfo} instance, allowing for method chaining
    */
   public GooglePayInfo reuseMerchantId(Boolean reuseMerchantId) {
@@ -91,9 +88,8 @@ public class GooglePayInfo {
 
   /**
    * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
-   * @return reuseMerchantId
+   * @return reuseMerchantId Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
    */
-  @ApiModelProperty(value = "Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.")
   @JsonProperty(JSON_PROPERTY_REUSE_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getReuseMerchantId() {
@@ -103,8 +99,8 @@ public class GooglePayInfo {
   /**
    * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
    *
-   * @param reuseMerchantId
-   */ 
+   * @param reuseMerchantId Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
+   */
   @JsonProperty(JSON_PROPERTY_REUSE_MERCHANT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReuseMerchantId(Boolean reuseMerchantId) {

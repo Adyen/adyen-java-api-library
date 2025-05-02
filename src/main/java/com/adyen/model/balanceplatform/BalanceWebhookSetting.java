@@ -57,7 +57,7 @@ public class BalanceWebhookSetting extends WebhookSetting {
   /**
    * The list of settings and criteria for triggering the [balance webhook](https://docs.adyen.com/api-explorer/balance-webhooks/latest/post/balanceAccount.balance.updated).
    *
-   * @param conditions
+   * @param conditions The list of settings and criteria for triggering the [balance webhook](https://docs.adyen.com/api-explorer/balance-webhooks/latest/post/balanceAccount.balance.updated).
    * @return the current {@code BalanceWebhookSetting} instance, allowing for method chaining
    */
   public BalanceWebhookSetting conditions(List<Condition> conditions) {
@@ -75,7 +75,7 @@ public class BalanceWebhookSetting extends WebhookSetting {
 
   /**
    * The list of settings and criteria for triggering the [balance webhook](https://docs.adyen.com/api-explorer/balance-webhooks/latest/post/balanceAccount.balance.updated).
-   * @return conditions
+   * @return conditions The list of settings and criteria for triggering the [balance webhook](https://docs.adyen.com/api-explorer/balance-webhooks/latest/post/balanceAccount.balance.updated).
    */
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +86,7 @@ public class BalanceWebhookSetting extends WebhookSetting {
   /**
    * The list of settings and criteria for triggering the [balance webhook](https://docs.adyen.com/api-explorer/balance-webhooks/latest/post/balanceAccount.balance.updated).
    *
-   * @param conditions
+   * @param conditions The list of settings and criteria for triggering the [balance webhook](https://docs.adyen.com/api-explorer/balance-webhooks/latest/post/balanceAccount.balance.updated).
    */
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

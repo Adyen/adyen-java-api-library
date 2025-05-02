@@ -81,7 +81,7 @@ public class Phone {
   /**
    * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    *
-   * @param number
+   * @param number The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    * @return the current {@code Phone} instance, allowing for method chaining
    */
   public Phone number(String number) {
@@ -91,7 +91,7 @@ public class Phone {
 
   /**
    * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
-   * @return number
+   * @return number The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +102,7 @@ public class Phone {
   /**
    * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    *
-   * @param number
+   * @param number The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +113,7 @@ public class Phone {
   /**
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
    *
-   * @param type
+   * @param type Type of phone number. Possible values:  **Landline**, **Mobile**. 
    * @return the current {@code Phone} instance, allowing for method chaining
    */
   public Phone type(TypeEnum type) {
@@ -123,7 +123,7 @@ public class Phone {
 
   /**
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
-   * @return type
+   * @return type Type of phone number. Possible values:  **Landline**, **Mobile**. 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +134,7 @@ public class Phone {
   /**
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
    *
-   * @param type
+   * @param type Type of phone number. Possible values:  **Landline**, **Mobile**. 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

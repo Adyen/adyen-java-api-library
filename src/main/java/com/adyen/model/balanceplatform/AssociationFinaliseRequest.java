@@ -86,7 +86,7 @@ public class AssociationFinaliseRequest {
   /**
    * The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    *
-   * @param ids
+   * @param ids The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    * @return the current {@code AssociationFinaliseRequest} instance, allowing for method chaining
    */
   public AssociationFinaliseRequest ids(List<String> ids) {
@@ -104,7 +104,7 @@ public class AssociationFinaliseRequest {
 
   /**
    * The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
-   * @return ids
+   * @return ids The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    */
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class AssociationFinaliseRequest {
   /**
    * The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    *
-   * @param ids
+   * @param ids The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    */
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class AssociationFinaliseRequest {
   /**
    * strongCustomerAuthentication
    *
-   * @param strongCustomerAuthentication
+   * @param strongCustomerAuthentication 
    * @return the current {@code AssociationFinaliseRequest} instance, allowing for method chaining
    */
   public AssociationFinaliseRequest strongCustomerAuthentication(AssociationDelegatedAuthenticationData strongCustomerAuthentication) {
@@ -136,7 +136,7 @@ public class AssociationFinaliseRequest {
 
   /**
    * Get strongCustomerAuthentication
-   * @return strongCustomerAuthentication
+   * @return strongCustomerAuthentication 
    */
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class AssociationFinaliseRequest {
   /**
    * strongCustomerAuthentication
    *
-   * @param strongCustomerAuthentication
+   * @param strongCustomerAuthentication 
    */
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class AssociationFinaliseRequest {
   /**
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    *
-   * @param type
+   * @param type The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    * @return the current {@code AssociationFinaliseRequest} instance, allowing for method chaining
    */
   public AssociationFinaliseRequest type(TypeEnum type) {
@@ -168,7 +168,7 @@ public class AssociationFinaliseRequest {
 
   /**
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
-   * @return type
+   * @return type The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class AssociationFinaliseRequest {
   /**
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    *
-   * @param type
+   * @param type The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

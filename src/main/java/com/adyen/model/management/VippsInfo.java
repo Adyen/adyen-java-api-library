@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class VippsInfo {
   /**
    * Vipps logo. Format: Base64-encoded string.
    *
-   * @param logo
+   * @param logo Vipps logo. Format: Base64-encoded string.
    * @return the current {@code VippsInfo} instance, allowing for method chaining
    */
   public VippsInfo logo(String logo) {
@@ -58,9 +56,8 @@ public class VippsInfo {
 
   /**
    * Vipps logo. Format: Base64-encoded string.
-   * @return logo
+   * @return logo Vipps logo. Format: Base64-encoded string.
    */
-  @ApiModelProperty(required = true, value = "Vipps logo. Format: Base64-encoded string.")
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLogo() {
@@ -70,8 +67,8 @@ public class VippsInfo {
   /**
    * Vipps logo. Format: Base64-encoded string.
    *
-   * @param logo
-   */ 
+   * @param logo Vipps logo. Format: Base64-encoded string.
+   */
   @JsonProperty(JSON_PROPERTY_LOGO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
@@ -81,7 +78,7 @@ public class VippsInfo {
   /**
    * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
    *
-   * @param subscriptionCancelUrl
+   * @param subscriptionCancelUrl Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
    * @return the current {@code VippsInfo} instance, allowing for method chaining
    */
   public VippsInfo subscriptionCancelUrl(String subscriptionCancelUrl) {
@@ -91,9 +88,8 @@ public class VippsInfo {
 
   /**
    * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
-   * @return subscriptionCancelUrl
+   * @return subscriptionCancelUrl Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
    */
-  @ApiModelProperty(value = "Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSubscriptionCancelUrl() {
@@ -103,8 +99,8 @@ public class VippsInfo {
   /**
    * Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
    *
-   * @param subscriptionCancelUrl
-   */ 
+   * @param subscriptionCancelUrl Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization))
+   */
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_CANCEL_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubscriptionCancelUrl(String subscriptionCancelUrl) {

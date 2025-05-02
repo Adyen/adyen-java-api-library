@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class GenerateClientKeyResponse {
   /**
    * Generated client key
    *
-   * @param clientKey
+   * @param clientKey Generated client key
    * @return the current {@code GenerateClientKeyResponse} instance, allowing for method chaining
    */
   public GenerateClientKeyResponse clientKey(String clientKey) {
@@ -54,9 +52,8 @@ public class GenerateClientKeyResponse {
 
   /**
    * Generated client key
-   * @return clientKey
+   * @return clientKey Generated client key
    */
-  @ApiModelProperty(required = true, value = "Generated client key")
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getClientKey() {
@@ -66,8 +63,8 @@ public class GenerateClientKeyResponse {
   /**
    * Generated client key
    *
-   * @param clientKey
-   */ 
+   * @param clientKey Generated client key
+   */
   @JsonProperty(JSON_PROPERTY_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientKey(String clientKey) {

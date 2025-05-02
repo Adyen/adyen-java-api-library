@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TerminalProductPrice;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,7 +47,7 @@ public class TerminalProduct {
   private String id;
 
   public static final String JSON_PROPERTY_ITEMS_INCLUDED = "itemsIncluded";
-  private List<String> itemsIncluded = null;
+  private List<String> itemsIncluded;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -63,7 +61,7 @@ public class TerminalProduct {
   /**
    * Information about items included and integration options.
    *
-   * @param description
+   * @param description Information about items included and integration options.
    * @return the current {@code TerminalProduct} instance, allowing for method chaining
    */
   public TerminalProduct description(String description) {
@@ -73,9 +71,8 @@ public class TerminalProduct {
 
   /**
    * Information about items included and integration options.
-   * @return description
+   * @return description Information about items included and integration options.
    */
-  @ApiModelProperty(value = "Information about items included and integration options.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -85,8 +82,8 @@ public class TerminalProduct {
   /**
    * Information about items included and integration options.
    *
-   * @param description
-   */ 
+   * @param description Information about items included and integration options.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -96,7 +93,7 @@ public class TerminalProduct {
   /**
    * The unique identifier of the product.
    *
-   * @param id
+   * @param id The unique identifier of the product.
    * @return the current {@code TerminalProduct} instance, allowing for method chaining
    */
   public TerminalProduct id(String id) {
@@ -106,9 +103,8 @@ public class TerminalProduct {
 
   /**
    * The unique identifier of the product.
-   * @return id
+   * @return id The unique identifier of the product.
    */
-  @ApiModelProperty(value = "The unique identifier of the product.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -118,8 +114,8 @@ public class TerminalProduct {
   /**
    * The unique identifier of the product.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the product.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -129,7 +125,7 @@ public class TerminalProduct {
   /**
    * A list of parts included in the terminal package.
    *
-   * @param itemsIncluded
+   * @param itemsIncluded A list of parts included in the terminal package.
    * @return the current {@code TerminalProduct} instance, allowing for method chaining
    */
   public TerminalProduct itemsIncluded(List<String> itemsIncluded) {
@@ -147,9 +143,8 @@ public class TerminalProduct {
 
   /**
    * A list of parts included in the terminal package.
-   * @return itemsIncluded
+   * @return itemsIncluded A list of parts included in the terminal package.
    */
-  @ApiModelProperty(value = "A list of parts included in the terminal package.")
   @JsonProperty(JSON_PROPERTY_ITEMS_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getItemsIncluded() {
@@ -159,8 +154,8 @@ public class TerminalProduct {
   /**
    * A list of parts included in the terminal package.
    *
-   * @param itemsIncluded
-   */ 
+   * @param itemsIncluded A list of parts included in the terminal package.
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItemsIncluded(List<String> itemsIncluded) {
@@ -170,7 +165,7 @@ public class TerminalProduct {
   /**
    * The descriptive name of the product.
    *
-   * @param name
+   * @param name The descriptive name of the product.
    * @return the current {@code TerminalProduct} instance, allowing for method chaining
    */
   public TerminalProduct name(String name) {
@@ -180,9 +175,8 @@ public class TerminalProduct {
 
   /**
    * The descriptive name of the product.
-   * @return name
+   * @return name The descriptive name of the product.
    */
-  @ApiModelProperty(value = "The descriptive name of the product.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -192,8 +186,8 @@ public class TerminalProduct {
   /**
    * The descriptive name of the product.
    *
-   * @param name
-   */ 
+   * @param name The descriptive name of the product.
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -203,7 +197,7 @@ public class TerminalProduct {
   /**
    * price
    *
-   * @param price
+   * @param price 
    * @return the current {@code TerminalProduct} instance, allowing for method chaining
    */
   public TerminalProduct price(TerminalProductPrice price) {
@@ -212,10 +206,9 @@ public class TerminalProduct {
   }
 
   /**
-   * price
-   * @return price
+   * Get price
+   * @return price 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalProductPrice getPrice() {
@@ -225,8 +218,8 @@ public class TerminalProduct {
   /**
    * price
    *
-   * @param price
-   */ 
+   * @param price 
+   */
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrice(TerminalProductPrice price) {

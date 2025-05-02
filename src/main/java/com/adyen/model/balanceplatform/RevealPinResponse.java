@@ -46,7 +46,7 @@ public class RevealPinResponse {
   /**
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    *
-   * @param encryptedPinBlock
+   * @param encryptedPinBlock The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    * @return the current {@code RevealPinResponse} instance, allowing for method chaining
    */
   public RevealPinResponse encryptedPinBlock(String encryptedPinBlock) {
@@ -56,7 +56,7 @@ public class RevealPinResponse {
 
   /**
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
-   * @return encryptedPinBlock
+   * @return encryptedPinBlock The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class RevealPinResponse {
   /**
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    *
-   * @param encryptedPinBlock
+   * @param encryptedPinBlock The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class RevealPinResponse {
   /**
    * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    *
-   * @param token
+   * @param token The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    * @return the current {@code RevealPinResponse} instance, allowing for method chaining
    */
   public RevealPinResponse token(String token) {
@@ -88,7 +88,7 @@ public class RevealPinResponse {
 
   /**
    * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
-   * @return token
+   * @return token The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class RevealPinResponse {
   /**
    * The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    *
-   * @param token
+   * @param token The 16-digit token that you need to extract the &#x60;encryptedPinBlock&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

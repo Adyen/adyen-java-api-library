@@ -50,7 +50,7 @@ public class OnboardingTheme {
   private String id;
 
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
-  private Map<String, String> properties = new HashMap<>();
+  private Map<String, String> properties;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private OffsetDateTime updatedAt;
@@ -61,7 +61,7 @@ public class OnboardingTheme {
   /**
    * The creation date of the theme.
    *
-   * @param createdAt
+   * @param createdAt The creation date of the theme.
    * @return the current {@code OnboardingTheme} instance, allowing for method chaining
    */
   public OnboardingTheme createdAt(OffsetDateTime createdAt) {
@@ -71,7 +71,7 @@ public class OnboardingTheme {
 
   /**
    * The creation date of the theme.
-   * @return createdAt
+   * @return createdAt The creation date of the theme.
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class OnboardingTheme {
   /**
    * The creation date of the theme.
    *
-   * @param createdAt
+   * @param createdAt The creation date of the theme.
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +93,7 @@ public class OnboardingTheme {
   /**
    * The description of the theme.
    *
-   * @param description
+   * @param description The description of the theme.
    * @return the current {@code OnboardingTheme} instance, allowing for method chaining
    */
   public OnboardingTheme description(String description) {
@@ -103,7 +103,7 @@ public class OnboardingTheme {
 
   /**
    * The description of the theme.
-   * @return description
+   * @return description The description of the theme.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class OnboardingTheme {
   /**
    * The description of the theme.
    *
-   * @param description
+   * @param description The description of the theme.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class OnboardingTheme {
   /**
    * The unique identifier of the theme.
    *
-   * @param id
+   * @param id The unique identifier of the theme.
    * @return the current {@code OnboardingTheme} instance, allowing for method chaining
    */
   public OnboardingTheme id(String id) {
@@ -135,7 +135,7 @@ public class OnboardingTheme {
 
   /**
    * The unique identifier of the theme.
-   * @return id
+   * @return id The unique identifier of the theme.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class OnboardingTheme {
   /**
    * The unique identifier of the theme.
    *
-   * @param id
+   * @param id The unique identifier of the theme.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class OnboardingTheme {
   /**
    * The properties of the theme.
    *
-   * @param properties
+   * @param properties The properties of the theme.
    * @return the current {@code OnboardingTheme} instance, allowing for method chaining
    */
   public OnboardingTheme properties(Map<String, String> properties) {
@@ -175,7 +175,7 @@ public class OnboardingTheme {
 
   /**
    * The properties of the theme.
-   * @return properties
+   * @return properties The properties of the theme.
    */
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class OnboardingTheme {
   /**
    * The properties of the theme.
    *
-   * @param properties
+   * @param properties The properties of the theme.
    */
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,7 +197,7 @@ public class OnboardingTheme {
   /**
    * The date when the theme was last updated.
    *
-   * @param updatedAt
+   * @param updatedAt The date when the theme was last updated.
    * @return the current {@code OnboardingTheme} instance, allowing for method chaining
    */
   public OnboardingTheme updatedAt(OffsetDateTime updatedAt) {
@@ -207,7 +207,7 @@ public class OnboardingTheme {
 
   /**
    * The date when the theme was last updated.
-   * @return updatedAt
+   * @return updatedAt The date when the theme was last updated.
    */
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class OnboardingTheme {
   /**
    * The date when the theme was last updated.
    *
-   * @param updatedAt
+   * @param updatedAt The date when the theme was last updated.
    */
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

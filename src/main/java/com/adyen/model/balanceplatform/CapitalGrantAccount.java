@@ -58,7 +58,7 @@ public class CapitalGrantAccount {
   /**
    * The balances of the grant account.
    *
-   * @param balances
+   * @param balances The balances of the grant account.
    * @return the current {@code CapitalGrantAccount} instance, allowing for method chaining
    */
   public CapitalGrantAccount balances(List<CapitalBalance> balances) {
@@ -76,7 +76,7 @@ public class CapitalGrantAccount {
 
   /**
    * The balances of the grant account.
-   * @return balances
+   * @return balances The balances of the grant account.
    */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +87,7 @@ public class CapitalGrantAccount {
   /**
    * The balances of the grant account.
    *
-   * @param balances
+   * @param balances The balances of the grant account.
    */
   @JsonProperty(JSON_PROPERTY_BALANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +98,7 @@ public class CapitalGrantAccount {
   /**
    * The unique identifier of the balance account used to fund the grant.
    *
-   * @param fundingBalanceAccountId
+   * @param fundingBalanceAccountId The unique identifier of the balance account used to fund the grant.
    * @return the current {@code CapitalGrantAccount} instance, allowing for method chaining
    */
   public CapitalGrantAccount fundingBalanceAccountId(String fundingBalanceAccountId) {
@@ -108,7 +108,7 @@ public class CapitalGrantAccount {
 
   /**
    * The unique identifier of the balance account used to fund the grant.
-   * @return fundingBalanceAccountId
+   * @return fundingBalanceAccountId The unique identifier of the balance account used to fund the grant.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class CapitalGrantAccount {
   /**
    * The unique identifier of the balance account used to fund the grant.
    *
-   * @param fundingBalanceAccountId
+   * @param fundingBalanceAccountId The unique identifier of the balance account used to fund the grant.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class CapitalGrantAccount {
   /**
    * The identifier of the grant account.
    *
-   * @param id
+   * @param id The identifier of the grant account.
    * @return the current {@code CapitalGrantAccount} instance, allowing for method chaining
    */
   public CapitalGrantAccount id(String id) {
@@ -140,7 +140,7 @@ public class CapitalGrantAccount {
 
   /**
    * The identifier of the grant account.
-   * @return id
+   * @return id The identifier of the grant account.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class CapitalGrantAccount {
   /**
    * The identifier of the grant account.
    *
-   * @param id
+   * @param id The identifier of the grant account.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class CapitalGrantAccount {
   /**
    * The limits of the grant account.
    *
-   * @param limits
+   * @param limits The limits of the grant account.
    * @return the current {@code CapitalGrantAccount} instance, allowing for method chaining
    */
   public CapitalGrantAccount limits(List<GrantLimit> limits) {
@@ -180,7 +180,7 @@ public class CapitalGrantAccount {
 
   /**
    * The limits of the grant account.
-   * @return limits
+   * @return limits The limits of the grant account.
    */
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class CapitalGrantAccount {
   /**
    * The limits of the grant account.
    *
-   * @param limits
+   * @param limits The limits of the grant account.
    */
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

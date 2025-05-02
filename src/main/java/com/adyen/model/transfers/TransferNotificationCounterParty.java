@@ -61,7 +61,7 @@ public class TransferNotificationCounterParty {
   /**
    * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
    *
-   * @param balanceAccountId
+   * @param balanceAccountId The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
    * @return the current {@code TransferNotificationCounterParty} instance, allowing for method chaining
    */
   public TransferNotificationCounterParty balanceAccountId(String balanceAccountId) {
@@ -71,7 +71,7 @@ public class TransferNotificationCounterParty {
 
   /**
    * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
-   * @return balanceAccountId
+   * @return balanceAccountId The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class TransferNotificationCounterParty {
   /**
    * The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
    *
-   * @param balanceAccountId
+   * @param balanceAccountId The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +93,7 @@ public class TransferNotificationCounterParty {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    * @return the current {@code TransferNotificationCounterParty} instance, allowing for method chaining
    */
   public TransferNotificationCounterParty bankAccount(BankAccountV3 bankAccount) {
@@ -103,7 +103,7 @@ public class TransferNotificationCounterParty {
 
   /**
    * Get bankAccount
-   * @return bankAccount
+   * @return bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class TransferNotificationCounterParty {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class TransferNotificationCounterParty {
   /**
    * card
    *
-   * @param card
+   * @param card 
    * @return the current {@code TransferNotificationCounterParty} instance, allowing for method chaining
    */
   public TransferNotificationCounterParty card(Card card) {
@@ -135,7 +135,7 @@ public class TransferNotificationCounterParty {
 
   /**
    * Get card
-   * @return card
+   * @return card 
    */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class TransferNotificationCounterParty {
   /**
    * card
    *
-   * @param card
+   * @param card 
    */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class TransferNotificationCounterParty {
   /**
    * merchant
    *
-   * @param merchant
+   * @param merchant 
    * @return the current {@code TransferNotificationCounterParty} instance, allowing for method chaining
    */
   public TransferNotificationCounterParty merchant(TransferNotificationMerchantData merchant) {
@@ -167,7 +167,7 @@ public class TransferNotificationCounterParty {
 
   /**
    * Get merchant
-   * @return merchant
+   * @return merchant 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +178,7 @@ public class TransferNotificationCounterParty {
   /**
    * merchant
    *
-   * @param merchant
+   * @param merchant 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class TransferNotificationCounterParty {
   /**
    * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
    * @return the current {@code TransferNotificationCounterParty} instance, allowing for method chaining
    */
   public TransferNotificationCounterParty transferInstrumentId(String transferInstrumentId) {
@@ -199,7 +199,7 @@ public class TransferNotificationCounterParty {
 
   /**
    * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
-   * @return transferInstrumentId
+   * @return transferInstrumentId The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +210,7 @@ public class TransferNotificationCounterParty {
   /**
    * The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

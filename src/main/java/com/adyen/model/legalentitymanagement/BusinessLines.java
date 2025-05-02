@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class BusinessLines {
   public static final String JSON_PROPERTY_BUSINESS_LINES = "businessLines";
-  private List<BusinessLine> businessLines = new ArrayList<>();
+  private List<BusinessLine> businessLines;
 
   public BusinessLines() { 
   }
@@ -45,7 +45,7 @@ public class BusinessLines {
   /**
    * List of business lines.
    *
-   * @param businessLines
+   * @param businessLines List of business lines.
    * @return the current {@code BusinessLines} instance, allowing for method chaining
    */
   public BusinessLines businessLines(List<BusinessLine> businessLines) {
@@ -63,7 +63,7 @@ public class BusinessLines {
 
   /**
    * List of business lines.
-   * @return businessLines
+   * @return businessLines List of business lines.
    */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class BusinessLines {
   /**
    * List of business lines.
    *
-   * @param businessLines
+   * @param businessLines List of business lines.
    */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

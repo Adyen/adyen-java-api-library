@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.ScheduleTerminalActionsRequestActionDetails;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +49,7 @@ public class ScheduleTerminalActionsResponse {
   private ScheduleTerminalActionsRequestActionDetails actionDetails;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
-  private List<TerminalActionScheduleDetail> items = null;
+  private List<TerminalActionScheduleDetail> items;
 
   public static final String JSON_PROPERTY_SCHEDULED_AT = "scheduledAt";
   private String scheduledAt;
@@ -60,7 +58,7 @@ public class ScheduleTerminalActionsResponse {
   private String storeId;
 
   public static final String JSON_PROPERTY_TERMINALS_WITH_ERRORS = "terminalsWithErrors";
-  private Map<String, List<String>> terminalsWithErrors = null;
+  private Map<String, List<String>> terminalsWithErrors;
 
   public static final String JSON_PROPERTY_TOTAL_ERRORS = "totalErrors";
   private Integer totalErrors;
@@ -74,7 +72,7 @@ public class ScheduleTerminalActionsResponse {
   /**
    * actionDetails
    *
-   * @param actionDetails
+   * @param actionDetails 
    * @return the current {@code ScheduleTerminalActionsResponse} instance, allowing for method chaining
    */
   public ScheduleTerminalActionsResponse actionDetails(ScheduleTerminalActionsRequestActionDetails actionDetails) {
@@ -83,10 +81,9 @@ public class ScheduleTerminalActionsResponse {
   }
 
   /**
-   * actionDetails
-   * @return actionDetails
+   * Get actionDetails
+   * @return actionDetails 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACTION_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ScheduleTerminalActionsRequestActionDetails getActionDetails() {
@@ -96,8 +93,8 @@ public class ScheduleTerminalActionsResponse {
   /**
    * actionDetails
    *
-   * @param actionDetails
-   */ 
+   * @param actionDetails 
+   */
   @JsonProperty(JSON_PROPERTY_ACTION_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActionDetails(ScheduleTerminalActionsRequestActionDetails actionDetails) {
@@ -107,7 +104,7 @@ public class ScheduleTerminalActionsResponse {
   /**
    * A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.
    *
-   * @param items
+   * @param items A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.
    * @return the current {@code ScheduleTerminalActionsResponse} instance, allowing for method chaining
    */
   public ScheduleTerminalActionsResponse items(List<TerminalActionScheduleDetail> items) {
@@ -125,9 +122,8 @@ public class ScheduleTerminalActionsResponse {
 
   /**
    * A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.
-   * @return items
+   * @return items A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.
    */
-  @ApiModelProperty(value = "A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.")
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TerminalActionScheduleDetail> getItems() {
@@ -137,8 +133,8 @@ public class ScheduleTerminalActionsResponse {
   /**
    * A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.
    *
-   * @param items
-   */ 
+   * @param items A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.
+   */
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<TerminalActionScheduleDetail> items) {
@@ -148,7 +144,7 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
    *
-   * @param scheduledAt
+   * @param scheduledAt The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
    * @return the current {@code ScheduleTerminalActionsResponse} instance, allowing for method chaining
    */
   public ScheduleTerminalActionsResponse scheduledAt(String scheduledAt) {
@@ -158,9 +154,8 @@ public class ScheduleTerminalActionsResponse {
 
   /**
    * The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
-   * @return scheduledAt
+   * @return scheduledAt The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
    */
-  @ApiModelProperty(value = "The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.")
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getScheduledAt() {
@@ -170,8 +165,8 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
    *
-   * @param scheduledAt
-   */ 
+   * @param scheduledAt The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+0100**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
+   */
   @JsonProperty(JSON_PROPERTY_SCHEDULED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScheduledAt(String scheduledAt) {
@@ -181,7 +176,7 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
    *
-   * @param storeId
+   * @param storeId The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
    * @return the current {@code ScheduleTerminalActionsResponse} instance, allowing for method chaining
    */
   public ScheduleTerminalActionsResponse storeId(String storeId) {
@@ -191,9 +186,8 @@ public class ScheduleTerminalActionsResponse {
 
   /**
    * The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
-   * @return storeId
+   * @return storeId The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
    */
-  @ApiModelProperty(value = "The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the `terminalIds` list must be assigned to this store.")
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getStoreId() {
@@ -203,8 +197,8 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
    *
-   * @param storeId
-   */ 
+   * @param storeId The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
+   */
   @JsonProperty(JSON_PROPERTY_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
@@ -214,7 +208,7 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.
    *
-   * @param terminalsWithErrors
+   * @param terminalsWithErrors The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.
    * @return the current {@code ScheduleTerminalActionsResponse} instance, allowing for method chaining
    */
   public ScheduleTerminalActionsResponse terminalsWithErrors(Map<String, List<String>> terminalsWithErrors) {
@@ -232,9 +226,8 @@ public class ScheduleTerminalActionsResponse {
 
   /**
    * The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.
-   * @return terminalsWithErrors
+   * @return terminalsWithErrors The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.
    */
-  @ApiModelProperty(value = "The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.")
   @JsonProperty(JSON_PROPERTY_TERMINALS_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, List<String>> getTerminalsWithErrors() {
@@ -244,8 +237,8 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.
    *
-   * @param terminalsWithErrors
-   */ 
+   * @param terminalsWithErrors The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.
+   */
   @JsonProperty(JSON_PROPERTY_TERMINALS_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalsWithErrors(Map<String, List<String>> terminalsWithErrors) {
@@ -255,7 +248,7 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The number of terminals for which scheduling the action failed.
    *
-   * @param totalErrors
+   * @param totalErrors The number of terminals for which scheduling the action failed.
    * @return the current {@code ScheduleTerminalActionsResponse} instance, allowing for method chaining
    */
   public ScheduleTerminalActionsResponse totalErrors(Integer totalErrors) {
@@ -265,9 +258,8 @@ public class ScheduleTerminalActionsResponse {
 
   /**
    * The number of terminals for which scheduling the action failed.
-   * @return totalErrors
+   * @return totalErrors The number of terminals for which scheduling the action failed.
    */
-  @ApiModelProperty(value = "The number of terminals for which scheduling the action failed.")
   @JsonProperty(JSON_PROPERTY_TOTAL_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getTotalErrors() {
@@ -277,8 +269,8 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The number of terminals for which scheduling the action failed.
    *
-   * @param totalErrors
-   */ 
+   * @param totalErrors The number of terminals for which scheduling the action failed.
+   */
   @JsonProperty(JSON_PROPERTY_TOTAL_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalErrors(Integer totalErrors) {
@@ -288,7 +280,7 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The number of terminals for which the action was successfully scheduled. This doesn&#39;t mean the action has happened yet.
    *
-   * @param totalScheduled
+   * @param totalScheduled The number of terminals for which the action was successfully scheduled. This doesn&#39;t mean the action has happened yet.
    * @return the current {@code ScheduleTerminalActionsResponse} instance, allowing for method chaining
    */
   public ScheduleTerminalActionsResponse totalScheduled(Integer totalScheduled) {
@@ -298,9 +290,8 @@ public class ScheduleTerminalActionsResponse {
 
   /**
    * The number of terminals for which the action was successfully scheduled. This doesn&#39;t mean the action has happened yet.
-   * @return totalScheduled
+   * @return totalScheduled The number of terminals for which the action was successfully scheduled. This doesn&#39;t mean the action has happened yet.
    */
-  @ApiModelProperty(value = "The number of terminals for which the action was successfully scheduled. This doesn't mean the action has happened yet.")
   @JsonProperty(JSON_PROPERTY_TOTAL_SCHEDULED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getTotalScheduled() {
@@ -310,8 +301,8 @@ public class ScheduleTerminalActionsResponse {
   /**
    * The number of terminals for which the action was successfully scheduled. This doesn&#39;t mean the action has happened yet.
    *
-   * @param totalScheduled
-   */ 
+   * @param totalScheduled The number of terminals for which the action was successfully scheduled. This doesn&#39;t mean the action has happened yet.
+   */
   @JsonProperty(JSON_PROPERTY_TOTAL_SCHEDULED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalScheduled(Integer totalScheduled) {

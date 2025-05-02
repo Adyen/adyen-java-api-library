@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,10 +39,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class AdditionalSettings {
   public static final String JSON_PROPERTY_INCLUDE_EVENT_CODES = "includeEventCodes";
-  private List<String> includeEventCodes = null;
+  private List<String> includeEventCodes;
 
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
-  private Map<String, Boolean> properties = null;
+  private Map<String, Boolean> properties;
 
   public AdditionalSettings() { 
   }
@@ -52,7 +50,7 @@ public class AdditionalSettings {
   /**
    * Object containing list of event codes for which the notification will be sent. 
    *
-   * @param includeEventCodes
+   * @param includeEventCodes Object containing list of event codes for which the notification will be sent. 
    * @return the current {@code AdditionalSettings} instance, allowing for method chaining
    */
   public AdditionalSettings includeEventCodes(List<String> includeEventCodes) {
@@ -70,9 +68,8 @@ public class AdditionalSettings {
 
   /**
    * Object containing list of event codes for which the notification will be sent. 
-   * @return includeEventCodes
+   * @return includeEventCodes Object containing list of event codes for which the notification will be sent. 
    */
-  @ApiModelProperty(value = "Object containing list of event codes for which the notification will be sent. ")
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getIncludeEventCodes() {
@@ -82,8 +79,8 @@ public class AdditionalSettings {
   /**
    * Object containing list of event codes for which the notification will be sent. 
    *
-   * @param includeEventCodes
-   */ 
+   * @param includeEventCodes Object containing list of event codes for which the notification will be sent. 
+   */
   @JsonProperty(JSON_PROPERTY_INCLUDE_EVENT_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIncludeEventCodes(List<String> includeEventCodes) {
@@ -93,7 +90,7 @@ public class AdditionalSettings {
   /**
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    *
-   * @param properties
+   * @param properties Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    * @return the current {@code AdditionalSettings} instance, allowing for method chaining
    */
   public AdditionalSettings properties(Map<String, Boolean> properties) {
@@ -111,9 +108,8 @@ public class AdditionalSettings {
 
   /**
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
-   * @return properties
+   * @return properties Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    */
-  @ApiModelProperty(value = "Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, `captureDelayHours`: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.")
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, Boolean> getProperties() {
@@ -123,8 +119,8 @@ public class AdditionalSettings {
   /**
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    *
-   * @param properties
-   */ 
+   * @param properties Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
+   */
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(Map<String, Boolean> properties) {

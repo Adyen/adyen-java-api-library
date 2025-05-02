@@ -89,7 +89,7 @@ public class BankIdentification {
   /**
    * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    *
-   * @param country
+   * @param country Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return the current {@code BankIdentification} instance, allowing for method chaining
    */
   public BankIdentification country(String country) {
@@ -99,7 +99,7 @@ public class BankIdentification {
 
   /**
    * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-   * @return country
+   * @return country Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class BankIdentification {
   /**
    * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    *
-   * @param country
+   * @param country Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +121,7 @@ public class BankIdentification {
   /**
    * The bank identification code.
    *
-   * @param identification
+   * @param identification The bank identification code.
    * @return the current {@code BankIdentification} instance, allowing for method chaining
    */
   public BankIdentification identification(String identification) {
@@ -131,7 +131,7 @@ public class BankIdentification {
 
   /**
    * The bank identification code.
-   * @return identification
+   * @return identification The bank identification code.
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class BankIdentification {
   /**
    * The bank identification code.
    *
-   * @param identification
+   * @param identification The bank identification code.
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +153,7 @@ public class BankIdentification {
   /**
    * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    *
-   * @param identificationType
+   * @param identificationType The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    * @return the current {@code BankIdentification} instance, allowing for method chaining
    */
   public BankIdentification identificationType(IdentificationTypeEnum identificationType) {
@@ -163,7 +163,7 @@ public class BankIdentification {
 
   /**
    * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
-   * @return identificationType
+   * @return identificationType The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +174,7 @@ public class BankIdentification {
   /**
    * The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    *
-   * @param identificationType
+   * @param identificationType The type of the identification.  Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

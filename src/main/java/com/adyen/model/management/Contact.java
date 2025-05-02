@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,7 @@ public class Contact {
   /**
    * The individual&#39;s email address.
    *
-   * @param email
+   * @param email The individual&#39;s email address.
    * @return the current {@code Contact} instance, allowing for method chaining
    */
   public Contact email(String email) {
@@ -70,9 +68,8 @@ public class Contact {
 
   /**
    * The individual&#39;s email address.
-   * @return email
+   * @return email The individual&#39;s email address.
    */
-  @ApiModelProperty(value = "The individual's email address.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -82,8 +79,8 @@ public class Contact {
   /**
    * The individual&#39;s email address.
    *
-   * @param email
-   */ 
+   * @param email The individual&#39;s email address.
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -93,7 +90,7 @@ public class Contact {
   /**
    * The individual&#39;s first name.
    *
-   * @param firstName
+   * @param firstName The individual&#39;s first name.
    * @return the current {@code Contact} instance, allowing for method chaining
    */
   public Contact firstName(String firstName) {
@@ -103,9 +100,8 @@ public class Contact {
 
   /**
    * The individual&#39;s first name.
-   * @return firstName
+   * @return firstName The individual&#39;s first name.
    */
-  @ApiModelProperty(value = "The individual's first name.")
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFirstName() {
@@ -115,8 +111,8 @@ public class Contact {
   /**
    * The individual&#39;s first name.
    *
-   * @param firstName
-   */ 
+   * @param firstName The individual&#39;s first name.
+   */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirstName(String firstName) {
@@ -126,7 +122,7 @@ public class Contact {
   /**
    * The infix in the individual&#39;s name, if any.
    *
-   * @param infix
+   * @param infix The infix in the individual&#39;s name, if any.
    * @return the current {@code Contact} instance, allowing for method chaining
    */
   public Contact infix(String infix) {
@@ -136,9 +132,8 @@ public class Contact {
 
   /**
    * The infix in the individual&#39;s name, if any.
-   * @return infix
+   * @return infix The infix in the individual&#39;s name, if any.
    */
-  @ApiModelProperty(value = "The infix in the individual's name, if any.")
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInfix() {
@@ -148,8 +143,8 @@ public class Contact {
   /**
    * The infix in the individual&#39;s name, if any.
    *
-   * @param infix
-   */ 
+   * @param infix The infix in the individual&#39;s name, if any.
+   */
   @JsonProperty(JSON_PROPERTY_INFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInfix(String infix) {
@@ -159,7 +154,7 @@ public class Contact {
   /**
    * The individual&#39;s last name.
    *
-   * @param lastName
+   * @param lastName The individual&#39;s last name.
    * @return the current {@code Contact} instance, allowing for method chaining
    */
   public Contact lastName(String lastName) {
@@ -169,9 +164,8 @@ public class Contact {
 
   /**
    * The individual&#39;s last name.
-   * @return lastName
+   * @return lastName The individual&#39;s last name.
    */
-  @ApiModelProperty(value = "The individual's last name.")
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLastName() {
@@ -181,8 +175,8 @@ public class Contact {
   /**
    * The individual&#39;s last name.
    *
-   * @param lastName
-   */ 
+   * @param lastName The individual&#39;s last name.
+   */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastName(String lastName) {
@@ -192,7 +186,7 @@ public class Contact {
   /**
    * The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
    *
-   * @param phoneNumber
+   * @param phoneNumber The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
    * @return the current {@code Contact} instance, allowing for method chaining
    */
   public Contact phoneNumber(String phoneNumber) {
@@ -202,9 +196,8 @@ public class Contact {
 
   /**
    * The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
-   * @return phoneNumber
+   * @return phoneNumber The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
    */
-  @ApiModelProperty(value = "The individual's phone number, specified as 10-14 digits with an optional `+` prefix.")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneNumber() {
@@ -214,8 +207,8 @@ public class Contact {
   /**
    * The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
    *
-   * @param phoneNumber
-   */ 
+   * @param phoneNumber The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
+   */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {

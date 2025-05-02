@@ -87,7 +87,7 @@ public class DocumentPage {
   /**
    * pageName
    *
-   * @param pageName
+   * @param pageName 
    * @return the current {@code DocumentPage} instance, allowing for method chaining
    */
   public DocumentPage pageName(String pageName) {
@@ -97,7 +97,7 @@ public class DocumentPage {
 
   /**
    * Get pageName
-   * @return pageName
+   * @return pageName 
    */
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class DocumentPage {
   /**
    * pageName
    *
-   * @param pageName
+   * @param pageName 
    */
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class DocumentPage {
   /**
    * pageNumber
    *
-   * @param pageNumber
+   * @param pageNumber 
    * @return the current {@code DocumentPage} instance, allowing for method chaining
    */
   public DocumentPage pageNumber(Integer pageNumber) {
@@ -129,7 +129,7 @@ public class DocumentPage {
 
   /**
    * Get pageNumber
-   * @return pageNumber
+   * @return pageNumber 
    */
   @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class DocumentPage {
   /**
    * pageNumber
    *
-   * @param pageNumber
+   * @param pageNumber 
    */
   @JsonProperty(JSON_PROPERTY_PAGE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class DocumentPage {
   /**
    * type
    *
-   * @param type
+   * @param type 
    * @return the current {@code DocumentPage} instance, allowing for method chaining
    */
   public DocumentPage type(TypeEnum type) {
@@ -161,7 +161,7 @@ public class DocumentPage {
 
   /**
    * Get type
-   * @return type
+   * @return type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class DocumentPage {
   /**
    * type
    *
-   * @param type
+   * @param type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

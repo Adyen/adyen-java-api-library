@@ -46,7 +46,7 @@ public class AuthenticationSessionResponse {
   /**
    * The unique identifier of the session.
    *
-   * @param id
+   * @param id The unique identifier of the session.
    * @return the current {@code AuthenticationSessionResponse} instance, allowing for method chaining
    */
   public AuthenticationSessionResponse id(String id) {
@@ -56,7 +56,7 @@ public class AuthenticationSessionResponse {
 
   /**
    * The unique identifier of the session.
-   * @return id
+   * @return id The unique identifier of the session.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class AuthenticationSessionResponse {
   /**
    * The unique identifier of the session.
    *
-   * @param id
+   * @param id The unique identifier of the session.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class AuthenticationSessionResponse {
   /**
    * The session token created.
    *
-   * @param token
+   * @param token The session token created.
    * @return the current {@code AuthenticationSessionResponse} instance, allowing for method chaining
    */
   public AuthenticationSessionResponse token(String token) {
@@ -88,7 +88,7 @@ public class AuthenticationSessionResponse {
 
   /**
    * The session token created.
-   * @return token
+   * @return token The session token created.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class AuthenticationSessionResponse {
   /**
    * The session token created.
    *
-   * @param token
+   * @param token The session token created.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

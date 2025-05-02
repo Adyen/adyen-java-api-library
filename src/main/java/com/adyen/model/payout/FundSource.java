@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payout.Address;
@@ -24,10 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -47,7 +44,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class FundSource {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
   private Address billingAddress;
@@ -70,7 +67,7 @@ public class FundSource {
   /**
    * A map of name-value pairs for passing additional or industry-specific data.
    *
-   * @param additionalData
+   * @param additionalData A map of name-value pairs for passing additional or industry-specific data.
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource additionalData(Map<String, String> additionalData) {
@@ -88,9 +85,8 @@ public class FundSource {
 
   /**
    * A map of name-value pairs for passing additional or industry-specific data.
-   * @return additionalData
+   * @return additionalData A map of name-value pairs for passing additional or industry-specific data.
    */
-  @ApiModelProperty(value = "A map of name-value pairs for passing additional or industry-specific data.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -100,8 +96,8 @@ public class FundSource {
   /**
    * A map of name-value pairs for passing additional or industry-specific data.
    *
-   * @param additionalData
-   */ 
+   * @param additionalData A map of name-value pairs for passing additional or industry-specific data.
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -111,7 +107,7 @@ public class FundSource {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource billingAddress(Address billingAddress) {
@@ -120,10 +116,9 @@ public class FundSource {
   }
 
   /**
-   * billingAddress
-   * @return billingAddress
+   * Get billingAddress
+   * @return billingAddress 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getBillingAddress() {
@@ -133,8 +128,8 @@ public class FundSource {
   /**
    * billingAddress
    *
-   * @param billingAddress
-   */ 
+   * @param billingAddress 
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -144,7 +139,7 @@ public class FundSource {
   /**
    * card
    *
-   * @param card
+   * @param card 
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource card(Card card) {
@@ -153,10 +148,9 @@ public class FundSource {
   }
 
   /**
-   * card
-   * @return card
+   * Get card
+   * @return card 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Card getCard() {
@@ -166,8 +160,8 @@ public class FundSource {
   /**
    * card
    *
-   * @param card
-   */ 
+   * @param card 
+   */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -177,7 +171,7 @@ public class FundSource {
   /**
    * Email address of the person.
    *
-   * @param shopperEmail
+   * @param shopperEmail Email address of the person.
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource shopperEmail(String shopperEmail) {
@@ -187,9 +181,8 @@ public class FundSource {
 
   /**
    * Email address of the person.
-   * @return shopperEmail
+   * @return shopperEmail Email address of the person.
    */
-  @ApiModelProperty(value = "Email address of the person.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -199,8 +192,8 @@ public class FundSource {
   /**
    * Email address of the person.
    *
-   * @param shopperEmail
-   */ 
+   * @param shopperEmail Email address of the person.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -210,7 +203,7 @@ public class FundSource {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource shopperName(Name shopperName) {
@@ -219,10 +212,9 @@ public class FundSource {
   }
 
   /**
-   * shopperName
-   * @return shopperName
+   * Get shopperName
+   * @return shopperName 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getShopperName() {
@@ -232,8 +224,8 @@ public class FundSource {
   /**
    * shopperName
    *
-   * @param shopperName
-   */ 
+   * @param shopperName 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -243,7 +235,7 @@ public class FundSource {
   /**
    * Phone number of the person
    *
-   * @param telephoneNumber
+   * @param telephoneNumber Phone number of the person
    * @return the current {@code FundSource} instance, allowing for method chaining
    */
   public FundSource telephoneNumber(String telephoneNumber) {
@@ -253,9 +245,8 @@ public class FundSource {
 
   /**
    * Phone number of the person
-   * @return telephoneNumber
+   * @return telephoneNumber Phone number of the person
    */
-  @ApiModelProperty(value = "Phone number of the person")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
@@ -265,8 +256,8 @@ public class FundSource {
   /**
    * Phone number of the person
    *
-   * @param telephoneNumber
-   */ 
+   * @param telephoneNumber Phone number of the person
+   */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {

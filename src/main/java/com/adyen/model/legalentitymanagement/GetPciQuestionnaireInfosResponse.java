@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GetPciQuestionnaireInfosResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<PciDocumentInfo> data = new ArrayList<>();
+  private List<PciDocumentInfo> data;
 
   public GetPciQuestionnaireInfosResponse() { 
   }
@@ -45,7 +45,7 @@ public class GetPciQuestionnaireInfosResponse {
   /**
    * Information about the signed PCI questionnaires.
    *
-   * @param data
+   * @param data Information about the signed PCI questionnaires.
    * @return the current {@code GetPciQuestionnaireInfosResponse} instance, allowing for method chaining
    */
   public GetPciQuestionnaireInfosResponse data(List<PciDocumentInfo> data) {
@@ -63,7 +63,7 @@ public class GetPciQuestionnaireInfosResponse {
 
   /**
    * Information about the signed PCI questionnaires.
-   * @return data
+   * @return data Information about the signed PCI questionnaires.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class GetPciQuestionnaireInfosResponse {
   /**
    * Information about the signed PCI questionnaires.
    *
-   * @param data
+   * @param data Information about the signed PCI questionnaires.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

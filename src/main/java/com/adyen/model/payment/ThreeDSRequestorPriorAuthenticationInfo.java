@@ -93,7 +93,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   /**
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    *
-   * @param threeDSReqPriorAuthData
+   * @param threeDSReqPriorAuthData Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    * @return the current {@code ThreeDSRequestorPriorAuthenticationInfo} instance, allowing for method chaining
    */
   public ThreeDSRequestorPriorAuthenticationInfo threeDSReqPriorAuthData(String threeDSReqPriorAuthData) {
@@ -103,7 +103,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
 
   /**
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
-   * @return threeDSReqPriorAuthData
+   * @return threeDSReqPriorAuthData Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   /**
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    *
-   * @param threeDSReqPriorAuthData
+   * @param threeDSReqPriorAuthData Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   /**
    * Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor. Allowed values: * **01** — Frictionless authentication occurred by ACS. * **02** — Cardholder challenge occurred by ACS. * **03** — AVS verified. * **04** — Other issuer methods.
    *
-   * @param threeDSReqPriorAuthMethod
+   * @param threeDSReqPriorAuthMethod Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor. Allowed values: * **01** — Frictionless authentication occurred by ACS. * **02** — Cardholder challenge occurred by ACS. * **03** — AVS verified. * **04** — Other issuer methods.
    * @return the current {@code ThreeDSRequestorPriorAuthenticationInfo} instance, allowing for method chaining
    */
   public ThreeDSRequestorPriorAuthenticationInfo threeDSReqPriorAuthMethod(ThreeDSReqPriorAuthMethodEnum threeDSReqPriorAuthMethod) {
@@ -135,7 +135,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
 
   /**
    * Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor. Allowed values: * **01** — Frictionless authentication occurred by ACS. * **02** — Cardholder challenge occurred by ACS. * **03** — AVS verified. * **04** — Other issuer methods.
-   * @return threeDSReqPriorAuthMethod
+   * @return threeDSReqPriorAuthMethod Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor. Allowed values: * **01** — Frictionless authentication occurred by ACS. * **02** — Cardholder challenge occurred by ACS. * **03** — AVS verified. * **04** — Other issuer methods.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   /**
    * Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor. Allowed values: * **01** — Frictionless authentication occurred by ACS. * **02** — Cardholder challenge occurred by ACS. * **03** — AVS verified. * **04** — Other issuer methods.
    *
-   * @param threeDSReqPriorAuthMethod
+   * @param threeDSReqPriorAuthMethod Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor. Allowed values: * **01** — Frictionless authentication occurred by ACS. * **02** — Cardholder challenge occurred by ACS. * **03** — AVS verified. * **04** — Other issuer methods.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   /**
    * Date and time in UTC of the prior cardholder authentication. Format: YYYYMMDDHHMM
    *
-   * @param threeDSReqPriorAuthTimestamp
+   * @param threeDSReqPriorAuthTimestamp Date and time in UTC of the prior cardholder authentication. Format: YYYYMMDDHHMM
    * @return the current {@code ThreeDSRequestorPriorAuthenticationInfo} instance, allowing for method chaining
    */
   public ThreeDSRequestorPriorAuthenticationInfo threeDSReqPriorAuthTimestamp(String threeDSReqPriorAuthTimestamp) {
@@ -167,7 +167,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
 
   /**
    * Date and time in UTC of the prior cardholder authentication. Format: YYYYMMDDHHMM
-   * @return threeDSReqPriorAuthTimestamp
+   * @return threeDSReqPriorAuthTimestamp Date and time in UTC of the prior cardholder authentication. Format: YYYYMMDDHHMM
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +178,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   /**
    * Date and time in UTC of the prior cardholder authentication. Format: YYYYMMDDHHMM
    *
-   * @param threeDSReqPriorAuthTimestamp
+   * @param threeDSReqPriorAuthTimestamp Date and time in UTC of the prior cardholder authentication. Format: YYYYMMDDHHMM
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_AUTH_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   /**
    * This data element provides additional information to the ACS to determine the best approach for handing a request. This data element contains an ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder. Length: 30 characters.
    *
-   * @param threeDSReqPriorRef
+   * @param threeDSReqPriorRef This data element provides additional information to the ACS to determine the best approach for handing a request. This data element contains an ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder. Length: 30 characters.
    * @return the current {@code ThreeDSRequestorPriorAuthenticationInfo} instance, allowing for method chaining
    */
   public ThreeDSRequestorPriorAuthenticationInfo threeDSReqPriorRef(String threeDSReqPriorRef) {
@@ -199,7 +199,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
 
   /**
    * This data element provides additional information to the ACS to determine the best approach for handing a request. This data element contains an ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder. Length: 30 characters.
-   * @return threeDSReqPriorRef
+   * @return threeDSReqPriorRef This data element provides additional information to the ACS to determine the best approach for handing a request. This data element contains an ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder. Length: 30 characters.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_REF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,7 +210,7 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
   /**
    * This data element provides additional information to the ACS to determine the best approach for handing a request. This data element contains an ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder. Length: 30 characters.
    *
-   * @param threeDSReqPriorRef
+   * @param threeDSReqPriorRef This data element provides additional information to the ACS to determine the best approach for handing a request. This data element contains an ACS Transaction ID for a prior authenticated transaction. For example, the first recurring transaction that was authenticated with the cardholder. Length: 30 characters.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_PRIOR_REF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

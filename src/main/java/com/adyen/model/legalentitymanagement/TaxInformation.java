@@ -50,7 +50,7 @@ public class TaxInformation {
   /**
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    *
-   * @param country
+   * @param country The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return the current {@code TaxInformation} instance, allowing for method chaining
    */
   public TaxInformation country(String country) {
@@ -60,7 +60,7 @@ public class TaxInformation {
 
   /**
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-   * @return country
+   * @return country The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class TaxInformation {
   /**
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    *
-   * @param country
+   * @param country The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class TaxInformation {
   /**
    * The tax ID number (TIN) of the organization or individual.
    *
-   * @param number
+   * @param number The tax ID number (TIN) of the organization or individual.
    * @return the current {@code TaxInformation} instance, allowing for method chaining
    */
   public TaxInformation number(String number) {
@@ -92,7 +92,7 @@ public class TaxInformation {
 
   /**
    * The tax ID number (TIN) of the organization or individual.
-   * @return number
+   * @return number The tax ID number (TIN) of the organization or individual.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class TaxInformation {
   /**
    * The tax ID number (TIN) of the organization or individual.
    *
-   * @param number
+   * @param number The tax ID number (TIN) of the organization or individual.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class TaxInformation {
   /**
    * The TIN type depending on the country where it was issued. Only provide if the country has multiple tax IDs: Singapore, Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
    *
-   * @param type
+   * @param type The TIN type depending on the country where it was issued. Only provide if the country has multiple tax IDs: Singapore, Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
    * @return the current {@code TaxInformation} instance, allowing for method chaining
    */
   public TaxInformation type(String type) {
@@ -124,7 +124,7 @@ public class TaxInformation {
 
   /**
    * The TIN type depending on the country where it was issued. Only provide if the country has multiple tax IDs: Singapore, Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
-   * @return type
+   * @return type The TIN type depending on the country where it was issued. Only provide if the country has multiple tax IDs: Singapore, Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class TaxInformation {
   /**
    * The TIN type depending on the country where it was issued. Only provide if the country has multiple tax IDs: Singapore, Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
    *
-   * @param type
+   * @param type The TIN type depending on the country where it was issued. Only provide if the country has multiple tax IDs: Singapore, Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

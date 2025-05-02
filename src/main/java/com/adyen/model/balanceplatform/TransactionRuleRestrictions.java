@@ -158,7 +158,7 @@ public class TransactionRuleRestrictions {
   /**
    * activeNetworkTokens
    *
-   * @param activeNetworkTokens
+   * @param activeNetworkTokens 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions activeNetworkTokens(ActiveNetworkTokensRestriction activeNetworkTokens) {
@@ -168,7 +168,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get activeNetworkTokens
-   * @return activeNetworkTokens
+   * @return activeNetworkTokens 
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class TransactionRuleRestrictions {
   /**
    * activeNetworkTokens
    *
-   * @param activeNetworkTokens
+   * @param activeNetworkTokens 
    */
   @JsonProperty(JSON_PROPERTY_ACTIVE_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class TransactionRuleRestrictions {
   /**
    * brandVariants
    *
-   * @param brandVariants
+   * @param brandVariants 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions brandVariants(BrandVariantsRestriction brandVariants) {
@@ -200,7 +200,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get brandVariants
-   * @return brandVariants
+   * @return brandVariants 
    */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class TransactionRuleRestrictions {
   /**
    * brandVariants
    *
-   * @param brandVariants
+   * @param brandVariants 
    */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class TransactionRuleRestrictions {
   /**
    * counterpartyBank
    *
-   * @param counterpartyBank
+   * @param counterpartyBank 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions counterpartyBank(CounterpartyBankRestriction counterpartyBank) {
@@ -232,7 +232,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get counterpartyBank
-   * @return counterpartyBank
+   * @return counterpartyBank 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class TransactionRuleRestrictions {
   /**
    * counterpartyBank
    *
-   * @param counterpartyBank
+   * @param counterpartyBank 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,7 +254,7 @@ public class TransactionRuleRestrictions {
   /**
    * counterpartyTypes
    *
-   * @param counterpartyTypes
+   * @param counterpartyTypes 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions counterpartyTypes(CounterpartyTypesRestriction counterpartyTypes) {
@@ -264,7 +264,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get counterpartyTypes
-   * @return counterpartyTypes
+   * @return counterpartyTypes 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +275,7 @@ public class TransactionRuleRestrictions {
   /**
    * counterpartyTypes
    *
-   * @param counterpartyTypes
+   * @param counterpartyTypes 
    */
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,7 +286,7 @@ public class TransactionRuleRestrictions {
   /**
    * countries
    *
-   * @param countries
+   * @param countries 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions countries(CountriesRestriction countries) {
@@ -296,7 +296,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get countries
-   * @return countries
+   * @return countries 
    */
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +307,7 @@ public class TransactionRuleRestrictions {
   /**
    * countries
    *
-   * @param countries
+   * @param countries 
    */
   @JsonProperty(JSON_PROPERTY_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,7 +318,7 @@ public class TransactionRuleRestrictions {
   /**
    * dayOfWeek
    *
-   * @param dayOfWeek
+   * @param dayOfWeek 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions dayOfWeek(DayOfWeekRestriction dayOfWeek) {
@@ -328,7 +328,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get dayOfWeek
-   * @return dayOfWeek
+   * @return dayOfWeek 
    */
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -339,7 +339,7 @@ public class TransactionRuleRestrictions {
   /**
    * dayOfWeek
    *
-   * @param dayOfWeek
+   * @param dayOfWeek 
    */
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,7 +350,7 @@ public class TransactionRuleRestrictions {
   /**
    * differentCurrencies
    *
-   * @param differentCurrencies
+   * @param differentCurrencies 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions differentCurrencies(DifferentCurrenciesRestriction differentCurrencies) {
@@ -360,7 +360,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get differentCurrencies
-   * @return differentCurrencies
+   * @return differentCurrencies 
    */
   @JsonProperty(JSON_PROPERTY_DIFFERENT_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -371,7 +371,7 @@ public class TransactionRuleRestrictions {
   /**
    * differentCurrencies
    *
-   * @param differentCurrencies
+   * @param differentCurrencies 
    */
   @JsonProperty(JSON_PROPERTY_DIFFERENT_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -382,7 +382,7 @@ public class TransactionRuleRestrictions {
   /**
    * entryModes
    *
-   * @param entryModes
+   * @param entryModes 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions entryModes(EntryModesRestriction entryModes) {
@@ -392,7 +392,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get entryModes
-   * @return entryModes
+   * @return entryModes 
    */
   @JsonProperty(JSON_PROPERTY_ENTRY_MODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -403,7 +403,7 @@ public class TransactionRuleRestrictions {
   /**
    * entryModes
    *
-   * @param entryModes
+   * @param entryModes 
    */
   @JsonProperty(JSON_PROPERTY_ENTRY_MODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -414,7 +414,7 @@ public class TransactionRuleRestrictions {
   /**
    * internationalTransaction
    *
-   * @param internationalTransaction
+   * @param internationalTransaction 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions internationalTransaction(InternationalTransactionRestriction internationalTransaction) {
@@ -424,7 +424,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get internationalTransaction
-   * @return internationalTransaction
+   * @return internationalTransaction 
    */
   @JsonProperty(JSON_PROPERTY_INTERNATIONAL_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -435,7 +435,7 @@ public class TransactionRuleRestrictions {
   /**
    * internationalTransaction
    *
-   * @param internationalTransaction
+   * @param internationalTransaction 
    */
   @JsonProperty(JSON_PROPERTY_INTERNATIONAL_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -446,7 +446,7 @@ public class TransactionRuleRestrictions {
   /**
    * matchingTransactions
    *
-   * @param matchingTransactions
+   * @param matchingTransactions 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions matchingTransactions(MatchingTransactionsRestriction matchingTransactions) {
@@ -456,7 +456,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get matchingTransactions
-   * @return matchingTransactions
+   * @return matchingTransactions 
    */
   @JsonProperty(JSON_PROPERTY_MATCHING_TRANSACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -467,7 +467,7 @@ public class TransactionRuleRestrictions {
   /**
    * matchingTransactions
    *
-   * @param matchingTransactions
+   * @param matchingTransactions 
    */
   @JsonProperty(JSON_PROPERTY_MATCHING_TRANSACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -478,7 +478,7 @@ public class TransactionRuleRestrictions {
   /**
    * matchingValues
    *
-   * @param matchingValues
+   * @param matchingValues 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions matchingValues(MatchingValuesRestriction matchingValues) {
@@ -488,7 +488,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get matchingValues
-   * @return matchingValues
+   * @return matchingValues 
    */
   @JsonProperty(JSON_PROPERTY_MATCHING_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -499,7 +499,7 @@ public class TransactionRuleRestrictions {
   /**
    * matchingValues
    *
-   * @param matchingValues
+   * @param matchingValues 
    */
   @JsonProperty(JSON_PROPERTY_MATCHING_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -510,7 +510,7 @@ public class TransactionRuleRestrictions {
   /**
    * mccs
    *
-   * @param mccs
+   * @param mccs 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions mccs(MccsRestriction mccs) {
@@ -520,7 +520,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get mccs
-   * @return mccs
+   * @return mccs 
    */
   @JsonProperty(JSON_PROPERTY_MCCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -531,7 +531,7 @@ public class TransactionRuleRestrictions {
   /**
    * mccs
    *
-   * @param mccs
+   * @param mccs 
    */
   @JsonProperty(JSON_PROPERTY_MCCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -542,7 +542,7 @@ public class TransactionRuleRestrictions {
   /**
    * merchantNames
    *
-   * @param merchantNames
+   * @param merchantNames 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions merchantNames(MerchantNamesRestriction merchantNames) {
@@ -552,7 +552,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get merchantNames
-   * @return merchantNames
+   * @return merchantNames 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -563,7 +563,7 @@ public class TransactionRuleRestrictions {
   /**
    * merchantNames
    *
-   * @param merchantNames
+   * @param merchantNames 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -574,7 +574,7 @@ public class TransactionRuleRestrictions {
   /**
    * merchants
    *
-   * @param merchants
+   * @param merchants 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions merchants(MerchantsRestriction merchants) {
@@ -584,7 +584,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get merchants
-   * @return merchants
+   * @return merchants 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -595,7 +595,7 @@ public class TransactionRuleRestrictions {
   /**
    * merchants
    *
-   * @param merchants
+   * @param merchants 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -606,7 +606,7 @@ public class TransactionRuleRestrictions {
   /**
    * processingTypes
    *
-   * @param processingTypes
+   * @param processingTypes 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions processingTypes(ProcessingTypesRestriction processingTypes) {
@@ -616,7 +616,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get processingTypes
-   * @return processingTypes
+   * @return processingTypes 
    */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -627,7 +627,7 @@ public class TransactionRuleRestrictions {
   /**
    * processingTypes
    *
-   * @param processingTypes
+   * @param processingTypes 
    */
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -638,7 +638,7 @@ public class TransactionRuleRestrictions {
   /**
    * riskScores
    *
-   * @param riskScores
+   * @param riskScores 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions riskScores(RiskScoresRestriction riskScores) {
@@ -648,7 +648,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get riskScores
-   * @return riskScores
+   * @return riskScores 
    */
   @JsonProperty(JSON_PROPERTY_RISK_SCORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -659,7 +659,7 @@ public class TransactionRuleRestrictions {
   /**
    * riskScores
    *
-   * @param riskScores
+   * @param riskScores 
    */
   @JsonProperty(JSON_PROPERTY_RISK_SCORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -670,7 +670,7 @@ public class TransactionRuleRestrictions {
   /**
    * sameAmountRestriction
    *
-   * @param sameAmountRestriction
+   * @param sameAmountRestriction 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions sameAmountRestriction(SameAmountRestriction sameAmountRestriction) {
@@ -680,7 +680,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get sameAmountRestriction
-   * @return sameAmountRestriction
+   * @return sameAmountRestriction 
    */
   @JsonProperty(JSON_PROPERTY_SAME_AMOUNT_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -691,7 +691,7 @@ public class TransactionRuleRestrictions {
   /**
    * sameAmountRestriction
    *
-   * @param sameAmountRestriction
+   * @param sameAmountRestriction 
    */
   @JsonProperty(JSON_PROPERTY_SAME_AMOUNT_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -702,7 +702,7 @@ public class TransactionRuleRestrictions {
   /**
    * sameCounterpartyRestriction
    *
-   * @param sameCounterpartyRestriction
+   * @param sameCounterpartyRestriction 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions sameCounterpartyRestriction(SameCounterpartyRestriction sameCounterpartyRestriction) {
@@ -712,7 +712,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get sameCounterpartyRestriction
-   * @return sameCounterpartyRestriction
+   * @return sameCounterpartyRestriction 
    */
   @JsonProperty(JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -723,7 +723,7 @@ public class TransactionRuleRestrictions {
   /**
    * sameCounterpartyRestriction
    *
-   * @param sameCounterpartyRestriction
+   * @param sameCounterpartyRestriction 
    */
   @JsonProperty(JSON_PROPERTY_SAME_COUNTERPARTY_RESTRICTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -734,7 +734,7 @@ public class TransactionRuleRestrictions {
   /**
    * sourceAccountTypes
    *
-   * @param sourceAccountTypes
+   * @param sourceAccountTypes 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions sourceAccountTypes(SourceAccountTypesRestriction sourceAccountTypes) {
@@ -744,7 +744,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get sourceAccountTypes
-   * @return sourceAccountTypes
+   * @return sourceAccountTypes 
    */
   @JsonProperty(JSON_PROPERTY_SOURCE_ACCOUNT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -755,7 +755,7 @@ public class TransactionRuleRestrictions {
   /**
    * sourceAccountTypes
    *
-   * @param sourceAccountTypes
+   * @param sourceAccountTypes 
    */
   @JsonProperty(JSON_PROPERTY_SOURCE_ACCOUNT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -766,7 +766,7 @@ public class TransactionRuleRestrictions {
   /**
    * timeOfDay
    *
-   * @param timeOfDay
+   * @param timeOfDay 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions timeOfDay(TimeOfDayRestriction timeOfDay) {
@@ -776,7 +776,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get timeOfDay
-   * @return timeOfDay
+   * @return timeOfDay 
    */
   @JsonProperty(JSON_PROPERTY_TIME_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -787,7 +787,7 @@ public class TransactionRuleRestrictions {
   /**
    * timeOfDay
    *
-   * @param timeOfDay
+   * @param timeOfDay 
    */
   @JsonProperty(JSON_PROPERTY_TIME_OF_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -798,7 +798,7 @@ public class TransactionRuleRestrictions {
   /**
    * tokenRequestors
    *
-   * @param tokenRequestors
+   * @param tokenRequestors 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions tokenRequestors(TokenRequestorsRestriction tokenRequestors) {
@@ -808,7 +808,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get tokenRequestors
-   * @return tokenRequestors
+   * @return tokenRequestors 
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -819,7 +819,7 @@ public class TransactionRuleRestrictions {
   /**
    * tokenRequestors
    *
-   * @param tokenRequestors
+   * @param tokenRequestors 
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -830,7 +830,7 @@ public class TransactionRuleRestrictions {
   /**
    * totalAmount
    *
-   * @param totalAmount
+   * @param totalAmount 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions totalAmount(TotalAmountRestriction totalAmount) {
@@ -840,7 +840,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get totalAmount
-   * @return totalAmount
+   * @return totalAmount 
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -851,7 +851,7 @@ public class TransactionRuleRestrictions {
   /**
    * totalAmount
    *
-   * @param totalAmount
+   * @param totalAmount 
    */
   @JsonProperty(JSON_PROPERTY_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -862,7 +862,7 @@ public class TransactionRuleRestrictions {
   /**
    * walletProviderAccountScore
    *
-   * @param walletProviderAccountScore
+   * @param walletProviderAccountScore 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions walletProviderAccountScore(WalletProviderAccountScoreRestriction walletProviderAccountScore) {
@@ -872,7 +872,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get walletProviderAccountScore
-   * @return walletProviderAccountScore
+   * @return walletProviderAccountScore 
    */
   @JsonProperty(JSON_PROPERTY_WALLET_PROVIDER_ACCOUNT_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -883,7 +883,7 @@ public class TransactionRuleRestrictions {
   /**
    * walletProviderAccountScore
    *
-   * @param walletProviderAccountScore
+   * @param walletProviderAccountScore 
    */
   @JsonProperty(JSON_PROPERTY_WALLET_PROVIDER_ACCOUNT_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -894,7 +894,7 @@ public class TransactionRuleRestrictions {
   /**
    * walletProviderDeviceScore
    *
-   * @param walletProviderDeviceScore
+   * @param walletProviderDeviceScore 
    * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
    */
   public TransactionRuleRestrictions walletProviderDeviceScore(WalletProviderDeviceScore walletProviderDeviceScore) {
@@ -904,7 +904,7 @@ public class TransactionRuleRestrictions {
 
   /**
    * Get walletProviderDeviceScore
-   * @return walletProviderDeviceScore
+   * @return walletProviderDeviceScore 
    */
   @JsonProperty(JSON_PROPERTY_WALLET_PROVIDER_DEVICE_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -915,7 +915,7 @@ public class TransactionRuleRestrictions {
   /**
    * walletProviderDeviceScore
    *
-   * @param walletProviderDeviceScore
+   * @param walletProviderDeviceScore 
    */
   @JsonProperty(JSON_PROPERTY_WALLET_PROVIDER_DEVICE_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

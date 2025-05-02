@@ -54,7 +54,7 @@ public class CapitalBalance {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return the current {@code CapitalBalance} instance, allowing for method chaining
    */
   public CapitalBalance currency(String currency) {
@@ -64,7 +64,7 @@ public class CapitalBalance {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,7 +75,7 @@ public class CapitalBalance {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +86,7 @@ public class CapitalBalance {
   /**
    * Fee amount.
    *
-   * @param fee
+   * @param fee Fee amount.
    * @return the current {@code CapitalBalance} instance, allowing for method chaining
    */
   public CapitalBalance fee(Long fee) {
@@ -96,7 +96,7 @@ public class CapitalBalance {
 
   /**
    * Fee amount.
-   * @return fee
+   * @return fee Fee amount.
    */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class CapitalBalance {
   /**
    * Fee amount.
    *
-   * @param fee
+   * @param fee Fee amount.
    */
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class CapitalBalance {
   /**
    * Principal amount.
    *
-   * @param principal
+   * @param principal Principal amount.
    * @return the current {@code CapitalBalance} instance, allowing for method chaining
    */
   public CapitalBalance principal(Long principal) {
@@ -128,7 +128,7 @@ public class CapitalBalance {
 
   /**
    * Principal amount.
-   * @return principal
+   * @return principal Principal amount.
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class CapitalBalance {
   /**
    * Principal amount.
    *
-   * @param principal
+   * @param principal Principal amount.
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class CapitalBalance {
   /**
    * Total amount. A sum of principal amount and fee amount.
    *
-   * @param total
+   * @param total Total amount. A sum of principal amount and fee amount.
    * @return the current {@code CapitalBalance} instance, allowing for method chaining
    */
   public CapitalBalance total(Long total) {
@@ -160,7 +160,7 @@ public class CapitalBalance {
 
   /**
    * Total amount. A sum of principal amount and fee amount.
-   * @return total
+   * @return total Total amount. A sum of principal amount and fee amount.
    */
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class CapitalBalance {
   /**
    * Total amount. A sum of principal amount and fee amount.
    *
-   * @param total
+   * @param total Total amount. A sum of principal amount and fee amount.
    */
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

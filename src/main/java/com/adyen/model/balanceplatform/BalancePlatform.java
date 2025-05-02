@@ -50,7 +50,7 @@ public class BalancePlatform {
   /**
    * Your description of the balance platform.
    *
-   * @param description
+   * @param description Your description of the balance platform.
    * @return the current {@code BalancePlatform} instance, allowing for method chaining
    */
   public BalancePlatform description(String description) {
@@ -60,7 +60,7 @@ public class BalancePlatform {
 
   /**
    * Your description of the balance platform.
-   * @return description
+   * @return description Your description of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class BalancePlatform {
   /**
    * Your description of the balance platform.
    *
-   * @param description
+   * @param description Your description of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class BalancePlatform {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param id
+   * @param id The unique identifier of the balance platform.
    * @return the current {@code BalancePlatform} instance, allowing for method chaining
    */
   public BalancePlatform id(String id) {
@@ -92,7 +92,7 @@ public class BalancePlatform {
 
   /**
    * The unique identifier of the balance platform.
-   * @return id
+   * @return id The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class BalancePlatform {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param id
+   * @param id The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class BalancePlatform {
   /**
    * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    *
-   * @param status
+   * @param status The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    * @return the current {@code BalancePlatform} instance, allowing for method chaining
    */
   public BalancePlatform status(String status) {
@@ -124,7 +124,7 @@ public class BalancePlatform {
 
   /**
    * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
-   * @return status
+   * @return status The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class BalancePlatform {
   /**
    * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    *
-   * @param status
+   * @param status The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

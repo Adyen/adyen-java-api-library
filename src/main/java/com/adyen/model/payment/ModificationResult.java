@@ -38,7 +38,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class ModificationResult {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -101,7 +101,7 @@ public class ModificationResult {
   /**
    * This field contains additional data, which may be returned in a particular modification response.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be returned in a particular modification response.
    * @return the current {@code ModificationResult} instance, allowing for method chaining
    */
   public ModificationResult additionalData(Map<String, String> additionalData) {
@@ -119,7 +119,7 @@ public class ModificationResult {
 
   /**
    * This field contains additional data, which may be returned in a particular modification response.
-   * @return additionalData
+   * @return additionalData This field contains additional data, which may be returned in a particular modification response.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class ModificationResult {
   /**
    * This field contains additional data, which may be returned in a particular modification response.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be returned in a particular modification response.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +141,7 @@ public class ModificationResult {
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return the current {@code ModificationResult} instance, allowing for method chaining
    */
   public ModificationResult pspReference(String pspReference) {
@@ -151,7 +151,7 @@ public class ModificationResult {
 
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
-   * @return pspReference
+   * @return pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class ModificationResult {
   /**
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    *
-   * @param pspReference
+   * @param pspReference Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +173,7 @@ public class ModificationResult {
   /**
    * Indicates if the modification request has been received for processing.
    *
-   * @param response
+   * @param response Indicates if the modification request has been received for processing.
    * @return the current {@code ModificationResult} instance, allowing for method chaining
    */
   public ModificationResult response(ResponseEnum response) {
@@ -183,7 +183,7 @@ public class ModificationResult {
 
   /**
    * Indicates if the modification request has been received for processing.
-   * @return response
+   * @return response Indicates if the modification request has been received for processing.
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class ModificationResult {
   /**
    * Indicates if the modification request has been received for processing.
    *
-   * @param response
+   * @param response Indicates if the modification request has been received for processing.
    */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

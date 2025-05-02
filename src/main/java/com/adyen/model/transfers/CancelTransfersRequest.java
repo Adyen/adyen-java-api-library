@@ -36,7 +36,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CancelTransfersRequest {
   public static final String JSON_PROPERTY_TRANSFER_IDS = "transferIds";
-  private List<String> transferIds = new ArrayList<>();
+  private List<String> transferIds;
 
   public CancelTransfersRequest() { 
   }
@@ -44,7 +44,7 @@ public class CancelTransfersRequest {
   /**
    * Contains the unique identifiers of the transfers that you want to cancel.
    *
-   * @param transferIds
+   * @param transferIds Contains the unique identifiers of the transfers that you want to cancel.
    * @return the current {@code CancelTransfersRequest} instance, allowing for method chaining
    */
   public CancelTransfersRequest transferIds(List<String> transferIds) {
@@ -62,7 +62,7 @@ public class CancelTransfersRequest {
 
   /**
    * Contains the unique identifiers of the transfers that you want to cancel.
-   * @return transferIds
+   * @return transferIds Contains the unique identifiers of the transfers that you want to cancel.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -73,7 +73,7 @@ public class CancelTransfersRequest {
   /**
    * Contains the unique identifiers of the transfers that you want to cancel.
    *
-   * @param transferIds
+   * @param transferIds Contains the unique identifiers of the transfers that you want to cancel.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

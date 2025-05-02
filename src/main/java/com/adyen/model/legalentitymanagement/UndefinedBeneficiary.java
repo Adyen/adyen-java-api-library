@@ -54,7 +54,7 @@ public class UndefinedBeneficiary {
   /**
    * The details of the undefined beneficiary.
    *
-   * @param description
+   * @param description The details of the undefined beneficiary.
    * @return the current {@code UndefinedBeneficiary} instance, allowing for method chaining
    */
   public UndefinedBeneficiary description(String description) {
@@ -64,7 +64,7 @@ public class UndefinedBeneficiary {
 
   /**
    * The details of the undefined beneficiary.
-   * @return description
+   * @return description The details of the undefined beneficiary.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,7 +75,7 @@ public class UndefinedBeneficiary {
   /**
    * The details of the undefined beneficiary.
    *
-   * @param description
+   * @param description The details of the undefined beneficiary.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +85,7 @@ public class UndefinedBeneficiary {
 
   /**
    * The reference of the undefined beneficiary.
-   * @return reference
+   * @return reference The reference of the undefined beneficiary.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

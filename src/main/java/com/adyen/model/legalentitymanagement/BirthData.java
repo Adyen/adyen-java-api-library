@@ -42,7 +42,7 @@ public class BirthData {
   /**
    * The individual&#39;s date of birth, in YYYY-MM-DD format.
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The individual&#39;s date of birth, in YYYY-MM-DD format.
    * @return the current {@code BirthData} instance, allowing for method chaining
    */
   public BirthData dateOfBirth(String dateOfBirth) {
@@ -52,7 +52,7 @@ public class BirthData {
 
   /**
    * The individual&#39;s date of birth, in YYYY-MM-DD format.
-   * @return dateOfBirth
+   * @return dateOfBirth The individual&#39;s date of birth, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class BirthData {
   /**
    * The individual&#39;s date of birth, in YYYY-MM-DD format.
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The individual&#39;s date of birth, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

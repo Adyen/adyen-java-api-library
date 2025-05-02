@@ -62,7 +62,7 @@ public class FinancialReport {
   /**
    * The annual turnover of the business.
    *
-   * @param annualTurnover
+   * @param annualTurnover The annual turnover of the business.
    * @return the current {@code FinancialReport} instance, allowing for method chaining
    */
   public FinancialReport annualTurnover(String annualTurnover) {
@@ -72,7 +72,7 @@ public class FinancialReport {
 
   /**
    * The annual turnover of the business.
-   * @return annualTurnover
+   * @return annualTurnover The annual turnover of the business.
    */
   @JsonProperty(JSON_PROPERTY_ANNUAL_TURNOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class FinancialReport {
   /**
    * The annual turnover of the business.
    *
-   * @param annualTurnover
+   * @param annualTurnover The annual turnover of the business.
    */
   @JsonProperty(JSON_PROPERTY_ANNUAL_TURNOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +94,7 @@ public class FinancialReport {
   /**
    * The balance sheet total of the business.
    *
-   * @param balanceSheetTotal
+   * @param balanceSheetTotal The balance sheet total of the business.
    * @return the current {@code FinancialReport} instance, allowing for method chaining
    */
   public FinancialReport balanceSheetTotal(String balanceSheetTotal) {
@@ -104,7 +104,7 @@ public class FinancialReport {
 
   /**
    * The balance sheet total of the business.
-   * @return balanceSheetTotal
+   * @return balanceSheetTotal The balance sheet total of the business.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_SHEET_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class FinancialReport {
   /**
    * The balance sheet total of the business.
    *
-   * @param balanceSheetTotal
+   * @param balanceSheetTotal The balance sheet total of the business.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_SHEET_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class FinancialReport {
   /**
    * The currency used for the net assets and balance sheet total.
    *
-   * @param currencyOfFinancialData
+   * @param currencyOfFinancialData The currency used for the net assets and balance sheet total.
    * @return the current {@code FinancialReport} instance, allowing for method chaining
    */
   public FinancialReport currencyOfFinancialData(String currencyOfFinancialData) {
@@ -136,7 +136,7 @@ public class FinancialReport {
 
   /**
    * The currency used for the net assets and balance sheet total.
-   * @return currencyOfFinancialData
+   * @return currencyOfFinancialData The currency used for the net assets and balance sheet total.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class FinancialReport {
   /**
    * The currency used for the net assets and balance sheet total.
    *
-   * @param currencyOfFinancialData
+   * @param currencyOfFinancialData The currency used for the net assets and balance sheet total.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class FinancialReport {
   /**
    * The date the financial data were provided, in YYYY-MM-DD format.
    *
-   * @param dateOfFinancialData
+   * @param dateOfFinancialData The date the financial data were provided, in YYYY-MM-DD format.
    * @return the current {@code FinancialReport} instance, allowing for method chaining
    */
   public FinancialReport dateOfFinancialData(String dateOfFinancialData) {
@@ -168,7 +168,7 @@ public class FinancialReport {
 
   /**
    * The date the financial data were provided, in YYYY-MM-DD format.
-   * @return dateOfFinancialData
+   * @return dateOfFinancialData The date the financial data were provided, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class FinancialReport {
   /**
    * The date the financial data were provided, in YYYY-MM-DD format.
    *
-   * @param dateOfFinancialData
+   * @param dateOfFinancialData The date the financial data were provided, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class FinancialReport {
   /**
    * The number of employees of the business.
    *
-   * @param employeeCount
+   * @param employeeCount The number of employees of the business.
    * @return the current {@code FinancialReport} instance, allowing for method chaining
    */
   public FinancialReport employeeCount(String employeeCount) {
@@ -200,7 +200,7 @@ public class FinancialReport {
 
   /**
    * The number of employees of the business.
-   * @return employeeCount
+   * @return employeeCount The number of employees of the business.
    */
   @JsonProperty(JSON_PROPERTY_EMPLOYEE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class FinancialReport {
   /**
    * The number of employees of the business.
    *
-   * @param employeeCount
+   * @param employeeCount The number of employees of the business.
    */
   @JsonProperty(JSON_PROPERTY_EMPLOYEE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class FinancialReport {
   /**
    * The net assets of the business.
    *
-   * @param netAssets
+   * @param netAssets The net assets of the business.
    * @return the current {@code FinancialReport} instance, allowing for method chaining
    */
   public FinancialReport netAssets(String netAssets) {
@@ -232,7 +232,7 @@ public class FinancialReport {
 
   /**
    * The net assets of the business.
-   * @return netAssets
+   * @return netAssets The net assets of the business.
    */
   @JsonProperty(JSON_PROPERTY_NET_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class FinancialReport {
   /**
    * The net assets of the business.
    *
-   * @param netAssets
+   * @param netAssets The net assets of the business.
    */
   @JsonProperty(JSON_PROPERTY_NET_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

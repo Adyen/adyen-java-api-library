@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TestOutput;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class TestWebhookResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<TestOutput> data = null;
+  private List<TestOutput> data;
 
   public TestWebhookResponse() { 
   }
@@ -47,7 +45,7 @@ public class TestWebhookResponse {
   /**
    * List with test results. Each test webhook we send has a list element with the result.
    *
-   * @param data
+   * @param data List with test results. Each test webhook we send has a list element with the result.
    * @return the current {@code TestWebhookResponse} instance, allowing for method chaining
    */
   public TestWebhookResponse data(List<TestOutput> data) {
@@ -65,9 +63,8 @@ public class TestWebhookResponse {
 
   /**
    * List with test results. Each test webhook we send has a list element with the result.
-   * @return data
+   * @return data List with test results. Each test webhook we send has a list element with the result.
    */
-  @ApiModelProperty(value = "List with test results. Each test webhook we send has a list element with the result.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<TestOutput> getData() {
@@ -77,8 +74,8 @@ public class TestWebhookResponse {
   /**
    * List with test results. Each test webhook we send has a list element with the result.
    *
-   * @param data
-   */ 
+   * @param data List with test results. Each test webhook we send has a list element with the result.
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<TestOutput> data) {

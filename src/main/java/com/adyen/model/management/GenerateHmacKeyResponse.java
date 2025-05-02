@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class GenerateHmacKeyResponse {
   /**
    * The HMAC key generated for this webhook.
    *
-   * @param hmacKey
+   * @param hmacKey The HMAC key generated for this webhook.
    * @return the current {@code GenerateHmacKeyResponse} instance, allowing for method chaining
    */
   public GenerateHmacKeyResponse hmacKey(String hmacKey) {
@@ -54,9 +52,8 @@ public class GenerateHmacKeyResponse {
 
   /**
    * The HMAC key generated for this webhook.
-   * @return hmacKey
+   * @return hmacKey The HMAC key generated for this webhook.
    */
-  @ApiModelProperty(required = true, value = "The HMAC key generated for this webhook.")
   @JsonProperty(JSON_PROPERTY_HMAC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getHmacKey() {
@@ -66,8 +63,8 @@ public class GenerateHmacKeyResponse {
   /**
    * The HMAC key generated for this webhook.
    *
-   * @param hmacKey
-   */ 
+   * @param hmacKey The HMAC key generated for this webhook.
+   */
   @JsonProperty(JSON_PROPERTY_HMAC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHmacKey(String hmacKey) {

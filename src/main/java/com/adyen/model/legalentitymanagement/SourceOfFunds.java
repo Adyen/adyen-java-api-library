@@ -88,7 +88,7 @@ public class SourceOfFunds {
   /**
    * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    *
-   * @param acquiringBusinessLineId
+   * @param acquiringBusinessLineId The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v3
@@ -102,7 +102,7 @@ public class SourceOfFunds {
 
   /**
    * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
-   * @return acquiringBusinessLineId
+   * @return acquiringBusinessLineId The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    * @deprecated // deprecated since Legal Entity Management API v3: This field will be removed in v4.
    */
   @Deprecated // deprecated since Legal Entity Management API v3: This field will be removed in v4.
@@ -115,7 +115,7 @@ public class SourceOfFunds {
   /**
    * The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    *
-   * @param acquiringBusinessLineId
+   * @param acquiringBusinessLineId The unique identifier of the business line that is the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    *
    * @deprecated since Legal Entity Management API v3
    * This field will be removed in v4.
@@ -130,7 +130,7 @@ public class SourceOfFunds {
   /**
    * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    *
-   * @param adyenProcessedFunds
+   * @param adyenProcessedFunds Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds adyenProcessedFunds(Boolean adyenProcessedFunds) {
@@ -140,7 +140,7 @@ public class SourceOfFunds {
 
   /**
    * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
-   * @return adyenProcessedFunds
+   * @return adyenProcessedFunds Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    */
   @JsonProperty(JSON_PROPERTY_ADYEN_PROCESSED_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class SourceOfFunds {
   /**
    * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    *
-   * @param adyenProcessedFunds
+   * @param adyenProcessedFunds Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    */
   @JsonProperty(JSON_PROPERTY_ADYEN_PROCESSED_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class SourceOfFunds {
   /**
    * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    *
-   * @param description
+   * @param description Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds description(String description) {
@@ -172,7 +172,7 @@ public class SourceOfFunds {
 
   /**
    * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
-   * @return description
+   * @return description Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class SourceOfFunds {
   /**
    * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    *
-   * @param description
+   * @param description Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class SourceOfFunds {
   /**
    * The type of the source of funds. Possible value: **business**.
    *
-   * @param type
+   * @param type The type of the source of funds. Possible value: **business**.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds type(TypeEnum type) {
@@ -204,7 +204,7 @@ public class SourceOfFunds {
 
   /**
    * The type of the source of funds. Possible value: **business**.
-   * @return type
+   * @return type The type of the source of funds. Possible value: **business**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +215,7 @@ public class SourceOfFunds {
   /**
    * The type of the source of funds. Possible value: **business**.
    *
-   * @param type
+   * @param type The type of the source of funds. Possible value: **business**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -91,7 +91,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   /**
    * The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.
    *
-   * @param document
+   * @param document The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.
    * @return the current {@code GetAcceptedTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetAcceptedTermsOfServiceDocumentResponse document(byte[] document) {
@@ -101,7 +101,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
 
   /**
    * The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.
-   * @return document
+   * @return document The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   /**
    * The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.
    *
-   * @param document
+   * @param document The accepted Terms of Service document in the requested format represented as a Base64-encoded bytes array.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   /**
    * The unique identifier of the legal entity.
    *
-   * @param id
+   * @param id The unique identifier of the legal entity.
    * @return the current {@code GetAcceptedTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetAcceptedTermsOfServiceDocumentResponse id(String id) {
@@ -133,7 +133,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
 
   /**
    * The unique identifier of the legal entity.
-   * @return id
+   * @return id The unique identifier of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   /**
    * The unique identifier of the legal entity.
    *
-   * @param id
+   * @param id The unique identifier of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   /**
    * An Adyen-generated reference for the accepted Terms of Service.
    *
-   * @param termsOfServiceAcceptanceReference
+   * @param termsOfServiceAcceptanceReference An Adyen-generated reference for the accepted Terms of Service.
    * @return the current {@code GetAcceptedTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetAcceptedTermsOfServiceDocumentResponse termsOfServiceAcceptanceReference(String termsOfServiceAcceptanceReference) {
@@ -165,7 +165,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
 
   /**
    * An Adyen-generated reference for the accepted Terms of Service.
-   * @return termsOfServiceAcceptanceReference
+   * @return termsOfServiceAcceptanceReference An Adyen-generated reference for the accepted Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_ACCEPTANCE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,7 +176,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   /**
    * An Adyen-generated reference for the accepted Terms of Service.
    *
-   * @param termsOfServiceAcceptanceReference
+   * @param termsOfServiceAcceptanceReference An Adyen-generated reference for the accepted Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_ACCEPTANCE_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   /**
    * The format of the Terms of Service document.
    *
-   * @param termsOfServiceDocumentFormat
+   * @param termsOfServiceDocumentFormat The format of the Terms of Service document.
    * @return the current {@code GetAcceptedTermsOfServiceDocumentResponse} instance, allowing for method chaining
    */
   public GetAcceptedTermsOfServiceDocumentResponse termsOfServiceDocumentFormat(TermsOfServiceDocumentFormatEnum termsOfServiceDocumentFormat) {
@@ -197,7 +197,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
 
   /**
    * The format of the Terms of Service document.
-   * @return termsOfServiceDocumentFormat
+   * @return termsOfServiceDocumentFormat The format of the Terms of Service document.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,7 +208,7 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
   /**
    * The format of the Terms of Service document.
    *
-   * @param termsOfServiceDocumentFormat
+   * @param termsOfServiceDocumentFormat The format of the Terms of Service document.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

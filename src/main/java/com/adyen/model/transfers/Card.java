@@ -48,7 +48,7 @@ public class Card {
   /**
    * cardHolder
    *
-   * @param cardHolder
+   * @param cardHolder 
    * @return the current {@code Card} instance, allowing for method chaining
    */
   public Card cardHolder(PartyIdentification cardHolder) {
@@ -58,7 +58,7 @@ public class Card {
 
   /**
    * Get cardHolder
-   * @return cardHolder
+   * @return cardHolder 
    */
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -69,7 +69,7 @@ public class Card {
   /**
    * cardHolder
    *
-   * @param cardHolder
+   * @param cardHolder 
    */
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,7 +80,7 @@ public class Card {
   /**
    * cardIdentification
    *
-   * @param cardIdentification
+   * @param cardIdentification 
    * @return the current {@code Card} instance, allowing for method chaining
    */
   public Card cardIdentification(CardIdentification cardIdentification) {
@@ -90,7 +90,7 @@ public class Card {
 
   /**
    * Get cardIdentification
-   * @return cardIdentification
+   * @return cardIdentification 
    */
   @JsonProperty(JSON_PROPERTY_CARD_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +101,7 @@ public class Card {
   /**
    * cardIdentification
    *
-   * @param cardIdentification
+   * @param cardIdentification 
    */
   @JsonProperty(JSON_PROPERTY_CARD_IDENTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

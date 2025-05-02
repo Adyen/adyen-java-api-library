@@ -49,7 +49,7 @@ public class CounterpartyBankRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code CounterpartyBankRestriction} instance, allowing for method chaining
    */
   public CounterpartyBankRestriction operation(String operation) {
@@ -59,7 +59,7 @@ public class CounterpartyBankRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -70,7 +70,7 @@ public class CounterpartyBankRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,7 +81,7 @@ public class CounterpartyBankRestriction {
   /**
    * The list of counterparty bank institutions to be evaluated.
    *
-   * @param value
+   * @param value The list of counterparty bank institutions to be evaluated.
    * @return the current {@code CounterpartyBankRestriction} instance, allowing for method chaining
    */
   public CounterpartyBankRestriction value(List<BankIdentification> value) {
@@ -99,7 +99,7 @@ public class CounterpartyBankRestriction {
 
   /**
    * The list of counterparty bank institutions to be evaluated.
-   * @return value
+   * @return value The list of counterparty bank institutions to be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class CounterpartyBankRestriction {
   /**
    * The list of counterparty bank institutions to be evaluated.
    *
-   * @param value
+   * @param value The list of counterparty bank institutions to be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

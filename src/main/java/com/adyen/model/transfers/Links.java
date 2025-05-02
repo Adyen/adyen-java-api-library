@@ -47,7 +47,7 @@ public class Links {
   /**
    * next
    *
-   * @param next
+   * @param next 
    * @return the current {@code Links} instance, allowing for method chaining
    */
   public Links next(Link next) {
@@ -57,7 +57,7 @@ public class Links {
 
   /**
    * Get next
-   * @return next
+   * @return next 
    */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -68,7 +68,7 @@ public class Links {
   /**
    * next
    *
-   * @param next
+   * @param next 
    */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class Links {
   /**
    * prev
    *
-   * @param prev
+   * @param prev 
    * @return the current {@code Links} instance, allowing for method chaining
    */
   public Links prev(Link prev) {
@@ -89,7 +89,7 @@ public class Links {
 
   /**
    * Get prev
-   * @return prev
+   * @return prev 
    */
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class Links {
   /**
    * prev
    *
-   * @param prev
+   * @param prev 
    */
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.Links;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -53,16 +51,16 @@ public class CompanyUser {
   private Links links;
 
   public static final String JSON_PROPERTY_ACCOUNT_GROUPS = "accountGroups";
-  private List<String> accountGroups = null;
+  private List<String> accountGroups;
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
   public static final String JSON_PROPERTY_APPS = "apps";
-  private List<String> apps = null;
+  private List<String> apps;
 
   public static final String JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS = "associatedMerchantAccounts";
-  private List<String> associatedMerchantAccounts = null;
+  private List<String> associatedMerchantAccounts;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -74,7 +72,7 @@ public class CompanyUser {
   private Name name;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  private List<String> roles = new ArrayList<>();
+  private List<String> roles;
 
   public static final String JSON_PROPERTY_TIME_ZONE_CODE = "timeZoneCode";
   private String timeZoneCode;
@@ -88,7 +86,7 @@ public class CompanyUser {
   /**
    * links
    *
-   * @param links
+   * @param links 
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser links(Links links) {
@@ -97,10 +95,9 @@ public class CompanyUser {
   }
 
   /**
-   * links
-   * @return links
+   * Get links
+   * @return links 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Links getLinks() {
@@ -110,8 +107,8 @@ public class CompanyUser {
   /**
    * links
    *
-   * @param links
-   */ 
+   * @param links 
+   */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
@@ -121,7 +118,7 @@ public class CompanyUser {
   /**
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    *
-   * @param accountGroups
+   * @param accountGroups The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser accountGroups(List<String> accountGroups) {
@@ -139,9 +136,8 @@ public class CompanyUser {
 
   /**
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
-   * @return accountGroups
+   * @return accountGroups The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    */
-  @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAccountGroups() {
@@ -151,8 +147,8 @@ public class CompanyUser {
   /**
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    *
-   * @param accountGroups
-   */ 
+   * @param accountGroups The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
+   */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
@@ -162,7 +158,7 @@ public class CompanyUser {
   /**
    * Indicates whether this user is active.
    *
-   * @param active
+   * @param active Indicates whether this user is active.
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser active(Boolean active) {
@@ -172,9 +168,8 @@ public class CompanyUser {
 
   /**
    * Indicates whether this user is active.
-   * @return active
+   * @return active Indicates whether this user is active.
    */
-  @ApiModelProperty(value = "Indicates whether this user is active.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
@@ -184,8 +179,8 @@ public class CompanyUser {
   /**
    * Indicates whether this user is active.
    *
-   * @param active
-   */ 
+   * @param active Indicates whether this user is active.
+   */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -195,7 +190,7 @@ public class CompanyUser {
   /**
    * Set of apps available to this user
    *
-   * @param apps
+   * @param apps Set of apps available to this user
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser apps(List<String> apps) {
@@ -213,9 +208,8 @@ public class CompanyUser {
 
   /**
    * Set of apps available to this user
-   * @return apps
+   * @return apps Set of apps available to this user
    */
-  @ApiModelProperty(value = "Set of apps available to this user")
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getApps() {
@@ -225,8 +219,8 @@ public class CompanyUser {
   /**
    * Set of apps available to this user
    *
-   * @param apps
-   */ 
+   * @param apps Set of apps available to this user
+   */
   @JsonProperty(JSON_PROPERTY_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApps(List<String> apps) {
@@ -236,7 +230,7 @@ public class CompanyUser {
   /**
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
    *
-   * @param associatedMerchantAccounts
+   * @param associatedMerchantAccounts The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser associatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -254,9 +248,8 @@ public class CompanyUser {
 
   /**
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
-   * @return associatedMerchantAccounts
+   * @return associatedMerchantAccounts The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
    */
-  @ApiModelProperty(value = "The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.")
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAssociatedMerchantAccounts() {
@@ -266,8 +259,8 @@ public class CompanyUser {
   /**
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
    *
-   * @param associatedMerchantAccounts
-   */ 
+   * @param associatedMerchantAccounts The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
+   */
   @JsonProperty(JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
@@ -277,7 +270,7 @@ public class CompanyUser {
   /**
    * The email address of the user.
    *
-   * @param email
+   * @param email The email address of the user.
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser email(String email) {
@@ -287,9 +280,8 @@ public class CompanyUser {
 
   /**
    * The email address of the user.
-   * @return email
+   * @return email The email address of the user.
    */
-  @ApiModelProperty(required = true, value = "The email address of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
@@ -299,8 +291,8 @@ public class CompanyUser {
   /**
    * The email address of the user.
    *
-   * @param email
-   */ 
+   * @param email The email address of the user.
+   */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
@@ -310,7 +302,7 @@ public class CompanyUser {
   /**
    * The unique identifier of the user.
    *
-   * @param id
+   * @param id The unique identifier of the user.
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser id(String id) {
@@ -320,9 +312,8 @@ public class CompanyUser {
 
   /**
    * The unique identifier of the user.
-   * @return id
+   * @return id The unique identifier of the user.
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -332,8 +323,8 @@ public class CompanyUser {
   /**
    * The unique identifier of the user.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the user.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -343,7 +334,7 @@ public class CompanyUser {
   /**
    * name
    *
-   * @param name
+   * @param name 
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser name(Name name) {
@@ -352,10 +343,9 @@ public class CompanyUser {
   }
 
   /**
-   * name
-   * @return name
+   * Get name
+   * @return name 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getName() {
@@ -365,8 +355,8 @@ public class CompanyUser {
   /**
    * name
    *
-   * @param name
-   */ 
+   * @param name 
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
@@ -376,7 +366,7 @@ public class CompanyUser {
   /**
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    *
-   * @param roles
+   * @param roles The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser roles(List<String> roles) {
@@ -385,15 +375,17 @@ public class CompanyUser {
   }
 
   public CompanyUser addRolesItem(String rolesItem) {
+    if (this.roles == null) {
+      this.roles = new ArrayList<>();
+    }
     this.roles.add(rolesItem);
     return this;
   }
 
   /**
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
-   * @return roles
+   * @return roles The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    */
-  @ApiModelProperty(required = true, value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRoles() {
@@ -403,8 +395,8 @@ public class CompanyUser {
   /**
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    *
-   * @param roles
-   */ 
+   * @param roles The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
+   */
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
@@ -414,7 +406,7 @@ public class CompanyUser {
   /**
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    *
-   * @param timeZoneCode
+   * @param timeZoneCode The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser timeZoneCode(String timeZoneCode) {
@@ -424,9 +416,8 @@ public class CompanyUser {
 
   /**
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
-   * @return timeZoneCode
+   * @return timeZoneCode The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    */
-  @ApiModelProperty(required = true, value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimeZoneCode() {
@@ -436,8 +427,8 @@ public class CompanyUser {
   /**
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    *
-   * @param timeZoneCode
-   */ 
+   * @param timeZoneCode The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
+   */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {
@@ -447,7 +438,7 @@ public class CompanyUser {
   /**
    * The username for this user.
    *
-   * @param username
+   * @param username The username for this user.
    * @return the current {@code CompanyUser} instance, allowing for method chaining
    */
   public CompanyUser username(String username) {
@@ -457,9 +448,8 @@ public class CompanyUser {
 
   /**
    * The username for this user.
-   * @return username
+   * @return username The username for this user.
    */
-  @ApiModelProperty(required = true, value = "The username for this user.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsername() {
@@ -469,8 +459,8 @@ public class CompanyUser {
   /**
    * The username for this user.
    *
-   * @param username
-   */ 
+   * @param username The username for this user.
+   */
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {

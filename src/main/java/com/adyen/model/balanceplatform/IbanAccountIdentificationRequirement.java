@@ -85,7 +85,7 @@ public class IbanAccountIdentificationRequirement {
   /**
    * Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.
    *
-   * @param description
+   * @param description Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.
    * @return the current {@code IbanAccountIdentificationRequirement} instance, allowing for method chaining
    */
   public IbanAccountIdentificationRequirement description(String description) {
@@ -95,7 +95,7 @@ public class IbanAccountIdentificationRequirement {
 
   /**
    * Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.
-   * @return description
+   * @return description Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,7 +106,7 @@ public class IbanAccountIdentificationRequirement {
   /**
    * Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.
    *
-   * @param description
+   * @param description Specifies the allowed prefixes for the international bank account number as defined in the ISO-13616 standard.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class IbanAccountIdentificationRequirement {
   /**
    * Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.
    *
-   * @param ibanPrefixes
+   * @param ibanPrefixes Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.
    * @return the current {@code IbanAccountIdentificationRequirement} instance, allowing for method chaining
    */
   public IbanAccountIdentificationRequirement ibanPrefixes(List<String> ibanPrefixes) {
@@ -135,7 +135,7 @@ public class IbanAccountIdentificationRequirement {
 
   /**
    * Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.
-   * @return ibanPrefixes
+   * @return ibanPrefixes Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.
    */
   @JsonProperty(JSON_PROPERTY_IBAN_PREFIXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class IbanAccountIdentificationRequirement {
   /**
    * Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.
    *
-   * @param ibanPrefixes
+   * @param ibanPrefixes Contains the list of allowed prefixes for international bank accounts. For example: NL, US, UK.
    */
   @JsonProperty(JSON_PROPERTY_IBAN_PREFIXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class IbanAccountIdentificationRequirement {
   /**
    * **ibanAccountIdentificationRequirement**
    *
-   * @param type
+   * @param type **ibanAccountIdentificationRequirement**
    * @return the current {@code IbanAccountIdentificationRequirement} instance, allowing for method chaining
    */
   public IbanAccountIdentificationRequirement type(TypeEnum type) {
@@ -167,7 +167,7 @@ public class IbanAccountIdentificationRequirement {
 
   /**
    * **ibanAccountIdentificationRequirement**
-   * @return type
+   * @return type **ibanAccountIdentificationRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +178,7 @@ public class IbanAccountIdentificationRequirement {
   /**
    * **ibanAccountIdentificationRequirement**
    *
-   * @param type
+   * @param type **ibanAccountIdentificationRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -53,7 +53,7 @@ public class PaymentInstrumentResource extends Resource {
   /**
    * paymentInstrumentId
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId 
    * @return the current {@code PaymentInstrumentResource} instance, allowing for method chaining
    */
   public PaymentInstrumentResource paymentInstrumentId(String paymentInstrumentId) {
@@ -63,7 +63,7 @@ public class PaymentInstrumentResource extends Resource {
 
   /**
    * Get paymentInstrumentId
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class PaymentInstrumentResource extends Resource {
   /**
    * paymentInstrumentId
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

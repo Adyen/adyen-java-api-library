@@ -46,7 +46,7 @@ public class Amount {
   /**
    * The type of currency. Must be EUR (or EUR equivalent)
    *
-   * @param currency
+   * @param currency The type of currency. Must be EUR (or EUR equivalent)
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount currency(String currency) {
@@ -56,7 +56,7 @@ public class Amount {
 
   /**
    * The type of currency. Must be EUR (or EUR equivalent)
-   * @return currency
+   * @return currency The type of currency. Must be EUR (or EUR equivalent)
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class Amount {
   /**
    * The type of currency. Must be EUR (or EUR equivalent)
    *
-   * @param currency
+   * @param currency The type of currency. Must be EUR (or EUR equivalent)
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class Amount {
   /**
    * Total value of amount. Must be &gt;&#x3D; 0
    *
-   * @param value
+   * @param value Total value of amount. Must be &gt;&#x3D; 0
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount value(Long value) {
@@ -88,7 +88,7 @@ public class Amount {
 
   /**
    * Total value of amount. Must be &gt;&#x3D; 0
-   * @return value
+   * @return value Total value of amount. Must be &gt;&#x3D; 0
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class Amount {
   /**
    * Total value of amount. Must be &gt;&#x3D; 0
    *
-   * @param value
+   * @param value Total value of amount. Must be &gt;&#x3D; 0
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -59,7 +59,7 @@ public class Resource {
   /**
    * type
    *
-   * @param type
+   * @param type 
    * @return the current {@code Resource} instance, allowing for method chaining
    */
   public Resource type(ResourceType type) {
@@ -69,7 +69,7 @@ public class Resource {
 
   /**
    * Get type
-   * @return type
+   * @return type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,7 +80,7 @@ public class Resource {
   /**
    * type
    *
-   * @param type
+   * @param type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

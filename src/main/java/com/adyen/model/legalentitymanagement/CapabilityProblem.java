@@ -42,7 +42,7 @@ public class CapabilityProblem {
   private CapabilityProblemEntity entity;
 
   public static final String JSON_PROPERTY_VERIFICATION_ERRORS = "verificationErrors";
-  private List<VerificationError> verificationErrors = new ArrayList<>();
+  private List<VerificationError> verificationErrors;
 
   public CapabilityProblem() { 
   }
@@ -50,7 +50,7 @@ public class CapabilityProblem {
   /**
    * entity
    *
-   * @param entity
+   * @param entity 
    * @return the current {@code CapabilityProblem} instance, allowing for method chaining
    */
   public CapabilityProblem entity(CapabilityProblemEntity entity) {
@@ -60,7 +60,7 @@ public class CapabilityProblem {
 
   /**
    * Get entity
-   * @return entity
+   * @return entity 
    */
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class CapabilityProblem {
   /**
    * entity
    *
-   * @param entity
+   * @param entity 
    */
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class CapabilityProblem {
   /**
    * verificationErrors
    *
-   * @param verificationErrors
+   * @param verificationErrors 
    * @return the current {@code CapabilityProblem} instance, allowing for method chaining
    */
   public CapabilityProblem verificationErrors(List<VerificationError> verificationErrors) {
@@ -100,7 +100,7 @@ public class CapabilityProblem {
 
   /**
    * Get verificationErrors
-   * @return verificationErrors
+   * @return verificationErrors 
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class CapabilityProblem {
   /**
    * verificationErrors
    *
-   * @param verificationErrors
+   * @param verificationErrors 
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

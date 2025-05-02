@@ -72,7 +72,7 @@ public class WebhookSetting {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    * @return the current {@code WebhookSetting} instance, allowing for method chaining
    */
   public WebhookSetting currency(String currency) {
@@ -82,7 +82,7 @@ public class WebhookSetting {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,7 +93,7 @@ public class WebhookSetting {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class WebhookSetting {
   /**
    * The unique identifier of the webhook setting.
    *
-   * @param id
+   * @param id The unique identifier of the webhook setting.
    * @return the current {@code WebhookSetting} instance, allowing for method chaining
    */
   public WebhookSetting id(String id) {
@@ -114,7 +114,7 @@ public class WebhookSetting {
 
   /**
    * The unique identifier of the webhook setting.
-   * @return id
+   * @return id The unique identifier of the webhook setting.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class WebhookSetting {
   /**
    * The unique identifier of the webhook setting.
    *
-   * @param id
+   * @param id The unique identifier of the webhook setting.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class WebhookSetting {
   /**
    * status
    *
-   * @param status
+   * @param status 
    * @return the current {@code WebhookSetting} instance, allowing for method chaining
    */
   public WebhookSetting status(String status) {
@@ -146,7 +146,7 @@ public class WebhookSetting {
 
   /**
    * Get status
-   * @return status
+   * @return status 
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class WebhookSetting {
   /**
    * status
    *
-   * @param status
+   * @param status 
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class WebhookSetting {
   /**
    * target
    *
-   * @param target
+   * @param target 
    * @return the current {@code WebhookSetting} instance, allowing for method chaining
    */
   public WebhookSetting target(Target target) {
@@ -178,7 +178,7 @@ public class WebhookSetting {
 
   /**
    * Get target
-   * @return target
+   * @return target 
    */
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class WebhookSetting {
   /**
    * target
    *
-   * @param target
+   * @param target 
    */
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class WebhookSetting {
   /**
    * type
    *
-   * @param type
+   * @param type 
    * @return the current {@code WebhookSetting} instance, allowing for method chaining
    */
   public WebhookSetting type(SettingType type) {
@@ -210,7 +210,7 @@ public class WebhookSetting {
 
   /**
    * Get type
-   * @return type
+   * @return type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +221,7 @@ public class WebhookSetting {
   /**
    * type
    *
-   * @param type
+   * @param type 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

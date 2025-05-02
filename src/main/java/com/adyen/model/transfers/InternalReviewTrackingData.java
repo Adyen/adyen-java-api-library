@@ -151,7 +151,7 @@ public class InternalReviewTrackingData {
   /**
    * The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
    *
-   * @param reason
+   * @param reason The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
    * @return the current {@code InternalReviewTrackingData} instance, allowing for method chaining
    */
   public InternalReviewTrackingData reason(ReasonEnum reason) {
@@ -161,7 +161,7 @@ public class InternalReviewTrackingData {
 
   /**
    * The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
-   * @return reason
+   * @return reason The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class InternalReviewTrackingData {
   /**
    * The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
    *
-   * @param reason
+   * @param reason The reason why the transfer failed Adyen&#39;s internal review.   Possible values:  - **refusedForRegulatoryReasons**: the transfer does not comply with Adyen&#39;s risk policy. For more information, [contact the Support Team](https://www.adyen.help/hc/en-us/requests/new). 
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class InternalReviewTrackingData {
   /**
    * The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
    *
-   * @param status
+   * @param status The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
    * @return the current {@code InternalReviewTrackingData} instance, allowing for method chaining
    */
   public InternalReviewTrackingData status(StatusEnum status) {
@@ -193,7 +193,7 @@ public class InternalReviewTrackingData {
 
   /**
    * The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
-   * @return status
+   * @return status The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +204,7 @@ public class InternalReviewTrackingData {
   /**
    * The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
    *
-   * @param status
+   * @param status The status of the transfer.  Possible values:   - **pending**: the transfer is under internal review.  - **failed**: the transfer failed Adyen&#39;s internal review. For details, see &#x60;reason&#x60;.  
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +215,7 @@ public class InternalReviewTrackingData {
   /**
    * The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
    *
-   * @param type
+   * @param type The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
    * @return the current {@code InternalReviewTrackingData} instance, allowing for method chaining
    */
   public InternalReviewTrackingData type(TypeEnum type) {
@@ -225,7 +225,7 @@ public class InternalReviewTrackingData {
 
   /**
    * The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
-   * @return type
+   * @return type The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,7 +236,7 @@ public class InternalReviewTrackingData {
   /**
    * The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
    *
-   * @param type
+   * @param type The type of tracking event.   Possible values:    - **internalReview**: the transfer was flagged because it does not comply with Adyen&#39;s risk policy.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -88,7 +88,7 @@ public class ForexQuote {
   /**
    * The account name.
    *
-   * @param account
+   * @param account The account name.
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote account(String account) {
@@ -98,7 +98,7 @@ public class ForexQuote {
 
   /**
    * The account name.
-   * @return account
+   * @return account The account name.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +109,7 @@ public class ForexQuote {
   /**
    * The account name.
    *
-   * @param account
+   * @param account The account name.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +120,7 @@ public class ForexQuote {
   /**
    * The account type.
    *
-   * @param accountType
+   * @param accountType The account type.
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote accountType(String accountType) {
@@ -130,7 +130,7 @@ public class ForexQuote {
 
   /**
    * The account type.
-   * @return accountType
+   * @return accountType The account type.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +141,7 @@ public class ForexQuote {
   /**
    * The account type.
    *
-   * @param accountType
+   * @param accountType The account type.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +152,7 @@ public class ForexQuote {
   /**
    * baseAmount
    *
-   * @param baseAmount
+   * @param baseAmount 
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote baseAmount(Amount baseAmount) {
@@ -162,7 +162,7 @@ public class ForexQuote {
 
   /**
    * Get baseAmount
-   * @return baseAmount
+   * @return baseAmount 
    */
   @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,7 +173,7 @@ public class ForexQuote {
   /**
    * baseAmount
    *
-   * @param baseAmount
+   * @param baseAmount 
    */
   @JsonProperty(JSON_PROPERTY_BASE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,7 +184,7 @@ public class ForexQuote {
   /**
    * The base points.
    *
-   * @param basePoints
+   * @param basePoints The base points.
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote basePoints(Integer basePoints) {
@@ -194,7 +194,7 @@ public class ForexQuote {
 
   /**
    * The base points.
-   * @return basePoints
+   * @return basePoints The base points.
    */
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,7 +205,7 @@ public class ForexQuote {
   /**
    * The base points.
    *
-   * @param basePoints
+   * @param basePoints The base points.
    */
   @JsonProperty(JSON_PROPERTY_BASE_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +216,7 @@ public class ForexQuote {
   /**
    * buy
    *
-   * @param buy
+   * @param buy 
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote buy(Amount buy) {
@@ -226,7 +226,7 @@ public class ForexQuote {
 
   /**
    * Get buy
-   * @return buy
+   * @return buy 
    */
   @JsonProperty(JSON_PROPERTY_BUY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -237,7 +237,7 @@ public class ForexQuote {
   /**
    * buy
    *
-   * @param buy
+   * @param buy 
    */
   @JsonProperty(JSON_PROPERTY_BUY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,7 +248,7 @@ public class ForexQuote {
   /**
    * interbank
    *
-   * @param interbank
+   * @param interbank 
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote interbank(Amount interbank) {
@@ -258,7 +258,7 @@ public class ForexQuote {
 
   /**
    * Get interbank
-   * @return interbank
+   * @return interbank 
    */
   @JsonProperty(JSON_PROPERTY_INTERBANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,7 +269,7 @@ public class ForexQuote {
   /**
    * interbank
    *
-   * @param interbank
+   * @param interbank 
    */
   @JsonProperty(JSON_PROPERTY_INTERBANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,7 +280,7 @@ public class ForexQuote {
   /**
    * The reference assigned to the forex quote request.
    *
-   * @param reference
+   * @param reference The reference assigned to the forex quote request.
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote reference(String reference) {
@@ -290,7 +290,7 @@ public class ForexQuote {
 
   /**
    * The reference assigned to the forex quote request.
-   * @return reference
+   * @return reference The reference assigned to the forex quote request.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +301,7 @@ public class ForexQuote {
   /**
    * The reference assigned to the forex quote request.
    *
-   * @param reference
+   * @param reference The reference assigned to the forex quote request.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +312,7 @@ public class ForexQuote {
   /**
    * sell
    *
-   * @param sell
+   * @param sell 
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote sell(Amount sell) {
@@ -322,7 +322,7 @@ public class ForexQuote {
 
   /**
    * Get sell
-   * @return sell
+   * @return sell 
    */
   @JsonProperty(JSON_PROPERTY_SELL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +333,7 @@ public class ForexQuote {
   /**
    * sell
    *
-   * @param sell
+   * @param sell 
    */
   @JsonProperty(JSON_PROPERTY_SELL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -344,7 +344,7 @@ public class ForexQuote {
   /**
    * The signature to validate the integrity.
    *
-   * @param signature
+   * @param signature The signature to validate the integrity.
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote signature(String signature) {
@@ -354,7 +354,7 @@ public class ForexQuote {
 
   /**
    * The signature to validate the integrity.
-   * @return signature
+   * @return signature The signature to validate the integrity.
    */
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,7 +365,7 @@ public class ForexQuote {
   /**
    * The signature to validate the integrity.
    *
-   * @param signature
+   * @param signature The signature to validate the integrity.
    */
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,7 +376,7 @@ public class ForexQuote {
   /**
    * The source of the forex quote.
    *
-   * @param source
+   * @param source The source of the forex quote.
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote source(String source) {
@@ -386,7 +386,7 @@ public class ForexQuote {
 
   /**
    * The source of the forex quote.
-   * @return source
+   * @return source The source of the forex quote.
    */
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,7 +397,7 @@ public class ForexQuote {
   /**
    * The source of the forex quote.
    *
-   * @param source
+   * @param source The source of the forex quote.
    */
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -408,7 +408,7 @@ public class ForexQuote {
   /**
    * The type of forex.
    *
-   * @param type
+   * @param type The type of forex.
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote type(String type) {
@@ -418,7 +418,7 @@ public class ForexQuote {
 
   /**
    * The type of forex.
-   * @return type
+   * @return type The type of forex.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -429,7 +429,7 @@ public class ForexQuote {
   /**
    * The type of forex.
    *
-   * @param type
+   * @param type The type of forex.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,7 +440,7 @@ public class ForexQuote {
   /**
    * The date until which the forex quote is valid.
    *
-   * @param validTill
+   * @param validTill The date until which the forex quote is valid.
    * @return the current {@code ForexQuote} instance, allowing for method chaining
    */
   public ForexQuote validTill(OffsetDateTime validTill) {
@@ -450,7 +450,7 @@ public class ForexQuote {
 
   /**
    * The date until which the forex quote is valid.
-   * @return validTill
+   * @return validTill The date until which the forex quote is valid.
    */
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -461,7 +461,7 @@ public class ForexQuote {
   /**
    * The date until which the forex quote is valid.
    *
-   * @param validTill
+   * @param validTill The date until which the forex quote is valid.
    */
   @JsonProperty(JSON_PROPERTY_VALID_TILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

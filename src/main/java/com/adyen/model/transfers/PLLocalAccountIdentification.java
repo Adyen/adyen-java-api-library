@@ -79,7 +79,7 @@ public class PLLocalAccountIdentification {
   /**
    * The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)), without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)), without separators or whitespace.
    * @return the current {@code PLLocalAccountIdentification} instance, allowing for method chaining
    */
   public PLLocalAccountIdentification accountNumber(String accountNumber) {
@@ -89,7 +89,7 @@ public class PLLocalAccountIdentification {
 
   /**
    * The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)), without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class PLLocalAccountIdentification {
   /**
    * The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)), without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class PLLocalAccountIdentification {
   /**
    * **plLocal**
    *
-   * @param type
+   * @param type **plLocal**
    * @return the current {@code PLLocalAccountIdentification} instance, allowing for method chaining
    */
   public PLLocalAccountIdentification type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class PLLocalAccountIdentification {
 
   /**
    * **plLocal**
-   * @return type
+   * @return type **plLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class PLLocalAccountIdentification {
   /**
    * **plLocal**
    *
-   * @param type
+   * @param type **plLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

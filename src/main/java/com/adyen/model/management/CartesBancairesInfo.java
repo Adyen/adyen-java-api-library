@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TransactionDescriptionInfo;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -49,7 +47,7 @@ public class CartesBancairesInfo {
   /**
    * Cartes Bancaires SIRET. Format: 14 digits.
    *
-   * @param siret
+   * @param siret Cartes Bancaires SIRET. Format: 14 digits.
    * @return the current {@code CartesBancairesInfo} instance, allowing for method chaining
    */
   public CartesBancairesInfo siret(String siret) {
@@ -59,9 +57,8 @@ public class CartesBancairesInfo {
 
   /**
    * Cartes Bancaires SIRET. Format: 14 digits.
-   * @return siret
+   * @return siret Cartes Bancaires SIRET. Format: 14 digits.
    */
-  @ApiModelProperty(required = true, value = "Cartes Bancaires SIRET. Format: 14 digits.")
   @JsonProperty(JSON_PROPERTY_SIRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSiret() {
@@ -71,8 +68,8 @@ public class CartesBancairesInfo {
   /**
    * Cartes Bancaires SIRET. Format: 14 digits.
    *
-   * @param siret
-   */ 
+   * @param siret Cartes Bancaires SIRET. Format: 14 digits.
+   */
   @JsonProperty(JSON_PROPERTY_SIRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiret(String siret) {
@@ -82,7 +79,7 @@ public class CartesBancairesInfo {
   /**
    * transactionDescription
    *
-   * @param transactionDescription
+   * @param transactionDescription 
    * @return the current {@code CartesBancairesInfo} instance, allowing for method chaining
    */
   public CartesBancairesInfo transactionDescription(TransactionDescriptionInfo transactionDescription) {
@@ -91,10 +88,9 @@ public class CartesBancairesInfo {
   }
 
   /**
-   * transactionDescription
-   * @return transactionDescription
+   * Get transactionDescription
+   * @return transactionDescription 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TransactionDescriptionInfo getTransactionDescription() {
@@ -104,8 +100,8 @@ public class CartesBancairesInfo {
   /**
    * transactionDescription
    *
-   * @param transactionDescription
-   */ 
+   * @param transactionDescription 
+   */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransactionDescription(TransactionDescriptionInfo transactionDescription) {

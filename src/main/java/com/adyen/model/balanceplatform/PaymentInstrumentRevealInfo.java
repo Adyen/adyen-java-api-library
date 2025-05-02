@@ -51,7 +51,7 @@ public class PaymentInstrumentRevealInfo {
   /**
    * The CVC2 value of the card.
    *
-   * @param cvc
+   * @param cvc The CVC2 value of the card.
    * @return the current {@code PaymentInstrumentRevealInfo} instance, allowing for method chaining
    */
   public PaymentInstrumentRevealInfo cvc(String cvc) {
@@ -61,7 +61,7 @@ public class PaymentInstrumentRevealInfo {
 
   /**
    * The CVC2 value of the card.
-   * @return cvc
+   * @return cvc The CVC2 value of the card.
    */
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,7 +72,7 @@ public class PaymentInstrumentRevealInfo {
   /**
    * The CVC2 value of the card.
    *
-   * @param cvc
+   * @param cvc The CVC2 value of the card.
    */
   @JsonProperty(JSON_PROPERTY_CVC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class PaymentInstrumentRevealInfo {
   /**
    * expiration
    *
-   * @param expiration
+   * @param expiration 
    * @return the current {@code PaymentInstrumentRevealInfo} instance, allowing for method chaining
    */
   public PaymentInstrumentRevealInfo expiration(Expiry expiration) {
@@ -93,7 +93,7 @@ public class PaymentInstrumentRevealInfo {
 
   /**
    * Get expiration
-   * @return expiration
+   * @return expiration 
    */
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class PaymentInstrumentRevealInfo {
   /**
    * expiration
    *
-   * @param expiration
+   * @param expiration 
    */
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class PaymentInstrumentRevealInfo {
   /**
    * The primary account number (PAN) of the card.
    *
-   * @param pan
+   * @param pan The primary account number (PAN) of the card.
    * @return the current {@code PaymentInstrumentRevealInfo} instance, allowing for method chaining
    */
   public PaymentInstrumentRevealInfo pan(String pan) {
@@ -125,7 +125,7 @@ public class PaymentInstrumentRevealInfo {
 
   /**
    * The primary account number (PAN) of the card.
-   * @return pan
+   * @return pan The primary account number (PAN) of the card.
    */
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class PaymentInstrumentRevealInfo {
   /**
    * The primary account number (PAN) of the card.
    *
-   * @param pan
+   * @param pan The primary account number (PAN) of the card.
    */
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

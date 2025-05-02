@@ -50,7 +50,7 @@ public class SweepCounterparty {
   /**
    * The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   &gt; If you are updating the counterparty from a transfer instrument to a balance account, set &#x60;transferInstrumentId&#x60; to **null**.
    *
-   * @param balanceAccountId
+   * @param balanceAccountId The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   &gt; If you are updating the counterparty from a transfer instrument to a balance account, set &#x60;transferInstrumentId&#x60; to **null**.
    * @return the current {@code SweepCounterparty} instance, allowing for method chaining
    */
   public SweepCounterparty balanceAccountId(String balanceAccountId) {
@@ -60,7 +60,7 @@ public class SweepCounterparty {
 
   /**
    * The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   &gt; If you are updating the counterparty from a transfer instrument to a balance account, set &#x60;transferInstrumentId&#x60; to **null**.
-   * @return balanceAccountId
+   * @return balanceAccountId The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   &gt; If you are updating the counterparty from a transfer instrument to a balance account, set &#x60;transferInstrumentId&#x60; to **null**.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class SweepCounterparty {
   /**
    * The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   &gt; If you are updating the counterparty from a transfer instrument to a balance account, set &#x60;transferInstrumentId&#x60; to **null**.
    *
-   * @param balanceAccountId
+   * @param balanceAccountId The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   &gt; If you are updating the counterparty from a transfer instrument to a balance account, set &#x60;transferInstrumentId&#x60; to **null**.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class SweepCounterparty {
   /**
    * The merchant account that will be the source of funds.  You can only use this parameter with sweeps of &#x60;type&#x60; **pull** and if you are processing payments with Adyen.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that will be the source of funds.  You can only use this parameter with sweeps of &#x60;type&#x60; **pull** and if you are processing payments with Adyen.
    * @return the current {@code SweepCounterparty} instance, allowing for method chaining
    */
   public SweepCounterparty merchantAccount(String merchantAccount) {
@@ -92,7 +92,7 @@ public class SweepCounterparty {
 
   /**
    * The merchant account that will be the source of funds.  You can only use this parameter with sweeps of &#x60;type&#x60; **pull** and if you are processing payments with Adyen.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that will be the source of funds.  You can only use this parameter with sweeps of &#x60;type&#x60; **pull** and if you are processing payments with Adyen.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class SweepCounterparty {
   /**
    * The merchant account that will be the source of funds.  You can only use this parameter with sweeps of &#x60;type&#x60; **pull** and if you are processing payments with Adyen.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that will be the source of funds.  You can only use this parameter with sweeps of &#x60;type&#x60; **pull** and if you are processing payments with Adyen.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class SweepCounterparty {
   /**
    * The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) depending on the sweep &#x60;type&#x60;  . To set up automated top-up sweeps to balance accounts in your [marketplace](https://docs.adyen.com/marketplaces/top-up-balance-account/#before-you-begin) or [platform](https://docs.adyen.com/platforms/top-up-balance-account/#before-you-begin), use this parameter in combination with a &#x60;merchantAccount&#x60; and a sweep &#x60;type&#x60; of **pull**.  Top-up sweeps start a direct debit request from the source transfer instrument. Contact Adyen Support to enable this feature.&gt; If you are updating the counterparty from a balance account to a transfer instrument, set &#x60;balanceAccountId&#x60; to **null**.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) depending on the sweep &#x60;type&#x60;  . To set up automated top-up sweeps to balance accounts in your [marketplace](https://docs.adyen.com/marketplaces/top-up-balance-account/#before-you-begin) or [platform](https://docs.adyen.com/platforms/top-up-balance-account/#before-you-begin), use this parameter in combination with a &#x60;merchantAccount&#x60; and a sweep &#x60;type&#x60; of **pull**.  Top-up sweeps start a direct debit request from the source transfer instrument. Contact Adyen Support to enable this feature.&gt; If you are updating the counterparty from a balance account to a transfer instrument, set &#x60;balanceAccountId&#x60; to **null**.
    * @return the current {@code SweepCounterparty} instance, allowing for method chaining
    */
   public SweepCounterparty transferInstrumentId(String transferInstrumentId) {
@@ -124,7 +124,7 @@ public class SweepCounterparty {
 
   /**
    * The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) depending on the sweep &#x60;type&#x60;  . To set up automated top-up sweeps to balance accounts in your [marketplace](https://docs.adyen.com/marketplaces/top-up-balance-account/#before-you-begin) or [platform](https://docs.adyen.com/platforms/top-up-balance-account/#before-you-begin), use this parameter in combination with a &#x60;merchantAccount&#x60; and a sweep &#x60;type&#x60; of **pull**.  Top-up sweeps start a direct debit request from the source transfer instrument. Contact Adyen Support to enable this feature.&gt; If you are updating the counterparty from a balance account to a transfer instrument, set &#x60;balanceAccountId&#x60; to **null**.
-   * @return transferInstrumentId
+   * @return transferInstrumentId The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) depending on the sweep &#x60;type&#x60;  . To set up automated top-up sweeps to balance accounts in your [marketplace](https://docs.adyen.com/marketplaces/top-up-balance-account/#before-you-begin) or [platform](https://docs.adyen.com/platforms/top-up-balance-account/#before-you-begin), use this parameter in combination with a &#x60;merchantAccount&#x60; and a sweep &#x60;type&#x60; of **pull**.  Top-up sweeps start a direct debit request from the source transfer instrument. Contact Adyen Support to enable this feature.&gt; If you are updating the counterparty from a balance account to a transfer instrument, set &#x60;balanceAccountId&#x60; to **null**.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class SweepCounterparty {
   /**
    * The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) depending on the sweep &#x60;type&#x60;  . To set up automated top-up sweeps to balance accounts in your [marketplace](https://docs.adyen.com/marketplaces/top-up-balance-account/#before-you-begin) or [platform](https://docs.adyen.com/platforms/top-up-balance-account/#before-you-begin), use this parameter in combination with a &#x60;merchantAccount&#x60; and a sweep &#x60;type&#x60; of **pull**.  Top-up sweeps start a direct debit request from the source transfer instrument. Contact Adyen Support to enable this feature.&gt; If you are updating the counterparty from a balance account to a transfer instrument, set &#x60;balanceAccountId&#x60; to **null**.
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) depending on the sweep &#x60;type&#x60;  . To set up automated top-up sweeps to balance accounts in your [marketplace](https://docs.adyen.com/marketplaces/top-up-balance-account/#before-you-begin) or [platform](https://docs.adyen.com/platforms/top-up-balance-account/#before-you-begin), use this parameter in combination with a &#x60;merchantAccount&#x60; and a sweep &#x60;type&#x60; of **pull**.  Top-up sweeps start a direct debit request from the source transfer instrument. Contact Adyen Support to enable this feature.&gt; If you are updating the counterparty from a balance account to a transfer instrument, set &#x60;balanceAccountId&#x60; to **null**.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

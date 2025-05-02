@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class TerminalActionScheduleDetail {
   /**
    * The ID of the action on the specified terminal.
    *
-   * @param id
+   * @param id The ID of the action on the specified terminal.
    * @return the current {@code TerminalActionScheduleDetail} instance, allowing for method chaining
    */
   public TerminalActionScheduleDetail id(String id) {
@@ -58,9 +56,8 @@ public class TerminalActionScheduleDetail {
 
   /**
    * The ID of the action on the specified terminal.
-   * @return id
+   * @return id The ID of the action on the specified terminal.
    */
-  @ApiModelProperty(value = "The ID of the action on the specified terminal.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -70,8 +67,8 @@ public class TerminalActionScheduleDetail {
   /**
    * The ID of the action on the specified terminal.
    *
-   * @param id
-   */ 
+   * @param id The ID of the action on the specified terminal.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -81,7 +78,7 @@ public class TerminalActionScheduleDetail {
   /**
    * The unique ID of the terminal that the action applies to.
    *
-   * @param terminalId
+   * @param terminalId The unique ID of the terminal that the action applies to.
    * @return the current {@code TerminalActionScheduleDetail} instance, allowing for method chaining
    */
   public TerminalActionScheduleDetail terminalId(String terminalId) {
@@ -91,9 +88,8 @@ public class TerminalActionScheduleDetail {
 
   /**
    * The unique ID of the terminal that the action applies to.
-   * @return terminalId
+   * @return terminalId The unique ID of the terminal that the action applies to.
    */
-  @ApiModelProperty(value = "The unique ID of the terminal that the action applies to.")
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTerminalId() {
@@ -103,8 +99,8 @@ public class TerminalActionScheduleDetail {
   /**
    * The unique ID of the terminal that the action applies to.
    *
-   * @param terminalId
-   */ 
+   * @param terminalId The unique ID of the terminal that the action applies to.
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalId(String terminalId) {

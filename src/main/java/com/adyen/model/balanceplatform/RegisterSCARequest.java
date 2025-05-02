@@ -51,7 +51,7 @@ public class RegisterSCARequest {
   /**
    * The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a &#x60;name&#x60;, Adyen automatically generates one.
    *
-   * @param name
+   * @param name The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a &#x60;name&#x60;, Adyen automatically generates one.
    * @return the current {@code RegisterSCARequest} instance, allowing for method chaining
    */
   public RegisterSCARequest name(String name) {
@@ -61,7 +61,7 @@ public class RegisterSCARequest {
 
   /**
    * The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a &#x60;name&#x60;, Adyen automatically generates one.
-   * @return name
+   * @return name The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a &#x60;name&#x60;, Adyen automatically generates one.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,7 +72,7 @@ public class RegisterSCARequest {
   /**
    * The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a &#x60;name&#x60;, Adyen automatically generates one.
    *
-   * @param name
+   * @param name The name of the SCA device that you are registering. You can use it to help your users identify the device.  If you do not specify a &#x60;name&#x60;, Adyen automatically generates one.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class RegisterSCARequest {
   /**
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument for which you are registering the SCA device.
    * @return the current {@code RegisterSCARequest} instance, allowing for method chaining
    */
   public RegisterSCARequest paymentInstrumentId(String paymentInstrumentId) {
@@ -93,7 +93,7 @@ public class RegisterSCARequest {
 
   /**
    * The unique identifier of the payment instrument for which you are registering the SCA device.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId The unique identifier of the payment instrument for which you are registering the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class RegisterSCARequest {
   /**
    * The unique identifier of the payment instrument for which you are registering the SCA device.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument for which you are registering the SCA device.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class RegisterSCARequest {
   /**
    * strongCustomerAuthentication
    *
-   * @param strongCustomerAuthentication
+   * @param strongCustomerAuthentication 
    * @return the current {@code RegisterSCARequest} instance, allowing for method chaining
    */
   public RegisterSCARequest strongCustomerAuthentication(DelegatedAuthenticationData strongCustomerAuthentication) {
@@ -125,7 +125,7 @@ public class RegisterSCARequest {
 
   /**
    * Get strongCustomerAuthentication
-   * @return strongCustomerAuthentication
+   * @return strongCustomerAuthentication 
    */
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class RegisterSCARequest {
   /**
    * strongCustomerAuthentication
    *
-   * @param strongCustomerAuthentication
+   * @param strongCustomerAuthentication 
    */
   @JsonProperty(JSON_PROPERTY_STRONG_CUSTOMER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.InvalidField;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -56,7 +54,7 @@ public class RestServiceError {
   private String instance;
 
   public static final String JSON_PROPERTY_INVALID_FIELDS = "invalidFields";
-  private List<InvalidField> invalidFields = null;
+  private List<InvalidField> invalidFields;
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -79,7 +77,7 @@ public class RestServiceError {
   /**
    * A human-readable explanation specific to this occurrence of the problem.
    *
-   * @param detail
+   * @param detail A human-readable explanation specific to this occurrence of the problem.
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError detail(String detail) {
@@ -89,9 +87,8 @@ public class RestServiceError {
 
   /**
    * A human-readable explanation specific to this occurrence of the problem.
-   * @return detail
+   * @return detail A human-readable explanation specific to this occurrence of the problem.
    */
-  @ApiModelProperty(required = true, value = "A human-readable explanation specific to this occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDetail() {
@@ -101,8 +98,8 @@ public class RestServiceError {
   /**
    * A human-readable explanation specific to this occurrence of the problem.
    *
-   * @param detail
-   */ 
+   * @param detail A human-readable explanation specific to this occurrence of the problem.
+   */
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(String detail) {
@@ -112,7 +109,7 @@ public class RestServiceError {
   /**
    * A code that identifies the problem type.
    *
-   * @param errorCode
+   * @param errorCode A code that identifies the problem type.
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError errorCode(String errorCode) {
@@ -122,9 +119,8 @@ public class RestServiceError {
 
   /**
    * A code that identifies the problem type.
-   * @return errorCode
+   * @return errorCode A code that identifies the problem type.
    */
-  @ApiModelProperty(required = true, value = "A code that identifies the problem type.")
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getErrorCode() {
@@ -134,8 +130,8 @@ public class RestServiceError {
   /**
    * A code that identifies the problem type.
    *
-   * @param errorCode
-   */ 
+   * @param errorCode A code that identifies the problem type.
+   */
   @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorCode(String errorCode) {
@@ -145,7 +141,7 @@ public class RestServiceError {
   /**
    * A unique URI that identifies the specific occurrence of the problem.
    *
-   * @param instance
+   * @param instance A unique URI that identifies the specific occurrence of the problem.
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError instance(String instance) {
@@ -155,9 +151,8 @@ public class RestServiceError {
 
   /**
    * A unique URI that identifies the specific occurrence of the problem.
-   * @return instance
+   * @return instance A unique URI that identifies the specific occurrence of the problem.
    */
-  @ApiModelProperty(value = "A unique URI that identifies the specific occurrence of the problem.")
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getInstance() {
@@ -167,8 +162,8 @@ public class RestServiceError {
   /**
    * A unique URI that identifies the specific occurrence of the problem.
    *
-   * @param instance
-   */ 
+   * @param instance A unique URI that identifies the specific occurrence of the problem.
+   */
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstance(String instance) {
@@ -178,7 +173,7 @@ public class RestServiceError {
   /**
    * Detailed explanation of each validation error, when applicable.
    *
-   * @param invalidFields
+   * @param invalidFields Detailed explanation of each validation error, when applicable.
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError invalidFields(List<InvalidField> invalidFields) {
@@ -196,9 +191,8 @@ public class RestServiceError {
 
   /**
    * Detailed explanation of each validation error, when applicable.
-   * @return invalidFields
+   * @return invalidFields Detailed explanation of each validation error, when applicable.
    */
-  @ApiModelProperty(value = "Detailed explanation of each validation error, when applicable.")
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<InvalidField> getInvalidFields() {
@@ -208,8 +202,8 @@ public class RestServiceError {
   /**
    * Detailed explanation of each validation error, when applicable.
    *
-   * @param invalidFields
-   */ 
+   * @param invalidFields Detailed explanation of each validation error, when applicable.
+   */
   @JsonProperty(JSON_PROPERTY_INVALID_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvalidFields(List<InvalidField> invalidFields) {
@@ -219,7 +213,7 @@ public class RestServiceError {
   /**
    * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
    *
-   * @param requestId
+   * @param requestId A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError requestId(String requestId) {
@@ -229,9 +223,8 @@ public class RestServiceError {
 
   /**
    * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
-   * @return requestId
+   * @return requestId A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
    */
-  @ApiModelProperty(value = "A unique reference for the request, essentially the same as `pspReference`.")
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRequestId() {
@@ -241,8 +234,8 @@ public class RestServiceError {
   /**
    * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
    *
-   * @param requestId
-   */ 
+   * @param requestId A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
+   */
   @JsonProperty(JSON_PROPERTY_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestId(String requestId) {
@@ -252,7 +245,7 @@ public class RestServiceError {
   /**
    * response
    *
-   * @param response
+   * @param response 
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError response(Object response) {
@@ -261,10 +254,9 @@ public class RestServiceError {
   }
 
   /**
-   * response
-   * @return response
+   * Get response
+   * @return response 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Object getResponse() {
@@ -274,8 +266,8 @@ public class RestServiceError {
   /**
    * response
    *
-   * @param response
-   */ 
+   * @param response 
+   */
   @JsonProperty(JSON_PROPERTY_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponse(Object response) {
@@ -285,7 +277,7 @@ public class RestServiceError {
   /**
    * The HTTP status code.
    *
-   * @param status
+   * @param status The HTTP status code.
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError status(Integer status) {
@@ -295,9 +287,8 @@ public class RestServiceError {
 
   /**
    * The HTTP status code.
-   * @return status
+   * @return status The HTTP status code.
    */
-  @ApiModelProperty(required = true, value = "The HTTP status code.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getStatus() {
@@ -307,8 +298,8 @@ public class RestServiceError {
   /**
    * The HTTP status code.
    *
-   * @param status
-   */ 
+   * @param status The HTTP status code.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Integer status) {
@@ -318,7 +309,7 @@ public class RestServiceError {
   /**
    * A short, human-readable summary of the problem type.
    *
-   * @param title
+   * @param title A short, human-readable summary of the problem type.
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError title(String title) {
@@ -328,9 +319,8 @@ public class RestServiceError {
 
   /**
    * A short, human-readable summary of the problem type.
-   * @return title
+   * @return title A short, human-readable summary of the problem type.
    */
-  @ApiModelProperty(required = true, value = "A short, human-readable summary of the problem type.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
@@ -340,8 +330,8 @@ public class RestServiceError {
   /**
    * A short, human-readable summary of the problem type.
    *
-   * @param title
-   */ 
+   * @param title A short, human-readable summary of the problem type.
+   */
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(String title) {
@@ -351,7 +341,7 @@ public class RestServiceError {
   /**
    * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    *
-   * @param type
+   * @param type A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    * @return the current {@code RestServiceError} instance, allowing for method chaining
    */
   public RestServiceError type(String type) {
@@ -361,9 +351,8 @@ public class RestServiceError {
 
   /**
    * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
-   * @return type
+   * @return type A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    */
-  @ApiModelProperty(required = true, value = "A URI that identifies the problem type, pointing to human-readable documentation on this problem type.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -373,8 +362,8 @@ public class RestServiceError {
   /**
    * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    *
-   * @param type
-   */ 
+   * @param type A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

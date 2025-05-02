@@ -83,7 +83,7 @@ public class SELocalAccountIdentification {
   /**
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
    */
   public SELocalAccountIdentification accountNumber(String accountNumber) {
@@ -93,7 +93,7 @@ public class SELocalAccountIdentification {
 
   /**
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
-   * @return accountNumber
+   * @return accountNumber The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class SELocalAccountIdentification {
   /**
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)), without the clearing number, separators, or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class SELocalAccountIdentification {
   /**
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    *
-   * @param clearingNumber
+   * @param clearingNumber The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
    */
   public SELocalAccountIdentification clearingNumber(String clearingNumber) {
@@ -125,7 +125,7 @@ public class SELocalAccountIdentification {
 
   /**
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
-   * @return clearingNumber
+   * @return clearingNumber The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class SELocalAccountIdentification {
   /**
    * The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    *
-   * @param clearingNumber
+   * @param clearingNumber The 4- to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_CLEARING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class SELocalAccountIdentification {
   /**
    * **seLocal**
    *
-   * @param type
+   * @param type **seLocal**
    * @return the current {@code SELocalAccountIdentification} instance, allowing for method chaining
    */
   public SELocalAccountIdentification type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class SELocalAccountIdentification {
 
   /**
    * **seLocal**
-   * @return type
+   * @return type **seLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class SELocalAccountIdentification {
   /**
    * **seLocal**
    *
-   * @param type
+   * @param type **seLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

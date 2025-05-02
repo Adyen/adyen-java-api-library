@@ -75,7 +75,7 @@ public class Trust {
   private String registrationNumber;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = new ArrayList<>();
+  private List<TaxInformation> taxInformation;
 
   /**
    * Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
@@ -150,7 +150,7 @@ public class Trust {
   private TypeEnum type;
 
   public static final String JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO = "undefinedBeneficiaryInfo";
-  private List<UndefinedBeneficiary> undefinedBeneficiaryInfo = new ArrayList<>();
+  private List<UndefinedBeneficiary> undefinedBeneficiaryInfo;
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
@@ -199,7 +199,7 @@ public class Trust {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
-   * @param countryOfGoverningLaw
+   * @param countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust countryOfGoverningLaw(String countryOfGoverningLaw) {
@@ -209,7 +209,7 @@ public class Trust {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
-   * @return countryOfGoverningLaw
+   * @return countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +220,7 @@ public class Trust {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
-   * @param countryOfGoverningLaw
+   * @param countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +231,7 @@ public class Trust {
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    *
-   * @param dateOfIncorporation
+   * @param dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust dateOfIncorporation(String dateOfIncorporation) {
@@ -241,7 +241,7 @@ public class Trust {
 
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
-   * @return dateOfIncorporation
+   * @return dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +252,7 @@ public class Trust {
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    *
-   * @param dateOfIncorporation
+   * @param dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,7 +263,7 @@ public class Trust {
   /**
    * A short description about the trust. Only applicable for charitable trusts in New Zealand.
    *
-   * @param description
+   * @param description A short description about the trust. Only applicable for charitable trusts in New Zealand.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust description(String description) {
@@ -273,7 +273,7 @@ public class Trust {
 
   /**
    * A short description about the trust. Only applicable for charitable trusts in New Zealand.
-   * @return description
+   * @return description A short description about the trust. Only applicable for charitable trusts in New Zealand.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +284,7 @@ public class Trust {
   /**
    * A short description about the trust. Only applicable for charitable trusts in New Zealand.
    *
-   * @param description
+   * @param description A short description about the trust. Only applicable for charitable trusts in New Zealand.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -295,7 +295,7 @@ public class Trust {
   /**
    * The registered name, if different from the &#x60;name&#x60;.
    *
-   * @param doingBusinessAs
+   * @param doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust doingBusinessAs(String doingBusinessAs) {
@@ -305,7 +305,7 @@ public class Trust {
 
   /**
    * The registered name, if different from the &#x60;name&#x60;.
-   * @return doingBusinessAs
+   * @return doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +316,7 @@ public class Trust {
   /**
    * The registered name, if different from the &#x60;name&#x60;.
    *
-   * @param doingBusinessAs
+   * @param doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -327,7 +327,7 @@ public class Trust {
   /**
    * The legal name.
    *
-   * @param name
+   * @param name The legal name.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust name(String name) {
@@ -337,7 +337,7 @@ public class Trust {
 
   /**
    * The legal name.
-   * @return name
+   * @return name The legal name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -348,7 +348,7 @@ public class Trust {
   /**
    * The legal name.
    *
-   * @param name
+   * @param name The legal name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,7 +359,7 @@ public class Trust {
   /**
    * principalPlaceOfBusiness
    *
-   * @param principalPlaceOfBusiness
+   * @param principalPlaceOfBusiness 
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -369,7 +369,7 @@ public class Trust {
 
   /**
    * Get principalPlaceOfBusiness
-   * @return principalPlaceOfBusiness
+   * @return principalPlaceOfBusiness 
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,7 +380,7 @@ public class Trust {
   /**
    * principalPlaceOfBusiness
    *
-   * @param principalPlaceOfBusiness
+   * @param principalPlaceOfBusiness 
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -391,7 +391,7 @@ public class Trust {
   /**
    * registeredAddress
    *
-   * @param registeredAddress
+   * @param registeredAddress 
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust registeredAddress(Address registeredAddress) {
@@ -401,7 +401,7 @@ public class Trust {
 
   /**
    * Get registeredAddress
-   * @return registeredAddress
+   * @return registeredAddress 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -412,7 +412,7 @@ public class Trust {
   /**
    * registeredAddress
    *
-   * @param registeredAddress
+   * @param registeredAddress 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -423,7 +423,7 @@ public class Trust {
   /**
    * The registration number.
    *
-   * @param registrationNumber
+   * @param registrationNumber The registration number.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust registrationNumber(String registrationNumber) {
@@ -433,7 +433,7 @@ public class Trust {
 
   /**
    * The registration number.
-   * @return registrationNumber
+   * @return registrationNumber The registration number.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -444,7 +444,7 @@ public class Trust {
   /**
    * The registration number.
    *
-   * @param registrationNumber
+   * @param registrationNumber The registration number.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -455,7 +455,7 @@ public class Trust {
   /**
    * The tax information of the entity.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the entity.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust taxInformation(List<TaxInformation> taxInformation) {
@@ -473,7 +473,7 @@ public class Trust {
 
   /**
    * The tax information of the entity.
-   * @return taxInformation
+   * @return taxInformation The tax information of the entity.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -484,7 +484,7 @@ public class Trust {
   /**
    * The tax information of the entity.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the entity.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -495,7 +495,7 @@ public class Trust {
   /**
    * Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
    *
-   * @param type
+   * @param type Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust type(TypeEnum type) {
@@ -505,7 +505,7 @@ public class Trust {
 
   /**
    * Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
-   * @return type
+   * @return type Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -516,7 +516,7 @@ public class Trust {
   /**
    * Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
    *
-   * @param type
+   * @param type Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab&#x3D;trust_3_4#trust-types-in-new-zealand).
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -527,7 +527,7 @@ public class Trust {
   /**
    * The undefined beneficiary information of the entity.
    *
-   * @param undefinedBeneficiaryInfo
+   * @param undefinedBeneficiaryInfo The undefined beneficiary information of the entity.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust undefinedBeneficiaryInfo(List<UndefinedBeneficiary> undefinedBeneficiaryInfo) {
@@ -545,7 +545,7 @@ public class Trust {
 
   /**
    * The undefined beneficiary information of the entity.
-   * @return undefinedBeneficiaryInfo
+   * @return undefinedBeneficiaryInfo The undefined beneficiary information of the entity.
    */
   @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -556,7 +556,7 @@ public class Trust {
   /**
    * The undefined beneficiary information of the entity.
    *
-   * @param undefinedBeneficiaryInfo
+   * @param undefinedBeneficiaryInfo The undefined beneficiary information of the entity.
    */
   @JsonProperty(JSON_PROPERTY_UNDEFINED_BENEFICIARY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -567,7 +567,7 @@ public class Trust {
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
-   * @param vatAbsenceReason
+   * @param vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -577,7 +577,7 @@ public class Trust {
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
-   * @return vatAbsenceReason
+   * @return vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -588,7 +588,7 @@ public class Trust {
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
-   * @param vatAbsenceReason
+   * @param vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -599,7 +599,7 @@ public class Trust {
   /**
    * The VAT number.
    *
-   * @param vatNumber
+   * @param vatNumber The VAT number.
    * @return the current {@code Trust} instance, allowing for method chaining
    */
   public Trust vatNumber(String vatNumber) {
@@ -609,7 +609,7 @@ public class Trust {
 
   /**
    * The VAT number.
-   * @return vatNumber
+   * @return vatNumber The VAT number.
    */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -620,7 +620,7 @@ public class Trust {
   /**
    * The VAT number.
    *
-   * @param vatNumber
+   * @param vatNumber The VAT number.
    */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

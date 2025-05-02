@@ -60,7 +60,7 @@ public class Attachment {
   /**
    * The document in Base64-encoded string format.
    *
-   * @param content
+   * @param content The document in Base64-encoded string format.
    * @return the current {@code Attachment} instance, allowing for method chaining
    */
   public Attachment content(byte[] content) {
@@ -70,7 +70,7 @@ public class Attachment {
 
   /**
    * The document in Base64-encoded string format.
-   * @return content
+   * @return content The document in Base64-encoded string format.
    */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,7 +81,7 @@ public class Attachment {
   /**
    * The document in Base64-encoded string format.
    *
-   * @param content
+   * @param content The document in Base64-encoded string format.
    */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,7 +92,7 @@ public class Attachment {
   /**
    * The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. 
    *
-   * @param contentType
+   * @param contentType The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. 
    * @return the current {@code Attachment} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v1
@@ -105,7 +105,7 @@ public class Attachment {
 
   /**
    * The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. 
-   * @return contentType
+   * @return contentType The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. 
    * @deprecated // deprecated since Legal Entity Management API v1
    */
   @Deprecated // deprecated since Legal Entity Management API v1
@@ -118,7 +118,7 @@ public class Attachment {
   /**
    * The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. 
    *
-   * @param contentType
+   * @param contentType The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. 
    *
    * @deprecated since Legal Entity Management API v1
    */
@@ -132,7 +132,7 @@ public class Attachment {
   /**
    * The name of the file including the file extension.
    *
-   * @param filename
+   * @param filename The name of the file including the file extension.
    * @return the current {@code Attachment} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v1
@@ -145,7 +145,7 @@ public class Attachment {
 
   /**
    * The name of the file including the file extension.
-   * @return filename
+   * @return filename The name of the file including the file extension.
    * @deprecated // deprecated since Legal Entity Management API v1
    */
   @Deprecated // deprecated since Legal Entity Management API v1
@@ -158,7 +158,7 @@ public class Attachment {
   /**
    * The name of the file including the file extension.
    *
-   * @param filename
+   * @param filename The name of the file including the file extension.
    *
    * @deprecated since Legal Entity Management API v1
    */
@@ -172,7 +172,7 @@ public class Attachment {
   /**
    * The name of the file including the file extension.
    *
-   * @param pageName
+   * @param pageName The name of the file including the file extension.
    * @return the current {@code Attachment} instance, allowing for method chaining
    */
   public Attachment pageName(String pageName) {
@@ -182,7 +182,7 @@ public class Attachment {
 
   /**
    * The name of the file including the file extension.
-   * @return pageName
+   * @return pageName The name of the file including the file extension.
    */
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,7 +193,7 @@ public class Attachment {
   /**
    * The name of the file including the file extension.
    *
-   * @param pageName
+   * @param pageName The name of the file including the file extension.
    */
   @JsonProperty(JSON_PROPERTY_PAGE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,7 +204,7 @@ public class Attachment {
   /**
    * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    *
-   * @param pageType
+   * @param pageType Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    * @return the current {@code Attachment} instance, allowing for method chaining
    */
   public Attachment pageType(String pageType) {
@@ -214,7 +214,7 @@ public class Attachment {
 
   /**
    * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
-   * @return pageType
+   * @return pageType Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    */
   @JsonProperty(JSON_PROPERTY_PAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,7 +225,7 @@ public class Attachment {
   /**
    * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    *
-   * @param pageType
+   * @param pageType Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    */
   @JsonProperty(JSON_PROPERTY_PAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

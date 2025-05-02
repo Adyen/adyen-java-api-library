@@ -42,7 +42,7 @@ public class AssociationDelegatedAuthenticationData {
   /**
    * A base64-encoded block with the data required to authenticate the request. You obtain this information by using our authentication SDK.
    *
-   * @param sdkOutput
+   * @param sdkOutput A base64-encoded block with the data required to authenticate the request. You obtain this information by using our authentication SDK.
    * @return the current {@code AssociationDelegatedAuthenticationData} instance, allowing for method chaining
    */
   public AssociationDelegatedAuthenticationData sdkOutput(String sdkOutput) {
@@ -52,7 +52,7 @@ public class AssociationDelegatedAuthenticationData {
 
   /**
    * A base64-encoded block with the data required to authenticate the request. You obtain this information by using our authentication SDK.
-   * @return sdkOutput
+   * @return sdkOutput A base64-encoded block with the data required to authenticate the request. You obtain this information by using our authentication SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class AssociationDelegatedAuthenticationData {
   /**
    * A base64-encoded block with the data required to authenticate the request. You obtain this information by using our authentication SDK.
    *
-   * @param sdkOutput
+   * @param sdkOutput A base64-encoded block with the data required to authenticate the request. You obtain this information by using our authentication SDK.
    */
   @JsonProperty(JSON_PROPERTY_SDK_OUTPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class TerminalConnectivityWifi {
   /**
    * The terminal&#39;s IP address in the Wi-Fi network.
    *
-   * @param ipAddress
+   * @param ipAddress The terminal&#39;s IP address in the Wi-Fi network.
    * @return the current {@code TerminalConnectivityWifi} instance, allowing for method chaining
    */
   public TerminalConnectivityWifi ipAddress(String ipAddress) {
@@ -62,9 +60,8 @@ public class TerminalConnectivityWifi {
 
   /**
    * The terminal&#39;s IP address in the Wi-Fi network.
-   * @return ipAddress
+   * @return ipAddress The terminal&#39;s IP address in the Wi-Fi network.
    */
-  @ApiModelProperty(value = "The terminal's IP address in the Wi-Fi network.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIpAddress() {
@@ -74,8 +71,8 @@ public class TerminalConnectivityWifi {
   /**
    * The terminal&#39;s IP address in the Wi-Fi network.
    *
-   * @param ipAddress
-   */ 
+   * @param ipAddress The terminal&#39;s IP address in the Wi-Fi network.
+   */
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
@@ -85,7 +82,7 @@ public class TerminalConnectivityWifi {
   /**
    * The terminal&#39;s MAC address in the Wi-Fi network.
    *
-   * @param macAddress
+   * @param macAddress The terminal&#39;s MAC address in the Wi-Fi network.
    * @return the current {@code TerminalConnectivityWifi} instance, allowing for method chaining
    */
   public TerminalConnectivityWifi macAddress(String macAddress) {
@@ -95,9 +92,8 @@ public class TerminalConnectivityWifi {
 
   /**
    * The terminal&#39;s MAC address in the Wi-Fi network.
-   * @return macAddress
+   * @return macAddress The terminal&#39;s MAC address in the Wi-Fi network.
    */
-  @ApiModelProperty(value = "The terminal's MAC address in the Wi-Fi network.")
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMacAddress() {
@@ -107,8 +103,8 @@ public class TerminalConnectivityWifi {
   /**
    * The terminal&#39;s MAC address in the Wi-Fi network.
    *
-   * @param macAddress
-   */ 
+   * @param macAddress The terminal&#39;s MAC address in the Wi-Fi network.
+   */
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {
@@ -118,7 +114,7 @@ public class TerminalConnectivityWifi {
   /**
    * The SSID of the Wi-Fi network that the terminal is connected to.
    *
-   * @param ssid
+   * @param ssid The SSID of the Wi-Fi network that the terminal is connected to.
    * @return the current {@code TerminalConnectivityWifi} instance, allowing for method chaining
    */
   public TerminalConnectivityWifi ssid(String ssid) {
@@ -128,9 +124,8 @@ public class TerminalConnectivityWifi {
 
   /**
    * The SSID of the Wi-Fi network that the terminal is connected to.
-   * @return ssid
+   * @return ssid The SSID of the Wi-Fi network that the terminal is connected to.
    */
-  @ApiModelProperty(value = "The SSID of the Wi-Fi network that the terminal is connected to.")
   @JsonProperty(JSON_PROPERTY_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSsid() {
@@ -140,8 +135,8 @@ public class TerminalConnectivityWifi {
   /**
    * The SSID of the Wi-Fi network that the terminal is connected to.
    *
-   * @param ssid
-   */ 
+   * @param ssid The SSID of the Wi-Fi network that the terminal is connected to.
+   */
   @JsonProperty(JSON_PROPERTY_SSID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSsid(String ssid) {

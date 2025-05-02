@@ -62,7 +62,7 @@ public class TransferInstrumentReference {
   /**
    * The masked IBAN or bank account number.
    *
-   * @param accountIdentifier
+   * @param accountIdentifier The masked IBAN or bank account number.
    * @return the current {@code TransferInstrumentReference} instance, allowing for method chaining
    */
   public TransferInstrumentReference accountIdentifier(String accountIdentifier) {
@@ -72,7 +72,7 @@ public class TransferInstrumentReference {
 
   /**
    * The masked IBAN or bank account number.
-   * @return accountIdentifier
+   * @return accountIdentifier The masked IBAN or bank account number.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class TransferInstrumentReference {
   /**
    * The masked IBAN or bank account number.
    *
-   * @param accountIdentifier
+   * @param accountIdentifier The masked IBAN or bank account number.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +94,7 @@ public class TransferInstrumentReference {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    * @return the current {@code TransferInstrumentReference} instance, allowing for method chaining
    */
   public TransferInstrumentReference id(String id) {
@@ -104,7 +104,7 @@ public class TransferInstrumentReference {
 
   /**
    * The unique identifier of the resource.
-   * @return id
+   * @return id The unique identifier of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class TransferInstrumentReference {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class TransferInstrumentReference {
   /**
    * Four last digits of the bank account number. If the transfer instrument is created using [instant bank account verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding), and it is a virtual bank account, these digits may be different from the last four digits of the masked account number.
    *
-   * @param realLastFour
+   * @param realLastFour Four last digits of the bank account number. If the transfer instrument is created using [instant bank account verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding), and it is a virtual bank account, these digits may be different from the last four digits of the masked account number.
    * @return the current {@code TransferInstrumentReference} instance, allowing for method chaining
    */
   public TransferInstrumentReference realLastFour(String realLastFour) {
@@ -136,7 +136,7 @@ public class TransferInstrumentReference {
 
   /**
    * Four last digits of the bank account number. If the transfer instrument is created using [instant bank account verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding), and it is a virtual bank account, these digits may be different from the last four digits of the masked account number.
-   * @return realLastFour
+   * @return realLastFour Four last digits of the bank account number. If the transfer instrument is created using [instant bank account verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding), and it is a virtual bank account, these digits may be different from the last four digits of the masked account number.
    */
   @JsonProperty(JSON_PROPERTY_REAL_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class TransferInstrumentReference {
   /**
    * Four last digits of the bank account number. If the transfer instrument is created using [instant bank account verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding), and it is a virtual bank account, these digits may be different from the last four digits of the masked account number.
    *
-   * @param realLastFour
+   * @param realLastFour Four last digits of the bank account number. If the transfer instrument is created using [instant bank account verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding), and it is a virtual bank account, these digits may be different from the last four digits of the masked account number.
    */
   @JsonProperty(JSON_PROPERTY_REAL_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class TransferInstrumentReference {
 
   /**
    * Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
-   * @return trustedSource
+   * @return trustedSource Identifies if the bank account was created through [instant bank verification](https://docs.adyen.com/release-notes/platforms-and-financial-products#releaseNote&#x3D;2023-05-08-hosted-onboarding).
    */
   @JsonProperty(JSON_PROPERTY_TRUSTED_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

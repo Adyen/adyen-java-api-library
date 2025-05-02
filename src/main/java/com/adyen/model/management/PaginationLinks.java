@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.LinksElement;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -61,7 +59,7 @@ public class PaginationLinks {
   /**
    * first
    *
-   * @param first
+   * @param first 
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks first(LinksElement first) {
@@ -70,10 +68,9 @@ public class PaginationLinks {
   }
 
   /**
-   * first
-   * @return first
+   * Get first
+   * @return first 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getFirst() {
@@ -83,8 +80,8 @@ public class PaginationLinks {
   /**
    * first
    *
-   * @param first
-   */ 
+   * @param first 
+   */
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirst(LinksElement first) {
@@ -94,7 +91,7 @@ public class PaginationLinks {
   /**
    * last
    *
-   * @param last
+   * @param last 
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks last(LinksElement last) {
@@ -103,10 +100,9 @@ public class PaginationLinks {
   }
 
   /**
-   * last
-   * @return last
+   * Get last
+   * @return last 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getLast() {
@@ -116,8 +112,8 @@ public class PaginationLinks {
   /**
    * last
    *
-   * @param last
-   */ 
+   * @param last 
+   */
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLast(LinksElement last) {
@@ -127,7 +123,7 @@ public class PaginationLinks {
   /**
    * next
    *
-   * @param next
+   * @param next 
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks next(LinksElement next) {
@@ -136,10 +132,9 @@ public class PaginationLinks {
   }
 
   /**
-   * next
-   * @return next
+   * Get next
+   * @return next 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getNext() {
@@ -149,8 +144,8 @@ public class PaginationLinks {
   /**
    * next
    *
-   * @param next
-   */ 
+   * @param next 
+   */
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNext(LinksElement next) {
@@ -160,7 +155,7 @@ public class PaginationLinks {
   /**
    * prev
    *
-   * @param prev
+   * @param prev 
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks prev(LinksElement prev) {
@@ -169,10 +164,9 @@ public class PaginationLinks {
   }
 
   /**
-   * prev
-   * @return prev
+   * Get prev
+   * @return prev 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getPrev() {
@@ -182,8 +176,8 @@ public class PaginationLinks {
   /**
    * prev
    *
-   * @param prev
-   */ 
+   * @param prev 
+   */
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrev(LinksElement prev) {
@@ -193,7 +187,7 @@ public class PaginationLinks {
   /**
    * self
    *
-   * @param self
+   * @param self 
    * @return the current {@code PaginationLinks} instance, allowing for method chaining
    */
   public PaginationLinks self(LinksElement self) {
@@ -202,10 +196,9 @@ public class PaginationLinks {
   }
 
   /**
-   * self
-   * @return self
+   * Get self
+   * @return self 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LinksElement getSelf() {
@@ -215,8 +208,8 @@ public class PaginationLinks {
   /**
    * self
    *
-   * @param self
-   */ 
+   * @param self 
+   */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {

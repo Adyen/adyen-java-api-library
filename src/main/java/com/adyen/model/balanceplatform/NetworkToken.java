@@ -111,7 +111,7 @@ public class NetworkToken {
   /**
    * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
    *
-   * @param brandVariant
+   * @param brandVariant The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken brandVariant(String brandVariant) {
@@ -121,7 +121,7 @@ public class NetworkToken {
 
   /**
    * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
-   * @return brandVariant
+   * @return brandVariant The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
    */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class NetworkToken {
   /**
    * The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
    *
-   * @param brandVariant
+   * @param brandVariant The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**.
    */
   @JsonProperty(JSON_PROPERTY_BRAND_VARIANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class NetworkToken {
   /**
    * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
    *
-   * @param creationDate
+   * @param creationDate Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken creationDate(OffsetDateTime creationDate) {
@@ -153,7 +153,7 @@ public class NetworkToken {
 
   /**
    * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
-   * @return creationDate
+   * @return creationDate Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +164,7 @@ public class NetworkToken {
   /**
    * Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
    *
-   * @param creationDate
+   * @param creationDate Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2020-12-18T10:15:30+01:00**..
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class NetworkToken {
   /**
    * device
    *
-   * @param device
+   * @param device 
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken device(DeviceInfo device) {
@@ -185,7 +185,7 @@ public class NetworkToken {
 
   /**
    * Get device
-   * @return device
+   * @return device 
    */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +196,7 @@ public class NetworkToken {
   /**
    * device
    *
-   * @param device
+   * @param device 
    */
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class NetworkToken {
   /**
    * The unique identifier of the network token.
    *
-   * @param id
+   * @param id The unique identifier of the network token.
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken id(String id) {
@@ -217,7 +217,7 @@ public class NetworkToken {
 
   /**
    * The unique identifier of the network token.
-   * @return id
+   * @return id The unique identifier of the network token.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,7 +228,7 @@ public class NetworkToken {
   /**
    * The unique identifier of the network token.
    *
-   * @param id
+   * @param id The unique identifier of the network token.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class NetworkToken {
   /**
    * The unique identifier of the payment instrument to which this network token belongs to.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument to which this network token belongs to.
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken paymentInstrumentId(String paymentInstrumentId) {
@@ -249,7 +249,7 @@ public class NetworkToken {
 
   /**
    * The unique identifier of the payment instrument to which this network token belongs to.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId The unique identifier of the payment instrument to which this network token belongs to.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +260,7 @@ public class NetworkToken {
   /**
    * The unique identifier of the payment instrument to which this network token belongs to.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument to which this network token belongs to.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +271,7 @@ public class NetworkToken {
   /**
    * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    *
-   * @param status
+   * @param status The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken status(StatusEnum status) {
@@ -281,7 +281,7 @@ public class NetworkToken {
 
   /**
    * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
-   * @return status
+   * @return status The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,7 +292,7 @@ public class NetworkToken {
   /**
    * The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    *
-   * @param status
+   * @param status The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,7 +303,7 @@ public class NetworkToken {
   /**
    * The last four digits of the network token &#x60;id&#x60;.
    *
-   * @param tokenLastFour
+   * @param tokenLastFour The last four digits of the network token &#x60;id&#x60;.
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken tokenLastFour(String tokenLastFour) {
@@ -313,7 +313,7 @@ public class NetworkToken {
 
   /**
    * The last four digits of the network token &#x60;id&#x60;.
-   * @return tokenLastFour
+   * @return tokenLastFour The last four digits of the network token &#x60;id&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -324,7 +324,7 @@ public class NetworkToken {
   /**
    * The last four digits of the network token &#x60;id&#x60;.
    *
-   * @param tokenLastFour
+   * @param tokenLastFour The last four digits of the network token &#x60;id&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_LAST_FOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,7 +335,7 @@ public class NetworkToken {
   /**
    * The type of network token. For example, **wallet**, **cof**.
    *
-   * @param type
+   * @param type The type of network token. For example, **wallet**, **cof**.
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken type(String type) {
@@ -345,7 +345,7 @@ public class NetworkToken {
 
   /**
    * The type of network token. For example, **wallet**, **cof**.
-   * @return type
+   * @return type The type of network token. For example, **wallet**, **cof**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -356,7 +356,7 @@ public class NetworkToken {
   /**
    * The type of network token. For example, **wallet**, **cof**.
    *
-   * @param type
+   * @param type The type of network token. For example, **wallet**, **cof**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

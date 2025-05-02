@@ -45,7 +45,7 @@ public class WebhookSettings {
   /**
    * The list of webhook settings.
    *
-   * @param webhookSettings
+   * @param webhookSettings The list of webhook settings.
    * @return the current {@code WebhookSettings} instance, allowing for method chaining
    */
   public WebhookSettings webhookSettings(List<WebhookSetting> webhookSettings) {
@@ -63,7 +63,7 @@ public class WebhookSettings {
 
   /**
    * The list of webhook settings.
-   * @return webhookSettings
+   * @return webhookSettings The list of webhook settings.
    */
   @JsonProperty(JSON_PROPERTY_WEBHOOK_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class WebhookSettings {
   /**
    * The list of webhook settings.
    *
-   * @param webhookSettings
+   * @param webhookSettings The list of webhook settings.
    */
   @JsonProperty(JSON_PROPERTY_WEBHOOK_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

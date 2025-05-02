@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class Signature {
   /**
    * If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
    *
-   * @param askSignatureOnScreen
+   * @param askSignatureOnScreen If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
    * @return the current {@code Signature} instance, allowing for method chaining
    */
   public Signature askSignatureOnScreen(Boolean askSignatureOnScreen) {
@@ -66,9 +64,8 @@ public class Signature {
 
   /**
    * If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
-   * @return askSignatureOnScreen
+   * @return askSignatureOnScreen If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
    */
-  @ApiModelProperty(value = "If `skipSignature` is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).")
   @JsonProperty(JSON_PROPERTY_ASK_SIGNATURE_ON_SCREEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getAskSignatureOnScreen() {
@@ -78,8 +75,8 @@ public class Signature {
   /**
    * If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
    *
-   * @param askSignatureOnScreen
-   */ 
+   * @param askSignatureOnScreen If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
+   */
   @JsonProperty(JSON_PROPERTY_ASK_SIGNATURE_ON_SCREEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAskSignatureOnScreen(Boolean askSignatureOnScreen) {
@@ -89,7 +86,7 @@ public class Signature {
   /**
    * Name that identifies the terminal.
    *
-   * @param deviceName
+   * @param deviceName Name that identifies the terminal.
    * @return the current {@code Signature} instance, allowing for method chaining
    */
   public Signature deviceName(String deviceName) {
@@ -99,9 +96,8 @@ public class Signature {
 
   /**
    * Name that identifies the terminal.
-   * @return deviceName
+   * @return deviceName Name that identifies the terminal.
    */
-  @ApiModelProperty(value = "Name that identifies the terminal.")
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeviceName() {
@@ -111,8 +107,8 @@ public class Signature {
   /**
    * Name that identifies the terminal.
    *
-   * @param deviceName
-   */ 
+   * @param deviceName Name that identifies the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceName(String deviceName) {
@@ -122,7 +118,7 @@ public class Signature {
   /**
    * Slogan shown on the start screen of the device.
    *
-   * @param deviceSlogan
+   * @param deviceSlogan Slogan shown on the start screen of the device.
    * @return the current {@code Signature} instance, allowing for method chaining
    */
   public Signature deviceSlogan(String deviceSlogan) {
@@ -132,9 +128,8 @@ public class Signature {
 
   /**
    * Slogan shown on the start screen of the device.
-   * @return deviceSlogan
+   * @return deviceSlogan Slogan shown on the start screen of the device.
    */
-  @ApiModelProperty(value = "Slogan shown on the start screen of the device.")
   @JsonProperty(JSON_PROPERTY_DEVICE_SLOGAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDeviceSlogan() {
@@ -144,8 +139,8 @@ public class Signature {
   /**
    * Slogan shown on the start screen of the device.
    *
-   * @param deviceSlogan
-   */ 
+   * @param deviceSlogan Slogan shown on the start screen of the device.
+   */
   @JsonProperty(JSON_PROPERTY_DEVICE_SLOGAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceSlogan(String deviceSlogan) {
@@ -155,7 +150,7 @@ public class Signature {
   /**
    * Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
    *
-   * @param skipSignature
+   * @param skipSignature Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
    * @return the current {@code Signature} instance, allowing for method chaining
    */
   public Signature skipSignature(Boolean skipSignature) {
@@ -165,9 +160,8 @@ public class Signature {
 
   /**
    * Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
-   * @return skipSignature
+   * @return skipSignature Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
    */
-  @ApiModelProperty(value = "Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.")
   @JsonProperty(JSON_PROPERTY_SKIP_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSkipSignature() {
@@ -177,8 +171,8 @@ public class Signature {
   /**
    * Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
    *
-   * @param skipSignature
-   */ 
+   * @param skipSignature Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
+   */
   @JsonProperty(JSON_PROPERTY_SKIP_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSkipSignature(Boolean skipSignature) {

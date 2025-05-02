@@ -58,7 +58,7 @@ public class PhoneNumber {
   /**
    * The full phone number, including the country code. For example, **+3112345678**.
    *
-   * @param number
+   * @param number The full phone number, including the country code. For example, **+3112345678**.
    * @return the current {@code PhoneNumber} instance, allowing for method chaining
    */
   public PhoneNumber number(String number) {
@@ -68,7 +68,7 @@ public class PhoneNumber {
 
   /**
    * The full phone number, including the country code. For example, **+3112345678**.
-   * @return number
+   * @return number The full phone number, including the country code. For example, **+3112345678**.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class PhoneNumber {
   /**
    * The full phone number, including the country code. For example, **+3112345678**.
    *
-   * @param number
+   * @param number The full phone number, including the country code. For example, **+3112345678**.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,7 +89,7 @@ public class PhoneNumber {
 
   /**
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the &#x60;phoneCountryCode&#x60; is determined by the country code digit(s) of &#x60;phone.number&#x60;
-   * @return phoneCountryCode
+   * @return phoneCountryCode The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.  The value of the &#x60;phoneCountryCode&#x60; is determined by the country code digit(s) of &#x60;phone.number&#x60;
    */
   @JsonProperty(JSON_PROPERTY_PHONE_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +101,7 @@ public class PhoneNumber {
   /**
    * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    *
-   * @param type
+   * @param type The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    * @return the current {@code PhoneNumber} instance, allowing for method chaining
    */
   public PhoneNumber type(String type) {
@@ -111,7 +111,7 @@ public class PhoneNumber {
 
   /**
    * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
-   * @return type
+   * @return type The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class PhoneNumber {
   /**
    * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    *
-   * @param type
+   * @param type The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

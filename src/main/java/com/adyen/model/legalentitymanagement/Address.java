@@ -62,7 +62,7 @@ public class Address {
   /**
    * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
    *
-   * @param city
+   * @param city The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address city(String city) {
@@ -72,7 +72,7 @@ public class Address {
 
   /**
    * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
-   * @return city
+   * @return city The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class Address {
   /**
    * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
    *
-   * @param city
+   * @param city The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +94,7 @@ public class Address {
   /**
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    *
-   * @param country
+   * @param country The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address country(String country) {
@@ -104,7 +104,7 @@ public class Address {
 
   /**
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-   * @return country
+   * @return country The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class Address {
   /**
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    *
-   * @param country
+   * @param country The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class Address {
   /**
    * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    *
-   * @param postalCode
+   * @param postalCode Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address postalCode(String postalCode) {
@@ -136,7 +136,7 @@ public class Address {
 
   /**
    * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
-   * @return postalCode
+   * @return postalCode Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class Address {
   /**
    * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    *
-   * @param postalCode
+   * @param postalCode Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class Address {
   /**
    * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    *
-   * @param stateOrProvince
+   * @param stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address stateOrProvince(String stateOrProvince) {
@@ -168,7 +168,7 @@ public class Address {
 
   /**
    * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
-   * @return stateOrProvince
+   * @return stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class Address {
   /**
    * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    *
-   * @param stateOrProvince
+   * @param stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.  If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class Address {
   /**
    * The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    *
-   * @param street
+   * @param street The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address street(String street) {
@@ -200,7 +200,7 @@ public class Address {
 
   /**
    * The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
-   * @return street
+   * @return street The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    */
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class Address {
   /**
    * The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    *
-   * @param street
+   * @param street The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    */
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class Address {
   /**
    * The apartment, unit, or suite number.
    *
-   * @param street2
+   * @param street2 The apartment, unit, or suite number.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address street2(String street2) {
@@ -232,7 +232,7 @@ public class Address {
 
   /**
    * The apartment, unit, or suite number.
-   * @return street2
+   * @return street2 The apartment, unit, or suite number.
    */
   @JsonProperty(JSON_PROPERTY_STREET2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class Address {
   /**
    * The apartment, unit, or suite number.
    *
-   * @param street2
+   * @param street2 The apartment, unit, or suite number.
    */
   @JsonProperty(JSON_PROPERTY_STREET2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

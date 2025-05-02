@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class Logo {
   /**
    * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
    *
-   * @param data
+   * @param data The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
    * @return the current {@code Logo} instance, allowing for method chaining
    */
   public Logo data(String data) {
@@ -54,9 +52,8 @@ public class Logo {
 
   /**
    * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
-   * @return data
+   * @return data The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
    */
-  @ApiModelProperty(value = "The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getData() {
@@ -66,8 +63,8 @@ public class Logo {
   /**
    * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
    *
-   * @param data
-   */ 
+   * @param data The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(String data) {

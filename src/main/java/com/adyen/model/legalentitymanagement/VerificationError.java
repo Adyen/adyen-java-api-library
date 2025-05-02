@@ -184,7 +184,7 @@ public class VerificationError {
   }
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private List<CapabilitiesEnum> capabilities = new ArrayList<>();
+  private List<CapabilitiesEnum> capabilities;
 
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
@@ -193,10 +193,10 @@ public class VerificationError {
   private String message;
 
   public static final String JSON_PROPERTY_REMEDIATING_ACTIONS = "remediatingActions";
-  private List<RemediatingAction> remediatingActions = new ArrayList<>();
+  private List<RemediatingAction> remediatingActions;
 
   public static final String JSON_PROPERTY_SUB_ERRORS = "subErrors";
-  private List<VerificationErrorRecursive> subErrors = new ArrayList<>();
+  private List<VerificationErrorRecursive> subErrors;
 
   /**
    * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
@@ -248,7 +248,7 @@ public class VerificationError {
   /**
    * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    *
-   * @param capabilities
+   * @param capabilities Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError capabilities(List<CapabilitiesEnum> capabilities) {
@@ -266,7 +266,7 @@ public class VerificationError {
 
   /**
    * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
-   * @return capabilities
+   * @return capabilities Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,7 +277,7 @@ public class VerificationError {
   /**
    * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    *
-   * @param capabilities
+   * @param capabilities Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,7 +288,7 @@ public class VerificationError {
   /**
    * The general error code.
    *
-   * @param code
+   * @param code The general error code.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError code(String code) {
@@ -298,7 +298,7 @@ public class VerificationError {
 
   /**
    * The general error code.
-   * @return code
+   * @return code The general error code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,7 +309,7 @@ public class VerificationError {
   /**
    * The general error code.
    *
-   * @param code
+   * @param code The general error code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,7 +320,7 @@ public class VerificationError {
   /**
    * The general error message.
    *
-   * @param message
+   * @param message The general error message.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError message(String message) {
@@ -330,7 +330,7 @@ public class VerificationError {
 
   /**
    * The general error message.
-   * @return message
+   * @return message The general error message.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -341,7 +341,7 @@ public class VerificationError {
   /**
    * The general error message.
    *
-   * @param message
+   * @param message The general error message.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -352,7 +352,7 @@ public class VerificationError {
   /**
    * An object containing possible solutions to fix a verification error.
    *
-   * @param remediatingActions
+   * @param remediatingActions An object containing possible solutions to fix a verification error.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError remediatingActions(List<RemediatingAction> remediatingActions) {
@@ -370,7 +370,7 @@ public class VerificationError {
 
   /**
    * An object containing possible solutions to fix a verification error.
-   * @return remediatingActions
+   * @return remediatingActions An object containing possible solutions to fix a verification error.
    */
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -381,7 +381,7 @@ public class VerificationError {
   /**
    * An object containing possible solutions to fix a verification error.
    *
-   * @param remediatingActions
+   * @param remediatingActions An object containing possible solutions to fix a verification error.
    */
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -392,7 +392,7 @@ public class VerificationError {
   /**
    * An array containing more granular information about the cause of the verification error.
    *
-   * @param subErrors
+   * @param subErrors An array containing more granular information about the cause of the verification error.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError subErrors(List<VerificationErrorRecursive> subErrors) {
@@ -410,7 +410,7 @@ public class VerificationError {
 
   /**
    * An array containing more granular information about the cause of the verification error.
-   * @return subErrors
+   * @return subErrors An array containing more granular information about the cause of the verification error.
    */
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -421,7 +421,7 @@ public class VerificationError {
   /**
    * An array containing more granular information about the cause of the verification error.
    *
-   * @param subErrors
+   * @param subErrors An array containing more granular information about the cause of the verification error.
    */
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -432,7 +432,7 @@ public class VerificationError {
   /**
    * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
    *
-   * @param type
+   * @param type The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError type(TypeEnum type) {
@@ -442,7 +442,7 @@ public class VerificationError {
 
   /**
    * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
-   * @return type
+   * @return type The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -453,7 +453,7 @@ public class VerificationError {
   /**
    * The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
    *
-   * @param type
+   * @param type The type of error.  Possible values: *  **invalidInput** *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

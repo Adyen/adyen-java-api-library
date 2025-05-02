@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class VerificationErrors {
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
-  private List<CapabilityProblem> problems = new ArrayList<>();
+  private List<CapabilityProblem> problems;
 
   public VerificationErrors() { 
   }
@@ -45,7 +45,7 @@ public class VerificationErrors {
   /**
    * List of the verification errors.
    *
-   * @param problems
+   * @param problems List of the verification errors.
    * @return the current {@code VerificationErrors} instance, allowing for method chaining
    */
   public VerificationErrors problems(List<CapabilityProblem> problems) {
@@ -63,7 +63,7 @@ public class VerificationErrors {
 
   /**
    * List of the verification errors.
-   * @return problems
+   * @return problems List of the verification errors.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class VerificationErrors {
   /**
    * List of the verification errors.
    *
-   * @param problems
+   * @param problems List of the verification errors.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

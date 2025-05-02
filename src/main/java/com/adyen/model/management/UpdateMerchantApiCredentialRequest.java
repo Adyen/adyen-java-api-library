@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,13 +42,13 @@ public class UpdateMerchantApiCredentialRequest {
   private Boolean active;
 
   public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowedOrigins";
-  private List<String> allowedOrigins = null;
+  private List<String> allowedOrigins;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  private List<String> roles = null;
+  private List<String> roles;
 
   public UpdateMerchantApiCredentialRequest() { 
   }
@@ -58,7 +56,7 @@ public class UpdateMerchantApiCredentialRequest {
   /**
    * Indicates if the API credential is enabled.
    *
-   * @param active
+   * @param active Indicates if the API credential is enabled.
    * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method chaining
    */
   public UpdateMerchantApiCredentialRequest active(Boolean active) {
@@ -68,9 +66,8 @@ public class UpdateMerchantApiCredentialRequest {
 
   /**
    * Indicates if the API credential is enabled.
-   * @return active
+   * @return active Indicates if the API credential is enabled.
    */
-  @ApiModelProperty(value = "Indicates if the API credential is enabled.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
@@ -80,8 +77,8 @@ public class UpdateMerchantApiCredentialRequest {
   /**
    * Indicates if the API credential is enabled.
    *
-   * @param active
-   */ 
+   * @param active Indicates if the API credential is enabled.
+   */
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
@@ -91,7 +88,7 @@ public class UpdateMerchantApiCredentialRequest {
   /**
    * The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
    *
-   * @param allowedOrigins
+   * @param allowedOrigins The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
    * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method chaining
    */
   public UpdateMerchantApiCredentialRequest allowedOrigins(List<String> allowedOrigins) {
@@ -109,9 +106,8 @@ public class UpdateMerchantApiCredentialRequest {
 
   /**
    * The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
-   * @return allowedOrigins
+   * @return allowedOrigins The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
    */
-  @ApiModelProperty(value = "The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.")
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getAllowedOrigins() {
@@ -121,8 +117,8 @@ public class UpdateMerchantApiCredentialRequest {
   /**
    * The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
    *
-   * @param allowedOrigins
-   */ 
+   * @param allowedOrigins The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
+   */
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(List<String> allowedOrigins) {
@@ -132,7 +128,7 @@ public class UpdateMerchantApiCredentialRequest {
   /**
    * Description of the API credential.
    *
-   * @param description
+   * @param description Description of the API credential.
    * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method chaining
    */
   public UpdateMerchantApiCredentialRequest description(String description) {
@@ -142,9 +138,8 @@ public class UpdateMerchantApiCredentialRequest {
 
   /**
    * Description of the API credential.
-   * @return description
+   * @return description Description of the API credential.
    */
-  @ApiModelProperty(value = "Description of the API credential.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -154,8 +149,8 @@ public class UpdateMerchantApiCredentialRequest {
   /**
    * Description of the API credential.
    *
-   * @param description
-   */ 
+   * @param description Description of the API credential.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -165,7 +160,7 @@ public class UpdateMerchantApiCredentialRequest {
   /**
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
    *
-   * @param roles
+   * @param roles List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
    * @return the current {@code UpdateMerchantApiCredentialRequest} instance, allowing for method chaining
    */
   public UpdateMerchantApiCredentialRequest roles(List<String> roles) {
@@ -183,9 +178,8 @@ public class UpdateMerchantApiCredentialRequest {
 
   /**
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
-   * @return roles
+   * @return roles List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
    */
-  @ApiModelProperty(value = "List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRoles() {
@@ -195,8 +189,8 @@ public class UpdateMerchantApiCredentialRequest {
   /**
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
    *
-   * @param roles
-   */ 
+   * @param roles List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to &#39;ws@Company.&lt;CompanyName&gt;&#39; can be assigned to other API credentials.
+   */
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {

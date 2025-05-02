@@ -71,7 +71,6 @@ public class InstantPayoutsApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public PayoutResponse payout(PayoutRequest payoutRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = payoutRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/payout", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

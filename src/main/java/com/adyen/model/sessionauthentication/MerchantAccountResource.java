@@ -53,7 +53,7 @@ public class MerchantAccountResource extends Resource {
   /**
    * merchantAccountCode
    *
-   * @param merchantAccountCode
+   * @param merchantAccountCode 
    * @return the current {@code MerchantAccountResource} instance, allowing for method chaining
    */
   public MerchantAccountResource merchantAccountCode(String merchantAccountCode) {
@@ -63,7 +63,7 @@ public class MerchantAccountResource extends Resource {
 
   /**
    * Get merchantAccountCode
-   * @return merchantAccountCode
+   * @return merchantAccountCode 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class MerchantAccountResource extends Resource {
   /**
    * merchantAccountCode
    *
-   * @param merchantAccountCode
+   * @param merchantAccountCode 
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
