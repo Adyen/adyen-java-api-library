@@ -193,9 +193,10 @@ String hmacKey = "HMACKEY_RETREIVED_FROM_WEBHOOK_HEADER";
 HMACValidator hmacValidator = new HMACValidator();
 boolean authenticity = hmacValidator.validateHMAC(hmacKey, signKey, payload);
 ~~~~
-If this bool returns true, one can proceed to deserialize against the desired webhook type:
+If this bool returns true, you can proceed to deserialize against the desired webhook type.  
+Use the relevant webhook handler (i.e. ConfigurationWebhooksHandler) to obtain the object representing the event:
 ~~~~ java
-BankingWebhookHandler webhookHandler = new BankingWebhookHandler(payload);
+ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(payload);
 // onAccountHolderNotificationRequest
 webhookHandler.getAccountHolderNotificationRequest().ifPresent((AccountHolderNotificationRequest event) -> {
     System.out.println(event.getData().getBalancePlatform());
@@ -206,9 +207,9 @@ webhookHandler.getBalanceAccountNotificationRequest().ifPresent((BalanceAccountN
 });
 
 ~~~~
-To deserialize Management Webhooks instead, please use the specific webhook handler:
+To deserialize Management Webhooks instead, please use the specific webhook handler `ManagementWebhooksHandler`:
 ~~~~ java
-ManagementWebhookHandler webhookHandler = new ManagementWebhookHandler(payload);
+ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(payload);
 // onMerchantCreatedNotificationRequest
 webhookHandler.getMerchantCreatedNotificationRequest().isPresent((MerchantCreatedNotificationRequest event) -> {
 System.out.println(event.getData().getMerchantId());
