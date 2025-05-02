@@ -39,6 +39,13 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * This class is deprecated and NO LONGER updated
+ * @deprecated Use instead PaymentsApi and ModificationsApi in the com.adyen.service.payment package
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class PaymentApi extends Service {
 
     public static final String API_VERSION = "68";
@@ -49,6 +56,7 @@ public class PaymentApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public PaymentApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/Payment/v68");
@@ -60,6 +68,7 @@ public class PaymentApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public PaymentApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -72,6 +81,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult adjustAuthorisation(AdjustAuthorisationRequest adjustAuthorisationRequest) throws ApiException, IOException {
         return adjustAuthorisation(adjustAuthorisationRequest, null);
     }
@@ -84,6 +94,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult adjustAuthorisation(AdjustAuthorisationRequest adjustAuthorisationRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = adjustAuthorisationRequest.toJson();
@@ -99,6 +110,7 @@ public class PaymentApi extends Service {
     * @return {@link PaymentResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public PaymentResult authorise(PaymentRequest paymentRequest) throws ApiException, IOException {
         return authorise(paymentRequest, null);
     }
@@ -111,6 +123,7 @@ public class PaymentApi extends Service {
     * @return {@link PaymentResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public PaymentResult authorise(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = paymentRequest.toJson();
@@ -126,6 +139,7 @@ public class PaymentApi extends Service {
     * @return {@link PaymentResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public PaymentResult authorise3d(PaymentRequest3d paymentRequest3d) throws ApiException, IOException {
         return authorise3d(paymentRequest3d, null);
     }
@@ -138,6 +152,7 @@ public class PaymentApi extends Service {
     * @return {@link PaymentResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public PaymentResult authorise3d(PaymentRequest3d paymentRequest3d, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = paymentRequest3d.toJson();
@@ -153,6 +168,7 @@ public class PaymentApi extends Service {
     * @return {@link PaymentResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public PaymentResult authorise3ds2(PaymentRequest3ds2 paymentRequest3ds2) throws ApiException, IOException {
         return authorise3ds2(paymentRequest3ds2, null);
     }
@@ -165,6 +181,7 @@ public class PaymentApi extends Service {
     * @return {@link PaymentResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public PaymentResult authorise3ds2(PaymentRequest3ds2 paymentRequest3ds2, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = paymentRequest3ds2.toJson();
@@ -180,6 +197,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult cancel(CancelRequest cancelRequest) throws ApiException, IOException {
         return cancel(cancelRequest, null);
     }
@@ -192,6 +210,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult cancel(CancelRequest cancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = cancelRequest.toJson();
@@ -207,6 +226,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest) throws ApiException, IOException {
         return cancelOrRefund(cancelOrRefundRequest, null);
     }
@@ -219,6 +239,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = cancelOrRefundRequest.toJson();
@@ -234,6 +255,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult capture(CaptureRequest captureRequest) throws ApiException, IOException {
         return capture(captureRequest, null);
     }
@@ -246,6 +268,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult capture(CaptureRequest captureRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = captureRequest.toJson();
@@ -260,7 +283,7 @@ public class PaymentApi extends Service {
     * @param donationRequest {@link DonationRequest }  (required)
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
-    * @deprecated 
+    * @deprecated // Use Checkout donations instead
     */
     @Deprecated
     public ModificationResult donate(DonationRequest donationRequest) throws ApiException, IOException {
@@ -274,7 +297,7 @@ public class PaymentApi extends Service {
     * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
-    * @deprecated 
+    * @deprecated // Use Checkout donations instead
     */
    @Deprecated
     public ModificationResult donate(DonationRequest donationRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -292,6 +315,7 @@ public class PaymentApi extends Service {
     * @return {@link AuthenticationResultResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public AuthenticationResultResponse getAuthenticationResult(AuthenticationResultRequest authenticationResultRequest) throws ApiException, IOException {
         return getAuthenticationResult(authenticationResultRequest, null);
     }
@@ -304,6 +328,7 @@ public class PaymentApi extends Service {
     * @return {@link AuthenticationResultResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public AuthenticationResultResponse getAuthenticationResult(AuthenticationResultRequest authenticationResultRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = authenticationResultRequest.toJson();
@@ -319,6 +344,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult refund(RefundRequest refundRequest) throws ApiException, IOException {
         return refund(refundRequest, null);
     }
@@ -331,6 +357,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult refund(RefundRequest refundRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = refundRequest.toJson();
@@ -346,6 +373,7 @@ public class PaymentApi extends Service {
     * @return {@link ThreeDS2ResultResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public ThreeDS2ResultResponse retrieve3ds2Result(ThreeDS2ResultRequest threeDS2ResultRequest) throws ApiException, IOException {
         return retrieve3ds2Result(threeDS2ResultRequest, null);
     }
@@ -358,6 +386,7 @@ public class PaymentApi extends Service {
     * @return {@link ThreeDS2ResultResponse }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.PaymentsApi
     public ThreeDS2ResultResponse retrieve3ds2Result(ThreeDS2ResultRequest threeDS2ResultRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = threeDS2ResultRequest.toJson();
@@ -373,6 +402,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest) throws ApiException, IOException {
         return technicalCancel(technicalCancelRequest, null);
     }
@@ -385,6 +415,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = technicalCancelRequest.toJson();
@@ -400,6 +431,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult voidPendingRefund(VoidPendingRefundRequest voidPendingRefundRequest) throws ApiException, IOException {
         return voidPendingRefund(voidPendingRefundRequest, null);
     }
@@ -412,6 +444,7 @@ public class PaymentApi extends Service {
     * @return {@link ModificationResult }
     * @throws ApiException if fails to make API call
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // Use instead com.adyen.service.payment.ModificationsApi
     public ModificationResult voidPendingRefund(VoidPendingRefundRequest voidPendingRefundRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = voidPendingRefundRequest.toJson();

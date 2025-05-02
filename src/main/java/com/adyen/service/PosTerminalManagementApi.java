@@ -32,6 +32,16 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * This class is deprecated and NO LONGER updated
+ *
+ * Support for the "classic" POS Terminal Management API has stopped. To automate assigning terminals,
+ * you must use Management API: see https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api/
+ * @deprecated Use instead PaymentsApi and ModificationsApi in the com.adyen.service.payment package
+ *
+ */
+@Deprecated(since = "v37.0.0", forRemoval = true)
 public class PosTerminalManagementApi extends Service {
 
     public static final String API_VERSION = "1";
@@ -42,6 +52,7 @@ public class PosTerminalManagementApi extends Service {
     * Default constructor in {@link com.adyen.service package}.
     * @param client {@link Client }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public PosTerminalManagementApi(Client client) {
         super(client);
         this.baseURL = createBaseURL("https://postfmapi-test.adyen.com/postfmapi/terminal/v1");
@@ -53,6 +64,7 @@ public class PosTerminalManagementApi extends Service {
     * @param client {@link Client }  (required)
     * @param baseURL {@link String }  (required)
     */
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public PosTerminalManagementApi(Client client, String baseURL) {
         super(client);
         this.baseURL = baseURL;
@@ -67,7 +79,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-    @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public AssignTerminalsResponse assignTerminals(AssignTerminalsRequest assignTerminalsRequest) throws ApiException, IOException {
         return assignTerminals(assignTerminalsRequest, null);
     }
@@ -82,7 +94,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-   @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public AssignTerminalsResponse assignTerminals(AssignTerminalsRequest assignTerminalsRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = assignTerminalsRequest.toJson();
@@ -100,7 +112,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-    @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public FindTerminalResponse findTerminal(FindTerminalRequest findTerminalRequest) throws ApiException, IOException {
         return findTerminal(findTerminalRequest, null);
     }
@@ -115,7 +127,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-   @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public FindTerminalResponse findTerminal(FindTerminalRequest findTerminalRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = findTerminalRequest.toJson();
@@ -133,7 +145,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-    @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public GetStoresUnderAccountResponse getStoresUnderAccount(GetStoresUnderAccountRequest getStoresUnderAccountRequest) throws ApiException, IOException {
         return getStoresUnderAccount(getStoresUnderAccountRequest, null);
     }
@@ -148,7 +160,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-   @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public GetStoresUnderAccountResponse getStoresUnderAccount(GetStoresUnderAccountRequest getStoresUnderAccountRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = getStoresUnderAccountRequest.toJson();
@@ -166,7 +178,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-    @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public GetTerminalDetailsResponse getTerminalDetails(GetTerminalDetailsRequest getTerminalDetailsRequest) throws ApiException, IOException {
         return getTerminalDetails(getTerminalDetailsRequest, null);
     }
@@ -181,7 +193,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-   @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public GetTerminalDetailsResponse getTerminalDetails(GetTerminalDetailsRequest getTerminalDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = getTerminalDetailsRequest.toJson();
@@ -199,7 +211,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-    @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public GetTerminalsUnderAccountResponse getTerminalsUnderAccount(GetTerminalsUnderAccountRequest getTerminalsUnderAccountRequest) throws ApiException, IOException {
         return getTerminalsUnderAccount(getTerminalsUnderAccountRequest, null);
     }
@@ -214,7 +226,7 @@ public class PosTerminalManagementApi extends Service {
     * @deprecated since POS Terminal Management API v1
     * Use [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview).
     */
-   @Deprecated
+    @Deprecated(since = "v37.0.0", forRemoval = true) // use instead Management API
     public GetTerminalsUnderAccountResponse getTerminalsUnderAccount(GetTerminalsUnderAccountRequest getTerminalsUnderAccountRequest, RequestOptions requestOptions) throws ApiException, IOException {
 
         String requestBody = getTerminalsUnderAccountRequest.toJson();
