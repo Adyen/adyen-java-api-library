@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.StoreLocation;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -50,7 +48,7 @@ public class StoreCreationRequest {
   private StoreLocation address;
 
   public static final String JSON_PROPERTY_BUSINESS_LINE_IDS = "businessLineIds";
-  private List<String> businessLineIds = null;
+  private List<String> businessLineIds;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -76,7 +74,7 @@ public class StoreCreationRequest {
   /**
    * address
    *
-   * @param address
+   * @param address 
    * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
    */
   public StoreCreationRequest address(StoreLocation address) {
@@ -85,10 +83,9 @@ public class StoreCreationRequest {
   }
 
   /**
-   * address
-   * @return address
+   * Get address
+   * @return address 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StoreLocation getAddress() {
@@ -98,8 +95,8 @@ public class StoreCreationRequest {
   /**
    * address
    *
-   * @param address
-   */ 
+   * @param address 
+   */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(StoreLocation address) {
@@ -109,7 +106,7 @@ public class StoreCreationRequest {
   /**
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
    *
-   * @param businessLineIds
+   * @param businessLineIds The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
    * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
    */
   public StoreCreationRequest businessLineIds(List<String> businessLineIds) {
@@ -127,9 +124,8 @@ public class StoreCreationRequest {
 
   /**
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
-   * @return businessLineIds
+   * @return businessLineIds The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
    */
-  @ApiModelProperty(value = "The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.")
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getBusinessLineIds() {
@@ -139,8 +135,8 @@ public class StoreCreationRequest {
   /**
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
    *
-   * @param businessLineIds
-   */ 
+   * @param businessLineIds The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/legalentity/latest/post/businessLines#responses-200-id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
+   */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineIds(List<String> businessLineIds) {
@@ -150,7 +146,7 @@ public class StoreCreationRequest {
   /**
    * Your description of the store.
    *
-   * @param description
+   * @param description Your description of the store.
    * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
    */
   public StoreCreationRequest description(String description) {
@@ -160,9 +156,8 @@ public class StoreCreationRequest {
 
   /**
    * Your description of the store.
-   * @return description
+   * @return description Your description of the store.
    */
-  @ApiModelProperty(required = true, value = "Your description of the store.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -172,8 +167,8 @@ public class StoreCreationRequest {
   /**
    * Your description of the store.
    *
-   * @param description
-   */ 
+   * @param description Your description of the store.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -183,7 +178,7 @@ public class StoreCreationRequest {
   /**
    * The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
    *
-   * @param externalReferenceId
+   * @param externalReferenceId The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
    * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
    */
   public StoreCreationRequest externalReferenceId(String externalReferenceId) {
@@ -193,9 +188,8 @@ public class StoreCreationRequest {
 
   /**
    * The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
-   * @return externalReferenceId
+   * @return externalReferenceId The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
    */
-  @ApiModelProperty(value = "The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  ")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExternalReferenceId() {
@@ -205,8 +199,8 @@ public class StoreCreationRequest {
   /**
    * The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
    *
-   * @param externalReferenceId
-   */ 
+   * @param externalReferenceId The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
+   */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReferenceId(String externalReferenceId) {
@@ -216,7 +210,7 @@ public class StoreCreationRequest {
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
    *
-   * @param phoneNumber
+   * @param phoneNumber The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
    * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
    */
   public StoreCreationRequest phoneNumber(String phoneNumber) {
@@ -226,9 +220,8 @@ public class StoreCreationRequest {
 
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
-   * @return phoneNumber
+   * @return phoneNumber The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
    */
-  @ApiModelProperty(required = true, value = "The phone number of the store, including '+' and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. ")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneNumber() {
@@ -238,8 +231,8 @@ public class StoreCreationRequest {
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
    *
-   * @param phoneNumber
-   */ 
+   * @param phoneNumber The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -249,7 +242,7 @@ public class StoreCreationRequest {
   /**
    * Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).
    *
-   * @param reference
+   * @param reference Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).
    * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
    */
   public StoreCreationRequest reference(String reference) {
@@ -259,9 +252,8 @@ public class StoreCreationRequest {
 
   /**
    * Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).
-   * @return reference
+   * @return reference Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).
    */
-  @ApiModelProperty(value = "Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -271,8 +263,8 @@ public class StoreCreationRequest {
   /**
    * Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).
    *
-   * @param reference
-   */ 
+   * @param reference Your reference to recognize the store by. Also known as the store code.  Allowed characters: lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).  If you do not provide a reference in your POST request, it is populated with the Adyen-generated [id](https://docs.adyen.com/api-explorer/Management/latest/post/stores#responses-200-id).
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -282,7 +274,7 @@ public class StoreCreationRequest {
   /**
    * The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
    *
-   * @param shopperStatement
+   * @param shopperStatement The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
    * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
    */
   public StoreCreationRequest shopperStatement(String shopperStatement) {
@@ -292,9 +284,8 @@ public class StoreCreationRequest {
 
   /**
    * The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
-   * @return shopperStatement
+   * @return shopperStatement The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
    */
-  @ApiModelProperty(required = true, value = "The store name to be shown on the shopper's bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can't be all numbers.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperStatement() {
@@ -304,8 +295,8 @@ public class StoreCreationRequest {
   /**
    * The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
    *
-   * @param shopperStatement
-   */ 
+   * @param shopperStatement The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperStatement(String shopperStatement) {
@@ -315,7 +306,7 @@ public class StoreCreationRequest {
   /**
    * splitConfiguration
    *
-   * @param splitConfiguration
+   * @param splitConfiguration 
    * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
    */
   public StoreCreationRequest splitConfiguration(StoreSplitConfiguration splitConfiguration) {
@@ -324,10 +315,9 @@ public class StoreCreationRequest {
   }
 
   /**
-   * splitConfiguration
-   * @return splitConfiguration
+   * Get splitConfiguration
+   * @return splitConfiguration 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StoreSplitConfiguration getSplitConfiguration() {
@@ -337,8 +327,8 @@ public class StoreCreationRequest {
   /**
    * splitConfiguration
    *
-   * @param splitConfiguration
-   */ 
+   * @param splitConfiguration 
+   */
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfiguration(StoreSplitConfiguration splitConfiguration) {

@@ -46,7 +46,7 @@ public class RemediatingAction {
   /**
    * code
    *
-   * @param code
+   * @param code 
    * @return the current {@code RemediatingAction} instance, allowing for method chaining
    */
   public RemediatingAction code(String code) {
@@ -56,7 +56,7 @@ public class RemediatingAction {
 
   /**
    * Get code
-   * @return code
+   * @return code 
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class RemediatingAction {
   /**
    * code
    *
-   * @param code
+   * @param code 
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class RemediatingAction {
   /**
    * message
    *
-   * @param message
+   * @param message 
    * @return the current {@code RemediatingAction} instance, allowing for method chaining
    */
   public RemediatingAction message(String message) {
@@ -88,7 +88,7 @@ public class RemediatingAction {
 
   /**
    * Get message
-   * @return message
+   * @return message 
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class RemediatingAction {
   /**
    * message
    *
-   * @param message
+   * @param message 
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

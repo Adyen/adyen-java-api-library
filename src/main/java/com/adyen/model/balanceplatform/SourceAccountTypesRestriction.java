@@ -83,7 +83,7 @@ public class SourceAccountTypesRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code SourceAccountTypesRestriction} instance, allowing for method chaining
    */
   public SourceAccountTypesRestriction operation(String operation) {
@@ -93,7 +93,7 @@ public class SourceAccountTypesRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class SourceAccountTypesRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class SourceAccountTypesRestriction {
   /**
    * The list of source account types to be evaluated.
    *
-   * @param value
+   * @param value The list of source account types to be evaluated.
    * @return the current {@code SourceAccountTypesRestriction} instance, allowing for method chaining
    */
   public SourceAccountTypesRestriction value(List<ValueEnum> value) {
@@ -133,7 +133,7 @@ public class SourceAccountTypesRestriction {
 
   /**
    * The list of source account types to be evaluated.
-   * @return value
+   * @return value The list of source account types to be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,7 +144,7 @@ public class SourceAccountTypesRestriction {
   /**
    * The list of source account types to be evaluated.
    *
-   * @param value
+   * @param value The list of source account types to be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

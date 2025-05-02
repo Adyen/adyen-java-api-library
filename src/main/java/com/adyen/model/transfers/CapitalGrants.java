@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CapitalGrants {
   public static final String JSON_PROPERTY_GRANTS = "grants";
-  private List<CapitalGrant> grants = new ArrayList<>();
+  private List<CapitalGrant> grants;
 
   public CapitalGrants() { 
   }
@@ -45,7 +45,7 @@ public class CapitalGrants {
   /**
    * The unique identifier of the grant.
    *
-   * @param grants
+   * @param grants The unique identifier of the grant.
    * @return the current {@code CapitalGrants} instance, allowing for method chaining
    */
   public CapitalGrants grants(List<CapitalGrant> grants) {
@@ -63,7 +63,7 @@ public class CapitalGrants {
 
   /**
    * The unique identifier of the grant.
-   * @return grants
+   * @return grants The unique identifier of the grant.
    */
   @JsonProperty(JSON_PROPERTY_GRANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class CapitalGrants {
   /**
    * The unique identifier of the grant.
    *
-   * @param grants
+   * @param grants The unique identifier of the grant.
    */
   @JsonProperty(JSON_PROPERTY_GRANTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

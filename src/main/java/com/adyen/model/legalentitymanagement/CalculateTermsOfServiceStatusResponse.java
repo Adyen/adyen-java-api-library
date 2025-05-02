@@ -85,7 +85,7 @@ public class CalculateTermsOfServiceStatusResponse {
   }
 
   public static final String JSON_PROPERTY_TERMS_OF_SERVICE_TYPES = "termsOfServiceTypes";
-  private List<TermsOfServiceTypesEnum> termsOfServiceTypes = new ArrayList<>();
+  private List<TermsOfServiceTypesEnum> termsOfServiceTypes;
 
   public CalculateTermsOfServiceStatusResponse() { 
   }
@@ -93,7 +93,7 @@ public class CalculateTermsOfServiceStatusResponse {
   /**
    * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
    *
-   * @param termsOfServiceTypes
+   * @param termsOfServiceTypes The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
    * @return the current {@code CalculateTermsOfServiceStatusResponse} instance, allowing for method chaining
    */
   public CalculateTermsOfServiceStatusResponse termsOfServiceTypes(List<TermsOfServiceTypesEnum> termsOfServiceTypes) {
@@ -111,7 +111,7 @@ public class CalculateTermsOfServiceStatusResponse {
 
   /**
    * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
-   * @return termsOfServiceTypes
+   * @return termsOfServiceTypes The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class CalculateTermsOfServiceStatusResponse {
   /**
    * The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
    *
-   * @param termsOfServiceTypes
+   * @param termsOfServiceTypes The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

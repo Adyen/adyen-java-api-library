@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.SplitConfigurationRule;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,7 +42,7 @@ public class SplitConfiguration {
   private String description;
 
   public static final String JSON_PROPERTY_RULES = "rules";
-  private List<SplitConfigurationRule> rules = new ArrayList<>();
+  private List<SplitConfigurationRule> rules;
 
   public static final String JSON_PROPERTY_SPLIT_CONFIGURATION_ID = "splitConfigurationId";
   private String splitConfigurationId;
@@ -52,10 +50,18 @@ public class SplitConfiguration {
   public SplitConfiguration() { 
   }
 
+  @JsonCreator
+  public SplitConfiguration(
+    @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID) String splitConfigurationId
+  ) {
+    this();
+    this.splitConfigurationId = splitConfigurationId;
+  }
+
   /**
    * Your description for the split configuration.
    *
-   * @param description
+   * @param description Your description for the split configuration.
    * @return the current {@code SplitConfiguration} instance, allowing for method chaining
    */
   public SplitConfiguration description(String description) {
@@ -65,9 +71,8 @@ public class SplitConfiguration {
 
   /**
    * Your description for the split configuration.
-   * @return description
+   * @return description Your description for the split configuration.
    */
-  @ApiModelProperty(required = true, value = "Your description for the split configuration.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -77,8 +82,8 @@ public class SplitConfiguration {
   /**
    * Your description for the split configuration.
    *
-   * @param description
-   */ 
+   * @param description Your description for the split configuration.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -88,7 +93,7 @@ public class SplitConfiguration {
   /**
    * Array of rules that define the split configuration behavior.
    *
-   * @param rules
+   * @param rules Array of rules that define the split configuration behavior.
    * @return the current {@code SplitConfiguration} instance, allowing for method chaining
    */
   public SplitConfiguration rules(List<SplitConfigurationRule> rules) {
@@ -97,15 +102,17 @@ public class SplitConfiguration {
   }
 
   public SplitConfiguration addRulesItem(SplitConfigurationRule rulesItem) {
+    if (this.rules == null) {
+      this.rules = new ArrayList<>();
+    }
     this.rules.add(rulesItem);
     return this;
   }
 
   /**
    * Array of rules that define the split configuration behavior.
-   * @return rules
+   * @return rules Array of rules that define the split configuration behavior.
    */
-  @ApiModelProperty(required = true, value = "Array of rules that define the split configuration behavior.")
   @JsonProperty(JSON_PROPERTY_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SplitConfigurationRule> getRules() {
@@ -115,8 +122,8 @@ public class SplitConfiguration {
   /**
    * Array of rules that define the split configuration behavior.
    *
-   * @param rules
-   */ 
+   * @param rules Array of rules that define the split configuration behavior.
+   */
   @JsonProperty(JSON_PROPERTY_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRules(List<SplitConfigurationRule> rules) {
@@ -125,36 +132,14 @@ public class SplitConfiguration {
 
   /**
    * Unique identifier of the split configuration.
-   *
-   * @param splitConfigurationId
-   * @return the current {@code SplitConfiguration} instance, allowing for method chaining
+   * @return splitConfigurationId Unique identifier of the split configuration.
    */
-  public SplitConfiguration splitConfigurationId(String splitConfigurationId) {
-    this.splitConfigurationId = splitConfigurationId;
-    return this;
-  }
-
-  /**
-   * Unique identifier of the split configuration.
-   * @return splitConfigurationId
-   */
-  @ApiModelProperty(value = "Unique identifier of the split configuration.")
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSplitConfigurationId() {
     return splitConfigurationId;
   }
 
-  /**
-   * Unique identifier of the split configuration.
-   *
-   * @param splitConfigurationId
-   */ 
-  @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSplitConfigurationId(String splitConfigurationId) {
-    this.splitConfigurationId = splitConfigurationId;
-  }
 
   /**
    * Return true if this SplitConfiguration object is equal to o.

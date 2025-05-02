@@ -44,7 +44,7 @@ public class GeneratePciDescriptionResponse {
   private String language;
 
   public static final String JSON_PROPERTY_PCI_TEMPLATE_REFERENCES = "pciTemplateReferences";
-  private List<String> pciTemplateReferences = new ArrayList<>();
+  private List<String> pciTemplateReferences;
 
   public GeneratePciDescriptionResponse() { 
   }
@@ -52,7 +52,7 @@ public class GeneratePciDescriptionResponse {
   /**
    * The generated questionnaires in a base64 encoded format.
    *
-   * @param content
+   * @param content The generated questionnaires in a base64 encoded format.
    * @return the current {@code GeneratePciDescriptionResponse} instance, allowing for method chaining
    */
   public GeneratePciDescriptionResponse content(byte[] content) {
@@ -62,7 +62,7 @@ public class GeneratePciDescriptionResponse {
 
   /**
    * The generated questionnaires in a base64 encoded format.
-   * @return content
+   * @return content The generated questionnaires in a base64 encoded format.
    */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -73,7 +73,7 @@ public class GeneratePciDescriptionResponse {
   /**
    * The generated questionnaires in a base64 encoded format.
    *
-   * @param content
+   * @param content The generated questionnaires in a base64 encoded format.
    */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +84,7 @@ public class GeneratePciDescriptionResponse {
   /**
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
    *
-   * @param language
+   * @param language The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
    * @return the current {@code GeneratePciDescriptionResponse} instance, allowing for method chaining
    */
   public GeneratePciDescriptionResponse language(String language) {
@@ -94,7 +94,7 @@ public class GeneratePciDescriptionResponse {
 
   /**
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
-   * @return language
+   * @return language The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +105,7 @@ public class GeneratePciDescriptionResponse {
   /**
    * The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
    *
-   * @param language
+   * @param language The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**.
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class GeneratePciDescriptionResponse {
   /**
    * The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    *
-   * @param pciTemplateReferences
+   * @param pciTemplateReferences The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    * @return the current {@code GeneratePciDescriptionResponse} instance, allowing for method chaining
    */
   public GeneratePciDescriptionResponse pciTemplateReferences(List<String> pciTemplateReferences) {
@@ -134,7 +134,7 @@ public class GeneratePciDescriptionResponse {
 
   /**
    * The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
-   * @return pciTemplateReferences
+   * @return pciTemplateReferences The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    */
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,7 +145,7 @@ public class GeneratePciDescriptionResponse {
   /**
    * The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    *
-   * @param pciTemplateReferences
+   * @param pciTemplateReferences The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires.
    */
   @JsonProperty(JSON_PROPERTY_PCI_TEMPLATE_REFERENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

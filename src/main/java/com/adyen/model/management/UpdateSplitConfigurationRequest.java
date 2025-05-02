@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class UpdateSplitConfigurationRequest {
   /**
    * Your description for the split configuration.
    *
-   * @param description
+   * @param description Your description for the split configuration.
    * @return the current {@code UpdateSplitConfigurationRequest} instance, allowing for method chaining
    */
   public UpdateSplitConfigurationRequest description(String description) {
@@ -54,9 +52,8 @@ public class UpdateSplitConfigurationRequest {
 
   /**
    * Your description for the split configuration.
-   * @return description
+   * @return description Your description for the split configuration.
    */
-  @ApiModelProperty(required = true, value = "Your description for the split configuration.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -66,8 +63,8 @@ public class UpdateSplitConfigurationRequest {
   /**
    * Your description for the split configuration.
    *
-   * @param description
-   */ 
+   * @param description Your description for the split configuration.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {

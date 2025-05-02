@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payout.Address;
@@ -26,11 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -60,7 +57,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class StoreDetailRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_BANK = "bank";
   private BankAccount bank;
@@ -78,9 +75,9 @@ public class StoreDetailRequest {
    * The type of the entity the payout is processed for.
    */
   public enum EntityTypeEnum {
-    NATURALPERSON("NaturalPerson"),
+    NATURALPERSON(String.valueOf("NaturalPerson")),
     
-    COMPANY("Company");
+    COMPANY(String.valueOf("Company"));
 
     private String value;
 
@@ -148,7 +145,7 @@ public class StoreDetailRequest {
   /**
    * This field contains additional data, which may be required for a particular request.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular request.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest additionalData(Map<String, String> additionalData) {
@@ -166,9 +163,8 @@ public class StoreDetailRequest {
 
   /**
    * This field contains additional data, which may be required for a particular request.
-   * @return additionalData
+   * @return additionalData This field contains additional data, which may be required for a particular request.
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -178,8 +174,8 @@ public class StoreDetailRequest {
   /**
    * This field contains additional data, which may be required for a particular request.
    *
-   * @param additionalData
-   */ 
+   * @param additionalData This field contains additional data, which may be required for a particular request.
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -189,7 +185,7 @@ public class StoreDetailRequest {
   /**
    * bank
    *
-   * @param bank
+   * @param bank 
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest bank(BankAccount bank) {
@@ -198,10 +194,9 @@ public class StoreDetailRequest {
   }
 
   /**
-   * bank
-   * @return bank
+   * Get bank
+   * @return bank 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public BankAccount getBank() {
@@ -211,8 +206,8 @@ public class StoreDetailRequest {
   /**
    * bank
    *
-   * @param bank
-   */ 
+   * @param bank 
+   */
   @JsonProperty(JSON_PROPERTY_BANK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBank(BankAccount bank) {
@@ -222,7 +217,7 @@ public class StoreDetailRequest {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest billingAddress(Address billingAddress) {
@@ -231,10 +226,9 @@ public class StoreDetailRequest {
   }
 
   /**
-   * billingAddress
-   * @return billingAddress
+   * Get billingAddress
+   * @return billingAddress 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getBillingAddress() {
@@ -244,8 +238,8 @@ public class StoreDetailRequest {
   /**
    * billingAddress
    *
-   * @param billingAddress
-   */ 
+   * @param billingAddress 
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -255,7 +249,7 @@ public class StoreDetailRequest {
   /**
    * card
    *
-   * @param card
+   * @param card 
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest card(Card card) {
@@ -264,10 +258,9 @@ public class StoreDetailRequest {
   }
 
   /**
-   * card
-   * @return card
+   * Get card
+   * @return card 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Card getCard() {
@@ -277,8 +270,8 @@ public class StoreDetailRequest {
   /**
    * card
    *
-   * @param card
-   */ 
+   * @param card 
+   */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -288,7 +281,7 @@ public class StoreDetailRequest {
   /**
    * The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
    *
-   * @param dateOfBirth
+   * @param dateOfBirth The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest dateOfBirth(LocalDate dateOfBirth) {
@@ -298,9 +291,8 @@ public class StoreDetailRequest {
 
   /**
    * The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
-   * @return dateOfBirth
+   * @return dateOfBirth The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
    */
-  @ApiModelProperty(required = true, value = "The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. > This field is mandatory for natural persons.")
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public LocalDate getDateOfBirth() {
@@ -310,8 +302,8 @@ public class StoreDetailRequest {
   /**
    * The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
    *
-   * @param dateOfBirth
-   */ 
+   * @param dateOfBirth The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
+   */
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -321,7 +313,7 @@ public class StoreDetailRequest {
   /**
    * The type of the entity the payout is processed for.
    *
-   * @param entityType
+   * @param entityType The type of the entity the payout is processed for.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest entityType(EntityTypeEnum entityType) {
@@ -331,9 +323,8 @@ public class StoreDetailRequest {
 
   /**
    * The type of the entity the payout is processed for.
-   * @return entityType
+   * @return entityType The type of the entity the payout is processed for.
    */
-  @ApiModelProperty(required = true, value = "The type of the entity the payout is processed for.")
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EntityTypeEnum getEntityType() {
@@ -343,8 +334,8 @@ public class StoreDetailRequest {
   /**
    * The type of the entity the payout is processed for.
    *
-   * @param entityType
-   */ 
+   * @param entityType The type of the entity the payout is processed for.
+   */
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEntityType(EntityTypeEnum entityType) {
@@ -354,7 +345,7 @@ public class StoreDetailRequest {
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    *
-   * @param fraudOffset
+   * @param fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest fraudOffset(Integer fraudOffset) {
@@ -364,9 +355,8 @@ public class StoreDetailRequest {
 
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
-   * @return fraudOffset
+   * @return fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
    */
-  @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getFraudOffset() {
@@ -376,8 +366,8 @@ public class StoreDetailRequest {
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    *
-   * @param fraudOffset
-   */ 
+   * @param fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
+   */
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
@@ -387,7 +377,7 @@ public class StoreDetailRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest merchantAccount(String merchantAccount) {
@@ -397,9 +387,8 @@ public class StoreDetailRequest {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -409,8 +398,8 @@ public class StoreDetailRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
-   */ 
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -420,7 +409,7 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
    *
-   * @param nationality
+   * @param nationality The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest nationality(String nationality) {
@@ -430,9 +419,8 @@ public class StoreDetailRequest {
 
   /**
    * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
-   * @return nationality
+   * @return nationality The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
    */
-  @ApiModelProperty(required = true, value = "The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').")
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNationality() {
@@ -442,8 +430,8 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
    *
-   * @param nationality
-   */ 
+   * @param nationality The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
+   */
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNationality(String nationality) {
@@ -453,7 +441,7 @@ public class StoreDetailRequest {
   /**
    * recurring
    *
-   * @param recurring
+   * @param recurring 
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest recurring(Recurring recurring) {
@@ -462,10 +450,9 @@ public class StoreDetailRequest {
   }
 
   /**
-   * recurring
-   * @return recurring
+   * Get recurring
+   * @return recurring 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Recurring getRecurring() {
@@ -475,8 +462,8 @@ public class StoreDetailRequest {
   /**
    * recurring
    *
-   * @param recurring
-   */ 
+   * @param recurring 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
@@ -486,7 +473,7 @@ public class StoreDetailRequest {
   /**
    * The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
    *
-   * @param selectedBrand
+   * @param selectedBrand The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest selectedBrand(String selectedBrand) {
@@ -496,9 +483,8 @@ public class StoreDetailRequest {
 
   /**
    * The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
-   * @return selectedBrand
+   * @return selectedBrand The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
    */
-  @ApiModelProperty(value = "The name of the brand to make a payout to.  For Paysafecard it must be set to `paysafecard`.")
   @JsonProperty(JSON_PROPERTY_SELECTED_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSelectedBrand() {
@@ -508,8 +494,8 @@ public class StoreDetailRequest {
   /**
    * The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
    *
-   * @param selectedBrand
-   */ 
+   * @param selectedBrand The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
+   */
   @JsonProperty(JSON_PROPERTY_SELECTED_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedBrand(String selectedBrand) {
@@ -519,7 +505,7 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s email address.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email address.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest shopperEmail(String shopperEmail) {
@@ -529,9 +515,8 @@ public class StoreDetailRequest {
 
   /**
    * The shopper&#39;s email address.
-   * @return shopperEmail
+   * @return shopperEmail The shopper&#39;s email address.
    */
-  @ApiModelProperty(required = true, value = "The shopper's email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -541,8 +526,8 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s email address.
    *
-   * @param shopperEmail
-   */ 
+   * @param shopperEmail The shopper&#39;s email address.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -552,7 +537,7 @@ public class StoreDetailRequest {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest shopperName(Name shopperName) {
@@ -561,10 +546,9 @@ public class StoreDetailRequest {
   }
 
   /**
-   * shopperName
-   * @return shopperName
+   * Get shopperName
+   * @return shopperName 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getShopperName() {
@@ -574,8 +558,8 @@ public class StoreDetailRequest {
   /**
    * shopperName
    *
-   * @param shopperName
-   */ 
+   * @param shopperName 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -585,7 +569,7 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s reference for the payment transaction.
    *
-   * @param shopperReference
+   * @param shopperReference The shopper&#39;s reference for the payment transaction.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest shopperReference(String shopperReference) {
@@ -595,9 +579,8 @@ public class StoreDetailRequest {
 
   /**
    * The shopper&#39;s reference for the payment transaction.
-   * @return shopperReference
+   * @return shopperReference The shopper&#39;s reference for the payment transaction.
    */
-  @ApiModelProperty(required = true, value = "The shopper's reference for the payment transaction.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -607,8 +590,8 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s reference for the payment transaction.
    *
-   * @param shopperReference
-   */ 
+   * @param shopperReference The shopper&#39;s reference for the payment transaction.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -618,7 +601,7 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s social security number.
    *
-   * @param socialSecurityNumber
+   * @param socialSecurityNumber The shopper&#39;s social security number.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest socialSecurityNumber(String socialSecurityNumber) {
@@ -628,9 +611,8 @@ public class StoreDetailRequest {
 
   /**
    * The shopper&#39;s social security number.
-   * @return socialSecurityNumber
+   * @return socialSecurityNumber The shopper&#39;s social security number.
    */
-  @ApiModelProperty(value = "The shopper's social security number.")
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSocialSecurityNumber() {
@@ -640,8 +622,8 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s social security number.
    *
-   * @param socialSecurityNumber
-   */ 
+   * @param socialSecurityNumber The shopper&#39;s social security number.
+   */
   @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSocialSecurityNumber(String socialSecurityNumber) {
@@ -651,7 +633,7 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s phone number.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The shopper&#39;s phone number.
    * @return the current {@code StoreDetailRequest} instance, allowing for method chaining
    */
   public StoreDetailRequest telephoneNumber(String telephoneNumber) {
@@ -661,9 +643,8 @@ public class StoreDetailRequest {
 
   /**
    * The shopper&#39;s phone number.
-   * @return telephoneNumber
+   * @return telephoneNumber The shopper&#39;s phone number.
    */
-  @ApiModelProperty(value = "The shopper's phone number.")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
@@ -673,8 +654,8 @@ public class StoreDetailRequest {
   /**
    * The shopper&#39;s phone number.
    *
-   * @param telephoneNumber
-   */ 
+   * @param telephoneNumber The shopper&#39;s phone number.
+   */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {

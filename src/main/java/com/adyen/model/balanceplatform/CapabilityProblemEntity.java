@@ -94,7 +94,7 @@ public class CapabilityProblemEntity {
   /**
    * List of document IDs to which the verification errors related to the capabilities correspond to.
    *
-   * @param documents
+   * @param documents List of document IDs to which the verification errors related to the capabilities correspond to.
    * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
   public CapabilityProblemEntity documents(List<String> documents) {
@@ -112,7 +112,7 @@ public class CapabilityProblemEntity {
 
   /**
    * List of document IDs to which the verification errors related to the capabilities correspond to.
-   * @return documents
+   * @return documents List of document IDs to which the verification errors related to the capabilities correspond to.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,7 +123,7 @@ public class CapabilityProblemEntity {
   /**
    * List of document IDs to which the verification errors related to the capabilities correspond to.
    *
-   * @param documents
+   * @param documents List of document IDs to which the verification errors related to the capabilities correspond to.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,7 +134,7 @@ public class CapabilityProblemEntity {
   /**
    * The ID of the entity.
    *
-   * @param id
+   * @param id The ID of the entity.
    * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
   public CapabilityProblemEntity id(String id) {
@@ -144,7 +144,7 @@ public class CapabilityProblemEntity {
 
   /**
    * The ID of the entity.
-   * @return id
+   * @return id The ID of the entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,7 +155,7 @@ public class CapabilityProblemEntity {
   /**
    * The ID of the entity.
    *
-   * @param id
+   * @param id The ID of the entity.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +166,7 @@ public class CapabilityProblemEntity {
   /**
    * owner
    *
-   * @param owner
+   * @param owner 
    * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
   public CapabilityProblemEntity owner(CapabilityProblemEntityRecursive owner) {
@@ -176,7 +176,7 @@ public class CapabilityProblemEntity {
 
   /**
    * Get owner
-   * @return owner
+   * @return owner 
    */
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,7 +187,7 @@ public class CapabilityProblemEntity {
   /**
    * owner
    *
-   * @param owner
+   * @param owner 
    */
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class CapabilityProblemEntity {
   /**
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    *
-   * @param type
+   * @param type Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    * @return the current {@code CapabilityProblemEntity} instance, allowing for method chaining
    */
   public CapabilityProblemEntity type(TypeEnum type) {
@@ -208,7 +208,7 @@ public class CapabilityProblemEntity {
 
   /**
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
-   * @return type
+   * @return type Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,7 +219,7 @@ public class CapabilityProblemEntity {
   /**
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    *
-   * @param type
+   * @param type Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

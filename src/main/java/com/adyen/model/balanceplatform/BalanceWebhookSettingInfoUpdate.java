@@ -130,7 +130,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * The array of conditions a balance change must meet for Adyen to send the webhook.
    *
-   * @param conditions
+   * @param conditions The array of conditions a balance change must meet for Adyen to send the webhook.
    * @return the current {@code BalanceWebhookSettingInfoUpdate} instance, allowing for method chaining
    */
   public BalanceWebhookSettingInfoUpdate conditions(List<Condition> conditions) {
@@ -148,7 +148,7 @@ public class BalanceWebhookSettingInfoUpdate {
 
   /**
    * The array of conditions a balance change must meet for Adyen to send the webhook.
-   * @return conditions
+   * @return conditions The array of conditions a balance change must meet for Adyen to send the webhook.
    */
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * The array of conditions a balance change must meet for Adyen to send the webhook.
    *
-   * @param conditions
+   * @param conditions The array of conditions a balance change must meet for Adyen to send the webhook.
    */
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,7 +170,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    * @return the current {@code BalanceWebhookSettingInfoUpdate} instance, allowing for method chaining
    */
   public BalanceWebhookSettingInfoUpdate currency(String currency) {
@@ -180,7 +180,7 @@ public class BalanceWebhookSettingInfoUpdate {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,7 +202,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * The status of the webhook setting. Possible values:  * **active**: You receive a balance webhook if any of the conditions in this setting are met. * **inactive**: You do not receive a balance webhook even if the conditions in this settings are met.
    *
-   * @param status
+   * @param status The status of the webhook setting. Possible values:  * **active**: You receive a balance webhook if any of the conditions in this setting are met. * **inactive**: You do not receive a balance webhook even if the conditions in this settings are met.
    * @return the current {@code BalanceWebhookSettingInfoUpdate} instance, allowing for method chaining
    */
   public BalanceWebhookSettingInfoUpdate status(StatusEnum status) {
@@ -212,7 +212,7 @@ public class BalanceWebhookSettingInfoUpdate {
 
   /**
    * The status of the webhook setting. Possible values:  * **active**: You receive a balance webhook if any of the conditions in this setting are met. * **inactive**: You do not receive a balance webhook even if the conditions in this settings are met.
-   * @return status
+   * @return status The status of the webhook setting. Possible values:  * **active**: You receive a balance webhook if any of the conditions in this setting are met. * **inactive**: You do not receive a balance webhook even if the conditions in this settings are met.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,7 +223,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * The status of the webhook setting. Possible values:  * **active**: You receive a balance webhook if any of the conditions in this setting are met. * **inactive**: You do not receive a balance webhook even if the conditions in this settings are met.
    *
-   * @param status
+   * @param status The status of the webhook setting. Possible values:  * **active**: You receive a balance webhook if any of the conditions in this setting are met. * **inactive**: You do not receive a balance webhook even if the conditions in this settings are met.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,7 +234,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * target
    *
-   * @param target
+   * @param target 
    * @return the current {@code BalanceWebhookSettingInfoUpdate} instance, allowing for method chaining
    */
   public BalanceWebhookSettingInfoUpdate target(TargetUpdate target) {
@@ -244,7 +244,7 @@ public class BalanceWebhookSettingInfoUpdate {
 
   /**
    * Get target
-   * @return target
+   * @return target 
    */
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * target
    *
-   * @param target
+   * @param target 
    */
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,7 +266,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * The type of the webhook you are configuring. Set to **balance**.
    *
-   * @param type
+   * @param type The type of the webhook you are configuring. Set to **balance**.
    * @return the current {@code BalanceWebhookSettingInfoUpdate} instance, allowing for method chaining
    */
   public BalanceWebhookSettingInfoUpdate type(TypeEnum type) {
@@ -276,7 +276,7 @@ public class BalanceWebhookSettingInfoUpdate {
 
   /**
    * The type of the webhook you are configuring. Set to **balance**.
-   * @return type
+   * @return type The type of the webhook you are configuring. Set to **balance**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,7 +287,7 @@ public class BalanceWebhookSettingInfoUpdate {
   /**
    * The type of the webhook you are configuring. Set to **balance**.
    *
-   * @param type
+   * @param type The type of the webhook you are configuring. Set to **balance**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

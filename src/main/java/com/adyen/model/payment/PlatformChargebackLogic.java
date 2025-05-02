@@ -87,7 +87,7 @@ public class PlatformChargebackLogic {
   /**
    * The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    *
-   * @param behavior
+   * @param behavior The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    * @return the current {@code PlatformChargebackLogic} instance, allowing for method chaining
    */
   public PlatformChargebackLogic behavior(BehaviorEnum behavior) {
@@ -97,7 +97,7 @@ public class PlatformChargebackLogic {
 
   /**
    * The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
-   * @return behavior
+   * @return behavior The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    */
   @JsonProperty(JSON_PROPERTY_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class PlatformChargebackLogic {
   /**
    * The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    *
-   * @param behavior
+   * @param behavior The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
    */
   @JsonProperty(JSON_PROPERTY_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class PlatformChargebackLogic {
   /**
    * The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
    *
-   * @param costAllocationAccount
+   * @param costAllocationAccount The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
    * @return the current {@code PlatformChargebackLogic} instance, allowing for method chaining
    */
   public PlatformChargebackLogic costAllocationAccount(String costAllocationAccount) {
@@ -129,7 +129,7 @@ public class PlatformChargebackLogic {
 
   /**
    * The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
-   * @return costAllocationAccount
+   * @return costAllocationAccount The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
    */
   @JsonProperty(JSON_PROPERTY_COST_ALLOCATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class PlatformChargebackLogic {
   /**
    * The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
    *
-   * @param costAllocationAccount
+   * @param costAllocationAccount The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
    */
   @JsonProperty(JSON_PROPERTY_COST_ALLOCATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class PlatformChargebackLogic {
   /**
    * The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
    *
-   * @param targetAccount
+   * @param targetAccount The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
    * @return the current {@code PlatformChargebackLogic} instance, allowing for method chaining
    */
   public PlatformChargebackLogic targetAccount(String targetAccount) {
@@ -161,7 +161,7 @@ public class PlatformChargebackLogic {
 
   /**
    * The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
-   * @return targetAccount
+   * @return targetAccount The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
    */
   @JsonProperty(JSON_PROPERTY_TARGET_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class PlatformChargebackLogic {
   /**
    * The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
    *
-   * @param targetAccount
+   * @param targetAccount The unique identifier of the balance account against which the disputed amount is booked.  Required if &#x60;behavior&#x60; is **deductFromOneBalanceAccount**.
    */
   @JsonProperty(JSON_PROPERTY_TARGET_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

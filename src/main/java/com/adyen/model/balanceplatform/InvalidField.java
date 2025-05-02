@@ -50,7 +50,7 @@ public class InvalidField {
   /**
    * The field that has an invalid value.
    *
-   * @param name
+   * @param name The field that has an invalid value.
    * @return the current {@code InvalidField} instance, allowing for method chaining
    */
   public InvalidField name(String name) {
@@ -60,7 +60,7 @@ public class InvalidField {
 
   /**
    * The field that has an invalid value.
-   * @return name
+   * @return name The field that has an invalid value.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class InvalidField {
   /**
    * The field that has an invalid value.
    *
-   * @param name
+   * @param name The field that has an invalid value.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class InvalidField {
   /**
    * The invalid value.
    *
-   * @param value
+   * @param value The invalid value.
    * @return the current {@code InvalidField} instance, allowing for method chaining
    */
   public InvalidField value(String value) {
@@ -92,7 +92,7 @@ public class InvalidField {
 
   /**
    * The invalid value.
-   * @return value
+   * @return value The invalid value.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class InvalidField {
   /**
    * The invalid value.
    *
-   * @param value
+   * @param value The invalid value.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class InvalidField {
   /**
    * Description of the validation error.
    *
-   * @param message
+   * @param message Description of the validation error.
    * @return the current {@code InvalidField} instance, allowing for method chaining
    */
   public InvalidField message(String message) {
@@ -124,7 +124,7 @@ public class InvalidField {
 
   /**
    * Description of the validation error.
-   * @return message
+   * @return message Description of the validation error.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class InvalidField {
   /**
    * Description of the validation error.
    *
-   * @param message
+   * @param message Description of the validation error.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

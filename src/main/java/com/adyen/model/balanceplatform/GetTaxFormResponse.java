@@ -79,7 +79,7 @@ public class GetTaxFormResponse {
   /**
    * The content of the tax form in Base64 format.
    *
-   * @param content
+   * @param content The content of the tax form in Base64 format.
    * @return the current {@code GetTaxFormResponse} instance, allowing for method chaining
    */
   public GetTaxFormResponse content(byte[] content) {
@@ -89,7 +89,7 @@ public class GetTaxFormResponse {
 
   /**
    * The content of the tax form in Base64 format.
-   * @return content
+   * @return content The content of the tax form in Base64 format.
    */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class GetTaxFormResponse {
   /**
    * The content of the tax form in Base64 format.
    *
-   * @param content
+   * @param content The content of the tax form in Base64 format.
    */
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class GetTaxFormResponse {
   /**
    * The content type of the tax form.  Possible values: *  **application/pdf**  
    *
-   * @param contentType
+   * @param contentType The content type of the tax form.  Possible values: *  **application/pdf**  
    * @return the current {@code GetTaxFormResponse} instance, allowing for method chaining
    */
   public GetTaxFormResponse contentType(ContentTypeEnum contentType) {
@@ -121,7 +121,7 @@ public class GetTaxFormResponse {
 
   /**
    * The content type of the tax form.  Possible values: *  **application/pdf**  
-   * @return contentType
+   * @return contentType The content type of the tax form.  Possible values: *  **application/pdf**  
    */
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class GetTaxFormResponse {
   /**
    * The content type of the tax form.  Possible values: *  **application/pdf**  
    *
-   * @param contentType
+   * @param contentType The content type of the tax form.  Possible values: *  **application/pdf**  
    */
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

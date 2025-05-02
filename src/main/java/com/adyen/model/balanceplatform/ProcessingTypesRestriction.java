@@ -95,7 +95,7 @@ public class ProcessingTypesRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code ProcessingTypesRestriction} instance, allowing for method chaining
    */
   public ProcessingTypesRestriction operation(String operation) {
@@ -105,7 +105,7 @@ public class ProcessingTypesRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class ProcessingTypesRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,7 +127,7 @@ public class ProcessingTypesRestriction {
   /**
    * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
    *
-   * @param value
+   * @param value List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
    * @return the current {@code ProcessingTypesRestriction} instance, allowing for method chaining
    */
   public ProcessingTypesRestriction value(List<ValueEnum> value) {
@@ -145,7 +145,7 @@ public class ProcessingTypesRestriction {
 
   /**
    * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
-   * @return value
+   * @return value List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +156,7 @@ public class ProcessingTypesRestriction {
   /**
    * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
    *
-   * @param value
+   * @param value List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

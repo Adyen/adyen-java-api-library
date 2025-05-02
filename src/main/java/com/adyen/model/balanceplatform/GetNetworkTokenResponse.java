@@ -43,7 +43,7 @@ public class GetNetworkTokenResponse {
   /**
    * token
    *
-   * @param token
+   * @param token 
    * @return the current {@code GetNetworkTokenResponse} instance, allowing for method chaining
    */
   public GetNetworkTokenResponse token(NetworkToken token) {
@@ -53,7 +53,7 @@ public class GetNetworkTokenResponse {
 
   /**
    * Get token
-   * @return token
+   * @return token 
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -64,7 +64,7 @@ public class GetNetworkTokenResponse {
   /**
    * token
    *
-   * @param token
+   * @param token 
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

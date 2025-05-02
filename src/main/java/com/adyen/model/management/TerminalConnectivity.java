@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.TerminalConnectivityBluetooth;
@@ -25,8 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -60,7 +58,7 @@ public class TerminalConnectivity {
   /**
    * bluetooth
    *
-   * @param bluetooth
+   * @param bluetooth 
    * @return the current {@code TerminalConnectivity} instance, allowing for method chaining
    */
   public TerminalConnectivity bluetooth(TerminalConnectivityBluetooth bluetooth) {
@@ -69,10 +67,9 @@ public class TerminalConnectivity {
   }
 
   /**
-   * bluetooth
-   * @return bluetooth
+   * Get bluetooth
+   * @return bluetooth 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BLUETOOTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalConnectivityBluetooth getBluetooth() {
@@ -82,8 +79,8 @@ public class TerminalConnectivity {
   /**
    * bluetooth
    *
-   * @param bluetooth
-   */ 
+   * @param bluetooth 
+   */
   @JsonProperty(JSON_PROPERTY_BLUETOOTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBluetooth(TerminalConnectivityBluetooth bluetooth) {
@@ -93,7 +90,7 @@ public class TerminalConnectivity {
   /**
    * cellular
    *
-   * @param cellular
+   * @param cellular 
    * @return the current {@code TerminalConnectivity} instance, allowing for method chaining
    */
   public TerminalConnectivity cellular(TerminalConnectivityCellular cellular) {
@@ -102,10 +99,9 @@ public class TerminalConnectivity {
   }
 
   /**
-   * cellular
-   * @return cellular
+   * Get cellular
+   * @return cellular 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CELLULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalConnectivityCellular getCellular() {
@@ -115,8 +111,8 @@ public class TerminalConnectivity {
   /**
    * cellular
    *
-   * @param cellular
-   */ 
+   * @param cellular 
+   */
   @JsonProperty(JSON_PROPERTY_CELLULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCellular(TerminalConnectivityCellular cellular) {
@@ -126,7 +122,7 @@ public class TerminalConnectivity {
   /**
    * ethernet
    *
-   * @param ethernet
+   * @param ethernet 
    * @return the current {@code TerminalConnectivity} instance, allowing for method chaining
    */
   public TerminalConnectivity ethernet(TerminalConnectivityEthernet ethernet) {
@@ -135,10 +131,9 @@ public class TerminalConnectivity {
   }
 
   /**
-   * ethernet
-   * @return ethernet
+   * Get ethernet
+   * @return ethernet 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ETHERNET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalConnectivityEthernet getEthernet() {
@@ -148,8 +143,8 @@ public class TerminalConnectivity {
   /**
    * ethernet
    *
-   * @param ethernet
-   */ 
+   * @param ethernet 
+   */
   @JsonProperty(JSON_PROPERTY_ETHERNET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEthernet(TerminalConnectivityEthernet ethernet) {
@@ -159,7 +154,7 @@ public class TerminalConnectivity {
   /**
    * wifi
    *
-   * @param wifi
+   * @param wifi 
    * @return the current {@code TerminalConnectivity} instance, allowing for method chaining
    */
   public TerminalConnectivity wifi(TerminalConnectivityWifi wifi) {
@@ -168,10 +163,9 @@ public class TerminalConnectivity {
   }
 
   /**
-   * wifi
-   * @return wifi
+   * Get wifi
+   * @return wifi 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WIFI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalConnectivityWifi getWifi() {
@@ -181,8 +175,8 @@ public class TerminalConnectivity {
   /**
    * wifi
    *
-   * @param wifi
-   */ 
+   * @param wifi 
+   */
   @JsonProperty(JSON_PROPERTY_WIFI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifi(TerminalConnectivityWifi wifi) {

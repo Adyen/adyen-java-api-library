@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class Currency {
   /**
    * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param amount
+   * @param amount Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return the current {@code Currency} instance, allowing for method chaining
    */
   public Currency amount(Integer amount) {
@@ -66,9 +64,8 @@ public class Currency {
 
   /**
    * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * @return amount
+   * @return amount Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    */
-  @ApiModelProperty(value = "Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getAmount() {
@@ -78,8 +75,8 @@ public class Currency {
   /**
    * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param amount
-   */ 
+   * @param amount Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Integer amount) {
@@ -89,7 +86,7 @@ public class Currency {
   /**
    * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
    *
-   * @param currencyCode
+   * @param currencyCode Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
    * @return the current {@code Currency} instance, allowing for method chaining
    */
   public Currency currencyCode(String currencyCode) {
@@ -99,9 +96,8 @@ public class Currency {
 
   /**
    * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
-   * @return currencyCode
+   * @return currencyCode Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
    */
-  @ApiModelProperty(required = true, value = "Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrencyCode() {
@@ -111,8 +107,8 @@ public class Currency {
   /**
    * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
    *
-   * @param currencyCode
-   */ 
+   * @param currencyCode Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
@@ -122,7 +118,7 @@ public class Currency {
   /**
    * The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param maxAmount
+   * @param maxAmount The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return the current {@code Currency} instance, allowing for method chaining
    */
   public Currency maxAmount(Integer maxAmount) {
@@ -132,9 +128,8 @@ public class Currency {
 
   /**
    * The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-   * @return maxAmount
+   * @return maxAmount The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    */
-  @ApiModelProperty(value = "The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getMaxAmount() {
@@ -144,8 +139,8 @@ public class Currency {
   /**
    * The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param maxAmount
-   */ 
+   * @param maxAmount The maximum surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
+   */
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxAmount(Integer maxAmount) {
@@ -155,7 +150,7 @@ public class Currency {
   /**
    * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
    *
-   * @param percentage
+   * @param percentage Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
    * @return the current {@code Currency} instance, allowing for method chaining
    */
   public Currency percentage(Double percentage) {
@@ -165,9 +160,8 @@ public class Currency {
 
   /**
    * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
-   * @return percentage
+   * @return percentage Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
    */
-  @ApiModelProperty(value = "Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.")
   @JsonProperty(JSON_PROPERTY_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getPercentage() {
@@ -177,8 +171,8 @@ public class Currency {
   /**
    * Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
    *
-   * @param percentage
-   */ 
+   * @param percentage Surcharge percentage per transaction. The maximum number of decimal places is two. For example, **1%** or **2.27%**.
+   */
   @JsonProperty(JSON_PROPERTY_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPercentage(Double percentage) {

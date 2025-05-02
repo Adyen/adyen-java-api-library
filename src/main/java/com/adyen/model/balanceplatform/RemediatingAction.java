@@ -46,7 +46,7 @@ public class RemediatingAction {
   /**
    * The remediating action code.
    *
-   * @param code
+   * @param code The remediating action code.
    * @return the current {@code RemediatingAction} instance, allowing for method chaining
    */
   public RemediatingAction code(String code) {
@@ -56,7 +56,7 @@ public class RemediatingAction {
 
   /**
    * The remediating action code.
-   * @return code
+   * @return code The remediating action code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class RemediatingAction {
   /**
    * The remediating action code.
    *
-   * @param code
+   * @param code The remediating action code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class RemediatingAction {
   /**
    * A description of how you can resolve the verification error.
    *
-   * @param message
+   * @param message A description of how you can resolve the verification error.
    * @return the current {@code RemediatingAction} instance, allowing for method chaining
    */
   public RemediatingAction message(String message) {
@@ -88,7 +88,7 @@ public class RemediatingAction {
 
   /**
    * A description of how you can resolve the verification error.
-   * @return message
+   * @return message A description of how you can resolve the verification error.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class RemediatingAction {
   /**
    * A description of how you can resolve the verification error.
    *
-   * @param message
+   * @param message A description of how you can resolve the verification error.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

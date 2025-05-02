@@ -45,7 +45,7 @@ public class TransferRouteResponse {
   /**
    * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
    *
-   * @param transferRoutes
+   * @param transferRoutes List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
    * @return the current {@code TransferRouteResponse} instance, allowing for method chaining
    */
   public TransferRouteResponse transferRoutes(List<TransferRoute> transferRoutes) {
@@ -63,7 +63,7 @@ public class TransferRouteResponse {
 
   /**
    * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
-   * @return transferRoutes
+   * @return transferRoutes List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class TransferRouteResponse {
   /**
    * List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
    *
-   * @param transferRoutes
+   * @param transferRoutes List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

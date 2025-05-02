@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.EventUrl;
@@ -25,9 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -56,7 +54,7 @@ public class Nexo {
 
   public static final String JSON_PROPERTY_NEXO_EVENT_URLS = "nexoEventUrls";
   @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
-  private List<String> nexoEventUrls = null;
+  private List<String> nexoEventUrls;
 
   public static final String JSON_PROPERTY_NOTIFICATION = "notification";
   private Notification notification;
@@ -67,7 +65,7 @@ public class Nexo {
   /**
    * displayUrls
    *
-   * @param displayUrls
+   * @param displayUrls 
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo displayUrls(NotificationUrl displayUrls) {
@@ -76,10 +74,9 @@ public class Nexo {
   }
 
   /**
-   * displayUrls
-   * @return displayUrls
+   * Get displayUrls
+   * @return displayUrls 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotificationUrl getDisplayUrls() {
@@ -89,8 +86,8 @@ public class Nexo {
   /**
    * displayUrls
    *
-   * @param displayUrls
-   */ 
+   * @param displayUrls 
+   */
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayUrls(NotificationUrl displayUrls) {
@@ -100,7 +97,7 @@ public class Nexo {
   /**
    * encryptionKey
    *
-   * @param encryptionKey
+   * @param encryptionKey 
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo encryptionKey(Key encryptionKey) {
@@ -109,10 +106,9 @@ public class Nexo {
   }
 
   /**
-   * encryptionKey
-   * @return encryptionKey
+   * Get encryptionKey
+   * @return encryptionKey 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Key getEncryptionKey() {
@@ -122,8 +118,8 @@ public class Nexo {
   /**
    * encryptionKey
    *
-   * @param encryptionKey
-   */ 
+   * @param encryptionKey 
+   */
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionKey(Key encryptionKey) {
@@ -133,7 +129,7 @@ public class Nexo {
   /**
    * eventUrls
    *
-   * @param eventUrls
+   * @param eventUrls 
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo eventUrls(EventUrl eventUrls) {
@@ -142,10 +138,9 @@ public class Nexo {
   }
 
   /**
-   * eventUrls
-   * @return eventUrls
+   * Get eventUrls
+   * @return eventUrls 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EventUrl getEventUrls() {
@@ -155,8 +150,8 @@ public class Nexo {
   /**
    * eventUrls
    *
-   * @param eventUrls
-   */ 
+   * @param eventUrls 
+   */
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventUrls(EventUrl eventUrls) {
@@ -166,13 +161,13 @@ public class Nexo {
   /**
    * One or more URLs to send event messages to when using Terminal API.
    *
-   * @param nexoEventUrls
+   * @param nexoEventUrls One or more URLs to send event messages to when using Terminal API.
    * @return the current {@code Nexo} instance, allowing for method chaining
    *
    * @deprecated since Management API v1
    * Use &#x60;eventUrls&#x60; instead.
    */
-  @Deprecated
+  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   public Nexo nexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
     return this;
@@ -188,13 +183,10 @@ public class Nexo {
 
   /**
    * One or more URLs to send event messages to when using Terminal API.
-   * @return nexoEventUrls
-   *
-   * @deprecated since Management API v1
-   * Use &#x60;eventUrls&#x60; instead.
+   * @return nexoEventUrls One or more URLs to send event messages to when using Terminal API.
+   * @deprecated // deprecated since Management API v1: Use `eventUrls` instead.
    */
-  @Deprecated
-  @ApiModelProperty(value = "One or more URLs to send event messages to when using Terminal API.")
+  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getNexoEventUrls() {
@@ -204,12 +196,12 @@ public class Nexo {
   /**
    * One or more URLs to send event messages to when using Terminal API.
    *
-   * @param nexoEventUrls
+   * @param nexoEventUrls One or more URLs to send event messages to when using Terminal API.
    *
    * @deprecated since Management API v1
    * Use &#x60;eventUrls&#x60; instead.
-   */ 
-  @Deprecated
+   */
+  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexoEventUrls(List<String> nexoEventUrls) {
@@ -219,7 +211,7 @@ public class Nexo {
   /**
    * notification
    *
-   * @param notification
+   * @param notification 
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo notification(Notification notification) {
@@ -228,10 +220,9 @@ public class Nexo {
   }
 
   /**
-   * notification
-   * @return notification
+   * Get notification
+   * @return notification 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Notification getNotification() {
@@ -241,8 +232,8 @@ public class Nexo {
   /**
    * notification
    *
-   * @param notification
-   */ 
+   * @param notification 
+   */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotification(Notification notification) {

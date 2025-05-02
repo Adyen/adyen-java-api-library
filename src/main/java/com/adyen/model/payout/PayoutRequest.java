@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.payout.Address;
@@ -27,8 +26,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -88,13 +86,13 @@ public class PayoutRequest {
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
   public enum ShopperInteractionEnum {
-    ECOMMERCE("Ecommerce"),
+    ECOMMERCE(String.valueOf("Ecommerce")),
     
-    CONTAUTH("ContAuth"),
+    CONTAUTH(String.valueOf("ContAuth")),
     
-    MOTO("Moto"),
+    MOTO(String.valueOf("Moto")),
     
-    POS("POS");
+    POS(String.valueOf("POS"));
 
     private String value;
 
@@ -141,7 +139,7 @@ public class PayoutRequest {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest amount(Amount amount) {
@@ -150,10 +148,9 @@ public class PayoutRequest {
   }
 
   /**
-   * amount
-   * @return amount
+   * Get amount
+   * @return amount 
    */
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Amount getAmount() {
@@ -163,8 +160,8 @@ public class PayoutRequest {
   /**
    * amount
    *
-   * @param amount
-   */ 
+   * @param amount 
+   */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
@@ -174,7 +171,7 @@ public class PayoutRequest {
   /**
    * billingAddress
    *
-   * @param billingAddress
+   * @param billingAddress 
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest billingAddress(Address billingAddress) {
@@ -183,10 +180,9 @@ public class PayoutRequest {
   }
 
   /**
-   * billingAddress
-   * @return billingAddress
+   * Get billingAddress
+   * @return billingAddress 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Address getBillingAddress() {
@@ -196,8 +192,8 @@ public class PayoutRequest {
   /**
    * billingAddress
    *
-   * @param billingAddress
-   */ 
+   * @param billingAddress 
+   */
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingAddress(Address billingAddress) {
@@ -207,7 +203,7 @@ public class PayoutRequest {
   /**
    * card
    *
-   * @param card
+   * @param card 
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest card(Card card) {
@@ -216,10 +212,9 @@ public class PayoutRequest {
   }
 
   /**
-   * card
-   * @return card
+   * Get card
+   * @return card 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Card getCard() {
@@ -229,8 +224,8 @@ public class PayoutRequest {
   /**
    * card
    *
-   * @param card
-   */ 
+   * @param card 
+   */
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCard(Card card) {
@@ -240,7 +235,7 @@ public class PayoutRequest {
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    *
-   * @param fraudOffset
+   * @param fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest fraudOffset(Integer fraudOffset) {
@@ -250,9 +245,8 @@ public class PayoutRequest {
 
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
-   * @return fraudOffset
+   * @return fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
    */
-  @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getFraudOffset() {
@@ -262,8 +256,8 @@ public class PayoutRequest {
   /**
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    *
-   * @param fraudOffset
-   */ 
+   * @param fraudOffset An integer value that is added to the normal fraud score. The value can be either positive or negative.
+   */
   @JsonProperty(JSON_PROPERTY_FRAUD_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudOffset(Integer fraudOffset) {
@@ -273,7 +267,7 @@ public class PayoutRequest {
   /**
    * fundSource
    *
-   * @param fundSource
+   * @param fundSource 
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest fundSource(FundSource fundSource) {
@@ -282,10 +276,9 @@ public class PayoutRequest {
   }
 
   /**
-   * fundSource
-   * @return fundSource
+   * Get fundSource
+   * @return fundSource 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FUND_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public FundSource getFundSource() {
@@ -295,8 +288,8 @@ public class PayoutRequest {
   /**
    * fundSource
    *
-   * @param fundSource
-   */ 
+   * @param fundSource 
+   */
   @JsonProperty(JSON_PROPERTY_FUND_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundSource(FundSource fundSource) {
@@ -306,7 +299,7 @@ public class PayoutRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest merchantAccount(String merchantAccount) {
@@ -316,9 +309,8 @@ public class PayoutRequest {
 
   /**
    * The merchant account identifier, with which you want to process the transaction.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account identifier, with which you want to process the transaction.
    */
-  @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMerchantAccount() {
@@ -328,8 +320,8 @@ public class PayoutRequest {
   /**
    * The merchant account identifier, with which you want to process the transaction.
    *
-   * @param merchantAccount
-   */ 
+   * @param merchantAccount The merchant account identifier, with which you want to process the transaction.
+   */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantAccount(String merchantAccount) {
@@ -339,7 +331,7 @@ public class PayoutRequest {
   /**
    * recurring
    *
-   * @param recurring
+   * @param recurring 
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest recurring(Recurring recurring) {
@@ -348,10 +340,9 @@ public class PayoutRequest {
   }
 
   /**
-   * recurring
-   * @return recurring
+   * Get recurring
+   * @return recurring 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Recurring getRecurring() {
@@ -361,8 +352,8 @@ public class PayoutRequest {
   /**
    * recurring
    *
-   * @param recurring
-   */ 
+   * @param recurring 
+   */
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurring(Recurring recurring) {
@@ -372,7 +363,7 @@ public class PayoutRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest reference(String reference) {
@@ -382,9 +373,8 @@ public class PayoutRequest {
 
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-   * @return reference
+   * @return reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    */
-  @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getReference() {
@@ -394,8 +384,8 @@ public class PayoutRequest {
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    *
-   * @param reference
-   */ 
+   * @param reference The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
+   */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
@@ -405,7 +395,7 @@ public class PayoutRequest {
   /**
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    *
-   * @param selectedRecurringDetailReference
+   * @param selectedRecurringDetailReference The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -415,9 +405,8 @@ public class PayoutRequest {
 
   /**
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
-   * @return selectedRecurringDetailReference
+   * @return selectedRecurringDetailReference The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    */
-  @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSelectedRecurringDetailReference() {
@@ -427,8 +416,8 @@ public class PayoutRequest {
   /**
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    *
-   * @param selectedRecurringDetailReference
-   */ 
+   * @param selectedRecurringDetailReference The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
+   */
   @JsonProperty(JSON_PROPERTY_SELECTED_RECURRING_DETAIL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
@@ -438,7 +427,7 @@ public class PayoutRequest {
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    *
-   * @param shopperEmail
+   * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest shopperEmail(String shopperEmail) {
@@ -448,9 +437,8 @@ public class PayoutRequest {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
-   * @return shopperEmail
+   * @return shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    */
-  @ApiModelProperty(value = "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > For 3D Secure 2 transactions, schemes require `shopperEmail` for all browser-based and mobile implementations.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperEmail() {
@@ -460,8 +448,8 @@ public class PayoutRequest {
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    *
-   * @param shopperEmail
-   */ 
+   * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperEmail(String shopperEmail) {
@@ -471,7 +459,7 @@ public class PayoutRequest {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -481,9 +469,8 @@ public class PayoutRequest {
 
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
-   * @return shopperInteraction
+   * @return shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    */
-  @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ShopperInteractionEnum getShopperInteraction() {
@@ -493,8 +480,8 @@ public class PayoutRequest {
   /**
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    *
-   * @param shopperInteraction
-   */ 
+   * @param shopperInteraction Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_INTERACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
@@ -504,7 +491,7 @@ public class PayoutRequest {
   /**
    * shopperName
    *
-   * @param shopperName
+   * @param shopperName 
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest shopperName(Name shopperName) {
@@ -513,10 +500,9 @@ public class PayoutRequest {
   }
 
   /**
-   * shopperName
-   * @return shopperName
+   * Get shopperName
+   * @return shopperName 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Name getShopperName() {
@@ -526,8 +512,8 @@ public class PayoutRequest {
   /**
    * shopperName
    *
-   * @param shopperName
-   */ 
+   * @param shopperName 
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperName(Name shopperName) {
@@ -537,7 +523,7 @@ public class PayoutRequest {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest shopperReference(String shopperReference) {
@@ -547,9 +533,8 @@ public class PayoutRequest {
 
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
-   * @return shopperReference
+   * @return shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    */
-  @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. > Your reference must not include personally identifiable information (PII) such as name or email address.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getShopperReference() {
@@ -559,8 +544,8 @@ public class PayoutRequest {
   /**
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
    *
-   * @param shopperReference
-   */ 
+   * @param shopperReference Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. &gt; Your reference must not include personally identifiable information (PII) such as name or email address.
+   */
   @JsonProperty(JSON_PROPERTY_SHOPPER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperReference(String shopperReference) {
@@ -570,7 +555,7 @@ public class PayoutRequest {
   /**
    * The shopper&#39;s telephone number.
    *
-   * @param telephoneNumber
+   * @param telephoneNumber The shopper&#39;s telephone number.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest telephoneNumber(String telephoneNumber) {
@@ -580,9 +565,8 @@ public class PayoutRequest {
 
   /**
    * The shopper&#39;s telephone number.
-   * @return telephoneNumber
+   * @return telephoneNumber The shopper&#39;s telephone number.
    */
-  @ApiModelProperty(value = "The shopper's telephone number.")
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTelephoneNumber() {
@@ -592,8 +576,8 @@ public class PayoutRequest {
   /**
    * The shopper&#39;s telephone number.
    *
-   * @param telephoneNumber
-   */ 
+   * @param telephoneNumber The shopper&#39;s telephone number.
+   */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTelephoneNumber(String telephoneNumber) {

@@ -50,7 +50,7 @@ public class StockData {
   /**
    * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    *
-   * @param marketIdentifier
+   * @param marketIdentifier The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    * @return the current {@code StockData} instance, allowing for method chaining
    */
   public StockData marketIdentifier(String marketIdentifier) {
@@ -60,7 +60,7 @@ public class StockData {
 
   /**
    * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
-   * @return marketIdentifier
+   * @return marketIdentifier The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    */
   @JsonProperty(JSON_PROPERTY_MARKET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class StockData {
   /**
    * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    *
-   * @param marketIdentifier
+   * @param marketIdentifier The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    */
   @JsonProperty(JSON_PROPERTY_MARKET_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class StockData {
   /**
    * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    *
-   * @param stockNumber
+   * @param stockNumber The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    * @return the current {@code StockData} instance, allowing for method chaining
    */
   public StockData stockNumber(String stockNumber) {
@@ -92,7 +92,7 @@ public class StockData {
 
   /**
    * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
-   * @return stockNumber
+   * @return stockNumber The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    */
   @JsonProperty(JSON_PROPERTY_STOCK_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,7 +103,7 @@ public class StockData {
   /**
    * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    *
-   * @param stockNumber
+   * @param stockNumber The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    */
   @JsonProperty(JSON_PROPERTY_STOCK_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class StockData {
   /**
    * The stock ticker symbol.
    *
-   * @param tickerSymbol
+   * @param tickerSymbol The stock ticker symbol.
    * @return the current {@code StockData} instance, allowing for method chaining
    */
   public StockData tickerSymbol(String tickerSymbol) {
@@ -124,7 +124,7 @@ public class StockData {
 
   /**
    * The stock ticker symbol.
-   * @return tickerSymbol
+   * @return tickerSymbol The stock ticker symbol.
    */
   @JsonProperty(JSON_PROPERTY_TICKER_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class StockData {
   /**
    * The stock ticker symbol.
    *
-   * @param tickerSymbol
+   * @param tickerSymbol The stock ticker symbol.
    */
   @JsonProperty(JSON_PROPERTY_TICKER_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

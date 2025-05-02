@@ -64,7 +64,7 @@ public class DonationRequest {
   /**
    * The Adyen account name of the charity.
    *
-   * @param donationAccount
+   * @param donationAccount The Adyen account name of the charity.
    * @return the current {@code DonationRequest} instance, allowing for method chaining
    */
   public DonationRequest donationAccount(String donationAccount) {
@@ -74,7 +74,7 @@ public class DonationRequest {
 
   /**
    * The Adyen account name of the charity.
-   * @return donationAccount
+   * @return donationAccount The Adyen account name of the charity.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,7 +85,7 @@ public class DonationRequest {
   /**
    * The Adyen account name of the charity.
    *
-   * @param donationAccount
+   * @param donationAccount The Adyen account name of the charity.
    */
   @JsonProperty(JSON_PROPERTY_DONATION_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,7 +96,7 @@ public class DonationRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    * @return the current {@code DonationRequest} instance, allowing for method chaining
    */
   public DonationRequest merchantAccount(String merchantAccount) {
@@ -106,7 +106,7 @@ public class DonationRequest {
 
   /**
    * The merchant account that is used to process the payment.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class DonationRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +128,7 @@ public class DonationRequest {
   /**
    * modificationAmount
    *
-   * @param modificationAmount
+   * @param modificationAmount 
    * @return the current {@code DonationRequest} instance, allowing for method chaining
    */
   public DonationRequest modificationAmount(Amount modificationAmount) {
@@ -138,7 +138,7 @@ public class DonationRequest {
 
   /**
    * Get modificationAmount
-   * @return modificationAmount
+   * @return modificationAmount 
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +149,7 @@ public class DonationRequest {
   /**
    * modificationAmount
    *
-   * @param modificationAmount
+   * @param modificationAmount 
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +160,7 @@ public class DonationRequest {
   /**
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    *
-   * @param originalReference
+   * @param originalReference The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    * @return the current {@code DonationRequest} instance, allowing for method chaining
    */
   public DonationRequest originalReference(String originalReference) {
@@ -170,7 +170,7 @@ public class DonationRequest {
 
   /**
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
-   * @return originalReference
+   * @return originalReference The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,7 +181,7 @@ public class DonationRequest {
   /**
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    *
-   * @param originalReference
+   * @param originalReference The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,7 +192,7 @@ public class DonationRequest {
   /**
    * platformChargebackLogic
    *
-   * @param platformChargebackLogic
+   * @param platformChargebackLogic 
    * @return the current {@code DonationRequest} instance, allowing for method chaining
    */
   public DonationRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
@@ -202,7 +202,7 @@ public class DonationRequest {
 
   /**
    * Get platformChargebackLogic
-   * @return platformChargebackLogic
+   * @return platformChargebackLogic 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,7 +213,7 @@ public class DonationRequest {
   /**
    * platformChargebackLogic
    *
-   * @param platformChargebackLogic
+   * @param platformChargebackLogic 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +224,7 @@ public class DonationRequest {
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return the current {@code DonationRequest} instance, allowing for method chaining
    */
   public DonationRequest reference(String reference) {
@@ -234,7 +234,7 @@ public class DonationRequest {
 
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,7 +245,7 @@ public class DonationRequest {
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

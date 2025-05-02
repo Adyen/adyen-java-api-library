@@ -45,7 +45,7 @@ public class TransactionRulesResponse {
   /**
    * List of transaction rules.
    *
-   * @param transactionRules
+   * @param transactionRules List of transaction rules.
    * @return the current {@code TransactionRulesResponse} instance, allowing for method chaining
    */
   public TransactionRulesResponse transactionRules(List<TransactionRule> transactionRules) {
@@ -63,7 +63,7 @@ public class TransactionRulesResponse {
 
   /**
    * List of transaction rules.
-   * @return transactionRules
+   * @return transactionRules List of transaction rules.
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class TransactionRulesResponse {
   /**
    * List of transaction rules.
    *
-   * @param transactionRules
+   * @param transactionRules List of transaction rules.
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

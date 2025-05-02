@@ -43,7 +43,7 @@ public class ThreeDS2ResultResponse {
   /**
    * threeDS2Result
    *
-   * @param threeDS2Result
+   * @param threeDS2Result 
    * @return the current {@code ThreeDS2ResultResponse} instance, allowing for method chaining
    */
   public ThreeDS2ResultResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
@@ -53,7 +53,7 @@ public class ThreeDS2ResultResponse {
 
   /**
    * Get threeDS2Result
-   * @return threeDS2Result
+   * @return threeDS2Result 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -64,7 +64,7 @@ public class ThreeDS2ResultResponse {
   /**
    * threeDS2Result
    *
-   * @param threeDS2Result
+   * @param threeDS2Result 
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S2_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

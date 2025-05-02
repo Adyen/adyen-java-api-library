@@ -79,7 +79,7 @@ public class IbanAccountIdentification {
   /**
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    *
-   * @param iban
+   * @param iban The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    * @return the current {@code IbanAccountIdentification} instance, allowing for method chaining
    */
   public IbanAccountIdentification iban(String iban) {
@@ -89,7 +89,7 @@ public class IbanAccountIdentification {
 
   /**
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
-   * @return iban
+   * @return iban The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class IbanAccountIdentification {
   /**
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    *
-   * @param iban
+   * @param iban The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    */
   @JsonProperty(JSON_PROPERTY_IBAN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class IbanAccountIdentification {
   /**
    * **iban**
    *
-   * @param type
+   * @param type **iban**
    * @return the current {@code IbanAccountIdentification} instance, allowing for method chaining
    */
   public IbanAccountIdentification type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class IbanAccountIdentification {
 
   /**
    * **iban**
-   * @return type
+   * @return type **iban**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class IbanAccountIdentification {
   /**
    * **iban**
    *
-   * @param type
+   * @param type **iban**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

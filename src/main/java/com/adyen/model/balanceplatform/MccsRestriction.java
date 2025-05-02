@@ -48,7 +48,7 @@ public class MccsRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code MccsRestriction} instance, allowing for method chaining
    */
   public MccsRestriction operation(String operation) {
@@ -58,7 +58,7 @@ public class MccsRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -69,7 +69,7 @@ public class MccsRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,7 +80,7 @@ public class MccsRestriction {
   /**
    * List of merchant category codes (MCCs).
    *
-   * @param value
+   * @param value List of merchant category codes (MCCs).
    * @return the current {@code MccsRestriction} instance, allowing for method chaining
    */
   public MccsRestriction value(List<String> value) {
@@ -98,7 +98,7 @@ public class MccsRestriction {
 
   /**
    * List of merchant category codes (MCCs).
-   * @return value
+   * @return value List of merchant category codes (MCCs).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +109,7 @@ public class MccsRestriction {
   /**
    * List of merchant category codes (MCCs).
    *
-   * @param value
+   * @param value List of merchant category codes (MCCs).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

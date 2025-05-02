@@ -93,7 +93,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   /**
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    *
-   * @param threeDSReqAuthData
+   * @param threeDSReqAuthData Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    * @return the current {@code ThreeDSRequestorAuthenticationInfo} instance, allowing for method chaining
    */
   public ThreeDSRequestorAuthenticationInfo threeDSReqAuthData(String threeDSReqAuthData) {
@@ -103,7 +103,7 @@ public class ThreeDSRequestorAuthenticationInfo {
 
   /**
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
-   * @return threeDSReqAuthData
+   * @return threeDSReqAuthData Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   /**
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    *
-   * @param threeDSReqAuthData
+   * @param threeDSReqAuthData Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   /**
    * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    *
-   * @param threeDSReqAuthMethod
+   * @param threeDSReqAuthMethod Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    * @return the current {@code ThreeDSRequestorAuthenticationInfo} instance, allowing for method chaining
    */
   public ThreeDSRequestorAuthenticationInfo threeDSReqAuthMethod(ThreeDSReqAuthMethodEnum threeDSReqAuthMethod) {
@@ -135,7 +135,7 @@ public class ThreeDSRequestorAuthenticationInfo {
 
   /**
    * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
-   * @return threeDSReqAuthMethod
+   * @return threeDSReqAuthMethod Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,7 +146,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   /**
    * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    *
-   * @param threeDSReqAuthMethod
+   * @param threeDSReqAuthMethod Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,7 +157,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   /**
    * Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
    *
-   * @param threeDSReqAuthTimestamp
+   * @param threeDSReqAuthTimestamp Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
    * @return the current {@code ThreeDSRequestorAuthenticationInfo} instance, allowing for method chaining
    */
   public ThreeDSRequestorAuthenticationInfo threeDSReqAuthTimestamp(String threeDSReqAuthTimestamp) {
@@ -167,7 +167,7 @@ public class ThreeDSRequestorAuthenticationInfo {
 
   /**
    * Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
-   * @return threeDSReqAuthTimestamp
+   * @return threeDSReqAuthTimestamp Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +178,7 @@ public class ThreeDSRequestorAuthenticationInfo {
   /**
    * Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
    *
-   * @param threeDSReqAuthTimestamp
+   * @param threeDSReqAuthTimestamp Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_REQ_AUTH_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

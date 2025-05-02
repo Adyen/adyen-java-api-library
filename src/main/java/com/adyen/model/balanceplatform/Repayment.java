@@ -52,7 +52,7 @@ public class Repayment {
   /**
    * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
    *
-   * @param basisPoints
+   * @param basisPoints The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
    * @return the current {@code Repayment} instance, allowing for method chaining
    */
   public Repayment basisPoints(Integer basisPoints) {
@@ -62,7 +62,7 @@ public class Repayment {
 
   /**
    * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
-   * @return basisPoints
+   * @return basisPoints The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
    */
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -73,7 +73,7 @@ public class Repayment {
   /**
    * The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
    *
-   * @param basisPoints
+   * @param basisPoints The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
    */
   @JsonProperty(JSON_PROPERTY_BASIS_POINTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +84,7 @@ public class Repayment {
   /**
    * term
    *
-   * @param term
+   * @param term 
    * @return the current {@code Repayment} instance, allowing for method chaining
    */
   public Repayment term(RepaymentTerm term) {
@@ -94,7 +94,7 @@ public class Repayment {
 
   /**
    * Get term
-   * @return term
+   * @return term 
    */
   @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +105,7 @@ public class Repayment {
   /**
    * term
    *
-   * @param term
+   * @param term 
    */
   @JsonProperty(JSON_PROPERTY_TERM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class Repayment {
   /**
    * threshold
    *
-   * @param threshold
+   * @param threshold 
    * @return the current {@code Repayment} instance, allowing for method chaining
    */
   public Repayment threshold(ThresholdRepayment threshold) {
@@ -126,7 +126,7 @@ public class Repayment {
 
   /**
    * Get threshold
-   * @return threshold
+   * @return threshold 
    */
   @JsonProperty(JSON_PROPERTY_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class Repayment {
   /**
    * threshold
    *
-   * @param threshold
+   * @param threshold 
    */
   @JsonProperty(JSON_PROPERTY_THRESHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

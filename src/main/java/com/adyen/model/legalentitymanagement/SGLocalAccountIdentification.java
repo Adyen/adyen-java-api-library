@@ -83,7 +83,7 @@ public class SGLocalAccountIdentification {
   /**
    * The 4- to 19-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 4- to 19-digit bank account number, without separators or whitespace.
    * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
    */
   public SGLocalAccountIdentification accountNumber(String accountNumber) {
@@ -93,7 +93,7 @@ public class SGLocalAccountIdentification {
 
   /**
    * The 4- to 19-digit bank account number, without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The 4- to 19-digit bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class SGLocalAccountIdentification {
   /**
    * The 4- to 19-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 4- to 19-digit bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class SGLocalAccountIdentification {
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
-   * @param bic
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
    */
   public SGLocalAccountIdentification bic(String bic) {
@@ -125,7 +125,7 @@ public class SGLocalAccountIdentification {
 
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
-   * @return bic
+   * @return bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class SGLocalAccountIdentification {
   /**
    * The bank&#39;s 8- or 11-character BIC or SWIFT code.
    *
-   * @param bic
+   * @param bic The bank&#39;s 8- or 11-character BIC or SWIFT code.
    */
   @JsonProperty(JSON_PROPERTY_BIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class SGLocalAccountIdentification {
   /**
    * **sgLocal**
    *
-   * @param type
+   * @param type **sgLocal**
    * @return the current {@code SGLocalAccountIdentification} instance, allowing for method chaining
    */
   public SGLocalAccountIdentification type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class SGLocalAccountIdentification {
 
   /**
    * **sgLocal**
-   * @return type
+   * @return type **sgLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class SGLocalAccountIdentification {
   /**
    * **sgLocal**
    *
-   * @param type
+   * @param type **sgLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

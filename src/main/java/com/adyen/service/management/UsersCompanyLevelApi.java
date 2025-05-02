@@ -157,6 +157,7 @@ public class UsersCompanyLevelApi extends Service {
             throw new IllegalArgumentException("Please provide the companyId path parameter");
         }
         pathParams.put("companyId", companyId);
+
         //Add query params
         Map<String, String> queryParams = new HashMap<>();
         if (pageNumber != null) {

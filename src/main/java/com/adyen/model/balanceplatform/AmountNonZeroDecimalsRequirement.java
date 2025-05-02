@@ -79,7 +79,7 @@ public class AmountNonZeroDecimalsRequirement {
   /**
    * Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.
    *
-   * @param description
+   * @param description Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.
    * @return the current {@code AmountNonZeroDecimalsRequirement} instance, allowing for method chaining
    */
   public AmountNonZeroDecimalsRequirement description(String description) {
@@ -89,7 +89,7 @@ public class AmountNonZeroDecimalsRequirement {
 
   /**
    * Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.
-   * @return description
+   * @return description Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class AmountNonZeroDecimalsRequirement {
   /**
    * Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.
    *
-   * @param description
+   * @param description Specifies for which routes the amount in a transfer request must have no non-zero decimal places, so the transfer can only be processed if the amount consists of round numbers.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class AmountNonZeroDecimalsRequirement {
   /**
    * **amountNonZeroDecimalsRequirement**
    *
-   * @param type
+   * @param type **amountNonZeroDecimalsRequirement**
    * @return the current {@code AmountNonZeroDecimalsRequirement} instance, allowing for method chaining
    */
   public AmountNonZeroDecimalsRequirement type(TypeEnum type) {
@@ -121,7 +121,7 @@ public class AmountNonZeroDecimalsRequirement {
 
   /**
    * **amountNonZeroDecimalsRequirement**
-   * @return type
+   * @return type **amountNonZeroDecimalsRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class AmountNonZeroDecimalsRequirement {
   /**
    * **amountNonZeroDecimalsRequirement**
    *
-   * @param type
+   * @param type **amountNonZeroDecimalsRequirement**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

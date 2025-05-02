@@ -58,7 +58,7 @@ public class ContactDetails {
   /**
    * address
    *
-   * @param address
+   * @param address 
    * @return the current {@code ContactDetails} instance, allowing for method chaining
    */
   public ContactDetails address(Address address) {
@@ -68,7 +68,7 @@ public class ContactDetails {
 
   /**
    * Get address
-   * @return address
+   * @return address 
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class ContactDetails {
   /**
    * address
    *
-   * @param address
+   * @param address 
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +90,7 @@ public class ContactDetails {
   /**
    * The email address of the account holder.
    *
-   * @param email
+   * @param email The email address of the account holder.
    * @return the current {@code ContactDetails} instance, allowing for method chaining
    */
   public ContactDetails email(String email) {
@@ -100,7 +100,7 @@ public class ContactDetails {
 
   /**
    * The email address of the account holder.
-   * @return email
+   * @return email The email address of the account holder.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class ContactDetails {
   /**
    * The email address of the account holder.
    *
-   * @param email
+   * @param email The email address of the account holder.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class ContactDetails {
   /**
    * phone
    *
-   * @param phone
+   * @param phone 
    * @return the current {@code ContactDetails} instance, allowing for method chaining
    */
   public ContactDetails phone(Phone phone) {
@@ -132,7 +132,7 @@ public class ContactDetails {
 
   /**
    * Get phone
-   * @return phone
+   * @return phone 
    */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class ContactDetails {
   /**
    * phone
    *
-   * @param phone
+   * @param phone 
    */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class ContactDetails {
   /**
    * The URL of the account holder&#39;s website.
    *
-   * @param webAddress
+   * @param webAddress The URL of the account holder&#39;s website.
    * @return the current {@code ContactDetails} instance, allowing for method chaining
    */
   public ContactDetails webAddress(String webAddress) {
@@ -164,7 +164,7 @@ public class ContactDetails {
 
   /**
    * The URL of the account holder&#39;s website.
-   * @return webAddress
+   * @return webAddress The URL of the account holder&#39;s website.
    */
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class ContactDetails {
   /**
    * The URL of the account holder&#39;s website.
    *
-   * @param webAddress
+   * @param webAddress The URL of the account holder&#39;s website.
    */
   @JsonProperty(JSON_PROPERTY_WEB_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.AllowedOrigin;
@@ -22,9 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +37,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class AllowedOriginsResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<AllowedOrigin> data = null;
+  private List<AllowedOrigin> data;
 
   public AllowedOriginsResponse() { 
   }
@@ -47,7 +45,7 @@ public class AllowedOriginsResponse {
   /**
    * List of allowed origins.
    *
-   * @param data
+   * @param data List of allowed origins.
    * @return the current {@code AllowedOriginsResponse} instance, allowing for method chaining
    */
   public AllowedOriginsResponse data(List<AllowedOrigin> data) {
@@ -65,9 +63,8 @@ public class AllowedOriginsResponse {
 
   /**
    * List of allowed origins.
-   * @return data
+   * @return data List of allowed origins.
    */
-  @ApiModelProperty(value = "List of allowed origins.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<AllowedOrigin> getData() {
@@ -77,8 +74,8 @@ public class AllowedOriginsResponse {
   /**
    * List of allowed origins.
    *
-   * @param data
-   */ 
+   * @param data List of allowed origins.
+   */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(List<AllowedOrigin> data) {

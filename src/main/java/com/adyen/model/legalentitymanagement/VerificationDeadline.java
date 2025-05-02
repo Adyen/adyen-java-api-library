@@ -180,10 +180,10 @@ public class VerificationDeadline {
   }
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private List<CapabilitiesEnum> capabilities = new ArrayList<>();
+  private List<CapabilitiesEnum> capabilities;
 
   public static final String JSON_PROPERTY_ENTITY_IDS = "entityIds";
-  private List<String> entityIds = new ArrayList<>();
+  private List<String> entityIds;
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
@@ -205,7 +205,7 @@ public class VerificationDeadline {
 
   /**
    * The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
-   * @return capabilities
+   * @return capabilities The list of capabilities that will be disallowed if information is not reviewed by the time of the deadline
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,7 +216,7 @@ public class VerificationDeadline {
 
   /**
    * The unique identifiers of the legal entity or supporting entities that the deadline applies to
-   * @return entityIds
+   * @return entityIds The unique identifiers of the legal entity or supporting entities that the deadline applies to
    */
   @JsonProperty(JSON_PROPERTY_ENTITY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,7 +227,7 @@ public class VerificationDeadline {
 
   /**
    * The date that verification is due by before capabilities are disallowed.
-   * @return expiresAt
+   * @return expiresAt The date that verification is due by before capabilities are disallowed.
    */
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

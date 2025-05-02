@@ -61,6 +61,8 @@ public class PlatformPayment {
     
     BALANCEACCOUNT(String.valueOf("BalanceAccount")),
     
+    CHARGEBACKREMAINDER(String.valueOf("ChargebackRemainder")),
+    
     COMMISSION(String.valueOf("Commission")),
     
     DCCPLATFORMCOMMISSION(String.valueOf("DCCPlatformCommission")),

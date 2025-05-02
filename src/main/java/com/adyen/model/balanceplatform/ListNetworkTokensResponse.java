@@ -45,7 +45,7 @@ public class ListNetworkTokensResponse {
   /**
    * List of network tokens.
    *
-   * @param networkTokens
+   * @param networkTokens List of network tokens.
    * @return the current {@code ListNetworkTokensResponse} instance, allowing for method chaining
    */
   public ListNetworkTokensResponse networkTokens(List<NetworkToken> networkTokens) {
@@ -63,7 +63,7 @@ public class ListNetworkTokensResponse {
 
   /**
    * List of network tokens.
-   * @return networkTokens
+   * @return networkTokens List of network tokens.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,7 +74,7 @@ public class ListNetworkTokensResponse {
   /**
    * List of network tokens.
    *
-   * @param networkTokens
+   * @param networkTokens List of network tokens.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKENS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

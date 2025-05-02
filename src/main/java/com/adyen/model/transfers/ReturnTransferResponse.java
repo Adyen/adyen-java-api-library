@@ -89,7 +89,7 @@ public class ReturnTransferResponse {
   /**
    * The unique identifier of the return.
    *
-   * @param id
+   * @param id The unique identifier of the return.
    * @return the current {@code ReturnTransferResponse} instance, allowing for method chaining
    */
   public ReturnTransferResponse id(String id) {
@@ -99,7 +99,7 @@ public class ReturnTransferResponse {
 
   /**
    * The unique identifier of the return.
-   * @return id
+   * @return id The unique identifier of the return.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class ReturnTransferResponse {
   /**
    * The unique identifier of the return.
    *
-   * @param id
+   * @param id The unique identifier of the return.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +121,7 @@ public class ReturnTransferResponse {
   /**
    * Your internal reference for the return.
    *
-   * @param reference
+   * @param reference Your internal reference for the return.
    * @return the current {@code ReturnTransferResponse} instance, allowing for method chaining
    */
   public ReturnTransferResponse reference(String reference) {
@@ -131,7 +131,7 @@ public class ReturnTransferResponse {
 
   /**
    * Your internal reference for the return.
-   * @return reference
+   * @return reference Your internal reference for the return.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class ReturnTransferResponse {
   /**
    * Your internal reference for the return.
    *
-   * @param reference
+   * @param reference Your internal reference for the return.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,7 +153,7 @@ public class ReturnTransferResponse {
   /**
    * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    *
-   * @param status
+   * @param status The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    * @return the current {@code ReturnTransferResponse} instance, allowing for method chaining
    */
   public ReturnTransferResponse status(StatusEnum status) {
@@ -163,7 +163,7 @@ public class ReturnTransferResponse {
 
   /**
    * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
-   * @return status
+   * @return status The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,7 +174,7 @@ public class ReturnTransferResponse {
   /**
    * The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    *
-   * @param status
+   * @param status The resulting status of the return.  Possible values: **Authorised**, **Declined**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,7 +185,7 @@ public class ReturnTransferResponse {
   /**
    * The unique identifier of the original transfer.
    *
-   * @param transferId
+   * @param transferId The unique identifier of the original transfer.
    * @return the current {@code ReturnTransferResponse} instance, allowing for method chaining
    */
   public ReturnTransferResponse transferId(String transferId) {
@@ -195,7 +195,7 @@ public class ReturnTransferResponse {
 
   /**
    * The unique identifier of the original transfer.
-   * @return transferId
+   * @return transferId The unique identifier of the original transfer.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,7 +206,7 @@ public class ReturnTransferResponse {
   /**
    * The unique identifier of the original transfer.
    *
-   * @param transferId
+   * @param transferId The unique identifier of the original transfer.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

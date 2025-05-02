@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -42,7 +39,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class SubmitResponse {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = null;
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -59,7 +56,7 @@ public class SubmitResponse {
   /**
    * This field contains additional data, which may be returned in a particular response.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be returned in a particular response.
    * @return the current {@code SubmitResponse} instance, allowing for method chaining
    */
   public SubmitResponse additionalData(Map<String, String> additionalData) {
@@ -77,9 +74,8 @@ public class SubmitResponse {
 
   /**
    * This field contains additional data, which may be returned in a particular response.
-   * @return additionalData
+   * @return additionalData This field contains additional data, which may be returned in a particular response.
    */
-  @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, String> getAdditionalData() {
@@ -89,8 +85,8 @@ public class SubmitResponse {
   /**
    * This field contains additional data, which may be returned in a particular response.
    *
-   * @param additionalData
-   */ 
+   * @param additionalData This field contains additional data, which may be returned in a particular response.
+   */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalData(Map<String, String> additionalData) {
@@ -100,7 +96,7 @@ public class SubmitResponse {
   /**
    * A new reference to uniquely identify this request.
    *
-   * @param pspReference
+   * @param pspReference A new reference to uniquely identify this request.
    * @return the current {@code SubmitResponse} instance, allowing for method chaining
    */
   public SubmitResponse pspReference(String pspReference) {
@@ -110,9 +106,8 @@ public class SubmitResponse {
 
   /**
    * A new reference to uniquely identify this request.
-   * @return pspReference
+   * @return pspReference A new reference to uniquely identify this request.
    */
-  @ApiModelProperty(required = true, value = "A new reference to uniquely identify this request.")
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPspReference() {
@@ -122,8 +117,8 @@ public class SubmitResponse {
   /**
    * A new reference to uniquely identify this request.
    *
-   * @param pspReference
-   */ 
+   * @param pspReference A new reference to uniquely identify this request.
+   */
   @JsonProperty(JSON_PROPERTY_PSP_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPspReference(String pspReference) {
@@ -133,7 +128,7 @@ public class SubmitResponse {
   /**
    * In case of refusal, an informational message for the reason.
    *
-   * @param refusalReason
+   * @param refusalReason In case of refusal, an informational message for the reason.
    * @return the current {@code SubmitResponse} instance, allowing for method chaining
    */
   public SubmitResponse refusalReason(String refusalReason) {
@@ -143,9 +138,8 @@ public class SubmitResponse {
 
   /**
    * In case of refusal, an informational message for the reason.
-   * @return refusalReason
+   * @return refusalReason In case of refusal, an informational message for the reason.
    */
-  @ApiModelProperty(value = "In case of refusal, an informational message for the reason.")
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRefusalReason() {
@@ -155,8 +149,8 @@ public class SubmitResponse {
   /**
    * In case of refusal, an informational message for the reason.
    *
-   * @param refusalReason
-   */ 
+   * @param refusalReason In case of refusal, an informational message for the reason.
+   */
   @JsonProperty(JSON_PROPERTY_REFUSAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefusalReason(String refusalReason) {
@@ -166,7 +160,7 @@ public class SubmitResponse {
   /**
    * The response: * In case of success, it is &#x60;payout-submit-received&#x60;. * In case of an error, an informational message is returned.
    *
-   * @param resultCode
+   * @param resultCode The response: * In case of success, it is &#x60;payout-submit-received&#x60;. * In case of an error, an informational message is returned.
    * @return the current {@code SubmitResponse} instance, allowing for method chaining
    */
   public SubmitResponse resultCode(String resultCode) {
@@ -176,9 +170,8 @@ public class SubmitResponse {
 
   /**
    * The response: * In case of success, it is &#x60;payout-submit-received&#x60;. * In case of an error, an informational message is returned.
-   * @return resultCode
+   * @return resultCode The response: * In case of success, it is &#x60;payout-submit-received&#x60;. * In case of an error, an informational message is returned.
    */
-  @ApiModelProperty(required = true, value = "The response: * In case of success, it is `payout-submit-received`. * In case of an error, an informational message is returned.")
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResultCode() {
@@ -188,8 +181,8 @@ public class SubmitResponse {
   /**
    * The response: * In case of success, it is &#x60;payout-submit-received&#x60;. * In case of an error, an informational message is returned.
    *
-   * @param resultCode
-   */ 
+   * @param resultCode The response: * In case of success, it is &#x60;payout-submit-received&#x60;. * In case of an error, an informational message is returned.
+   */
   @JsonProperty(JSON_PROPERTY_RESULT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResultCode(String resultCode) {

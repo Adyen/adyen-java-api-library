@@ -42,7 +42,7 @@ public class Href {
   /**
    * href
    *
-   * @param href
+   * @param href 
    * @return the current {@code Href} instance, allowing for method chaining
    */
   public Href href(String href) {
@@ -52,7 +52,7 @@ public class Href {
 
   /**
    * Get href
-   * @return href
+   * @return href 
    */
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class Href {
   /**
    * href
    *
-   * @param href
+   * @param href 
    */
   @JsonProperty(JSON_PROPERTY_HREF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

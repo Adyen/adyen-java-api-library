@@ -84,7 +84,7 @@ public class DeviceInfo {
   /**
    * The technology used to capture the card details.
    *
-   * @param cardCaptureTechnology
+   * @param cardCaptureTechnology The technology used to capture the card details.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo cardCaptureTechnology(String cardCaptureTechnology) {
@@ -94,7 +94,7 @@ public class DeviceInfo {
 
   /**
    * The technology used to capture the card details.
-   * @return cardCaptureTechnology
+   * @return cardCaptureTechnology The technology used to capture the card details.
    */
   @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +105,7 @@ public class DeviceInfo {
   /**
    * The technology used to capture the card details.
    *
-   * @param cardCaptureTechnology
+   * @param cardCaptureTechnology The technology used to capture the card details.
    */
   @JsonProperty(JSON_PROPERTY_CARD_CAPTURE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class DeviceInfo {
   /**
    * The name of the device.
    *
-   * @param deviceName
+   * @param deviceName The name of the device.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo deviceName(String deviceName) {
@@ -126,7 +126,7 @@ public class DeviceInfo {
 
   /**
    * The name of the device.
-   * @return deviceName
+   * @return deviceName The name of the device.
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class DeviceInfo {
   /**
    * The name of the device.
    *
-   * @param deviceName
+   * @param deviceName The name of the device.
    */
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class DeviceInfo {
   /**
    * The form factor of the device to be provisioned.
    *
-   * @param formFactor
+   * @param formFactor The form factor of the device to be provisioned.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo formFactor(String formFactor) {
@@ -158,7 +158,7 @@ public class DeviceInfo {
 
   /**
    * The form factor of the device to be provisioned.
-   * @return formFactor
+   * @return formFactor The form factor of the device to be provisioned.
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class DeviceInfo {
   /**
    * The form factor of the device to be provisioned.
    *
-   * @param formFactor
+   * @param formFactor The form factor of the device to be provisioned.
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class DeviceInfo {
   /**
    * The IMEI number of the device being provisioned.
    *
-   * @param imei
+   * @param imei The IMEI number of the device being provisioned.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo imei(String imei) {
@@ -190,7 +190,7 @@ public class DeviceInfo {
 
   /**
    * The IMEI number of the device being provisioned.
-   * @return imei
+   * @return imei The IMEI number of the device being provisioned.
    */
   @JsonProperty(JSON_PROPERTY_IMEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class DeviceInfo {
   /**
    * The IMEI number of the device being provisioned.
    *
-   * @param imei
+   * @param imei The IMEI number of the device being provisioned.
    */
   @JsonProperty(JSON_PROPERTY_IMEI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class DeviceInfo {
   /**
    * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
    *
-   * @param isoDeviceType
+   * @param isoDeviceType The 2-digit device type provided on the ISO messages that the token is being provisioned to.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo isoDeviceType(String isoDeviceType) {
@@ -222,7 +222,7 @@ public class DeviceInfo {
 
   /**
    * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
-   * @return isoDeviceType
+   * @return isoDeviceType The 2-digit device type provided on the ISO messages that the token is being provisioned to.
    */
   @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class DeviceInfo {
   /**
    * The 2-digit device type provided on the ISO messages that the token is being provisioned to.
    *
-   * @param isoDeviceType
+   * @param isoDeviceType The 2-digit device type provided on the ISO messages that the token is being provisioned to.
    */
   @JsonProperty(JSON_PROPERTY_ISO_DEVICE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class DeviceInfo {
   /**
    * The MSISDN of the device being provisioned.
    *
-   * @param msisdn
+   * @param msisdn The MSISDN of the device being provisioned.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo msisdn(String msisdn) {
@@ -254,7 +254,7 @@ public class DeviceInfo {
 
   /**
    * The MSISDN of the device being provisioned.
-   * @return msisdn
+   * @return msisdn The MSISDN of the device being provisioned.
    */
   @JsonProperty(JSON_PROPERTY_MSISDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class DeviceInfo {
   /**
    * The MSISDN of the device being provisioned.
    *
-   * @param msisdn
+   * @param msisdn The MSISDN of the device being provisioned.
    */
   @JsonProperty(JSON_PROPERTY_MSISDN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class DeviceInfo {
   /**
    * The name of the device operating system.
    *
-   * @param osName
+   * @param osName The name of the device operating system.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo osName(String osName) {
@@ -286,7 +286,7 @@ public class DeviceInfo {
 
   /**
    * The name of the device operating system.
-   * @return osName
+   * @return osName The name of the device operating system.
    */
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +297,7 @@ public class DeviceInfo {
   /**
    * The name of the device operating system.
    *
-   * @param osName
+   * @param osName The name of the device operating system.
    */
   @JsonProperty(JSON_PROPERTY_OS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +308,7 @@ public class DeviceInfo {
   /**
    * The version of the device operating system.
    *
-   * @param osVersion
+   * @param osVersion The version of the device operating system.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo osVersion(String osVersion) {
@@ -318,7 +318,7 @@ public class DeviceInfo {
 
   /**
    * The version of the device operating system.
-   * @return osVersion
+   * @return osVersion The version of the device operating system.
    */
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +329,7 @@ public class DeviceInfo {
   /**
    * The version of the device operating system.
    *
-   * @param osVersion
+   * @param osVersion The version of the device operating system.
    */
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +340,7 @@ public class DeviceInfo {
   /**
    * Different types of payments supported for the network token.
    *
-   * @param paymentTypes
+   * @param paymentTypes Different types of payments supported for the network token.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo paymentTypes(List<String> paymentTypes) {
@@ -358,7 +358,7 @@ public class DeviceInfo {
 
   /**
    * Different types of payments supported for the network token.
-   * @return paymentTypes
+   * @return paymentTypes Different types of payments supported for the network token.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -369,7 +369,7 @@ public class DeviceInfo {
   /**
    * Different types of payments supported for the network token.
    *
-   * @param paymentTypes
+   * @param paymentTypes Different types of payments supported for the network token.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,7 +380,7 @@ public class DeviceInfo {
   /**
    * The serial number of the device.
    *
-   * @param serialNumber
+   * @param serialNumber The serial number of the device.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo serialNumber(String serialNumber) {
@@ -390,7 +390,7 @@ public class DeviceInfo {
 
   /**
    * The serial number of the device.
-   * @return serialNumber
+   * @return serialNumber The serial number of the device.
    */
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -401,7 +401,7 @@ public class DeviceInfo {
   /**
    * The serial number of the device.
    *
-   * @param serialNumber
+   * @param serialNumber The serial number of the device.
    */
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -412,7 +412,7 @@ public class DeviceInfo {
   /**
    * The architecture or technology used for network token storage.
    *
-   * @param storageTechnology
+   * @param storageTechnology The architecture or technology used for network token storage.
    * @return the current {@code DeviceInfo} instance, allowing for method chaining
    */
   public DeviceInfo storageTechnology(String storageTechnology) {
@@ -422,7 +422,7 @@ public class DeviceInfo {
 
   /**
    * The architecture or technology used for network token storage.
-   * @return storageTechnology
+   * @return storageTechnology The architecture or technology used for network token storage.
    */
   @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,7 +433,7 @@ public class DeviceInfo {
   /**
    * The architecture or technology used for network token storage.
    *
-   * @param storageTechnology
+   * @param storageTechnology The architecture or technology used for network token storage.
    */
   @JsonProperty(JSON_PROPERTY_STORAGE_TECHNOLOGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

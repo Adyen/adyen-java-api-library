@@ -72,7 +72,7 @@ public class Individual {
   private Address residentialAddress;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = new ArrayList<>();
+  private List<TaxInformation> taxInformation;
 
   public static final String JSON_PROPERTY_WEB_DATA = "webData";
   private WebData webData;
@@ -83,7 +83,7 @@ public class Individual {
   /**
    * birthData
    *
-   * @param birthData
+   * @param birthData 
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual birthData(BirthData birthData) {
@@ -93,7 +93,7 @@ public class Individual {
 
   /**
    * Get birthData
-   * @return birthData
+   * @return birthData 
    */
   @JsonProperty(JSON_PROPERTY_BIRTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class Individual {
   /**
    * birthData
    *
-   * @param birthData
+   * @param birthData 
    */
   @JsonProperty(JSON_PROPERTY_BIRTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class Individual {
   /**
    * The email address of the legal entity.
    *
-   * @param email
+   * @param email The email address of the legal entity.
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual email(String email) {
@@ -125,7 +125,7 @@ public class Individual {
 
   /**
    * The email address of the legal entity.
-   * @return email
+   * @return email The email address of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class Individual {
   /**
    * The email address of the legal entity.
    *
-   * @param email
+   * @param email The email address of the legal entity.
    */
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class Individual {
   /**
    * identificationData
    *
-   * @param identificationData
+   * @param identificationData 
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual identificationData(IdentificationData identificationData) {
@@ -157,7 +157,7 @@ public class Individual {
 
   /**
    * Get identificationData
-   * @return identificationData
+   * @return identificationData 
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class Individual {
   /**
    * identificationData
    *
-   * @param identificationData
+   * @param identificationData 
    */
   @JsonProperty(JSON_PROPERTY_IDENTIFICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class Individual {
   /**
    * name
    *
-   * @param name
+   * @param name 
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual name(Name name) {
@@ -189,7 +189,7 @@ public class Individual {
 
   /**
    * Get name
-   * @return name
+   * @return name 
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,7 +200,7 @@ public class Individual {
   /**
    * name
    *
-   * @param name
+   * @param name 
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class Individual {
   /**
    * The individual&#39;s nationality.
    *
-   * @param nationality
+   * @param nationality The individual&#39;s nationality.
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual nationality(String nationality) {
@@ -221,7 +221,7 @@ public class Individual {
 
   /**
    * The individual&#39;s nationality.
-   * @return nationality
+   * @return nationality The individual&#39;s nationality.
    */
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,7 +232,7 @@ public class Individual {
   /**
    * The individual&#39;s nationality.
    *
-   * @param nationality
+   * @param nationality The individual&#39;s nationality.
    */
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class Individual {
   /**
    * phone
    *
-   * @param phone
+   * @param phone 
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual phone(PhoneNumber phone) {
@@ -253,7 +253,7 @@ public class Individual {
 
   /**
    * Get phone
-   * @return phone
+   * @return phone 
    */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,7 +264,7 @@ public class Individual {
   /**
    * phone
    *
-   * @param phone
+   * @param phone 
    */
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +275,7 @@ public class Individual {
   /**
    * residentialAddress
    *
-   * @param residentialAddress
+   * @param residentialAddress 
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual residentialAddress(Address residentialAddress) {
@@ -285,7 +285,7 @@ public class Individual {
 
   /**
    * Get residentialAddress
-   * @return residentialAddress
+   * @return residentialAddress 
    */
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -296,7 +296,7 @@ public class Individual {
   /**
    * residentialAddress
    *
-   * @param residentialAddress
+   * @param residentialAddress 
    */
   @JsonProperty(JSON_PROPERTY_RESIDENTIAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,7 +307,7 @@ public class Individual {
   /**
    * The tax information of the individual.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the individual.
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual taxInformation(List<TaxInformation> taxInformation) {
@@ -325,7 +325,7 @@ public class Individual {
 
   /**
    * The tax information of the individual.
-   * @return taxInformation
+   * @return taxInformation The tax information of the individual.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +336,7 @@ public class Individual {
   /**
    * The tax information of the individual.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the individual.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -347,7 +347,7 @@ public class Individual {
   /**
    * webData
    *
-   * @param webData
+   * @param webData 
    * @return the current {@code Individual} instance, allowing for method chaining
    */
   public Individual webData(WebData webData) {
@@ -357,7 +357,7 @@ public class Individual {
 
   /**
    * Get webData
-   * @return webData
+   * @return webData 
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +368,7 @@ public class Individual {
   /**
    * webData
    *
-   * @param webData
+   * @param webData 
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

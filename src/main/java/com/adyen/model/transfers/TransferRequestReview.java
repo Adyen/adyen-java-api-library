@@ -46,7 +46,7 @@ public class TransferRequestReview {
   /**
    * Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    *
-   * @param numberOfApprovalsRequired
+   * @param numberOfApprovalsRequired Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    * @return the current {@code TransferRequestReview} instance, allowing for method chaining
    */
   public TransferRequestReview numberOfApprovalsRequired(Integer numberOfApprovalsRequired) {
@@ -56,7 +56,7 @@ public class TransferRequestReview {
 
   /**
    * Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
-   * @return numberOfApprovalsRequired
+   * @return numberOfApprovalsRequired Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class TransferRequestReview {
   /**
    * Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    *
-   * @param numberOfApprovalsRequired
+   * @param numberOfApprovalsRequired Specifies the number of [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) required to process the transfer.
    */
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_APPROVALS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class TransferRequestReview {
   /**
    * Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).
    *
-   * @param scaOnApproval
+   * @param scaOnApproval Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).
    * @return the current {@code TransferRequestReview} instance, allowing for method chaining
    */
   public TransferRequestReview scaOnApproval(Boolean scaOnApproval) {
@@ -88,7 +88,7 @@ public class TransferRequestReview {
 
   /**
    * Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).
-   * @return scaOnApproval
+   * @return scaOnApproval Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).
    */
   @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class TransferRequestReview {
   /**
    * Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).
    *
-   * @param scaOnApproval
+   * @param scaOnApproval Specifies whether you will initiate Strong Customer Authentication (SCA) in thePOST [/transfers/approve](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers/approve) request.  Only applies to transfers made with an Adyen [business account](https://docs.adyen.com/platforms/business-accounts).
    */
   @JsonProperty(JSON_PROPERTY_SCA_ON_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

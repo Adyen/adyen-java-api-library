@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.StoreSplitConfiguration;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,7 +47,7 @@ public class UpdateStoreRequest {
   private UpdatableAddress address;
 
   public static final String JSON_PROPERTY_BUSINESS_LINE_IDS = "businessLineIds";
-  private List<String> businessLineIds = null;
+  private List<String> businessLineIds;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -67,11 +65,11 @@ public class UpdateStoreRequest {
    * The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
    */
   public enum StatusEnum {
-    ACTIVE("active"),
+    ACTIVE(String.valueOf("active")),
     
-    CLOSED("closed"),
+    CLOSED(String.valueOf("closed")),
     
-    INACTIVE("inactive");
+    INACTIVE(String.valueOf("inactive"));
 
     private String value;
 
@@ -109,7 +107,7 @@ public class UpdateStoreRequest {
   /**
    * address
    *
-   * @param address
+   * @param address 
    * @return the current {@code UpdateStoreRequest} instance, allowing for method chaining
    */
   public UpdateStoreRequest address(UpdatableAddress address) {
@@ -118,10 +116,9 @@ public class UpdateStoreRequest {
   }
 
   /**
-   * address
-   * @return address
+   * Get address
+   * @return address 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public UpdatableAddress getAddress() {
@@ -131,8 +128,8 @@ public class UpdateStoreRequest {
   /**
    * address
    *
-   * @param address
-   */ 
+   * @param address 
+   */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(UpdatableAddress address) {
@@ -142,7 +139,7 @@ public class UpdateStoreRequest {
   /**
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id) that the store is associated with.
    *
-   * @param businessLineIds
+   * @param businessLineIds The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id) that the store is associated with.
    * @return the current {@code UpdateStoreRequest} instance, allowing for method chaining
    */
   public UpdateStoreRequest businessLineIds(List<String> businessLineIds) {
@@ -160,9 +157,8 @@ public class UpdateStoreRequest {
 
   /**
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id) that the store is associated with.
-   * @return businessLineIds
+   * @return businessLineIds The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id) that the store is associated with.
    */
-  @ApiModelProperty(value = "The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id) that the store is associated with.")
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getBusinessLineIds() {
@@ -172,8 +168,8 @@ public class UpdateStoreRequest {
   /**
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id) that the store is associated with.
    *
-   * @param businessLineIds
-   */ 
+   * @param businessLineIds The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines__resParam_id) that the store is associated with.
+   */
   @JsonProperty(JSON_PROPERTY_BUSINESS_LINE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineIds(List<String> businessLineIds) {
@@ -183,7 +179,7 @@ public class UpdateStoreRequest {
   /**
    * The description of the store.
    *
-   * @param description
+   * @param description The description of the store.
    * @return the current {@code UpdateStoreRequest} instance, allowing for method chaining
    */
   public UpdateStoreRequest description(String description) {
@@ -193,9 +189,8 @@ public class UpdateStoreRequest {
 
   /**
    * The description of the store.
-   * @return description
+   * @return description The description of the store.
    */
-  @ApiModelProperty(value = "The description of the store.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
@@ -205,8 +200,8 @@ public class UpdateStoreRequest {
   /**
    * The description of the store.
    *
-   * @param description
-   */ 
+   * @param description The description of the store.
+   */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
@@ -216,7 +211,7 @@ public class UpdateStoreRequest {
   /**
    * The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
    *
-   * @param externalReferenceId
+   * @param externalReferenceId The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
    * @return the current {@code UpdateStoreRequest} instance, allowing for method chaining
    */
   public UpdateStoreRequest externalReferenceId(String externalReferenceId) {
@@ -226,9 +221,8 @@ public class UpdateStoreRequest {
 
   /**
    * The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
-   * @return externalReferenceId
+   * @return externalReferenceId The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
    */
-  @ApiModelProperty(value = "The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  ")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getExternalReferenceId() {
@@ -238,8 +232,8 @@ public class UpdateStoreRequest {
   /**
    * The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
    *
-   * @param externalReferenceId
-   */ 
+   * @param externalReferenceId The unique identifier of the store, used by certain payment methods and tax authorities.  Required for CNPJ in Brazil, in the format 00.000.000/0000-00 separated by dots, slashes, hyphens, or without separators.  Optional for SIRET in France, up to 14 digits.  Optional for Zip in Australia, up to 50 digits.  
+   */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExternalReferenceId(String externalReferenceId) {
@@ -249,7 +243,7 @@ public class UpdateStoreRequest {
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
    *
-   * @param phoneNumber
+   * @param phoneNumber The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
    * @return the current {@code UpdateStoreRequest} instance, allowing for method chaining
    */
   public UpdateStoreRequest phoneNumber(String phoneNumber) {
@@ -259,9 +253,8 @@ public class UpdateStoreRequest {
 
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
-   * @return phoneNumber
+   * @return phoneNumber The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
    */
-  @ApiModelProperty(value = "The phone number of the store, including '+' and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. ")
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPhoneNumber() {
@@ -271,8 +264,8 @@ public class UpdateStoreRequest {
   /**
    * The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
    *
-   * @param phoneNumber
-   */ 
+   * @param phoneNumber The phone number of the store, including &#39;+&#39; and country code in the [E.164](https://en.wikipedia.org/wiki/E.164) format. If passed in a different format, we convert and validate the phone number against E.164. 
+   */
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhoneNumber(String phoneNumber) {
@@ -282,7 +275,7 @@ public class UpdateStoreRequest {
   /**
    * splitConfiguration
    *
-   * @param splitConfiguration
+   * @param splitConfiguration 
    * @return the current {@code UpdateStoreRequest} instance, allowing for method chaining
    */
   public UpdateStoreRequest splitConfiguration(StoreSplitConfiguration splitConfiguration) {
@@ -291,10 +284,9 @@ public class UpdateStoreRequest {
   }
 
   /**
-   * splitConfiguration
-   * @return splitConfiguration
+   * Get splitConfiguration
+   * @return splitConfiguration 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StoreSplitConfiguration getSplitConfiguration() {
@@ -304,8 +296,8 @@ public class UpdateStoreRequest {
   /**
    * splitConfiguration
    *
-   * @param splitConfiguration
-   */ 
+   * @param splitConfiguration 
+   */
   @JsonProperty(JSON_PROPERTY_SPLIT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitConfiguration(StoreSplitConfiguration splitConfiguration) {
@@ -315,7 +307,7 @@ public class UpdateStoreRequest {
   /**
    * The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
    *
-   * @param status
+   * @param status The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
    * @return the current {@code UpdateStoreRequest} instance, allowing for method chaining
    */
   public UpdateStoreRequest status(StatusEnum status) {
@@ -325,9 +317,8 @@ public class UpdateStoreRequest {
 
   /**
    * The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
-   * @return status
+   * @return status The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
    */
-  @ApiModelProperty(value = "The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can't process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can't be reopened.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StatusEnum getStatus() {
@@ -337,8 +328,8 @@ public class UpdateStoreRequest {
   /**
    * The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
    *
-   * @param status
-   */ 
+   * @param status The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
+   */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {

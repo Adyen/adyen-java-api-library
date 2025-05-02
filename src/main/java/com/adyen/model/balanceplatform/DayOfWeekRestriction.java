@@ -93,7 +93,7 @@ public class DayOfWeekRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code DayOfWeekRestriction} instance, allowing for method chaining
    */
   public DayOfWeekRestriction operation(String operation) {
@@ -103,7 +103,7 @@ public class DayOfWeekRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,7 +114,7 @@ public class DayOfWeekRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,7 +125,7 @@ public class DayOfWeekRestriction {
   /**
    * List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  
    *
-   * @param value
+   * @param value List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  
    * @return the current {@code DayOfWeekRestriction} instance, allowing for method chaining
    */
   public DayOfWeekRestriction value(List<ValueEnum> value) {
@@ -143,7 +143,7 @@ public class DayOfWeekRestriction {
 
   /**
    * List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  
-   * @return value
+   * @return value List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class DayOfWeekRestriction {
   /**
    * List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  
    *
-   * @param value
+   * @param value List of days of the week.  Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**.  
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

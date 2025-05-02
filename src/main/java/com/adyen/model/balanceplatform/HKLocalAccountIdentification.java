@@ -83,7 +83,7 @@ public class HKLocalAccountIdentification {
   /**
    * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    *
-   * @param accountNumber
+   * @param accountNumber The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    * @return the current {@code HKLocalAccountIdentification} instance, allowing for method chaining
    */
   public HKLocalAccountIdentification accountNumber(String accountNumber) {
@@ -93,7 +93,7 @@ public class HKLocalAccountIdentification {
 
   /**
    * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
-   * @return accountNumber
+   * @return accountNumber The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class HKLocalAccountIdentification {
   /**
    * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    *
-   * @param accountNumber
+   * @param accountNumber The 9- to 15-character bank account number (alphanumeric), without separators or whitespace. Starts with the 3-digit branch code.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class HKLocalAccountIdentification {
   /**
    * The 3-digit clearing code, without separators or whitespace.
    *
-   * @param clearingCode
+   * @param clearingCode The 3-digit clearing code, without separators or whitespace.
    * @return the current {@code HKLocalAccountIdentification} instance, allowing for method chaining
    */
   public HKLocalAccountIdentification clearingCode(String clearingCode) {
@@ -125,7 +125,7 @@ public class HKLocalAccountIdentification {
 
   /**
    * The 3-digit clearing code, without separators or whitespace.
-   * @return clearingCode
+   * @return clearingCode The 3-digit clearing code, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class HKLocalAccountIdentification {
   /**
    * The 3-digit clearing code, without separators or whitespace.
    *
-   * @param clearingCode
+   * @param clearingCode The 3-digit clearing code, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_CLEARING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class HKLocalAccountIdentification {
   /**
    * **hkLocal**
    *
-   * @param type
+   * @param type **hkLocal**
    * @return the current {@code HKLocalAccountIdentification} instance, allowing for method chaining
    */
   public HKLocalAccountIdentification type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class HKLocalAccountIdentification {
 
   /**
    * **hkLocal**
-   * @return type
+   * @return type **hkLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class HKLocalAccountIdentification {
   /**
    * **hkLocal**
    *
-   * @param type
+   * @param type **hkLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

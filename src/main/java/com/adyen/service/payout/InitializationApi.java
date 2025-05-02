@@ -75,7 +75,6 @@ public class InitializationApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public StoreDetailResponse storeDetail(StoreDetailRequest storeDetailRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = storeDetailRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/storeDetail", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -102,7 +101,6 @@ public class InitializationApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public StoreDetailAndSubmitResponse storeDetailAndSubmitThirdParty(StoreDetailAndSubmitRequest storeDetailAndSubmitRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = storeDetailAndSubmitRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/storeDetailAndSubmitThirdParty", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
@@ -129,7 +127,6 @@ public class InitializationApi extends Service {
     * @throws ApiException if fails to make API call
     */
     public SubmitResponse submitThirdParty(SubmitRequest submitRequest, RequestOptions requestOptions) throws ApiException, IOException {
-
         String requestBody = submitRequest.toJson();
         Resource resource = new Resource(this, this.baseURL + "/submitThirdParty", null);
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);

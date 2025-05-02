@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class TerminalConnectivityBluetooth {
   /**
    * The terminal&#39;s Bluetooth IP address.
    *
-   * @param ipAddress
+   * @param ipAddress The terminal&#39;s Bluetooth IP address.
    * @return the current {@code TerminalConnectivityBluetooth} instance, allowing for method chaining
    */
   public TerminalConnectivityBluetooth ipAddress(String ipAddress) {
@@ -58,9 +56,8 @@ public class TerminalConnectivityBluetooth {
 
   /**
    * The terminal&#39;s Bluetooth IP address.
-   * @return ipAddress
+   * @return ipAddress The terminal&#39;s Bluetooth IP address.
    */
-  @ApiModelProperty(value = "The terminal's Bluetooth IP address.")
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIpAddress() {
@@ -70,8 +67,8 @@ public class TerminalConnectivityBluetooth {
   /**
    * The terminal&#39;s Bluetooth IP address.
    *
-   * @param ipAddress
-   */ 
+   * @param ipAddress The terminal&#39;s Bluetooth IP address.
+   */
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIpAddress(String ipAddress) {
@@ -81,7 +78,7 @@ public class TerminalConnectivityBluetooth {
   /**
    * The terminal&#39;s Bluetooth MAC address.
    *
-   * @param macAddress
+   * @param macAddress The terminal&#39;s Bluetooth MAC address.
    * @return the current {@code TerminalConnectivityBluetooth} instance, allowing for method chaining
    */
   public TerminalConnectivityBluetooth macAddress(String macAddress) {
@@ -91,9 +88,8 @@ public class TerminalConnectivityBluetooth {
 
   /**
    * The terminal&#39;s Bluetooth MAC address.
-   * @return macAddress
+   * @return macAddress The terminal&#39;s Bluetooth MAC address.
    */
-  @ApiModelProperty(value = "The terminal's Bluetooth MAC address.")
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMacAddress() {
@@ -103,8 +99,8 @@ public class TerminalConnectivityBluetooth {
   /**
    * The terminal&#39;s Bluetooth MAC address.
    *
-   * @param macAddress
-   */ 
+   * @param macAddress The terminal&#39;s Bluetooth MAC address.
+   */
   @JsonProperty(JSON_PROPERTY_MAC_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMacAddress(String macAddress) {

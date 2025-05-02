@@ -51,10 +51,10 @@ public class TransferInstrument {
   private BankAccountInfo bankAccount;
 
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
-  private Map<String, SupportingEntityCapability> capabilities = new HashMap<>();
+  private Map<String, SupportingEntityCapability> capabilities;
 
   public static final String JSON_PROPERTY_DOCUMENT_DETAILS = "documentDetails";
-  private List<DocumentReference> documentDetails = new ArrayList<>();
+  private List<DocumentReference> documentDetails;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -63,7 +63,7 @@ public class TransferInstrument {
   private String legalEntityId;
 
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
-  private List<CapabilityProblem> problems = new ArrayList<>();
+  private List<CapabilityProblem> problems;
 
   /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
@@ -117,7 +117,7 @@ public class TransferInstrument {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    * @return the current {@code TransferInstrument} instance, allowing for method chaining
    */
   public TransferInstrument bankAccount(BankAccountInfo bankAccount) {
@@ -127,7 +127,7 @@ public class TransferInstrument {
 
   /**
    * Get bankAccount
-   * @return bankAccount
+   * @return bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class TransferInstrument {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +149,7 @@ public class TransferInstrument {
   /**
    * List of capabilities for this transfer instrument.
    *
-   * @param capabilities
+   * @param capabilities List of capabilities for this transfer instrument.
    * @return the current {@code TransferInstrument} instance, allowing for method chaining
    */
   public TransferInstrument capabilities(Map<String, SupportingEntityCapability> capabilities) {
@@ -167,7 +167,7 @@ public class TransferInstrument {
 
   /**
    * List of capabilities for this transfer instrument.
-   * @return capabilities
+   * @return capabilities List of capabilities for this transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,7 +178,7 @@ public class TransferInstrument {
   /**
    * List of capabilities for this transfer instrument.
    *
-   * @param capabilities
+   * @param capabilities List of capabilities for this transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class TransferInstrument {
   /**
    * List of documents uploaded for the transfer instrument.
    *
-   * @param documentDetails
+   * @param documentDetails List of documents uploaded for the transfer instrument.
    * @return the current {@code TransferInstrument} instance, allowing for method chaining
    */
   public TransferInstrument documentDetails(List<DocumentReference> documentDetails) {
@@ -207,7 +207,7 @@ public class TransferInstrument {
 
   /**
    * List of documents uploaded for the transfer instrument.
-   * @return documentDetails
+   * @return documentDetails List of documents uploaded for the transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class TransferInstrument {
   /**
    * List of documents uploaded for the transfer instrument.
    *
-   * @param documentDetails
+   * @param documentDetails List of documents uploaded for the transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_DOCUMENT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,7 +228,7 @@ public class TransferInstrument {
 
   /**
    * The unique identifier of the transfer instrument.
-   * @return id
+   * @return id The unique identifier of the transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class TransferInstrument {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    * @return the current {@code TransferInstrument} instance, allowing for method chaining
    */
   public TransferInstrument legalEntityId(String legalEntityId) {
@@ -250,7 +250,7 @@ public class TransferInstrument {
 
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
-   * @return legalEntityId
+   * @return legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,7 +261,7 @@ public class TransferInstrument {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) that owns the transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -272,7 +272,7 @@ public class TransferInstrument {
   /**
    * The verification errors related to capabilities for this transfer instrument.
    *
-   * @param problems
+   * @param problems The verification errors related to capabilities for this transfer instrument.
    * @return the current {@code TransferInstrument} instance, allowing for method chaining
    */
   public TransferInstrument problems(List<CapabilityProblem> problems) {
@@ -290,7 +290,7 @@ public class TransferInstrument {
 
   /**
    * The verification errors related to capabilities for this transfer instrument.
-   * @return problems
+   * @return problems The verification errors related to capabilities for this transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +301,7 @@ public class TransferInstrument {
   /**
    * The verification errors related to capabilities for this transfer instrument.
    *
-   * @param problems
+   * @param problems The verification errors related to capabilities for this transfer instrument.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,7 +312,7 @@ public class TransferInstrument {
   /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
    *
-   * @param type
+   * @param type The type of transfer instrument.  Possible value: **bankAccount**.
    * @return the current {@code TransferInstrument} instance, allowing for method chaining
    */
   public TransferInstrument type(TypeEnum type) {
@@ -322,7 +322,7 @@ public class TransferInstrument {
 
   /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
-   * @return type
+   * @return type The type of transfer instrument.  Possible value: **bankAccount**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,7 +333,7 @@ public class TransferInstrument {
   /**
    * The type of transfer instrument.  Possible value: **bankAccount**.
    *
-   * @param type
+   * @param type The type of transfer instrument.  Possible value: **bankAccount**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -177,7 +177,7 @@ public class TaxReportingClassification {
   /**
    * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    *
-   * @param businessType
+   * @param businessType The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    * @return the current {@code TaxReportingClassification} instance, allowing for method chaining
    */
   public TaxReportingClassification businessType(BusinessTypeEnum businessType) {
@@ -187,7 +187,7 @@ public class TaxReportingClassification {
 
   /**
    * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
-   * @return businessType
+   * @return businessType The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    */
   @JsonProperty(JSON_PROPERTY_BUSINESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class TaxReportingClassification {
   /**
    * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    *
-   * @param businessType
+   * @param businessType The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    */
   @JsonProperty(JSON_PROPERTY_BUSINESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class TaxReportingClassification {
   /**
    * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    *
-   * @param financialInstitutionNumber
+   * @param financialInstitutionNumber The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    * @return the current {@code TaxReportingClassification} instance, allowing for method chaining
    */
   public TaxReportingClassification financialInstitutionNumber(String financialInstitutionNumber) {
@@ -219,7 +219,7 @@ public class TaxReportingClassification {
 
   /**
    * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
-   * @return financialInstitutionNumber
+   * @return financialInstitutionNumber The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    */
   @JsonProperty(JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class TaxReportingClassification {
   /**
    * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    *
-   * @param financialInstitutionNumber
+   * @param financialInstitutionNumber The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the organization is a US financial institution and the &#x60;businessType&#x60; is **financialInstitution**.
    */
   @JsonProperty(JSON_PROPERTY_FINANCIAL_INSTITUTION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +241,7 @@ public class TaxReportingClassification {
   /**
    * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    *
-   * @param mainSourceOfIncome
+   * @param mainSourceOfIncome The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    * @return the current {@code TaxReportingClassification} instance, allowing for method chaining
    */
   public TaxReportingClassification mainSourceOfIncome(MainSourceOfIncomeEnum mainSourceOfIncome) {
@@ -251,7 +251,7 @@ public class TaxReportingClassification {
 
   /**
    * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
-   * @return mainSourceOfIncome
+   * @return mainSourceOfIncome The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    */
   @JsonProperty(JSON_PROPERTY_MAIN_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,7 +262,7 @@ public class TaxReportingClassification {
   /**
    * The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    *
-   * @param mainSourceOfIncome
+   * @param mainSourceOfIncome The organization&#39;s main source of income. Only required if &#x60;businessType&#x60; is **other**.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    */
   @JsonProperty(JSON_PROPERTY_MAIN_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +273,7 @@ public class TaxReportingClassification {
   /**
    * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    *
-   * @param type
+   * @param type The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    * @return the current {@code TaxReportingClassification} instance, allowing for method chaining
    */
   public TaxReportingClassification type(TypeEnum type) {
@@ -283,7 +283,7 @@ public class TaxReportingClassification {
 
   /**
    * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
-   * @return type
+   * @return type The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +294,7 @@ public class TaxReportingClassification {
   /**
    * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    *
-   * @param type
+   * @param type The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

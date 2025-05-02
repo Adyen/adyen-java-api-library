@@ -52,7 +52,7 @@ public class TransactionEventViolation {
   /**
    * An explanation about why the transaction rule failed.
    *
-   * @param reason
+   * @param reason An explanation about why the transaction rule failed.
    * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
    */
   public TransactionEventViolation reason(String reason) {
@@ -62,7 +62,7 @@ public class TransactionEventViolation {
 
   /**
    * An explanation about why the transaction rule failed.
-   * @return reason
+   * @return reason An explanation about why the transaction rule failed.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -73,7 +73,7 @@ public class TransactionEventViolation {
   /**
    * An explanation about why the transaction rule failed.
    *
-   * @param reason
+   * @param reason An explanation about why the transaction rule failed.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +84,7 @@ public class TransactionEventViolation {
   /**
    * transactionRule
    *
-   * @param transactionRule
+   * @param transactionRule 
    * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
    */
   public TransactionEventViolation transactionRule(TransactionRuleReference transactionRule) {
@@ -94,7 +94,7 @@ public class TransactionEventViolation {
 
   /**
    * Get transactionRule
-   * @return transactionRule
+   * @return transactionRule 
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,7 +105,7 @@ public class TransactionEventViolation {
   /**
    * transactionRule
    *
-   * @param transactionRule
+   * @param transactionRule 
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,7 +116,7 @@ public class TransactionEventViolation {
   /**
    * transactionRuleSource
    *
-   * @param transactionRuleSource
+   * @param transactionRuleSource 
    * @return the current {@code TransactionEventViolation} instance, allowing for method chaining
    */
   public TransactionEventViolation transactionRuleSource(TransactionRuleSource transactionRuleSource) {
@@ -126,7 +126,7 @@ public class TransactionEventViolation {
 
   /**
    * Get transactionRuleSource
-   * @return transactionRuleSource
+   * @return transactionRuleSource 
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class TransactionEventViolation {
   /**
    * transactionRuleSource
    *
-   * @param transactionRuleSource
+   * @param transactionRuleSource 
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_RULE_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

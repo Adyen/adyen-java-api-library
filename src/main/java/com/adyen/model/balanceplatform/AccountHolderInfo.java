@@ -87,7 +87,7 @@ public class AccountHolderInfo {
   /**
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    * @return the current {@code AccountHolderInfo} instance, allowing for method chaining
    */
   public AccountHolderInfo balancePlatform(String balancePlatform) {
@@ -97,7 +97,7 @@ public class AccountHolderInfo {
 
   /**
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
-   * @return balancePlatform
+   * @return balancePlatform The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,7 +108,7 @@ public class AccountHolderInfo {
   /**
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class AccountHolderInfo {
   /**
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    *
-   * @param capabilities
+   * @param capabilities Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    * @return the current {@code AccountHolderInfo} instance, allowing for method chaining
    */
   public AccountHolderInfo capabilities(Map<String, AccountHolderCapability> capabilities) {
@@ -137,7 +137,7 @@ public class AccountHolderInfo {
 
   /**
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
-   * @return capabilities
+   * @return capabilities Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class AccountHolderInfo {
   /**
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    *
-   * @param capabilities
+   * @param capabilities Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +159,7 @@ public class AccountHolderInfo {
   /**
    * contactDetails
    *
-   * @param contactDetails
+   * @param contactDetails 
    * @return the current {@code AccountHolderInfo} instance, allowing for method chaining
    *
    * @deprecated 
@@ -172,7 +172,7 @@ public class AccountHolderInfo {
 
   /**
    * Get contactDetails
-   * @return contactDetails
+   * @return contactDetails 
    * @deprecated // deprecated 
    */
   @Deprecated // deprecated 
@@ -185,7 +185,7 @@ public class AccountHolderInfo {
   /**
    * contactDetails
    *
-   * @param contactDetails
+   * @param contactDetails 
    *
    * @deprecated 
    */
@@ -199,7 +199,7 @@ public class AccountHolderInfo {
   /**
    * Your description for the account holder.
    *
-   * @param description
+   * @param description Your description for the account holder.
    * @return the current {@code AccountHolderInfo} instance, allowing for method chaining
    */
   public AccountHolderInfo description(String description) {
@@ -209,7 +209,7 @@ public class AccountHolderInfo {
 
   /**
    * Your description for the account holder.
-   * @return description
+   * @return description Your description for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,7 +220,7 @@ public class AccountHolderInfo {
   /**
    * Your description for the account holder.
    *
-   * @param description
+   * @param description Your description for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,7 +231,7 @@ public class AccountHolderInfo {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    * @return the current {@code AccountHolderInfo} instance, allowing for method chaining
    */
   public AccountHolderInfo legalEntityId(String legalEntityId) {
@@ -241,7 +241,7 @@ public class AccountHolderInfo {
 
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
-   * @return legalEntityId
+   * @return legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +252,7 @@ public class AccountHolderInfo {
   /**
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,7 +263,7 @@ public class AccountHolderInfo {
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    *
-   * @param metadata
+   * @param metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return the current {@code AccountHolderInfo} instance, allowing for method chaining
    */
   public AccountHolderInfo metadata(Map<String, String> metadata) {
@@ -281,7 +281,7 @@ public class AccountHolderInfo {
 
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
-   * @return metadata
+   * @return metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,7 +292,7 @@ public class AccountHolderInfo {
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    *
-   * @param metadata
+   * @param metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +302,7 @@ public class AccountHolderInfo {
 
   /**
    * The unique identifier of the migrated account holder in the classic integration.
-   * @return migratedAccountHolderCode
+   * @return migratedAccountHolderCode The unique identifier of the migrated account holder in the classic integration.
    */
   @JsonProperty(JSON_PROPERTY_MIGRATED_ACCOUNT_HOLDER_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -314,7 +314,7 @@ public class AccountHolderInfo {
   /**
    * Your reference for the account holder.
    *
-   * @param reference
+   * @param reference Your reference for the account holder.
    * @return the current {@code AccountHolderInfo} instance, allowing for method chaining
    */
   public AccountHolderInfo reference(String reference) {
@@ -324,7 +324,7 @@ public class AccountHolderInfo {
 
   /**
    * Your reference for the account holder.
-   * @return reference
+   * @return reference Your reference for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,7 +335,7 @@ public class AccountHolderInfo {
   /**
    * Your reference for the account holder.
    *
-   * @param reference
+   * @param reference Your reference for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,7 +346,7 @@ public class AccountHolderInfo {
   /**
    * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    *
-   * @param timeZone
+   * @param timeZone The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return the current {@code AccountHolderInfo} instance, allowing for method chaining
    */
   public AccountHolderInfo timeZone(String timeZone) {
@@ -356,7 +356,7 @@ public class AccountHolderInfo {
 
   /**
    * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-   * @return timeZone
+   * @return timeZone The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -367,7 +367,7 @@ public class AccountHolderInfo {
   /**
    * The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    *
-   * @param timeZone
+   * @param timeZone The time zone of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -80,7 +80,7 @@ public class EstimationTrackingData {
   /**
    * The estimated time the beneficiary should have access to the funds.
    *
-   * @param estimatedArrivalTime
+   * @param estimatedArrivalTime The estimated time the beneficiary should have access to the funds.
    * @return the current {@code EstimationTrackingData} instance, allowing for method chaining
    */
   public EstimationTrackingData estimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
@@ -90,7 +90,7 @@ public class EstimationTrackingData {
 
   /**
    * The estimated time the beneficiary should have access to the funds.
-   * @return estimatedArrivalTime
+   * @return estimatedArrivalTime The estimated time the beneficiary should have access to the funds.
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +101,7 @@ public class EstimationTrackingData {
   /**
    * The estimated time the beneficiary should have access to the funds.
    *
-   * @param estimatedArrivalTime
+   * @param estimatedArrivalTime The estimated time the beneficiary should have access to the funds.
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,7 +112,7 @@ public class EstimationTrackingData {
   /**
    * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    *
-   * @param type
+   * @param type The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    * @return the current {@code EstimationTrackingData} instance, allowing for method chaining
    */
   public EstimationTrackingData type(TypeEnum type) {
@@ -122,7 +122,7 @@ public class EstimationTrackingData {
 
   /**
    * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
-   * @return type
+   * @return type The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,7 +133,7 @@ public class EstimationTrackingData {
   /**
    * The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    *
-   * @param type
+   * @param type The type of tracking event.   Possible values:   - **estimation**: the estimated date and time of when the funds will be credited has been determined.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Airline;
+import com.adyen.model.transfers.IssuingTransactionData;
 import com.adyen.model.transfers.Lodging;
 import com.adyen.model.transfers.MerchantPurchaseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -92,6 +93,27 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // deserialize IssuingTransactionData
+            try {
+                boolean attemptParsing = true;
+                if (attemptParsing) {
+                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+                    boolean typeMatch = Arrays.stream(IssuingTransactionData.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+                    if(typeMatch) {
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs(IssuingTransactionData.class);
+                        // TODO: there is no validation against JSON schema constraints
+                        // (min, max, enum, pattern...), this does not perform a strict JSON
+                        // validation, which means the 'match' count may be higher than it should be.
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'IssuingTransactionData'");
+                    }
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'IssuingTransactionData'", e);
+            }
+
             // deserialize MerchantPurchaseData
             try {
                 boolean attemptParsing = true;
@@ -137,12 +159,19 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
+    public TransferEventEventsDataInner(IssuingTransactionData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public TransferEventEventsDataInner(MerchantPurchaseData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
+        schemas.put("IssuingTransactionData", new GenericType<IssuingTransactionData>() {
+        });
         schemas.put("MerchantPurchaseData", new GenericType<MerchantPurchaseData>() {
         });
         JSON.registerDescendants(TransferEventEventsDataInner.class, Collections.unmodifiableMap(schemas));
@@ -156,30 +185,46 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * MerchantPurchaseData
+     * IssuingTransactionData, MerchantPurchaseData
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (JSON.isInstanceOf(IssuingTransactionData.class, instance, new HashSet<>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (JSON.isInstanceOf(MerchantPurchaseData.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be MerchantPurchaseData");
+        throw new RuntimeException("Invalid instance type. Must be IssuingTransactionData, MerchantPurchaseData");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * MerchantPurchaseData
+     * IssuingTransactionData, MerchantPurchaseData
      *
-     * @return The actual instance (MerchantPurchaseData)
+     * @return The actual instance (IssuingTransactionData, MerchantPurchaseData)
      */
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `IssuingTransactionData`. If the actual instance is not `IssuingTransactionData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `IssuingTransactionData`
+     * @throws ClassCastException if the instance is not `IssuingTransactionData`
+     */
+    public IssuingTransactionData getIssuingTransactionData() throws ClassCastException {
+        return (IssuingTransactionData)super.getActualInstance();
     }
 
     /**

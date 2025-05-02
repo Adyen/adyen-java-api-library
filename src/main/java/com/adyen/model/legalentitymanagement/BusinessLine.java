@@ -99,10 +99,10 @@ public class BusinessLine {
   private String legalEntityId;
 
   public static final String JSON_PROPERTY_PROBLEMS = "problems";
-  private List<CapabilityProblem> problems = new ArrayList<>();
+  private List<CapabilityProblem> problems;
 
   public static final String JSON_PROPERTY_SALES_CHANNELS = "salesChannels";
-  private List<String> salesChannels = new ArrayList<>();
+  private List<String> salesChannels;
 
   /**
    * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
@@ -146,7 +146,7 @@ public class BusinessLine {
   private SourceOfFunds sourceOfFunds;
 
   public static final String JSON_PROPERTY_WEB_DATA = "webData";
-  private List<WebData> webData = new ArrayList<>();
+  private List<WebData> webData;
 
   public static final String JSON_PROPERTY_WEB_DATA_EXEMPTION = "webDataExemption";
   private WebDataExemption webDataExemption;
@@ -165,7 +165,7 @@ public class BusinessLine {
   /**
    * The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
    *
-   * @param capability
+   * @param capability The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    *
    * @deprecated since Legal Entity Management API v3
@@ -179,7 +179,7 @@ public class BusinessLine {
 
   /**
    * The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
-   * @return capability
+   * @return capability The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
    * @deprecated // deprecated since Legal Entity Management API v3: Use `service` instead.
    */
   @Deprecated // deprecated since Legal Entity Management API v3: Use `service` instead.
@@ -192,7 +192,7 @@ public class BusinessLine {
   /**
    * The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
    *
-   * @param capability
+   * @param capability The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
    *
    * @deprecated since Legal Entity Management API v3
    * Use &#x60;service&#x60; instead.
@@ -206,7 +206,7 @@ public class BusinessLine {
 
   /**
    * The unique identifier of the business line.
-   * @return id
+   * @return id The unique identifier of the business line.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,7 +218,7 @@ public class BusinessLine {
   /**
    * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
    *
-   * @param industryCode
+   * @param industryCode A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    */
   public BusinessLine industryCode(String industryCode) {
@@ -228,7 +228,7 @@ public class BusinessLine {
 
   /**
    * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
-   * @return industryCode
+   * @return industryCode A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
    */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class BusinessLine {
   /**
    * A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
    *
-   * @param industryCode
+   * @param industryCode A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
    */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,7 +250,7 @@ public class BusinessLine {
   /**
    * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
    *
-   * @param legalEntityId
+   * @param legalEntityId Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    */
   public BusinessLine legalEntityId(String legalEntityId) {
@@ -260,7 +260,7 @@ public class BusinessLine {
 
   /**
    * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
-   * @return legalEntityId
+   * @return legalEntityId Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +271,7 @@ public class BusinessLine {
   /**
    * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
    *
-   * @param legalEntityId
+   * @param legalEntityId Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,7 +282,7 @@ public class BusinessLine {
   /**
    * The verification errors related to capabilities for this supporting entity.
    *
-   * @param problems
+   * @param problems The verification errors related to capabilities for this supporting entity.
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    */
   public BusinessLine problems(List<CapabilityProblem> problems) {
@@ -300,7 +300,7 @@ public class BusinessLine {
 
   /**
    * The verification errors related to capabilities for this supporting entity.
-   * @return problems
+   * @return problems The verification errors related to capabilities for this supporting entity.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,7 +311,7 @@ public class BusinessLine {
   /**
    * The verification errors related to capabilities for this supporting entity.
    *
-   * @param problems
+   * @param problems The verification errors related to capabilities for this supporting entity.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class BusinessLine {
   /**
    * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    *
-   * @param salesChannels
+   * @param salesChannels A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    */
   public BusinessLine salesChannels(List<String> salesChannels) {
@@ -340,7 +340,7 @@ public class BusinessLine {
 
   /**
    * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
-   * @return salesChannels
+   * @return salesChannels A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    */
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,7 +351,7 @@ public class BusinessLine {
   /**
    * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    *
-   * @param salesChannels
+   * @param salesChannels A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    */
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,7 +362,7 @@ public class BusinessLine {
   /**
    * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
    *
-   * @param service
+   * @param service The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    */
   public BusinessLine service(ServiceEnum service) {
@@ -372,7 +372,7 @@ public class BusinessLine {
 
   /**
    * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
-   * @return service
+   * @return service The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
    */
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -383,7 +383,7 @@ public class BusinessLine {
   /**
    * The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
    *
-   * @param service
+   * @param service The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
    */
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,7 +394,7 @@ public class BusinessLine {
   /**
    * sourceOfFunds
    *
-   * @param sourceOfFunds
+   * @param sourceOfFunds 
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    */
   public BusinessLine sourceOfFunds(SourceOfFunds sourceOfFunds) {
@@ -404,7 +404,7 @@ public class BusinessLine {
 
   /**
    * Get sourceOfFunds
-   * @return sourceOfFunds
+   * @return sourceOfFunds 
    */
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,7 +415,7 @@ public class BusinessLine {
   /**
    * sourceOfFunds
    *
-   * @param sourceOfFunds
+   * @param sourceOfFunds 
    */
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,7 +426,7 @@ public class BusinessLine {
   /**
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    *
-   * @param webData
+   * @param webData List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    */
   public BusinessLine webData(List<WebData> webData) {
@@ -444,7 +444,7 @@ public class BusinessLine {
 
   /**
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
-   * @return webData
+   * @return webData List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -455,7 +455,7 @@ public class BusinessLine {
   /**
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    *
-   * @param webData
+   * @param webData List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -466,7 +466,7 @@ public class BusinessLine {
   /**
    * webDataExemption
    *
-   * @param webDataExemption
+   * @param webDataExemption 
    * @return the current {@code BusinessLine} instance, allowing for method chaining
    */
   public BusinessLine webDataExemption(WebDataExemption webDataExemption) {
@@ -476,7 +476,7 @@ public class BusinessLine {
 
   /**
    * Get webDataExemption
-   * @return webDataExemption
+   * @return webDataExemption 
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -487,7 +487,7 @@ public class BusinessLine {
   /**
    * webDataExemption
    *
-   * @param webDataExemption
+   * @param webDataExemption 
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

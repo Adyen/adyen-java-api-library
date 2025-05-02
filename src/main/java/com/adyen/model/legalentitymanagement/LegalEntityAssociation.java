@@ -65,7 +65,7 @@ public class LegalEntityAssociation {
   private String relationship;
 
   public static final String JSON_PROPERTY_SETTLOR_EXEMPTION_REASON = "settlorExemptionReason";
-  private List<String> settlorExemptionReason = new ArrayList<>();
+  private List<String> settlorExemptionReason;
 
   /**
    * Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **director**, **signatory**, **trustOwnership**, **uboThroughOwnership**, **uboThroughControl**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
@@ -154,7 +154,7 @@ public class LegalEntityAssociation {
 
   /**
    * The unique identifier of another legal entity with which the &#x60;legalEntityId&#x60; is associated. When the &#x60;legalEntityId&#x60; is associated to legal entities other than the current one, the response returns all the associations.
-   * @return associatorId
+   * @return associatorId The unique identifier of another legal entity with which the &#x60;legalEntityId&#x60; is associated. When the &#x60;legalEntityId&#x60; is associated to legal entities other than the current one, the response returns all the associations.
    */
   @JsonProperty(JSON_PROPERTY_ASSOCIATOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +165,7 @@ public class LegalEntityAssociation {
 
   /**
    * The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.
-   * @return entityType
+   * @return entityType The legal entity type of associated legal entity.  For example, **organization**, **soleProprietorship** or **individual**.
    */
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class LegalEntityAssociation {
   /**
    * The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
    *
-   * @param jobTitle
+   * @param jobTitle The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
    * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
    */
   public LegalEntityAssociation jobTitle(String jobTitle) {
@@ -187,7 +187,7 @@ public class LegalEntityAssociation {
 
   /**
    * The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
-   * @return jobTitle
+   * @return jobTitle The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
    */
   @JsonProperty(JSON_PROPERTY_JOB_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class LegalEntityAssociation {
   /**
    * The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
    *
-   * @param jobTitle
+   * @param jobTitle The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
    */
   @JsonProperty(JSON_PROPERTY_JOB_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class LegalEntityAssociation {
   /**
    * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
    * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
    */
   public LegalEntityAssociation legalEntityId(String legalEntityId) {
@@ -219,7 +219,7 @@ public class LegalEntityAssociation {
 
   /**
    * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
-   * @return legalEntityId
+   * @return legalEntityId The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,7 +230,7 @@ public class LegalEntityAssociation {
   /**
    * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
    *
-   * @param legalEntityId
+   * @param legalEntityId The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
    */
   @JsonProperty(JSON_PROPERTY_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,7 +240,7 @@ public class LegalEntityAssociation {
 
   /**
    * The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
-   * @return name
+   * @return name The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +252,7 @@ public class LegalEntityAssociation {
   /**
    * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
    *
-   * @param nominee
+   * @param nominee Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
    * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
    */
   public LegalEntityAssociation nominee(Boolean nominee) {
@@ -262,7 +262,7 @@ public class LegalEntityAssociation {
 
   /**
    * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
-   * @return nominee
+   * @return nominee Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
    */
   @JsonProperty(JSON_PROPERTY_NOMINEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +273,7 @@ public class LegalEntityAssociation {
   /**
    * Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
    *
-   * @param nominee
+   * @param nominee Default value: **false** Set to **true** if the entity association &#x60;type&#x60; **director**, **secondaryPartner** or **shareholder** is also a nominee. Only applicable to New Zealand.
    */
   @JsonProperty(JSON_PROPERTY_NOMINEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +284,7 @@ public class LegalEntityAssociation {
   /**
    * The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
    *
-   * @param relationship
+   * @param relationship The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
    * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
    */
   public LegalEntityAssociation relationship(String relationship) {
@@ -294,7 +294,7 @@ public class LegalEntityAssociation {
 
   /**
    * The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
-   * @return relationship
+   * @return relationship The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
    */
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,7 +305,7 @@ public class LegalEntityAssociation {
   /**
    * The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
    *
-   * @param relationship
+   * @param relationship The individual&#39;s relationship to a legal representative if the &#x60;type&#x60; is **legalRepresentative**. Possible values: **parent**, **guardian**.
    */
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +316,7 @@ public class LegalEntityAssociation {
   /**
    * Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
    *
-   * @param settlorExemptionReason
+   * @param settlorExemptionReason Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
    * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
    */
   public LegalEntityAssociation settlorExemptionReason(List<String> settlorExemptionReason) {
@@ -334,7 +334,7 @@ public class LegalEntityAssociation {
 
   /**
    * Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
-   * @return settlorExemptionReason
+   * @return settlorExemptionReason Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_SETTLOR_EXEMPTION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,7 +345,7 @@ public class LegalEntityAssociation {
   /**
    * Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
    *
-   * @param settlorExemptionReason
+   * @param settlorExemptionReason Defines the KYC exemption reason for a settlor associated with a trust. Only applicable to trusts in Australia.  For example, **professionalServiceProvider**, **deceased**, or **contributionBelowThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_SETTLOR_EXEMPTION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -356,7 +356,7 @@ public class LegalEntityAssociation {
   /**
    * Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **director**, **signatory**, **trustOwnership**, **uboThroughOwnership**, **uboThroughControl**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
    *
-   * @param type
+   * @param type Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **director**, **signatory**, **trustOwnership**, **uboThroughOwnership**, **uboThroughControl**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
    * @return the current {@code LegalEntityAssociation} instance, allowing for method chaining
    */
   public LegalEntityAssociation type(TypeEnum type) {
@@ -366,7 +366,7 @@ public class LegalEntityAssociation {
 
   /**
    * Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **director**, **signatory**, **trustOwnership**, **uboThroughOwnership**, **uboThroughControl**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
-   * @return type
+   * @return type Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **director**, **signatory**, **trustOwnership**, **uboThroughOwnership**, **uboThroughControl**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,7 +377,7 @@ public class LegalEntityAssociation {
   /**
    * Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **director**, **signatory**, **trustOwnership**, **uboThroughOwnership**, **uboThroughControl**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
    *
-   * @param type
+   * @param type Defines the relationship of the legal entity to the current legal entity.  Possible value for individuals: **legalRepresentative**.  Possible values for organizations: **director**, **signatory**, **trustOwnership**, **uboThroughOwnership**, **uboThroughControl**, or **ultimateParentCompany**.  Possible values for sole proprietorships: **soleProprietorship**.  Possible value for trusts: **trust**.  Possible values for trust members: **definedBeneficiary**, **protector**, **secondaryTrustee**, **settlor**, **uboThroughControl**, or **uboThroughOwnership**.  Possible value for unincorporated partnership: **unincorporatedPartnership**.  Possible values for unincorporated partnership members: **secondaryPartner**, **uboThroughControl**, **uboThroughOwnership**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

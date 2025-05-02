@@ -215,7 +215,7 @@ public class AccountHolderCapability {
 
   /**
    * Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.
-   * @return allowed
+   * @return allowed Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability.
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +226,7 @@ public class AccountHolderCapability {
 
   /**
    * The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
-   * @return allowedLevel
+   * @return allowedLevel The capability level that is allowed for the account holder.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +238,7 @@ public class AccountHolderCapability {
   /**
    * allowedSettings
    *
-   * @param allowedSettings
+   * @param allowedSettings 
    * @return the current {@code AccountHolderCapability} instance, allowing for method chaining
    */
   public AccountHolderCapability allowedSettings(CapabilitySettings allowedSettings) {
@@ -248,7 +248,7 @@ public class AccountHolderCapability {
 
   /**
    * Get allowedSettings
-   * @return allowedSettings
+   * @return allowedSettings 
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +259,7 @@ public class AccountHolderCapability {
   /**
    * allowedSettings
    *
-   * @param allowedSettings
+   * @param allowedSettings 
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +270,7 @@ public class AccountHolderCapability {
   /**
    * Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
    *
-   * @param enabled
+   * @param enabled Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
    * @return the current {@code AccountHolderCapability} instance, allowing for method chaining
    */
   public AccountHolderCapability enabled(Boolean enabled) {
@@ -280,7 +280,7 @@ public class AccountHolderCapability {
 
   /**
    * Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
-   * @return enabled
+   * @return enabled Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,7 +291,7 @@ public class AccountHolderCapability {
   /**
    * Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
    *
-   * @param enabled
+   * @param enabled Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder.
    */
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,7 +301,7 @@ public class AccountHolderCapability {
 
   /**
    * Contains verification errors and the actions that you can take to resolve them.
-   * @return problems
+   * @return problems Contains verification errors and the actions that you can take to resolve them.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -313,7 +313,7 @@ public class AccountHolderCapability {
   /**
    * Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
    *
-   * @param requested
+   * @param requested Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
    * @return the current {@code AccountHolderCapability} instance, allowing for method chaining
    */
   public AccountHolderCapability requested(Boolean requested) {
@@ -323,7 +323,7 @@ public class AccountHolderCapability {
 
   /**
    * Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
-   * @return requested
+   * @return requested Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,7 +334,7 @@ public class AccountHolderCapability {
   /**
    * Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
    *
-   * @param requested
+   * @param requested Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the &#x60;allowed&#x60; field.
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,7 +345,7 @@ public class AccountHolderCapability {
   /**
    * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    *
-   * @param requestedLevel
+   * @param requestedLevel The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    * @return the current {@code AccountHolderCapability} instance, allowing for method chaining
    */
   public AccountHolderCapability requestedLevel(RequestedLevelEnum requestedLevel) {
@@ -355,7 +355,7 @@ public class AccountHolderCapability {
 
   /**
    * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
-   * @return requestedLevel
+   * @return requestedLevel The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,7 +366,7 @@ public class AccountHolderCapability {
   /**
    * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    *
-   * @param requestedLevel
+   * @param requestedLevel The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.  Possible values: **notApplicable**, **low**, **medium**, **high**.
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,7 +377,7 @@ public class AccountHolderCapability {
   /**
    * requestedSettings
    *
-   * @param requestedSettings
+   * @param requestedSettings 
    * @return the current {@code AccountHolderCapability} instance, allowing for method chaining
    */
   public AccountHolderCapability requestedSettings(CapabilitySettings requestedSettings) {
@@ -387,7 +387,7 @@ public class AccountHolderCapability {
 
   /**
    * Get requestedSettings
-   * @return requestedSettings
+   * @return requestedSettings 
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -398,7 +398,7 @@ public class AccountHolderCapability {
   /**
    * requestedSettings
    *
-   * @param requestedSettings
+   * @param requestedSettings 
    */
   @JsonProperty(JSON_PROPERTY_REQUESTED_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -408,7 +408,7 @@ public class AccountHolderCapability {
 
   /**
    * Contains the status of the transfer instruments associated with this capability. 
-   * @return transferInstruments
+   * @return transferInstruments Contains the status of the transfer instruments associated with this capability. 
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -419,7 +419,7 @@ public class AccountHolderCapability {
 
   /**
    * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
-   * @return verificationStatus
+   * @return verificationStatus The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
    */
   @JsonProperty(JSON_PROPERTY_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

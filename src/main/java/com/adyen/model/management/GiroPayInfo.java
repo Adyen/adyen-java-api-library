@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class GiroPayInfo {
   /**
    * The email address of merchant support.
    *
-   * @param supportEmail
+   * @param supportEmail The email address of merchant support.
    * @return the current {@code GiroPayInfo} instance, allowing for method chaining
    */
   public GiroPayInfo supportEmail(String supportEmail) {
@@ -54,9 +52,8 @@ public class GiroPayInfo {
 
   /**
    * The email address of merchant support.
-   * @return supportEmail
+   * @return supportEmail The email address of merchant support.
    */
-  @ApiModelProperty(required = true, value = "The email address of merchant support.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSupportEmail() {
@@ -66,8 +63,8 @@ public class GiroPayInfo {
   /**
    * The email address of merchant support.
    *
-   * @param supportEmail
-   */ 
+   * @param supportEmail The email address of merchant support.
+   */
   @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSupportEmail(String supportEmail) {

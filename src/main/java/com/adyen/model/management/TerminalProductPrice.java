@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -48,7 +46,7 @@ public class TerminalProductPrice {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return the current {@code TerminalProductPrice} instance, allowing for method chaining
    */
   public TerminalProductPrice currency(String currency) {
@@ -58,9 +56,8 @@ public class TerminalProductPrice {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    */
-  @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCurrency() {
@@ -70,8 +67,8 @@ public class TerminalProductPrice {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param currency
-   */ 
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
+   */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
@@ -81,7 +78,7 @@ public class TerminalProductPrice {
   /**
    * The price of the item.
    *
-   * @param value
+   * @param value The price of the item.
    * @return the current {@code TerminalProductPrice} instance, allowing for method chaining
    */
   public TerminalProductPrice value(Double value) {
@@ -91,9 +88,8 @@ public class TerminalProductPrice {
 
   /**
    * The price of the item.
-   * @return value
+   * @return value The price of the item.
    */
-  @ApiModelProperty(value = "The price of the item.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getValue() {
@@ -103,8 +99,8 @@ public class TerminalProductPrice {
   /**
    * The price of the item.
    *
-   * @param value
-   */ 
+   * @param value The price of the item.
+   */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Double value) {

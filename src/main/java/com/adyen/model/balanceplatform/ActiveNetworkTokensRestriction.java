@@ -46,7 +46,7 @@ public class ActiveNetworkTokensRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code ActiveNetworkTokensRestriction} instance, allowing for method chaining
    */
   public ActiveNetworkTokensRestriction operation(String operation) {
@@ -56,7 +56,7 @@ public class ActiveNetworkTokensRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class ActiveNetworkTokensRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class ActiveNetworkTokensRestriction {
   /**
    * The number of tokens.
    *
-   * @param value
+   * @param value The number of tokens.
    * @return the current {@code ActiveNetworkTokensRestriction} instance, allowing for method chaining
    */
   public ActiveNetworkTokensRestriction value(Integer value) {
@@ -88,7 +88,7 @@ public class ActiveNetworkTokensRestriction {
 
   /**
    * The number of tokens.
-   * @return value
+   * @return value The number of tokens.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class ActiveNetworkTokensRestriction {
   /**
    * The number of tokens.
    *
-   * @param value
+   * @param value The number of tokens.
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

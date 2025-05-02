@@ -46,7 +46,7 @@ public class PublicKeyResponse {
   /**
    * The public key you need for encrypting a symmetric session key.
    *
-   * @param publicKey
+   * @param publicKey The public key you need for encrypting a symmetric session key.
    * @return the current {@code PublicKeyResponse} instance, allowing for method chaining
    */
   public PublicKeyResponse publicKey(String publicKey) {
@@ -56,7 +56,7 @@ public class PublicKeyResponse {
 
   /**
    * The public key you need for encrypting a symmetric session key.
-   * @return publicKey
+   * @return publicKey The public key you need for encrypting a symmetric session key.
    */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class PublicKeyResponse {
   /**
    * The public key you need for encrypting a symmetric session key.
    *
-   * @param publicKey
+   * @param publicKey The public key you need for encrypting a symmetric session key.
    */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class PublicKeyResponse {
   /**
    * The expiry date of the public key.
    *
-   * @param publicKeyExpiryDate
+   * @param publicKeyExpiryDate The expiry date of the public key.
    * @return the current {@code PublicKeyResponse} instance, allowing for method chaining
    */
   public PublicKeyResponse publicKeyExpiryDate(String publicKeyExpiryDate) {
@@ -88,7 +88,7 @@ public class PublicKeyResponse {
 
   /**
    * The expiry date of the public key.
-   * @return publicKeyExpiryDate
+   * @return publicKeyExpiryDate The expiry date of the public key.
    */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class PublicKeyResponse {
   /**
    * The expiry date of the public key.
    *
-   * @param publicKeyExpiryDate
+   * @param publicKeyExpiryDate The expiry date of the public key.
    */
   @JsonProperty(JSON_PROPERTY_PUBLIC_KEY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

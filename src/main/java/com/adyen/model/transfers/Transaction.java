@@ -130,7 +130,7 @@ public class Transaction {
   /**
    * accountHolder
    *
-   * @param accountHolder
+   * @param accountHolder 
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction accountHolder(ResourceReference accountHolder) {
@@ -140,7 +140,7 @@ public class Transaction {
 
   /**
    * Get accountHolder
-   * @return accountHolder
+   * @return accountHolder 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class Transaction {
   /**
    * accountHolder
    *
-   * @param accountHolder
+   * @param accountHolder 
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class Transaction {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction amount(Amount amount) {
@@ -172,7 +172,7 @@ public class Transaction {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class Transaction {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class Transaction {
   /**
    * balanceAccount
    *
-   * @param balanceAccount
+   * @param balanceAccount 
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction balanceAccount(ResourceReference balanceAccount) {
@@ -204,7 +204,7 @@ public class Transaction {
 
   /**
    * Get balanceAccount
-   * @return balanceAccount
+   * @return balanceAccount 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +215,7 @@ public class Transaction {
   /**
    * balanceAccount
    *
-   * @param balanceAccount
+   * @param balanceAccount 
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +226,7 @@ public class Transaction {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction balancePlatform(String balancePlatform) {
@@ -236,7 +236,7 @@ public class Transaction {
 
   /**
    * The unique identifier of the balance platform.
-   * @return balancePlatform
+   * @return balancePlatform The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +247,7 @@ public class Transaction {
   /**
    * The unique identifier of the balance platform.
    *
-   * @param balancePlatform
+   * @param balancePlatform The unique identifier of the balance platform.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE_PLATFORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +258,7 @@ public class Transaction {
   /**
    * The date the transaction was booked into the balance account.
    *
-   * @param bookingDate
+   * @param bookingDate The date the transaction was booked into the balance account.
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction bookingDate(OffsetDateTime bookingDate) {
@@ -268,7 +268,7 @@ public class Transaction {
 
   /**
    * The date the transaction was booked into the balance account.
-   * @return bookingDate
+   * @return bookingDate The date the transaction was booked into the balance account.
    */
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,7 +279,7 @@ public class Transaction {
   /**
    * The date the transaction was booked into the balance account.
    *
-   * @param bookingDate
+   * @param bookingDate The date the transaction was booked into the balance account.
    */
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +290,7 @@ public class Transaction {
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param creationDate
+   * @param creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction creationDate(OffsetDateTime creationDate) {
@@ -300,7 +300,7 @@ public class Transaction {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
-   * @return creationDate
+   * @return creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,7 +311,7 @@ public class Transaction {
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    *
-   * @param creationDate
+   * @param creationDate The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class Transaction {
   /**
    * The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
    *
-   * @param description
+   * @param description The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction description(String description) {
@@ -332,7 +332,7 @@ public class Transaction {
 
   /**
    * The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
-   * @return description
+   * @return description The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -343,7 +343,7 @@ public class Transaction {
   /**
    * The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
    *
-   * @param description
+   * @param description The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,7 +354,7 @@ public class Transaction {
   /**
    * The unique identifier of the transaction.
    *
-   * @param id
+   * @param id The unique identifier of the transaction.
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction id(String id) {
@@ -364,7 +364,7 @@ public class Transaction {
 
   /**
    * The unique identifier of the transaction.
-   * @return id
+   * @return id The unique identifier of the transaction.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -375,7 +375,7 @@ public class Transaction {
   /**
    * The unique identifier of the transaction.
    *
-   * @param id
+   * @param id The unique identifier of the transaction.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,7 +386,7 @@ public class Transaction {
   /**
    * paymentInstrument
    *
-   * @param paymentInstrument
+   * @param paymentInstrument 
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction paymentInstrument(PaymentInstrument paymentInstrument) {
@@ -396,7 +396,7 @@ public class Transaction {
 
   /**
    * Get paymentInstrument
-   * @return paymentInstrument
+   * @return paymentInstrument 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,7 +407,7 @@ public class Transaction {
   /**
    * paymentInstrument
    *
-   * @param paymentInstrument
+   * @param paymentInstrument 
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -418,7 +418,7 @@ public class Transaction {
   /**
    * The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
    *
-   * @param referenceForBeneficiary
+   * @param referenceForBeneficiary The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction referenceForBeneficiary(String referenceForBeneficiary) {
@@ -428,7 +428,7 @@ public class Transaction {
 
   /**
    * The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
-   * @return referenceForBeneficiary
+   * @return referenceForBeneficiary The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -439,7 +439,7 @@ public class Transaction {
   /**
    * The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
    *
-   * @param referenceForBeneficiary
+   * @param referenceForBeneficiary The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +450,7 @@ public class Transaction {
   /**
    * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    *
-   * @param status
+   * @param status The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction status(StatusEnum status) {
@@ -460,7 +460,7 @@ public class Transaction {
 
   /**
    * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
-   * @return status
+   * @return status The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -471,7 +471,7 @@ public class Transaction {
   /**
    * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    *
-   * @param status
+   * @param status The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -482,7 +482,7 @@ public class Transaction {
   /**
    * transfer
    *
-   * @param transfer
+   * @param transfer 
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction transfer(TransferView transfer) {
@@ -492,7 +492,7 @@ public class Transaction {
 
   /**
    * Get transfer
-   * @return transfer
+   * @return transfer 
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -503,7 +503,7 @@ public class Transaction {
   /**
    * transfer
    *
-   * @param transfer
+   * @param transfer 
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,7 +514,7 @@ public class Transaction {
   /**
    * The date the transfer amount becomes available in the balance account.
    *
-   * @param valueDate
+   * @param valueDate The date the transfer amount becomes available in the balance account.
    * @return the current {@code Transaction} instance, allowing for method chaining
    */
   public Transaction valueDate(OffsetDateTime valueDate) {
@@ -524,7 +524,7 @@ public class Transaction {
 
   /**
    * The date the transfer amount becomes available in the balance account.
-   * @return valueDate
+   * @return valueDate The date the transfer amount becomes available in the balance account.
    */
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -535,7 +535,7 @@ public class Transaction {
   /**
    * The date the transfer amount becomes available in the balance account.
    *
-   * @param valueDate
+   * @param valueDate The date the transfer amount becomes available in the balance account.
    */
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

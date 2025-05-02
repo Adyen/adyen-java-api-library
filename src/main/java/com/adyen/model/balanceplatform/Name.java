@@ -46,7 +46,7 @@ public class Name {
   /**
    * The first name.
    *
-   * @param firstName
+   * @param firstName The first name.
    * @return the current {@code Name} instance, allowing for method chaining
    */
   public Name firstName(String firstName) {
@@ -56,7 +56,7 @@ public class Name {
 
   /**
    * The first name.
-   * @return firstName
+   * @return firstName The first name.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class Name {
   /**
    * The first name.
    *
-   * @param firstName
+   * @param firstName The first name.
    */
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class Name {
   /**
    * The last name.
    *
-   * @param lastName
+   * @param lastName The last name.
    * @return the current {@code Name} instance, allowing for method chaining
    */
   public Name lastName(String lastName) {
@@ -88,7 +88,7 @@ public class Name {
 
   /**
    * The last name.
-   * @return lastName
+   * @return lastName The last name.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class Name {
   /**
    * The last name.
    *
-   * @param lastName
+   * @param lastName The last name.
    */
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

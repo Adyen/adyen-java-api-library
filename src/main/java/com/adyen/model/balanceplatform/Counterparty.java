@@ -47,7 +47,7 @@ public class Counterparty {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    * @return the current {@code Counterparty} instance, allowing for method chaining
    */
   public Counterparty bankAccount(BankAccount bankAccount) {
@@ -57,7 +57,7 @@ public class Counterparty {
 
   /**
    * Get bankAccount
-   * @return bankAccount
+   * @return bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -68,7 +68,7 @@ public class Counterparty {
   /**
    * bankAccount
    *
-   * @param bankAccount
+   * @param bankAccount 
    */
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class Counterparty {
   /**
    * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    * @return the current {@code Counterparty} instance, allowing for method chaining
    */
   public Counterparty transferInstrumentId(String transferInstrumentId) {
@@ -89,7 +89,7 @@ public class Counterparty {
 
   /**
    * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
-   * @return transferInstrumentId
+   * @return transferInstrumentId The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class Counterparty {
   /**
    * The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    *
-   * @param transferInstrumentId
+   * @param transferInstrumentId The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class Key {
   /**
    * The unique identifier of the shared key.
    *
-   * @param identifier
+   * @param identifier The unique identifier of the shared key.
    * @return the current {@code Key} instance, allowing for method chaining
    */
   public Key identifier(String identifier) {
@@ -62,9 +60,8 @@ public class Key {
 
   /**
    * The unique identifier of the shared key.
-   * @return identifier
+   * @return identifier The unique identifier of the shared key.
    */
-  @ApiModelProperty(value = "The unique identifier of the shared key.")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIdentifier() {
@@ -74,8 +71,8 @@ public class Key {
   /**
    * The unique identifier of the shared key.
    *
-   * @param identifier
-   */ 
+   * @param identifier The unique identifier of the shared key.
+   */
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentifier(String identifier) {
@@ -85,7 +82,7 @@ public class Key {
   /**
    * The secure passphrase to protect the shared key.
    *
-   * @param passphrase
+   * @param passphrase The secure passphrase to protect the shared key.
    * @return the current {@code Key} instance, allowing for method chaining
    */
   public Key passphrase(String passphrase) {
@@ -95,9 +92,8 @@ public class Key {
 
   /**
    * The secure passphrase to protect the shared key.
-   * @return passphrase
+   * @return passphrase The secure passphrase to protect the shared key.
    */
-  @ApiModelProperty(value = "The secure passphrase to protect the shared key.")
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPassphrase() {
@@ -107,8 +103,8 @@ public class Key {
   /**
    * The secure passphrase to protect the shared key.
    *
-   * @param passphrase
-   */ 
+   * @param passphrase The secure passphrase to protect the shared key.
+   */
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassphrase(String passphrase) {
@@ -118,7 +114,7 @@ public class Key {
   /**
    * The version number of the shared key.
    *
-   * @param version
+   * @param version The version number of the shared key.
    * @return the current {@code Key} instance, allowing for method chaining
    */
   public Key version(Integer version) {
@@ -128,9 +124,8 @@ public class Key {
 
   /**
    * The version number of the shared key.
-   * @return version
+   * @return version The version number of the shared key.
    */
-  @ApiModelProperty(value = "The version number of the shared key.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getVersion() {
@@ -140,8 +135,8 @@ public class Key {
   /**
    * The version number of the shared key.
    *
-   * @param version
-   */ 
+   * @param version The version number of the shared key.
+   */
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(Integer version) {

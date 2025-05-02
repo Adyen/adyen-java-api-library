@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -44,7 +42,7 @@ public class SwishInfo {
   /**
    * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
    *
-   * @param swishNumber
+   * @param swishNumber Swish number. Format: 10 digits without spaces. For example, **1231111111**.
    * @return the current {@code SwishInfo} instance, allowing for method chaining
    */
   public SwishInfo swishNumber(String swishNumber) {
@@ -54,9 +52,8 @@ public class SwishInfo {
 
   /**
    * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
-   * @return swishNumber
+   * @return swishNumber Swish number. Format: 10 digits without spaces. For example, **1231111111**.
    */
-  @ApiModelProperty(required = true, value = "Swish number. Format: 10 digits without spaces. For example, **1231111111**.")
   @JsonProperty(JSON_PROPERTY_SWISH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSwishNumber() {
@@ -66,8 +63,8 @@ public class SwishInfo {
   /**
    * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
    *
-   * @param swishNumber
-   */ 
+   * @param swishNumber Swish number. Format: 10 digits without spaces. For example, **1231111111**.
+   */
   @JsonProperty(JSON_PROPERTY_SWISH_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSwishNumber(String swishNumber) {

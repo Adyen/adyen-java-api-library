@@ -62,7 +62,7 @@ public class ThreeDS1Result {
   /**
    * The cardholder authentication value (base64 encoded).
    *
-   * @param cavv
+   * @param cavv The cardholder authentication value (base64 encoded).
    * @return the current {@code ThreeDS1Result} instance, allowing for method chaining
    */
   public ThreeDS1Result cavv(String cavv) {
@@ -72,7 +72,7 @@ public class ThreeDS1Result {
 
   /**
    * The cardholder authentication value (base64 encoded).
-   * @return cavv
+   * @return cavv The cardholder authentication value (base64 encoded).
    */
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class ThreeDS1Result {
   /**
    * The cardholder authentication value (base64 encoded).
    *
-   * @param cavv
+   * @param cavv The cardholder authentication value (base64 encoded).
    */
   @JsonProperty(JSON_PROPERTY_CAVV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,7 +94,7 @@ public class ThreeDS1Result {
   /**
    * The CAVV algorithm used.
    *
-   * @param cavvAlgorithm
+   * @param cavvAlgorithm The CAVV algorithm used.
    * @return the current {@code ThreeDS1Result} instance, allowing for method chaining
    */
   public ThreeDS1Result cavvAlgorithm(String cavvAlgorithm) {
@@ -104,7 +104,7 @@ public class ThreeDS1Result {
 
   /**
    * The CAVV algorithm used.
-   * @return cavvAlgorithm
+   * @return cavvAlgorithm The CAVV algorithm used.
    */
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class ThreeDS1Result {
   /**
    * The CAVV algorithm used.
    *
-   * @param cavvAlgorithm
+   * @param cavvAlgorithm The CAVV algorithm used.
    */
   @JsonProperty(JSON_PROPERTY_CAVV_ALGORITHM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,7 +126,7 @@ public class ThreeDS1Result {
   /**
    * 3D Secure Electronic Commerce Indicator (ECI).
    *
-   * @param eci
+   * @param eci 3D Secure Electronic Commerce Indicator (ECI).
    * @return the current {@code ThreeDS1Result} instance, allowing for method chaining
    */
   public ThreeDS1Result eci(String eci) {
@@ -136,7 +136,7 @@ public class ThreeDS1Result {
 
   /**
    * 3D Secure Electronic Commerce Indicator (ECI).
-   * @return eci
+   * @return eci 3D Secure Electronic Commerce Indicator (ECI).
    */
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class ThreeDS1Result {
   /**
    * 3D Secure Electronic Commerce Indicator (ECI).
    *
-   * @param eci
+   * @param eci 3D Secure Electronic Commerce Indicator (ECI).
    */
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +158,7 @@ public class ThreeDS1Result {
   /**
    * The authentication response from the ACS.
    *
-   * @param threeDAuthenticatedResponse
+   * @param threeDAuthenticatedResponse The authentication response from the ACS.
    * @return the current {@code ThreeDS1Result} instance, allowing for method chaining
    */
   public ThreeDS1Result threeDAuthenticatedResponse(String threeDAuthenticatedResponse) {
@@ -168,7 +168,7 @@ public class ThreeDS1Result {
 
   /**
    * The authentication response from the ACS.
-   * @return threeDAuthenticatedResponse
+   * @return threeDAuthenticatedResponse The authentication response from the ACS.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,7 +179,7 @@ public class ThreeDS1Result {
   /**
    * The authentication response from the ACS.
    *
-   * @param threeDAuthenticatedResponse
+   * @param threeDAuthenticatedResponse The authentication response from the ACS.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class ThreeDS1Result {
   /**
    * Whether 3D Secure was offered or not.
    *
-   * @param threeDOfferedResponse
+   * @param threeDOfferedResponse Whether 3D Secure was offered or not.
    * @return the current {@code ThreeDS1Result} instance, allowing for method chaining
    */
   public ThreeDS1Result threeDOfferedResponse(String threeDOfferedResponse) {
@@ -200,7 +200,7 @@ public class ThreeDS1Result {
 
   /**
    * Whether 3D Secure was offered or not.
-   * @return threeDOfferedResponse
+   * @return threeDOfferedResponse Whether 3D Secure was offered or not.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,7 +211,7 @@ public class ThreeDS1Result {
   /**
    * Whether 3D Secure was offered or not.
    *
-   * @param threeDOfferedResponse
+   * @param threeDOfferedResponse Whether 3D Secure was offered or not.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,7 +222,7 @@ public class ThreeDS1Result {
   /**
    * A unique transaction identifier generated by the MPI on behalf of the merchant to identify the 3D Secure transaction, in &#x60;Base64&#x60; encoding.
    *
-   * @param xid
+   * @param xid A unique transaction identifier generated by the MPI on behalf of the merchant to identify the 3D Secure transaction, in &#x60;Base64&#x60; encoding.
    * @return the current {@code ThreeDS1Result} instance, allowing for method chaining
    */
   public ThreeDS1Result xid(String xid) {
@@ -232,7 +232,7 @@ public class ThreeDS1Result {
 
   /**
    * A unique transaction identifier generated by the MPI on behalf of the merchant to identify the 3D Secure transaction, in &#x60;Base64&#x60; encoding.
-   * @return xid
+   * @return xid A unique transaction identifier generated by the MPI on behalf of the merchant to identify the 3D Secure transaction, in &#x60;Base64&#x60; encoding.
    */
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,7 +243,7 @@ public class ThreeDS1Result {
   /**
    * A unique transaction identifier generated by the MPI on behalf of the merchant to identify the 3D Secure transaction, in &#x60;Base64&#x60; encoding.
    *
-   * @param xid
+   * @param xid A unique transaction identifier generated by the MPI on behalf of the merchant to identify the 3D Secure transaction, in &#x60;Base64&#x60; encoding.
    */
   @JsonProperty(JSON_PROPERTY_XID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

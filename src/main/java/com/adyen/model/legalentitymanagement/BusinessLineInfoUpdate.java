@@ -46,13 +46,13 @@ public class BusinessLineInfoUpdate {
   private String industryCode;
 
   public static final String JSON_PROPERTY_SALES_CHANNELS = "salesChannels";
-  private List<String> salesChannels = new ArrayList<>();
+  private List<String> salesChannels;
 
   public static final String JSON_PROPERTY_SOURCE_OF_FUNDS = "sourceOfFunds";
   private SourceOfFunds sourceOfFunds;
 
   public static final String JSON_PROPERTY_WEB_DATA = "webData";
-  private List<WebData> webData = new ArrayList<>();
+  private List<WebData> webData;
 
   public static final String JSON_PROPERTY_WEB_DATA_EXEMPTION = "webDataExemption";
   private WebDataExemption webDataExemption;
@@ -63,7 +63,7 @@ public class BusinessLineInfoUpdate {
   /**
    * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
    *
-   * @param industryCode
+   * @param industryCode A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
    * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
    */
   public BusinessLineInfoUpdate industryCode(String industryCode) {
@@ -73,7 +73,7 @@ public class BusinessLineInfoUpdate {
 
   /**
    * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
-   * @return industryCode
+   * @return industryCode A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
    */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,7 +84,7 @@ public class BusinessLineInfoUpdate {
   /**
    * A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
    *
-   * @param industryCode
+   * @param industryCode A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
    */
   @JsonProperty(JSON_PROPERTY_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,7 +95,7 @@ public class BusinessLineInfoUpdate {
   /**
    * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    *
-   * @param salesChannels
+   * @param salesChannels A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
    */
   public BusinessLineInfoUpdate salesChannels(List<String> salesChannels) {
@@ -113,7 +113,7 @@ public class BusinessLineInfoUpdate {
 
   /**
    * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
-   * @return salesChannels
+   * @return salesChannels A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    */
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,7 +124,7 @@ public class BusinessLineInfoUpdate {
   /**
    * A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    *
-   * @param salesChannels
+   * @param salesChannels A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the &#x60;service&#x60; **paymentProcessing**.
    */
   @JsonProperty(JSON_PROPERTY_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class BusinessLineInfoUpdate {
   /**
    * sourceOfFunds
    *
-   * @param sourceOfFunds
+   * @param sourceOfFunds 
    * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
    */
   public BusinessLineInfoUpdate sourceOfFunds(SourceOfFunds sourceOfFunds) {
@@ -145,7 +145,7 @@ public class BusinessLineInfoUpdate {
 
   /**
    * Get sourceOfFunds
-   * @return sourceOfFunds
+   * @return sourceOfFunds 
    */
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +156,7 @@ public class BusinessLineInfoUpdate {
   /**
    * sourceOfFunds
    *
-   * @param sourceOfFunds
+   * @param sourceOfFunds 
    */
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,7 +167,7 @@ public class BusinessLineInfoUpdate {
   /**
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    *
-   * @param webData
+   * @param webData List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
    */
   public BusinessLineInfoUpdate webData(List<WebData> webData) {
@@ -185,7 +185,7 @@ public class BusinessLineInfoUpdate {
 
   /**
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
-   * @return webData
+   * @return webData List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +196,7 @@ public class BusinessLineInfoUpdate {
   /**
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    *
-   * @param webData
+   * @param webData List of website URLs where your user&#39;s goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class BusinessLineInfoUpdate {
   /**
    * webDataExemption
    *
-   * @param webDataExemption
+   * @param webDataExemption 
    * @return the current {@code BusinessLineInfoUpdate} instance, allowing for method chaining
    */
   public BusinessLineInfoUpdate webDataExemption(WebDataExemption webDataExemption) {
@@ -217,7 +217,7 @@ public class BusinessLineInfoUpdate {
 
   /**
    * Get webDataExemption
-   * @return webDataExemption
+   * @return webDataExemption 
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,7 +228,7 @@ public class BusinessLineInfoUpdate {
   /**
    * webDataExemption
    *
-   * @param webDataExemption
+   * @param webDataExemption 
    */
   @JsonProperty(JSON_PROPERTY_WEB_DATA_EXEMPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

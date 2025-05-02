@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -43,7 +41,7 @@ public class InstallAndroidCertificateDetails {
    * Type of terminal action: Install an Android certificate.
    */
   public enum TypeEnum {
-    INSTALLANDROIDCERTIFICATE("InstallAndroidCertificate");
+    INSTALLANDROIDCERTIFICATE(String.valueOf("InstallAndroidCertificate"));
 
     private String value;
 
@@ -73,7 +71,7 @@ public class InstallAndroidCertificateDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.INSTALLANDROIDCERTIFICATE;
 
   public InstallAndroidCertificateDetails() { 
   }
@@ -81,7 +79,7 @@ public class InstallAndroidCertificateDetails {
   /**
    * The unique identifier of the certificate to be installed.
    *
-   * @param certificateId
+   * @param certificateId The unique identifier of the certificate to be installed.
    * @return the current {@code InstallAndroidCertificateDetails} instance, allowing for method chaining
    */
   public InstallAndroidCertificateDetails certificateId(String certificateId) {
@@ -91,9 +89,8 @@ public class InstallAndroidCertificateDetails {
 
   /**
    * The unique identifier of the certificate to be installed.
-   * @return certificateId
+   * @return certificateId The unique identifier of the certificate to be installed.
    */
-  @ApiModelProperty(value = "The unique identifier of the certificate to be installed.")
   @JsonProperty(JSON_PROPERTY_CERTIFICATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCertificateId() {
@@ -103,8 +100,8 @@ public class InstallAndroidCertificateDetails {
   /**
    * The unique identifier of the certificate to be installed.
    *
-   * @param certificateId
-   */ 
+   * @param certificateId The unique identifier of the certificate to be installed.
+   */
   @JsonProperty(JSON_PROPERTY_CERTIFICATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCertificateId(String certificateId) {
@@ -114,7 +111,7 @@ public class InstallAndroidCertificateDetails {
   /**
    * Type of terminal action: Install an Android certificate.
    *
-   * @param type
+   * @param type Type of terminal action: Install an Android certificate.
    * @return the current {@code InstallAndroidCertificateDetails} instance, allowing for method chaining
    */
   public InstallAndroidCertificateDetails type(TypeEnum type) {
@@ -124,9 +121,8 @@ public class InstallAndroidCertificateDetails {
 
   /**
    * Type of terminal action: Install an Android certificate.
-   * @return type
+   * @return type Type of terminal action: Install an Android certificate.
    */
-  @ApiModelProperty(value = "Type of terminal action: Install an Android certificate.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TypeEnum getType() {
@@ -136,8 +132,8 @@ public class InstallAndroidCertificateDetails {
   /**
    * Type of terminal action: Install an Android certificate.
    *
-   * @param type
-   */ 
+   * @param type Type of terminal action: Install an Android certificate.
+   */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {

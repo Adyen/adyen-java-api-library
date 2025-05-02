@@ -13,7 +13,6 @@
 package com.adyen.model.payout;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -52,7 +50,7 @@ public class ResponseAdditionalDataNetworkTokens {
   /**
    * Indicates whether a network token is available for the specified card.
    *
-   * @param networkTokenAvailable
+   * @param networkTokenAvailable Indicates whether a network token is available for the specified card.
    * @return the current {@code ResponseAdditionalDataNetworkTokens} instance, allowing for method chaining
    */
   public ResponseAdditionalDataNetworkTokens networkTokenAvailable(String networkTokenAvailable) {
@@ -62,9 +60,8 @@ public class ResponseAdditionalDataNetworkTokens {
 
   /**
    * Indicates whether a network token is available for the specified card.
-   * @return networkTokenAvailable
+   * @return networkTokenAvailable Indicates whether a network token is available for the specified card.
    */
-  @ApiModelProperty(value = "Indicates whether a network token is available for the specified card.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNetworkTokenAvailable() {
@@ -74,8 +71,8 @@ public class ResponseAdditionalDataNetworkTokens {
   /**
    * Indicates whether a network token is available for the specified card.
    *
-   * @param networkTokenAvailable
-   */ 
+   * @param networkTokenAvailable Indicates whether a network token is available for the specified card.
+   */
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenAvailable(String networkTokenAvailable) {
@@ -85,7 +82,7 @@ public class ResponseAdditionalDataNetworkTokens {
   /**
    * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
    *
-   * @param networkTokenBin
+   * @param networkTokenBin The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
    * @return the current {@code ResponseAdditionalDataNetworkTokens} instance, allowing for method chaining
    */
   public ResponseAdditionalDataNetworkTokens networkTokenBin(String networkTokenBin) {
@@ -95,9 +92,8 @@ public class ResponseAdditionalDataNetworkTokens {
 
   /**
    * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
-   * @return networkTokenBin
+   * @return networkTokenBin The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
    */
-  @ApiModelProperty(value = "The Bank Identification Number of a tokenized card, which is the first six digits of a card number.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNetworkTokenBin() {
@@ -107,8 +103,8 @@ public class ResponseAdditionalDataNetworkTokens {
   /**
    * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
    *
-   * @param networkTokenBin
-   */ 
+   * @param networkTokenBin The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
+   */
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenBin(String networkTokenBin) {
@@ -118,7 +114,7 @@ public class ResponseAdditionalDataNetworkTokens {
   /**
    * The last four digits of a network token.
    *
-   * @param networkTokenTokenSummary
+   * @param networkTokenTokenSummary The last four digits of a network token.
    * @return the current {@code ResponseAdditionalDataNetworkTokens} instance, allowing for method chaining
    */
   public ResponseAdditionalDataNetworkTokens networkTokenTokenSummary(String networkTokenTokenSummary) {
@@ -128,9 +124,8 @@ public class ResponseAdditionalDataNetworkTokens {
 
   /**
    * The last four digits of a network token.
-   * @return networkTokenTokenSummary
+   * @return networkTokenTokenSummary The last four digits of a network token.
    */
-  @ApiModelProperty(value = "The last four digits of a network token.")
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_TOKEN_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getNetworkTokenTokenSummary() {
@@ -140,8 +135,8 @@ public class ResponseAdditionalDataNetworkTokens {
   /**
    * The last four digits of a network token.
    *
-   * @param networkTokenTokenSummary
-   */ 
+   * @param networkTokenTokenSummary The last four digits of a network token.
+   */
   @JsonProperty(JSON_PROPERTY_NETWORK_TOKEN_TOKEN_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkTokenTokenSummary(String networkTokenTokenSummary) {

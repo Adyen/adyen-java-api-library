@@ -52,7 +52,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class OnboardingLinkSettings {
   public static final String JSON_PROPERTY_ACCEPTED_COUNTRIES = "acceptedCountries";
-  private List<String> acceptedCountries = new ArrayList<>();
+  private List<String> acceptedCountries;
 
   public static final String JSON_PROPERTY_ALLOW_BANK_ACCOUNT_FORMAT_SELECTION = "allowBankAccountFormatSelection";
   private Boolean allowBankAccountFormatSelection;
@@ -108,7 +108,7 @@ public class OnboardingLinkSettings {
   /**
    * The list of countries the user can choose from in hosted onboarding when &#x60;editPrefilledCountry&#x60; is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).
    *
-   * @param acceptedCountries
+   * @param acceptedCountries The list of countries the user can choose from in hosted onboarding when &#x60;editPrefilledCountry&#x60; is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings acceptedCountries(List<String> acceptedCountries) {
@@ -126,7 +126,7 @@ public class OnboardingLinkSettings {
 
   /**
    * The list of countries the user can choose from in hosted onboarding when &#x60;editPrefilledCountry&#x60; is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).
-   * @return acceptedCountries
+   * @return acceptedCountries The list of countries the user can choose from in hosted onboarding when &#x60;editPrefilledCountry&#x60; is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,7 +137,7 @@ public class OnboardingLinkSettings {
   /**
    * The list of countries the user can choose from in hosted onboarding when &#x60;editPrefilledCountry&#x60; is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).
    *
-   * @param acceptedCountries
+   * @param acceptedCountries The list of countries the user can choose from in hosted onboarding when &#x60;editPrefilledCountry&#x60; is allowed.  The value must be in the two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code format.  The array is empty by default, allowing all [countries and regions supported by hosted onboarding](https://docs.adyen.com/platforms/onboard-users/#hosted-onboarding).
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_COUNTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,7 +148,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).
    *
-   * @param allowBankAccountFormatSelection
+   * @param allowBankAccountFormatSelection Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings allowBankAccountFormatSelection(Boolean allowBankAccountFormatSelection) {
@@ -158,7 +158,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).
-   * @return allowBankAccountFormatSelection
+   * @return allowBankAccountFormatSelection Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_BANK_ACCOUNT_FORMAT_SELECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).
    *
-   * @param allowBankAccountFormatSelection
+   * @param allowBankAccountFormatSelection Default value: **false**  Indicates if the user can select the format for their payout account (if applicable).
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_BANK_ACCOUNT_FORMAT_SELECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,7 +180,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
    *
-   * @param allowDebugUi
+   * @param allowDebugUi Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings allowDebugUi(Boolean allowDebugUi) {
@@ -190,7 +190,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
-   * @return allowDebugUi
+   * @return allowDebugUi Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_DEBUG_UI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
    *
-   * @param allowDebugUi
+   * @param allowDebugUi Default value: **true**  Indicates whether the debug user interface (UI) is enabled. The debug UI provides information for your support staff to diagnose and resolve user issues during onboarding. It can be accessed using a keyboard shortcut.
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_DEBUG_UI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.
    *
-   * @param allowIntraRegionCrossBorderPayout
+   * @param allowIntraRegionCrossBorderPayout Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings allowIntraRegionCrossBorderPayout(Boolean allowIntraRegionCrossBorderPayout) {
@@ -222,7 +222,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.
-   * @return allowIntraRegionCrossBorderPayout
+   * @return allowIntraRegionCrossBorderPayout Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_INTRA_REGION_CROSS_BORDER_PAYOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.
    *
-   * @param allowIntraRegionCrossBorderPayout
+   * @param allowIntraRegionCrossBorderPayout Default value: **false**  Indicates if the user can select a payout account in a different EU/EEA location (including Switzerland and the UK) than the location of their legal entity.
    */
   @JsonProperty(JSON_PROPERTY_ALLOW_INTRA_REGION_CROSS_BORDER_PAYOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates if the user can change their legal entity type.
    *
-   * @param changeLegalEntityType
+   * @param changeLegalEntityType Default value: **true**  Indicates if the user can change their legal entity type.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings changeLegalEntityType(Boolean changeLegalEntityType) {
@@ -254,7 +254,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **true**  Indicates if the user can change their legal entity type.
-   * @return changeLegalEntityType
+   * @return changeLegalEntityType Default value: **true**  Indicates if the user can change their legal entity type.
    */
   @JsonProperty(JSON_PROPERTY_CHANGE_LEGAL_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates if the user can change their legal entity type.
    *
-   * @param changeLegalEntityType
+   * @param changeLegalEntityType Default value: **true**  Indicates if the user can change their legal entity type.
    */
   @JsonProperty(JSON_PROPERTY_CHANGE_LEGAL_ENTITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates if the user can change the country of their legal entity&#39;s address, for example the registered address of an organization.
    *
-   * @param editPrefilledCountry
+   * @param editPrefilledCountry Default value: **true**  Indicates if the user can change the country of their legal entity&#39;s address, for example the registered address of an organization.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings editPrefilledCountry(Boolean editPrefilledCountry) {
@@ -286,7 +286,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **true**  Indicates if the user can change the country of their legal entity&#39;s address, for example the registered address of an organization.
-   * @return editPrefilledCountry
+   * @return editPrefilledCountry Default value: **true**  Indicates if the user can change the country of their legal entity&#39;s address, for example the registered address of an organization.
    */
   @JsonProperty(JSON_PROPERTY_EDIT_PREFILLED_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +297,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates if the user can change the country of their legal entity&#39;s address, for example the registered address of an organization.
    *
-   * @param editPrefilledCountry
+   * @param editPrefilledCountry Default value: **true**  Indicates if the user can change the country of their legal entity&#39;s address, for example the registered address of an organization.
    */
   @JsonProperty(JSON_PROPERTY_EDIT_PREFILLED_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +308,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
    *
-   * @param enforceLegalAge
+   * @param enforceLegalAge Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings enforceLegalAge(Boolean enforceLegalAge) {
@@ -318,7 +318,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
-   * @return enforceLegalAge
+   * @return enforceLegalAge Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
    */
   @JsonProperty(JSON_PROPERTY_ENFORCE_LEGAL_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +329,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
    *
-   * @param enforceLegalAge
+   * @param enforceLegalAge Default value: **false**  Indicates if only users above the age of 18 can be onboarded.
    */
   @JsonProperty(JSON_PROPERTY_ENFORCE_LEGAL_AGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +340,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    *
-   * @param hideOnboardingIntroductionIndividual
+   * @param hideOnboardingIntroductionIndividual Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings hideOnboardingIntroductionIndividual(Boolean hideOnboardingIntroductionIndividual) {
@@ -350,7 +350,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
-   * @return hideOnboardingIntroductionIndividual
+   * @return hideOnboardingIntroductionIndividual Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    */
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -361,7 +361,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    *
-   * @param hideOnboardingIntroductionIndividual
+   * @param hideOnboardingIntroductionIndividual Default value: **true**  Indicates whether the introduction screen is hidden for the user of the individual legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    */
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,7 +372,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    *
-   * @param hideOnboardingIntroductionOrganization
+   * @param hideOnboardingIntroductionOrganization Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings hideOnboardingIntroductionOrganization(Boolean hideOnboardingIntroductionOrganization) {
@@ -382,7 +382,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
-   * @return hideOnboardingIntroductionOrganization
+   * @return hideOnboardingIntroductionOrganization Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    */
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -393,7 +393,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    *
-   * @param hideOnboardingIntroductionOrganization
+   * @param hideOnboardingIntroductionOrganization Default value: **true**  Indicates whether the introduction screen is hidden for the user of the organization legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    */
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_ORGANIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,7 +404,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    *
-   * @param hideOnboardingIntroductionSoleProprietor
+   * @param hideOnboardingIntroductionSoleProprietor Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings hideOnboardingIntroductionSoleProprietor(Boolean hideOnboardingIntroductionSoleProprietor) {
@@ -414,7 +414,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
-   * @return hideOnboardingIntroductionSoleProprietor
+   * @return hideOnboardingIntroductionSoleProprietor Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    */
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_SOLE_PROPRIETOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -425,7 +425,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    *
-   * @param hideOnboardingIntroductionSoleProprietor
+   * @param hideOnboardingIntroductionSoleProprietor Default value: **true**  Indicates whether the introduction screen is hidden for the user of the sole proprietorship legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    */
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_SOLE_PROPRIETOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -436,7 +436,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    *
-   * @param hideOnboardingIntroductionTrust
+   * @param hideOnboardingIntroductionTrust Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings hideOnboardingIntroductionTrust(Boolean hideOnboardingIntroductionTrust) {
@@ -446,7 +446,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
-   * @return hideOnboardingIntroductionTrust
+   * @return hideOnboardingIntroductionTrust Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    */
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -457,7 +457,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    *
-   * @param hideOnboardingIntroductionTrust
+   * @param hideOnboardingIntroductionTrust Default value: **true**  Indicates whether the introduction screen is hidden for the user of the trust legal entity type. The introduction screen provides brief instructions for the subsequent steps in the hosted onboarding process.
    */
   @JsonProperty(JSON_PROPERTY_HIDE_ONBOARDING_INTRODUCTION_TRUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -468,7 +468,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.
    *
-   * @param instantBankVerification
+   * @param instantBankVerification Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings instantBankVerification(Boolean instantBankVerification) {
@@ -478,7 +478,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.
-   * @return instantBankVerification
+   * @return instantBankVerification Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.
    */
   @JsonProperty(JSON_PROPERTY_INSTANT_BANK_VERIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -489,7 +489,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.
    *
-   * @param instantBankVerification
+   * @param instantBankVerification Default value: **true**  Indicates if the user can initiate the verification process through open banking providers, like Plaid or Tink.
    */
   @JsonProperty(JSON_PROPERTY_INSTANT_BANK_VERIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -500,7 +500,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.
    *
-   * @param requirePciSignEcomMoto
+   * @param requirePciSignEcomMoto Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings requirePciSignEcomMoto(Boolean requirePciSignEcomMoto) {
@@ -510,7 +510,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.
-   * @return requirePciSignEcomMoto
+   * @return requirePciSignEcomMoto Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOM_MOTO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -521,7 +521,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.
    *
-   * @param requirePciSignEcomMoto
+   * @param requirePciSignEcomMoto Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **ecomMoto** sales channel type.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOM_MOTO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -532,7 +532,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.
    *
-   * @param requirePciSignEcommerce
+   * @param requirePciSignEcommerce Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings requirePciSignEcommerce(Boolean requirePciSignEcommerce) {
@@ -542,7 +542,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.
-   * @return requirePciSignEcommerce
+   * @return requirePciSignEcommerce Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOMMERCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -553,7 +553,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.
    *
-   * @param requirePciSignEcommerce
+   * @param requirePciSignEcommerce Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **eCommerce** sales channel type.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_ECOMMERCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -564,7 +564,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.
    *
-   * @param requirePciSignPos
+   * @param requirePciSignPos Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings requirePciSignPos(Boolean requirePciSignPos) {
@@ -574,7 +574,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.
-   * @return requirePciSignPos
+   * @return requirePciSignPos Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_POS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -585,7 +585,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.
    *
-   * @param requirePciSignPos
+   * @param requirePciSignPos Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_POS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -596,7 +596,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.
    *
-   * @param requirePciSignPosMoto
+   * @param requirePciSignPosMoto Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings requirePciSignPosMoto(Boolean requirePciSignPosMoto) {
@@ -606,7 +606,7 @@ public class OnboardingLinkSettings {
 
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.
-   * @return requirePciSignPosMoto
+   * @return requirePciSignPosMoto Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_POS_MOTO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -617,7 +617,7 @@ public class OnboardingLinkSettings {
   /**
    * Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.
    *
-   * @param requirePciSignPosMoto
+   * @param requirePciSignPosMoto Default value: **false**  Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type.
    */
   @JsonProperty(JSON_PROPERTY_REQUIRE_PCI_SIGN_POS_MOTO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -628,7 +628,7 @@ public class OnboardingLinkSettings {
   /**
    * The maximum number of transfer instruments the user can create.
    *
-   * @param transferInstrumentLimit
+   * @param transferInstrumentLimit The maximum number of transfer instruments the user can create.
    * @return the current {@code OnboardingLinkSettings} instance, allowing for method chaining
    */
   public OnboardingLinkSettings transferInstrumentLimit(Integer transferInstrumentLimit) {
@@ -638,7 +638,7 @@ public class OnboardingLinkSettings {
 
   /**
    * The maximum number of transfer instruments the user can create.
-   * @return transferInstrumentLimit
+   * @return transferInstrumentLimit The maximum number of transfer instruments the user can create.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -649,7 +649,7 @@ public class OnboardingLinkSettings {
   /**
    * The maximum number of transfer instruments the user can create.
    *
-   * @param transferInstrumentLimit
+   * @param transferInstrumentLimit The maximum number of transfer instruments the user can create.
    */
   @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

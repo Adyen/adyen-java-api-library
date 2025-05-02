@@ -77,7 +77,7 @@ public class WebDataExemption {
   /**
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    *
-   * @param reason
+   * @param reason The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    * @return the current {@code WebDataExemption} instance, allowing for method chaining
    */
   public WebDataExemption reason(ReasonEnum reason) {
@@ -87,7 +87,7 @@ public class WebDataExemption {
 
   /**
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
-   * @return reason
+   * @return reason The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +98,7 @@ public class WebDataExemption {
   /**
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    *
-   * @param reason
+   * @param reason The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

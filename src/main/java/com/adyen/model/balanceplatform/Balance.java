@@ -58,7 +58,7 @@ public class Balance {
   /**
    * The balance available for use.
    *
-   * @param available
+   * @param available The balance available for use.
    * @return the current {@code Balance} instance, allowing for method chaining
    */
   public Balance available(Long available) {
@@ -68,7 +68,7 @@ public class Balance {
 
   /**
    * The balance available for use.
-   * @return available
+   * @return available The balance available for use.
    */
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class Balance {
   /**
    * The balance available for use.
    *
-   * @param available
+   * @param available The balance available for use.
    */
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,7 +90,7 @@ public class Balance {
   /**
    * The sum of the transactions that have already been settled.
    *
-   * @param balance
+   * @param balance The sum of the transactions that have already been settled.
    * @return the current {@code Balance} instance, allowing for method chaining
    */
   public Balance balance(Long balance) {
@@ -100,7 +100,7 @@ public class Balance {
 
   /**
    * The sum of the transactions that have already been settled.
-   * @return balance
+   * @return balance The sum of the transactions that have already been settled.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class Balance {
   /**
    * The sum of the transactions that have already been settled.
    *
-   * @param balance
+   * @param balance The sum of the transactions that have already been settled.
    */
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class Balance {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    * @return the current {@code Balance} instance, allowing for method chaining
    */
   public Balance currency(String currency) {
@@ -132,7 +132,7 @@ public class Balance {
 
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
-   * @return currency
+   * @return currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class Balance {
   /**
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    *
-   * @param currency
+   * @param currency The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,7 +154,7 @@ public class Balance {
   /**
    * The sum of the transactions that will be settled in the future.
    *
-   * @param pending
+   * @param pending The sum of the transactions that will be settled in the future.
    * @return the current {@code Balance} instance, allowing for method chaining
    */
   public Balance pending(Long pending) {
@@ -164,7 +164,7 @@ public class Balance {
 
   /**
    * The sum of the transactions that will be settled in the future.
-   * @return pending
+   * @return pending The sum of the transactions that will be settled in the future.
    */
   @JsonProperty(JSON_PROPERTY_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class Balance {
   /**
    * The sum of the transactions that will be settled in the future.
    *
-   * @param pending
+   * @param pending The sum of the transactions that will be settled in the future.
    */
   @JsonProperty(JSON_PROPERTY_PENDING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,7 +186,7 @@ public class Balance {
   /**
    * The balance currently held in reserve.
    *
-   * @param reserved
+   * @param reserved The balance currently held in reserve.
    * @return the current {@code Balance} instance, allowing for method chaining
    */
   public Balance reserved(Long reserved) {
@@ -196,7 +196,7 @@ public class Balance {
 
   /**
    * The balance currently held in reserve.
-   * @return reserved
+   * @return reserved The balance currently held in reserve.
    */
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class Balance {
   /**
    * The balance currently held in reserve.
    *
-   * @param reserved
+   * @param reserved The balance currently held in reserve.
    */
   @JsonProperty(JSON_PROPERTY_RESERVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

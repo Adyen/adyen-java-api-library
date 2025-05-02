@@ -47,7 +47,7 @@ public class RiskScoresRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    * @return the current {@code RiskScoresRestriction} instance, allowing for method chaining
    */
   public RiskScoresRestriction operation(String operation) {
@@ -57,7 +57,7 @@ public class RiskScoresRestriction {
 
   /**
    * Defines how the condition must be evaluated.
-   * @return operation
+   * @return operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -68,7 +68,7 @@ public class RiskScoresRestriction {
   /**
    * Defines how the condition must be evaluated.
    *
-   * @param operation
+   * @param operation Defines how the condition must be evaluated.
    */
   @JsonProperty(JSON_PROPERTY_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,7 +79,7 @@ public class RiskScoresRestriction {
   /**
    * value
    *
-   * @param value
+   * @param value 
    * @return the current {@code RiskScoresRestriction} instance, allowing for method chaining
    */
   public RiskScoresRestriction value(RiskScores value) {
@@ -89,7 +89,7 @@ public class RiskScoresRestriction {
 
   /**
    * Get value
-   * @return value
+   * @return value 
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +100,7 @@ public class RiskScoresRestriction {
   /**
    * value
    *
-   * @param value
+   * @param value 
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -98,7 +98,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
    *
-   * @param payPalCountryCode
+   * @param payPalCountryCode Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone payPalCountryCode(String payPalCountryCode) {
@@ -108,7 +108,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
-   * @return payPalCountryCode
+   * @return payPalCountryCode Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
    *
-   * @param payPalCountryCode
+   * @param payPalCountryCode Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s email.
    *
-   * @param payPalEmailId
+   * @param payPalEmailId Shopper&#39;s email.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone payPalEmailId(String payPalEmailId) {
@@ -140,7 +140,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Shopper&#39;s email.
-   * @return payPalEmailId
+   * @return payPalEmailId Shopper&#39;s email.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_EMAIL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s email.
    *
-   * @param payPalEmailId
+   * @param payPalEmailId Shopper&#39;s email.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_EMAIL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s first name.
    *
-   * @param payPalFirstName
+   * @param payPalFirstName Shopper&#39;s first name.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone payPalFirstName(String payPalFirstName) {
@@ -172,7 +172,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Shopper&#39;s first name.
-   * @return payPalFirstName
+   * @return payPalFirstName Shopper&#39;s first name.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s first name.
    *
-   * @param payPalFirstName
+   * @param payPalFirstName Shopper&#39;s first name.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s last name.
    *
-   * @param payPalLastName
+   * @param payPalLastName Shopper&#39;s last name.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone payPalLastName(String payPalLastName) {
@@ -204,7 +204,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Shopper&#39;s last name.
-   * @return payPalLastName
+   * @return payPalLastName Shopper&#39;s last name.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +215,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s last name.
    *
-   * @param payPalLastName
+   * @param payPalLastName Shopper&#39;s last name.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +226,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
    *
-   * @param payPalPayerId
+   * @param payPalPayerId Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone payPalPayerId(String payPalPayerId) {
@@ -236,7 +236,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
-   * @return payPalPayerId
+   * @return payPalPayerId Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PAYER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +247,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
    *
-   * @param payPalPayerId
+   * @param payPalPayerId Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PAYER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +258,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s phone number.
    *
-   * @param payPalPhone
+   * @param payPalPhone Shopper&#39;s phone number.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone payPalPhone(String payPalPhone) {
@@ -268,7 +268,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Shopper&#39;s phone number.
-   * @return payPalPhone
+   * @return payPalPhone Shopper&#39;s phone number.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,7 +279,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Shopper&#39;s phone number.
    *
-   * @param payPalPhone
+   * @param payPalPhone Shopper&#39;s phone number.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +290,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
    *
-   * @param payPalProtectionEligibility
+   * @param payPalProtectionEligibility Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone payPalProtectionEligibility(String payPalProtectionEligibility) {
@@ -300,7 +300,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
-   * @return payPalProtectionEligibility
+   * @return payPalProtectionEligibility Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PROTECTION_ELIGIBILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,7 +311,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
    *
-   * @param payPalProtectionEligibility
+   * @param payPalProtectionEligibility Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_PROTECTION_ELIGIBILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Unique transaction ID of the payment.
    *
-   * @param payPalTransactionId
+   * @param payPalTransactionId Unique transaction ID of the payment.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone payPalTransactionId(String payPalTransactionId) {
@@ -332,7 +332,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Unique transaction ID of the payment.
-   * @return payPalTransactionId
+   * @return payPalTransactionId Unique transaction ID of the payment.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -343,7 +343,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Unique transaction ID of the payment.
    *
-   * @param payPalTransactionId
+   * @param payPalTransactionId Unique transaction ID of the payment.
    */
   @JsonProperty(JSON_PROPERTY_PAY_PAL_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,7 +354,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Raw AVS result received from the acquirer, where available. Example: D
    *
-   * @param avsResultRaw
+   * @param avsResultRaw Raw AVS result received from the acquirer, where available. Example: D
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone avsResultRaw(String avsResultRaw) {
@@ -364,7 +364,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Raw AVS result received from the acquirer, where available. Example: D
-   * @return avsResultRaw
+   * @return avsResultRaw Raw AVS result received from the acquirer, where available. Example: D
    */
   @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -375,7 +375,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Raw AVS result received from the acquirer, where available. Example: D
    *
-   * @param avsResultRaw
+   * @param avsResultRaw Raw AVS result received from the acquirer, where available. Example: D
    */
   @JsonProperty(JSON_PROPERTY_AVS_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,7 +386,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
    *
-   * @param bin
+   * @param bin The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone bin(String bin) {
@@ -396,7 +396,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
-   * @return bin
+   * @return bin The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
    */
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,7 +407,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
    *
-   * @param bin
+   * @param bin The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/online-payments/tokenization).
    */
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -418,7 +418,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Raw CVC result received from the acquirer, where available. Example: 1
    *
-   * @param cvcResultRaw
+   * @param cvcResultRaw Raw CVC result received from the acquirer, where available. Example: 1
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone cvcResultRaw(String cvcResultRaw) {
@@ -428,7 +428,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Raw CVC result received from the acquirer, where available. Example: 1
-   * @return cvcResultRaw
+   * @return cvcResultRaw Raw CVC result received from the acquirer, where available. Example: 1
    */
   @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -439,7 +439,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Raw CVC result received from the acquirer, where available. Example: 1
    *
-   * @param cvcResultRaw
+   * @param cvcResultRaw Raw CVC result received from the acquirer, where available. Example: 1
    */
   @JsonProperty(JSON_PROPERTY_CVC_RESULT_RAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,7 +450,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Unique identifier or token for the shopper&#39;s card details.
    *
-   * @param riskToken
+   * @param riskToken Unique identifier or token for the shopper&#39;s card details.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone riskToken(String riskToken) {
@@ -460,7 +460,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Unique identifier or token for the shopper&#39;s card details.
-   * @return riskToken
+   * @return riskToken Unique identifier or token for the shopper&#39;s card details.
    */
   @JsonProperty(JSON_PROPERTY_RISK_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -471,7 +471,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Unique identifier or token for the shopper&#39;s card details.
    *
-   * @param riskToken
+   * @param riskToken Unique identifier or token for the shopper&#39;s card details.
    */
   @JsonProperty(JSON_PROPERTY_RISK_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -482,7 +482,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
    *
-   * @param threeDAuthenticated
+   * @param threeDAuthenticated A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone threeDAuthenticated(String threeDAuthenticated) {
@@ -492,7 +492,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
-   * @return threeDAuthenticated
+   * @return threeDAuthenticated A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -503,7 +503,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
    *
-   * @param threeDAuthenticated
+   * @param threeDAuthenticated A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_AUTHENTICATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,7 +514,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * A Boolean value indicating whether 3DS was offered for this payment. Example: true
    *
-   * @param threeDOffered
+   * @param threeDOffered A Boolean value indicating whether 3DS was offered for this payment. Example: true
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone threeDOffered(String threeDOffered) {
@@ -524,7 +524,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * A Boolean value indicating whether 3DS was offered for this payment. Example: true
-   * @return threeDOffered
+   * @return threeDOffered A Boolean value indicating whether 3DS was offered for this payment. Example: true
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -535,7 +535,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * A Boolean value indicating whether 3DS was offered for this payment. Example: true
    *
-   * @param threeDOffered
+   * @param threeDOffered A Boolean value indicating whether 3DS was offered for this payment. Example: true
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_OFFERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -546,7 +546,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Required for PayPal payments only. The only supported value is: **paypal**.
    *
-   * @param tokenDataType
+   * @param tokenDataType Required for PayPal payments only. The only supported value is: **paypal**.
    * @return the current {@code AdditionalDataRiskStandalone} instance, allowing for method chaining
    */
   public AdditionalDataRiskStandalone tokenDataType(String tokenDataType) {
@@ -556,7 +556,7 @@ public class AdditionalDataRiskStandalone {
 
   /**
    * Required for PayPal payments only. The only supported value is: **paypal**.
-   * @return tokenDataType
+   * @return tokenDataType Required for PayPal payments only. The only supported value is: **paypal**.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -567,7 +567,7 @@ public class AdditionalDataRiskStandalone {
   /**
    * Required for PayPal payments only. The only supported value is: **paypal**.
    *
-   * @param tokenDataType
+   * @param tokenDataType Required for PayPal payments only. The only supported value is: **paypal**.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

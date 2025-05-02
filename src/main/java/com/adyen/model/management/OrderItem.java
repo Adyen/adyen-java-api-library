@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -56,7 +54,7 @@ public class OrderItem {
   /**
    * The unique identifier of the product.
    *
-   * @param id
+   * @param id The unique identifier of the product.
    * @return the current {@code OrderItem} instance, allowing for method chaining
    */
   public OrderItem id(String id) {
@@ -66,9 +64,8 @@ public class OrderItem {
 
   /**
    * The unique identifier of the product.
-   * @return id
+   * @return id The unique identifier of the product.
    */
-  @ApiModelProperty(value = "The unique identifier of the product.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
@@ -78,8 +75,8 @@ public class OrderItem {
   /**
    * The unique identifier of the product.
    *
-   * @param id
-   */ 
+   * @param id The unique identifier of the product.
+   */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
@@ -89,7 +86,7 @@ public class OrderItem {
   /**
    * The number of installments for the specified product &#x60;id&#x60;.
    *
-   * @param installments
+   * @param installments The number of installments for the specified product &#x60;id&#x60;.
    * @return the current {@code OrderItem} instance, allowing for method chaining
    */
   public OrderItem installments(Long installments) {
@@ -99,9 +96,8 @@ public class OrderItem {
 
   /**
    * The number of installments for the specified product &#x60;id&#x60;.
-   * @return installments
+   * @return installments The number of installments for the specified product &#x60;id&#x60;.
    */
-  @ApiModelProperty(value = "The number of installments for the specified product `id`.")
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInstallments() {
@@ -111,8 +107,8 @@ public class OrderItem {
   /**
    * The number of installments for the specified product &#x60;id&#x60;.
    *
-   * @param installments
-   */ 
+   * @param installments The number of installments for the specified product &#x60;id&#x60;.
+   */
   @JsonProperty(JSON_PROPERTY_INSTALLMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstallments(Long installments) {
@@ -122,7 +118,7 @@ public class OrderItem {
   /**
    * The name of the product.
    *
-   * @param name
+   * @param name The name of the product.
    * @return the current {@code OrderItem} instance, allowing for method chaining
    */
   public OrderItem name(String name) {
@@ -132,9 +128,8 @@ public class OrderItem {
 
   /**
    * The name of the product.
-   * @return name
+   * @return name The name of the product.
    */
-  @ApiModelProperty(value = "The name of the product.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -144,8 +139,8 @@ public class OrderItem {
   /**
    * The name of the product.
    *
-   * @param name
-   */ 
+   * @param name The name of the product.
+   */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
@@ -155,7 +150,7 @@ public class OrderItem {
   /**
    * The number of items with the specified product &#x60;id&#x60; included in the order.
    *
-   * @param quantity
+   * @param quantity The number of items with the specified product &#x60;id&#x60; included in the order.
    * @return the current {@code OrderItem} instance, allowing for method chaining
    */
   public OrderItem quantity(Integer quantity) {
@@ -165,9 +160,8 @@ public class OrderItem {
 
   /**
    * The number of items with the specified product &#x60;id&#x60; included in the order.
-   * @return quantity
+   * @return quantity The number of items with the specified product &#x60;id&#x60; included in the order.
    */
-  @ApiModelProperty(value = "The number of items with the specified product `id` included in the order.")
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getQuantity() {
@@ -177,8 +171,8 @@ public class OrderItem {
   /**
    * The number of items with the specified product &#x60;id&#x60; included in the order.
    *
-   * @param quantity
-   */ 
+   * @param quantity The number of items with the specified product &#x60;id&#x60; included in the order.
+   */
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuantity(Integer quantity) {

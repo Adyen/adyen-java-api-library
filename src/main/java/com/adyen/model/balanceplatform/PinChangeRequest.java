@@ -54,7 +54,7 @@ public class PinChangeRequest {
   /**
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    *
-   * @param encryptedKey
+   * @param encryptedKey The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    * @return the current {@code PinChangeRequest} instance, allowing for method chaining
    */
   public PinChangeRequest encryptedKey(String encryptedKey) {
@@ -64,7 +64,7 @@ public class PinChangeRequest {
 
   /**
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
-   * @return encryptedKey
+   * @return encryptedKey The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,7 +75,7 @@ public class PinChangeRequest {
   /**
    * The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    *
-   * @param encryptedKey
+   * @param encryptedKey The symmetric session key that you encrypted with the [public key](https://docs.adyen.com/api-explorer/balanceplatform/2/get/publicKey) that you received from Adyen.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,7 +86,7 @@ public class PinChangeRequest {
   /**
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    *
-   * @param encryptedPinBlock
+   * @param encryptedPinBlock The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    * @return the current {@code PinChangeRequest} instance, allowing for method chaining
    */
   public PinChangeRequest encryptedPinBlock(String encryptedPinBlock) {
@@ -96,7 +96,7 @@ public class PinChangeRequest {
 
   /**
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
-   * @return encryptedPinBlock
+   * @return encryptedPinBlock The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,7 +107,7 @@ public class PinChangeRequest {
   /**
    * The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    *
-   * @param encryptedPinBlock
+   * @param encryptedPinBlock The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block).
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTED_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +118,7 @@ public class PinChangeRequest {
   /**
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    * @return the current {@code PinChangeRequest} instance, allowing for method chaining
    */
   public PinChangeRequest paymentInstrumentId(String paymentInstrumentId) {
@@ -128,7 +128,7 @@ public class PinChangeRequest {
 
   /**
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
-   * @return paymentInstrumentId
+   * @return paymentInstrumentId The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class PinChangeRequest {
   /**
    * The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    *
-   * @param paymentInstrumentId
+   * @param paymentInstrumentId The unique identifier of the payment instrument, which is the card for which you are managing the PIN.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,7 +150,7 @@ public class PinChangeRequest {
   /**
    * The 16-digit token that you used to generate the &#x60;encryptedPinBlock&#x60;.
    *
-   * @param token
+   * @param token The 16-digit token that you used to generate the &#x60;encryptedPinBlock&#x60;.
    * @return the current {@code PinChangeRequest} instance, allowing for method chaining
    */
   public PinChangeRequest token(String token) {
@@ -160,7 +160,7 @@ public class PinChangeRequest {
 
   /**
    * The 16-digit token that you used to generate the &#x60;encryptedPinBlock&#x60;.
-   * @return token
+   * @return token The 16-digit token that you used to generate the &#x60;encryptedPinBlock&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +171,7 @@ public class PinChangeRequest {
   /**
    * The 16-digit token that you used to generate the &#x60;encryptedPinBlock&#x60;.
    *
-   * @param token
+   * @param token The 16-digit token that you used to generate the &#x60;encryptedPinBlock&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

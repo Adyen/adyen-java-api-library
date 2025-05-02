@@ -42,7 +42,7 @@ public class EntityReference {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    * @return the current {@code EntityReference} instance, allowing for method chaining
    */
   public EntityReference id(String id) {
@@ -52,7 +52,7 @@ public class EntityReference {
 
   /**
    * The unique identifier of the resource.
-   * @return id
+   * @return id The unique identifier of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class EntityReference {
   /**
    * The unique identifier of the resource.
    *
-   * @param id
+   * @param id The unique identifier of the resource.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

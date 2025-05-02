@@ -43,7 +43,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class CapabilitySettings {
   public static final String JSON_PROPERTY_AMOUNT_PER_INDUSTRY = "amountPerIndustry";
-  private Map<String, Amount> amountPerIndustry = new HashMap<>();
+  private Map<String, Amount> amountPerIndustry;
 
   public static final String JSON_PROPERTY_AUTHORIZED_CARD_USERS = "authorizedCardUsers";
   private Boolean authorizedCardUsers;
@@ -86,7 +86,7 @@ public class CapabilitySettings {
   }
 
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
-  private List<FundingSourceEnum> fundingSource = new ArrayList<>();
+  private List<FundingSourceEnum> fundingSource;
 
   /**
    * The period when the rule conditions apply.
@@ -137,7 +137,7 @@ public class CapabilitySettings {
   /**
    * The maximum amount a card holder can spend per industry.
    *
-   * @param amountPerIndustry
+   * @param amountPerIndustry The maximum amount a card holder can spend per industry.
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings amountPerIndustry(Map<String, Amount> amountPerIndustry) {
@@ -155,7 +155,7 @@ public class CapabilitySettings {
 
   /**
    * The maximum amount a card holder can spend per industry.
-   * @return amountPerIndustry
+   * @return amountPerIndustry The maximum amount a card holder can spend per industry.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,7 +166,7 @@ public class CapabilitySettings {
   /**
    * The maximum amount a card holder can spend per industry.
    *
-   * @param amountPerIndustry
+   * @param amountPerIndustry The maximum amount a card holder can spend per industry.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_PER_INDUSTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class CapabilitySettings {
   /**
    * The number of card holders who can use the card.
    *
-   * @param authorizedCardUsers
+   * @param authorizedCardUsers The number of card holders who can use the card.
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings authorizedCardUsers(Boolean authorizedCardUsers) {
@@ -187,7 +187,7 @@ public class CapabilitySettings {
 
   /**
    * The number of card holders who can use the card.
-   * @return authorizedCardUsers
+   * @return authorizedCardUsers The number of card holders who can use the card.
    */
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +198,7 @@ public class CapabilitySettings {
   /**
    * The number of card holders who can use the card.
    *
-   * @param authorizedCardUsers
+   * @param authorizedCardUsers The number of card holders who can use the card.
    */
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_CARD_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +209,7 @@ public class CapabilitySettings {
   /**
    * The funding source of the card, for example **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source of the card, for example **debit**.
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings fundingSource(List<FundingSourceEnum> fundingSource) {
@@ -227,7 +227,7 @@ public class CapabilitySettings {
 
   /**
    * The funding source of the card, for example **debit**.
-   * @return fundingSource
+   * @return fundingSource The funding source of the card, for example **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,7 +238,7 @@ public class CapabilitySettings {
   /**
    * The funding source of the card, for example **debit**.
    *
-   * @param fundingSource
+   * @param fundingSource The funding source of the card, for example **debit**.
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -249,7 +249,7 @@ public class CapabilitySettings {
   /**
    * The period when the rule conditions apply.
    *
-   * @param interval
+   * @param interval The period when the rule conditions apply.
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings interval(IntervalEnum interval) {
@@ -259,7 +259,7 @@ public class CapabilitySettings {
 
   /**
    * The period when the rule conditions apply.
-   * @return interval
+   * @return interval The period when the rule conditions apply.
    */
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +270,7 @@ public class CapabilitySettings {
   /**
    * The period when the rule conditions apply.
    *
-   * @param interval
+   * @param interval The period when the rule conditions apply.
    */
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +281,7 @@ public class CapabilitySettings {
   /**
    * maxAmount
    *
-   * @param maxAmount
+   * @param maxAmount 
    * @return the current {@code CapabilitySettings} instance, allowing for method chaining
    */
   public CapabilitySettings maxAmount(Amount maxAmount) {
@@ -291,7 +291,7 @@ public class CapabilitySettings {
 
   /**
    * Get maxAmount
-   * @return maxAmount
+   * @return maxAmount 
    */
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,7 +302,7 @@ public class CapabilitySettings {
   /**
    * maxAmount
    *
-   * @param maxAmount
+   * @param maxAmount 
    */
   @JsonProperty(JSON_PROPERTY_MAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -81,7 +81,7 @@ public class AssociationInitiateRequest {
   /**
    * The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    *
-   * @param ids
+   * @param ids The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    * @return the current {@code AssociationInitiateRequest} instance, allowing for method chaining
    */
   public AssociationInitiateRequest ids(List<String> ids) {
@@ -99,7 +99,7 @@ public class AssociationInitiateRequest {
 
   /**
    * The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
-   * @return ids
+   * @return ids The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    */
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,7 +110,7 @@ public class AssociationInitiateRequest {
   /**
    * The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    *
-   * @param ids
+   * @param ids The list of unique identifiers of the resources that you are associating with the SCA device.  Maximum: 5 strings.
    */
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +121,7 @@ public class AssociationInitiateRequest {
   /**
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    *
-   * @param type
+   * @param type The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    * @return the current {@code AssociationInitiateRequest} instance, allowing for method chaining
    */
   public AssociationInitiateRequest type(TypeEnum type) {
@@ -131,7 +131,7 @@ public class AssociationInitiateRequest {
 
   /**
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
-   * @return type
+   * @return type The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,7 +142,7 @@ public class AssociationInitiateRequest {
   /**
    * The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    *
-   * @param type
+   * @param type The type of resource that you are associating with the SCA device.  Possible value: **PaymentInstrument**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

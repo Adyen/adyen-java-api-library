@@ -42,7 +42,7 @@ public class CalculatePciStatusResponse {
   /**
    * Indicates if the user is required to sign PCI questionnaires. If **false**, they do not need to sign any questionnaires.
    *
-   * @param signingRequired
+   * @param signingRequired Indicates if the user is required to sign PCI questionnaires. If **false**, they do not need to sign any questionnaires.
    * @return the current {@code CalculatePciStatusResponse} instance, allowing for method chaining
    */
   public CalculatePciStatusResponse signingRequired(Boolean signingRequired) {
@@ -52,7 +52,7 @@ public class CalculatePciStatusResponse {
 
   /**
    * Indicates if the user is required to sign PCI questionnaires. If **false**, they do not need to sign any questionnaires.
-   * @return signingRequired
+   * @return signingRequired Indicates if the user is required to sign PCI questionnaires. If **false**, they do not need to sign any questionnaires.
    */
   @JsonProperty(JSON_PROPERTY_SIGNING_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class CalculatePciStatusResponse {
   /**
    * Indicates if the user is required to sign PCI questionnaires. If **false**, they do not need to sign any questionnaires.
    *
-   * @param signingRequired
+   * @param signingRequired Indicates if the user is required to sign PCI questionnaires. If **false**, they do not need to sign any questionnaires.
    */
   @JsonProperty(JSON_PROPERTY_SIGNING_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

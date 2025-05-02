@@ -244,7 +244,7 @@ public class VerificationError {
   /**
    * Contains the capabilities that the verification error applies to.
    *
-   * @param capabilities
+   * @param capabilities Contains the capabilities that the verification error applies to.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError capabilities(List<CapabilitiesEnum> capabilities) {
@@ -262,7 +262,7 @@ public class VerificationError {
 
   /**
    * Contains the capabilities that the verification error applies to.
-   * @return capabilities
+   * @return capabilities Contains the capabilities that the verification error applies to.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +273,7 @@ public class VerificationError {
   /**
    * Contains the capabilities that the verification error applies to.
    *
-   * @param capabilities
+   * @param capabilities Contains the capabilities that the verification error applies to.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +284,7 @@ public class VerificationError {
   /**
    * The verification error code.
    *
-   * @param code
+   * @param code The verification error code.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError code(String code) {
@@ -294,7 +294,7 @@ public class VerificationError {
 
   /**
    * The verification error code.
-   * @return code
+   * @return code The verification error code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,7 +305,7 @@ public class VerificationError {
   /**
    * The verification error code.
    *
-   * @param code
+   * @param code The verification error code.
    */
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +316,7 @@ public class VerificationError {
   /**
    * A description of the error.
    *
-   * @param message
+   * @param message A description of the error.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError message(String message) {
@@ -326,7 +326,7 @@ public class VerificationError {
 
   /**
    * A description of the error.
-   * @return message
+   * @return message A description of the error.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,7 +337,7 @@ public class VerificationError {
   /**
    * A description of the error.
    *
-   * @param message
+   * @param message A description of the error.
    */
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -348,7 +348,7 @@ public class VerificationError {
   /**
    * Contains the actions that you can take to resolve the verification error.
    *
-   * @param remediatingActions
+   * @param remediatingActions Contains the actions that you can take to resolve the verification error.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError remediatingActions(List<RemediatingAction> remediatingActions) {
@@ -366,7 +366,7 @@ public class VerificationError {
 
   /**
    * Contains the actions that you can take to resolve the verification error.
-   * @return remediatingActions
+   * @return remediatingActions Contains the actions that you can take to resolve the verification error.
    */
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,7 +377,7 @@ public class VerificationError {
   /**
    * Contains the actions that you can take to resolve the verification error.
    *
-   * @param remediatingActions
+   * @param remediatingActions Contains the actions that you can take to resolve the verification error.
    */
   @JsonProperty(JSON_PROPERTY_REMEDIATING_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -388,7 +388,7 @@ public class VerificationError {
   /**
    * Contains more granular information about the verification error.
    *
-   * @param subErrors
+   * @param subErrors Contains more granular information about the verification error.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError subErrors(List<VerificationErrorRecursive> subErrors) {
@@ -406,7 +406,7 @@ public class VerificationError {
 
   /**
    * Contains more granular information about the verification error.
-   * @return subErrors
+   * @return subErrors Contains more granular information about the verification error.
    */
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -417,7 +417,7 @@ public class VerificationError {
   /**
    * Contains more granular information about the verification error.
    *
-   * @param subErrors
+   * @param subErrors Contains more granular information about the verification error.
    */
   @JsonProperty(JSON_PROPERTY_SUB_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -428,7 +428,7 @@ public class VerificationError {
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    *
-   * @param type
+   * @param type The type of error.   Possible values: **invalidInput**, **dataMissing**.
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError type(TypeEnum type) {
@@ -438,7 +438,7 @@ public class VerificationError {
 
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
-   * @return type
+   * @return type The type of error.   Possible values: **invalidInput**, **dataMissing**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -449,7 +449,7 @@ public class VerificationError {
   /**
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    *
-   * @param type
+   * @param type The type of error.   Possible values: **invalidInput**, **dataMissing**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

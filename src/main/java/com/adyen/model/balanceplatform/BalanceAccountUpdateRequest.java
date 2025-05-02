@@ -108,7 +108,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    *
-   * @param accountHolderId
+   * @param accountHolderId The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
    */
   public BalanceAccountUpdateRequest accountHolderId(String accountHolderId) {
@@ -118,7 +118,7 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
-   * @return accountHolderId
+   * @return accountHolderId The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +129,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    *
-   * @param accountHolderId
+   * @param accountHolderId The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,7 +140,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    *
-   * @param description
+   * @param description A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
    */
   public BalanceAccountUpdateRequest description(String description) {
@@ -150,7 +150,7 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
-   * @return description
+   * @return description A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    *
-   * @param description
+   * @param description A human-readable description of the balance account. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,7 +172,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    *
-   * @param metadata
+   * @param metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
    */
   public BalanceAccountUpdateRequest metadata(Map<String, String> metadata) {
@@ -190,7 +190,7 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
-   * @return metadata
+   * @return metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,7 +201,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    *
-   * @param metadata
+   * @param metadata A set of key and value pairs for general use. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
    */
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,7 +212,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * platformPaymentConfiguration
    *
-   * @param platformPaymentConfiguration
+   * @param platformPaymentConfiguration 
    * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
    */
   public BalanceAccountUpdateRequest platformPaymentConfiguration(PlatformPaymentConfiguration platformPaymentConfiguration) {
@@ -222,7 +222,7 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * Get platformPaymentConfiguration
-   * @return platformPaymentConfiguration
+   * @return platformPaymentConfiguration 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,7 +233,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * platformPaymentConfiguration
    *
-   * @param platformPaymentConfiguration
+   * @param platformPaymentConfiguration 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_PAYMENT_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,7 +244,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * Your reference to the balance account.
    *
-   * @param reference
+   * @param reference Your reference to the balance account.
    * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
    */
   public BalanceAccountUpdateRequest reference(String reference) {
@@ -254,7 +254,7 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * Your reference to the balance account.
-   * @return reference
+   * @return reference Your reference to the balance account.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,7 +265,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * Your reference to the balance account.
    *
-   * @param reference
+   * @param reference Your reference to the balance account.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,7 +276,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
    *
-   * @param status
+   * @param status The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
    * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
    */
   public BalanceAccountUpdateRequest status(StatusEnum status) {
@@ -286,7 +286,7 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
-   * @return status
+   * @return status The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +297,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
    *
-   * @param status
+   * @param status The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **closed**, **suspended**.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,7 +308,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    *
-   * @param timeZone
+   * @param timeZone The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
    */
   public BalanceAccountUpdateRequest timeZone(String timeZone) {
@@ -318,7 +318,7 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-   * @return timeZone
+   * @return timeZone The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -329,7 +329,7 @@ public class BalanceAccountUpdateRequest {
   /**
    * The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    *
-   * @param timeZone
+   * @param timeZone The time zone of the balance account. For example, **Europe/Amsterdam**. Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    */
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

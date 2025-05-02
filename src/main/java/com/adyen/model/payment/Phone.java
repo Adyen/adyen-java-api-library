@@ -46,7 +46,7 @@ public class Phone {
   /**
    * Country code. Length: 1–3 characters.
    *
-   * @param cc
+   * @param cc Country code. Length: 1–3 characters.
    * @return the current {@code Phone} instance, allowing for method chaining
    */
   public Phone cc(String cc) {
@@ -56,7 +56,7 @@ public class Phone {
 
   /**
    * Country code. Length: 1–3 characters.
-   * @return cc
+   * @return cc Country code. Length: 1–3 characters.
    */
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -67,7 +67,7 @@ public class Phone {
   /**
    * Country code. Length: 1–3 characters.
    *
-   * @param cc
+   * @param cc Country code. Length: 1–3 characters.
    */
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,7 +78,7 @@ public class Phone {
   /**
    * Subscriber number. Maximum length: 15 characters.
    *
-   * @param subscriber
+   * @param subscriber Subscriber number. Maximum length: 15 characters.
    * @return the current {@code Phone} instance, allowing for method chaining
    */
   public Phone subscriber(String subscriber) {
@@ -88,7 +88,7 @@ public class Phone {
 
   /**
    * Subscriber number. Maximum length: 15 characters.
-   * @return subscriber
+   * @return subscriber Subscriber number. Maximum length: 15 characters.
    */
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +99,7 @@ public class Phone {
   /**
    * Subscriber number. Maximum length: 15 characters.
    *
-   * @param subscriber
+   * @param subscriber Subscriber number. Maximum length: 15 characters.
    */
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

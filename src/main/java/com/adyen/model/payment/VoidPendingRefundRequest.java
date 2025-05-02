@@ -52,7 +52,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class VoidPendingRefundRequest {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
-  private Map<String, String> additionalData = new HashMap<>();
+  private Map<String, String> additionalData;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -76,7 +76,7 @@ public class VoidPendingRefundRequest {
   private String reference;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
-  private List<Split> splits = new ArrayList<>();
+  private List<Split> splits;
 
   public static final String JSON_PROPERTY_TENDER_REFERENCE = "tenderReference";
   private String tenderReference;
@@ -90,7 +90,7 @@ public class VoidPendingRefundRequest {
   /**
    * This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest additionalData(Map<String, String> additionalData) {
@@ -108,7 +108,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
-   * @return additionalData
+   * @return additionalData This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class VoidPendingRefundRequest {
   /**
    * This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    *
-   * @param additionalData
+   * @param additionalData This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class VoidPendingRefundRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest merchantAccount(String merchantAccount) {
@@ -140,7 +140,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * The merchant account that is used to process the payment.
-   * @return merchantAccount
+   * @return merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class VoidPendingRefundRequest {
   /**
    * The merchant account that is used to process the payment.
    *
-   * @param merchantAccount
+   * @param merchantAccount The merchant account that is used to process the payment.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class VoidPendingRefundRequest {
   /**
    * modificationAmount
    *
-   * @param modificationAmount
+   * @param modificationAmount 
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest modificationAmount(Amount modificationAmount) {
@@ -172,7 +172,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * Get modificationAmount
-   * @return modificationAmount
+   * @return modificationAmount 
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class VoidPendingRefundRequest {
   /**
    * modificationAmount
    *
-   * @param modificationAmount
+   * @param modificationAmount 
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,7 +194,7 @@ public class VoidPendingRefundRequest {
   /**
    * mpiData
    *
-   * @param mpiData
+   * @param mpiData 
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest mpiData(ThreeDSecureData mpiData) {
@@ -204,7 +204,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * Get mpiData
-   * @return mpiData
+   * @return mpiData 
    */
   @JsonProperty(JSON_PROPERTY_MPI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +215,7 @@ public class VoidPendingRefundRequest {
   /**
    * mpiData
    *
-   * @param mpiData
+   * @param mpiData 
    */
   @JsonProperty(JSON_PROPERTY_MPI_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,7 +226,7 @@ public class VoidPendingRefundRequest {
   /**
    * The original merchant reference to cancel.
    *
-   * @param originalMerchantReference
+   * @param originalMerchantReference The original merchant reference to cancel.
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest originalMerchantReference(String originalMerchantReference) {
@@ -236,7 +236,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * The original merchant reference to cancel.
-   * @return originalMerchantReference
+   * @return originalMerchantReference The original merchant reference to cancel.
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +247,7 @@ public class VoidPendingRefundRequest {
   /**
    * The original merchant reference to cancel.
    *
-   * @param originalMerchantReference
+   * @param originalMerchantReference The original merchant reference to cancel.
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +258,7 @@ public class VoidPendingRefundRequest {
   /**
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    *
-   * @param originalReference
+   * @param originalReference The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest originalReference(String originalReference) {
@@ -268,7 +268,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
-   * @return originalReference
+   * @return originalReference The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,7 +279,7 @@ public class VoidPendingRefundRequest {
   /**
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    *
-   * @param originalReference
+   * @param originalReference The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,7 +290,7 @@ public class VoidPendingRefundRequest {
   /**
    * platformChargebackLogic
    *
-   * @param platformChargebackLogic
+   * @param platformChargebackLogic 
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
@@ -300,7 +300,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * Get platformChargebackLogic
-   * @return platformChargebackLogic
+   * @return platformChargebackLogic 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,7 +311,7 @@ public class VoidPendingRefundRequest {
   /**
    * platformChargebackLogic
    *
-   * @param platformChargebackLogic
+   * @param platformChargebackLogic 
    */
   @JsonProperty(JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,7 +322,7 @@ public class VoidPendingRefundRequest {
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest reference(String reference) {
@@ -332,7 +332,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
-   * @return reference
+   * @return reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -343,7 +343,7 @@ public class VoidPendingRefundRequest {
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    *
-   * @param reference
+   * @param reference Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    */
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,7 +354,7 @@ public class VoidPendingRefundRequest {
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to split payments for [platforms](https://docs.adyen.com/platforms/automatic-split-configuration/).
    *
-   * @param splits
+   * @param splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to split payments for [platforms](https://docs.adyen.com/platforms/automatic-split-configuration/).
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest splits(List<Split> splits) {
@@ -372,7 +372,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to split payments for [platforms](https://docs.adyen.com/platforms/automatic-split-configuration/).
-   * @return splits
+   * @return splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to split payments for [platforms](https://docs.adyen.com/platforms/automatic-split-configuration/).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -383,7 +383,7 @@ public class VoidPendingRefundRequest {
   /**
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to split payments for [platforms](https://docs.adyen.com/platforms/automatic-split-configuration/).
    *
-   * @param splits
+   * @param splits An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to split payments for [platforms](https://docs.adyen.com/platforms/automatic-split-configuration/).
    */
   @JsonProperty(JSON_PROPERTY_SPLITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,7 +394,7 @@ public class VoidPendingRefundRequest {
   /**
    * The transaction reference provided by the PED. For point-of-sale integrations only.
    *
-   * @param tenderReference
+   * @param tenderReference The transaction reference provided by the PED. For point-of-sale integrations only.
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest tenderReference(String tenderReference) {
@@ -404,7 +404,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * The transaction reference provided by the PED. For point-of-sale integrations only.
-   * @return tenderReference
+   * @return tenderReference The transaction reference provided by the PED. For point-of-sale integrations only.
    */
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,7 +415,7 @@ public class VoidPendingRefundRequest {
   /**
    * The transaction reference provided by the PED. For point-of-sale integrations only.
    *
-   * @param tenderReference
+   * @param tenderReference The transaction reference provided by the PED. For point-of-sale integrations only.
    */
   @JsonProperty(JSON_PROPERTY_TENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,7 +426,7 @@ public class VoidPendingRefundRequest {
   /**
    * Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    *
-   * @param uniqueTerminalId
+   * @param uniqueTerminalId Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    * @return the current {@code VoidPendingRefundRequest} instance, allowing for method chaining
    */
   public VoidPendingRefundRequest uniqueTerminalId(String uniqueTerminalId) {
@@ -436,7 +436,7 @@ public class VoidPendingRefundRequest {
 
   /**
    * Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
-   * @return uniqueTerminalId
+   * @return uniqueTerminalId Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -447,7 +447,7 @@ public class VoidPendingRefundRequest {
   /**
    * Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    *
-   * @param uniqueTerminalId
+   * @param uniqueTerminalId Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    */
   @JsonProperty(JSON_PROPERTY_UNIQUE_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

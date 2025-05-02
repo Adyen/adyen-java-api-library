@@ -73,7 +73,7 @@ public class UnincorporatedPartnership {
   private String registrationNumber;
 
   public static final String JSON_PROPERTY_TAX_INFORMATION = "taxInformation";
-  private List<TaxInformation> taxInformation = new ArrayList<>();
+  private List<TaxInformation> taxInformation;
 
   /**
    * Type of Partnership.  Possible values: *  **limitedPartnership** *  **generalPartnership** *  **familyPartnership** *  **commercialPartnership** *  **publicPartnership** *  **otherPartnership** *  **gbr** *  **gmbh** *  **kgaa** *  **cv** *  **vof** *  **maatschap** *  **privateFundLimitedPartnership** *  **businessTrustEntity** *  **businessPartnership** *  **limitedLiabilityPartnership** *  **eg** *  **cooperative** *  **vos** *  **comunidadDeBienes** *  **herenciaYacente** *  **comunidadDePropietarios** *  **sep** *  **sca** *  **bt** *  **kkt** *  **scs** *  **snc**  
@@ -220,7 +220,7 @@ public class UnincorporatedPartnership {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
-   * @param countryOfGoverningLaw
+   * @param countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership countryOfGoverningLaw(String countryOfGoverningLaw) {
@@ -230,7 +230,7 @@ public class UnincorporatedPartnership {
 
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
-   * @return countryOfGoverningLaw
+   * @return countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +241,7 @@ public class UnincorporatedPartnership {
   /**
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    *
-   * @param countryOfGoverningLaw
+   * @param countryOfGoverningLaw The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    */
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,7 +252,7 @@ public class UnincorporatedPartnership {
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    *
-   * @param dateOfIncorporation
+   * @param dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership dateOfIncorporation(String dateOfIncorporation) {
@@ -262,7 +262,7 @@ public class UnincorporatedPartnership {
 
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
-   * @return dateOfIncorporation
+   * @return dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +273,7 @@ public class UnincorporatedPartnership {
   /**
    * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    *
-   * @param dateOfIncorporation
+   * @param dateOfIncorporation The date when the legal arrangement was incorporated in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +284,7 @@ public class UnincorporatedPartnership {
   /**
    * Short description about the Legal Arrangement.
    *
-   * @param description
+   * @param description Short description about the Legal Arrangement.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership description(String description) {
@@ -294,7 +294,7 @@ public class UnincorporatedPartnership {
 
   /**
    * Short description about the Legal Arrangement.
-   * @return description
+   * @return description Short description about the Legal Arrangement.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,7 +305,7 @@ public class UnincorporatedPartnership {
   /**
    * Short description about the Legal Arrangement.
    *
-   * @param description
+   * @param description Short description about the Legal Arrangement.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,7 +316,7 @@ public class UnincorporatedPartnership {
   /**
    * The registered name, if different from the &#x60;name&#x60;.
    *
-   * @param doingBusinessAs
+   * @param doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership doingBusinessAs(String doingBusinessAs) {
@@ -326,7 +326,7 @@ public class UnincorporatedPartnership {
 
   /**
    * The registered name, if different from the &#x60;name&#x60;.
-   * @return doingBusinessAs
+   * @return doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,7 +337,7 @@ public class UnincorporatedPartnership {
   /**
    * The registered name, if different from the &#x60;name&#x60;.
    *
-   * @param doingBusinessAs
+   * @param doingBusinessAs The registered name, if different from the &#x60;name&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_DOING_BUSINESS_AS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -348,7 +348,7 @@ public class UnincorporatedPartnership {
   /**
    * The legal name.
    *
-   * @param name
+   * @param name The legal name.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership name(String name) {
@@ -358,7 +358,7 @@ public class UnincorporatedPartnership {
 
   /**
    * The legal name.
-   * @return name
+   * @return name The legal name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -369,7 +369,7 @@ public class UnincorporatedPartnership {
   /**
    * The legal name.
    *
-   * @param name
+   * @param name The legal name.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,7 +380,7 @@ public class UnincorporatedPartnership {
   /**
    * principalPlaceOfBusiness
    *
-   * @param principalPlaceOfBusiness
+   * @param principalPlaceOfBusiness 
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership principalPlaceOfBusiness(Address principalPlaceOfBusiness) {
@@ -390,7 +390,7 @@ public class UnincorporatedPartnership {
 
   /**
    * Get principalPlaceOfBusiness
-   * @return principalPlaceOfBusiness
+   * @return principalPlaceOfBusiness 
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -401,7 +401,7 @@ public class UnincorporatedPartnership {
   /**
    * principalPlaceOfBusiness
    *
-   * @param principalPlaceOfBusiness
+   * @param principalPlaceOfBusiness 
    */
   @JsonProperty(JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -412,7 +412,7 @@ public class UnincorporatedPartnership {
   /**
    * registeredAddress
    *
-   * @param registeredAddress
+   * @param registeredAddress 
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership registeredAddress(Address registeredAddress) {
@@ -422,7 +422,7 @@ public class UnincorporatedPartnership {
 
   /**
    * Get registeredAddress
-   * @return registeredAddress
+   * @return registeredAddress 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,7 +433,7 @@ public class UnincorporatedPartnership {
   /**
    * registeredAddress
    *
-   * @param registeredAddress
+   * @param registeredAddress 
    */
   @JsonProperty(JSON_PROPERTY_REGISTERED_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -444,7 +444,7 @@ public class UnincorporatedPartnership {
   /**
    * The registration number.
    *
-   * @param registrationNumber
+   * @param registrationNumber The registration number.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership registrationNumber(String registrationNumber) {
@@ -454,7 +454,7 @@ public class UnincorporatedPartnership {
 
   /**
    * The registration number.
-   * @return registrationNumber
+   * @return registrationNumber The registration number.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -465,7 +465,7 @@ public class UnincorporatedPartnership {
   /**
    * The registration number.
    *
-   * @param registrationNumber
+   * @param registrationNumber The registration number.
    */
   @JsonProperty(JSON_PROPERTY_REGISTRATION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -476,7 +476,7 @@ public class UnincorporatedPartnership {
   /**
    * The tax information of the entity.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the entity.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership taxInformation(List<TaxInformation> taxInformation) {
@@ -494,7 +494,7 @@ public class UnincorporatedPartnership {
 
   /**
    * The tax information of the entity.
-   * @return taxInformation
+   * @return taxInformation The tax information of the entity.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -505,7 +505,7 @@ public class UnincorporatedPartnership {
   /**
    * The tax information of the entity.
    *
-   * @param taxInformation
+   * @param taxInformation The tax information of the entity.
    */
   @JsonProperty(JSON_PROPERTY_TAX_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -515,7 +515,7 @@ public class UnincorporatedPartnership {
 
   /**
    * Type of Partnership.  Possible values: *  **limitedPartnership** *  **generalPartnership** *  **familyPartnership** *  **commercialPartnership** *  **publicPartnership** *  **otherPartnership** *  **gbr** *  **gmbh** *  **kgaa** *  **cv** *  **vof** *  **maatschap** *  **privateFundLimitedPartnership** *  **businessTrustEntity** *  **businessPartnership** *  **limitedLiabilityPartnership** *  **eg** *  **cooperative** *  **vos** *  **comunidadDeBienes** *  **herenciaYacente** *  **comunidadDePropietarios** *  **sep** *  **sca** *  **bt** *  **kkt** *  **scs** *  **snc**  
-   * @return type
+   * @return type Type of Partnership.  Possible values: *  **limitedPartnership** *  **generalPartnership** *  **familyPartnership** *  **commercialPartnership** *  **publicPartnership** *  **otherPartnership** *  **gbr** *  **gmbh** *  **kgaa** *  **cv** *  **vof** *  **maatschap** *  **privateFundLimitedPartnership** *  **businessTrustEntity** *  **businessPartnership** *  **limitedLiabilityPartnership** *  **eg** *  **cooperative** *  **vos** *  **comunidadDeBienes** *  **herenciaYacente** *  **comunidadDePropietarios** *  **sep** *  **sca** *  **bt** *  **kkt** *  **scs** *  **snc**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -527,7 +527,7 @@ public class UnincorporatedPartnership {
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
-   * @param vatAbsenceReason
+   * @param vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership vatAbsenceReason(VatAbsenceReasonEnum vatAbsenceReason) {
@@ -537,7 +537,7 @@ public class UnincorporatedPartnership {
 
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
-   * @return vatAbsenceReason
+   * @return vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -548,7 +548,7 @@ public class UnincorporatedPartnership {
   /**
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    *
-   * @param vatAbsenceReason
+   * @param vatAbsenceReason The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    */
   @JsonProperty(JSON_PROPERTY_VAT_ABSENCE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -559,7 +559,7 @@ public class UnincorporatedPartnership {
   /**
    * The VAT number.
    *
-   * @param vatNumber
+   * @param vatNumber The VAT number.
    * @return the current {@code UnincorporatedPartnership} instance, allowing for method chaining
    */
   public UnincorporatedPartnership vatNumber(String vatNumber) {
@@ -569,7 +569,7 @@ public class UnincorporatedPartnership {
 
   /**
    * The VAT number.
-   * @return vatNumber
+   * @return vatNumber The VAT number.
    */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -580,7 +580,7 @@ public class UnincorporatedPartnership {
   /**
    * The VAT number.
    *
-   * @param vatNumber
+   * @param vatNumber The VAT number.
    */
   @JsonProperty(JSON_PROPERTY_VAT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -111,7 +111,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The unique identifier of the user that accepted the Terms of Service.
    *
-   * @param acceptedBy
+   * @param acceptedBy The unique identifier of the user that accepted the Terms of Service.
    * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
    */
   public AcceptTermsOfServiceResponse acceptedBy(String acceptedBy) {
@@ -121,7 +121,7 @@ public class AcceptTermsOfServiceResponse {
 
   /**
    * The unique identifier of the user that accepted the Terms of Service.
-   * @return acceptedBy
+   * @return acceptedBy The unique identifier of the user that accepted the Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,7 +132,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The unique identifier of the user that accepted the Terms of Service.
    *
-   * @param acceptedBy
+   * @param acceptedBy The unique identifier of the user that accepted the Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_ACCEPTED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The unique identifier of the Terms of Service acceptance.
    *
-   * @param id
+   * @param id The unique identifier of the Terms of Service acceptance.
    * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
    */
   public AcceptTermsOfServiceResponse id(String id) {
@@ -153,7 +153,7 @@ public class AcceptTermsOfServiceResponse {
 
   /**
    * The unique identifier of the Terms of Service acceptance.
-   * @return id
+   * @return id The unique identifier of the Terms of Service acceptance.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +164,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The unique identifier of the Terms of Service acceptance.
    *
-   * @param id
+   * @param id The unique identifier of the Terms of Service acceptance.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,7 +175,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The IP address of the user that accepted the Terms of Service.
    *
-   * @param ipAddress
+   * @param ipAddress The IP address of the user that accepted the Terms of Service.
    * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
    */
   public AcceptTermsOfServiceResponse ipAddress(String ipAddress) {
@@ -185,7 +185,7 @@ public class AcceptTermsOfServiceResponse {
 
   /**
    * The IP address of the user that accepted the Terms of Service.
-   * @return ipAddress
+   * @return ipAddress The IP address of the user that accepted the Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,7 +196,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The IP address of the user that accepted the Terms of Service.
    *
-   * @param ipAddress
+   * @param ipAddress The IP address of the user that accepted the Terms of Service.
    */
   @JsonProperty(JSON_PROPERTY_IP_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,7 +207,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    *
-   * @param language
+   * @param language The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
    */
   public AcceptTermsOfServiceResponse language(String language) {
@@ -217,7 +217,7 @@ public class AcceptTermsOfServiceResponse {
 
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
-   * @return language
+   * @return language The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,7 +228,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    *
-   * @param language
+   * @param language The language used for the Terms of Service document, specified by the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value: **en** for English.
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,7 +239,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The unique identifier of the Terms of Service document.
    *
-   * @param termsOfServiceDocumentId
+   * @param termsOfServiceDocumentId The unique identifier of the Terms of Service document.
    * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
    */
   public AcceptTermsOfServiceResponse termsOfServiceDocumentId(String termsOfServiceDocumentId) {
@@ -249,7 +249,7 @@ public class AcceptTermsOfServiceResponse {
 
   /**
    * The unique identifier of the Terms of Service document.
-   * @return termsOfServiceDocumentId
+   * @return termsOfServiceDocumentId The unique identifier of the Terms of Service document.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +260,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The unique identifier of the Terms of Service document.
    *
-   * @param termsOfServiceDocumentId
+   * @param termsOfServiceDocumentId The unique identifier of the Terms of Service document.
    */
   @JsonProperty(JSON_PROPERTY_TERMS_OF_SERVICE_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,7 +271,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
-   * @param type
+   * @param type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    * @return the current {@code AcceptTermsOfServiceResponse} instance, allowing for method chaining
    */
   public AcceptTermsOfServiceResponse type(TypeEnum type) {
@@ -281,7 +281,7 @@ public class AcceptTermsOfServiceResponse {
 
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
-   * @return type
+   * @return type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,7 +292,7 @@ public class AcceptTermsOfServiceResponse {
   /**
    * The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    *
-   * @param type
+   * @param type The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard**  
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -64,7 +64,7 @@ public class TransferEvent {
   private Amount amount;
 
   public static final String JSON_PROPERTY_AMOUNT_ADJUSTMENTS = "amountAdjustments";
-  private List<AmountAdjustment> amountAdjustments = new ArrayList<>();
+  private List<AmountAdjustment> amountAdjustments;
 
   public static final String JSON_PROPERTY_ARN = "arn";
   private String arn;
@@ -76,7 +76,7 @@ public class TransferEvent {
   private OffsetDateTime estimatedArrivalTime;
 
   public static final String JSON_PROPERTY_EVENTS_DATA = "eventsData";
-  private List<TransferEventEventsDataInner> eventsData = new ArrayList<>();
+  private List<TransferEventEventsDataInner> eventsData;
 
   public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
   private ExternalReason externalReason;
@@ -88,7 +88,7 @@ public class TransferEvent {
   private Modification modification;
 
   public static final String JSON_PROPERTY_MUTATIONS = "mutations";
-  private List<BalanceMutation> mutations = new ArrayList<>();
+  private List<BalanceMutation> mutations;
 
   public static final String JSON_PROPERTY_ORIGINAL_AMOUNT = "originalAmount";
   private Amount originalAmount;
@@ -399,7 +399,7 @@ public class TransferEvent {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent amount(Amount amount) {
@@ -409,7 +409,7 @@ public class TransferEvent {
 
   /**
    * Get amount
-   * @return amount
+   * @return amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -420,7 +420,7 @@ public class TransferEvent {
   /**
    * amount
    *
-   * @param amount
+   * @param amount 
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -431,7 +431,7 @@ public class TransferEvent {
   /**
    * The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    *
-   * @param amountAdjustments
+   * @param amountAdjustments The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent amountAdjustments(List<AmountAdjustment> amountAdjustments) {
@@ -449,7 +449,7 @@ public class TransferEvent {
 
   /**
    * The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
-   * @return amountAdjustments
+   * @return amountAdjustments The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -460,7 +460,7 @@ public class TransferEvent {
   /**
    * The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    *
-   * @param amountAdjustments
+   * @param amountAdjustments The amount adjustments in this transfer. Only applicable for [issuing](https://docs.adyen.com/issuing/) integrations.
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -471,7 +471,7 @@ public class TransferEvent {
   /**
    * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
    *
-   * @param arn
+   * @param arn Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent arn(String arn) {
@@ -481,7 +481,7 @@ public class TransferEvent {
 
   /**
    * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
-   * @return arn
+   * @return arn Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
    */
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -492,7 +492,7 @@ public class TransferEvent {
   /**
    * Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
    *
-   * @param arn
+   * @param arn Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc.
    */
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -503,7 +503,7 @@ public class TransferEvent {
   /**
    * The date when the transfer request was sent.
    *
-   * @param bookingDate
+   * @param bookingDate The date when the transfer request was sent.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent bookingDate(OffsetDateTime bookingDate) {
@@ -513,7 +513,7 @@ public class TransferEvent {
 
   /**
    * The date when the transfer request was sent.
-   * @return bookingDate
+   * @return bookingDate The date when the transfer request was sent.
    */
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -524,7 +524,7 @@ public class TransferEvent {
   /**
    * The date when the transfer request was sent.
    *
-   * @param bookingDate
+   * @param bookingDate The date when the transfer request was sent.
    */
   @JsonProperty(JSON_PROPERTY_BOOKING_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -535,7 +535,7 @@ public class TransferEvent {
   /**
    * The estimated time when the beneficiary should have access to the funds.
    *
-   * @param estimatedArrivalTime
+   * @param estimatedArrivalTime The estimated time when the beneficiary should have access to the funds.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent estimatedArrivalTime(OffsetDateTime estimatedArrivalTime) {
@@ -545,7 +545,7 @@ public class TransferEvent {
 
   /**
    * The estimated time when the beneficiary should have access to the funds.
-   * @return estimatedArrivalTime
+   * @return estimatedArrivalTime The estimated time when the beneficiary should have access to the funds.
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -556,7 +556,7 @@ public class TransferEvent {
   /**
    * The estimated time when the beneficiary should have access to the funds.
    *
-   * @param estimatedArrivalTime
+   * @param estimatedArrivalTime The estimated time when the beneficiary should have access to the funds.
    */
   @JsonProperty(JSON_PROPERTY_ESTIMATED_ARRIVAL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -567,7 +567,7 @@ public class TransferEvent {
   /**
    * A list of event data.
    *
-   * @param eventsData
+   * @param eventsData A list of event data.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent eventsData(List<TransferEventEventsDataInner> eventsData) {
@@ -585,7 +585,7 @@ public class TransferEvent {
 
   /**
    * A list of event data.
-   * @return eventsData
+   * @return eventsData A list of event data.
    */
   @JsonProperty(JSON_PROPERTY_EVENTS_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -596,7 +596,7 @@ public class TransferEvent {
   /**
    * A list of event data.
    *
-   * @param eventsData
+   * @param eventsData A list of event data.
    */
   @JsonProperty(JSON_PROPERTY_EVENTS_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -607,7 +607,7 @@ public class TransferEvent {
   /**
    * externalReason
    *
-   * @param externalReason
+   * @param externalReason 
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent externalReason(ExternalReason externalReason) {
@@ -617,7 +617,7 @@ public class TransferEvent {
 
   /**
    * Get externalReason
-   * @return externalReason
+   * @return externalReason 
    */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -628,7 +628,7 @@ public class TransferEvent {
   /**
    * externalReason
    *
-   * @param externalReason
+   * @param externalReason 
    */
   @JsonProperty(JSON_PROPERTY_EXTERNAL_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -639,7 +639,7 @@ public class TransferEvent {
   /**
    * The unique identifier of the transfer event.
    *
-   * @param id
+   * @param id The unique identifier of the transfer event.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent id(String id) {
@@ -649,7 +649,7 @@ public class TransferEvent {
 
   /**
    * The unique identifier of the transfer event.
-   * @return id
+   * @return id The unique identifier of the transfer event.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -660,7 +660,7 @@ public class TransferEvent {
   /**
    * The unique identifier of the transfer event.
    *
-   * @param id
+   * @param id The unique identifier of the transfer event.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -671,7 +671,7 @@ public class TransferEvent {
   /**
    * modification
    *
-   * @param modification
+   * @param modification 
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent modification(Modification modification) {
@@ -681,7 +681,7 @@ public class TransferEvent {
 
   /**
    * Get modification
-   * @return modification
+   * @return modification 
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -692,7 +692,7 @@ public class TransferEvent {
   /**
    * modification
    *
-   * @param modification
+   * @param modification 
    */
   @JsonProperty(JSON_PROPERTY_MODIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -703,7 +703,7 @@ public class TransferEvent {
   /**
    * The list of balance mutations per event.
    *
-   * @param mutations
+   * @param mutations The list of balance mutations per event.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent mutations(List<BalanceMutation> mutations) {
@@ -721,7 +721,7 @@ public class TransferEvent {
 
   /**
    * The list of balance mutations per event.
-   * @return mutations
+   * @return mutations The list of balance mutations per event.
    */
   @JsonProperty(JSON_PROPERTY_MUTATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -732,7 +732,7 @@ public class TransferEvent {
   /**
    * The list of balance mutations per event.
    *
-   * @param mutations
+   * @param mutations The list of balance mutations per event.
    */
   @JsonProperty(JSON_PROPERTY_MUTATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -743,7 +743,7 @@ public class TransferEvent {
   /**
    * originalAmount
    *
-   * @param originalAmount
+   * @param originalAmount 
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent originalAmount(Amount originalAmount) {
@@ -753,7 +753,7 @@ public class TransferEvent {
 
   /**
    * Get originalAmount
-   * @return originalAmount
+   * @return originalAmount 
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -764,7 +764,7 @@ public class TransferEvent {
   /**
    * originalAmount
    *
-   * @param originalAmount
+   * @param originalAmount 
    */
   @JsonProperty(JSON_PROPERTY_ORIGINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -775,7 +775,7 @@ public class TransferEvent {
   /**
    * The reason for the transfer status.
    *
-   * @param reason
+   * @param reason The reason for the transfer status.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent reason(ReasonEnum reason) {
@@ -785,7 +785,7 @@ public class TransferEvent {
 
   /**
    * The reason for the transfer status.
-   * @return reason
+   * @return reason The reason for the transfer status.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -796,7 +796,7 @@ public class TransferEvent {
   /**
    * The reason for the transfer status.
    *
-   * @param reason
+   * @param reason The reason for the transfer status.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -807,7 +807,7 @@ public class TransferEvent {
   /**
    * The status of the transfer event.
    *
-   * @param status
+   * @param status The status of the transfer event.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent status(StatusEnum status) {
@@ -817,7 +817,7 @@ public class TransferEvent {
 
   /**
    * The status of the transfer event.
-   * @return status
+   * @return status The status of the transfer event.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -828,7 +828,7 @@ public class TransferEvent {
   /**
    * The status of the transfer event.
    *
-   * @param status
+   * @param status The status of the transfer event.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -839,7 +839,7 @@ public class TransferEvent {
   /**
    * trackingData
    *
-   * @param trackingData
+   * @param trackingData 
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent trackingData(TransferEventTrackingData trackingData) {
@@ -849,7 +849,7 @@ public class TransferEvent {
 
   /**
    * Get trackingData
-   * @return trackingData
+   * @return trackingData 
    */
   @JsonProperty(JSON_PROPERTY_TRACKING_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -860,7 +860,7 @@ public class TransferEvent {
   /**
    * trackingData
    *
-   * @param trackingData
+   * @param trackingData 
    */
   @JsonProperty(JSON_PROPERTY_TRACKING_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -871,7 +871,7 @@ public class TransferEvent {
   /**
    * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
    *
-   * @param transactionId
+   * @param transactionId The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent transactionId(String transactionId) {
@@ -881,7 +881,7 @@ public class TransferEvent {
 
   /**
    * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
-   * @return transactionId
+   * @return transactionId The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -892,7 +892,7 @@ public class TransferEvent {
   /**
    * The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
    *
-   * @param transactionId
+   * @param transactionId The id of the transaction that is related to this accounting event. Only sent for events of type **accounting** where the balance changes.
    */
   @JsonProperty(JSON_PROPERTY_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -903,7 +903,7 @@ public class TransferEvent {
   /**
    * The type of the transfer event. Possible values: **accounting**, **tracking**.
    *
-   * @param type
+   * @param type The type of the transfer event. Possible values: **accounting**, **tracking**.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent type(TypeEnum type) {
@@ -913,7 +913,7 @@ public class TransferEvent {
 
   /**
    * The type of the transfer event. Possible values: **accounting**, **tracking**.
-   * @return type
+   * @return type The type of the transfer event. Possible values: **accounting**, **tracking**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -924,7 +924,7 @@ public class TransferEvent {
   /**
    * The type of the transfer event. Possible values: **accounting**, **tracking**.
    *
-   * @param type
+   * @param type The type of the transfer event. Possible values: **accounting**, **tracking**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -935,7 +935,7 @@ public class TransferEvent {
   /**
    * The date when the tracking status was updated.
    *
-   * @param updateDate
+   * @param updateDate The date when the tracking status was updated.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent updateDate(OffsetDateTime updateDate) {
@@ -945,7 +945,7 @@ public class TransferEvent {
 
   /**
    * The date when the tracking status was updated.
-   * @return updateDate
+   * @return updateDate The date when the tracking status was updated.
    */
   @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -956,7 +956,7 @@ public class TransferEvent {
   /**
    * The date when the tracking status was updated.
    *
-   * @param updateDate
+   * @param updateDate The date when the tracking status was updated.
    */
   @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -967,7 +967,7 @@ public class TransferEvent {
   /**
    * The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    *
-   * @param valueDate
+   * @param valueDate The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    * @return the current {@code TransferEvent} instance, allowing for method chaining
    */
   public TransferEvent valueDate(OffsetDateTime valueDate) {
@@ -977,7 +977,7 @@ public class TransferEvent {
 
   /**
    * The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
-   * @return valueDate
+   * @return valueDate The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    */
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -988,7 +988,7 @@ public class TransferEvent {
   /**
    * The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    *
-   * @param valueDate
+   * @param valueDate The date when the funds are expected to be deducted from or credited to the balance account. This date can be in either the past or future.
    */
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

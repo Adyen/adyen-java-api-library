@@ -83,7 +83,7 @@ public class UKLocalAccountIdentification {
   /**
    * The 8-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 8-digit bank account number, without separators or whitespace.
    * @return the current {@code UKLocalAccountIdentification} instance, allowing for method chaining
    */
   public UKLocalAccountIdentification accountNumber(String accountNumber) {
@@ -93,7 +93,7 @@ public class UKLocalAccountIdentification {
 
   /**
    * The 8-digit bank account number, without separators or whitespace.
-   * @return accountNumber
+   * @return accountNumber The 8-digit bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class UKLocalAccountIdentification {
   /**
    * The 8-digit bank account number, without separators or whitespace.
    *
-   * @param accountNumber
+   * @param accountNumber The 8-digit bank account number, without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class UKLocalAccountIdentification {
   /**
    * The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    *
-   * @param sortCode
+   * @param sortCode The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    * @return the current {@code UKLocalAccountIdentification} instance, allowing for method chaining
    */
   public UKLocalAccountIdentification sortCode(String sortCode) {
@@ -125,7 +125,7 @@ public class UKLocalAccountIdentification {
 
   /**
    * The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
-   * @return sortCode
+   * @return sortCode The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class UKLocalAccountIdentification {
   /**
    * The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    *
-   * @param sortCode
+   * @param sortCode The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.
    */
   @JsonProperty(JSON_PROPERTY_SORT_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,7 +147,7 @@ public class UKLocalAccountIdentification {
   /**
    * **ukLocal**
    *
-   * @param type
+   * @param type **ukLocal**
    * @return the current {@code UKLocalAccountIdentification} instance, allowing for method chaining
    */
   public UKLocalAccountIdentification type(TypeEnum type) {
@@ -157,7 +157,7 @@ public class UKLocalAccountIdentification {
 
   /**
    * **ukLocal**
-   * @return type
+   * @return type **ukLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,7 +168,7 @@ public class UKLocalAccountIdentification {
   /**
    * **ukLocal**
    *
-   * @param type
+   * @param type **ukLocal**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

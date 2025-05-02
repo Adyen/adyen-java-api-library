@@ -58,7 +58,7 @@ public class SearchRegisteredDevicesResponse {
   /**
    * Contains a list of registered SCA devices and their corresponding details.
    *
-   * @param data
+   * @param data Contains a list of registered SCA devices and their corresponding details.
    * @return the current {@code SearchRegisteredDevicesResponse} instance, allowing for method chaining
    */
   public SearchRegisteredDevicesResponse data(List<Device> data) {
@@ -76,7 +76,7 @@ public class SearchRegisteredDevicesResponse {
 
   /**
    * Contains a list of registered SCA devices and their corresponding details.
-   * @return data
+   * @return data Contains a list of registered SCA devices and their corresponding details.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,7 +87,7 @@ public class SearchRegisteredDevicesResponse {
   /**
    * Contains a list of registered SCA devices and their corresponding details.
    *
-   * @param data
+   * @param data Contains a list of registered SCA devices and their corresponding details.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,7 +98,7 @@ public class SearchRegisteredDevicesResponse {
   /**
    * The total amount of registered SCA devices that match the query parameters.
    *
-   * @param itemsTotal
+   * @param itemsTotal The total amount of registered SCA devices that match the query parameters.
    * @return the current {@code SearchRegisteredDevicesResponse} instance, allowing for method chaining
    */
   public SearchRegisteredDevicesResponse itemsTotal(Integer itemsTotal) {
@@ -108,7 +108,7 @@ public class SearchRegisteredDevicesResponse {
 
   /**
    * The total amount of registered SCA devices that match the query parameters.
-   * @return itemsTotal
+   * @return itemsTotal The total amount of registered SCA devices that match the query parameters.
    */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,7 +119,7 @@ public class SearchRegisteredDevicesResponse {
   /**
    * The total amount of registered SCA devices that match the query parameters.
    *
-   * @param itemsTotal
+   * @param itemsTotal The total amount of registered SCA devices that match the query parameters.
    */
   @JsonProperty(JSON_PROPERTY_ITEMS_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +130,7 @@ public class SearchRegisteredDevicesResponse {
   /**
    * link
    *
-   * @param link
+   * @param link 
    * @return the current {@code SearchRegisteredDevicesResponse} instance, allowing for method chaining
    */
   public SearchRegisteredDevicesResponse link(Link link) {
@@ -140,7 +140,7 @@ public class SearchRegisteredDevicesResponse {
 
   /**
    * Get link
-   * @return link
+   * @return link 
    */
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class SearchRegisteredDevicesResponse {
   /**
    * link
    *
-   * @param link
+   * @param link 
    */
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,7 +162,7 @@ public class SearchRegisteredDevicesResponse {
   /**
    * The total amount of list pages.
    *
-   * @param pagesTotal
+   * @param pagesTotal The total amount of list pages.
    * @return the current {@code SearchRegisteredDevicesResponse} instance, allowing for method chaining
    */
   public SearchRegisteredDevicesResponse pagesTotal(Integer pagesTotal) {
@@ -172,7 +172,7 @@ public class SearchRegisteredDevicesResponse {
 
   /**
    * The total amount of list pages.
-   * @return pagesTotal
+   * @return pagesTotal The total amount of list pages.
    */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,7 +183,7 @@ public class SearchRegisteredDevicesResponse {
   /**
    * The total amount of list pages.
    *
-   * @param pagesTotal
+   * @param pagesTotal The total amount of list pages.
    */
   @JsonProperty(JSON_PROPERTY_PAGES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -51,7 +51,7 @@ public class PciDocumentInfo {
   /**
    * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    *
-   * @param createdAt
+   * @param createdAt The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    * @return the current {@code PciDocumentInfo} instance, allowing for method chaining
    */
   public PciDocumentInfo createdAt(OffsetDateTime createdAt) {
@@ -61,7 +61,7 @@ public class PciDocumentInfo {
 
   /**
    * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
-   * @return createdAt
+   * @return createdAt The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -72,7 +72,7 @@ public class PciDocumentInfo {
   /**
    * The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    *
-   * @param createdAt
+   * @param createdAt The date the questionnaire was created, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    */
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,7 +83,7 @@ public class PciDocumentInfo {
   /**
    * The unique identifier of the signed questionnaire.
    *
-   * @param id
+   * @param id The unique identifier of the signed questionnaire.
    * @return the current {@code PciDocumentInfo} instance, allowing for method chaining
    */
   public PciDocumentInfo id(String id) {
@@ -93,7 +93,7 @@ public class PciDocumentInfo {
 
   /**
    * The unique identifier of the signed questionnaire.
-   * @return id
+   * @return id The unique identifier of the signed questionnaire.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,7 +104,7 @@ public class PciDocumentInfo {
   /**
    * The unique identifier of the signed questionnaire.
    *
-   * @param id
+   * @param id The unique identifier of the signed questionnaire.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,7 +115,7 @@ public class PciDocumentInfo {
   /**
    * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    *
-   * @param validUntil
+   * @param validUntil The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    * @return the current {@code PciDocumentInfo} instance, allowing for method chaining
    */
   public PciDocumentInfo validUntil(OffsetDateTime validUntil) {
@@ -125,7 +125,7 @@ public class PciDocumentInfo {
 
   /**
    * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
-   * @return validUntil
+   * @return validUntil The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    */
   @JsonProperty(JSON_PROPERTY_VALID_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,7 +136,7 @@ public class PciDocumentInfo {
   /**
    * The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    *
-   * @param validUntil
+   * @param validUntil The expiration date of the questionnaire, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00
    */
   @JsonProperty(JSON_PROPERTY_VALID_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

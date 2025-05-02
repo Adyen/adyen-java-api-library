@@ -42,7 +42,7 @@ public class FindTransfersResponse {
   private Links links;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<TransferData> data = new ArrayList<>();
+  private List<TransferData> data;
 
   public FindTransfersResponse() { 
   }
@@ -50,7 +50,7 @@ public class FindTransfersResponse {
   /**
    * links
    *
-   * @param links
+   * @param links 
    * @return the current {@code FindTransfersResponse} instance, allowing for method chaining
    */
   public FindTransfersResponse links(Links links) {
@@ -60,7 +60,7 @@ public class FindTransfersResponse {
 
   /**
    * Get links
-   * @return links
+   * @return links 
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +71,7 @@ public class FindTransfersResponse {
   /**
    * links
    *
-   * @param links
+   * @param links 
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -82,7 +82,7 @@ public class FindTransfersResponse {
   /**
    * Contains the transfers that match the query parameters.
    *
-   * @param data
+   * @param data Contains the transfers that match the query parameters.
    * @return the current {@code FindTransfersResponse} instance, allowing for method chaining
    */
   public FindTransfersResponse data(List<TransferData> data) {
@@ -100,7 +100,7 @@ public class FindTransfersResponse {
 
   /**
    * Contains the transfers that match the query parameters.
-   * @return data
+   * @return data Contains the transfers that match the query parameters.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,7 +111,7 @@ public class FindTransfersResponse {
   /**
    * Contains the transfers that match the query parameters.
    *
-   * @param data
+   * @param data Contains the transfers that match the query parameters.
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

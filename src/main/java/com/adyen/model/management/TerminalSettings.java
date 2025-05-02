@@ -13,7 +13,6 @@
 package com.adyen.model.management;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.management.CardholderReceipt;
@@ -43,9 +42,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -87,7 +85,7 @@ public class TerminalSettings {
   private Connectivity connectivity;
 
   public static final String JSON_PROPERTY_GRATUITIES = "gratuities";
-  private List<Gratuity> gratuities = null;
+  private List<Gratuity> gratuities;
 
   public static final String JSON_PROPERTY_HARDWARE = "hardware";
   private Hardware hardware;
@@ -152,7 +150,7 @@ public class TerminalSettings {
   /**
    * cardholderReceipt
    *
-   * @param cardholderReceipt
+   * @param cardholderReceipt 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings cardholderReceipt(CardholderReceipt cardholderReceipt) {
@@ -161,10 +159,9 @@ public class TerminalSettings {
   }
 
   /**
-   * cardholderReceipt
-   * @return cardholderReceipt
+   * Get cardholderReceipt
+   * @return cardholderReceipt 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CardholderReceipt getCardholderReceipt() {
@@ -174,8 +171,8 @@ public class TerminalSettings {
   /**
    * cardholderReceipt
    *
-   * @param cardholderReceipt
-   */ 
+   * @param cardholderReceipt 
+   */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderReceipt(CardholderReceipt cardholderReceipt) {
@@ -185,7 +182,7 @@ public class TerminalSettings {
   /**
    * connectivity
    *
-   * @param connectivity
+   * @param connectivity 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings connectivity(Connectivity connectivity) {
@@ -194,10 +191,9 @@ public class TerminalSettings {
   }
 
   /**
-   * connectivity
-   * @return connectivity
+   * Get connectivity
+   * @return connectivity 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Connectivity getConnectivity() {
@@ -207,8 +203,8 @@ public class TerminalSettings {
   /**
    * connectivity
    *
-   * @param connectivity
-   */ 
+   * @param connectivity 
+   */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(Connectivity connectivity) {
@@ -218,7 +214,7 @@ public class TerminalSettings {
   /**
    * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
    *
-   * @param gratuities
+   * @param gratuities Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings gratuities(List<Gratuity> gratuities) {
@@ -236,9 +232,8 @@ public class TerminalSettings {
 
   /**
    * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
-   * @return gratuities
+   * @return gratuities Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
    */
-  @ApiModelProperty(value = "Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.")
   @JsonProperty(JSON_PROPERTY_GRATUITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<Gratuity> getGratuities() {
@@ -248,8 +243,8 @@ public class TerminalSettings {
   /**
    * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
    *
-   * @param gratuities
-   */ 
+   * @param gratuities Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
+   */
   @JsonProperty(JSON_PROPERTY_GRATUITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGratuities(List<Gratuity> gratuities) {
@@ -259,7 +254,7 @@ public class TerminalSettings {
   /**
    * hardware
    *
-   * @param hardware
+   * @param hardware 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings hardware(Hardware hardware) {
@@ -268,10 +263,9 @@ public class TerminalSettings {
   }
 
   /**
-   * hardware
-   * @return hardware
+   * Get hardware
+   * @return hardware 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Hardware getHardware() {
@@ -281,8 +275,8 @@ public class TerminalSettings {
   /**
    * hardware
    *
-   * @param hardware
-   */ 
+   * @param hardware 
+   */
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHardware(Hardware hardware) {
@@ -292,7 +286,7 @@ public class TerminalSettings {
   /**
    * localization
    *
-   * @param localization
+   * @param localization 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings localization(Localization localization) {
@@ -301,10 +295,9 @@ public class TerminalSettings {
   }
 
   /**
-   * localization
-   * @return localization
+   * Get localization
+   * @return localization 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Localization getLocalization() {
@@ -314,8 +307,8 @@ public class TerminalSettings {
   /**
    * localization
    *
-   * @param localization
-   */ 
+   * @param localization 
+   */
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalization(Localization localization) {
@@ -325,7 +318,7 @@ public class TerminalSettings {
   /**
    * nexo
    *
-   * @param nexo
+   * @param nexo 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings nexo(Nexo nexo) {
@@ -334,10 +327,9 @@ public class TerminalSettings {
   }
 
   /**
-   * nexo
-   * @return nexo
+   * Get nexo
+   * @return nexo 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Nexo getNexo() {
@@ -347,8 +339,8 @@ public class TerminalSettings {
   /**
    * nexo
    *
-   * @param nexo
-   */ 
+   * @param nexo 
+   */
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexo(Nexo nexo) {
@@ -358,7 +350,7 @@ public class TerminalSettings {
   /**
    * offlineProcessing
    *
-   * @param offlineProcessing
+   * @param offlineProcessing 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings offlineProcessing(OfflineProcessing offlineProcessing) {
@@ -367,10 +359,9 @@ public class TerminalSettings {
   }
 
   /**
-   * offlineProcessing
-   * @return offlineProcessing
+   * Get offlineProcessing
+   * @return offlineProcessing 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OfflineProcessing getOfflineProcessing() {
@@ -380,8 +371,8 @@ public class TerminalSettings {
   /**
    * offlineProcessing
    *
-   * @param offlineProcessing
-   */ 
+   * @param offlineProcessing 
+   */
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineProcessing(OfflineProcessing offlineProcessing) {
@@ -391,7 +382,7 @@ public class TerminalSettings {
   /**
    * opi
    *
-   * @param opi
+   * @param opi 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings opi(Opi opi) {
@@ -400,10 +391,9 @@ public class TerminalSettings {
   }
 
   /**
-   * opi
-   * @return opi
+   * Get opi
+   * @return opi 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Opi getOpi() {
@@ -413,8 +403,8 @@ public class TerminalSettings {
   /**
    * opi
    *
-   * @param opi
-   */ 
+   * @param opi 
+   */
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpi(Opi opi) {
@@ -424,7 +414,7 @@ public class TerminalSettings {
   /**
    * passcodes
    *
-   * @param passcodes
+   * @param passcodes 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings passcodes(Passcodes passcodes) {
@@ -433,10 +423,9 @@ public class TerminalSettings {
   }
 
   /**
-   * passcodes
-   * @return passcodes
+   * Get passcodes
+   * @return passcodes 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Passcodes getPasscodes() {
@@ -446,8 +435,8 @@ public class TerminalSettings {
   /**
    * passcodes
    *
-   * @param passcodes
-   */ 
+   * @param passcodes 
+   */
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasscodes(Passcodes passcodes) {
@@ -457,7 +446,7 @@ public class TerminalSettings {
   /**
    * payAtTable
    *
-   * @param payAtTable
+   * @param payAtTable 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings payAtTable(PayAtTable payAtTable) {
@@ -466,10 +455,9 @@ public class TerminalSettings {
   }
 
   /**
-   * payAtTable
-   * @return payAtTable
+   * Get payAtTable
+   * @return payAtTable 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public PayAtTable getPayAtTable() {
@@ -479,8 +467,8 @@ public class TerminalSettings {
   /**
    * payAtTable
    *
-   * @param payAtTable
-   */ 
+   * @param payAtTable 
+   */
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTable(PayAtTable payAtTable) {
@@ -490,7 +478,7 @@ public class TerminalSettings {
   /**
    * payment
    *
-   * @param payment
+   * @param payment 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings payment(Payment payment) {
@@ -499,10 +487,9 @@ public class TerminalSettings {
   }
 
   /**
-   * payment
-   * @return payment
+   * Get payment
+   * @return payment 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Payment getPayment() {
@@ -512,8 +499,8 @@ public class TerminalSettings {
   /**
    * payment
    *
-   * @param payment
-   */ 
+   * @param payment 
+   */
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayment(Payment payment) {
@@ -523,7 +510,7 @@ public class TerminalSettings {
   /**
    * receiptOptions
    *
-   * @param receiptOptions
+   * @param receiptOptions 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings receiptOptions(ReceiptOptions receiptOptions) {
@@ -532,10 +519,9 @@ public class TerminalSettings {
   }
 
   /**
-   * receiptOptions
-   * @return receiptOptions
+   * Get receiptOptions
+   * @return receiptOptions 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ReceiptOptions getReceiptOptions() {
@@ -545,8 +531,8 @@ public class TerminalSettings {
   /**
    * receiptOptions
    *
-   * @param receiptOptions
-   */ 
+   * @param receiptOptions 
+   */
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptOptions(ReceiptOptions receiptOptions) {
@@ -556,7 +542,7 @@ public class TerminalSettings {
   /**
    * receiptPrinting
    *
-   * @param receiptPrinting
+   * @param receiptPrinting 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings receiptPrinting(ReceiptPrinting receiptPrinting) {
@@ -565,10 +551,9 @@ public class TerminalSettings {
   }
 
   /**
-   * receiptPrinting
-   * @return receiptPrinting
+   * Get receiptPrinting
+   * @return receiptPrinting 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ReceiptPrinting getReceiptPrinting() {
@@ -578,8 +563,8 @@ public class TerminalSettings {
   /**
    * receiptPrinting
    *
-   * @param receiptPrinting
-   */ 
+   * @param receiptPrinting 
+   */
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptPrinting(ReceiptPrinting receiptPrinting) {
@@ -589,7 +574,7 @@ public class TerminalSettings {
   /**
    * refunds
    *
-   * @param refunds
+   * @param refunds 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings refunds(Refunds refunds) {
@@ -598,10 +583,9 @@ public class TerminalSettings {
   }
 
   /**
-   * refunds
-   * @return refunds
+   * Get refunds
+   * @return refunds 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Refunds getRefunds() {
@@ -611,8 +595,8 @@ public class TerminalSettings {
   /**
    * refunds
    *
-   * @param refunds
-   */ 
+   * @param refunds 
+   */
   @JsonProperty(JSON_PROPERTY_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefunds(Refunds refunds) {
@@ -622,7 +606,7 @@ public class TerminalSettings {
   /**
    * signature
    *
-   * @param signature
+   * @param signature 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings signature(Signature signature) {
@@ -631,10 +615,9 @@ public class TerminalSettings {
   }
 
   /**
-   * signature
-   * @return signature
+   * Get signature
+   * @return signature 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Signature getSignature() {
@@ -644,8 +627,8 @@ public class TerminalSettings {
   /**
    * signature
    *
-   * @param signature
-   */ 
+   * @param signature 
+   */
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(Signature signature) {
@@ -655,7 +638,7 @@ public class TerminalSettings {
   /**
    * standalone
    *
-   * @param standalone
+   * @param standalone 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings standalone(Standalone standalone) {
@@ -664,10 +647,9 @@ public class TerminalSettings {
   }
 
   /**
-   * standalone
-   * @return standalone
+   * Get standalone
+   * @return standalone 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Standalone getStandalone() {
@@ -677,8 +659,8 @@ public class TerminalSettings {
   /**
    * standalone
    *
-   * @param standalone
-   */ 
+   * @param standalone 
+   */
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStandalone(Standalone standalone) {
@@ -688,7 +670,7 @@ public class TerminalSettings {
   /**
    * storeAndForward
    *
-   * @param storeAndForward
+   * @param storeAndForward 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings storeAndForward(StoreAndForward storeAndForward) {
@@ -697,10 +679,9 @@ public class TerminalSettings {
   }
 
   /**
-   * storeAndForward
-   * @return storeAndForward
+   * Get storeAndForward
+   * @return storeAndForward 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public StoreAndForward getStoreAndForward() {
@@ -710,8 +691,8 @@ public class TerminalSettings {
   /**
    * storeAndForward
    *
-   * @param storeAndForward
-   */ 
+   * @param storeAndForward 
+   */
   @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreAndForward(StoreAndForward storeAndForward) {
@@ -721,7 +702,7 @@ public class TerminalSettings {
   /**
    * surcharge
    *
-   * @param surcharge
+   * @param surcharge 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings surcharge(Surcharge surcharge) {
@@ -730,10 +711,9 @@ public class TerminalSettings {
   }
 
   /**
-   * surcharge
-   * @return surcharge
+   * Get surcharge
+   * @return surcharge 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Surcharge getSurcharge() {
@@ -743,8 +723,8 @@ public class TerminalSettings {
   /**
    * surcharge
    *
-   * @param surcharge
-   */ 
+   * @param surcharge 
+   */
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Surcharge surcharge) {
@@ -754,7 +734,7 @@ public class TerminalSettings {
   /**
    * tapToPay
    *
-   * @param tapToPay
+   * @param tapToPay 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings tapToPay(TapToPay tapToPay) {
@@ -763,10 +743,9 @@ public class TerminalSettings {
   }
 
   /**
-   * tapToPay
-   * @return tapToPay
+   * Get tapToPay
+   * @return tapToPay 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TapToPay getTapToPay() {
@@ -776,8 +755,8 @@ public class TerminalSettings {
   /**
    * tapToPay
    *
-   * @param tapToPay
-   */ 
+   * @param tapToPay 
+   */
   @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTapToPay(TapToPay tapToPay) {
@@ -787,7 +766,7 @@ public class TerminalSettings {
   /**
    * terminalInstructions
    *
-   * @param terminalInstructions
+   * @param terminalInstructions 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings terminalInstructions(TerminalInstructions terminalInstructions) {
@@ -796,10 +775,9 @@ public class TerminalSettings {
   }
 
   /**
-   * terminalInstructions
-   * @return terminalInstructions
+   * Get terminalInstructions
+   * @return terminalInstructions 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TerminalInstructions getTerminalInstructions() {
@@ -809,8 +787,8 @@ public class TerminalSettings {
   /**
    * terminalInstructions
    *
-   * @param terminalInstructions
-   */ 
+   * @param terminalInstructions 
+   */
   @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalInstructions(TerminalInstructions terminalInstructions) {
@@ -820,7 +798,7 @@ public class TerminalSettings {
   /**
    * timeouts
    *
-   * @param timeouts
+   * @param timeouts 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings timeouts(Timeouts timeouts) {
@@ -829,10 +807,9 @@ public class TerminalSettings {
   }
 
   /**
-   * timeouts
-   * @return timeouts
+   * Get timeouts
+   * @return timeouts 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Timeouts getTimeouts() {
@@ -842,8 +819,8 @@ public class TerminalSettings {
   /**
    * timeouts
    *
-   * @param timeouts
-   */ 
+   * @param timeouts 
+   */
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeouts(Timeouts timeouts) {
@@ -853,7 +830,7 @@ public class TerminalSettings {
   /**
    * wifiProfiles
    *
-   * @param wifiProfiles
+   * @param wifiProfiles 
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings wifiProfiles(WifiProfiles wifiProfiles) {
@@ -862,10 +839,9 @@ public class TerminalSettings {
   }
 
   /**
-   * wifiProfiles
-   * @return wifiProfiles
+   * Get wifiProfiles
+   * @return wifiProfiles 
    */
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public WifiProfiles getWifiProfiles() {
@@ -875,8 +851,8 @@ public class TerminalSettings {
   /**
    * wifiProfiles
    *
-   * @param wifiProfiles
-   */ 
+   * @param wifiProfiles 
+   */
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiProfiles(WifiProfiles wifiProfiles) {

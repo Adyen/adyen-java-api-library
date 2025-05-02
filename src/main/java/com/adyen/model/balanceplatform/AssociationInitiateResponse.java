@@ -42,7 +42,7 @@ public class AssociationInitiateResponse {
   /**
    * A string that you must pass to the authentication SDK to continue with the association process.
    *
-   * @param sdkInput
+   * @param sdkInput A string that you must pass to the authentication SDK to continue with the association process.
    * @return the current {@code AssociationInitiateResponse} instance, allowing for method chaining
    */
   public AssociationInitiateResponse sdkInput(String sdkInput) {
@@ -52,7 +52,7 @@ public class AssociationInitiateResponse {
 
   /**
    * A string that you must pass to the authentication SDK to continue with the association process.
-   * @return sdkInput
+   * @return sdkInput A string that you must pass to the authentication SDK to continue with the association process.
    */
   @JsonProperty(JSON_PROPERTY_SDK_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,7 +63,7 @@ public class AssociationInitiateResponse {
   /**
    * A string that you must pass to the authentication SDK to continue with the association process.
    *
-   * @param sdkInput
+   * @param sdkInput A string that you must pass to the authentication SDK to continue with the association process.
    */
   @JsonProperty(JSON_PROPERTY_SDK_INPUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
