@@ -9,19 +9,19 @@
  * Do not edit the class manually.
  */
 
-package com.adyen.model.balanceplatformbalancewebhooks;
+package com.adyen.model.balancewebhooks;
 
 import java.util.Optional;
 import java.util.logging.Logger;
 
 /**
- * Handler for processing BalancePlatformBalanceWebhooks.
+ * Handler for processing BalanceWebhooks.
  * <p>
- * This class provides functionality to deserialize the payload of BalancePlatformBalanceWebhooks events.
+ * This class provides functionality to deserialize the payload of BalanceWebhooks events.
  */
-public class BalancePlatformBalanceWebhooksHandler {
+public class BalanceWebhooksHandler {
 
-    private static final Logger LOG = Logger.getLogger(BalancePlatformBalanceWebhooksHandler.class.getName());
+    private static final Logger LOG = Logger.getLogger(BalanceWebhooksHandler.class.getName());
 
     private final String payload;
 
@@ -30,7 +30,7 @@ public class BalancePlatformBalanceWebhooksHandler {
      *
      * @param payload the raw JSON payload from the webhook
      */
-    public BalancePlatformBalanceWebhooksHandler(String payload) {
+    public BalanceWebhooksHandler(String payload) {
         this.payload = payload;
     }
 

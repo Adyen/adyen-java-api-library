@@ -10,7 +10,7 @@
  */
 
 
-package com.adyen.model.balanceplatformbalancewebhooks;
+package com.adyen.model.balancewebhooks;
 
 import java.util.Objects;
 import java.util.Map;
