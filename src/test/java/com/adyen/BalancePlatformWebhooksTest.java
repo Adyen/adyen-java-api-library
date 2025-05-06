@@ -3,6 +3,8 @@ package com.adyen;
 import com.adyen.model.acswebhooks.AcsWebhooksHandler;
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
 import com.adyen.model.acswebhooks.RelayedAuthenticationRequest;
+import com.adyen.model.balancewebhooks.BalanceAccountBalanceNotificationRequest;
+import com.adyen.model.balancewebhooks.BalanceWebhooksHandler;
 import com.adyen.model.configurationwebhooks.*;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensationWarningNotificationRequest;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceWarningWebhooksHandler;
@@ -201,4 +203,19 @@ public class BalancePlatformWebhooksTest extends BaseTest {
 
     }
 
+    @Test
+    public void tesBalanceAccountBalanceNotificationRequest() throws Exception {
+        String json = getFileContents("mocks/balancePlatform-webhooks/balanceplatform-balanceAccount-balance-updated.json");
+
+        Optional<BalanceAccountBalanceNotificationRequest> balanceAccountBalanceNotificationRequestOptional = new BalanceWebhooksHandler(json).getBalanceAccountBalanceNotificationRequest();
+        assertTrue(balanceAccountBalanceNotificationRequestOptional.isPresent());
+
+        BalanceAccountBalanceNotificationRequest balanceAccountBalanceNotificationRequest = balanceAccountBalanceNotificationRequestOptional.get();
+        assertNotNull(balanceAccountBalanceNotificationRequest.getData());
+
+        assertEquals("BWHS00000000000000000000000001", balanceAccountBalanceNotificationRequest.getData().getBalanceAccountId());
+        assertNotNull(balanceAccountBalanceNotificationRequest.getData().getBalances());
+        assertFalse(balanceAccountBalanceNotificationRequest.getData().getSettingIds().isEmpty());
+
+    }
 }

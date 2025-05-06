@@ -1,4 +1,4 @@
-package com.adyen.model.balanceplatformbalancewebhooks;
+package com.adyen.model.balancewebhooks;
 
 import com.adyen.serializer.ByteArraySerializer;
 import com.adyen.serializer.ByteArrayDeserializer;
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.adyen.model.balanceplatformbalancewebhooks.*;
+import com.adyen.model.balancewebhooks.*;
 
 import java.text.DateFormat;
 import java.util.HashMap;
