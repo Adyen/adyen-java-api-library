@@ -131,8 +131,6 @@ public class PaymentDetails {
     
     NETELLER(String.valueOf("neteller")),
     
-    PAYSAFECARD(String.valueOf("paysafecard")),
-    
     CASHTICKET(String.valueOf("cashticket")),
     
     IKANO(String.valueOf("ikano")),

@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
+import com.adyen.model.checkout.EnhancedSchemeData;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.Split;
@@ -39,6 +40,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 @JsonPropertyOrder({
   PaymentCaptureRequest.JSON_PROPERTY_AMOUNT,
   PaymentCaptureRequest.JSON_PROPERTY_APPLICATION_INFO,
+  PaymentCaptureRequest.JSON_PROPERTY_ENHANCED_SCHEME_DATA,
   PaymentCaptureRequest.JSON_PROPERTY_LINE_ITEMS,
   PaymentCaptureRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentCaptureRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
@@ -53,6 +55,9 @@ public class PaymentCaptureRequest {
 
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
+
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
+  private EnhancedSchemeData enhancedSchemeData;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
@@ -137,6 +142,38 @@ public class PaymentCaptureRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData 
+   * @return the current {@code PaymentCaptureRequest} instance, allowing for method chaining
+   */
+  public PaymentCaptureRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
+    return this;
+  }
+
+  /**
+   * Get enhancedSchemeData
+   * @return enhancedSchemeData 
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnhancedSchemeData getEnhancedSchemeData() {
+    return enhancedSchemeData;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData 
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
   }
 
   /**
@@ -369,6 +406,7 @@ public class PaymentCaptureRequest {
     PaymentCaptureRequest paymentCaptureRequest = (PaymentCaptureRequest) o;
     return Objects.equals(this.amount, paymentCaptureRequest.amount) &&
         Objects.equals(this.applicationInfo, paymentCaptureRequest.applicationInfo) &&
+        Objects.equals(this.enhancedSchemeData, paymentCaptureRequest.enhancedSchemeData) &&
         Objects.equals(this.lineItems, paymentCaptureRequest.lineItems) &&
         Objects.equals(this.merchantAccount, paymentCaptureRequest.merchantAccount) &&
         Objects.equals(this.platformChargebackLogic, paymentCaptureRequest.platformChargebackLogic) &&
@@ -379,7 +417,7 @@ public class PaymentCaptureRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, applicationInfo, lineItems, merchantAccount, platformChargebackLogic, reference, splits, subMerchants);
+    return Objects.hash(amount, applicationInfo, enhancedSchemeData, lineItems, merchantAccount, platformChargebackLogic, reference, splits, subMerchants);
   }
 
   @Override
@@ -388,6 +426,7 @@ public class PaymentCaptureRequest {
     sb.append("class PaymentCaptureRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+    sb.append("    enhancedSchemeData: ").append(toIndentedString(enhancedSchemeData)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
