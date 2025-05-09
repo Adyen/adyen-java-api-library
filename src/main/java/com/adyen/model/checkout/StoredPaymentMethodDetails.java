@@ -82,7 +82,9 @@ public class StoredPaymentMethodDetails {
     
     KAKAOPAY(String.valueOf("kakaopay")),
     
-    TRUEMONEY(String.valueOf("truemoney"));
+    TRUEMONEY(String.valueOf("truemoney")),
+    
+    PAYSAFECARD(String.valueOf("paysafecard"));
 
     private String value;
 

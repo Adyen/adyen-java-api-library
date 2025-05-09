@@ -47,7 +47,7 @@ public class PayByBankAISDirectDebitDetails {
   private String storedPaymentMethodId;
 
   /**
-   * **paybybank_**
+   * **paybybank_AIS_DD**
    */
   public enum TypeEnum {
     PAYBYBANK_AIS_DD(String.valueOf("paybybank_AIS_DD"));
@@ -192,9 +192,9 @@ public class PayByBankAISDirectDebitDetails {
   }
 
   /**
-   * **paybybank_**
+   * **paybybank_AIS_DD**
    *
-   * @param type **paybybank_**
+   * @param type **paybybank_AIS_DD**
    * @return the current {@code PayByBankAISDirectDebitDetails} instance, allowing for method chaining
    */
   public PayByBankAISDirectDebitDetails type(TypeEnum type) {
@@ -203,8 +203,8 @@ public class PayByBankAISDirectDebitDetails {
   }
 
   /**
-   * **paybybank_**
-   * @return type **paybybank_**
+   * **paybybank_AIS_DD**
+   * @return type **paybybank_AIS_DD**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,9 +213,9 @@ public class PayByBankAISDirectDebitDetails {
   }
 
   /**
-   * **paybybank_**
+   * **paybybank_AIS_DD**
    *
-   * @param type **paybybank_**
+   * @param type **paybybank_AIS_DD**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
