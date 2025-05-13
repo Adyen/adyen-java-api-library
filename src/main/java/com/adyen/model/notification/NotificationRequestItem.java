@@ -33,26 +33,29 @@ import static com.adyen.util.Util.toIndentedString;
  * NotificationRequestItem model class
  */
 public class NotificationRequestItem {
-    public static final String EVENT_CODE_AUTHORISATION = "AUTHORISATION";
 
     //Standard Event codes
+    public static final String EVENT_CODE_AUTHORISATION = "AUTHORISATION";
     public static final String EVENT_CODE_AUTHORISATION_ADJUSTMENT = "AUTHORISATION_ADJUSTMENT";
-    public static final String EVENT_CODE_CANCELLATION = "CANCELLATION";
-    public static final String EVENT_CODE_REFUND = "REFUND";
     public static final String EVENT_CODE_CANCEL_OR_REFUND = "CANCEL_OR_REFUND";
+    public static final String EVENT_CODE_CANCELLATION = "CANCELLATION";
     public static final String EVENT_CODE_CAPTURE = "CAPTURE";
     public static final String EVENT_CODE_CAPTURE_FAILED = "CAPTURE_FAILED";
+    public static final String EVENT_CODE_DONATION = "DONATION";
+    public static final String EVENT_CODE_EXPIRE = "EXPIRE";
+    public static final String EVENT_CODE_HANDLED_EXTERNALLY = "HANDLED_EXTERNALLY";
+    public static final String EVENT_CODE_ORDER_CLOSED = "ORDER_CLOSED";
+    public static final String EVENT_CODE_ORDER_OPENED = "ORDER_OPENED";
+    public static final String EVENT_CODE_PENDING = "PENDING";
+    public static final String EVENT_CODE_PROCESS_RETRY = "PROCESS_RETRY";
+    public static final String EVENT_CODE_REFUND = "REFUND";
     public static final String EVENT_CODE_REFUND_FAILED = "REFUND_FAILED";
     public static final String EVENT_CODE_REFUND_WITH_DATA = "REFUND_WITH_DATA";
     public static final String EVENT_CODE_REFUNDED_REVERSED = "REFUNDED_REVERSED";
-    public static final String EVENT_CODE_HANDLED_EXTERNALLY = "HANDLED_EXTERNALLY";
-    public static final String EVENT_CODE_ORDER_OPENED = "ORDER_OPENED";
-    public static final String EVENT_CODE_ORDER_CLOSED = "ORDER_CLOSED";
-    public static final String EVENT_CODE_PENDING = "PENDING";
-    public static final String EVENT_CODE_PROCESS_RETRY = "PROCESS_RETRY";
     public static final String EVENT_CODE_REPORT_AVAILABLE = "REPORT_AVAILABLE";
+    public static final String EVENT_CODE_TECHNICAL_CANCEL = "TECHNICAL_CANCEL";
     public static final String EVENT_CODE_VOID_PENDING_REFUND = "VOID_PENDING_REFUND";
-    public static final String EVENT_CODE_EXPIRE = "EXPIRE";
+
 
     //Dispute Event Codes
     public static final String EVENT_CODE_CHARGEBACK = "CHARGEBACK";
