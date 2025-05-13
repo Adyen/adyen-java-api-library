@@ -52,6 +52,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   ResponseAdditionalDataCommon.JSON_PROPERTY_FRAUD_CHECK_ITEM_NR_FRAUD_CHECKNAME,
   ResponseAdditionalDataCommon.JSON_PROPERTY_FRAUD_MANUAL_REVIEW,
   ResponseAdditionalDataCommon.JSON_PROPERTY_FRAUD_RESULT_TYPE,
+  ResponseAdditionalDataCommon.JSON_PROPERTY_FRAUD_RISK_LEVEL,
   ResponseAdditionalDataCommon.JSON_PROPERTY_FUNDING_SOURCE,
   ResponseAdditionalDataCommon.JSON_PROPERTY_FUNDS_AVAILABILITY,
   ResponseAdditionalDataCommon.JSON_PROPERTY_INFERRED_REFUSAL_REASON,
@@ -197,6 +198,50 @@ public class ResponseAdditionalDataCommon {
 
   public static final String JSON_PROPERTY_FRAUD_RESULT_TYPE = "fraudResultType";
   private FraudResultTypeEnum fraudResultType;
+
+  /**
+   * The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are:\\n* veryLow\\n* low\\n* medium\\n* high\\n* veryHigh\\n\\n&gt;
+   */
+  public enum FraudRiskLevelEnum {
+    VERYLOW(String.valueOf("veryLow")),
+    
+    LOW(String.valueOf("low")),
+    
+    MEDIUM(String.valueOf("medium")),
+    
+    HIGH(String.valueOf("high")),
+    
+    VERYHIGH(String.valueOf("veryHigh"));
+
+    private String value;
+
+    FraudRiskLevelEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static FraudRiskLevelEnum fromValue(String value) {
+      for (FraudRiskLevelEnum b : FraudRiskLevelEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_FRAUD_RISK_LEVEL = "fraudRiskLevel";
+  private FraudRiskLevelEnum fraudRiskLevel;
 
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;
@@ -1128,6 +1173,38 @@ public class ResponseAdditionalDataCommon {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudResultType(FraudResultTypeEnum fraudResultType) {
     this.fraudResultType = fraudResultType;
+  }
+
+  /**
+   * The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are:\\n* veryLow\\n* low\\n* medium\\n* high\\n* veryHigh\\n\\n&gt;
+   *
+   * @param fraudRiskLevel The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are:\\n* veryLow\\n* low\\n* medium\\n* high\\n* veryHigh\\n\\n&gt;
+   * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataCommon fraudRiskLevel(FraudRiskLevelEnum fraudRiskLevel) {
+    this.fraudRiskLevel = fraudRiskLevel;
+    return this;
+  }
+
+  /**
+   * The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are:\\n* veryLow\\n* low\\n* medium\\n* high\\n* veryHigh\\n\\n&gt;
+   * @return fraudRiskLevel The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are:\\n* veryLow\\n* low\\n* medium\\n* high\\n* veryHigh\\n\\n&gt;
+   */
+  @JsonProperty(JSON_PROPERTY_FRAUD_RISK_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FraudRiskLevelEnum getFraudRiskLevel() {
+    return fraudRiskLevel;
+  }
+
+  /**
+   * The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are:\\n* veryLow\\n* low\\n* medium\\n* high\\n* veryHigh\\n\\n&gt;
+   *
+   * @param fraudRiskLevel The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are:\\n* veryLow\\n* low\\n* medium\\n* high\\n* veryHigh\\n\\n&gt;
+   */
+  @JsonProperty(JSON_PROPERTY_FRAUD_RISK_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFraudRiskLevel(FraudRiskLevelEnum fraudRiskLevel) {
+    this.fraudRiskLevel = fraudRiskLevel;
   }
 
   /**
@@ -2433,6 +2510,7 @@ public class ResponseAdditionalDataCommon {
         Objects.equals(this.fraudCheckItemNrFraudCheckname, responseAdditionalDataCommon.fraudCheckItemNrFraudCheckname) &&
         Objects.equals(this.fraudManualReview, responseAdditionalDataCommon.fraudManualReview) &&
         Objects.equals(this.fraudResultType, responseAdditionalDataCommon.fraudResultType) &&
+        Objects.equals(this.fraudRiskLevel, responseAdditionalDataCommon.fraudRiskLevel) &&
         Objects.equals(this.fundingSource, responseAdditionalDataCommon.fundingSource) &&
         Objects.equals(this.fundsAvailability, responseAdditionalDataCommon.fundsAvailability) &&
         Objects.equals(this.inferredRefusalReason, responseAdditionalDataCommon.inferredRefusalReason) &&
@@ -2476,7 +2554,7 @@ public class ResponseAdditionalDataCommon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acquirerAccountCode, acquirerCode, acquirerReference, alias, aliasType, authCode, authorisationMid, authorisedAmountCurrency, authorisedAmountValue, avsResult, avsResultRaw, bic, coBrandedWith, cvcResult, cvcResultRaw, dsTransID, eci, expiryDate, extraCostsCurrency, extraCostsValue, fraudCheckItemNrFraudCheckname, fraudManualReview, fraudResultType, fundingSource, fundsAvailability, inferredRefusalReason, isCardCommercial, issuerCountry, liabilityShift, mcBankNetReferenceNumber, merchantAdviceCode, merchantReference, networkTxReference, ownerName, paymentAccountReference, paymentMethod, paymentMethodVariant, payoutEligible, realtimeAccountUpdaterStatus, receiptFreeText, recurringContractTypes, recurringFirstPspReference, recurringRecurringDetailReference, recurringShopperReference, recurringProcessingModel, referred, refusalReasonRaw, requestAmount, requestCurrencyCode, shopperInteraction, shopperReference, terminalId, threeDAuthenticated, threeDAuthenticatedResponse, threeDOffered, threeDOfferedResponse, threeDSVersion, tokenizationShopperReference, tokenizationStoreOperationType, tokenizationStoredPaymentMethodId, visaTransactionId, xid);
+    return Objects.hash(acquirerAccountCode, acquirerCode, acquirerReference, alias, aliasType, authCode, authorisationMid, authorisedAmountCurrency, authorisedAmountValue, avsResult, avsResultRaw, bic, coBrandedWith, cvcResult, cvcResultRaw, dsTransID, eci, expiryDate, extraCostsCurrency, extraCostsValue, fraudCheckItemNrFraudCheckname, fraudManualReview, fraudResultType, fraudRiskLevel, fundingSource, fundsAvailability, inferredRefusalReason, isCardCommercial, issuerCountry, liabilityShift, mcBankNetReferenceNumber, merchantAdviceCode, merchantReference, networkTxReference, ownerName, paymentAccountReference, paymentMethod, paymentMethodVariant, payoutEligible, realtimeAccountUpdaterStatus, receiptFreeText, recurringContractTypes, recurringFirstPspReference, recurringRecurringDetailReference, recurringShopperReference, recurringProcessingModel, referred, refusalReasonRaw, requestAmount, requestCurrencyCode, shopperInteraction, shopperReference, terminalId, threeDAuthenticated, threeDAuthenticatedResponse, threeDOffered, threeDOfferedResponse, threeDSVersion, tokenizationShopperReference, tokenizationStoreOperationType, tokenizationStoredPaymentMethodId, visaTransactionId, xid);
   }
 
   @Override
@@ -2506,6 +2584,7 @@ public class ResponseAdditionalDataCommon {
     sb.append("    fraudCheckItemNrFraudCheckname: ").append(toIndentedString(fraudCheckItemNrFraudCheckname)).append("\n");
     sb.append("    fraudManualReview: ").append(toIndentedString(fraudManualReview)).append("\n");
     sb.append("    fraudResultType: ").append(toIndentedString(fraudResultType)).append("\n");
+    sb.append("    fraudRiskLevel: ").append(toIndentedString(fraudRiskLevel)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    fundsAvailability: ").append(toIndentedString(fundsAvailability)).append("\n");
     sb.append("    inferredRefusalReason: ").append(toIndentedString(inferredRefusalReason)).append("\n");

@@ -26,6 +26,7 @@ import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.Company;
 import com.adyen.model.checkout.DeliveryAddress;
 import com.adyen.model.checkout.EncryptedOrderData;
+import com.adyen.model.checkout.EnhancedSchemeData;
 import com.adyen.model.checkout.ForexQuote;
 import com.adyen.model.checkout.FundOrigin;
 import com.adyen.model.checkout.FundRecipient;
@@ -38,6 +39,7 @@ import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.RiskData;
 import com.adyen.model.checkout.Split;
 import com.adyen.model.checkout.SubMerchantInfo;
+import com.adyen.model.checkout.Surcharge;
 import com.adyen.model.checkout.ThreeDS2RequestFields;
 import com.adyen.model.checkout.ThreeDSecureData;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -83,6 +85,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRequest.JSON_PROPERTY_ENABLE_ONE_CLICK,
   PaymentRequest.JSON_PROPERTY_ENABLE_PAY_OUT,
   PaymentRequest.JSON_PROPERTY_ENABLE_RECURRING,
+  PaymentRequest.JSON_PROPERTY_ENHANCED_SCHEME_DATA,
   PaymentRequest.JSON_PROPERTY_ENTITY_TYPE,
   PaymentRequest.JSON_PROPERTY_FRAUD_OFFSET,
   PaymentRequest.JSON_PROPERTY_FUND_ORIGIN,
@@ -125,6 +128,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentRequest.JSON_PROPERTY_STORE,
   PaymentRequest.JSON_PROPERTY_STORE_PAYMENT_METHOD,
   PaymentRequest.JSON_PROPERTY_SUB_MERCHANTS,
+  PaymentRequest.JSON_PROPERTY_SURCHARGE,
   PaymentRequest.JSON_PROPERTY_TELEPHONE_NUMBER,
   PaymentRequest.JSON_PROPERTY_THREE_D_S2_REQUEST_DATA,
   PaymentRequest.JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY,
@@ -242,6 +246,9 @@ public class PaymentRequest {
 
   public static final String JSON_PROPERTY_ENABLE_RECURRING = "enableRecurring";
   private Boolean enableRecurring;
+
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
+  private EnhancedSchemeData enhancedSchemeData;
 
   /**
    * The type of the entity the payment is processed for.
@@ -516,6 +523,9 @@ public class PaymentRequest {
 
   public static final String JSON_PROPERTY_SUB_MERCHANTS = "subMerchants";
   private List<SubMerchantInfo> subMerchants;
+
+  public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
+  private Surcharge surcharge;
 
   public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
   private String telephoneNumber;
@@ -1327,6 +1337,38 @@ public class PaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableRecurring(Boolean enableRecurring) {
     this.enableRecurring = enableRecurring;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData 
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
+    return this;
+  }
+
+  /**
+   * Get enhancedSchemeData
+   * @return enhancedSchemeData 
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnhancedSchemeData getEnhancedSchemeData() {
+    return enhancedSchemeData;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData 
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
   }
 
   /**
@@ -2186,9 +2228,9 @@ public class PaymentRequest {
   }
 
   /**
-   * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
+   * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
+   * @param returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest returnUrl(String returnUrl) {
@@ -2197,8 +2239,8 @@ public class PaymentRequest {
   }
 
   /**
-   * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
-   * @return returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
+   * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
+   * @return returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2207,9 +2249,9 @@ public class PaymentRequest {
   }
 
   /**
-   * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
+   * The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    *
-   * @param returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
+   * @param returnUrl The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. &gt; The URL must not include personally identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2714,6 +2756,38 @@ public class PaymentRequest {
   }
 
   /**
+   * surcharge
+   *
+   * @param surcharge 
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest surcharge(Surcharge surcharge) {
+    this.surcharge = surcharge;
+    return this;
+  }
+
+  /**
+   * Get surcharge
+   * @return surcharge 
+   */
+  @JsonProperty(JSON_PROPERTY_SURCHARGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Surcharge getSurcharge() {
+    return surcharge;
+  }
+
+  /**
+   * surcharge
+   *
+   * @param surcharge 
+   */
+  @JsonProperty(JSON_PROPERTY_SURCHARGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSurcharge(Surcharge surcharge) {
+    this.surcharge = surcharge;
+  }
+
+  /**
    * The shopper&#39;s telephone number.
    *
    * @param telephoneNumber The shopper&#39;s telephone number.
@@ -2887,6 +2961,7 @@ public class PaymentRequest {
         Objects.equals(this.enableOneClick, paymentRequest.enableOneClick) &&
         Objects.equals(this.enablePayOut, paymentRequest.enablePayOut) &&
         Objects.equals(this.enableRecurring, paymentRequest.enableRecurring) &&
+        Objects.equals(this.enhancedSchemeData, paymentRequest.enhancedSchemeData) &&
         Objects.equals(this.entityType, paymentRequest.entityType) &&
         Objects.equals(this.fraudOffset, paymentRequest.fraudOffset) &&
         Objects.equals(this.fundOrigin, paymentRequest.fundOrigin) &&
@@ -2929,6 +3004,7 @@ public class PaymentRequest {
         Objects.equals(this.store, paymentRequest.store) &&
         Objects.equals(this.storePaymentMethod, paymentRequest.storePaymentMethod) &&
         Objects.equals(this.subMerchants, paymentRequest.subMerchants) &&
+        Objects.equals(this.surcharge, paymentRequest.surcharge) &&
         Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber) &&
         Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData) &&
         Objects.equals(this.threeDSAuthenticationOnly, paymentRequest.threeDSAuthenticationOnly) &&
@@ -2937,7 +3013,7 @@ public class PaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, bankAccount, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperConversionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, subMerchants, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, authenticationData, bankAccount, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliverAt, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, enhancedSchemeData, entityType, fraudOffset, fundOrigin, fundRecipient, industryUsage, installments, lineItems, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperConversionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, subMerchants, surcharge, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2968,6 +3044,7 @@ public class PaymentRequest {
     sb.append("    enableOneClick: ").append(toIndentedString(enableOneClick)).append("\n");
     sb.append("    enablePayOut: ").append(toIndentedString(enablePayOut)).append("\n");
     sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
+    sb.append("    enhancedSchemeData: ").append(toIndentedString(enhancedSchemeData)).append("\n");
     sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
     sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
     sb.append("    fundOrigin: ").append(toIndentedString(fundOrigin)).append("\n");
@@ -3010,6 +3087,7 @@ public class PaymentRequest {
     sb.append("    store: ").append(toIndentedString(store)).append("\n");
     sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
     sb.append("    subMerchants: ").append(toIndentedString(subMerchants)).append("\n");
+    sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
     sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
