@@ -29,14 +29,12 @@ import com.adyen.model.checkout.CardDetails;
 import com.adyen.model.checkout.CashAppDetails;
 import com.adyen.model.checkout.CellulantDetails;
 import com.adyen.model.checkout.DokuDetails;
-import com.adyen.model.checkout.DotpayDetails;
 import com.adyen.model.checkout.DragonpayDetails;
 import com.adyen.model.checkout.EBankingFinlandDetails;
 import com.adyen.model.checkout.EcontextVoucherDetails;
 import com.adyen.model.checkout.EftDetails;
 import com.adyen.model.checkout.FastlaneDetails;
 import com.adyen.model.checkout.GenericIssuerPaymentMethodDetails;
-import com.adyen.model.checkout.GiropayDetails;
 import com.adyen.model.checkout.GooglePayDetails;
 import com.adyen.model.checkout.IdealDetails;
 import com.adyen.model.checkout.KlarnaDetails;
@@ -436,27 +434,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'DokuDetails'", e);
             }
 
-            // deserialize DotpayDetails
-            try {
-                boolean attemptParsing = true;
-                if (attemptParsing) {
-                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                    boolean typeMatch = Arrays.stream(DotpayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-
-                    if(typeMatch) {
-                        deserialized = tree.traverse(jp.getCodec()).readValueAs(DotpayDetails.class);
-                        // TODO: there is no validation against JSON schema constraints
-                        // (min, max, enum, pattern...), this does not perform a strict JSON
-                        // validation, which means the 'match' count may be higher than it should be.
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'DotpayDetails'");
-                    }
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'DotpayDetails'", e);
-            }
-
             // deserialize DragonpayDetails
             try {
                 boolean attemptParsing = true;
@@ -581,27 +558,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'GenericIssuerPaymentMethodDetails'", e);
-            }
-
-            // deserialize GiropayDetails
-            try {
-                boolean attemptParsing = true;
-                if (attemptParsing) {
-                    // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                    boolean typeMatch = Arrays.stream(GiropayDetails.TypeEnum.values()).anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
-
-                    if(typeMatch) {
-                        deserialized = tree.traverse(jp.getCodec()).readValueAs(GiropayDetails.class);
-                        // TODO: there is no validation against JSON schema constraints
-                        // (min, max, enum, pattern...), this does not perform a strict JSON
-                        // validation, which means the 'match' count may be higher than it should be.
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'GiropayDetails'");
-                    }
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'GiropayDetails'", e);
             }
 
             // deserialize GooglePayDetails
@@ -1370,11 +1326,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public CheckoutPaymentMethod(DotpayDetails o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public CheckoutPaymentMethod(DragonpayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -1401,11 +1352,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
 
     public CheckoutPaymentMethod(GenericIssuerPaymentMethodDetails o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public CheckoutPaymentMethod(GiropayDetails o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -1599,8 +1545,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         });
         schemas.put("DokuDetails", new GenericType<DokuDetails>() {
         });
-        schemas.put("DotpayDetails", new GenericType<DotpayDetails>() {
-        });
         schemas.put("DragonpayDetails", new GenericType<DragonpayDetails>() {
         });
         schemas.put("EBankingFinlandDetails", new GenericType<EBankingFinlandDetails>() {
@@ -1612,8 +1556,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         schemas.put("FastlaneDetails", new GenericType<FastlaneDetails>() {
         });
         schemas.put("GenericIssuerPaymentMethodDetails", new GenericType<GenericIssuerPaymentMethodDetails>() {
-        });
-        schemas.put("GiropayDetails", new GenericType<GiropayDetails>() {
         });
         schemas.put("GooglePayDetails", new GenericType<GooglePayDetails>() {
         });
@@ -1690,7 +1632,7 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DotpayDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GiropayDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
+     * AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -1767,11 +1709,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
             return;
         }
 
-        if (JSON.isInstanceOf(DotpayDetails.class, instance, new HashSet<>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
         if (JSON.isInstanceOf(DragonpayDetails.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
@@ -1798,11 +1735,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         }
 
         if (JSON.isInstanceOf(GenericIssuerPaymentMethodDetails.class, instance, new HashSet<>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (JSON.isInstanceOf(GiropayDetails.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -1967,14 +1899,14 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DotpayDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GiropayDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
+        throw new RuntimeException("Invalid instance type. Must be AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DotpayDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GiropayDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
+     * AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails
      *
-     * @return The actual instance (AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DotpayDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GiropayDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails)
+     * @return The actual instance (AchDetails, AffirmDetails, AfterpayDetails, AmazonPayDetails, AncvDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CashAppDetails, CellulantDetails, DokuDetails, DragonpayDetails, EBankingFinlandDetails, EcontextVoucherDetails, EftDetails, FastlaneDetails, GenericIssuerPaymentMethodDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayByBankAISDirectDebitDetails, PayByBankDetails, PayPalDetails, PayPayDetails, PayToDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, PixDetails, PseDetails, RakutenPayDetails, RatepayDetails, RivertyDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, TwintDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails)
      */
     @Override
     public Object getActualInstance() {
@@ -2136,17 +2068,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `DotpayDetails`. If the actual instance is not `DotpayDetails`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `DotpayDetails`
-     * @throws ClassCastException if the instance is not `DotpayDetails`
-     */
-    public DotpayDetails getDotpayDetails() throws ClassCastException {
-        return (DotpayDetails)super.getActualInstance();
-    }
-
-    /**
      * Get the actual instance of `DragonpayDetails`. If the actual instance is not `DragonpayDetails`,
      * the ClassCastException will be thrown.
      *
@@ -2210,17 +2131,6 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
      */
     public GenericIssuerPaymentMethodDetails getGenericIssuerPaymentMethodDetails() throws ClassCastException {
         return (GenericIssuerPaymentMethodDetails)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `GiropayDetails`. If the actual instance is not `GiropayDetails`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `GiropayDetails`
-     * @throws ClassCastException if the instance is not `GiropayDetails`
-     */
-    public GiropayDetails getGiropayDetails() throws ClassCastException {
-        return (GiropayDetails)super.getActualInstance();
     }
 
     /**
