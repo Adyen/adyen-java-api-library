@@ -51,6 +51,7 @@ public class ClientTest extends BaseTest {
         config.setApiKey(apiKey);
         Client client = new Client(config);
         assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+        assertEquals("prefix", client.getConfig().getLiveEndpointUrlPrefix());
     }
 
     private static Stream<Arguments> provideCloudTestEndpointTestCases() {
