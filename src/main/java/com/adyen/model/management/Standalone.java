@@ -30,12 +30,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 @JsonPropertyOrder({
   Standalone.JSON_PROPERTY_CURRENCY_CODE,
+  Standalone.JSON_PROPERTY_ENABLE_GRATUITIES,
   Standalone.JSON_PROPERTY_ENABLE_STANDALONE
 })
 
 public class Standalone {
   public static final String JSON_PROPERTY_CURRENCY_CODE = "currencyCode";
   private String currencyCode;
+
+  public static final String JSON_PROPERTY_ENABLE_GRATUITIES = "enableGratuities";
+  private Boolean enableGratuities;
 
   public static final String JSON_PROPERTY_ENABLE_STANDALONE = "enableStandalone";
   private Boolean enableStandalone;
@@ -73,6 +77,38 @@ public class Standalone {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
+  }
+
+  /**
+   * Indicates whether the tipping options specified in &#x60;gratuities&#x60; are enabled on the standalone terminal.
+   *
+   * @param enableGratuities Indicates whether the tipping options specified in &#x60;gratuities&#x60; are enabled on the standalone terminal.
+   * @return the current {@code Standalone} instance, allowing for method chaining
+   */
+  public Standalone enableGratuities(Boolean enableGratuities) {
+    this.enableGratuities = enableGratuities;
+    return this;
+  }
+
+  /**
+   * Indicates whether the tipping options specified in &#x60;gratuities&#x60; are enabled on the standalone terminal.
+   * @return enableGratuities Indicates whether the tipping options specified in &#x60;gratuities&#x60; are enabled on the standalone terminal.
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLE_GRATUITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnableGratuities() {
+    return enableGratuities;
+  }
+
+  /**
+   * Indicates whether the tipping options specified in &#x60;gratuities&#x60; are enabled on the standalone terminal.
+   *
+   * @param enableGratuities Indicates whether the tipping options specified in &#x60;gratuities&#x60; are enabled on the standalone terminal.
+   */
+  @JsonProperty(JSON_PROPERTY_ENABLE_GRATUITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableGratuities(Boolean enableGratuities) {
+    this.enableGratuities = enableGratuities;
   }
 
   /**
@@ -120,12 +156,13 @@ public class Standalone {
     }
     Standalone standalone = (Standalone) o;
     return Objects.equals(this.currencyCode, standalone.currencyCode) &&
+        Objects.equals(this.enableGratuities, standalone.enableGratuities) &&
         Objects.equals(this.enableStandalone, standalone.enableStandalone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, enableStandalone);
+    return Objects.hash(currencyCode, enableGratuities, enableStandalone);
   }
 
   @Override
@@ -133,6 +170,7 @@ public class Standalone {
     StringBuilder sb = new StringBuilder();
     sb.append("class Standalone {\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+    sb.append("    enableGratuities: ").append(toIndentedString(enableGratuities)).append("\n");
     sb.append("    enableStandalone: ").append(toIndentedString(enableStandalone)).append("\n");
     sb.append("}");
     return sb.toString();

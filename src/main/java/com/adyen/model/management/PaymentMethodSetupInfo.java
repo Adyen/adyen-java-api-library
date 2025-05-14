@@ -25,12 +25,12 @@ import com.adyen.model.management.CartesBancairesInfo;
 import com.adyen.model.management.ClearpayInfo;
 import com.adyen.model.management.DinersInfo;
 import com.adyen.model.management.GenericPmWithTdiInfo;
-import com.adyen.model.management.GiroPayInfo;
 import com.adyen.model.management.GooglePayInfo;
 import com.adyen.model.management.JCBInfo;
 import com.adyen.model.management.KlarnaInfo;
 import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.NyceInfo;
+import com.adyen.model.management.PayByBankPlaidInfo;
 import com.adyen.model.management.PayMeInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.PayToInfo;
@@ -77,7 +77,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodSetupInfo.JSON_PROPERTY_DISCOVER,
   PaymentMethodSetupInfo.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   PaymentMethodSetupInfo.JSON_PROPERTY_EFTPOS_AUSTRALIA,
-  PaymentMethodSetupInfo.JSON_PROPERTY_GIRO_PAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_GIROCARD,
   PaymentMethodSetupInfo.JSON_PROPERTY_GOOGLE_PAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_IDEAL,
@@ -88,6 +87,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodSetupInfo.JSON_PROPERTY_MC,
   PaymentMethodSetupInfo.JSON_PROPERTY_MEAL_VOUCHER_F_R,
   PaymentMethodSetupInfo.JSON_PROPERTY_NYCE,
+  PaymentMethodSetupInfo.JSON_PROPERTY_PAYBYBANK_PLAID,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYME,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYPAL,
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYTO,
@@ -160,9 +160,6 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_EFTPOS_AUSTRALIA = "eftpos_australia";
   private GenericPmWithTdiInfo eftposAustralia;
 
-  public static final String JSON_PROPERTY_GIRO_PAY = "giroPay";
-  private GiroPayInfo giroPay;
-
   public static final String JSON_PROPERTY_GIROCARD = "girocard";
   private GenericPmWithTdiInfo girocard;
 
@@ -192,6 +189,9 @@ public class PaymentMethodSetupInfo {
 
   public static final String JSON_PROPERTY_NYCE = "nyce";
   private NyceInfo nyce;
+
+  public static final String JSON_PROPERTY_PAYBYBANK_PLAID = "paybybank_plaid";
+  private PayByBankPlaidInfo paybybankPlaid;
 
   public static final String JSON_PROPERTY_PAYME = "payme";
   private PayMeInfo payme;
@@ -379,6 +379,8 @@ public class PaymentMethodSetupInfo {
     
     PAYBYBANK(String.valueOf("paybybank")),
     
+    PAYBYBANK_PLAID(String.valueOf("paybybank_plaid")),
+    
     PAYME(String.valueOf("payme")),
     
     PAYME_POS(String.valueOf("payme_pos")),
@@ -388,8 +390,6 @@ public class PaymentMethodSetupInfo {
     PAYNOW_POS(String.valueOf("paynow_pos")),
     
     PAYPAL(String.valueOf("paypal")),
-    
-    PAYSHOP(String.valueOf("payshop")),
     
     PAYTO(String.valueOf("payto")),
     
@@ -1043,38 +1043,6 @@ public class PaymentMethodSetupInfo {
   }
 
   /**
-   * giroPay
-   *
-   * @param giroPay 
-   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
-   */
-  public PaymentMethodSetupInfo giroPay(GiroPayInfo giroPay) {
-    this.giroPay = giroPay;
-    return this;
-  }
-
-  /**
-   * Get giroPay
-   * @return giroPay 
-   */
-  @JsonProperty(JSON_PROPERTY_GIRO_PAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GiroPayInfo getGiroPay() {
-    return giroPay;
-  }
-
-  /**
-   * giroPay
-   *
-   * @param giroPay 
-   */
-  @JsonProperty(JSON_PROPERTY_GIRO_PAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGiroPay(GiroPayInfo giroPay) {
-    this.giroPay = giroPay;
-  }
-
-  /**
    * girocard
    *
    * @param girocard 
@@ -1392,6 +1360,38 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNyce(NyceInfo nyce) {
     this.nyce = nyce;
+  }
+
+  /**
+   * paybybankPlaid
+   *
+   * @param paybybankPlaid 
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo paybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
+    this.paybybankPlaid = paybybankPlaid;
+    return this;
+  }
+
+  /**
+   * Get paybybankPlaid
+   * @return paybybankPlaid 
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PayByBankPlaidInfo getPaybybankPlaid() {
+    return paybybankPlaid;
+  }
+
+  /**
+   * paybybankPlaid
+   *
+   * @param paybybankPlaid 
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
+    this.paybybankPlaid = paybybankPlaid;
   }
 
   /**
@@ -2007,7 +2007,6 @@ public class PaymentMethodSetupInfo {
         Objects.equals(this.discover, paymentMethodSetupInfo.discover) &&
         Objects.equals(this.eftDirectdebitCA, paymentMethodSetupInfo.eftDirectdebitCA) &&
         Objects.equals(this.eftposAustralia, paymentMethodSetupInfo.eftposAustralia) &&
-        Objects.equals(this.giroPay, paymentMethodSetupInfo.giroPay) &&
         Objects.equals(this.girocard, paymentMethodSetupInfo.girocard) &&
         Objects.equals(this.googlePay, paymentMethodSetupInfo.googlePay) &&
         Objects.equals(this.ideal, paymentMethodSetupInfo.ideal) &&
@@ -2018,6 +2017,7 @@ public class PaymentMethodSetupInfo {
         Objects.equals(this.mc, paymentMethodSetupInfo.mc) &&
         Objects.equals(this.mealVoucherFR, paymentMethodSetupInfo.mealVoucherFR) &&
         Objects.equals(this.nyce, paymentMethodSetupInfo.nyce) &&
+        Objects.equals(this.paybybankPlaid, paymentMethodSetupInfo.paybybankPlaid) &&
         Objects.equals(this.payme, paymentMethodSetupInfo.payme) &&
         Objects.equals(this.paypal, paymentMethodSetupInfo.paypal) &&
         Objects.equals(this.payto, paymentMethodSetupInfo.payto) &&
@@ -2040,7 +2040,7 @@ public class PaymentMethodSetupInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accel, affirm, afterpayTouch, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftDirectdebitCA, eftposAustralia, giroPay, girocard, googlePay, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, nyce, payme, paypal, payto, pulse, reference, shopperInteraction, sodexo, sofort, star, storeIds, swish, ticket, twint, type, vipps, visa, wechatpay, wechatpayPos);
+    return Objects.hash(accel, affirm, afterpayTouch, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftDirectdebitCA, eftposAustralia, girocard, googlePay, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, nyce, paybybankPlaid, payme, paypal, payto, pulse, reference, shopperInteraction, sodexo, sofort, star, storeIds, swish, ticket, twint, type, vipps, visa, wechatpay, wechatpayPos);
   }
 
   @Override
@@ -2064,7 +2064,6 @@ public class PaymentMethodSetupInfo {
     sb.append("    discover: ").append(toIndentedString(discover)).append("\n");
     sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
-    sb.append("    giroPay: ").append(toIndentedString(giroPay)).append("\n");
     sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");
     sb.append("    googlePay: ").append(toIndentedString(googlePay)).append("\n");
     sb.append("    ideal: ").append(toIndentedString(ideal)).append("\n");
@@ -2075,6 +2074,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
+    sb.append("    paybybankPlaid: ").append(toIndentedString(paybybankPlaid)).append("\n");
     sb.append("    payme: ").append(toIndentedString(payme)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
     sb.append("    payto: ").append(toIndentedString(payto)).append("\n");

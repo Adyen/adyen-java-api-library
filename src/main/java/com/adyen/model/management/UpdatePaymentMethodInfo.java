@@ -20,6 +20,7 @@ import com.adyen.model.management.BcmcInfo;
 import com.adyen.model.management.CartesBancairesInfo;
 import com.adyen.model.management.GenericPmWithTdiInfo;
 import com.adyen.model.management.NyceInfo;
+import com.adyen.model.management.PayByBankPlaidInfo;
 import com.adyen.model.management.PulseInfo;
 import com.adyen.model.management.StarInfo;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -57,6 +58,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   UpdatePaymentMethodInfo.JSON_PROPERTY_MAESTRO,
   UpdatePaymentMethodInfo.JSON_PROPERTY_MC,
   UpdatePaymentMethodInfo.JSON_PROPERTY_NYCE,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_PAYBYBANK_PLAID,
   UpdatePaymentMethodInfo.JSON_PROPERTY_PULSE,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STAR,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STORE_ID,
@@ -121,6 +123,9 @@ public class UpdatePaymentMethodInfo {
 
   public static final String JSON_PROPERTY_NYCE = "nyce";
   private NyceInfo nyce;
+
+  public static final String JSON_PROPERTY_PAYBYBANK_PLAID = "paybybank_plaid";
+  private PayByBankPlaidInfo paybybankPlaid;
 
   public static final String JSON_PROPERTY_PULSE = "pulse";
   private PulseInfo pulse;
@@ -774,6 +779,38 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
+   * paybybankPlaid
+   *
+   * @param paybybankPlaid 
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo paybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
+    this.paybybankPlaid = paybybankPlaid;
+    return this;
+  }
+
+  /**
+   * Get paybybankPlaid
+   * @return paybybankPlaid 
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PayByBankPlaidInfo getPaybybankPlaid() {
+    return paybybankPlaid;
+  }
+
+  /**
+   * paybybankPlaid
+   *
+   * @param paybybankPlaid 
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
+    this.paybybankPlaid = paybybankPlaid;
+  }
+
+  /**
    * pulse
    *
    * @param pulse 
@@ -982,6 +1019,7 @@ public class UpdatePaymentMethodInfo {
         Objects.equals(this.maestro, updatePaymentMethodInfo.maestro) &&
         Objects.equals(this.mc, updatePaymentMethodInfo.mc) &&
         Objects.equals(this.nyce, updatePaymentMethodInfo.nyce) &&
+        Objects.equals(this.paybybankPlaid, updatePaymentMethodInfo.paybybankPlaid) &&
         Objects.equals(this.pulse, updatePaymentMethodInfo.pulse) &&
         Objects.equals(this.star, updatePaymentMethodInfo.star) &&
         Objects.equals(this.storeId, updatePaymentMethodInfo.storeId) &&
@@ -991,7 +1029,7 @@ public class UpdatePaymentMethodInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accel, bcmc, cartesBancaires, countries, cup, currencies, customRoutingFlags, diners, discover, eftDirectdebitCA, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, nyce, pulse, star, storeId, storeIds, visa);
+    return Objects.hash(accel, bcmc, cartesBancaires, countries, cup, currencies, customRoutingFlags, diners, discover, eftDirectdebitCA, eftposAustralia, enabled, girocard, ideal, interacCard, jcb, maestro, mc, nyce, paybybankPlaid, pulse, star, storeId, storeIds, visa);
   }
 
   @Override
@@ -1017,6 +1055,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    maestro: ").append(toIndentedString(maestro)).append("\n");
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
+    sb.append("    paybybankPlaid: ").append(toIndentedString(paybybankPlaid)).append("\n");
     sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
     sb.append("    star: ").append(toIndentedString(star)).append("\n");
     sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");

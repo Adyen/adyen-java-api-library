@@ -29,14 +29,50 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  * AfterpayTouchInfo
  */
 @JsonPropertyOrder({
+  AfterpayTouchInfo.JSON_PROPERTY_SUPPORT_EMAIL,
   AfterpayTouchInfo.JSON_PROPERTY_SUPPORT_URL
 })
 
 public class AfterpayTouchInfo {
+  public static final String JSON_PROPERTY_SUPPORT_EMAIL = "supportEmail";
+  private String supportEmail;
+
   public static final String JSON_PROPERTY_SUPPORT_URL = "supportUrl";
   private String supportUrl;
 
   public AfterpayTouchInfo() { 
+  }
+
+  /**
+   * Support Email
+   *
+   * @param supportEmail Support Email
+   * @return the current {@code AfterpayTouchInfo} instance, allowing for method chaining
+   */
+  public AfterpayTouchInfo supportEmail(String supportEmail) {
+    this.supportEmail = supportEmail;
+    return this;
+  }
+
+  /**
+   * Support Email
+   * @return supportEmail Support Email
+   */
+  @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSupportEmail() {
+    return supportEmail;
+  }
+
+  /**
+   * Support Email
+   *
+   * @param supportEmail Support Email
+   */
+  @JsonProperty(JSON_PROPERTY_SUPPORT_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSupportEmail(String supportEmail) {
+    this.supportEmail = supportEmail;
   }
 
   /**
@@ -83,18 +119,20 @@ public class AfterpayTouchInfo {
       return false;
     }
     AfterpayTouchInfo afterpayTouchInfo = (AfterpayTouchInfo) o;
-    return Objects.equals(this.supportUrl, afterpayTouchInfo.supportUrl);
+    return Objects.equals(this.supportEmail, afterpayTouchInfo.supportEmail) &&
+        Objects.equals(this.supportUrl, afterpayTouchInfo.supportUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supportUrl);
+    return Objects.hash(supportEmail, supportUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AfterpayTouchInfo {\n");
+    sb.append("    supportEmail: ").append(toIndentedString(supportEmail)).append("\n");
     sb.append("    supportUrl: ").append(toIndentedString(supportUrl)).append("\n");
     sb.append("}");
     return sb.toString();
