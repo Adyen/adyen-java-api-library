@@ -128,8 +128,7 @@ public class ClientTest extends BaseTest {
                 "https://chekout.adyen.com",
                 "{}",
                 new Config()
-                        .applicationName("test-app")
-                ,
+                        .applicationName("test-app"),
                 true,
                 null,
                 ApiConstants.HttpMethod.POST,
@@ -145,7 +144,7 @@ public class ClientTest extends BaseTest {
     public void testUserAgentWithoutApplicationName() throws Exception {
 
         AdyenHttpClient client = new AdyenHttpClient();
-        HttpUriRequestBase requestWithAppName = client.createRequest(
+        HttpUriRequestBase requestWithoutAppName = client.createRequest(
                 "https://chekout.adyen.com",
                 "{}",
                 new Config(),
@@ -155,7 +154,7 @@ public class ClientTest extends BaseTest {
                 Map.of()
         );
 
-        Header userAgent = requestWithAppName.getFirstHeader("User-Agent");
+        Header userAgent = requestWithoutAppName.getFirstHeader("User-Agent");
         assertNotNull(userAgent);
         assertEquals(Client.LIB_NAME + "/" + Client.LIB_VERSION, userAgent.getValue());
     }
