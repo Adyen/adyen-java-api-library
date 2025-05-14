@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-      - sdk-automation/models
-      - promote/main
   pull_request:
     branches:
       - main
