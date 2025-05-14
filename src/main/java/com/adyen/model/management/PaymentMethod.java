@@ -25,12 +25,12 @@ import com.adyen.model.management.CartesBancairesInfo;
 import com.adyen.model.management.ClearpayInfo;
 import com.adyen.model.management.DinersInfo;
 import com.adyen.model.management.GenericPmWithTdiInfo;
-import com.adyen.model.management.GiroPayInfo;
 import com.adyen.model.management.GooglePayInfo;
 import com.adyen.model.management.JCBInfo;
 import com.adyen.model.management.KlarnaInfo;
 import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.NyceInfo;
+import com.adyen.model.management.PayByBankPlaidInfo;
 import com.adyen.model.management.PayMeInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.PayToInfo;
@@ -79,7 +79,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethod.JSON_PROPERTY_EFT_DIRECTDEBIT_C_A,
   PaymentMethod.JSON_PROPERTY_EFTPOS_AUSTRALIA,
   PaymentMethod.JSON_PROPERTY_ENABLED,
-  PaymentMethod.JSON_PROPERTY_GIRO_PAY,
   PaymentMethod.JSON_PROPERTY_GIROCARD,
   PaymentMethod.JSON_PROPERTY_GOOGLE_PAY,
   PaymentMethod.JSON_PROPERTY_ID,
@@ -91,6 +90,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethod.JSON_PROPERTY_MC,
   PaymentMethod.JSON_PROPERTY_MEAL_VOUCHER_F_R,
   PaymentMethod.JSON_PROPERTY_NYCE,
+  PaymentMethod.JSON_PROPERTY_PAYBYBANK_PLAID,
   PaymentMethod.JSON_PROPERTY_PAYME,
   PaymentMethod.JSON_PROPERTY_PAYPAL,
   PaymentMethod.JSON_PROPERTY_PAYTO,
@@ -170,9 +170,6 @@ public class PaymentMethod {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
-  public static final String JSON_PROPERTY_GIRO_PAY = "giroPay";
-  private GiroPayInfo giroPay;
-
   public static final String JSON_PROPERTY_GIROCARD = "girocard";
   private GenericPmWithTdiInfo girocard;
 
@@ -205,6 +202,9 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_NYCE = "nyce";
   private NyceInfo nyce;
+
+  public static final String JSON_PROPERTY_PAYBYBANK_PLAID = "paybybank_plaid";
+  private PayByBankPlaidInfo paybybankPlaid;
 
   public static final String JSON_PROPERTY_PAYME = "payme";
   private PayMeInfo payme;
@@ -938,38 +938,6 @@ public class PaymentMethod {
   }
 
   /**
-   * giroPay
-   *
-   * @param giroPay 
-   * @return the current {@code PaymentMethod} instance, allowing for method chaining
-   */
-  public PaymentMethod giroPay(GiroPayInfo giroPay) {
-    this.giroPay = giroPay;
-    return this;
-  }
-
-  /**
-   * Get giroPay
-   * @return giroPay 
-   */
-  @JsonProperty(JSON_PROPERTY_GIRO_PAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public GiroPayInfo getGiroPay() {
-    return giroPay;
-  }
-
-  /**
-   * giroPay
-   *
-   * @param giroPay 
-   */
-  @JsonProperty(JSON_PROPERTY_GIRO_PAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGiroPay(GiroPayInfo giroPay) {
-    this.giroPay = giroPay;
-  }
-
-  /**
    * girocard
    *
    * @param girocard 
@@ -1319,6 +1287,38 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNyce(NyceInfo nyce) {
     this.nyce = nyce;
+  }
+
+  /**
+   * paybybankPlaid
+   *
+   * @param paybybankPlaid 
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod paybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
+    this.paybybankPlaid = paybybankPlaid;
+    return this;
+  }
+
+  /**
+   * Get paybybankPlaid
+   * @return paybybankPlaid 
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PayByBankPlaidInfo getPaybybankPlaid() {
+    return paybybankPlaid;
+  }
+
+  /**
+   * paybybankPlaid
+   *
+   * @param paybybankPlaid 
+   */
+  @JsonProperty(JSON_PROPERTY_PAYBYBANK_PLAID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaybybankPlaid(PayByBankPlaidInfo paybybankPlaid) {
+    this.paybybankPlaid = paybybankPlaid;
   }
 
   /**
@@ -1968,7 +1968,6 @@ public class PaymentMethod {
         Objects.equals(this.eftDirectdebitCA, paymentMethod.eftDirectdebitCA) &&
         Objects.equals(this.eftposAustralia, paymentMethod.eftposAustralia) &&
         Objects.equals(this.enabled, paymentMethod.enabled) &&
-        Objects.equals(this.giroPay, paymentMethod.giroPay) &&
         Objects.equals(this.girocard, paymentMethod.girocard) &&
         Objects.equals(this.googlePay, paymentMethod.googlePay) &&
         Objects.equals(this.id, paymentMethod.id) &&
@@ -1980,6 +1979,7 @@ public class PaymentMethod {
         Objects.equals(this.mc, paymentMethod.mc) &&
         Objects.equals(this.mealVoucherFR, paymentMethod.mealVoucherFR) &&
         Objects.equals(this.nyce, paymentMethod.nyce) &&
+        Objects.equals(this.paybybankPlaid, paymentMethod.paybybankPlaid) &&
         Objects.equals(this.payme, paymentMethod.payme) &&
         Objects.equals(this.paypal, paymentMethod.paypal) &&
         Objects.equals(this.payto, paymentMethod.payto) &&
@@ -2003,7 +2003,7 @@ public class PaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accel, affirm, afterpayTouch, allowed, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftDirectdebitCA, eftposAustralia, enabled, giroPay, girocard, googlePay, id, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, nyce, payme, paypal, payto, pulse, reference, shopperInteraction, sodexo, sofort, star, storeIds, swish, ticket, twint, type, verificationStatus, vipps, visa, wechatpay, wechatpayPos);
+    return Objects.hash(accel, affirm, afterpayTouch, allowed, amex, applePay, bcmc, businessLineId, cartesBancaires, clearpay, countries, cup, currencies, customRoutingFlags, diners, discover, eftDirectdebitCA, eftposAustralia, enabled, girocard, googlePay, id, ideal, interacCard, jcb, klarna, maestro, mc, mealVoucherFR, nyce, paybybankPlaid, payme, paypal, payto, pulse, reference, shopperInteraction, sodexo, sofort, star, storeIds, swish, ticket, twint, type, verificationStatus, vipps, visa, wechatpay, wechatpayPos);
   }
 
   @Override
@@ -2029,7 +2029,6 @@ public class PaymentMethod {
     sb.append("    eftDirectdebitCA: ").append(toIndentedString(eftDirectdebitCA)).append("\n");
     sb.append("    eftposAustralia: ").append(toIndentedString(eftposAustralia)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    giroPay: ").append(toIndentedString(giroPay)).append("\n");
     sb.append("    girocard: ").append(toIndentedString(girocard)).append("\n");
     sb.append("    googlePay: ").append(toIndentedString(googlePay)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -2041,6 +2040,7 @@ public class PaymentMethod {
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
+    sb.append("    paybybankPlaid: ").append(toIndentedString(paybybankPlaid)).append("\n");
     sb.append("    payme: ").append(toIndentedString(payme)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
     sb.append("    payto: ").append(toIndentedString(payto)).append("\n");

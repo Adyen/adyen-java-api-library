@@ -161,6 +161,8 @@ public class PaymentMethodResponse {
     
     PAYBYBANK(String.valueOf("paybybank")),
     
+    PAYBYBANK_PLAID(String.valueOf("paybybank_plaid")),
+    
     PAYME(String.valueOf("payme")),
     
     PAYME_POS(String.valueOf("payme_pos")),
@@ -170,8 +172,6 @@ public class PaymentMethodResponse {
     PAYNOW_POS(String.valueOf("paynow_pos")),
     
     PAYPAL(String.valueOf("paypal")),
-    
-    PAYSHOP(String.valueOf("payshop")),
     
     PAYTO(String.valueOf("payto")),
     

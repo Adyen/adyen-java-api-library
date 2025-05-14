@@ -35,6 +35,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Profile.JSON_PROPERTY_BSS_TYPE,
   Profile.JSON_PROPERTY_CHANNEL,
   Profile.JSON_PROPERTY_DEFAULT_PROFILE,
+  Profile.JSON_PROPERTY_DOMAIN_SUFFIX,
   Profile.JSON_PROPERTY_EAP,
   Profile.JSON_PROPERTY_EAP_CA_CERT,
   Profile.JSON_PROPERTY_EAP_CLIENT_CERT,
@@ -65,6 +66,9 @@ public class Profile {
 
   public static final String JSON_PROPERTY_DEFAULT_PROFILE = "defaultProfile";
   private Boolean defaultProfile;
+
+  public static final String JSON_PROPERTY_DOMAIN_SUFFIX = "domainSuffix";
+  private String domainSuffix;
 
   public static final String JSON_PROPERTY_EAP = "eap";
   private String eap;
@@ -266,6 +270,38 @@ public class Profile {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDefaultProfile(Boolean defaultProfile) {
     this.defaultProfile = defaultProfile;
+  }
+
+  /**
+   * Specifies the server domain name for EAP-TLS and EAP-PEAP WiFi profiles on Android 11 and above.
+   *
+   * @param domainSuffix Specifies the server domain name for EAP-TLS and EAP-PEAP WiFi profiles on Android 11 and above.
+   * @return the current {@code Profile} instance, allowing for method chaining
+   */
+  public Profile domainSuffix(String domainSuffix) {
+    this.domainSuffix = domainSuffix;
+    return this;
+  }
+
+  /**
+   * Specifies the server domain name for EAP-TLS and EAP-PEAP WiFi profiles on Android 11 and above.
+   * @return domainSuffix Specifies the server domain name for EAP-TLS and EAP-PEAP WiFi profiles on Android 11 and above.
+   */
+  @JsonProperty(JSON_PROPERTY_DOMAIN_SUFFIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDomainSuffix() {
+    return domainSuffix;
+  }
+
+  /**
+   * Specifies the server domain name for EAP-TLS and EAP-PEAP WiFi profiles on Android 11 and above.
+   *
+   * @param domainSuffix Specifies the server domain name for EAP-TLS and EAP-PEAP WiFi profiles on Android 11 and above.
+   */
+  @JsonProperty(JSON_PROPERTY_DOMAIN_SUFFIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDomainSuffix(String domainSuffix) {
+    this.domainSuffix = domainSuffix;
   }
 
   /**
@@ -701,6 +737,7 @@ public class Profile {
         Objects.equals(this.bssType, profile.bssType) &&
         Objects.equals(this.channel, profile.channel) &&
         Objects.equals(this.defaultProfile, profile.defaultProfile) &&
+        Objects.equals(this.domainSuffix, profile.domainSuffix) &&
         Objects.equals(this.eap, profile.eap) &&
         Objects.equals(this.eapCaCert, profile.eapCaCert) &&
         Objects.equals(this.eapClientCert, profile.eapClientCert) &&
@@ -718,7 +755,7 @@ public class Profile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, autoWifi, bssType, channel, defaultProfile, eap, eapCaCert, eapClientCert, eapClientKey, eapClientPwd, eapIdentity, eapIntermediateCert, eapPwd, hiddenSsid, name, psk, ssid, wsec);
+    return Objects.hash(authType, autoWifi, bssType, channel, defaultProfile, domainSuffix, eap, eapCaCert, eapClientCert, eapClientKey, eapClientPwd, eapIdentity, eapIntermediateCert, eapPwd, hiddenSsid, name, psk, ssid, wsec);
   }
 
   @Override
@@ -730,6 +767,7 @@ public class Profile {
     sb.append("    bssType: ").append(toIndentedString(bssType)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    defaultProfile: ").append(toIndentedString(defaultProfile)).append("\n");
+    sb.append("    domainSuffix: ").append(toIndentedString(domainSuffix)).append("\n");
     sb.append("    eap: ").append(toIndentedString(eap)).append("\n");
     sb.append("    eapCaCert: ").append(toIndentedString(eapCaCert)).append("\n");
     sb.append("    eapClientCert: ").append(toIndentedString(eapClientCert)).append("\n");

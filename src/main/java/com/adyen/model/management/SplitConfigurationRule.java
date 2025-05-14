@@ -46,9 +46,15 @@ public class SplitConfigurationRule {
    * The funding source of the payment method. This only applies to card transactions.  Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
    */
   public enum FundingSourceEnum {
+    CHARGED(String.valueOf("charged")),
+    
     CREDIT(String.valueOf("credit")),
     
     DEBIT(String.valueOf("debit")),
+    
+    DEFERRED_DEBIT(String.valueOf("deferred_debit")),
+    
+    PREPAID(String.valueOf("prepaid")),
     
     ANY(String.valueOf("ANY"));
 
