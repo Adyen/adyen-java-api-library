@@ -42,12 +42,22 @@ public class Config {
         this.username = username;
     }
 
+    public Config username(String username) {
+        this.username = username;
+        return this;
+    }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Config password(String password) {
+        this.password = password;
+        return this;
     }
 
     public Environment getEnvironment() {
@@ -58,12 +68,22 @@ public class Config {
         this.environment = environment;
     }
 
+    public Config environment(Environment environment) {
+        this.environment = environment;
+        return this;
+    }
+
     public String getApplicationName() {
         return applicationName;
     }
 
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName;
+    }
+
+    public Config applicationName(String applicationName) {
+        this.applicationName = applicationName;
+        return this;
     }
 
     public String getApiKey() {
@@ -74,12 +94,22 @@ public class Config {
         this.apiKey = apiKey;
     }
 
+    public Config apiKey(String apiKey) {
+        this.apiKey = apiKey;
+        return this;
+    }
+
     public String getTerminalApiCloudEndpoint() {
         return terminalApiCloudEndpoint;
     }
 
     public void setTerminalApiCloudEndpoint(String terminalApiCloudEndpoint) {
         this.terminalApiCloudEndpoint = terminalApiCloudEndpoint;
+    }
+
+    public Config terminalApiCloudEndpoint(String terminalApiCloudEndpoint) {
+        this.terminalApiCloudEndpoint = terminalApiCloudEndpoint;
+        return this;
     }
 
     public String getTerminalApiLocalEndpoint() {
@@ -90,12 +120,22 @@ public class Config {
         this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
     }
 
+    public Config terminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
+        this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
+        return this;
+    }
+
     public Region getTerminalApiRegion() {
         return terminalApiRegion;
     }
 
     public void setTerminalApiRegion(Region terminalApiRegion) {
         this.terminalApiRegion = terminalApiRegion;
+    }
+
+    public Config terminalApiRegion(Region terminalApiRegion) {
+        this.terminalApiRegion = terminalApiRegion;
+        return this;
     }
 
     public int getConnectionTimeoutMillis() {
@@ -106,12 +146,22 @@ public class Config {
         this.connectionTimeoutMillis = connectionTimeoutMillis;
     }
 
+    public Config connectionTimeoutMillis(int connectionTimeoutMillis) {
+        this.connectionTimeoutMillis = connectionTimeoutMillis;
+        return this;
+    }
+
     public int getReadTimeoutMillis() {
         return readTimeoutMillis;
     }
 
     public void setReadTimeoutMillis(int readTimeoutMillis) {
         this.readTimeoutMillis = readTimeoutMillis;
+    }
+
+    public Config readTimeoutMillis(int readTimeoutMillis) {
+        this.readTimeoutMillis = readTimeoutMillis;
+        return this;
     }
 
     public int getDefaultKeepAliveMillis() {
@@ -122,12 +172,22 @@ public class Config {
         this.defaultKeepAliveMillis = defaultKeepAliveMillis;
     }
 
+    public Config defaultKeepAliveMillis(int defaultKeepAliveMillis) {
+        this.defaultKeepAliveMillis = defaultKeepAliveMillis;
+        return this;
+    }
+
     public int getConnectionRequestTimeoutMillis() {
         return connectionRequestTimeoutMillis;
     }
 
     public void setConnectionRequestTimeoutMillis(int connectionRequestTimeoutMillis) {
         this.connectionRequestTimeoutMillis = connectionRequestTimeoutMillis;
+    }
+
+    public Config connectionRequestTimeoutMillis(int connectionRequestTimeoutMillis) {
+        this.connectionRequestTimeoutMillis = connectionRequestTimeoutMillis;
+        return this;
     }
 
     public Boolean getProtocolUpgradeEnabled() {
@@ -142,11 +202,22 @@ public class Config {
         this.protocolUpgradeEnabled = protocolUpgradeEnabled;
     }
 
+    public Config protocolUpgradeEnabled(Boolean protocolUpgradeEnabled) {
+        this.protocolUpgradeEnabled = protocolUpgradeEnabled;
+        return this;
+    }
+
     public String getLiveEndpointUrlPrefix() {
         return this.liveEndpointUrlPrefix;
     }
+
     public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
         this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
+    }
+
+    public Config liveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
+        this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
+        return this;
     }
 
     public SSLContext getSSLContext() {
@@ -162,6 +233,11 @@ public class Config {
         this.sslContext = sslContext;
     }
 
+    public Config sslContext(SSLContext sslContext) {
+        this.sslContext = sslContext;
+        return this;
+    }
+
     public HostnameVerifier getHostnameVerifier() {
         return hostnameVerifier;
     }
@@ -174,5 +250,10 @@ public class Config {
      */
     public void setHostnameVerifier(HostnameVerifier hostnameVerifier) {
         this.hostnameVerifier = hostnameVerifier;
+    }
+
+    public Config hostnameVerifier(HostnameVerifier hostnameVerifier) {
+        this.hostnameVerifier = hostnameVerifier;
+        return this;
     }
 }

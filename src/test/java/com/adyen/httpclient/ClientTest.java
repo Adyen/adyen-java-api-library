@@ -1,10 +1,17 @@
-package com.adyen;
+package com.adyen.httpclient;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import javax.net.ssl.SSLContext;
 
+import com.adyen.BaseTest;
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.constants.ApiConstants;
+import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
+import org.apache.hc.core5.http.Header;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -16,7 +23,9 @@ import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.model.RequestOptions;
 
-public class ClientTest {
+import static org.junit.Assert.*;
+
+public class ClientTest extends BaseTest {
 
     @Mock
     private SSLContext clientCertificateAuthSSLContext;
@@ -31,7 +40,7 @@ public class ClientTest {
         config.setEnvironment(Environment.TEST);
         config.setApiKey(apiKey);
         Client client = new Client(config);
-        Assert.assertEquals(Environment.TEST, client.getConfig().getEnvironment());
+        assertEquals(Environment.TEST, client.getConfig().getEnvironment());
     }
     
     @Test
@@ -41,7 +50,7 @@ public class ClientTest {
         config.setLiveEndpointUrlPrefix("prefix");
         config.setApiKey(apiKey);
         Client client = new Client(config);
-        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+        assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
     }
 
     private static Stream<Arguments> provideCloudTestEndpointTestCases() {
@@ -61,7 +70,7 @@ public class ClientTest {
         testConfig.setEnvironment(Environment.TEST);
         testConfig.setTerminalApiRegion(region);
         Client testClient = new Client(testConfig);
-        Assert.assertEquals(expectedEndpoint, testConfig.getTerminalApiCloudEndpoint());
+        assertEquals(expectedEndpoint, testConfig.getTerminalApiCloudEndpoint());
     }
 
     private static Stream<Arguments> provideCloudLiveEndpointTestCases() {
@@ -81,7 +90,7 @@ public class ClientTest {
         liveConfig.setEnvironment(Environment.LIVE);
         liveConfig.setTerminalApiRegion(region);
         Client liveClient = new Client(liveConfig);
-        Assert.assertEquals(expectedEndpoint, liveConfig.getTerminalApiCloudEndpoint());
+        assertEquals(expectedEndpoint, liveConfig.getTerminalApiCloudEndpoint());
     }
 
     @Test
@@ -97,7 +106,7 @@ public class ClientTest {
     @Test
     public void testClientCertificateAuth() {
         Client client = new Client(clientCertificateAuthSSLContext, apiKey);
-        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+        assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
     }
 
     @Test
@@ -108,6 +117,46 @@ public class ClientTest {
                 .idempotencyKey("idempotency")
                 .requestedVerificationCodeHeader("headers")
                 .additionalServiceHeaders(map);
-        Assert.assertEquals(requestOptions.getAdditionalServiceHeaders(), map);
+        assertEquals(requestOptions.getAdditionalServiceHeaders(), map);
+    }
+
+    @Test
+    public void testUserAgentWithApplicationName() throws Exception {
+
+        AdyenHttpClient client = new AdyenHttpClient();
+        HttpUriRequestBase requestWithAppName = client.createRequest(
+                "https://chekout.adyen.com",
+                "{}",
+                new Config()
+                        .applicationName("test-app")
+                ,
+                true,
+                null,
+                ApiConstants.HttpMethod.POST,
+                Map.of()
+        );
+
+        Header userAgent = requestWithAppName.getFirstHeader("User-Agent");
+        assertNotNull(userAgent);
+        assertEquals("test-app " + Client.LIB_NAME + "/" + Client.LIB_VERSION, userAgent.getValue());
+    }
+
+    @Test
+    public void testUserAgentWithoutApplicationName() throws Exception {
+
+        AdyenHttpClient client = new AdyenHttpClient();
+        HttpUriRequestBase requestWithAppName = client.createRequest(
+                "https://chekout.adyen.com",
+                "{}",
+                new Config(),
+                true,
+                null,
+                ApiConstants.HttpMethod.POST,
+                Map.of()
+        );
+
+        Header userAgent = requestWithAppName.getFirstHeader("User-Agent");
+        assertNotNull(userAgent);
+        assertEquals(Client.LIB_NAME + "/" + Client.LIB_VERSION, userAgent.getValue());
     }
 }

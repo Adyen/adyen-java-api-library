@@ -111,7 +111,7 @@ public class AdyenHttpClient implements ClientInterface {
         }
     }
 
-    private HttpUriRequestBase createRequest(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws HTTPClientException {
+    HttpUriRequestBase createRequest(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws HTTPClientException {
         HttpUriRequestBase httpRequest = createHttpRequestBase(createUri(endpoint, params), requestBody, httpMethod);
 
         RequestConfig.Builder builder = RequestConfig.custom();
@@ -140,7 +140,13 @@ public class AdyenHttpClient implements ClientInterface {
 
         setContentType(httpUriRequest, APPLICATION_JSON_TYPE);
         httpUriRequest.addHeader(ACCEPT_CHARSET, CHARSET);
-        httpUriRequest.addHeader(USER_AGENT, String.format("%s %s/%s", config.getApplicationName(), Client.LIB_NAME, Client.LIB_VERSION));
+
+        String applicationName = config.getApplicationName();
+        String userAgent = (applicationName != null && !applicationName.isBlank())
+                ? String.format("%s %s/%s", applicationName, Client.LIB_NAME, Client.LIB_VERSION)
+                : String.format("%s/%s", Client.LIB_NAME, Client.LIB_VERSION);
+        httpUriRequest.addHeader(USER_AGENT, userAgent);
+
         httpUriRequest.addHeader(ADYEN_LIBRARY_NAME, Client.LIB_NAME);
         httpUriRequest.addHeader(ADYEN_LIBRARY_VERSION, Client.LIB_VERSION);
 
