@@ -55,7 +55,9 @@ public class CalculateTermsOfServiceStatusResponse {
     
     ADYENISSUING(String.valueOf("adyenIssuing")),
     
-    ADYENPCCR(String.valueOf("adyenPccr"));
+    ADYENPCCR(String.valueOf("adyenPccr")),
+    
+    KYCONINVITE(String.valueOf("kycOnInvite"));
 
     private String value;
 

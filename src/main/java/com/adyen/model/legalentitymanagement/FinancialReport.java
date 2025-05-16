@@ -124,9 +124,9 @@ public class FinancialReport {
   }
 
   /**
-   * The currency used for the net assets and balance sheet total.
+   * The currency used for the annual turnover, balance sheet total, and net assets.
    *
-   * @param currencyOfFinancialData The currency used for the net assets and balance sheet total.
+   * @param currencyOfFinancialData The currency used for the annual turnover, balance sheet total, and net assets.
    * @return the current {@code FinancialReport} instance, allowing for method chaining
    */
   public FinancialReport currencyOfFinancialData(String currencyOfFinancialData) {
@@ -135,8 +135,8 @@ public class FinancialReport {
   }
 
   /**
-   * The currency used for the net assets and balance sheet total.
-   * @return currencyOfFinancialData The currency used for the net assets and balance sheet total.
+   * The currency used for the annual turnover, balance sheet total, and net assets.
+   * @return currencyOfFinancialData The currency used for the annual turnover, balance sheet total, and net assets.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,9 +145,9 @@ public class FinancialReport {
   }
 
   /**
-   * The currency used for the net assets and balance sheet total.
+   * The currency used for the annual turnover, balance sheet total, and net assets.
    *
-   * @param currencyOfFinancialData The currency used for the net assets and balance sheet total.
+   * @param currencyOfFinancialData The currency used for the annual turnover, balance sheet total, and net assets.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY_OF_FINANCIAL_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
