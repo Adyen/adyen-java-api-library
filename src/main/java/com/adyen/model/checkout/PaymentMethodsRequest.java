@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.checkout.Amount;
+import com.adyen.model.checkout.BrowserInfo;
 import com.adyen.model.checkout.EncryptedOrderData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,16 +40,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   PaymentMethodsRequest.JSON_PROPERTY_ALLOWED_PAYMENT_METHODS,
   PaymentMethodsRequest.JSON_PROPERTY_AMOUNT,
   PaymentMethodsRequest.JSON_PROPERTY_BLOCKED_PAYMENT_METHODS,
+  PaymentMethodsRequest.JSON_PROPERTY_BROWSER_INFO,
   PaymentMethodsRequest.JSON_PROPERTY_CHANNEL,
   PaymentMethodsRequest.JSON_PROPERTY_COUNTRY_CODE,
   PaymentMethodsRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentMethodsRequest.JSON_PROPERTY_ORDER,
   PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_CONVERSION_ID,
+  PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_EMAIL,
+  PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_I_P,
   PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_LOCALE,
   PaymentMethodsRequest.JSON_PROPERTY_SHOPPER_REFERENCE,
   PaymentMethodsRequest.JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES,
   PaymentMethodsRequest.JSON_PROPERTY_STORE,
-  PaymentMethodsRequest.JSON_PROPERTY_STORE_FILTRATION_MODE
+  PaymentMethodsRequest.JSON_PROPERTY_STORE_FILTRATION_MODE,
+  PaymentMethodsRequest.JSON_PROPERTY_TELEPHONE_NUMBER
 })
 
 public class PaymentMethodsRequest {
@@ -63,6 +68,9 @@ public class PaymentMethodsRequest {
 
   public static final String JSON_PROPERTY_BLOCKED_PAYMENT_METHODS = "blockedPaymentMethods";
   private List<String> blockedPaymentMethods;
+
+  public static final String JSON_PROPERTY_BROWSER_INFO = "browserInfo";
+  private BrowserInfo browserInfo;
 
   /**
    * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
@@ -116,6 +124,12 @@ public class PaymentMethodsRequest {
   public static final String JSON_PROPERTY_SHOPPER_CONVERSION_ID = "shopperConversionId";
   private String shopperConversionId;
 
+  public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
+  private String shopperEmail;
+
+  public static final String JSON_PROPERTY_SHOPPER_I_P = "shopperIP";
+  private String shopperIP;
+
   public static final String JSON_PROPERTY_SHOPPER_LOCALE = "shopperLocale";
   private String shopperLocale;
 
@@ -167,6 +181,9 @@ public class PaymentMethodsRequest {
 
   public static final String JSON_PROPERTY_STORE_FILTRATION_MODE = "storeFiltrationMode";
   private StoreFiltrationModeEnum storeFiltrationMode;
+
+  public static final String JSON_PROPERTY_TELEPHONE_NUMBER = "telephoneNumber";
+  private String telephoneNumber;
 
   public PaymentMethodsRequest() { 
   }
@@ -321,6 +338,38 @@ public class PaymentMethodsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
     this.blockedPaymentMethods = blockedPaymentMethods;
+  }
+
+  /**
+   * browserInfo
+   *
+   * @param browserInfo 
+   * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
+   */
+  public PaymentMethodsRequest browserInfo(BrowserInfo browserInfo) {
+    this.browserInfo = browserInfo;
+    return this;
+  }
+
+  /**
+   * Get browserInfo
+   * @return browserInfo 
+   */
+  @JsonProperty(JSON_PROPERTY_BROWSER_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public BrowserInfo getBrowserInfo() {
+    return browserInfo;
+  }
+
+  /**
+   * browserInfo
+   *
+   * @param browserInfo 
+   */
+  @JsonProperty(JSON_PROPERTY_BROWSER_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBrowserInfo(BrowserInfo browserInfo) {
+    this.browserInfo = browserInfo;
   }
 
   /**
@@ -484,6 +533,70 @@ public class PaymentMethodsRequest {
   }
 
   /**
+   * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *
+   * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
+   */
+  public PaymentMethodsRequest shopperEmail(String shopperEmail) {
+    this.shopperEmail = shopperEmail;
+    return this;
+  }
+
+  /**
+   * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * @return shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShopperEmail() {
+    return shopperEmail;
+  }
+
+  /**
+   * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *
+   * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperEmail(String shopperEmail) {
+    this.shopperEmail = shopperEmail;
+  }
+
+  /**
+   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
+   *
+   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
+   * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
+   */
+  public PaymentMethodsRequest shopperIP(String shopperIP) {
+    this.shopperIP = shopperIP;
+    return this;
+  }
+
+  /**
+   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
+   * @return shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShopperIP() {
+    return shopperIP;
+  }
+
+  /**
+   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
+   *
+   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
+   */
+  @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShopperIP(String shopperIP) {
+    this.shopperIP = shopperIP;
+  }
+
+  /**
    * The combination of a language code and a country code to specify the language to be used in the payment.
    *
    * @param shopperLocale The combination of a language code and a country code to specify the language to be used in the payment.
@@ -644,6 +757,38 @@ public class PaymentMethodsRequest {
   }
 
   /**
+   * The shopper&#39;s telephone number.
+   *
+   * @param telephoneNumber The shopper&#39;s telephone number.
+   * @return the current {@code PaymentMethodsRequest} instance, allowing for method chaining
+   */
+  public PaymentMethodsRequest telephoneNumber(String telephoneNumber) {
+    this.telephoneNumber = telephoneNumber;
+    return this;
+  }
+
+  /**
+   * The shopper&#39;s telephone number.
+   * @return telephoneNumber The shopper&#39;s telephone number.
+   */
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTelephoneNumber() {
+    return telephoneNumber;
+  }
+
+  /**
+   * The shopper&#39;s telephone number.
+   *
+   * @param telephoneNumber The shopper&#39;s telephone number.
+   */
+  @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTelephoneNumber(String telephoneNumber) {
+    this.telephoneNumber = telephoneNumber;
+  }
+
+  /**
    * Return true if this PaymentMethodsRequest object is equal to o.
    */
   @Override
@@ -659,21 +804,25 @@ public class PaymentMethodsRequest {
         Objects.equals(this.allowedPaymentMethods, paymentMethodsRequest.allowedPaymentMethods) &&
         Objects.equals(this.amount, paymentMethodsRequest.amount) &&
         Objects.equals(this.blockedPaymentMethods, paymentMethodsRequest.blockedPaymentMethods) &&
+        Objects.equals(this.browserInfo, paymentMethodsRequest.browserInfo) &&
         Objects.equals(this.channel, paymentMethodsRequest.channel) &&
         Objects.equals(this.countryCode, paymentMethodsRequest.countryCode) &&
         Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount) &&
         Objects.equals(this.order, paymentMethodsRequest.order) &&
         Objects.equals(this.shopperConversionId, paymentMethodsRequest.shopperConversionId) &&
+        Objects.equals(this.shopperEmail, paymentMethodsRequest.shopperEmail) &&
+        Objects.equals(this.shopperIP, paymentMethodsRequest.shopperIP) &&
         Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
         Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference) &&
         Objects.equals(this.splitCardFundingSources, paymentMethodsRequest.splitCardFundingSources) &&
         Objects.equals(this.store, paymentMethodsRequest.store) &&
-        Objects.equals(this.storeFiltrationMode, paymentMethodsRequest.storeFiltrationMode);
+        Objects.equals(this.storeFiltrationMode, paymentMethodsRequest.storeFiltrationMode) &&
+        Objects.equals(this.telephoneNumber, paymentMethodsRequest.telephoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, merchantAccount, order, shopperConversionId, shopperLocale, shopperReference, splitCardFundingSources, store, storeFiltrationMode);
+    return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, browserInfo, channel, countryCode, merchantAccount, order, shopperConversionId, shopperEmail, shopperIP, shopperLocale, shopperReference, splitCardFundingSources, store, storeFiltrationMode, telephoneNumber);
   }
 
   @Override
@@ -684,16 +833,20 @@ public class PaymentMethodsRequest {
     sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
+    sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    shopperConversionId: ").append(toIndentedString(shopperConversionId)).append("\n");
+    sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+    sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
     sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
     sb.append("    splitCardFundingSources: ").append(toIndentedString(splitCardFundingSources)).append("\n");
     sb.append("    store: ").append(toIndentedString(store)).append("\n");
     sb.append("    storeFiltrationMode: ").append(toIndentedString(storeFiltrationMode)).append("\n");
+    sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
