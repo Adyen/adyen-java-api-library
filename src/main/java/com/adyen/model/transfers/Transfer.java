@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.CounterpartyV3;
 import com.adyen.model.transfers.DirectDebitInformation;
+import com.adyen.model.transfers.ExecutionDate;
 import com.adyen.model.transfers.PaymentInstrument;
 import com.adyen.model.transfers.ResourceReference;
 import com.adyen.model.transfers.TransferCategoryData;
@@ -47,6 +48,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   Transfer.JSON_PROPERTY_DESCRIPTION,
   Transfer.JSON_PROPERTY_DIRECT_DEBIT_INFORMATION,
   Transfer.JSON_PROPERTY_DIRECTION,
+  Transfer.JSON_PROPERTY_EXECUTION_DATE,
   Transfer.JSON_PROPERTY_ID,
   Transfer.JSON_PROPERTY_PAYMENT_INSTRUMENT,
   Transfer.JSON_PROPERTY_REASON,
@@ -165,6 +167,9 @@ public class Transfer {
 
   public static final String JSON_PROPERTY_DIRECTION = "direction";
   private DirectionEnum direction;
+
+  public static final String JSON_PROPERTY_EXECUTION_DATE = "executionDate";
+  private ExecutionDate executionDate;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -865,6 +870,38 @@ public class Transfer {
   }
 
   /**
+   * executionDate
+   *
+   * @param executionDate 
+   * @return the current {@code Transfer} instance, allowing for method chaining
+   */
+  public Transfer executionDate(ExecutionDate executionDate) {
+    this.executionDate = executionDate;
+    return this;
+  }
+
+  /**
+   * Get executionDate
+   * @return executionDate 
+   */
+  @JsonProperty(JSON_PROPERTY_EXECUTION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExecutionDate getExecutionDate() {
+    return executionDate;
+  }
+
+  /**
+   * executionDate
+   *
+   * @param executionDate 
+   */
+  @JsonProperty(JSON_PROPERTY_EXECUTION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExecutionDate(ExecutionDate executionDate) {
+    this.executionDate = executionDate;
+  }
+
+  /**
    * The ID of the resource.
    *
    * @param id The ID of the resource.
@@ -1142,6 +1179,7 @@ public class Transfer {
         Objects.equals(this.description, transfer.description) &&
         Objects.equals(this.directDebitInformation, transfer.directDebitInformation) &&
         Objects.equals(this.direction, transfer.direction) &&
+        Objects.equals(this.executionDate, transfer.executionDate) &&
         Objects.equals(this.id, transfer.id) &&
         Objects.equals(this.paymentInstrument, transfer.paymentInstrument) &&
         Objects.equals(this.reason, transfer.reason) &&
@@ -1154,7 +1192,7 @@ public class Transfer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, amount, balanceAccount, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, status, type);
+    return Objects.hash(accountHolder, amount, balanceAccount, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, executionDate, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, status, type);
   }
 
   @Override
@@ -1171,6 +1209,7 @@ public class Transfer {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directDebitInformation: ").append(toIndentedString(directDebitInformation)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");

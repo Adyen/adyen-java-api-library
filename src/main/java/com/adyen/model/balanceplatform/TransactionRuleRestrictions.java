@@ -39,6 +39,7 @@ import com.adyen.model.balanceplatform.TokenRequestorsRestriction;
 import com.adyen.model.balanceplatform.TotalAmountRestriction;
 import com.adyen.model.balanceplatform.WalletProviderAccountScoreRestriction;
 import com.adyen.model.balanceplatform.WalletProviderDeviceScore;
+import com.adyen.model.balanceplatform.WalletProviderDeviceType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -76,7 +77,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransactionRuleRestrictions.JSON_PROPERTY_TOKEN_REQUESTORS,
   TransactionRuleRestrictions.JSON_PROPERTY_TOTAL_AMOUNT,
   TransactionRuleRestrictions.JSON_PROPERTY_WALLET_PROVIDER_ACCOUNT_SCORE,
-  TransactionRuleRestrictions.JSON_PROPERTY_WALLET_PROVIDER_DEVICE_SCORE
+  TransactionRuleRestrictions.JSON_PROPERTY_WALLET_PROVIDER_DEVICE_SCORE,
+  TransactionRuleRestrictions.JSON_PROPERTY_WALLET_PROVIDER_DEVICE_TYPE
 })
 
 public class TransactionRuleRestrictions {
@@ -151,6 +153,9 @@ public class TransactionRuleRestrictions {
 
   public static final String JSON_PROPERTY_WALLET_PROVIDER_DEVICE_SCORE = "walletProviderDeviceScore";
   private WalletProviderDeviceScore walletProviderDeviceScore;
+
+  public static final String JSON_PROPERTY_WALLET_PROVIDER_DEVICE_TYPE = "walletProviderDeviceType";
+  private WalletProviderDeviceType walletProviderDeviceType;
 
   public TransactionRuleRestrictions() { 
   }
@@ -924,6 +929,38 @@ public class TransactionRuleRestrictions {
   }
 
   /**
+   * walletProviderDeviceType
+   *
+   * @param walletProviderDeviceType 
+   * @return the current {@code TransactionRuleRestrictions} instance, allowing for method chaining
+   */
+  public TransactionRuleRestrictions walletProviderDeviceType(WalletProviderDeviceType walletProviderDeviceType) {
+    this.walletProviderDeviceType = walletProviderDeviceType;
+    return this;
+  }
+
+  /**
+   * Get walletProviderDeviceType
+   * @return walletProviderDeviceType 
+   */
+  @JsonProperty(JSON_PROPERTY_WALLET_PROVIDER_DEVICE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WalletProviderDeviceType getWalletProviderDeviceType() {
+    return walletProviderDeviceType;
+  }
+
+  /**
+   * walletProviderDeviceType
+   *
+   * @param walletProviderDeviceType 
+   */
+  @JsonProperty(JSON_PROPERTY_WALLET_PROVIDER_DEVICE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWalletProviderDeviceType(WalletProviderDeviceType walletProviderDeviceType) {
+    this.walletProviderDeviceType = walletProviderDeviceType;
+  }
+
+  /**
    * Return true if this TransactionRuleRestrictions object is equal to o.
    */
   @Override
@@ -958,12 +995,13 @@ public class TransactionRuleRestrictions {
         Objects.equals(this.tokenRequestors, transactionRuleRestrictions.tokenRequestors) &&
         Objects.equals(this.totalAmount, transactionRuleRestrictions.totalAmount) &&
         Objects.equals(this.walletProviderAccountScore, transactionRuleRestrictions.walletProviderAccountScore) &&
-        Objects.equals(this.walletProviderDeviceScore, transactionRuleRestrictions.walletProviderDeviceScore);
+        Objects.equals(this.walletProviderDeviceScore, transactionRuleRestrictions.walletProviderDeviceScore) &&
+        Objects.equals(this.walletProviderDeviceType, transactionRuleRestrictions.walletProviderDeviceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, counterpartyTypes, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, sourceAccountTypes, timeOfDay, tokenRequestors, totalAmount, walletProviderAccountScore, walletProviderDeviceScore);
+    return Objects.hash(activeNetworkTokens, brandVariants, counterpartyBank, counterpartyTypes, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, matchingValues, mccs, merchantNames, merchants, processingTypes, riskScores, sameAmountRestriction, sameCounterpartyRestriction, sourceAccountTypes, timeOfDay, tokenRequestors, totalAmount, walletProviderAccountScore, walletProviderDeviceScore, walletProviderDeviceType);
   }
 
   @Override
@@ -994,6 +1032,7 @@ public class TransactionRuleRestrictions {
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("    walletProviderAccountScore: ").append(toIndentedString(walletProviderAccountScore)).append("\n");
     sb.append("    walletProviderDeviceScore: ").append(toIndentedString(walletProviderDeviceScore)).append("\n");
+    sb.append("    walletProviderDeviceType: ").append(toIndentedString(walletProviderDeviceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

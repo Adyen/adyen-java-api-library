@@ -50,6 +50,8 @@ public class TransferRoute {
     
     GRANTS(String.valueOf("grants")),
     
+    INTEREST(String.valueOf("interest")),
+    
     INTERNAL(String.valueOf("internal")),
     
     ISSUEDCARD(String.valueOf("issuedCard")),

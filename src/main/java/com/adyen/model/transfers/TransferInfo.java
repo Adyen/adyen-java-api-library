@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.adyen.model.transfers.Amount;
 import com.adyen.model.transfers.CounterpartyInfoV3;
+import com.adyen.model.transfers.ExecutionDate;
 import com.adyen.model.transfers.TransferRequestReview;
 import com.adyen.model.transfers.UltimatePartyIdentification;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -40,6 +41,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferInfo.JSON_PROPERTY_CATEGORY,
   TransferInfo.JSON_PROPERTY_COUNTERPARTY,
   TransferInfo.JSON_PROPERTY_DESCRIPTION,
+  TransferInfo.JSON_PROPERTY_EXECUTION_DATE,
   TransferInfo.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
   TransferInfo.JSON_PROPERTY_PRIORITIES,
   TransferInfo.JSON_PROPERTY_PRIORITY,
@@ -108,6 +110,9 @@ public class TransferInfo {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_EXECUTION_DATE = "executionDate";
+  private ExecutionDate executionDate;
 
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
@@ -420,6 +425,38 @@ public class TransferInfo {
   }
 
   /**
+   * executionDate
+   *
+   * @param executionDate 
+   * @return the current {@code TransferInfo} instance, allowing for method chaining
+   */
+  public TransferInfo executionDate(ExecutionDate executionDate) {
+    this.executionDate = executionDate;
+    return this;
+  }
+
+  /**
+   * Get executionDate
+   * @return executionDate 
+   */
+  @JsonProperty(JSON_PROPERTY_EXECUTION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExecutionDate getExecutionDate() {
+    return executionDate;
+  }
+
+  /**
+   * executionDate
+   *
+   * @param executionDate 
+   */
+  @JsonProperty(JSON_PROPERTY_EXECUTION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExecutionDate(ExecutionDate executionDate) {
+    this.executionDate = executionDate;
+  }
+
+  /**
    * The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id).  If you want to make a transfer using a **virtual** **bankAccount**, you must specify the payment instrument ID of the **virtual** **bankAccount**. If you only specify a balance account ID, Adyen uses the default **physical** **bankAccount** payment instrument assigned to the balance account.
    *
    * @param paymentInstrumentId The unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/paymentInstruments#responses-200-id).  If you want to make a transfer using a **virtual** **bankAccount**, you must specify the payment instrument ID of the **virtual** **bankAccount**. If you only specify a balance account ID, Adyen uses the default **physical** **bankAccount** payment instrument assigned to the balance account.
@@ -700,6 +737,7 @@ public class TransferInfo {
         Objects.equals(this.category, transferInfo.category) &&
         Objects.equals(this.counterparty, transferInfo.counterparty) &&
         Objects.equals(this.description, transferInfo.description) &&
+        Objects.equals(this.executionDate, transferInfo.executionDate) &&
         Objects.equals(this.paymentInstrumentId, transferInfo.paymentInstrumentId) &&
         Objects.equals(this.priorities, transferInfo.priorities) &&
         Objects.equals(this.priority, transferInfo.priority) &&
@@ -712,7 +750,7 @@ public class TransferInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, balanceAccountId, category, counterparty, description, paymentInstrumentId, priorities, priority, reference, referenceForBeneficiary, review, type, ultimateParty);
+    return Objects.hash(amount, balanceAccountId, category, counterparty, description, executionDate, paymentInstrumentId, priorities, priority, reference, referenceForBeneficiary, review, type, ultimateParty);
   }
 
   @Override
@@ -724,6 +762,7 @@ public class TransferInfo {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
     sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");
     sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
