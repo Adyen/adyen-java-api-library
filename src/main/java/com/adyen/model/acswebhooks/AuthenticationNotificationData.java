@@ -163,9 +163,9 @@ public class AuthenticationNotificationData {
   }
 
   /**
-   * Unique identifier of the authentication.
+   * The unique identifier of the authentication.
    *
-   * @param id Unique identifier of the authentication.
+   * @param id The unique identifier of the authentication.
    * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
    */
   public AuthenticationNotificationData id(String id) {
@@ -174,8 +174,8 @@ public class AuthenticationNotificationData {
   }
 
   /**
-   * Unique identifier of the authentication.
-   * @return id Unique identifier of the authentication.
+   * The unique identifier of the authentication.
+   * @return id The unique identifier of the authentication.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,9 +184,9 @@ public class AuthenticationNotificationData {
   }
 
   /**
-   * Unique identifier of the authentication.
+   * The unique identifier of the authentication.
    *
-   * @param id Unique identifier of the authentication.
+   * @param id The unique identifier of the authentication.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,9 +195,9 @@ public class AuthenticationNotificationData {
   }
 
   /**
-   * Unique identifier of the payment instrument that was used for the authentication.
+   * The unique identifier of the payment instrument that was used for the authentication.
    *
-   * @param paymentInstrumentId Unique identifier of the payment instrument that was used for the authentication.
+   * @param paymentInstrumentId The unique identifier of the payment instrument that was used for the authentication.
    * @return the current {@code AuthenticationNotificationData} instance, allowing for method chaining
    */
   public AuthenticationNotificationData paymentInstrumentId(String paymentInstrumentId) {
@@ -206,8 +206,8 @@ public class AuthenticationNotificationData {
   }
 
   /**
-   * Unique identifier of the payment instrument that was used for the authentication.
-   * @return paymentInstrumentId Unique identifier of the payment instrument that was used for the authentication.
+   * The unique identifier of the payment instrument that was used for the authentication.
+   * @return paymentInstrumentId The unique identifier of the payment instrument that was used for the authentication.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,9 +216,9 @@ public class AuthenticationNotificationData {
   }
 
   /**
-   * Unique identifier of the payment instrument that was used for the authentication.
+   * The unique identifier of the payment instrument that was used for the authentication.
    *
-   * @param paymentInstrumentId Unique identifier of the payment instrument that was used for the authentication.
+   * @param paymentInstrumentId The unique identifier of the payment instrument that was used for the authentication.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_INSTRUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

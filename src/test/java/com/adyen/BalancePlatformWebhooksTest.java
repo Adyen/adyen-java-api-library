@@ -204,7 +204,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     }
 
     @Test
-    public void tesBalanceAccountBalanceNotificationRequest() throws Exception {
+    public void testBalanceAccountBalanceNotificationRequest() throws Exception {
         String json = getFileContents("mocks/balancePlatform-webhooks/balanceplatform-balanceAccount-balance-updated.json");
 
         Optional<BalanceAccountBalanceNotificationRequest> balanceAccountBalanceNotificationRequestOptional = new BalanceWebhooksHandler(json).getBalanceAccountBalanceNotificationRequest();
@@ -217,5 +217,31 @@ public class BalancePlatformWebhooksTest extends BaseTest {
         assertNotNull(balanceAccountBalanceNotificationRequest.getData().getBalances());
         assertFalse(balanceAccountBalanceNotificationRequest.getData().getSettingIds().isEmpty());
 
+    }
+
+    @Test
+    public void testNetworkTokenCreatedNotificationRequest() throws Exception {
+        String json = getFileContents("mocks/balancePlatform-webhooks/balanceplatform-balancePlatform-networkToken-created.json");
+
+        Optional<NetworkTokenNotificationRequest> optionalNetworkTokenNotificationRequest = new ConfigurationWebhooksHandler(json).getNetworkTokenNotificationRequest();
+        assertTrue(optionalNetworkTokenNotificationRequest.isPresent());
+
+        NetworkTokenNotificationRequest networkTokenNotificationRequest = optionalNetworkTokenNotificationRequest.get();
+        assertEquals(NetworkTokenNotificationRequest.TypeEnum.BALANCEPLATFORM_NETWORKTOKEN_CREATED, networkTokenNotificationRequest.getType());
+        assertNotNull(networkTokenNotificationRequest.getData());
+        assertEquals("YOUR_BALANCE_PLATFORM", networkTokenNotificationRequest.getData().getBalancePlatform());
+    }
+
+    @Test
+    public void testNetworkTokenUpdatedNotificationRequest() throws Exception {
+        String json = getFileContents("mocks/balancePlatform-webhooks/balanceplatform-balancePlatform-networkToken-updated.json");
+
+        Optional<NetworkTokenNotificationRequest> optionalNetworkTokenNotificationRequest = new ConfigurationWebhooksHandler(json).getNetworkTokenNotificationRequest();
+        assertTrue(optionalNetworkTokenNotificationRequest.isPresent());
+
+        NetworkTokenNotificationRequest networkTokenNotificationRequest = optionalNetworkTokenNotificationRequest.get();
+        assertEquals(NetworkTokenNotificationRequest.TypeEnum.BALANCEPLATFORM_NETWORKTOKEN_UPDATED, networkTokenNotificationRequest.getType());
+        assertNotNull(networkTokenNotificationRequest.getData());
+        assertEquals("YOUR_BALANCE_PLATFORM", networkTokenNotificationRequest.getData().getBalancePlatform());
     }
 }

@@ -62,6 +62,15 @@ public class ConfigurationWebhooksHandler {
     }
 
     /**
+     * Attempts to deserialize the webhook payload into a NetworkTokenNotificationRequest
+     *
+     * @return an Optional containing the deserialized object, or empty if deserialization fails
+     */
+    public Optional<NetworkTokenNotificationRequest> getNetworkTokenNotificationRequest() {
+        return getOptionalField(NetworkTokenNotificationRequest.class);
+    }
+
+    /**
      * Attempts to deserialize the webhook payload into a PaymentNotificationRequest
      *
      * @return an Optional containing the deserialized object, or empty if deserialization fails

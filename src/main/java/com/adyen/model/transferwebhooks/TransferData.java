@@ -18,6 +18,7 @@ import java.util.HashMap;
 import com.adyen.model.transferwebhooks.Amount;
 import com.adyen.model.transferwebhooks.BalanceMutation;
 import com.adyen.model.transferwebhooks.DirectDebitInformation;
+import com.adyen.model.transferwebhooks.ExecutionDate;
 import com.adyen.model.transferwebhooks.ExternalReason;
 import com.adyen.model.transferwebhooks.PaymentInstrument;
 import com.adyen.model.transferwebhooks.ResourceReference;
@@ -58,6 +59,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
   TransferData.JSON_PROPERTY_DIRECTION,
   TransferData.JSON_PROPERTY_EVENT_ID,
   TransferData.JSON_PROPERTY_EVENTS,
+  TransferData.JSON_PROPERTY_EXECUTION_DATE,
   TransferData.JSON_PROPERTY_EXTERNAL_REASON,
   TransferData.JSON_PROPERTY_ID,
   TransferData.JSON_PROPERTY_PAYMENT_INSTRUMENT,
@@ -192,6 +194,9 @@ public class TransferData {
 
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<TransferEvent> events;
+
+  public static final String JSON_PROPERTY_EXECUTION_DATE = "executionDate";
+  private ExecutionDate executionDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_REASON = "externalReason";
   private ExternalReason externalReason;
@@ -1048,6 +1053,38 @@ public class TransferData {
   }
 
   /**
+   * executionDate
+   *
+   * @param executionDate 
+   * @return the current {@code TransferData} instance, allowing for method chaining
+   */
+  public TransferData executionDate(ExecutionDate executionDate) {
+    this.executionDate = executionDate;
+    return this;
+  }
+
+  /**
+   * Get executionDate
+   * @return executionDate 
+   */
+  @JsonProperty(JSON_PROPERTY_EXECUTION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ExecutionDate getExecutionDate() {
+    return executionDate;
+  }
+
+  /**
+   * executionDate
+   *
+   * @param executionDate 
+   */
+  @JsonProperty(JSON_PROPERTY_EXECUTION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExecutionDate(ExecutionDate executionDate) {
+    this.executionDate = executionDate;
+  }
+
+  /**
    * externalReason
    *
    * @param externalReason 
@@ -1457,6 +1494,7 @@ public class TransferData {
         Objects.equals(this.direction, transferData.direction) &&
         Objects.equals(this.eventId, transferData.eventId) &&
         Objects.equals(this.events, transferData.events) &&
+        Objects.equals(this.executionDate, transferData.executionDate) &&
         Objects.equals(this.externalReason, transferData.externalReason) &&
         Objects.equals(this.id, transferData.id) &&
         Objects.equals(this.paymentInstrument, transferData.paymentInstrument) &&
@@ -1473,7 +1511,7 @@ public class TransferData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, balances, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, eventId, events, externalReason, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, sequenceNumber, status, tracking, transactionRulesResult, type);
+    return Objects.hash(accountHolder, amount, balanceAccount, balancePlatform, balances, category, categoryData, counterparty, creationDate, description, directDebitInformation, direction, eventId, events, executionDate, externalReason, id, paymentInstrument, reason, reference, referenceForBeneficiary, review, sequenceNumber, status, tracking, transactionRulesResult, type);
   }
 
   @Override
@@ -1494,6 +1532,7 @@ public class TransferData {
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
     sb.append("    externalReason: ").append(toIndentedString(externalReason)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    paymentInstrument: ").append(toIndentedString(paymentInstrument)).append("\n");

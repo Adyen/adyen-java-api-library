@@ -49,9 +49,9 @@ public class PurchaseInfo {
   }
 
   /**
-   * Date of the purchase.
+   * The date of the purchase.
    *
-   * @param date Date of the purchase.
+   * @param date The date of the purchase.
    * @return the current {@code PurchaseInfo} instance, allowing for method chaining
    */
   public PurchaseInfo date(String date) {
@@ -60,8 +60,8 @@ public class PurchaseInfo {
   }
 
   /**
-   * Date of the purchase.
-   * @return date Date of the purchase.
+   * The date of the purchase.
+   * @return date The date of the purchase.
    */
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -70,9 +70,9 @@ public class PurchaseInfo {
   }
 
   /**
-   * Date of the purchase.
+   * The date of the purchase.
    *
-   * @param date Date of the purchase.
+   * @param date The date of the purchase.
    */
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,9 +81,9 @@ public class PurchaseInfo {
   }
 
   /**
-   * Name of the merchant.
+   * The name of the business that the cardholder purchased from.
    *
-   * @param merchantName Name of the merchant.
+   * @param merchantName The name of the business that the cardholder purchased from.
    * @return the current {@code PurchaseInfo} instance, allowing for method chaining
    */
   public PurchaseInfo merchantName(String merchantName) {
@@ -92,8 +92,8 @@ public class PurchaseInfo {
   }
 
   /**
-   * Name of the merchant.
-   * @return merchantName Name of the merchant.
+   * The name of the business that the cardholder purchased from.
+   * @return merchantName The name of the business that the cardholder purchased from.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,9 +102,9 @@ public class PurchaseInfo {
   }
 
   /**
-   * Name of the merchant.
+   * The name of the business that the cardholder purchased from.
    *
-   * @param merchantName Name of the merchant.
+   * @param merchantName The name of the business that the cardholder purchased from.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
