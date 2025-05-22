@@ -1,0 +1,8 @@
+{
+  "data": {
+    "id": "NT0000001",
+    "balancePlatform": "YOUR_BALANCE_PLATFORM"
+  },
+  "environment": "test",
+  "type": "balancePlatform.networkToken.created"
+}
