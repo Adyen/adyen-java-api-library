@@ -1,8 +1,78 @@
 {
   "data": {
-    "id": "NT0000001",
-    "balancePlatform": "YOUR_BALANCE_PLATFORM"
+    "balancePlatform": "YOUR_BALANCE_PLATFORM",
+    "id": "NWTKXXXXXXXXXXXX",
+    "authentication": {
+      "method": "sms_OTP",
+      "result": "successful"
+    },
+    "authenticationApplied": "true",
+    "decision": "requireAuthentication",
+    "paymentInstrumentId": "PIXXXXXXXXXXXXX",
+    "status": "inactive",
+    "type": "wallet",
+    "validationFacts": [
+      {
+        "result": "valid",
+        "type": "accountLookup"
+      },
+      {
+        "result": "valid",
+        "type": "paymentInstrumentExpirationCheck"
+      },
+      {
+        "result": "invalid",
+        "type": "avsPostalCode"
+      },
+      {
+        "result": "valid",
+        "type": "inputExpiryDateCheck"
+      },
+      {
+        "result": "valid",
+        "type": "cvc2"
+      },
+      {
+        "result": "valid",
+        "type": "walletValidation"
+      },
+      {
+        "result": "invalid",
+        "type": "avsAddress"
+      },
+      {
+        "result": "valid",
+        "type": "paymentInstrumentActive"
+      },
+      {
+        "result": "valid",
+        "type": "transactionRules"
+      },
+      {
+        "result": "valid",
+        "type": "paymentInstrument"
+      },
+      {
+        "result": "valid",
+        "type": "paymentInstrumentFound"
+      }
+    ],
+    "wallet": {
+      "accountScore": "3",
+      "device": {
+        "formFactor": "mobile_phone"
+      },
+      "deviceScore": "3",
+      "provisioningMethod": "manual",
+      "recommendationReasons": [
+        "accountCardTooNew",
+        "lowAccountScore",
+        "outSideHomeTerritory"
+      ],
+      "type": "applePay"
+    }
   },
   "environment": "test",
+  "timestamp": "2025-05-20T07:44:39.729Z",
   "type": "balancePlatform.networkToken.updated"
 }
