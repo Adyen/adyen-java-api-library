@@ -28,10 +28,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
-
-
-
 public final class Util {
+
     private Util() {
     }
 
@@ -65,10 +63,17 @@ public final class Util {
             }
         }
 
-        // return result
         return sb.toString();
     }
 
+
+    /**
+     * Returns the number of decimal places typically used for a given currency code.
+     * For example, JPY returns 0, USD returns 2, and BHD returns 3.
+     *
+     * @param currency the ISO 4217 currency code
+     * @return the number of decimal places used for the currency
+     */
     public static int getDecimalPlaces(String currency) {
         switch (currency) {
             case "CVE":
@@ -101,18 +106,26 @@ public final class Util {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     * @param o string
-     * @return string target "\n" replacement with "\n    "
+     * Converts an object to a string and indents every new line by 4 spaces,
+     * except the first line. Useful for generating indented logs or formatted output.
+     *
+     * @param o the object to convert
+     * @return the indented string representation of the object; returns "null" if the object is null
      */
     public static String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }
+
         return o.toString().replace("\n", "\n    ");
     }
 
+    /**
+     * Calculates a session validity timestamp exactly 24 hours in the future
+     * from the current time, formatted as an ISO 8601 string in GMT.
+     *
+     * @return a string representing the session validity time in the format "yyyy-MM-dd'T'HH:mm:ssXXX"
+     */
     public static String calculateSessionValidity() {
         Calendar calendar = Calendar.getInstance();
         //+1 day

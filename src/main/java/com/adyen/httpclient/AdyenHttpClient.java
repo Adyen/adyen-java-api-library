@@ -63,6 +63,10 @@ import static com.adyen.constants.ApiConstants.RequestProperty.IDEMPOTENCY_KEY;
 import static com.adyen.constants.ApiConstants.RequestProperty.REQUESTED_VERIFICATION_CODE_HEADER;
 import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
+/**
+ * HTTP client implementation to invoke the Adyen APIs.
+ * Built on top of org.apache.hc.client5
+ */
 public class AdyenHttpClient implements ClientInterface {
 
     private static final String CHARSET = "UTF-8";
