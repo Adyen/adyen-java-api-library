@@ -22,6 +22,9 @@ package com.adyen.util;
 
 import java.util.Arrays;
 
+/**
+ * Helper class with methods to mask strings
+ */
 public final class MaskUtil {
 
     private static final char MASK_CHAR = '*';

@@ -58,6 +58,31 @@ import com.adyen.model.terminal.TerminalAPIRequest;
 
 import static com.adyen.constants.ApiConstants.TerminalAPI.PROTOCOL_VERSION;
 
+/**
+ * Builder for constructing a TerminalAPIRequest using the fluent interface pattern.
+ * <p>
+ * This builder allows you to configure and create various types of Terminal API requests by setting
+ * the appropriate request object and associated metadata such as MessageClassType and
+ * MessageCategoryType.
+ * </p>
+ *
+ * <p>
+ * Each type of Terminal API request (e.g. PaymentRequest, BalanceInquiryRequest, etc.)
+ * has a dedicated `withXRequest` method that sets the necessary fields and message types internally.
+ * Once all necessary fields are set, call build() to generate the TerminalAPIRequest.
+ * </p>
+ *
+ * <p>
+ * Example usage:
+ * </p>
+ * <pre>{@code
+ * TerminalAPIRequest request = new TerminalAPIRequestBuilder("Sale001", "Service001", "POI001")
+ *     .withPaymentRequest(paymentRequest)
+ *     .withSecurityTrailer(contentInformation)
+ *     .build();
+ * }</pre>
+ *
+ */
 public final class TerminalAPIRequestBuilder {
 
     // MessageHeader

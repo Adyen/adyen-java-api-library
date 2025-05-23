@@ -21,9 +21,12 @@
 package com.adyen;
 
 /**
- * The ApiKeyAuthenticatedService is an interface to enable a child service to support API key authentication feature.
- */
-public class ApiKeyAuthenticatedService extends Service {
+ * A service base class that enforces API key authentication.
+ * <p>
+ * This class extends Service and ensures that any extending service
+ * requires an API key for authentication.
+ * </p>
+ */public class ApiKeyAuthenticatedService extends Service {
 
     protected ApiKeyAuthenticatedService(Client client) {
         super(client);

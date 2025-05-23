@@ -22,6 +22,9 @@ package com.adyen;
 
 import com.adyen.enums.Environment;
 
+/**
+ * Parent class for all Service implementations
+ */
 public class Service {
     private boolean isApiKeyRequired = false;
     private Client client;
