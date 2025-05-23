@@ -6,7 +6,7 @@
       "method": "sms_OTP",
       "result": "successful"
     },
-    "authenticationApplied": "true",
+    "authenticationApplied": true,
     "decision": "requireAuthentication",
     "paymentInstrumentId": "PIXXXXXXXXXXXXX",
     "status": "inactive",

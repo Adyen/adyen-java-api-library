@@ -2,7 +2,7 @@
   "data": {
     "balancePlatform": "YOUR_BALANCE_PLATFORM",
     "id": "NWTKXXXXXXXXXXXX",
-    "authenticationApplied": "false",
+    "authenticationApplied": false,
     "decision": "requireAuthentication",
     "paymentInstrumentId": "PIXXXXXXXXXXXXX",
     "status": "inactive",
