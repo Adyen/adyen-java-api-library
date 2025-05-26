@@ -18,7 +18,10 @@
       },
       {
         "result": "invalid",
-        "type": "avsPostalCode"
+        "type": "avsPostalCode",
+        "reasons": [
+          "lowDeviceScore"
+        ]
       },
       {
         "result": "valid",
@@ -34,7 +37,10 @@
       },
       {
         "result": "invalid",
-        "type": "avsAddress"
+        "type": "avsAddress",
+        "reasons": [
+          "lowDeviceScore"
+        ]
       },
       {
         "result": "valid",
