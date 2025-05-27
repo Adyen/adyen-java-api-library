@@ -1,0 +1,47 @@
+name: Java Code Format
+
+on:
+  push:
+    branches:
+      - 'sdk-automation/models'
+
+jobs:
+  format:
+    if: ${{ github.event.commits != null && !startsWith(github.event.head_commit.message, 'style(fmt)') }}
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '20'
+          distribution: 'adopt'
+
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2-
+
+      - name: Run Spotless Apply
+        run: mvn spotless:apply
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name AdyenAutomationBot
+          git config user.email "${{ secrets.ADYEN_AUTOMATION_BOT_EMAIL }}"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "style(fmt): code formatted"
+            git push
+          fi
