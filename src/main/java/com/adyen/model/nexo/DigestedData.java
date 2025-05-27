@@ -5,9 +5,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Cryptographic Message Syntax (CMS) data structure containing digested data -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains:  the version of the data structure  the identifiers of the messageType digest algorithms  the encapsulated content  the digested data
+ * Definition: Cryptographic Message Syntax (CMS) data structure containing digested data --
+ * Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains:
+ * the version of the data structure the identifiers of the messageType digest algorithms the
+ * encapsulated content the digested data
  *
  * <p>Java class for DigestedData complex type.
  *
@@ -29,104 +31,96 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DigestedData", propOrder = {
-        "digestAlgorithm",
-        "encapsulatedContent",
-        "digest"
-})
+@XmlType(
+    name = "DigestedData",
+    propOrder = {"digestAlgorithm", "encapsulatedContent", "digest"})
 public class DigestedData {
 
-    /**
-     * The Digest algorithm.
-     */
-    @XmlElement(name = "DigestAlgorithm", required = true)
-    protected AlgorithmIdentifier digestAlgorithm;
-    /**
-     * The Encapsulated content.
-     */
-    @XmlElement(name = "EncapsulatedContent", required = true)
-    protected EncapsulatedContent encapsulatedContent;
-    /**
-     * The Digest.
-     */
-    @XmlElement(name = "Digest", required = true)
-    protected byte[] digest;
-    /**
-     * The Version.
-     */
-    @XmlElement(name = "Version")
-    protected VersionType version;
+  /** The Digest algorithm. */
+  @XmlElement(name = "DigestAlgorithm", required = true)
+  protected AlgorithmIdentifier digestAlgorithm;
 
-    /**
-     * Gets the value of the digestAlgorithm property.
-     *
-     * @return possible      object is     {@link AlgorithmIdentifier }
-     */
-    public AlgorithmIdentifier getDigestAlgorithm() {
-        return digestAlgorithm;
-    }
+  /** The Encapsulated content. */
+  @XmlElement(name = "EncapsulatedContent", required = true)
+  protected EncapsulatedContent encapsulatedContent;
 
-    /**
-     * Sets the value of the digestAlgorithm property.
-     *
-     * @param value allowed object is     {@link AlgorithmIdentifier }
-     */
-    public void setDigestAlgorithm(AlgorithmIdentifier value) {
-        this.digestAlgorithm = value;
-    }
+  /** The Digest. */
+  @XmlElement(name = "Digest", required = true)
+  protected byte[] digest;
 
-    /**
-     * Gets the value of the encapsulatedContent property.
-     *
-     * @return possible      object is     {@link EncapsulatedContent }
-     */
-    public EncapsulatedContent getEncapsulatedContent() {
-        return encapsulatedContent;
-    }
+  /** The Version. */
+  @XmlElement(name = "Version")
+  protected VersionType version;
 
-    /**
-     * Sets the value of the encapsulatedContent property.
-     *
-     * @param value allowed object is     {@link EncapsulatedContent }
-     */
-    public void setEncapsulatedContent(EncapsulatedContent value) {
-        this.encapsulatedContent = value;
-    }
+  /**
+   * Gets the value of the digestAlgorithm property.
+   *
+   * @return possible object is {@link AlgorithmIdentifier }
+   */
+  public AlgorithmIdentifier getDigestAlgorithm() {
+    return digestAlgorithm;
+  }
 
-    /**
-     * Gets the value of the digest property.
-     *
-     * @return possible      object is     byte[]
-     */
-    public byte[] getDigest() {
-        return digest;
-    }
+  /**
+   * Sets the value of the digestAlgorithm property.
+   *
+   * @param value allowed object is {@link AlgorithmIdentifier }
+   */
+  public void setDigestAlgorithm(AlgorithmIdentifier value) {
+    this.digestAlgorithm = value;
+  }
 
-    /**
-     * Sets the value of the digest property.
-     *
-     * @param value allowed object is     byte[]
-     */
-    public void setDigest(byte[] value) {
-        this.digest = value;
-    }
+  /**
+   * Gets the value of the encapsulatedContent property.
+   *
+   * @return possible object is {@link EncapsulatedContent }
+   */
+  public EncapsulatedContent getEncapsulatedContent() {
+    return encapsulatedContent;
+  }
 
-    /**
-     * Gets the value of the version property.
-     *
-     * @return possible      object is     {@link VersionType }
-     */
-    public VersionType getVersion() {
-        return version;
-    }
+  /**
+   * Sets the value of the encapsulatedContent property.
+   *
+   * @param value allowed object is {@link EncapsulatedContent }
+   */
+  public void setEncapsulatedContent(EncapsulatedContent value) {
+    this.encapsulatedContent = value;
+  }
 
-    /**
-     * Sets the value of the version property.
-     *
-     * @param value allowed object is     {@link VersionType }
-     */
-    public void setVersion(VersionType value) {
-        this.version = value;
-    }
+  /**
+   * Gets the value of the digest property.
+   *
+   * @return possible object is byte[]
+   */
+  public byte[] getDigest() {
+    return digest;
+  }
 
+  /**
+   * Sets the value of the digest property.
+   *
+   * @param value allowed object is byte[]
+   */
+  public void setDigest(byte[] value) {
+    this.digest = value;
+  }
+
+  /**
+   * Gets the value of the version property.
+   *
+   * @return possible object is {@link VersionType }
+   */
+  public VersionType getVersion() {
+    return version;
+  }
+
+  /**
+   * Sets the value of the version property.
+   *
+   * @param value allowed object is {@link VersionType }
+   */
+  public void setVersion(VersionType value) {
+    this.version = value;
+  }
 }

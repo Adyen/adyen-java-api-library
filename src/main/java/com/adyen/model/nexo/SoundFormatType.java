@@ -1,15 +1,13 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for SoundFormatType.
+ * Java class for SoundFormatType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -27,52 +25,45 @@ import java.util.Arrays;
 @XmlEnum
 public enum SoundFormatType {
 
+  /** Preloaded sound File. */
+  @XmlEnumValue("SoundRef")
+  @Schema(description = "Preloaded sound File.")
+  SOUND_REF("SoundRef"),
 
-    /**
-     * Preloaded sound File.
-     */
-    @XmlEnumValue("SoundRef")
-    @Schema(description = "Preloaded sound File.")
-    SOUND_REF("SoundRef"),
+  /** Reference of a preloaded text to play. */
+  @XmlEnumValue("MessageRef")
+  @Schema(description = "Reference of a preloaded text to play.")
+  MESSAGE_REF("MessageRef"),
 
-    /**
-     * Reference of a preloaded text to play.
-     */
-    @XmlEnumValue("MessageRef")
-    @Schema(description = "Reference of a preloaded text to play.")
-    MESSAGE_REF("MessageRef"),
+  /** Text to play. */
+  @XmlEnumValue("Text")
+  @Schema(description = "Text to play.")
+  TEXT("Text");
+  private final String value;
 
-    /**
-     * Text to play.
-     */
-    @XmlEnumValue("Text")
-    @Schema(description = "Text to play.")
-    TEXT("Text");
-    private final String value;
+  SoundFormatType(String v) {
+    value = v;
+  }
 
-    SoundFormatType(String v) {
-        value = v;
-    }
+  /**
+   * Value string.
+   *
+   * @return the string
+   */
+  public String value() {
+    return value;
+  }
 
-    /**
-     * Value string.
-     *
-     * @return the string
-     */
-    public String value() {
-        return value;
-    }
-
-    /**
-     * From value sound format type.
-     *
-     * @param v the v
-     * @return the sound format type
-     */
-    public static SoundFormatType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value sound format type.
+   *
+   * @param v the v
+   * @return the sound format type
+   */
+  public static SoundFormatType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

@@ -1,15 +1,14 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Reference of a predefined messageType to display or print. -- Usage: It conveys Information related to the predefined messageType
+ * Definition: Reference of a predefined messageType to display or print. -- Usage: It conveys
+ * Information related to the predefined messageType
  *
  * <p>Java class for PredefinedContent complex type.
  *
@@ -30,53 +29,49 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "PredefinedContent")
 public class PredefinedContent {
 
-    /**
-     * The Reference id.
-     */
-    @XmlElement(name = "ReferenceID", required = true)
-    @Schema(description = "Identification of a predefined message to display, print or play.")
-    protected String referenceID;
-    /**
-     * The Language.
-     */
-    @XmlElement(name = "Language")
-    @Schema(description = "Identification of a language.")
-    protected String language;
+  /** The Reference id. */
+  @XmlElement(name = "ReferenceID", required = true)
+  @Schema(description = "Identification of a predefined message to display, print or play.")
+  protected String referenceID;
 
-    /**
-     * Gets the value of the referenceID property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getReferenceID() {
-        return referenceID;
-    }
+  /** The Language. */
+  @XmlElement(name = "Language")
+  @Schema(description = "Identification of a language.")
+  protected String language;
 
-    /**
-     * Sets the value of the referenceID property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setReferenceID(String value) {
-        this.referenceID = value;
-    }
+  /**
+   * Gets the value of the referenceID property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getReferenceID() {
+    return referenceID;
+  }
 
-    /**
-     * Gets the value of the language property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getLanguage() {
-        return language;
-    }
+  /**
+   * Sets the value of the referenceID property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setReferenceID(String value) {
+    this.referenceID = value;
+  }
 
-    /**
-     * Sets the value of the language property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setLanguage(String value) {
-        this.language = value;
-    }
+  /**
+   * Gets the value of the language property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getLanguage() {
+    return language;
+  }
 
+  /**
+   * Sets the value of the language property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setLanguage(String value) {
+    this.language = value;
+  }
 }

@@ -28,25 +28,28 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-
+import java.lang.reflect.Type;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import java.lang.reflect.Type;
 
-public class XMLGregorianCalendarTypeAdapter implements JsonSerializer<XMLGregorianCalendar>, JsonDeserializer<XMLGregorianCalendar> {
-    @Override
-    public XMLGregorianCalendar deserialize(
-            JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext)
-            throws JsonParseException {
-        try {
-            return DatatypeFactory.newInstance().newXMLGregorianCalendar(jsonElement.getAsString());
-        } catch (Exception e) {
-            throw new JsonParseException(e);
-        }
+public class XMLGregorianCalendarTypeAdapter
+    implements JsonSerializer<XMLGregorianCalendar>, JsonDeserializer<XMLGregorianCalendar> {
+  @Override
+  public XMLGregorianCalendar deserialize(
+      JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext)
+      throws JsonParseException {
+    try {
+      return DatatypeFactory.newInstance().newXMLGregorianCalendar(jsonElement.getAsString());
+    } catch (Exception e) {
+      throw new JsonParseException(e);
     }
+  }
 
-    @Override
-    public JsonElement serialize(XMLGregorianCalendar xmlGregorianCalendar, Type type, JsonSerializationContext jsonSerializationContext) {
-        return new JsonPrimitive(xmlGregorianCalendar.toString());
-    }
+  @Override
+  public JsonElement serialize(
+      XMLGregorianCalendar xmlGregorianCalendar,
+      Type type,
+      JsonSerializationContext jsonSerializationContext) {
+    return new JsonPrimitive(xmlGregorianCalendar.toString());
+  }
 }

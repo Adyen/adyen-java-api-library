@@ -5,9 +5,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Cryptographic Message Syntax (CMS) data structure containing the Signer Identifier -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains:  the issuer name (see X.501-88)  the certificate serial number (see X.509-97)
+ * Definition: Cryptographic Message Syntax (CMS) data structure containing the Signer Identifier --
+ * Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains:
+ * the issuer name (see X.501-88) the certificate serial number (see X.509-97)
  *
  * <p>Java class for SignerIdentifier complex type.
  *
@@ -26,33 +27,30 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SignerIdentifier", propOrder = {
-        "issuerAndSerialNumber"
-})
+@XmlType(
+    name = "SignerIdentifier",
+    propOrder = {"issuerAndSerialNumber"})
 public class SignerIdentifier {
 
-    /**
-     * The Issuer and serial number.
-     */
-    @XmlElement(name = "IssuerAndSerialNumber", required = true)
-    protected IssuerAndSerialNumber issuerAndSerialNumber;
+  /** The Issuer and serial number. */
+  @XmlElement(name = "IssuerAndSerialNumber", required = true)
+  protected IssuerAndSerialNumber issuerAndSerialNumber;
 
-    /**
-     * Gets the value of the issuerAndSerialNumber property.
-     *
-     * @return possible      object is     {@link IssuerAndSerialNumber }
-     */
-    public IssuerAndSerialNumber getIssuerAndSerialNumber() {
-        return issuerAndSerialNumber;
-    }
+  /**
+   * Gets the value of the issuerAndSerialNumber property.
+   *
+   * @return possible object is {@link IssuerAndSerialNumber }
+   */
+  public IssuerAndSerialNumber getIssuerAndSerialNumber() {
+    return issuerAndSerialNumber;
+  }
 
-    /**
-     * Sets the value of the issuerAndSerialNumber property.
-     *
-     * @param value allowed object is     {@link IssuerAndSerialNumber }
-     */
-    public void setIssuerAndSerialNumber(IssuerAndSerialNumber value) {
-        this.issuerAndSerialNumber = value;
-    }
-
+  /**
+   * Sets the value of the issuerAndSerialNumber property.
+   *
+   * @param value allowed object is {@link IssuerAndSerialNumber }
+   */
+  public void setIssuerAndSerialNumber(IssuerAndSerialNumber value) {
+    this.issuerAndSerialNumber = value;
+  }
 }

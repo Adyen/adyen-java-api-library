@@ -1,17 +1,17 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
 
 /**
- * Definition: Number of coins or bills of a given value. -- Usage: Indicates the remaining number of coins or bills of a given value in a cash handling device. When the cash handling machine does not have any more coins or bills of a certain value, the number must be equal to 0.
+ * Definition: Number of coins or bills of a given value. -- Usage: Indicates the remaining number
+ * of coins or bills of a given value in a cash handling device. When the cash handling machine does
+ * not have any more coins or bills of a certain value, the number must be equal to 0.
  *
  * <p>Java class for CoinsOrBills complex type.
  *
@@ -32,53 +32,49 @@ import java.math.BigInteger;
 @XmlType(name = "CoinsOrBills")
 public class CoinsOrBills {
 
-    /**
-     * The Unit value.
-     */
-    @XmlElement(name = "UnitValue", required = true)
-    @Schema(description = "Value of a coin or bill.")
-    protected BigDecimal unitValue;
-    /**
-     * The Number.
-     */
-    @XmlElement(name = "Number", required = true)
-    @Schema(description = "Number of elements")
-    protected BigInteger number;
+  /** The Unit value. */
+  @XmlElement(name = "UnitValue", required = true)
+  @Schema(description = "Value of a coin or bill.")
+  protected BigDecimal unitValue;
 
-    /**
-     * Gets the value of the unitValue property.
-     *
-     * @return possible      object is     {@link BigDecimal }
-     */
-    public BigDecimal getUnitValue() {
-        return unitValue;
-    }
+  /** The Number. */
+  @XmlElement(name = "Number", required = true)
+  @Schema(description = "Number of elements")
+  protected BigInteger number;
 
-    /**
-     * Sets the value of the unitValue property.
-     *
-     * @param value allowed object is     {@link BigDecimal }
-     */
-    public void setUnitValue(BigDecimal value) {
-        this.unitValue = value;
-    }
+  /**
+   * Gets the value of the unitValue property.
+   *
+   * @return possible object is {@link BigDecimal }
+   */
+  public BigDecimal getUnitValue() {
+    return unitValue;
+  }
 
-    /**
-     * Gets the value of the number property.
-     *
-     * @return possible      object is     {@link BigInteger }
-     */
-    public BigInteger getNumber() {
-        return number;
-    }
+  /**
+   * Sets the value of the unitValue property.
+   *
+   * @param value allowed object is {@link BigDecimal }
+   */
+  public void setUnitValue(BigDecimal value) {
+    this.unitValue = value;
+  }
 
-    /**
-     * Sets the value of the number property.
-     *
-     * @param value allowed object is     {@link BigInteger }
-     */
-    public void setNumber(BigInteger value) {
-        this.number = value;
-    }
+  /**
+   * Gets the value of the number property.
+   *
+   * @return possible object is {@link BigInteger }
+   */
+  public BigInteger getNumber() {
+    return number;
+  }
 
+  /**
+   * Sets the value of the number property.
+   *
+   * @param value allowed object is {@link BigInteger }
+   */
+  public void setNumber(BigInteger value) {
+    this.number = value;
+  }
 }

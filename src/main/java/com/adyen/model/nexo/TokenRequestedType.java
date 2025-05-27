@@ -1,15 +1,13 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for TokenRequestedType.
+ * Java class for TokenRequestedType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -26,45 +24,42 @@ import java.util.Arrays;
 @XmlEnum
 public enum TokenRequestedType {
 
+  /** The token is generated to recognise a customer during the time of a transaction. */
+  @XmlEnumValue("Transaction")
+  @Schema(
+      description =
+          "The token is generated to recognise a customer during the time of a transaction.")
+  TRANSACTION("Transaction"),
 
-    /**
-     * The token is generated to recognise a customer during the time of a transaction.
-     */
-    @XmlEnumValue("Transaction")
-    @Schema(description = "The token is generated to recognise a customer during the time of a transaction.")
-    TRANSACTION("Transaction"),
+  /** The token is generated to recognise a customer for a longer period. */
+  @XmlEnumValue("Customer")
+  @Schema(description = "The token is generated to recognise a customer for a longer period.")
+  CUSTOMER("Customer");
+  private final String value;
 
-    /**
-     * The token is generated to recognise a customer for a longer period.
-     */
-    @XmlEnumValue("Customer")
-    @Schema(description = "The token is generated to recognise a customer for a longer period.")
-    CUSTOMER("Customer");
-    private final String value;
+  TokenRequestedType(String v) {
+    value = v;
+  }
 
-    TokenRequestedType(String v) {
-        value = v;
-    }
+  /**
+   * Value string.
+   *
+   * @return the string
+   */
+  public String value() {
+    return value;
+  }
 
-    /**
-     * Value string.
-     *
-     * @return the string
-     */
-    public String value() {
-        return value;
-    }
-
-    /**
-     * From value token requested type.
-     *
-     * @param v the v
-     * @return the token requested type
-     */
-    public static TokenRequestedType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value token requested type.
+   *
+   * @param v the v
+   * @return the token requested type
+   */
+  public static TokenRequestedType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

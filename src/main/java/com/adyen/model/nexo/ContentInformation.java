@@ -5,9 +5,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: General Cryptographic Message Syntax (CMS) data structure -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains two data elements:  The type of content of the CMS data structure   The content itself These CMS data structures could be nested to allow a sequence of cryptographic processings on a part of a messageType (e.g.
+ * Definition: General Cryptographic Message Syntax (CMS) data structure -- Reference: RFC 3852:
+ * Cryptographic Message Syntax (CMS) -- Usage: This data structure contains two data elements: The
+ * type of content of the CMS data structure The content itself These CMS data structures could be
+ * nested to allow a sequence of cryptographic processings on a part of a messageType (e.g.
  *
  * <p>Java class for ContentInformation complex type.
  *
@@ -33,152 +35,146 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ContentInformation", propOrder = {
-        "envelopedData",
-        "authenticatedData",
-        "signedData",
-        "digestedData",
-        "namedKeyEncryptedData"
-})
+@XmlType(
+    name = "ContentInformation",
+    propOrder = {
+      "envelopedData",
+      "authenticatedData",
+      "signedData",
+      "digestedData",
+      "namedKeyEncryptedData"
+    })
 public class ContentInformation {
 
-    /**
-     * The Enveloped data.
-     */
-    @XmlElement(name = "EnvelopedData")
-    protected EnvelopedData envelopedData;
-    /**
-     * The Authenticated data.
-     */
-    @XmlElement(name = "AuthenticatedData")
-    protected AuthenticatedData authenticatedData;
-    /**
-     * The Signed data.
-     */
-    @XmlElement(name = "SignedData")
-    protected SignedData signedData;
-    /**
-     * The Digested data.
-     */
-    @XmlElement(name = "DigestedData")
-    protected DigestedData digestedData;
-    /**
-     * The Named key encrypted data.
-     */
-    @XmlElement(name = "NamedKeyEncryptedData")
-    protected NamedKeyEncryptedData namedKeyEncryptedData;
-    /**
-     * The Content.
-     */
-    @XmlElement(name = "ContentType", required = true)
-    protected ContentType contentType;
+  /** The Enveloped data. */
+  @XmlElement(name = "EnvelopedData")
+  protected EnvelopedData envelopedData;
 
-    /**
-     * Gets the value of the envelopedData property.
-     *
-     * @return possible      object is     {@link EnvelopedData }
-     */
-    public EnvelopedData getEnvelopedData() {
-        return envelopedData;
-    }
+  /** The Authenticated data. */
+  @XmlElement(name = "AuthenticatedData")
+  protected AuthenticatedData authenticatedData;
 
-    /**
-     * Sets the value of the envelopedData property.
-     *
-     * @param value allowed object is     {@link EnvelopedData }
-     */
-    public void setEnvelopedData(EnvelopedData value) {
-        this.envelopedData = value;
-    }
+  /** The Signed data. */
+  @XmlElement(name = "SignedData")
+  protected SignedData signedData;
 
-    /**
-     * Gets the value of the authenticatedData property.
-     *
-     * @return possible      object is     {@link AuthenticatedData }
-     */
-    public AuthenticatedData getAuthenticatedData() {
-        return authenticatedData;
-    }
+  /** The Digested data. */
+  @XmlElement(name = "DigestedData")
+  protected DigestedData digestedData;
 
-    /**
-     * Sets the value of the authenticatedData property.
-     *
-     * @param value allowed object is     {@link AuthenticatedData }
-     */
-    public void setAuthenticatedData(AuthenticatedData value) {
-        this.authenticatedData = value;
-    }
+  /** The Named key encrypted data. */
+  @XmlElement(name = "NamedKeyEncryptedData")
+  protected NamedKeyEncryptedData namedKeyEncryptedData;
 
-    /**
-     * Gets the value of the signedData property.
-     *
-     * @return possible      object is     {@link SignedData }
-     */
-    public SignedData getSignedData() {
-        return signedData;
-    }
+  /** The Content. */
+  @XmlElement(name = "ContentType", required = true)
+  protected ContentType contentType;
 
-    /**
-     * Sets the value of the signedData property.
-     *
-     * @param value allowed object is     {@link SignedData }
-     */
-    public void setSignedData(SignedData value) {
-        this.signedData = value;
-    }
+  /**
+   * Gets the value of the envelopedData property.
+   *
+   * @return possible object is {@link EnvelopedData }
+   */
+  public EnvelopedData getEnvelopedData() {
+    return envelopedData;
+  }
 
-    /**
-     * Gets the value of the digestedData property.
-     *
-     * @return possible      object is     {@link DigestedData }
-     */
-    public DigestedData getDigestedData() {
-        return digestedData;
-    }
+  /**
+   * Sets the value of the envelopedData property.
+   *
+   * @param value allowed object is {@link EnvelopedData }
+   */
+  public void setEnvelopedData(EnvelopedData value) {
+    this.envelopedData = value;
+  }
 
-    /**
-     * Sets the value of the digestedData property.
-     *
-     * @param value allowed object is     {@link DigestedData }
-     */
-    public void setDigestedData(DigestedData value) {
-        this.digestedData = value;
-    }
+  /**
+   * Gets the value of the authenticatedData property.
+   *
+   * @return possible object is {@link AuthenticatedData }
+   */
+  public AuthenticatedData getAuthenticatedData() {
+    return authenticatedData;
+  }
 
-    /**
-     * Gets the value of the namedKeyEncryptedData property.
-     *
-     * @return possible      object is     {@link NamedKeyEncryptedData }
-     */
-    public NamedKeyEncryptedData getNamedKeyEncryptedData() {
-        return namedKeyEncryptedData;
-    }
+  /**
+   * Sets the value of the authenticatedData property.
+   *
+   * @param value allowed object is {@link AuthenticatedData }
+   */
+  public void setAuthenticatedData(AuthenticatedData value) {
+    this.authenticatedData = value;
+  }
 
-    /**
-     * Sets the value of the namedKeyEncryptedData property.
-     *
-     * @param value allowed object is     {@link NamedKeyEncryptedData }
-     */
-    public void setNamedKeyEncryptedData(NamedKeyEncryptedData value) {
-        this.namedKeyEncryptedData = value;
-    }
+  /**
+   * Gets the value of the signedData property.
+   *
+   * @return possible object is {@link SignedData }
+   */
+  public SignedData getSignedData() {
+    return signedData;
+  }
 
-    /**
-     * Gets the value of the contentType property.
-     *
-     * @return possible      object is     {@link ContentType }
-     */
-    public ContentType getContentType() {
-        return contentType;
-    }
+  /**
+   * Sets the value of the signedData property.
+   *
+   * @param value allowed object is {@link SignedData }
+   */
+  public void setSignedData(SignedData value) {
+    this.signedData = value;
+  }
 
-    /**
-     * Sets the value of the contentType property.
-     *
-     * @param value allowed object is     {@link ContentType }
-     */
-    public void setContentType(ContentType value) {
-        this.contentType = value;
-    }
+  /**
+   * Gets the value of the digestedData property.
+   *
+   * @return possible object is {@link DigestedData }
+   */
+  public DigestedData getDigestedData() {
+    return digestedData;
+  }
 
+  /**
+   * Sets the value of the digestedData property.
+   *
+   * @param value allowed object is {@link DigestedData }
+   */
+  public void setDigestedData(DigestedData value) {
+    this.digestedData = value;
+  }
+
+  /**
+   * Gets the value of the namedKeyEncryptedData property.
+   *
+   * @return possible object is {@link NamedKeyEncryptedData }
+   */
+  public NamedKeyEncryptedData getNamedKeyEncryptedData() {
+    return namedKeyEncryptedData;
+  }
+
+  /**
+   * Sets the value of the namedKeyEncryptedData property.
+   *
+   * @param value allowed object is {@link NamedKeyEncryptedData }
+   */
+  public void setNamedKeyEncryptedData(NamedKeyEncryptedData value) {
+    this.namedKeyEncryptedData = value;
+  }
+
+  /**
+   * Gets the value of the contentType property.
+   *
+   * @return possible object is {@link ContentType }
+   */
+  public ContentType getContentType() {
+    return contentType;
+  }
+
+  /**
+   * Sets the value of the contentType property.
+   *
+   * @param value allowed object is {@link ContentType }
+   */
+  public void setContentType(ContentType value) {
+    this.contentType = value;
+  }
 }

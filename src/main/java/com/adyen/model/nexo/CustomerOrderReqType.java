@@ -1,15 +1,13 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for CustomerOrderReqType.
+ * Java class for CustomerOrderReqType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -27,52 +25,45 @@ import java.util.Arrays;
 @XmlEnum
 public enum CustomerOrderReqType {
 
+  /** Customer order not completed. */
+  @XmlEnumValue("Open")
+  @Schema(description = "Customer order not completed.")
+  OPEN("Open"),
 
-    /**
-     * Customer order not completed.
-     */
-    @XmlEnumValue("Open")
-    @Schema(description = "Customer order not completed.")
-    OPEN("Open"),
+  /** Completed customer orders. */
+  @XmlEnumValue("Closed")
+  @Schema(description = "Completed customer orders.")
+  CLOSED("Closed"),
 
-    /**
-     * Completed customer orders.
-     */
-    @XmlEnumValue("Closed")
-    @Schema(description = "Completed customer orders.")
-    CLOSED("Closed"),
+  /** All type of CustomerOrder should be listed */
+  @XmlEnumValue("Both")
+  @Schema(description = "All type of CustomerOrder should be listed")
+  BOTH("Both");
+  private final String value;
 
-    /**
-     * All type of CustomerOrder should be listed
-     */
-    @XmlEnumValue("Both")
-    @Schema(description = "All type of CustomerOrder should be listed")
-    BOTH("Both");
-    private final String value;
+  CustomerOrderReqType(String v) {
+    value = v;
+  }
 
-    CustomerOrderReqType(String v) {
-        value = v;
-    }
+  /**
+   * Value string.
+   *
+   * @return the string
+   */
+  public String value() {
+    return value;
+  }
 
-    /**
-     * Value string.
-     *
-     * @return the string
-     */
-    public String value() {
-        return value;
-    }
-
-    /**
-     * From value customer order req type.
-     *
-     * @param v the v
-     * @return the customer order req type
-     */
-    public static CustomerOrderReqType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value customer order req type.
+   *
+   * @param v the v
+   * @return the customer order req type
+   */
+  public static CustomerOrderReqType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

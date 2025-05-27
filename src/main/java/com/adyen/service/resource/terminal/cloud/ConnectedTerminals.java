@@ -22,13 +22,13 @@ package com.adyen.service.resource.terminal.cloud;
 
 import com.adyen.Service;
 import com.adyen.service.resource.Resource;
-
 import java.util.Collections;
 
 public class ConnectedTerminals extends Resource {
-    public ConnectedTerminals(Service service) {
-        super(service,
-              service.getClient().getConfig().getTerminalApiCloudEndpoint() + "/connectedTerminals",
-                Collections.singletonList("merchantAccount"));
-    }
+  public ConnectedTerminals(Service service) {
+    super(
+        service,
+        service.getClient().getConfig().getTerminalApiCloudEndpoint() + "/connectedTerminals",
+        Collections.singletonList("merchantAccount"));
+  }
 }

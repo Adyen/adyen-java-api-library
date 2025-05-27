@@ -1,15 +1,13 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for InfoQualifyType.
+ * Java class for InfoQualifyType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -34,101 +32,113 @@ import java.util.Arrays;
 @XmlEnum
 public enum InfoQualifyType {
 
+  /**
+   * The information is a new state on which the messageType sender is entering. For instance,
+   * during a payment, the POI could display to the Cashier that POI request
+   */
+  @XmlEnumValue("Status")
+  @Schema(
+      description =
+          "The information is a new state on which the message sender is entering. For instance, during a payment, the POI could display to the Cashier that POI request")
+  STATUS("Status"),
 
-    /**
-     * The information is a new state on which the messageType sender is entering. For instance, during a payment, the POI could display to the Cashier that POI request
-     */
-    @XmlEnumValue("Status")
-    @Schema(description = "The information is a new state on which the message sender is entering. For instance, during a payment, the POI could display to the Cashier that POI request")
-    STATUS("Status"),
+  /** The information is related to an error situation occurring on the messageType sender. */
+  @XmlEnumValue("Error")
+  @Schema(
+      description =
+          "The information is related to an error situation occurring on the message sender.")
+  ERROR("Error"),
 
-    /**
-     * The information is related to an error situation occurring on the messageType sender.
-     */
-    @XmlEnumValue("Error")
-    @Schema(description = "The information is related to an error situation occurring on the message sender.")
-    ERROR("Error"),
+  /** Standard display interface. */
+  @XmlEnumValue("Display")
+  @Schema(description = "Standard display interface.")
+  DISPLAY("Display"),
 
-    /**
-     * Standard display interface.
-     */
-    @XmlEnumValue("Display")
-    @Schema(description = "Standard display interface.")
-    DISPLAY("Display"),
+  /** Standard sound interface. */
+  @XmlEnumValue("Sound")
+  @Schema(description = "Standard sound interface.")
+  SOUND("Sound"),
 
-    /**
-     * Standard sound interface.
-     */
-    @XmlEnumValue("Sound")
-    @Schema(description = "Standard sound interface.")
-    SOUND("Sound"),
+  /**
+   * Answer to a question or information to be entered by the Cashier or the Customer, at the
+   * request of the POI Terminal or the Sale Terminal.
+   */
+  @XmlEnumValue("Input")
+  @Schema(
+      description =
+          "Answer to a question or information to be entered by the Cashier or the Customer, at the request of the POI Terminal or the Sale Terminal.")
+  INPUT("Input"),
 
-    /**
-     * Answer to a question or information to be entered by the Cashier or the Customer, at the request of the POI Terminal or the Sale Terminal.
-     */
-    @XmlEnumValue("Input")
-    @Schema(description = "Answer to a question or information to be entered by the Cashier or the Customer, at the request of the POI Terminal or the Sale Terminal.")
-    INPUT("Input"),
+  /** Information displayed on the Cardholder POI interface, replicated on the Cashier interface. */
+  @XmlEnumValue("POIReplication")
+  @Schema(
+      description =
+          "Information displayed on the Cardholder POI interface, replicated on the Cashier interface.")
+  POI_REPLICATION("POIReplication"),
 
-    /**
-     * Information displayed on the Cardholder POI interface, replicated on the Cashier interface.
-     */
-    @XmlEnumValue("POIReplication")
-    @Schema(description = "Information displayed on the Cardholder POI interface, replicated on the Cashier interface.")
-    POI_REPLICATION("POIReplication"),
+  /**
+   * Input of the Cardholder POI interface which can be entered by the Cashier to assist the
+   * Customer.
+   */
+  @XmlEnumValue("CustomerAssistance")
+  @Schema(
+      description =
+          "Input of the Cardholder POI interface which can be entered by the Cashier to assist the Customer.")
+  CUSTOMER_ASSISTANCE("CustomerAssistance"),
 
-    /**
-     * Input of the Cardholder POI interface which can be entered by the Cashier to assist the Customer.
-     */
-    @XmlEnumValue("CustomerAssistance")
-    @Schema(description = "Input of the Cardholder POI interface which can be entered by the Cashier to assist the Customer.")
-    CUSTOMER_ASSISTANCE("CustomerAssistance"),
+  /**
+   * Where you print the Payment receipt that could be located on the Sale Terminal or in some cases
+   * a restricted Sale ticket on the POI Terminal.
+   */
+  @XmlEnumValue("Receipt")
+  @Schema(
+      description =
+          "Where you print the Payment receipt that could be located on the Sale Terminal or in some cases a restricted Sale ticket on the POI Terminal.")
+  RECEIPT("Receipt"),
 
-    /**
-     * Where you print the Payment receipt that could be located on the Sale Terminal or in some cases a restricted Sale ticket on the POI Terminal.
-     */
-    @XmlEnumValue("Receipt")
-    @Schema(description = "Where you print the Payment receipt that could be located on the Sale Terminal or in some cases a restricted Sale ticket on the POI Terminal.")
-    RECEIPT("Receipt"),
+  /**
+   * When the POI System wants to print specific document (check, dynamic currency conversion ...).
+   * Used by the Sale System when the printer is not located on the
+   */
+  @XmlEnumValue("Document")
+  @Schema(
+      description =
+          "When the POI System wants to print specific document (check, dynamic currency conversion ...).  Used by the Sale System when the printer is not located on the")
+  DOCUMENT("Document"),
 
-    /**
-     * When the POI System wants to print specific document (check, dynamic currency conversion ...).  Used by the Sale System when the printer is not located on the
-     */
-    @XmlEnumValue("Document")
-    @Schema(description = "When the POI System wants to print specific document (check, dynamic currency conversion ...).  Used by the Sale System when the printer is not located on the")
-    DOCUMENT("Document"),
+  /**
+   * Coupons, voucher or special ticket generated by the POI or the Sale System and to be printed.
+   */
+  @XmlEnumValue("Voucher")
+  @Schema(
+      description =
+          "Coupons, voucher or special ticket generated by the POI or the Sale System and to be printed.")
+  VOUCHER("Voucher");
+  private final String value;
 
-    /**
-     * Coupons, voucher or special ticket generated by the POI or the Sale System and to be printed.
-     */
-    @XmlEnumValue("Voucher")
-    @Schema(description = "Coupons, voucher or special ticket generated by the POI or the Sale System and to be printed.")
-    VOUCHER("Voucher");
-    private final String value;
+  InfoQualifyType(String v) {
+    value = v;
+  }
 
-    InfoQualifyType(String v) {
-        value = v;
-    }
+  /**
+   * Value string.
+   *
+   * @return the string
+   */
+  public String value() {
+    return value;
+  }
 
-    /**
-     * Value string.
-     *
-     * @return the string
-     */
-    public String value() {
-        return value;
-    }
-
-    /**
-     * From value info qualify type.
-     *
-     * @param v the v
-     * @return the info qualify type
-     */
-    public static InfoQualifyType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value info qualify type.
+   *
+   * @param v the v
+   * @return the info qualify type
+   */
+  public static InfoQualifyType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

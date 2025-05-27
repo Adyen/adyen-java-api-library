@@ -22,14 +22,14 @@ package com.adyen;
 
 /**
  * A service base class that enforces API key authentication.
- * <p>
- * This class extends Service and ensures that any extending service
- * requires an API key for authentication.
- * </p>
- */public class ApiKeyAuthenticatedService extends Service {
+ *
+ * <p>This class extends Service and ensures that any extending service requires an API key for
+ * authentication.
+ */
+public class ApiKeyAuthenticatedService extends Service {
 
-    protected ApiKeyAuthenticatedService(Client client) {
-        super(client);
-        setApiKeyRequired(true);
-    }
+  protected ApiKeyAuthenticatedService(Client client) {
+    super(client);
+    setApiKeyRequired(true);
+  }
 }

@@ -1,15 +1,13 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for TransactionActionType.
+ * Java class for TransactionActionType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -26,45 +24,47 @@ import java.util.Arrays;
 @XmlEnum
 public enum TransactionActionType {
 
+  /** Start a transaction by a swipe ahead mechanism, with the services which are enabled. */
+  @XmlEnumValue("StartTransaction")
+  @Schema(
+      description =
+          "Start a transaction by a swipe ahead mechanism, with the services which are enabled.")
+  START_TRANSACTION("StartTransaction"),
 
-    /**
-     * Start a transaction by a swipe ahead mechanism, with the services which are enabled.
-     */
-    @XmlEnumValue("StartTransaction")
-    @Schema(description = "Start a transaction by a swipe ahead mechanism, with the services which are enabled.")
-    START_TRANSACTION("StartTransaction"),
+  /**
+   * Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction
+   * to "StartTransaction", not followed by a service request from
+   */
+  @XmlEnumValue("AbortTransaction")
+  @Schema(
+      description =
+          "Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction to \"StartTransaction\", not followed by a service request from")
+  ABORT_TRANSACTION("AbortTransaction");
+  private final String value;
 
-    /**
-     * Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction to "StartTransaction", not followed by a service request from
-     */
-    @XmlEnumValue("AbortTransaction")
-    @Schema(description = "Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction to \"StartTransaction\", not followed by a service request from")
-    ABORT_TRANSACTION("AbortTransaction");
-    private final String value;
+  TransactionActionType(String v) {
+    value = v;
+  }
 
-    TransactionActionType(String v) {
-        value = v;
-    }
+  /**
+   * Value string.
+   *
+   * @return the string
+   */
+  public String value() {
+    return value;
+  }
 
-    /**
-     * Value string.
-     *
-     * @return the string
-     */
-    public String value() {
-        return value;
-    }
-
-    /**
-     * From value transaction action type.
-     *
-     * @param v the v
-     * @return the transaction action type
-     */
-    public static TransactionActionType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value transaction action type.
+   *
+   * @param v the v
+   * @return the transaction action type
+   */
+  public static TransactionActionType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

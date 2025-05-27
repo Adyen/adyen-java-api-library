@@ -37,44 +37,48 @@ import com.google.gson.reflect.TypeToken;
 
 public class TerminalLocalAPI extends Service {
 
-    private final LocalRequest localRequest;
+  private final LocalRequest localRequest;
 
-    private final NexoCrypto nexoCrypto;
-    private final Gson terminalApiGson;
+  private final NexoCrypto nexoCrypto;
+  private final Gson terminalApiGson;
 
-    public TerminalLocalAPI(Client client, SecurityKey securityKey) throws NexoCryptoException {
-        super(client);
-        localRequest = new LocalRequest(this);
-        nexoCrypto = new NexoCrypto(securityKey);
-        terminalApiGson = TerminalAPIGsonBuilder.create();
+  public TerminalLocalAPI(Client client, SecurityKey securityKey) throws NexoCryptoException {
+    super(client);
+    localRequest = new LocalRequest(this);
+    nexoCrypto = new NexoCrypto(securityKey);
+    terminalApiGson = TerminalAPIGsonBuilder.create();
+  }
+
+  /**
+   * POST /sync API call
+   *
+   * @param terminalAPIRequest TerminalAPIRequest
+   * @return TerminalAPIResponse
+   * @throws Exception exception
+   */
+  public TerminalAPIResponse request(TerminalAPIRequest terminalAPIRequest) throws Exception {
+    String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
+    SaleToPOISecuredMessage saleToPOISecuredRequest =
+        nexoCrypto.encrypt(
+            jsonRequest, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader());
+
+    TerminalAPISecuredRequest securedPaymentRequest = new TerminalAPISecuredRequest();
+    securedPaymentRequest.setSaleToPOIRequest(saleToPOISecuredRequest);
+    String jsonEncryptedRequest = terminalApiGson.toJson(securedPaymentRequest);
+
+    String jsonResponse = localRequest.request(jsonEncryptedRequest);
+
+    if (jsonResponse == null || jsonResponse.isEmpty()) {
+      return null;
     }
 
-    /**
-     * POST /sync API call
-     *
-     * @param terminalAPIRequest TerminalAPIRequest
-     * @return TerminalAPIResponse
-     * @throws Exception exception
-     */
-    public TerminalAPIResponse request(TerminalAPIRequest terminalAPIRequest) throws Exception {
-        String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
-        SaleToPOISecuredMessage saleToPOISecuredRequest = nexoCrypto.encrypt(jsonRequest, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader());
-
-        TerminalAPISecuredRequest securedPaymentRequest = new TerminalAPISecuredRequest();
-        securedPaymentRequest.setSaleToPOIRequest(saleToPOISecuredRequest);
-        String jsonEncryptedRequest = terminalApiGson.toJson(securedPaymentRequest);
-
-        String jsonResponse = localRequest.request(jsonEncryptedRequest);
-
-        if (jsonResponse == null || jsonResponse.isEmpty()) {
-            return null;
-        }
-
-        TerminalAPISecuredResponse securedPaymentResponse = terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPISecuredResponse>() {
-        }.getType());
-        SaleToPOISecuredMessage saleToPOISecuredResponse = securedPaymentResponse.getSaleToPOIResponse();
-        String jsonDecryptedResponse = nexoCrypto.decrypt(saleToPOISecuredResponse);
-        return terminalApiGson.fromJson(jsonDecryptedResponse, new TypeToken<TerminalAPIResponse>() {
-        }.getType());
-    }
+    TerminalAPISecuredResponse securedPaymentResponse =
+        terminalApiGson.fromJson(
+            jsonResponse, new TypeToken<TerminalAPISecuredResponse>() {}.getType());
+    SaleToPOISecuredMessage saleToPOISecuredResponse =
+        securedPaymentResponse.getSaleToPOIResponse();
+    String jsonDecryptedResponse = nexoCrypto.decrypt(saleToPOISecuredResponse);
+    return terminalApiGson.fromJson(
+        jsonDecryptedResponse, new TypeToken<TerminalAPIResponse>() {}.getType());
+  }
 }

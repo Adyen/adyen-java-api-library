@@ -5,9 +5,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Cryptographic Message Syntax (CMS) data structure containing content to authenticate -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains: the type of the encapsulated content, which is id-data for an application data or another CMS data structure the data to authenticate
+ * Definition: Cryptographic Message Syntax (CMS) data structure containing content to authenticate
+ * -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure
+ * contains: the type of the encapsulated content, which is id-data for an application data or
+ * another CMS data structure the data to authenticate
  *
  * <p>Java class for EncapsulatedContent complex type.
  *
@@ -27,56 +29,52 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EncapsulatedContent", propOrder = {
-        "content"
-})
+@XmlType(
+    name = "EncapsulatedContent",
+    propOrder = {"content"})
 public class EncapsulatedContent {
 
-    /**
-     * The Content.
-     */
-    @XmlElement(name = "Content")
-    protected byte[] content;
-    /**
-     * The Content type.
-     */
-    @XmlElement(name = "ContentType", required = true)
-    protected ContentType contentType;
+  /** The Content. */
+  @XmlElement(name = "Content")
+  protected byte[] content;
 
-    /**
-     * Gets the value of the content property.
-     *
-     * @return possible      object is     byte[]
-     */
-    public byte[] getContent() {
-        return content;
-    }
+  /** The Content type. */
+  @XmlElement(name = "ContentType", required = true)
+  protected ContentType contentType;
 
-    /**
-     * Sets the value of the content property.
-     *
-     * @param value allowed object is     byte[]
-     */
-    public void setContent(byte[] value) {
-        this.content = value;
-    }
+  /**
+   * Gets the value of the content property.
+   *
+   * @return possible object is byte[]
+   */
+  public byte[] getContent() {
+    return content;
+  }
 
-    /**
-     * Gets the value of the contentType property.
-     *
-     * @return possible      object is     {@link ContentType }
-     */
-    public ContentType getContentType() {
-        return contentType;
-    }
+  /**
+   * Sets the value of the content property.
+   *
+   * @param value allowed object is byte[]
+   */
+  public void setContent(byte[] value) {
+    this.content = value;
+  }
 
-    /**
-     * Sets the value of the contentType property.
-     *
-     * @param value allowed object is     {@link ContentType }
-     */
-    public void setContentType(ContentType value) {
-        this.contentType = value;
-    }
+  /**
+   * Gets the value of the contentType property.
+   *
+   * @return possible object is {@link ContentType }
+   */
+  public ContentType getContentType() {
+    return contentType;
+  }
 
+  /**
+   * Sets the value of the contentType property.
+   *
+   * @param value allowed object is {@link ContentType }
+   */
+  public void setContentType(ContentType value) {
+    this.contentType = value;
+  }
 }

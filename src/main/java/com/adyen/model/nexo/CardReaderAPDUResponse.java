@@ -1,15 +1,15 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Content of the Card Reader APDU Response messageType. -- Usage: It contains the result of the requested service, APDU response sent by the chip of the card in response to the APDU request.
+ * Definition: Content of the Card Reader APDU Response messageType. -- Usage: It contains the
+ * result of the requested service, APDU response sent by the chip of the card in response to the
+ * APDU request.
  *
  * <p>Java class for CardReaderAPDUResponse complex type.
  *
@@ -30,83 +30,77 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CardReaderAPDUResponse", propOrder = {
-        "response",
-        "apduData"
-})
+@XmlType(
+    name = "CardReaderAPDUResponse",
+    propOrder = {"response", "apduData"})
 public class CardReaderAPDUResponse {
 
-    /**
-     * The Response.
-     */
-    @XmlElement(name = "Response", required = true)
-    @Schema(description = "Result of a message request processing.")
-    protected Response response;
-    /**
-     * The Apdu data.
-     */
-    @XmlElement(name = "APDUData")
-    @Schema(description = "Data field of the APDU command (Lc + Data)")
-    protected byte[] apduData;
-    /**
-     * The Card status words.
-     */
-    @XmlElement(name = "CardStatusWords", required = true)
-    @Schema(description = "Status of a smartcard response to a command (SW1-SW2)")
-    protected byte[] cardStatusWords;
+  /** The Response. */
+  @XmlElement(name = "Response", required = true)
+  @Schema(description = "Result of a message request processing.")
+  protected Response response;
 
-    /**
-     * Gets the value of the response property.
-     *
-     * @return possible      object is     {@link Response }
-     */
-    public Response getResponse() {
-        return response;
-    }
+  /** The Apdu data. */
+  @XmlElement(name = "APDUData")
+  @Schema(description = "Data field of the APDU command (Lc + Data)")
+  protected byte[] apduData;
 
-    /**
-     * Sets the value of the response property.
-     *
-     * @param value allowed object is     {@link Response }
-     */
-    public void setResponse(Response value) {
-        this.response = value;
-    }
+  /** The Card status words. */
+  @XmlElement(name = "CardStatusWords", required = true)
+  @Schema(description = "Status of a smartcard response to a command (SW1-SW2)")
+  protected byte[] cardStatusWords;
 
-    /**
-     * Gets the value of the apduData property.
-     *
-     * @return possible      object is     byte[]
-     */
-    public byte[] getAPDUData() {
-        return apduData;
-    }
+  /**
+   * Gets the value of the response property.
+   *
+   * @return possible object is {@link Response }
+   */
+  public Response getResponse() {
+    return response;
+  }
 
-    /**
-     * Sets the value of the apduData property.
-     *
-     * @param value allowed object is     byte[]
-     */
-    public void setAPDUData(byte[] value) {
-        this.apduData = value;
-    }
+  /**
+   * Sets the value of the response property.
+   *
+   * @param value allowed object is {@link Response }
+   */
+  public void setResponse(Response value) {
+    this.response = value;
+  }
 
-    /**
-     * Gets the value of the cardStatusWords property.
-     *
-     * @return possible      object is     byte[]
-     */
-    public byte[] getCardStatusWords() {
-        return cardStatusWords;
-    }
+  /**
+   * Gets the value of the apduData property.
+   *
+   * @return possible object is byte[]
+   */
+  public byte[] getAPDUData() {
+    return apduData;
+  }
 
-    /**
-     * Sets the value of the cardStatusWords property.
-     *
-     * @param value allowed object is     byte[]
-     */
-    public void setCardStatusWords(byte[] value) {
-        this.cardStatusWords = value;
-    }
+  /**
+   * Sets the value of the apduData property.
+   *
+   * @param value allowed object is byte[]
+   */
+  public void setAPDUData(byte[] value) {
+    this.apduData = value;
+  }
 
+  /**
+   * Gets the value of the cardStatusWords property.
+   *
+   * @return possible object is byte[]
+   */
+  public byte[] getCardStatusWords() {
+    return cardStatusWords;
+  }
+
+  /**
+   * Sets the value of the cardStatusWords property.
+   *
+   * @param value allowed object is byte[]
+   */
+  public void setCardStatusWords(byte[] value) {
+    this.cardStatusWords = value;
+  }
 }

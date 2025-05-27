@@ -1,15 +1,14 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Content of the PIN Response messageType. -- Usage: It contains the result of the requested service, with possibly the encrypted PIN.
+ * Definition: Content of the PIN Response messageType. -- Usage: It contains the result of the
+ * requested service, with possibly the encrypted PIN.
  *
  * <p>Java class for PINResponse complex type.
  *
@@ -29,59 +28,54 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PINResponse", propOrder = {
-        "response",
-        "cardholderPIN"
-})
+@XmlType(
+    name = "PINResponse",
+    propOrder = {"response", "cardholderPIN"})
 public class PINResponse {
 
-    /**
-     * The Response.
-     */
-    @XmlElement(name = "Response", required = true)
-    @Schema(description = "Result of a message request processing.")
-    protected Response response;
-    /**
-     * The Cardholder pin.
-     */
-    @XmlElement(name = "CardholderPIN")
-    @Schema(description = "Encrypted PIN and related information")
-    protected CardholderPIN cardholderPIN;
+  /** The Response. */
+  @XmlElement(name = "Response", required = true)
+  @Schema(description = "Result of a message request processing.")
+  protected Response response;
 
-    /**
-     * Gets the value of the response property.
-     *
-     * @return possible      object is     {@link Response }
-     */
-    public Response getResponse() {
-        return response;
-    }
+  /** The Cardholder pin. */
+  @XmlElement(name = "CardholderPIN")
+  @Schema(description = "Encrypted PIN and related information")
+  protected CardholderPIN cardholderPIN;
 
-    /**
-     * Sets the value of the response property.
-     *
-     * @param value allowed object is     {@link Response }
-     */
-    public void setResponse(Response value) {
-        this.response = value;
-    }
+  /**
+   * Gets the value of the response property.
+   *
+   * @return possible object is {@link Response }
+   */
+  public Response getResponse() {
+    return response;
+  }
 
-    /**
-     * Gets the value of the cardholderPIN property.
-     *
-     * @return possible      object is     {@link CardholderPIN }
-     */
-    public CardholderPIN getCardholderPIN() {
-        return cardholderPIN;
-    }
+  /**
+   * Sets the value of the response property.
+   *
+   * @param value allowed object is {@link Response }
+   */
+  public void setResponse(Response value) {
+    this.response = value;
+  }
 
-    /**
-     * Sets the value of the cardholderPIN property.
-     *
-     * @param value allowed object is     {@link CardholderPIN }
-     */
-    public void setCardholderPIN(CardholderPIN value) {
-        this.cardholderPIN = value;
-    }
+  /**
+   * Gets the value of the cardholderPIN property.
+   *
+   * @return possible object is {@link CardholderPIN }
+   */
+  public CardholderPIN getCardholderPIN() {
+    return cardholderPIN;
+  }
 
+  /**
+   * Sets the value of the cardholderPIN property.
+   *
+   * @param value allowed object is {@link CardholderPIN }
+   */
+  public void setCardholderPIN(CardholderPIN value) {
+    this.cardholderPIN = value;
+  }
 }

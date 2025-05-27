@@ -25,9 +25,10 @@ import com.adyen.Service;
 import com.adyen.service.resource.Resource;
 
 public class LocalRequest extends Resource {
-    public LocalRequest(Service service) {
-        super(service,
-                service.getClient().getConfig().getTerminalApiLocalEndpoint() + ":8443/nexo/",
-                null);
-    }
+  public LocalRequest(Service service) {
+    super(
+        service,
+        service.getClient().getConfig().getTerminalApiLocalEndpoint() + ":8443/nexo/",
+        null);
+  }
 }

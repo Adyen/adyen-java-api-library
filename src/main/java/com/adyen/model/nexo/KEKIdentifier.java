@@ -5,9 +5,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Identification of a key encryption key (key management using previously distributed symmetric key) -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains:  the identification of the key  the date of the key
+ * Definition: Identification of a key encryption key (key management using previously distributed
+ * symmetric key) -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data
+ * structure contains: the identification of the key the date of the key
  *
  * <p>Java class for KEKIdentifier complex type.
  *
@@ -29,74 +30,69 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "KEKIdentifier")
 public class KEKIdentifier {
 
-    /**
-     * The Key identifier.
-     */
-    @XmlElement(name = "KeyIdentifier", required = true)
-    protected String keyIdentifier;
-    /**
-     * The Key version.
-     */
-    @XmlElement(name = "KeyVersion", required = true)
-    protected String keyVersion;
-    /**
-     * The Derivation identifier.
-     */
-    @XmlElement(name = "DerivationIdentifier")
-    protected byte[] derivationIdentifier;
+  /** The Key identifier. */
+  @XmlElement(name = "KeyIdentifier", required = true)
+  protected String keyIdentifier;
 
-    /**
-     * Gets the value of the keyIdentifier property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getKeyIdentifier() {
-        return keyIdentifier;
-    }
+  /** The Key version. */
+  @XmlElement(name = "KeyVersion", required = true)
+  protected String keyVersion;
 
-    /**
-     * Sets the value of the keyIdentifier property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setKeyIdentifier(String value) {
-        this.keyIdentifier = value;
-    }
+  /** The Derivation identifier. */
+  @XmlElement(name = "DerivationIdentifier")
+  protected byte[] derivationIdentifier;
 
-    /**
-     * Gets the value of the keyVersion property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getKeyVersion() {
-        return keyVersion;
-    }
+  /**
+   * Gets the value of the keyIdentifier property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getKeyIdentifier() {
+    return keyIdentifier;
+  }
 
-    /**
-     * Sets the value of the keyVersion property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setKeyVersion(String value) {
-        this.keyVersion = value;
-    }
+  /**
+   * Sets the value of the keyIdentifier property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setKeyIdentifier(String value) {
+    this.keyIdentifier = value;
+  }
 
-    /**
-     * Gets the value of the derivationIdentifier property.
-     *
-     * @return possible      object is     byte[]
-     */
-    public byte[] getDerivationIdentifier() {
-        return derivationIdentifier;
-    }
+  /**
+   * Gets the value of the keyVersion property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getKeyVersion() {
+    return keyVersion;
+  }
 
-    /**
-     * Sets the value of the derivationIdentifier property.
-     *
-     * @param value allowed object is     byte[]
-     */
-    public void setDerivationIdentifier(byte[] value) {
-        this.derivationIdentifier = value;
-    }
+  /**
+   * Sets the value of the keyVersion property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setKeyVersion(String value) {
+    this.keyVersion = value;
+  }
 
+  /**
+   * Gets the value of the derivationIdentifier property.
+   *
+   * @return possible object is byte[]
+   */
+  public byte[] getDerivationIdentifier() {
+    return derivationIdentifier;
+  }
+
+  /**
+   * Sets the value of the derivationIdentifier property.
+   *
+   * @param value allowed object is byte[]
+   */
+  public void setDerivationIdentifier(byte[] value) {
+    this.derivationIdentifier = value;
+  }
 }
