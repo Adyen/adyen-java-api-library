@@ -1,14 +1,14 @@
 package com.adyen.model.nexo;
 
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.math.BigDecimal;
-
 
 /**
- * Definition: Common amount definition with currency -- Usage: Decimal unsigned amount with currency and amount before conversion.
+ * Definition: Common amount definition with currency -- Usage: Decimal unsigned amount with
+ * currency and amount before conversion.
  *
  * <p>Java class for Amount complex type.
  *
@@ -25,57 +25,52 @@ import java.math.BigDecimal;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Amount", propOrder = {
-        "amountValue",
-        "currency"
-})
+@XmlType(
+    name = "Amount",
+    propOrder = {"amountValue", "currency"})
 public class Amount {
 
-    /**
-     * The Value.
-     */
-    @XmlElement(name = "AmountValue")
-    protected BigDecimal amountValue;
-    /**
-     * The Currency.
-     */
-    @XmlElement(name = "Currency")
-    protected String currency;
+  /** The Value. */
+  @XmlElement(name = "AmountValue")
+  protected BigDecimal amountValue;
 
-    /**
-     * Gets the value of the amountValue property.
-     *
-     * @return possible      object is     {@link BigDecimal }
-     */
-    public BigDecimal getAmountValue() {
-        return amountValue;
-    }
+  /** The Currency. */
+  @XmlElement(name = "Currency")
+  protected String currency;
 
-    /**
-     * Sets the value of the amountValue property.
-     *
-     * @param value allowed object is     {@link BigDecimal }
-     */
-    public void setAmountValue(BigDecimal value) {
-        this.amountValue = value;
-    }
+  /**
+   * Gets the value of the amountValue property.
+   *
+   * @return possible object is {@link BigDecimal }
+   */
+  public BigDecimal getAmountValue() {
+    return amountValue;
+  }
 
-    /**
-     * Gets the value of the currency property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getCurrency() {
-        return currency;
-    }
+  /**
+   * Sets the value of the amountValue property.
+   *
+   * @param value allowed object is {@link BigDecimal }
+   */
+  public void setAmountValue(BigDecimal value) {
+    this.amountValue = value;
+  }
 
-    /**
-     * Sets the value of the currency property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setCurrency(String value) {
-        this.currency = value;
-    }
+  /**
+   * Gets the value of the currency property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getCurrency() {
+    return currency;
+  }
 
+  /**
+   * Sets the value of the currency property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setCurrency(String value) {
+    this.currency = value;
+  }
 }

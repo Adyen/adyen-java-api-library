@@ -1,15 +1,14 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Message header of the Sale to POI protocol messageType. -- Usage: It conveys Information related to the Sale to POI protocol management
+ * Definition: Message header of the Sale to POI protocol messageType. -- Usage: It conveys
+ * Information related to the Sale to POI protocol management
  *
  * <p>Java class for MessageHeader complex type.
  *
@@ -36,197 +35,195 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "MessageHeader")
 public class MessageHeader {
 
-    /**
-     * The Protocol version.
-     */
-    @XmlElement(name = "ProtocolVersion")
-    @Schema(description = ">--Rule:If MessageCategory is Login or Diagnosis")
-    protected String protocolVersion;
-    /**
-     * The Message class.
-     */
-    @XmlElement(name = "MessageClass", required = true)
-    @Schema(description = "Class of the message")
-    protected MessageClassType messageClass;
-    /**
-     * The Message category.
-     */
-    @XmlElement(name = "MessageCategory", required = true)
-    @Schema(description = "Category of message.")
-    protected MessageCategoryType messageCategory;
-    /**
-     * The Message type.
-     */
-    @XmlElement(name = "MessageType", required = true)
-    @Schema(description = "Type of message of the Sale to POI protocol")
-    protected MessageType messageType;
-    /**
-     * The Service id.
-     */
-    @XmlElement(name = "ServiceID")
-    @Schema(description = "Identification of a message pair, which processes a transaction --Rule: If \"Service\" or \"Event\" MessageClass message. If \"Device\" MessageClass, and request from POI or response from Sale.", minLength = 1, maxLength = 10)
-    protected String serviceID;
-    /**
-     * The Device id.
-     */
-    @XmlElement(name = "DeviceID")
-    @Schema(description = "Identification of a device message pair --Rule: If \"Device\" MessageClass")
-    protected String deviceID;
-    /**
-     * The Sale id.
-     */
-    @XmlElement(name = "SaleID", required = true)
-    @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol")
-    protected String saleID;
-    /**
-     * The Poiid.
-     */
-    @XmlElement(name = "POIID", required = true)
-    @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol")
-    protected String poiid;
+  /** The Protocol version. */
+  @XmlElement(name = "ProtocolVersion")
+  @Schema(description = ">--Rule:If MessageCategory is Login or Diagnosis")
+  protected String protocolVersion;
 
-    /**
-     * Gets the value of the protocolVersion property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getProtocolVersion() {
-        return protocolVersion;
-    }
+  /** The Message class. */
+  @XmlElement(name = "MessageClass", required = true)
+  @Schema(description = "Class of the message")
+  protected MessageClassType messageClass;
 
-    /**
-     * Sets the value of the protocolVersion property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setProtocolVersion(String value) {
-        this.protocolVersion = value;
-    }
+  /** The Message category. */
+  @XmlElement(name = "MessageCategory", required = true)
+  @Schema(description = "Category of message.")
+  protected MessageCategoryType messageCategory;
 
-    /**
-     * Gets the value of the messageClass property.
-     *
-     * @return possible      object is     {@link MessageClassType }
-     */
-    public MessageClassType getMessageClass() {
-        return messageClass;
-    }
+  /** The Message type. */
+  @XmlElement(name = "MessageType", required = true)
+  @Schema(description = "Type of message of the Sale to POI protocol")
+  protected MessageType messageType;
 
-    /**
-     * Sets the value of the messageClass property.
-     *
-     * @param value allowed object is     {@link MessageClassType }
-     */
-    public void setMessageClass(MessageClassType value) {
-        this.messageClass = value;
-    }
+  /** The Service id. */
+  @XmlElement(name = "ServiceID")
+  @Schema(
+      description =
+          "Identification of a message pair, which processes a transaction --Rule: If \"Service\" or \"Event\" MessageClass message. If \"Device\" MessageClass, and request from POI or response from Sale.",
+      minLength = 1,
+      maxLength = 10)
+  protected String serviceID;
 
-    /**
-     * Gets the value of the messageCategory property.
-     *
-     * @return possible      object is     {@link MessageCategoryType }
-     */
-    public MessageCategoryType getMessageCategory() {
-        return messageCategory;
-    }
+  /** The Device id. */
+  @XmlElement(name = "DeviceID")
+  @Schema(
+      description = "Identification of a device message pair --Rule: If \"Device\" MessageClass")
+  protected String deviceID;
 
-    /**
-     * Sets the value of the messageCategory property.
-     *
-     * @param value allowed object is     {@link MessageCategoryType }
-     */
-    public void setMessageCategory(MessageCategoryType value) {
-        this.messageCategory = value;
-    }
+  /** The Sale id. */
+  @XmlElement(name = "SaleID", required = true)
+  @Schema(
+      description =
+          "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol")
+  protected String saleID;
 
-    /**
-     * Gets the value of the messageType property.
-     *
-     * @return possible      object is     {@link MessageType }
-     */
-    public MessageType getMessageType() {
-        return messageType;
-    }
+  /** The Poiid. */
+  @XmlElement(name = "POIID", required = true)
+  @Schema(
+      description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol")
+  protected String poiid;
 
-    /**
-     * Sets the value of the messageType property.
-     *
-     * @param value allowed object is     {@link MessageType }
-     */
-    public void setMessageType(MessageType value) {
-        this.messageType = value;
-    }
+  /**
+   * Gets the value of the protocolVersion property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getProtocolVersion() {
+    return protocolVersion;
+  }
 
-    /**
-     * Gets the value of the serviceID property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getServiceID() {
-        return serviceID;
-    }
+  /**
+   * Sets the value of the protocolVersion property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setProtocolVersion(String value) {
+    this.protocolVersion = value;
+  }
 
-    /**
-     * Sets the value of the serviceID property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setServiceID(String value) {
-        this.serviceID = value;
-    }
+  /**
+   * Gets the value of the messageClass property.
+   *
+   * @return possible object is {@link MessageClassType }
+   */
+  public MessageClassType getMessageClass() {
+    return messageClass;
+  }
 
-    /**
-     * Gets the value of the deviceID property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getDeviceID() {
-        return deviceID;
-    }
+  /**
+   * Sets the value of the messageClass property.
+   *
+   * @param value allowed object is {@link MessageClassType }
+   */
+  public void setMessageClass(MessageClassType value) {
+    this.messageClass = value;
+  }
 
-    /**
-     * Sets the value of the deviceID property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setDeviceID(String value) {
-        this.deviceID = value;
-    }
+  /**
+   * Gets the value of the messageCategory property.
+   *
+   * @return possible object is {@link MessageCategoryType }
+   */
+  public MessageCategoryType getMessageCategory() {
+    return messageCategory;
+  }
 
-    /**
-     * Gets the value of the saleID property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getSaleID() {
-        return saleID;
-    }
+  /**
+   * Sets the value of the messageCategory property.
+   *
+   * @param value allowed object is {@link MessageCategoryType }
+   */
+  public void setMessageCategory(MessageCategoryType value) {
+    this.messageCategory = value;
+  }
 
-    /**
-     * Sets the value of the saleID property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setSaleID(String value) {
-        this.saleID = value;
-    }
+  /**
+   * Gets the value of the messageType property.
+   *
+   * @return possible object is {@link MessageType }
+   */
+  public MessageType getMessageType() {
+    return messageType;
+  }
 
-    /**
-     * Gets the value of the poiid property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getPOIID() {
-        return poiid;
-    }
+  /**
+   * Sets the value of the messageType property.
+   *
+   * @param value allowed object is {@link MessageType }
+   */
+  public void setMessageType(MessageType value) {
+    this.messageType = value;
+  }
 
-    /**
-     * Sets the value of the poiid property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setPOIID(String value) {
-        this.poiid = value;
-    }
+  /**
+   * Gets the value of the serviceID property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getServiceID() {
+    return serviceID;
+  }
 
+  /**
+   * Sets the value of the serviceID property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setServiceID(String value) {
+    this.serviceID = value;
+  }
+
+  /**
+   * Gets the value of the deviceID property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getDeviceID() {
+    return deviceID;
+  }
+
+  /**
+   * Sets the value of the deviceID property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setDeviceID(String value) {
+    this.deviceID = value;
+  }
+
+  /**
+   * Gets the value of the saleID property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getSaleID() {
+    return saleID;
+  }
+
+  /**
+   * Sets the value of the saleID property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setSaleID(String value) {
+    this.saleID = value;
+  }
+
+  /**
+   * Gets the value of the poiid property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getPOIID() {
+    return poiid;
+  }
+
+  /**
+   * Sets the value of the poiid property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setPOIID(String value) {
+    this.poiid = value;
+  }
 }

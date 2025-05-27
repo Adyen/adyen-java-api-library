@@ -1,5 +1,8 @@
 package com.adyen;
 
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.verify;
+
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
@@ -8,77 +11,84 @@ import com.adyen.model.checkout.PaymentRequest;
 import com.adyen.service.checkout.PaymentLinksApi;
 import com.adyen.service.checkout.PaymentsApi;
 import com.adyen.service.exception.ApiException;
+import java.io.IOException;
+import java.time.OffsetDateTime;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
-
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.verify;
-
 public class DateSerializationTest extends BaseTest {
 
-    /*
-    Tests for checking if all models in the Checkout classes are actually serializing Date objects as ISO8601 strings
+  /*
+  Tests for checking if all models in the Checkout classes are actually serializing Date objects as ISO8601 strings
 
-    (note: dateOfBirth also gets serialized to ISO8601 which is fine one API side)
-    */
-    private OffsetDateTime date() {
-        OffsetDateTime date = OffsetDateTime.parse("2023-06-02T12:00:00+01:00");
-        return date;
-    }
-    @Test
-    public void TestCheckoutSessionDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
-        PaymentsApi checkout = new PaymentsApi(client);
+  (note: dateOfBirth also gets serialized to ISO8601 which is fine one API side)
+  */
+  private OffsetDateTime date() {
+    OffsetDateTime date = OffsetDateTime.parse("2023-06-02T12:00:00+01:00");
+    return date;
+  }
 
-        CreateCheckoutSessionRequest sessionsRequest = new CreateCheckoutSessionRequest();
+  @Test
+  public void TestCheckoutSessionDate() throws IOException, ApiException, HTTPClientException {
+    Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
+    PaymentsApi checkout = new PaymentsApi(client);
 
-        sessionsRequest.setDeliverAt(date());
+    CreateCheckoutSessionRequest sessionsRequest = new CreateCheckoutSessionRequest();
 
-        checkout.sessions(sessionsRequest);
-        ClientInterface http = client.getHttpClient();
+    sessionsRequest.setDeliverAt(date());
 
-        String expected = "\"deliverAt\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected), any(), eq(false), isNull(), any(), isNull());
-    }
+    checkout.sessions(sessionsRequest);
+    ClientInterface http = client.getHttpClient();
 
-    @Test
-    public void TestCreatePaymentLinkDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/paymentLinkResponse.json");
-        PaymentLinksApi checkout = new PaymentLinksApi(client);
+    String expected = "\"deliverAt\":\"2023-06-02T12:00:00";
+    verify(http)
+        .request(
+            anyString(), Mockito.contains(expected), any(), eq(false), isNull(), any(), isNull());
+  }
 
-        PaymentLinkRequest paymentLinkRequest = new PaymentLinkRequest();
+  @Test
+  public void TestCreatePaymentLinkDate() throws IOException, ApiException, HTTPClientException {
+    Client client = createMockClientFromFile("mocks/checkout/paymentLinkResponse.json");
+    PaymentLinksApi checkout = new PaymentLinksApi(client);
 
-        paymentLinkRequest.setDeliverAt(date());
-        paymentLinkRequest.setDateOfBirth(date().toLocalDate());
+    PaymentLinkRequest paymentLinkRequest = new PaymentLinkRequest();
 
-        checkout.paymentLinks(paymentLinkRequest);
-        ClientInterface http = client.getHttpClient();
+    paymentLinkRequest.setDeliverAt(date());
+    paymentLinkRequest.setDateOfBirth(date().toLocalDate());
 
-        String expected1 = "\"deliverAt\":\"2023-06-02T12:00:00";
-        String expected2 = "\"dateOfBirth\":\"2023-06-02";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(false), isNull(), any(), isNull());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(false), isNull(), any(), isNull());
-    }
+    checkout.paymentLinks(paymentLinkRequest);
+    ClientInterface http = client.getHttpClient();
 
-    @Test
-    public void TestCheckoutPaymentsDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
-        PaymentsApi checkout = new PaymentsApi(client);
+    String expected1 = "\"deliverAt\":\"2023-06-02T12:00:00";
+    String expected2 = "\"dateOfBirth\":\"2023-06-02";
+    verify(http)
+        .request(
+            anyString(), Mockito.contains(expected1), any(), eq(false), isNull(), any(), isNull());
+    verify(http)
+        .request(
+            anyString(), Mockito.contains(expected2), any(), eq(false), isNull(), any(), isNull());
+  }
 
-        PaymentRequest request = new PaymentRequest();
+  @Test
+  public void TestCheckoutPaymentsDate() throws IOException, ApiException, HTTPClientException {
+    Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
+    PaymentsApi checkout = new PaymentsApi(client);
 
-        request.setDateOfBirth(date());
-        request.setDeliveryDate(date());
+    PaymentRequest request = new PaymentRequest();
 
-        checkout.payments(request);
-        ClientInterface http = client.getHttpClient();
+    request.setDateOfBirth(date());
+    request.setDeliveryDate(date());
 
-        String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
-        String expected2 = "\"dateOfBirth\":\"2023-06-02";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(false), isNull(), any(), isNull());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(false), isNull(), any(), isNull());
-    }
+    checkout.payments(request);
+    ClientInterface http = client.getHttpClient();
+
+    String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
+    String expected2 = "\"dateOfBirth\":\"2023-06-02";
+    verify(http)
+        .request(
+            anyString(), Mockito.contains(expected1), any(), eq(false), isNull(), any(), isNull());
+    verify(http)
+        .request(
+            anyString(), Mockito.contains(expected2), any(), eq(false), isNull(), any(), isNull());
+  }
 }

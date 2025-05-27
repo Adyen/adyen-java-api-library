@@ -1,15 +1,14 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Content of the Logout Response messageType. -- Usage: It conveys the result of the Logout.
+ * Definition: Content of the Logout Response messageType. -- Usage: It conveys the result of the
+ * Logout.
  *
  * <p>Java class for LogoutResponse complex type.
  *
@@ -28,34 +27,31 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LogoutResponse", propOrder = {
-        "response"
-})
+@XmlType(
+    name = "LogoutResponse",
+    propOrder = {"response"})
 public class LogoutResponse {
 
-    /**
-     * The Response.
-     */
-    @XmlElement(name = "Response", required = true)
-    @Schema(description = "Result of a message request processing.")
-    protected Response response;
+  /** The Response. */
+  @XmlElement(name = "Response", required = true)
+  @Schema(description = "Result of a message request processing.")
+  protected Response response;
 
-    /**
-     * Gets the value of the response property.
-     *
-     * @return possible      object is     {@link Response }
-     */
-    public Response getResponse() {
-        return response;
-    }
+  /**
+   * Gets the value of the response property.
+   *
+   * @return possible object is {@link Response }
+   */
+  public Response getResponse() {
+    return response;
+  }
 
-    /**
-     * Sets the value of the response property.
-     *
-     * @param value allowed object is     {@link Response }
-     */
-    public void setResponse(Response value) {
-        this.response = value;
-    }
-
+  /**
+   * Sets the value of the response property.
+   *
+   * @param value allowed object is {@link Response }
+   */
+  public void setResponse(Response value) {
+    this.response = value;
+  }
 }

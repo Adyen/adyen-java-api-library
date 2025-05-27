@@ -1,15 +1,14 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Information related to the software of the Sale System which manages the Sale to POI protocol. -- Usage: Allows in a session to identify the product features of a Sale System.
+ * Definition: Information related to the software of the Sale System which manages the Sale to POI
+ * protocol. -- Usage: Allows in a session to identify the product features of a Sale System.
  *
  * <p>Java class for SaleSoftware complex type.
  *
@@ -32,101 +31,96 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "SaleSoftware")
 public class SaleSoftware {
 
-    /**
-     * The Manufacturer id.
-     */
-    @XmlElement(name = "ManufacturerID", required = true)
-    @Schema(description = "Identification of the Manufacturer")
-    protected String manufacturerID;
-    /**
-     * The Application name.
-     */
-    @XmlElement(name = "ApplicationName", required = true)
-    @Schema(description = "Name of the software product.")
-    protected String applicationName;
-    /**
-     * The Software version.
-     */
-    @XmlElement(name = "SoftwareVersion", required = true)
-    @Schema(description = "Version of the software product")
-    protected String softwareVersion;
-    /**
-     * The Certification code.
-     */
-    @XmlElement(name = "CertificationCode", required = true)
-    @Schema(description = "Certification code of the software which manages the Sale to POI protocol.")
-    protected String certificationCode;
+  /** The Manufacturer id. */
+  @XmlElement(name = "ManufacturerID", required = true)
+  @Schema(description = "Identification of the Manufacturer")
+  protected String manufacturerID;
 
-    /**
-     * Gets the value of the manufacturerID property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getManufacturerID() {
-        return manufacturerID;
-    }
+  /** The Application name. */
+  @XmlElement(name = "ApplicationName", required = true)
+  @Schema(description = "Name of the software product.")
+  protected String applicationName;
 
-    /**
-     * Sets the value of the manufacturerID property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setManufacturerID(String value) {
-        this.manufacturerID = value;
-    }
+  /** The Software version. */
+  @XmlElement(name = "SoftwareVersion", required = true)
+  @Schema(description = "Version of the software product")
+  protected String softwareVersion;
 
-    /**
-     * Gets the value of the applicationName property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getApplicationName() {
-        return applicationName;
-    }
+  /** The Certification code. */
+  @XmlElement(name = "CertificationCode", required = true)
+  @Schema(
+      description = "Certification code of the software which manages the Sale to POI protocol.")
+  protected String certificationCode;
 
-    /**
-     * Sets the value of the applicationName property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setApplicationName(String value) {
-        this.applicationName = value;
-    }
+  /**
+   * Gets the value of the manufacturerID property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getManufacturerID() {
+    return manufacturerID;
+  }
 
-    /**
-     * Gets the value of the softwareVersion property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getSoftwareVersion() {
-        return softwareVersion;
-    }
+  /**
+   * Sets the value of the manufacturerID property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setManufacturerID(String value) {
+    this.manufacturerID = value;
+  }
 
-    /**
-     * Sets the value of the softwareVersion property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setSoftwareVersion(String value) {
-        this.softwareVersion = value;
-    }
+  /**
+   * Gets the value of the applicationName property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getApplicationName() {
+    return applicationName;
+  }
 
-    /**
-     * Gets the value of the certificationCode property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getCertificationCode() {
-        return certificationCode;
-    }
+  /**
+   * Sets the value of the applicationName property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setApplicationName(String value) {
+    this.applicationName = value;
+  }
 
-    /**
-     * Sets the value of the certificationCode property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setCertificationCode(String value) {
-        this.certificationCode = value;
-    }
+  /**
+   * Gets the value of the softwareVersion property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getSoftwareVersion() {
+    return softwareVersion;
+  }
 
+  /**
+   * Sets the value of the softwareVersion property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setSoftwareVersion(String value) {
+    this.softwareVersion = value;
+  }
+
+  /**
+   * Gets the value of the certificationCode property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getCertificationCode() {
+    return certificationCode;
+  }
+
+  /**
+   * Sets the value of the certificationCode property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setCertificationCode(String value) {
+    this.certificationCode = value;
+  }
 }

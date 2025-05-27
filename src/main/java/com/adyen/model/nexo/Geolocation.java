@@ -1,15 +1,14 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Geographic location specified by geographic or UTM coordinates. -- Usage: Identifies the geographic location of a mobile phone.
+ * Definition: Geographic location specified by geographic or UTM coordinates. -- Usage: Identifies
+ * the geographic location of a mobile phone.
  *
  * <p>Java class for Geolocation complex type.
  *
@@ -29,59 +28,58 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Geolocation", propOrder = {
-        "geographicCoordinates",
-        "utmCoordinates"
-})
+@XmlType(
+    name = "Geolocation",
+    propOrder = {"geographicCoordinates", "utmCoordinates"})
 public class Geolocation {
 
-    /**
-     * The Geographic coordinates.
-     */
-    @XmlElement(name = "GeographicCoordinates")
-    @Schema(description = "Location on the Earth specified by two numbers representing vertical and horizontal position.")
-    protected GeographicCoordinates geographicCoordinates;
-    /**
-     * The Utm coordinates.
-     */
-    @XmlElement(name = "UTMCoordinates")
-    @Schema(description = "Location on the Earth specified by the Universal Transverse Mercator coordinate system.")
-    protected UTMCoordinates utmCoordinates;
+  /** The Geographic coordinates. */
+  @XmlElement(name = "GeographicCoordinates")
+  @Schema(
+      description =
+          "Location on the Earth specified by two numbers representing vertical and horizontal position.")
+  protected GeographicCoordinates geographicCoordinates;
 
-    /**
-     * Gets the value of the geographicCoordinates property.
-     *
-     * @return possible      object is     {@link GeographicCoordinates }
-     */
-    public GeographicCoordinates getGeographicCoordinates() {
-        return geographicCoordinates;
-    }
+  /** The Utm coordinates. */
+  @XmlElement(name = "UTMCoordinates")
+  @Schema(
+      description =
+          "Location on the Earth specified by the Universal Transverse Mercator coordinate system.")
+  protected UTMCoordinates utmCoordinates;
 
-    /**
-     * Sets the value of the geographicCoordinates property.
-     *
-     * @param value allowed object is     {@link GeographicCoordinates }
-     */
-    public void setGeographicCoordinates(GeographicCoordinates value) {
-        this.geographicCoordinates = value;
-    }
+  /**
+   * Gets the value of the geographicCoordinates property.
+   *
+   * @return possible object is {@link GeographicCoordinates }
+   */
+  public GeographicCoordinates getGeographicCoordinates() {
+    return geographicCoordinates;
+  }
 
-    /**
-     * Gets the value of the utmCoordinates property.
-     *
-     * @return possible      object is     {@link UTMCoordinates }
-     */
-    public UTMCoordinates getUTMCoordinates() {
-        return utmCoordinates;
-    }
+  /**
+   * Sets the value of the geographicCoordinates property.
+   *
+   * @param value allowed object is {@link GeographicCoordinates }
+   */
+  public void setGeographicCoordinates(GeographicCoordinates value) {
+    this.geographicCoordinates = value;
+  }
 
-    /**
-     * Sets the value of the utmCoordinates property.
-     *
-     * @param value allowed object is     {@link UTMCoordinates }
-     */
-    public void setUTMCoordinates(UTMCoordinates value) {
-        this.utmCoordinates = value;
-    }
+  /**
+   * Gets the value of the utmCoordinates property.
+   *
+   * @return possible object is {@link UTMCoordinates }
+   */
+  public UTMCoordinates getUTMCoordinates() {
+    return utmCoordinates;
+  }
 
+  /**
+   * Sets the value of the utmCoordinates property.
+   *
+   * @param value allowed object is {@link UTMCoordinates }
+   */
+  public void setUTMCoordinates(UTMCoordinates value) {
+    this.utmCoordinates = value;
+  }
 }

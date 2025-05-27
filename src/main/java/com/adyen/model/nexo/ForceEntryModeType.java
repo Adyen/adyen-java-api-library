@@ -1,15 +1,13 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for ForceEntryModeType.
+ * Java class for ForceEntryModeType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -35,104 +33,85 @@ import java.util.Arrays;
 @XmlEnum
 public enum ForceEntryModeType {
 
+  /** Payment instrument information are taken from RFID */
+  RFID("RFID"),
 
-    /**
-     * Payment instrument information are taken from RFID
-     */
-    RFID("RFID"),
+  /** Manual key entry */
+  @XmlEnumValue("Keyed")
+  @Schema(description = "Manual key entry")
+  KEYED("Keyed"),
 
-    /**
-     * Manual key entry
-     */
-    @XmlEnumValue("Keyed")
-    @Schema(description = "Manual key entry")
-    KEYED("Keyed"),
+  /**
+   * Reading of embossing or OCR of printed data either at time of transaction or after the event.
+   */
+  @XmlEnumValue("Manual")
+  @Schema(
+      description =
+          "Reading of embossing or OCR of printed data either at time of transaction or after the event.")
+  MANUAL("Manual"),
 
-    /**
-     * Reading of embossing or OCR of printed data either at time of transaction or after the event.
-     */
-    @XmlEnumValue("Manual")
-    @Schema(description = "Reading of embossing or OCR of printed data either at time of transaction or after the event.")
-    MANUAL("Manual"),
+  /** Account data on file */
+  @XmlEnumValue("File")
+  @Schema(description = "Account data on file")
+  FILE("File"),
 
-    /**
-     * Account data on file
-     */
-    @XmlEnumValue("File")
-    @Schema(description = "Account data on file")
-    FILE("File"),
+  /** Scanned by a bar code reader. */
+  @XmlEnumValue("Scanned")
+  @Schema(description = "Scanned by a bar code reader.")
+  SCANNED("Scanned"),
 
-    /**
-     * Scanned by a bar code reader.
-     */
-    @XmlEnumValue("Scanned")
-    @Schema(description = "Scanned by a bar code reader.")
-    SCANNED("Scanned"),
+  /** Magnetic stripe */
+  @XmlEnumValue("MagStripe")
+  @Schema(description = "Magnetic stripe ")
+  MAG_STRIPE("MagStripe"),
 
-    /**
-     * Magnetic stripe
-     */
-    @XmlEnumValue("MagStripe")
-    @Schema(description = "Magnetic stripe ")
-    MAG_STRIPE("MagStripe"),
+  /** Contact ICC (asynchronous) */
+  ICC("ICC"),
 
-    /**
-     * Contact ICC (asynchronous)
-     */
-    ICC("ICC"),
+  /** Contact ICC (synchronous) */
+  @XmlEnumValue("SynchronousICC")
+  @Schema(description = "Contact ICC (synchronous)")
+  SYNCHRONOUS_ICC("SynchronousICC"),
 
-    /**
-     * Contact ICC (synchronous)
-     */
-    @XmlEnumValue("SynchronousICC")
-    @Schema(description = "Contact ICC (synchronous)")
-    SYNCHRONOUS_ICC("SynchronousICC"),
+  /** Contactless card reader Magnetic Stripe */
+  @XmlEnumValue("Tapped")
+  @Schema(description = "Contactless card reader Magnetic Stripe")
+  TAPPED("Tapped"),
 
-    /**
-     * Contactless card reader Magnetic Stripe
-     */
-    @XmlEnumValue("Tapped")
-    @Schema(description = "Contactless card reader Magnetic Stripe")
-    TAPPED("Tapped"),
+  /** Contactless card reader conform to ISO 14443 */
+  @XmlEnumValue("Contactless")
+  @Schema(description = "Contactless card reader conform to ISO 14443")
+  CONTACTLESS("Contactless"),
 
-    /**
-     * Contactless card reader conform to ISO 14443
-     */
-    @XmlEnumValue("Contactless")
-    @Schema(description = "Contactless card reader conform to ISO 14443")
-    CONTACTLESS("Contactless"),
+  /** Check Reader */
+  @XmlEnumValue("CheckReader")
+  @Schema(description = "Check Reader")
+  CHECK_READER("CheckReader");
+  private final String value;
 
-    /**
-     * Check Reader
-     */
-    @XmlEnumValue("CheckReader")
-    @Schema(description = "Check Reader")
-    CHECK_READER("CheckReader");
-    private final String value;
+  ForceEntryModeType(String v) {
+    value = v;
+  }
 
-    ForceEntryModeType(String v) {
-        value = v;
-    }
+  /**
+   * Value string.
+   *
+   * @return the string
+   */
+  public String value() {
+    return value;
+  }
 
-    /**
-     * Value string.
-     *
-     * @return the string
-     */
-    public String value() {
-        return value;
-    }
-
-    /**
-     * From value force entry mode type.
-     *
-     * @param v the v
-     * @return the force entry mode type
-     */
-    public static ForceEntryModeType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value force entry mode type.
+   *
+   * @param v the v
+   * @return the force entry mode type
+   */
+  public static ForceEntryModeType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

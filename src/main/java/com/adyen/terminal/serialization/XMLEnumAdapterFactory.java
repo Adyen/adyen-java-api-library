@@ -27,12 +27,12 @@ import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
 public class XMLEnumAdapterFactory implements TypeAdapterFactory {
-    @Override
-    public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) {
-        Class<? super T> rawType = type.getRawType();
-        if (rawType.isEnum()) {
-            return new XMLEnumTypeAdapter<>(rawType);
-        }
-        return null;
+  @Override
+  public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) {
+    Class<? super T> rawType = type.getRawType();
+    if (rawType.isEnum()) {
+      return new XMLEnumTypeAdapter<>(rawType);
     }
+    return null;
+  }
 }

@@ -2,258 +2,256 @@ package com.adyen;
 
 import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
-
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 
 public class Config {
-    protected String username;
-    protected String password;
-    protected Environment environment;
+  protected String username;
+  protected String password;
+  protected Environment environment;
 
-    /**
-     * Application name: used as HTTP client User-Agent
-     */
-    protected String applicationName;
-    protected String apiKey;
-    protected int connectionTimeoutMillis = 60 * 1000; // default 60 sec
-    protected int readTimeoutMillis = 60 * 1000; // default 60 sec
-    protected int connectionRequestTimeoutMillis = 60 * 1000; // default 60 sec
-    protected int defaultKeepAliveMillis = 60 * 1000; // default 60 sec
-    protected Boolean protocolUpgradeEnabled;
+  /** Application name: used as HTTP client User-Agent */
+  protected String applicationName;
 
-    //Terminal API Specific
-    protected String terminalApiCloudEndpoint;
-    protected String terminalApiLocalEndpoint;
-    protected String liveEndpointUrlPrefix;
-    protected Region terminalApiRegion;
-    protected SSLContext sslContext;
-    protected HostnameVerifier hostnameVerifier;
+  protected String apiKey;
+  protected int connectionTimeoutMillis = 60 * 1000; // default 60 sec
+  protected int readTimeoutMillis = 60 * 1000; // default 60 sec
+  protected int connectionRequestTimeoutMillis = 60 * 1000; // default 60 sec
+  protected int defaultKeepAliveMillis = 60 * 1000; // default 60 sec
+  protected Boolean protocolUpgradeEnabled;
 
-    public Config() {
-        // do nothing
-    }
+  // Terminal API Specific
+  protected String terminalApiCloudEndpoint;
+  protected String terminalApiLocalEndpoint;
+  protected String liveEndpointUrlPrefix;
+  protected Region terminalApiRegion;
+  protected SSLContext sslContext;
+  protected HostnameVerifier hostnameVerifier;
 
-    public String getUsername() {
-        return username;
-    }
+  public Config() {
+    // do nothing
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    public Config username(String username) {
-        this.username = username;
-        return this;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public Config username(String username) {
+    this.username = username;
+    return this;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public Config password(String password) {
-        this.password = password;
-        return this;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public Environment getEnvironment() {
-        return environment;
-    }
+  public Config password(String password) {
+    this.password = password;
+    return this;
+  }
 
-    public void setEnvironment(Environment environment) {
-        this.environment = environment;
-    }
+  public Environment getEnvironment() {
+    return environment;
+  }
 
-    public Config environment(Environment environment) {
-        this.environment = environment;
-        return this;
-    }
+  public void setEnvironment(Environment environment) {
+    this.environment = environment;
+  }
 
-    public String getApplicationName() {
-        return applicationName;
-    }
+  public Config environment(Environment environment) {
+    this.environment = environment;
+    return this;
+  }
 
-    public void setApplicationName(String applicationName) {
-        this.applicationName = applicationName;
-    }
+  public String getApplicationName() {
+    return applicationName;
+  }
 
-    public Config applicationName(String applicationName) {
-        this.applicationName = applicationName;
-        return this;
-    }
+  public void setApplicationName(String applicationName) {
+    this.applicationName = applicationName;
+  }
 
-    public String getApiKey() {
-        return apiKey;
-    }
+  public Config applicationName(String applicationName) {
+    this.applicationName = applicationName;
+    return this;
+  }
 
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
-    }
+  public String getApiKey() {
+    return apiKey;
+  }
 
-    public Config apiKey(String apiKey) {
-        this.apiKey = apiKey;
-        return this;
-    }
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
+  }
 
-    public String getTerminalApiCloudEndpoint() {
-        return terminalApiCloudEndpoint;
-    }
+  public Config apiKey(String apiKey) {
+    this.apiKey = apiKey;
+    return this;
+  }
 
-    public void setTerminalApiCloudEndpoint(String terminalApiCloudEndpoint) {
-        this.terminalApiCloudEndpoint = terminalApiCloudEndpoint;
-    }
+  public String getTerminalApiCloudEndpoint() {
+    return terminalApiCloudEndpoint;
+  }
 
-    public Config terminalApiCloudEndpoint(String terminalApiCloudEndpoint) {
-        this.terminalApiCloudEndpoint = terminalApiCloudEndpoint;
-        return this;
-    }
+  public void setTerminalApiCloudEndpoint(String terminalApiCloudEndpoint) {
+    this.terminalApiCloudEndpoint = terminalApiCloudEndpoint;
+  }
 
-    public String getTerminalApiLocalEndpoint() {
-        return terminalApiLocalEndpoint;
-    }
+  public Config terminalApiCloudEndpoint(String terminalApiCloudEndpoint) {
+    this.terminalApiCloudEndpoint = terminalApiCloudEndpoint;
+    return this;
+  }
 
-    public void setTerminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
-        this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
-    }
+  public String getTerminalApiLocalEndpoint() {
+    return terminalApiLocalEndpoint;
+  }
 
-    public Config terminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
-        this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
-        return this;
-    }
+  public void setTerminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
+    this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
+  }
 
-    public Region getTerminalApiRegion() {
-        return terminalApiRegion;
-    }
+  public Config terminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
+    this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
+    return this;
+  }
 
-    public void setTerminalApiRegion(Region terminalApiRegion) {
-        this.terminalApiRegion = terminalApiRegion;
-    }
+  public Region getTerminalApiRegion() {
+    return terminalApiRegion;
+  }
 
-    public Config terminalApiRegion(Region terminalApiRegion) {
-        this.terminalApiRegion = terminalApiRegion;
-        return this;
-    }
+  public void setTerminalApiRegion(Region terminalApiRegion) {
+    this.terminalApiRegion = terminalApiRegion;
+  }
 
-    public int getConnectionTimeoutMillis() {
-        return connectionTimeoutMillis;
-    }
+  public Config terminalApiRegion(Region terminalApiRegion) {
+    this.terminalApiRegion = terminalApiRegion;
+    return this;
+  }
 
-    public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
-        this.connectionTimeoutMillis = connectionTimeoutMillis;
-    }
+  public int getConnectionTimeoutMillis() {
+    return connectionTimeoutMillis;
+  }
 
-    public Config connectionTimeoutMillis(int connectionTimeoutMillis) {
-        this.connectionTimeoutMillis = connectionTimeoutMillis;
-        return this;
-    }
+  public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
+    this.connectionTimeoutMillis = connectionTimeoutMillis;
+  }
 
-    public int getReadTimeoutMillis() {
-        return readTimeoutMillis;
-    }
+  public Config connectionTimeoutMillis(int connectionTimeoutMillis) {
+    this.connectionTimeoutMillis = connectionTimeoutMillis;
+    return this;
+  }
 
-    public void setReadTimeoutMillis(int readTimeoutMillis) {
-        this.readTimeoutMillis = readTimeoutMillis;
-    }
+  public int getReadTimeoutMillis() {
+    return readTimeoutMillis;
+  }
 
-    public Config readTimeoutMillis(int readTimeoutMillis) {
-        this.readTimeoutMillis = readTimeoutMillis;
-        return this;
-    }
+  public void setReadTimeoutMillis(int readTimeoutMillis) {
+    this.readTimeoutMillis = readTimeoutMillis;
+  }
 
-    public int getDefaultKeepAliveMillis() {
-        return defaultKeepAliveMillis;
-    }
+  public Config readTimeoutMillis(int readTimeoutMillis) {
+    this.readTimeoutMillis = readTimeoutMillis;
+    return this;
+  }
 
-    public void setDefaultKeepAliveMillis(int defaultKeepAliveMillis) {
-        this.defaultKeepAliveMillis = defaultKeepAliveMillis;
-    }
+  public int getDefaultKeepAliveMillis() {
+    return defaultKeepAliveMillis;
+  }
 
-    public Config defaultKeepAliveMillis(int defaultKeepAliveMillis) {
-        this.defaultKeepAliveMillis = defaultKeepAliveMillis;
-        return this;
-    }
+  public void setDefaultKeepAliveMillis(int defaultKeepAliveMillis) {
+    this.defaultKeepAliveMillis = defaultKeepAliveMillis;
+  }
 
-    public int getConnectionRequestTimeoutMillis() {
-        return connectionRequestTimeoutMillis;
-    }
+  public Config defaultKeepAliveMillis(int defaultKeepAliveMillis) {
+    this.defaultKeepAliveMillis = defaultKeepAliveMillis;
+    return this;
+  }
 
-    public void setConnectionRequestTimeoutMillis(int connectionRequestTimeoutMillis) {
-        this.connectionRequestTimeoutMillis = connectionRequestTimeoutMillis;
-    }
+  public int getConnectionRequestTimeoutMillis() {
+    return connectionRequestTimeoutMillis;
+  }
 
-    public Config connectionRequestTimeoutMillis(int connectionRequestTimeoutMillis) {
-        this.connectionRequestTimeoutMillis = connectionRequestTimeoutMillis;
-        return this;
-    }
+  public void setConnectionRequestTimeoutMillis(int connectionRequestTimeoutMillis) {
+    this.connectionRequestTimeoutMillis = connectionRequestTimeoutMillis;
+  }
 
-    public Boolean getProtocolUpgradeEnabled() {
-        return protocolUpgradeEnabled;
-    }
+  public Config connectionRequestTimeoutMillis(int connectionRequestTimeoutMillis) {
+    this.connectionRequestTimeoutMillis = connectionRequestTimeoutMillis;
+    return this;
+  }
 
-    /**
-     * Whether the HTTP requests should automatically attempt to upgrade to a safer/newer version of the protocol.
-     * See also AdyenHttpClient createRequest() method.
-     */
-    public void setProtocolUpgradeEnabled(Boolean protocolUpgradeEnabled) {
-        this.protocolUpgradeEnabled = protocolUpgradeEnabled;
-    }
+  public Boolean getProtocolUpgradeEnabled() {
+    return protocolUpgradeEnabled;
+  }
 
-    public Config protocolUpgradeEnabled(Boolean protocolUpgradeEnabled) {
-        this.protocolUpgradeEnabled = protocolUpgradeEnabled;
-        return this;
-    }
+  /**
+   * Whether the HTTP requests should automatically attempt to upgrade to a safer/newer version of
+   * the protocol. See also AdyenHttpClient createRequest() method.
+   */
+  public void setProtocolUpgradeEnabled(Boolean protocolUpgradeEnabled) {
+    this.protocolUpgradeEnabled = protocolUpgradeEnabled;
+  }
 
-    public String getLiveEndpointUrlPrefix() {
-        return this.liveEndpointUrlPrefix;
-    }
+  public Config protocolUpgradeEnabled(Boolean protocolUpgradeEnabled) {
+    this.protocolUpgradeEnabled = protocolUpgradeEnabled;
+    return this;
+  }
 
-    public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
-        this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
-    }
+  public String getLiveEndpointUrlPrefix() {
+    return this.liveEndpointUrlPrefix;
+  }
 
-    public Config liveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
-        this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
-        return this;
-    }
+  public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
+    this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
+  }
 
-    public SSLContext getSSLContext() {
-        return sslContext;
-    }
+  public Config liveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
+    this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
+    return this;
+  }
 
-    /**
-     * Sets the {@link SSLContext} for the {@link com.adyen.httpclient.AdyenHttpClient}.
-     *
-     * @param sslContext The {@link SSLContext}
-     */
-    public void setSSLContext(SSLContext sslContext) {
-        this.sslContext = sslContext;
-    }
+  public SSLContext getSSLContext() {
+    return sslContext;
+  }
 
-    public Config sslContext(SSLContext sslContext) {
-        this.sslContext = sslContext;
-        return this;
-    }
+  /**
+   * Sets the {@link SSLContext} for the {@link com.adyen.httpclient.AdyenHttpClient}.
+   *
+   * @param sslContext The {@link SSLContext}
+   */
+  public void setSSLContext(SSLContext sslContext) {
+    this.sslContext = sslContext;
+  }
 
-    public HostnameVerifier getHostnameVerifier() {
-        return hostnameVerifier;
-    }
+  public Config sslContext(SSLContext sslContext) {
+    this.sslContext = sslContext;
+    return this;
+  }
 
-    /**
-     * Sets the {@link HostnameVerifier} for the {@link com.adyen.httpclient.AdyenHttpClient}.
-     *
-     * @param hostnameVerifier The {@link HostnameVerifier}
-     * @see com.adyen.httpclient.TerminalLocalAPIHostnameVerifier
-     */
-    public void setHostnameVerifier(HostnameVerifier hostnameVerifier) {
-        this.hostnameVerifier = hostnameVerifier;
-    }
+  public HostnameVerifier getHostnameVerifier() {
+    return hostnameVerifier;
+  }
 
-    public Config hostnameVerifier(HostnameVerifier hostnameVerifier) {
-        this.hostnameVerifier = hostnameVerifier;
-        return this;
-    }
+  /**
+   * Sets the {@link HostnameVerifier} for the {@link com.adyen.httpclient.AdyenHttpClient}.
+   *
+   * @param hostnameVerifier The {@link HostnameVerifier}
+   * @see com.adyen.httpclient.TerminalLocalAPIHostnameVerifier
+   */
+  public void setHostnameVerifier(HostnameVerifier hostnameVerifier) {
+    this.hostnameVerifier = hostnameVerifier;
+  }
+
+  public Config hostnameVerifier(HostnameVerifier hostnameVerifier) {
+    this.hostnameVerifier = hostnameVerifier;
+    return this;
+  }
 }

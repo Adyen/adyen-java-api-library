@@ -1,15 +1,13 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for UnitOfMeasureType.
+ * Java class for UnitOfMeasureType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -43,164 +41,125 @@ import java.util.Arrays;
 @XmlEnum
 public enum UnitOfMeasureType {
 
+  /** Case or Carton */
+  @XmlEnumValue("Case")
+  @Schema(description = "Case or Carton")
+  CASE("Case"),
 
-    /**
-     * Case or Carton
-     */
-    @XmlEnumValue("Case")
-    @Schema(description = "Case or Carton")
-    CASE("Case"),
+  /** Foot */
+  @XmlEnumValue("Foot")
+  @Schema(description = "Foot")
+  FOOT("Foot"),
 
-    /**
-     * Foot
-     */
-    @XmlEnumValue("Foot")
-    @Schema(description = "Foot")
-    FOOT("Foot"),
+  /** Gallon (UK) */
+  @XmlEnumValue("UKGallon")
+  @Schema(description = "Gallon (UK)")
+  UK_GALLON("UKGallon"),
 
-    /**
-     * Gallon (UK)
-     */
-    @XmlEnumValue("UKGallon")
-    @Schema(description = "Gallon (UK)")
-    UK_GALLON("UKGallon"),
+  /** Gallon (US) */
+  @XmlEnumValue("USGallon")
+  @Schema(description = "Gallon (US)")
+  US_GALLON("USGallon"),
 
-    /**
-     * Gallon (US)
-     */
-    @XmlEnumValue("USGallon")
-    @Schema(description = "Gallon (US)")
-    US_GALLON("USGallon"),
+  /** Gram */
+  @XmlEnumValue("Gram")
+  @Schema(description = "Gram")
+  GRAM("Gram"),
 
-    /**
-     * Gram
-     */
-    @XmlEnumValue("Gram")
-    @Schema(description = "Gram")
-    GRAM("Gram"),
+  /** Inch */
+  @XmlEnumValue("Inch")
+  @Schema(description = "Inch")
+  INCH("Inch"),
 
-    /**
-     * Inch
-     */
-    @XmlEnumValue("Inch")
-    @Schema(description = "Inch")
-    INCH("Inch"),
+  /** Kilogram */
+  @XmlEnumValue("Kilogram")
+  @Schema(description = "Kilogram")
+  KILOGRAM("Kilogram"),
 
-    /**
-     * Kilogram
-     */
-    @XmlEnumValue("Kilogram")
-    @Schema(description = "Kilogram")
-    KILOGRAM("Kilogram"),
+  /** Pound */
+  @XmlEnumValue("Pound")
+  @Schema(description = "Pound")
+  POUND("Pound"),
 
-    /**
-     * Pound
-     */
-    @XmlEnumValue("Pound")
-    @Schema(description = "Pound")
-    POUND("Pound"),
+  /** Meter */
+  @XmlEnumValue("Meter")
+  @Schema(description = "Meter")
+  METER("Meter"),
 
-    /**
-     * Meter
-     */
-    @XmlEnumValue("Meter")
-    @Schema(description = "Meter")
-    METER("Meter"),
+  /** Centimetre */
+  @XmlEnumValue("Centimetre")
+  @Schema(description = "Centimetre")
+  CENTIMETRE("Centimetre"),
 
-    /**
-     * Centimetre
-     */
-    @XmlEnumValue("Centimetre")
-    @Schema(description = "Centimetre")
-    CENTIMETRE("Centimetre"),
+  /** Litre */
+  @XmlEnumValue("Litre")
+  @Schema(description = "Litre")
+  LITRE("Litre"),
 
-    /**
-     * Litre
-     */
-    @XmlEnumValue("Litre")
-    @Schema(description = "Litre")
-    LITRE("Litre"),
+  /** Centilitre */
+  @XmlEnumValue("Centilitre")
+  @Schema(description = "Centilitre")
+  CENTILITRE("Centilitre"),
 
-    /**
-     * Centilitre
-     */
-    @XmlEnumValue("Centilitre")
-    @Schema(description = "Centilitre")
-    CENTILITRE("Centilitre"),
+  /** Ounce */
+  @XmlEnumValue("Ounce")
+  @Schema(description = "Ounce")
+  OUNCE("Ounce"),
 
-    /**
-     * Ounce
-     */
-    @XmlEnumValue("Ounce")
-    @Schema(description = "Ounce")
-    OUNCE("Ounce"),
+  /** Quart */
+  @XmlEnumValue("Quart")
+  @Schema(description = "Quart")
+  QUART("Quart"),
 
-    /**
-     * Quart
-     */
-    @XmlEnumValue("Quart")
-    @Schema(description = "Quart")
-    QUART("Quart"),
+  /** Pint */
+  @XmlEnumValue("Pint")
+  @Schema(description = "Pint")
+  PINT("Pint"),
 
-    /**
-     * Pint
-     */
-    @XmlEnumValue("Pint")
-    @Schema(description = "Pint")
-    PINT("Pint"),
+  /** Mile */
+  @XmlEnumValue("Mile")
+  @Schema(description = "Mile")
+  MILE("Mile"),
 
-    /**
-     * Mile
-     */
-    @XmlEnumValue("Mile")
-    @Schema(description = "Mile")
-    MILE("Mile"),
+  /** Kilometre */
+  @XmlEnumValue("Kilometre")
+  @Schema(description = "Kilometre")
+  KILOMETRE("Kilometre"),
 
-    /**
-     * Kilometre
-     */
-    @XmlEnumValue("Kilometre")
-    @Schema(description = "Kilometre")
-    KILOMETRE("Kilometre"),
+  /** Yard */
+  @XmlEnumValue("Yard")
+  @Schema(description = "Yard")
+  YARD("Yard"),
 
-    /**
-     * Yard
-     */
-    @XmlEnumValue("Yard")
-    @Schema(description = "Yard")
-    YARD("Yard"),
+  /** Other unit than the previous one */
+  @XmlEnumValue("Other")
+  @Schema(description = "Other unit than the previous one")
+  OTHER("Other");
+  private final String value;
 
-    /**
-     * Other unit than the previous one
-     */
-    @XmlEnumValue("Other")
-    @Schema(description = "Other unit than the previous one")
-    OTHER("Other");
-    private final String value;
+  UnitOfMeasureType(String v) {
+    value = v;
+  }
 
-    UnitOfMeasureType(String v) {
-        value = v;
-    }
+  /**
+   * Value string.
+   *
+   * @return the string
+   */
+  public String value() {
+    return value;
+  }
 
-    /**
-     * Value string.
-     *
-     * @return the string
-     */
-    public String value() {
-        return value;
-    }
-
-    /**
-     * From value unit of measure type.
-     *
-     * @param v the v
-     * @return the unit of measure type
-     */
-    public static UnitOfMeasureType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value unit of measure type.
+   *
+   * @param v the v
+   * @return the unit of measure type
+   */
+  public static UnitOfMeasureType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

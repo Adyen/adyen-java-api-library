@@ -5,9 +5,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Identification of a cryptographic algorithm -- Reference: RFC 3880: Internet X.509 Public Key Infrastructure Certificate and Certificate -- Usage: This data structure contains:  the algorithm identifier  associated parameters
+ * Definition: Identification of a cryptographic algorithm -- Reference: RFC 3880: Internet X.509
+ * Public Key Infrastructure Certificate and Certificate -- Usage: This data structure contains: the
+ * algorithm identifier associated parameters
  *
  * <p>Java class for AlgorithmIdentifier complex type.
  *
@@ -27,56 +28,52 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AlgorithmIdentifier", propOrder = {
-        "parameter"
-})
+@XmlType(
+    name = "AlgorithmIdentifier",
+    propOrder = {"parameter"})
 public class AlgorithmIdentifier {
 
-    /**
-     * The Parameter.
-     */
-    @XmlElement(name = "Parameter")
-    protected Parameter parameter;
-    /**
-     * The Algorithm.
-     */
-    @XmlElement(name = "Algorithm", required = true)
-    protected AlgorithmType algorithm;
+  /** The Parameter. */
+  @XmlElement(name = "Parameter")
+  protected Parameter parameter;
 
-    /**
-     * Gets the value of the parameter property.
-     *
-     * @return possible      object is     {@link Parameter }
-     */
-    public Parameter getParameter() {
-        return parameter;
-    }
+  /** The Algorithm. */
+  @XmlElement(name = "Algorithm", required = true)
+  protected AlgorithmType algorithm;
 
-    /**
-     * Sets the value of the parameter property.
-     *
-     * @param value allowed object is     {@link Parameter }
-     */
-    public void setParameter(Parameter value) {
-        this.parameter = value;
-    }
+  /**
+   * Gets the value of the parameter property.
+   *
+   * @return possible object is {@link Parameter }
+   */
+  public Parameter getParameter() {
+    return parameter;
+  }
 
-    /**
-     * Gets the value of the algorithm property.
-     *
-     * @return possible      object is     {@link AlgorithmType }
-     */
-    public AlgorithmType getAlgorithm() {
-        return algorithm;
-    }
+  /**
+   * Sets the value of the parameter property.
+   *
+   * @param value allowed object is {@link Parameter }
+   */
+  public void setParameter(Parameter value) {
+    this.parameter = value;
+  }
 
-    /**
-     * Sets the value of the algorithm property.
-     *
-     * @param value allowed object is     {@link AlgorithmType }
-     */
-    public void setAlgorithm(AlgorithmType value) {
-        this.algorithm = value;
-    }
+  /**
+   * Gets the value of the algorithm property.
+   *
+   * @return possible object is {@link AlgorithmType }
+   */
+  public AlgorithmType getAlgorithm() {
+    return algorithm;
+  }
 
+  /**
+   * Sets the value of the algorithm property.
+   *
+   * @param value allowed object is {@link AlgorithmType }
+   */
+  public void setAlgorithm(AlgorithmType value) {
+    this.algorithm = value;
+  }
 }

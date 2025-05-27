@@ -27,32 +27,28 @@ import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
 
-/**
- * Notification converter
- */
+/** Notification converter */
 public class WebhookHandler {
-    private static final Gson GSON = new Gson();
-    private final Gson terminalGson;
+  private static final Gson GSON = new Gson();
+  private final Gson terminalGson;
 
-    public WebhookHandler() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        terminalGson = TerminalAPIGsonBuilder.create();
-    }
+  public WebhookHandler() {
+    GsonBuilder gsonBuilder = new GsonBuilder();
+    terminalGson = TerminalAPIGsonBuilder.create();
+  }
 
-    public NotificationRequest handleNotificationJson(String json) throws IOException {
-        return NotificationRequest.fromJson(json);
-    }
+  public NotificationRequest handleNotificationJson(String json) throws IOException {
+    return NotificationRequest.fromJson(json);
+  }
 
-    public NotificationRequest handleNotificationJsonJackson(String json) throws IOException {
-        return JSON.getMapper().readValue(json, NotificationRequest.class);
-    }
+  public NotificationRequest handleNotificationJsonJackson(String json) throws IOException {
+    return JSON.getMapper().readValue(json, NotificationRequest.class);
+  }
 
-    // Note that terminal notifications are structured as TerminalAPIRequest objects
-    public TerminalAPIRequest handleTerminalNotificationJson(String json) {
-        return terminalGson.fromJson(json, new TypeToken<TerminalAPIRequest>() {
-        }.getType());
-    }
+  // Note that terminal notifications are structured as TerminalAPIRequest objects
+  public TerminalAPIRequest handleTerminalNotificationJson(String json) {
+    return terminalGson.fromJson(json, new TypeToken<TerminalAPIRequest>() {}.getType());
+  }
 }

@@ -5,9 +5,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Parameters associated to a cryptographic algorithm -- Reference: RFC 3880: Internet X.509 Public Key Infrastructure Certificate and Certificate
+ * Definition: Parameters associated to a cryptographic algorithm -- Reference: RFC 3880: Internet
+ * X.509 Public Key Infrastructure Certificate and Certificate
  *
  * <p>Java class for Parameter complex type.
  *
@@ -27,28 +27,25 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Parameter")
 public class Parameter {
 
-    /**
-     * The Initialisation vector.
-     */
-    @XmlElement(name = "InitialisationVector")
-    protected byte[] initialisationVector;
+  /** The Initialisation vector. */
+  @XmlElement(name = "InitialisationVector")
+  protected byte[] initialisationVector;
 
-    /**
-     * Gets the value of the initialisationVector property.
-     *
-     * @return possible      object is     byte[]
-     */
-    public byte[] getInitialisationVector() {
-        return initialisationVector;
-    }
+  /**
+   * Gets the value of the initialisationVector property.
+   *
+   * @return possible object is byte[]
+   */
+  public byte[] getInitialisationVector() {
+    return initialisationVector;
+  }
 
-    /**
-     * Sets the value of the initialisationVector property.
-     *
-     * @param value allowed object is     byte[]
-     */
-    public void setInitialisationVector(byte[] value) {
-        this.initialisationVector = value;
-    }
-
+  /**
+   * Sets the value of the initialisationVector property.
+   *
+   * @param value allowed object is byte[]
+   */
+  public void setInitialisationVector(byte[] value) {
+    this.initialisationVector = value;
+  }
 }

@@ -1,13 +1,12 @@
 package com.adyen.model.nexo;
 
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for CharacterWidthType.
+ * Java class for CharacterWidthType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -24,41 +23,37 @@ import java.util.Arrays;
 @XmlEnum
 public enum CharacterWidthType {
 
-    /**
-     * Single width character width type.
-     */
-    @XmlEnumValue("SingleWidth")
-    SINGLE_WIDTH("SingleWidth"),
-    /**
-     * Double width character width type.
-     */
-    @XmlEnumValue("DoubleWidth")
-    DOUBLE_WIDTH("DoubleWidth");
-    private final String value;
+  /** Single width character width type. */
+  @XmlEnumValue("SingleWidth")
+  SINGLE_WIDTH("SingleWidth"),
+  /** Double width character width type. */
+  @XmlEnumValue("DoubleWidth")
+  DOUBLE_WIDTH("DoubleWidth");
+  private final String value;
 
-    CharacterWidthType(String v) {
-        value = v;
-    }
+  CharacterWidthType(String v) {
+    value = v;
+  }
 
-    /**
-     * Value string.
-     *
-     * @return the string
-     */
-    public String value() {
-        return value;
-    }
+  /**
+   * Value string.
+   *
+   * @return the string
+   */
+  public String value() {
+    return value;
+  }
 
-    /**
-     * From value character width type.
-     *
-     * @param v the v
-     * @return the character width type
-     */
-    public static CharacterWidthType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value character width type.
+   *
+   * @param v the v
+   * @return the character width type
+   */
+  public static CharacterWidthType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

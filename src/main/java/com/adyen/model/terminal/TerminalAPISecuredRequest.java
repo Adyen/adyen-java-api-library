@@ -21,58 +21,51 @@
 package com.adyen.model.terminal;
 
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
-
 import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
 
-/**
- * Terminal API Secured Request
- */
+/** Terminal API Secured Request */
 public class TerminalAPISecuredRequest {
-    @SerializedName("SaleToPOIRequest")
-    private SaleToPOISecuredMessage saleToPOIRequest;
+  @SerializedName("SaleToPOIRequest")
+  private SaleToPOISecuredMessage saleToPOIRequest;
 
+  /**
+   * Gets sale to POI request.
+   *
+   * @return the sale to POI request
+   */
+  public SaleToPOISecuredMessage getSaleToPOIRequest() {
+    return saleToPOIRequest;
+  }
 
-    /**
-     * Gets sale to POI request.
-     *
-     * @return the sale to POI request
-     */
-    public SaleToPOISecuredMessage getSaleToPOIRequest() {
-        return saleToPOIRequest;
+  /**
+   * Sets sale to POI request.
+   *
+   * @param saleToPOIRequest the sale to POI request
+   */
+  public void setSaleToPOIRequest(SaleToPOISecuredMessage saleToPOIRequest) {
+    this.saleToPOIRequest = saleToPOIRequest;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Sets sale to POI request.
-     *
-     * @param saleToPOIRequest the sale to POI request
-     */
-    public void setSaleToPOIRequest(SaleToPOISecuredMessage saleToPOIRequest) {
-        this.saleToPOIRequest = saleToPOIRequest;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    TerminalAPISecuredRequest that = (TerminalAPISecuredRequest) o;
+    return saleToPOIRequest.equals(that.saleToPOIRequest);
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TerminalAPISecuredRequest that = (TerminalAPISecuredRequest) o;
-        return saleToPOIRequest.equals(that.saleToPOIRequest);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(saleToPOIRequest);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(saleToPOIRequest);
-    }
-
-    @Override
-    public String toString() {
-        return "TerminalAPISecuredRequest{" +
-                "saleToPOIRequest=" + saleToPOIRequest +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "TerminalAPISecuredRequest{" + "saleToPOIRequest=" + saleToPOIRequest + '}';
+  }
 }

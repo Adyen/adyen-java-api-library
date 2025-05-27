@@ -1,15 +1,15 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Merchant using the payment services of a payment facilitator, acting as a card acceptor. -- Usage: Identifies the merchant purchasing items, using the payment facilitator to perform the payment of the items.
+ * Definition: Merchant using the payment services of a payment facilitator, acting as a card
+ * acceptor. -- Usage: Identifies the merchant purchasing items, using the payment facilitator to
+ * perform the payment of the items.
  *
  * <p>Java class for SponsoredMerchant complex type.
  *
@@ -33,125 +33,118 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "SponsoredMerchant")
 public class SponsoredMerchant {
 
-    /**
-     * The Merchant name.
-     */
-    @XmlElement(name = "MerchantName", required = true)
-    @Schema(description = "Unformatted name of the merchant.")
-    protected String merchantName;
-    /**
-     * The Merchant address.
-     */
-    @XmlElement(name = "MerchantAddress")
-    @Schema(description = "Unformatted address of the merchant.")
-    protected String merchantAddress;
-    /**
-     * The Merchant country.
-     */
-    @XmlElement(name = "MerchantCountry", required = true)
-    @Schema(description = "Country of the merchant.")
-    protected String merchantCountry;
-    /**
-     * The Merchant category code.
-     */
-    @XmlElement(name = "MerchantCategoryCode", required = true)
-    @Schema(description = "The code which identifies the category of the transaction (MCC).")
-    protected String merchantCategoryCode;
-    /**
-     * The Registration id.
-     */
-    @XmlElement(name = "RegistrationID", required = true)
-    @Schema(description = "Identification of a registered entity.")
-    protected String registrationID;
+  /** The Merchant name. */
+  @XmlElement(name = "MerchantName", required = true)
+  @Schema(description = "Unformatted name of the merchant.")
+  protected String merchantName;
 
-    /**
-     * Gets the value of the merchantName property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getMerchantName() {
-        return merchantName;
-    }
+  /** The Merchant address. */
+  @XmlElement(name = "MerchantAddress")
+  @Schema(description = "Unformatted address of the merchant.")
+  protected String merchantAddress;
 
-    /**
-     * Sets the value of the merchantName property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setMerchantName(String value) {
-        this.merchantName = value;
-    }
+  /** The Merchant country. */
+  @XmlElement(name = "MerchantCountry", required = true)
+  @Schema(description = "Country of the merchant.")
+  protected String merchantCountry;
 
-    /**
-     * Gets the value of the merchantAddress property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getMerchantAddress() {
-        return merchantAddress;
-    }
+  /** The Merchant category code. */
+  @XmlElement(name = "MerchantCategoryCode", required = true)
+  @Schema(description = "The code which identifies the category of the transaction (MCC).")
+  protected String merchantCategoryCode;
 
-    /**
-     * Sets the value of the merchantAddress property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setMerchantAddress(String value) {
-        this.merchantAddress = value;
-    }
+  /** The Registration id. */
+  @XmlElement(name = "RegistrationID", required = true)
+  @Schema(description = "Identification of a registered entity.")
+  protected String registrationID;
 
-    /**
-     * Gets the value of the merchantCountry property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getMerchantCountry() {
-        return merchantCountry;
-    }
+  /**
+   * Gets the value of the merchantName property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getMerchantName() {
+    return merchantName;
+  }
 
-    /**
-     * Sets the value of the merchantCountry property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setMerchantCountry(String value) {
-        this.merchantCountry = value;
-    }
+  /**
+   * Sets the value of the merchantName property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setMerchantName(String value) {
+    this.merchantName = value;
+  }
 
-    /**
-     * Gets the value of the merchantCategoryCode property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getMerchantCategoryCode() {
-        return merchantCategoryCode;
-    }
+  /**
+   * Gets the value of the merchantAddress property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getMerchantAddress() {
+    return merchantAddress;
+  }
 
-    /**
-     * Sets the value of the merchantCategoryCode property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setMerchantCategoryCode(String value) {
-        this.merchantCategoryCode = value;
-    }
+  /**
+   * Sets the value of the merchantAddress property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setMerchantAddress(String value) {
+    this.merchantAddress = value;
+  }
 
-    /**
-     * Gets the value of the registrationID property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getRegistrationID() {
-        return registrationID;
-    }
+  /**
+   * Gets the value of the merchantCountry property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getMerchantCountry() {
+    return merchantCountry;
+  }
 
-    /**
-     * Sets the value of the registrationID property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setRegistrationID(String value) {
-        this.registrationID = value;
-    }
+  /**
+   * Sets the value of the merchantCountry property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setMerchantCountry(String value) {
+    this.merchantCountry = value;
+  }
 
+  /**
+   * Gets the value of the merchantCategoryCode property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getMerchantCategoryCode() {
+    return merchantCategoryCode;
+  }
+
+  /**
+   * Sets the value of the merchantCategoryCode property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setMerchantCategoryCode(String value) {
+    this.merchantCategoryCode = value;
+  }
+
+  /**
+   * Gets the value of the registrationID property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getRegistrationID() {
+    return registrationID;
+  }
+
+  /**
+   * Sets the value of the registrationID property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setRegistrationID(String value) {
+    this.registrationID = value;
+  }
 }

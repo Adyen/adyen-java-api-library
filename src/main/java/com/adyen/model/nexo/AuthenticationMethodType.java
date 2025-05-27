@@ -1,15 +1,13 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.util.Arrays;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
-import java.util.Arrays;
-
 
 /**
- * <p>Java class for AuthenticationMethodType.
+ * Java class for AuthenticationMethodType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
@@ -35,109 +33,86 @@ import java.util.Arrays;
 @XmlEnum
 public enum AuthenticationMethodType {
 
+  /** Authentication bypassed by the merchant. */
+  @XmlEnumValue("Bypass")
+  @Schema(description = "Authentication bypassed by the merchant.")
+  BYPASS("Bypass"),
 
-    /**
-     * Authentication bypassed by the merchant.
-     */
-    @XmlEnumValue("Bypass")
-    @Schema(description = "Authentication bypassed by the merchant.")
-    BYPASS("Bypass"),
+  /** Manual verification, for example passport or drivers license. */
+  @XmlEnumValue("ManualVerification")
+  @Schema(description = "Manual verification, for example passport or drivers license.")
+  MANUAL_VERIFICATION("ManualVerification"),
 
-    /**
-     * Manual verification, for example passport or drivers license.
-     */
-    @XmlEnumValue("ManualVerification")
-    @Schema(description = "Manual verification, for example passport or drivers license.")
-    MANUAL_VERIFICATION("ManualVerification"),
+  /** Merchant-related authentication. */
+  @XmlEnumValue("MerchantAuthentication")
+  @Schema(description = "Merchant-related authentication.")
+  MERCHANT_AUTHENTICATION("MerchantAuthentication"),
 
-    /**
-     * Merchant-related authentication.
-     */
-    @XmlEnumValue("MerchantAuthentication")
-    @Schema(description = "Merchant-related authentication.")
-    MERCHANT_AUTHENTICATION("MerchantAuthentication"),
+  /** Off-line PIN authentication (Personal Identification Number). */
+  @XmlEnumValue("OfflinePIN")
+  @Schema(description = "Off-line PIN authentication (Personal Identification Number).")
+  OFFLINE_PIN("OfflinePIN"),
 
-    /**
-     * Off-line PIN authentication (Personal Identification Number).
-     */
-    @XmlEnumValue("OfflinePIN")
-    @Schema(description = "Off-line PIN authentication (Personal Identification Number).")
-    OFFLINE_PIN("OfflinePIN"),
+  /** On-line PIN authentication (Personal Identification Number). */
+  @XmlEnumValue("OnlinePIN")
+  @Schema(description = "On-line PIN authentication (Personal Identification Number).")
+  ON_LINE_PIN("OnLinePIN", "OnlinePIN"),
 
-    /**
-     * On-line PIN authentication (Personal Identification Number).
-     */
-    @XmlEnumValue("OnlinePIN")
-    @Schema(description = "On-line PIN authentication (Personal Identification Number).")
-    ON_LINE_PIN("OnLinePIN", "OnlinePIN"),
+  /** Handwritten paper signature. */
+  @XmlEnumValue("PaperSignature")
+  @Schema(description = "Handwritten paper signature.")
+  PAPER_SIGNATURE("PaperSignature"),
 
-    /**
-     * Handwritten paper signature.
-     */
-    @XmlEnumValue("PaperSignature")
-    @Schema(description = "Handwritten paper signature.")
-    PAPER_SIGNATURE("PaperSignature"),
+  /** Channel-encrypted transaction. */
+  @XmlEnumValue("SecuredChannel")
+  @Schema(description = "Channel-encrypted transaction.")
+  SECURED_CHANNEL("SecuredChannel"),
 
-    /**
-     * Channel-encrypted transaction.
-     */
-    @XmlEnumValue("SecuredChannel")
-    @Schema(description = "Channel-encrypted transaction.")
-    SECURED_CHANNEL("SecuredChannel"),
+  /** Secure electronic transaction with cardholder X.509 certificate. */
+  @XmlEnumValue("SecureCertificate")
+  @Schema(description = "Secure electronic transaction with cardholder X.509 certificate.")
+  SECURE_CERTIFICATE("SecureCertificate"),
 
-    /**
-     * Secure electronic transaction with cardholder X.509 certificate.
-     */
-    @XmlEnumValue("SecureCertificate")
-    @Schema(description = "Secure electronic transaction with cardholder X.509 certificate.")
-    SECURE_CERTIFICATE("SecureCertificate"),
+  /** Secure electronic transaction without cardholder certificate. */
+  @XmlEnumValue("SecureNoCertificate")
+  @Schema(description = "Secure electronic transaction without cardholder certificate.")
+  SECURE_NO_CERTIFICATE("SecureNoCertificate"),
 
-    /**
-     * Secure electronic transaction without cardholder certificate.
-     */
-    @XmlEnumValue("SecureNoCertificate")
-    @Schema(description = "Secure electronic transaction without cardholder certificate.")
-    SECURE_NO_CERTIFICATE("SecureNoCertificate"),
+  /** Electronic signature capture (handwritten signature). */
+  @XmlEnumValue("SignatureCapture")
+  @Schema(description = "Electronic signature capture (handwritten signature).")
+  SIGNATURE_CAPTURE("SignatureCapture"),
 
-    /**
-     * Electronic signature capture (handwritten signature).
-     */
-    @XmlEnumValue("SignatureCapture")
-    @Schema(description = "Electronic signature capture (handwritten signature).")
-    SIGNATURE_CAPTURE("SignatureCapture"),
+  /** Authentication method is performed unknown. */
+  @XmlEnumValue("UnknownMethod")
+  @Schema(description = "Authentication method is performed unknown.")
+  UNKNOWN_METHOD("UnknownMethod");
 
-    /**
-     * Authentication method is performed unknown.
-     */
-    @XmlEnumValue("UnknownMethod")
-    @Schema(description = "Authentication method is performed unknown.")
-    UNKNOWN_METHOD("UnknownMethod");
+  private final String[] value;
 
-    private final String[] value;
+  AuthenticationMethodType(String... v) {
+    value = v;
+  }
 
-    AuthenticationMethodType(String... v) {
-        value = v;
-    }
+  /**
+   * Values array.
+   *
+   * @return the values
+   */
+  public String[] value() {
+    return value;
+  }
 
-    /**
-     * Values array.
-     *
-     * @return the values
-     */
-    public String[] value() {
-        return value;
-    }
-
-    /**
-     * From value authentication method type.
-     *
-     * @param v the v
-     * @return the authentication method type
-     */
-    public static AuthenticationMethodType fromValue(String v) {
-        return Arrays.stream(values()).
-                filter(s -> Arrays.asList(s.value).contains(v)).
-                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
-    }
-
+  /**
+   * From value authentication method type.
+   *
+   * @param v the v
+   * @return the authentication method type
+   */
+  public static AuthenticationMethodType fromValue(String v) {
+    return Arrays.stream(values())
+        .filter(s -> Arrays.asList(s.value).contains(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
+  }
 }

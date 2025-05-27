@@ -1,15 +1,14 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * Definition: Encrypted PIN and related information -- Usage: To request PIN Verify to the POI, or to get the encrypted PIN block.
+ * Definition: Encrypted PIN and related information -- Usage: To request PIN Verify to the POI, or
+ * to get the encrypted PIN block.
  *
  * <p>Java class for CardholderPIN complex type.
  *
@@ -30,82 +29,79 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CardholderPIN", propOrder = {
-        "encrPINBlock"
-})
+@XmlType(
+    name = "CardholderPIN",
+    propOrder = {"encrPINBlock"})
 public class CardholderPIN {
 
-    /**
-     * The Encr pin block.
-     */
-    @XmlElement(name = "EncrPINBlock", required = true)
-    @Schema(description = "Encrypted PIN")
-    protected ContentInformation encrPINBlock;
-    /**
-     * The Pin format.
-     */
-    @XmlElement(name = "PINFormat", required = true)
-    @Schema(description = "Identify the format of the PIN before encryption.")
-    protected PINFormatType pinFormat;
-    /**
-     * The Additional input.
-     */
-    @XmlElement(name = "AdditionalInput")
-    @Schema(description = "Additional information required to verify the PIN like part of the PAN, or driver ID.")
-    protected String additionalInput;
+  /** The Encr pin block. */
+  @XmlElement(name = "EncrPINBlock", required = true)
+  @Schema(description = "Encrypted PIN")
+  protected ContentInformation encrPINBlock;
 
-    /**
-     * Gets the value of the encrPINBlock property.
-     *
-     * @return possible      object is     {@link ContentInformation }
-     */
-    public ContentInformation getEncrPINBlock() {
-        return encrPINBlock;
-    }
+  /** The Pin format. */
+  @XmlElement(name = "PINFormat", required = true)
+  @Schema(description = "Identify the format of the PIN before encryption.")
+  protected PINFormatType pinFormat;
 
-    /**
-     * Sets the value of the encrPINBlock property.
-     *
-     * @param value allowed object is     {@link ContentInformation }
-     */
-    public void setEncrPINBlock(ContentInformation value) {
-        this.encrPINBlock = value;
-    }
+  /** The Additional input. */
+  @XmlElement(name = "AdditionalInput")
+  @Schema(
+      description =
+          "Additional information required to verify the PIN like part of the PAN, or driver ID.")
+  protected String additionalInput;
 
-    /**
-     * Gets the value of the pinFormat property.
-     *
-     * @return possible      object is     {@link PINFormatType }
-     */
-    public PINFormatType getPINFormat() {
-        return pinFormat;
-    }
+  /**
+   * Gets the value of the encrPINBlock property.
+   *
+   * @return possible object is {@link ContentInformation }
+   */
+  public ContentInformation getEncrPINBlock() {
+    return encrPINBlock;
+  }
 
-    /**
-     * Sets the value of the pinFormat property.
-     *
-     * @param value allowed object is     {@link PINFormatType }
-     */
-    public void setPINFormat(PINFormatType value) {
-        this.pinFormat = value;
-    }
+  /**
+   * Sets the value of the encrPINBlock property.
+   *
+   * @param value allowed object is {@link ContentInformation }
+   */
+  public void setEncrPINBlock(ContentInformation value) {
+    this.encrPINBlock = value;
+  }
 
-    /**
-     * Gets the value of the additionalInput property.
-     *
-     * @return possible      object is     {@link String }
-     */
-    public String getAdditionalInput() {
-        return additionalInput;
-    }
+  /**
+   * Gets the value of the pinFormat property.
+   *
+   * @return possible object is {@link PINFormatType }
+   */
+  public PINFormatType getPINFormat() {
+    return pinFormat;
+  }
 
-    /**
-     * Sets the value of the additionalInput property.
-     *
-     * @param value allowed object is     {@link String }
-     */
-    public void setAdditionalInput(String value) {
-        this.additionalInput = value;
-    }
+  /**
+   * Sets the value of the pinFormat property.
+   *
+   * @param value allowed object is {@link PINFormatType }
+   */
+  public void setPINFormat(PINFormatType value) {
+    this.pinFormat = value;
+  }
 
+  /**
+   * Gets the value of the additionalInput property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getAdditionalInput() {
+    return additionalInput;
+  }
+
+  /**
+   * Sets the value of the additionalInput property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setAdditionalInput(String value) {
+    this.additionalInput = value;
+  }
 }

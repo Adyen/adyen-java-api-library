@@ -29,30 +29,29 @@ import com.adyen.service.resource.terminal.cloud.ConnectedTerminals;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
 
 public class PosPayment extends ApiKeyAuthenticatedService {
-    protected static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
-    private final ConnectedTerminals connectedTerminals;
+  protected static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
+  private final ConnectedTerminals connectedTerminals;
 
-    public PosPayment(Client client) {
-        super(client);
-        connectedTerminals = new ConnectedTerminals(this);
-    }
+  public PosPayment(Client client) {
+    super(client);
+    connectedTerminals = new ConnectedTerminals(this);
+  }
 
-    /**
-     * POST /connectedTerminals API call
-     *
-     * @param connectedTerminalsRequest ConnectedTerminalsRequest
-     * @return ConnectedTerminalsResponse
-     * @throws IOException  IOException
-     * @throws ApiException ApiException
-     */
-    public ConnectedTerminalsResponse connectedTerminals(ConnectedTerminalsRequest connectedTerminalsRequest) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(connectedTerminalsRequest);
-        String jsonResult = connectedTerminals.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<ConnectedTerminalsResponse>() {
-        }.getType());
-    }
+  /**
+   * POST /connectedTerminals API call
+   *
+   * @param connectedTerminalsRequest ConnectedTerminalsRequest
+   * @return ConnectedTerminalsResponse
+   * @throws IOException IOException
+   * @throws ApiException ApiException
+   */
+  public ConnectedTerminalsResponse connectedTerminals(
+      ConnectedTerminalsRequest connectedTerminalsRequest) throws IOException, ApiException {
+    String jsonRequest = GSON.toJson(connectedTerminalsRequest);
+    String jsonResult = connectedTerminals.request(jsonRequest);
+    return GSON.fromJson(jsonResult, new TypeToken<ConnectedTerminalsResponse>() {}.getType());
+  }
 }

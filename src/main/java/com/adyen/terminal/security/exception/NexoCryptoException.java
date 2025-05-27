@@ -20,16 +20,14 @@
  */
 package com.adyen.terminal.security.exception;
 
-/**
- * API Exception class
- */
+/** API Exception class */
 public class NexoCryptoException extends Exception {
-    public NexoCryptoException(String message) {
-        super(message);
-    }
+  public NexoCryptoException(String message) {
+    super(message);
+  }
 
-    @Override
-    public String toString() {
-        return "NexoCryptoException{message=" + getMessage() + '}';
-    }
+  @Override
+  public String toString() {
+    return "NexoCryptoException{message=" + getMessage() + '}';
+  }
 }

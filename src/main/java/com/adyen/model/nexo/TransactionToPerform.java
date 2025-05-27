@@ -1,12 +1,10 @@
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-
 
 /**
  * Definition: Data related to the batch of transactions to perform.
@@ -30,84 +28,77 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TransactionToPerform", propOrder = {
-        "paymentRequest",
-        "loyaltyRequest",
-        "reversalRequest"
-})
+@XmlType(
+    name = "TransactionToPerform",
+    propOrder = {"paymentRequest", "loyaltyRequest", "reversalRequest"})
 public class TransactionToPerform {
 
-    /**
-     * The Payment request.
-     */
-    @XmlElement(name = "PaymentRequest")
-    @Schema(description = "Data related to the Payment transaction request.")
-    protected PaymentRequest paymentRequest;
-    /**
-     * The Loyalty request.
-     */
-    @XmlElement(name = "LoyaltyRequest")
-    @Schema(description = "Data related to the Loyalty transaction request.")
-    protected LoyaltyRequest loyaltyRequest;
-    /**
-     * The Reversal request.
-     */
-    @XmlElement(name = "ReversalRequest")
-    @Schema(description = "Data related to the Reveraal transaction request.")
-    protected ReversalRequest reversalRequest;
+  /** The Payment request. */
+  @XmlElement(name = "PaymentRequest")
+  @Schema(description = "Data related to the Payment transaction request.")
+  protected PaymentRequest paymentRequest;
 
-    /**
-     * Gets the value of the paymentRequest property.
-     *
-     * @return possible      object is     {@link PaymentRequest }
-     */
-    public PaymentRequest getPaymentRequest() {
-        return paymentRequest;
-    }
+  /** The Loyalty request. */
+  @XmlElement(name = "LoyaltyRequest")
+  @Schema(description = "Data related to the Loyalty transaction request.")
+  protected LoyaltyRequest loyaltyRequest;
 
-    /**
-     * Sets the value of the paymentRequest property.
-     *
-     * @param value allowed object is     {@link PaymentRequest }
-     */
-    public void setPaymentRequest(PaymentRequest value) {
-        this.paymentRequest = value;
-    }
+  /** The Reversal request. */
+  @XmlElement(name = "ReversalRequest")
+  @Schema(description = "Data related to the Reveraal transaction request.")
+  protected ReversalRequest reversalRequest;
 
-    /**
-     * Gets the value of the loyaltyRequest property.
-     *
-     * @return possible      object is     {@link LoyaltyRequest }
-     */
-    public LoyaltyRequest getLoyaltyRequest() {
-        return loyaltyRequest;
-    }
+  /**
+   * Gets the value of the paymentRequest property.
+   *
+   * @return possible object is {@link PaymentRequest }
+   */
+  public PaymentRequest getPaymentRequest() {
+    return paymentRequest;
+  }
 
-    /**
-     * Sets the value of the loyaltyRequest property.
-     *
-     * @param value allowed object is     {@link LoyaltyRequest }
-     */
-    public void setLoyaltyRequest(LoyaltyRequest value) {
-        this.loyaltyRequest = value;
-    }
+  /**
+   * Sets the value of the paymentRequest property.
+   *
+   * @param value allowed object is {@link PaymentRequest }
+   */
+  public void setPaymentRequest(PaymentRequest value) {
+    this.paymentRequest = value;
+  }
 
-    /**
-     * Gets the value of the reversalRequest property.
-     *
-     * @return possible      object is     {@link ReversalRequest }
-     */
-    public ReversalRequest getReversalRequest() {
-        return reversalRequest;
-    }
+  /**
+   * Gets the value of the loyaltyRequest property.
+   *
+   * @return possible object is {@link LoyaltyRequest }
+   */
+  public LoyaltyRequest getLoyaltyRequest() {
+    return loyaltyRequest;
+  }
 
-    /**
-     * Sets the value of the reversalRequest property.
-     *
-     * @param value allowed object is     {@link ReversalRequest }
-     */
-    public void setReversalRequest(ReversalRequest value) {
-        this.reversalRequest = value;
-    }
+  /**
+   * Sets the value of the loyaltyRequest property.
+   *
+   * @param value allowed object is {@link LoyaltyRequest }
+   */
+  public void setLoyaltyRequest(LoyaltyRequest value) {
+    this.loyaltyRequest = value;
+  }
 
+  /**
+   * Gets the value of the reversalRequest property.
+   *
+   * @return possible object is {@link ReversalRequest }
+   */
+  public ReversalRequest getReversalRequest() {
+    return reversalRequest;
+  }
+
+  /**
+   * Sets the value of the reversalRequest property.
+   *
+   * @param value allowed object is {@link ReversalRequest }
+   */
+  public void setReversalRequest(ReversalRequest value) {
+    this.reversalRequest = value;
+  }
 }

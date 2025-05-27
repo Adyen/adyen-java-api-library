@@ -24,9 +24,7 @@ import com.adyen.Service;
 import com.adyen.service.resource.Resource;
 
 public class Async extends Resource {
-    public Async(Service service) {
-        super(service,
-              service.getClient().getConfig().getTerminalApiCloudEndpoint() + "/async",
-              null);
-    }
+  public Async(Service service) {
+    super(service, service.getClient().getConfig().getTerminalApiCloudEndpoint() + "/async", null);
+  }
 }
