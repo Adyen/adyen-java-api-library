@@ -80,12 +80,13 @@ public class ValidationFacts {
   public ValidationFacts() {}
 
   /**
-   * The reason for the &#x60;result&#x60; of the validations. For example: **walletValidation**,
-   * **paymentInstrument**. Sent only when &#x60;result&#x60; is **invalid**.
+   * The reason for the &#x60;result&#x60; of the validations. This field is only sent for
+   * &#x60;validationFacts.type&#x60; **walletValidation**, when &#x60;validationFacts.result&#x60;
+   * is **invalid**.
    *
-   * @param reasons The reason for the &#x60;result&#x60; of the validations. For example:
-   *     **walletValidation**, **paymentInstrument**. Sent only when &#x60;result&#x60; is
-   *     **invalid**.
+   * @param reasons The reason for the &#x60;result&#x60; of the validations. This field is only
+   *     sent for &#x60;validationFacts.type&#x60; **walletValidation**, when
+   *     &#x60;validationFacts.result&#x60; is **invalid**.
    * @return the current {@code ValidationFacts} instance, allowing for method chaining
    */
   public ValidationFacts reasons(List<String> reasons) {
@@ -102,12 +103,13 @@ public class ValidationFacts {
   }
 
   /**
-   * The reason for the &#x60;result&#x60; of the validations. For example: **walletValidation**,
-   * **paymentInstrument**. Sent only when &#x60;result&#x60; is **invalid**.
+   * The reason for the &#x60;result&#x60; of the validations. This field is only sent for
+   * &#x60;validationFacts.type&#x60; **walletValidation**, when &#x60;validationFacts.result&#x60;
+   * is **invalid**.
    *
-   * @return reasons The reason for the &#x60;result&#x60; of the validations. For example:
-   *     **walletValidation**, **paymentInstrument**. Sent only when &#x60;result&#x60; is
-   *     **invalid**.
+   * @return reasons The reason for the &#x60;result&#x60; of the validations. This field is only
+   *     sent for &#x60;validationFacts.type&#x60; **walletValidation**, when
+   *     &#x60;validationFacts.result&#x60; is **invalid**.
    */
   @JsonProperty(JSON_PROPERTY_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,12 +118,13 @@ public class ValidationFacts {
   }
 
   /**
-   * The reason for the &#x60;result&#x60; of the validations. For example: **walletValidation**,
-   * **paymentInstrument**. Sent only when &#x60;result&#x60; is **invalid**.
+   * The reason for the &#x60;result&#x60; of the validations. This field is only sent for
+   * &#x60;validationFacts.type&#x60; **walletValidation**, when &#x60;validationFacts.result&#x60;
+   * is **invalid**.
    *
-   * @param reasons The reason for the &#x60;result&#x60; of the validations. For example:
-   *     **walletValidation**, **paymentInstrument**. Sent only when &#x60;result&#x60; is
-   *     **invalid**.
+   * @param reasons The reason for the &#x60;result&#x60; of the validations. This field is only
+   *     sent for &#x60;validationFacts.type&#x60; **walletValidation**, when
+   *     &#x60;validationFacts.result&#x60; is **invalid**.
    */
   @JsonProperty(JSON_PROPERTY_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
