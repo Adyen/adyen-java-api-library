@@ -37,17 +37,18 @@ final class NexoDerivedKeyGenerator {
   private NexoDerivedKeyGenerator() {}
 
   /** Given a passphrase, compute 80 byte key of key material according to crypto.md */
-  static NexoDerivedKey deriveKeyMaterial(String passphrase)
+  static NexoDerivedKey deriveKeyMaterial(String passphrase, byte[] salt)
       throws NoSuchAlgorithmException, InvalidKeySpecException {
-    byte[] salt = "AdyenNexoV1Salt".getBytes();
+
     int iterations = 4000;
+    int keyLength = (NEXO_CIPHER_KEY_LENGTH + NEXO_HMAC_KEY_LENGTH + NEXO_IV_LENGTH) * 8;
 
     PBEKeySpec spec =
         new PBEKeySpec(
             passphrase.toCharArray(),
             salt,
             iterations,
-            (NEXO_CIPHER_KEY_LENGTH + NEXO_HMAC_KEY_LENGTH + NEXO_IV_LENGTH) * 8);
+            keyLength);
     SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
     byte[] key = skf.generateSecret(spec).getEncoded();
 
