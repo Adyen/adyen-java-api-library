@@ -18,16 +18,17 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen;
+package com.adyen.terminal.security;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import com.adyen.BaseTest;
 import com.adyen.model.nexo.MessageHeader;
 import com.adyen.model.terminal.TerminalAPIRequest;
+import com.adyen.model.terminal.security.NexoDerivedKey;
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
-import com.adyen.terminal.security.NexoCrypto;
 import com.adyen.terminal.security.exception.NexoCryptoException;
 import java.util.Random;
 import org.junit.BeforeClass;
@@ -96,5 +97,22 @@ public class NexoCryptoTest extends BaseTest {
     encryptedMessage.getSecurityTrailer().setHmac(modifiedHmac);
 
     nexoCrypto.decrypt(encryptedMessage);
+  }
+
+  @Test
+  public void getNexoDerivedKey() throws Exception {
+    NexoCrypto crypto = new NexoCrypto(testSecurityKey);
+    NexoDerivedKey key1 = crypto.getNexoDerivedKey();
+
+    assertNotNull(key1);
+  }
+
+  @Test
+  public void getNexoDerivedKey_shouldReturnSameInstance() throws Exception {
+    NexoCrypto crypto = new NexoCrypto(testSecurityKey);
+    NexoDerivedKey key1 = crypto.getNexoDerivedKey();
+    NexoDerivedKey key2 = crypto.getNexoDerivedKey();
+
+    assertEquals(key1, key2);
   }
 }
