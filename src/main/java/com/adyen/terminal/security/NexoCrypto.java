@@ -36,6 +36,7 @@ import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -56,13 +57,37 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class NexoCrypto {
 
-  private final SecurityKey securityKey;
-  private static volatile NexoDerivedKey nexoDerivedKey;
+  private static final Logger LOG = Logger.getLogger(NexoCrypto.class.getName());
 
-    public NexoCrypto(SecurityKey securityKey) throws NexoCryptoException {
+  private final SecurityKey securityKey;
+  private volatile NexoDerivedKey nexoDerivedKey;
+  private final byte[] salt;
+
+  public NexoCrypto(SecurityKey securityKey) throws NexoCryptoException {
     // Validate security key to ensure it has the necessary properties
     validateSecurityKey(securityKey);
     this.securityKey = securityKey;
+    this.salt = generateRandomSalt();
+  }
+
+  byte[] getSalt() {
+    return salt;
+  }
+
+  /**
+   * Generates once a new random salt for key derivation.
+   *
+   * @return a byte array containing a securely generated salt
+   */
+  byte[] generateRandomSalt() {
+
+//    SecureRandom random = new SecureRandom();
+//    byte[] salt = new byte[16];
+//    random.nextBytes(salt);
+//
+//    return salt;
+
+    return "AdyenNexoV1Salt".getBytes();
   }
 
   /**
@@ -75,7 +100,7 @@ public class NexoCrypto {
    */
   public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader)
       throws Exception {
-    NexoDerivedKey derivedKey = getNexoDerivedKey();
+    NexoDerivedKey derivedKey = getNexoDerivedKey(salt);
     byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.UTF_8);
 
     // Generate a random initialization vector (IV) nonce
@@ -113,7 +138,7 @@ public class NexoCrypto {
    * @throws Exception if decryption or HMAC validation fails
    */
   public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws Exception {
-    NexoDerivedKey derivedKey = getNexoDerivedKey();
+    NexoDerivedKey derivedKey = getNexoDerivedKey(salt);
 
     // Decode the encrypted blob
     byte[] encryptedSaleToPoiMessageByteArray =
@@ -156,28 +181,15 @@ public class NexoCrypto {
    * @return the derived key material
    * @throws GeneralSecurityException if key derivation fails
    */
-  NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
+  NexoDerivedKey getNexoDerivedKey(byte[] salt) throws GeneralSecurityException {
     if (nexoDerivedKey == null) {
-      synchronized (NexoCrypto.class) {
+      synchronized (this) {
         if (nexoDerivedKey == null) {
-          byte[] salt = generateRandomSalt();
           nexoDerivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase(), salt);
         }
       }
     }
-
     return nexoDerivedKey;
-  }
-
-  /**
-   * Generates a new random salt for key derivation.
-   *
-   * @return a byte array containing a securely generated salt
-   */
-  private static byte[] generateRandomSalt() {
-    byte[] salt = new byte[16]; // 128-bit salt
-    new SecureRandom().nextBytes(salt);
-    return salt;
   }
 
   /**

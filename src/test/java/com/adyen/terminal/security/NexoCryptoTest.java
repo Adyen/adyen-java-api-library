@@ -21,6 +21,7 @@
 package com.adyen.terminal.security;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 import com.adyen.BaseTest;
@@ -102,7 +103,7 @@ public class NexoCryptoTest extends BaseTest {
   @Test
   public void getNexoDerivedKey() throws Exception {
     NexoCrypto crypto = new NexoCrypto(testSecurityKey);
-    NexoDerivedKey key1 = crypto.getNexoDerivedKey();
+    NexoDerivedKey key1 = crypto.getNexoDerivedKey(crypto.getSalt());
 
     assertNotNull(key1);
   }
@@ -110,9 +111,19 @@ public class NexoCryptoTest extends BaseTest {
   @Test
   public void getNexoDerivedKey_shouldReturnSameInstance() throws Exception {
     NexoCrypto crypto = new NexoCrypto(testSecurityKey);
-    NexoDerivedKey key1 = crypto.getNexoDerivedKey();
-    NexoDerivedKey key2 = crypto.getNexoDerivedKey();
+    NexoDerivedKey key1 = crypto.getNexoDerivedKey(crypto.getSalt());
+    NexoDerivedKey key2 = crypto.getNexoDerivedKey(crypto.getSalt());
 
     assertEquals(key1, key2);
+  }
+
+  @Test
+  public void getNexoDerivedKey_fromDifferentInstances() throws Exception {
+    NexoCrypto crypto = new NexoCrypto(testSecurityKey);
+    NexoCrypto crypto2 = new NexoCrypto(testSecurityKey);
+    NexoDerivedKey key1 = crypto.getNexoDerivedKey(crypto.getSalt());
+    NexoDerivedKey key2 = crypto2.getNexoDerivedKey(crypto2.getSalt());
+
+    assertNotEquals(key1, key2);
   }
 }
