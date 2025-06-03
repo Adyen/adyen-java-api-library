@@ -45,23 +45,33 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Base64;
 
+/**
+ * Provides encryption and decryption for NEXO SaleToPOI messages using AES-CBC and HMAC-SHA256.
+ * <p>
+ * This class derives cryptographic keys from a passphrase once per application lifecycle,
+ * encrypts messages with a unique IV per call, and authenticates them using HMAC.
+ * The derived key is lazily initialized and shared across all instances.
+ * </p>
+ *
+ */
 public class NexoCrypto {
 
   private final SecurityKey securityKey;
-  private volatile NexoDerivedKey nexoDerivedKey;
+  private static volatile NexoDerivedKey nexoDerivedKey;
 
-  public NexoCrypto(SecurityKey securityKey) throws NexoCryptoException {
+    public NexoCrypto(SecurityKey securityKey) throws NexoCryptoException {
     // Validate security key to ensure it has the necessary properties
     validateSecurityKey(securityKey);
     this.securityKey = securityKey;
   }
 
   /**
-   * Encrypts the SaleToPOI message using the provided message header and security key.
+   * Encrypts a plaintext SaleToPOI message using AES and signs it using HMAC.
    *
-   * @param saleToPoiMessageJson the JSON string representing the SaleToPOI message
-   * @param messageHeader the message header for encryption
+   * @param saleToPoiMessageJson the SaleToPOI JSON string to encrypt
+   * @param messageHeader the message header to add to SaleToPOISecuredMessage
    * @return encrypted SaleToPOISecuredMessage
+   * @throws Exception if encryption or HMAC generation fails
    */
   public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader)
       throws Exception {
@@ -96,10 +106,11 @@ public class NexoCrypto {
   }
 
   /**
-   * Decrypts the SaleToPOI secured message.
+   * Decrypts and validated an encrypted SaleToPOI secured message.
    *
-   * @param saleToPoiSecuredMessage the encrypted message
+   * @param saleToPoiSecuredMessage the message to decrypt
    * @return the decrypted SaleToPOI message as a JSON string
+   * @throws Exception if decryption or HMAC validation fails
    */
   public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws Exception {
     NexoDerivedKey derivedKey = getNexoDerivedKey();
@@ -123,10 +134,10 @@ public class NexoCrypto {
   }
 
   /**
-   * Validates the security key to ensure all required fields are present.
+   * Validates the Security Key to ensure all required fields are present.
    *
    * @param securityKey the security key to validate
-   * @throws NexoCryptoException if the security key is invalid
+   * @throws NexoCryptoException if any required field is null or empty
    */
   private void validateSecurityKey(SecurityKey securityKey) throws NexoCryptoException {
     if (securityKey == null
@@ -140,22 +151,50 @@ public class NexoCrypto {
   }
 
   /**
-   * Lazily initializes and retrieves the derived key material for encryption/decryption.
+   * Lazily initializes and returns the NexoDerivedKey.
    *
    * @return the derived key material
+   * @throws GeneralSecurityException if key derivation fails
    */
-  private NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
+  NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
     if (nexoDerivedKey == null) {
-      synchronized (this) {
+      synchronized (NexoCrypto.class) {
         if (nexoDerivedKey == null) {
-          nexoDerivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
+          byte[] salt = generateRandomSalt();
+          nexoDerivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase(), salt);
         }
       }
     }
+
     return nexoDerivedKey;
   }
 
-  /** Performs AES encryption/decryption using the derived key and provided IV. */
+  /**
+   * Generates a new random salt for key derivation.
+   *
+   * @return a byte array containing a securely generated salt
+   */
+  private static byte[] generateRandomSalt() {
+    byte[] salt = new byte[16]; // 128-bit salt
+    new SecureRandom().nextBytes(salt);
+    return salt;
+  }
+
+  /**
+   * Performs AES/CBC encryption or decryption based on the mode.
+   *
+   * @param bytes   the input data (plaintext or ciphertext)
+   * @param dk      the derived key containing the cipher key and IV base
+   * @param ivNonce a random IV nonce used to compute the final IV
+   * @param mode    {@link Cipher#ENCRYPT_MODE} or {@link Cipher#DECRYPT_MODE}
+   * @return the resulting ciphertext or plaintext
+   * @throws NoSuchAlgorithmException           if the AES algorithm is not available
+   * @throws NoSuchPaddingException             if the specified padding scheme is not available
+   * @throws IllegalBlockSizeException          if the data is not a multiple of the block size
+   * @throws BadPaddingException                if the padding is incorrect (e.g., during decryption)
+   * @throws InvalidKeyException                if the derived cipher key is invalid
+   * @throws InvalidAlgorithmParameterException if the computed IV is invalid
+   */
   private byte[] crypt(byte[] bytes, NexoDerivedKey dk, byte[] ivNonce, int mode)
       throws NoSuchAlgorithmException,
           NoSuchPaddingException,
@@ -179,7 +218,15 @@ public class NexoCrypto {
     return cipher.doFinal(bytes);
   }
 
-  /** Generates an HMAC for message authentication. */
+  /**
+   * Computes a HMAC-SHA256 over the given data using the derived key.
+   *
+   * @param bytes       the input data to authenticate
+   * @param derivedKey  the key to use for HMAC generation
+   * @return the computed HMAC
+   * @throws NoSuchAlgorithmException if HMAC algorithm is unavailable
+   * @throws InvalidKeyException      if the key is invalid
+   */
   private byte[] hmac(byte[] bytes, NexoDerivedKey derivedKey)
       throws NoSuchAlgorithmException, InvalidKeyException {
     Mac mac = Mac.getInstance("HmacSHA256");
@@ -189,7 +236,16 @@ public class NexoCrypto {
     return mac.doFinal(bytes);
   }
 
-  /** Validates the HMAC of a decrypted message to ensure data integrity. */
+  /**
+   * Validates the received HMAC against a newly computed one to ensure integrity.
+   *
+   * @param receivedHmac       the HMAC received with the message
+   * @param decryptedMessage   the decrypted message to verify
+   * @param derivedKey         the shared derived key used for HMAC
+   * @throws NexoCryptoException     if the computed and received HMACs do not match
+   * @throws NoSuchAlgorithmException if the HMAC algorithm (HmacSHA256) is not available
+   * @throws InvalidKeyException      if the derived HMAC key is invalid
+   */
   private void validateHmac(byte[] receivedHmac, byte[] decryptedMessage, NexoDerivedKey derivedKey)
       throws NexoCryptoException, InvalidKeyException, NoSuchAlgorithmException {
     byte[] hmac = hmac(decryptedMessage, derivedKey);
@@ -200,7 +256,11 @@ public class NexoCrypto {
     }
   }
 
-  /** Generates a random IV nonce using a secure random number generator. */
+  /**
+   * Generates a cryptographically secure random IV nonce for use in AES encryption.
+   *
+   * @return a random nonce of length {@code NEXO_IV_LENGTH}
+   */
   private byte[] generateRandomIvNonce() {
     byte[] ivNonce = new byte[NEXO_IV_LENGTH];
     SecureRandom secureRandom;
