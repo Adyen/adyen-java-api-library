@@ -30,6 +30,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="CardInserted"/&gt;
  *     &lt;enumeration value="CardRemoved"/&gt;
  *     &lt;enumeration value="Reject"/&gt;
+ *     &lt;enumeration value="NetworkConnected"/&gt;
+ *     &lt;enumeration value="NetworkDisconnected"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -141,7 +143,22 @@ public enum EventToNotifyType {
   @Schema(
       description =
           "A message request is rejected. An error explanation and the message in error have to be put in the EventDetails data element.")
-  REJECT("Reject");
+  REJECT("Reject"),
+
+  /**
+   * The terminal has established a websocket connection and it is online
+   */
+  @XmlEnumValue("NetworkConnected")
+  @Schema(description = "The POI Terminal or the POI System is online")
+  NETWORK_CONNECTED("NetworkConnected"),
+
+  /**
+   * The terminal has closed the websocket connection and it is offline
+   */
+  @XmlEnumValue("NetworkDisconnected")
+  @Schema(description = "The POI Terminal or the POI System is offline")
+  NETWORK_DISCONNECTED("NetworkDisconnected");
+
   private final String value;
 
   EventToNotifyType(String v) {
@@ -165,8 +182,8 @@ public enum EventToNotifyType {
    */
   public static EventToNotifyType fromValue(String v) {
     return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+            .filter(s -> s.value.equals(v))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException(v));
   }
 }
