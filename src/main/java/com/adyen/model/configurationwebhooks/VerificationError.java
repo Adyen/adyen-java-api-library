@@ -197,7 +197,9 @@ public class VerificationError {
   public static final String JSON_PROPERTY_SUB_ERRORS = "subErrors";
   private List<VerificationErrorRecursive> subErrors;
 
-  /** The type of error. Possible values: **invalidInput**, **dataMissing**. */
+  /**
+   * The type of error. Possible values: * **invalidInput** * **dataMissing** * **pendingStatus**
+   */
   public enum TypeEnum {
     DATAMISSING(String.valueOf("dataMissing")),
 
@@ -430,9 +432,10 @@ public class VerificationError {
   }
 
   /**
-   * The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * The type of error. Possible values: * **invalidInput** * **dataMissing** * **pendingStatus**
    *
-   * @param type The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * @param type The type of error. Possible values: * **invalidInput** * **dataMissing** *
+   *     **pendingStatus**
    * @return the current {@code VerificationError} instance, allowing for method chaining
    */
   public VerificationError type(TypeEnum type) {
@@ -441,9 +444,10 @@ public class VerificationError {
   }
 
   /**
-   * The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * The type of error. Possible values: * **invalidInput** * **dataMissing** * **pendingStatus**
    *
-   * @return type The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * @return type The type of error. Possible values: * **invalidInput** * **dataMissing** *
+   *     **pendingStatus**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -452,9 +456,10 @@ public class VerificationError {
   }
 
   /**
-   * The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * The type of error. Possible values: * **invalidInput** * **dataMissing** * **pendingStatus**
    *
-   * @param type The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * @param type The type of error. Possible values: * **invalidInput** * **dataMissing** *
+   *     **pendingStatus**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

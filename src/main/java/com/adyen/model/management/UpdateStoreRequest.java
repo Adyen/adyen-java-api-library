@@ -29,7 +29,8 @@ import java.util.Objects;
   UpdateStoreRequest.JSON_PROPERTY_EXTERNAL_REFERENCE_ID,
   UpdateStoreRequest.JSON_PROPERTY_PHONE_NUMBER,
   UpdateStoreRequest.JSON_PROPERTY_SPLIT_CONFIGURATION,
-  UpdateStoreRequest.JSON_PROPERTY_STATUS
+  UpdateStoreRequest.JSON_PROPERTY_STATUS,
+  UpdateStoreRequest.JSON_PROPERTY_SUB_MERCHANT_DATA
 })
 public class UpdateStoreRequest {
   public static final String JSON_PROPERTY_ADDRESS = "address";
@@ -96,6 +97,9 @@ public class UpdateStoreRequest {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANT_DATA = "subMerchantData";
+  private SubMerchantData subMerchantData;
 
   public UpdateStoreRequest() {}
 
@@ -425,6 +429,39 @@ public class UpdateStoreRequest {
     this.status = status;
   }
 
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   * @return the current {@code UpdateStoreRequest} instance, allowing for method chaining
+   */
+  public UpdateStoreRequest subMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+    return this;
+  }
+
+  /**
+   * Get subMerchantData
+   *
+   * @return subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SubMerchantData getSubMerchantData() {
+    return subMerchantData;
+  }
+
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+  }
+
   /** Return true if this UpdateStoreRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -441,7 +478,8 @@ public class UpdateStoreRequest {
         && Objects.equals(this.externalReferenceId, updateStoreRequest.externalReferenceId)
         && Objects.equals(this.phoneNumber, updateStoreRequest.phoneNumber)
         && Objects.equals(this.splitConfiguration, updateStoreRequest.splitConfiguration)
-        && Objects.equals(this.status, updateStoreRequest.status);
+        && Objects.equals(this.status, updateStoreRequest.status)
+        && Objects.equals(this.subMerchantData, updateStoreRequest.subMerchantData);
   }
 
   @Override
@@ -453,7 +491,8 @@ public class UpdateStoreRequest {
         externalReferenceId,
         phoneNumber,
         splitConfiguration,
-        status);
+        status,
+        subMerchantData);
   }
 
   @Override
@@ -469,6 +508,7 @@ public class UpdateStoreRequest {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    splitConfiguration: ").append(toIndentedString(splitConfiguration)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subMerchantData: ").append(toIndentedString(subMerchantData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

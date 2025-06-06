@@ -276,9 +276,21 @@ public class Wallet {
   }
 
   /**
-   * A list of codes that specify the reasons for the provided scores.
+   * A list of risk indicators triggered at the time of provisioning the network token. Possible
+   * values: * **accountTooNewSinceLaunch** * **accountTooNew** * **accountCardTooNew** *
+   * **accountRecentlyChanged** * **suspiciousActivity** * **inactiveAccount** *
+   * **hasSuspendedTokens** * **deviceRecentlyLost** * **tooManyRecentAttempts** *
+   * **tooManyRecentTokens** * **tooManyDifferentCardholders** * **lowDeviceScore** *
+   * **lowAccountScore** * **outSideHomeTerritory** * **unableToAssess** * **accountHighRisk** *
+   * **lowPhoneNumberScore** * **unknown**
    *
-   * @param recommendationReasons A list of codes that specify the reasons for the provided scores.
+   * @param recommendationReasons A list of risk indicators triggered at the time of provisioning
+   *     the network token. Possible values: * **accountTooNewSinceLaunch** * **accountTooNew** *
+   *     **accountCardTooNew** * **accountRecentlyChanged** * **suspiciousActivity** *
+   *     **inactiveAccount** * **hasSuspendedTokens** * **deviceRecentlyLost** *
+   *     **tooManyRecentAttempts** * **tooManyRecentTokens** * **tooManyDifferentCardholders** *
+   *     **lowDeviceScore** * **lowAccountScore** * **outSideHomeTerritory** * **unableToAssess** *
+   *     **accountHighRisk** * **lowPhoneNumberScore** * **unknown**
    * @return the current {@code Wallet} instance, allowing for method chaining
    */
   public Wallet recommendationReasons(List<RecommendationReasonsEnum> recommendationReasons) {
@@ -295,9 +307,21 @@ public class Wallet {
   }
 
   /**
-   * A list of codes that specify the reasons for the provided scores.
+   * A list of risk indicators triggered at the time of provisioning the network token. Possible
+   * values: * **accountTooNewSinceLaunch** * **accountTooNew** * **accountCardTooNew** *
+   * **accountRecentlyChanged** * **suspiciousActivity** * **inactiveAccount** *
+   * **hasSuspendedTokens** * **deviceRecentlyLost** * **tooManyRecentAttempts** *
+   * **tooManyRecentTokens** * **tooManyDifferentCardholders** * **lowDeviceScore** *
+   * **lowAccountScore** * **outSideHomeTerritory** * **unableToAssess** * **accountHighRisk** *
+   * **lowPhoneNumberScore** * **unknown**
    *
-   * @return recommendationReasons A list of codes that specify the reasons for the provided scores.
+   * @return recommendationReasons A list of risk indicators triggered at the time of provisioning
+   *     the network token. Possible values: * **accountTooNewSinceLaunch** * **accountTooNew** *
+   *     **accountCardTooNew** * **accountRecentlyChanged** * **suspiciousActivity** *
+   *     **inactiveAccount** * **hasSuspendedTokens** * **deviceRecentlyLost** *
+   *     **tooManyRecentAttempts** * **tooManyRecentTokens** * **tooManyDifferentCardholders** *
+   *     **lowDeviceScore** * **lowAccountScore** * **outSideHomeTerritory** * **unableToAssess** *
+   *     **accountHighRisk** * **lowPhoneNumberScore** * **unknown**
    */
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,9 +330,21 @@ public class Wallet {
   }
 
   /**
-   * A list of codes that specify the reasons for the provided scores.
+   * A list of risk indicators triggered at the time of provisioning the network token. Possible
+   * values: * **accountTooNewSinceLaunch** * **accountTooNew** * **accountCardTooNew** *
+   * **accountRecentlyChanged** * **suspiciousActivity** * **inactiveAccount** *
+   * **hasSuspendedTokens** * **deviceRecentlyLost** * **tooManyRecentAttempts** *
+   * **tooManyRecentTokens** * **tooManyDifferentCardholders** * **lowDeviceScore** *
+   * **lowAccountScore** * **outSideHomeTerritory** * **unableToAssess** * **accountHighRisk** *
+   * **lowPhoneNumberScore** * **unknown**
    *
-   * @param recommendationReasons A list of codes that specify the reasons for the provided scores.
+   * @param recommendationReasons A list of risk indicators triggered at the time of provisioning
+   *     the network token. Possible values: * **accountTooNewSinceLaunch** * **accountTooNew** *
+   *     **accountCardTooNew** * **accountRecentlyChanged** * **suspiciousActivity** *
+   *     **inactiveAccount** * **hasSuspendedTokens** * **deviceRecentlyLost** *
+   *     **tooManyRecentAttempts** * **tooManyRecentTokens** * **tooManyDifferentCardholders** *
+   *     **lowDeviceScore** * **lowAccountScore** * **outSideHomeTerritory** * **unableToAssess** *
+   *     **accountHighRisk** * **lowPhoneNumberScore** * **unknown**
    */
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

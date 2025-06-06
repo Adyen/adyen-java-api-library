@@ -29,7 +29,8 @@ import java.util.Objects;
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_PHONE_NUMBER,
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_REFERENCE,
   StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
-  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_SPLIT_CONFIGURATION
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_SPLIT_CONFIGURATION,
+  StoreCreationWithMerchantCodeRequest.JSON_PROPERTY_SUB_MERCHANT_DATA
 })
 public class StoreCreationWithMerchantCodeRequest {
   public static final String JSON_PROPERTY_ADDRESS = "address";
@@ -58,6 +59,9 @@ public class StoreCreationWithMerchantCodeRequest {
 
   public static final String JSON_PROPERTY_SPLIT_CONFIGURATION = "splitConfiguration";
   private StoreSplitConfiguration splitConfiguration;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANT_DATA = "subMerchantData";
+  private SubMerchantData subMerchantData;
 
   public StoreCreationWithMerchantCodeRequest() {}
 
@@ -460,6 +464,40 @@ public class StoreCreationWithMerchantCodeRequest {
     this.splitConfiguration = splitConfiguration;
   }
 
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   * @return the current {@code StoreCreationWithMerchantCodeRequest} instance, allowing for method
+   *     chaining
+   */
+  public StoreCreationWithMerchantCodeRequest subMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+    return this;
+  }
+
+  /**
+   * Get subMerchantData
+   *
+   * @return subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SubMerchantData getSubMerchantData() {
+    return subMerchantData;
+  }
+
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+  }
+
   /** Return true if this StoreCreationWithMerchantCodeRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -483,7 +521,9 @@ public class StoreCreationWithMerchantCodeRequest {
         && Objects.equals(
             this.shopperStatement, storeCreationWithMerchantCodeRequest.shopperStatement)
         && Objects.equals(
-            this.splitConfiguration, storeCreationWithMerchantCodeRequest.splitConfiguration);
+            this.splitConfiguration, storeCreationWithMerchantCodeRequest.splitConfiguration)
+        && Objects.equals(
+            this.subMerchantData, storeCreationWithMerchantCodeRequest.subMerchantData);
   }
 
   @Override
@@ -497,7 +537,8 @@ public class StoreCreationWithMerchantCodeRequest {
         phoneNumber,
         reference,
         shopperStatement,
-        splitConfiguration);
+        splitConfiguration,
+        subMerchantData);
   }
 
   @Override
@@ -515,6 +556,7 @@ public class StoreCreationWithMerchantCodeRequest {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
     sb.append("    splitConfiguration: ").append(toIndentedString(splitConfiguration)).append("\n");
+    sb.append("    subMerchantData: ").append(toIndentedString(subMerchantData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

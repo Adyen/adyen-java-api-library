@@ -22,6 +22,7 @@ import java.util.Objects;
   UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_CURRENCY,
   UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_FUNDING_SOURCE,
   UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_PAYMENT_METHOD,
+  UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_REGIONALITY,
   UpdateSplitConfigurationRuleRequest.JSON_PROPERTY_SHOPPER_INTERACTION
 })
 public class UpdateSplitConfigurationRuleRequest {
@@ -33,6 +34,9 @@ public class UpdateSplitConfigurationRuleRequest {
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
+
+  public static final String JSON_PROPERTY_REGIONALITY = "regionality";
+  private String regionality;
 
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private String shopperInteraction;
@@ -178,6 +182,34 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
   /**
+   * @param regionality
+   * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method
+   *     chaining
+   */
+  public UpdateSplitConfigurationRuleRequest regionality(String regionality) {
+    this.regionality = regionality;
+    return this;
+  }
+
+  /**
+   * @return regionality
+   */
+  @JsonProperty(JSON_PROPERTY_REGIONALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegionality() {
+    return regionality;
+  }
+
+  /**
+   * @param regionality
+   */
+  @JsonProperty(JSON_PROPERTY_REGIONALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRegionality(String regionality) {
+    this.regionality = regionality;
+  }
+
+  /**
    * The sales channel condition that defines whether the split logic applies. Possible values: *
    * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on
    * file and/or subscription transactions, where the cardholder is known to the merchant (returning
@@ -261,13 +293,14 @@ public class UpdateSplitConfigurationRuleRequest {
     return Objects.equals(this.currency, updateSplitConfigurationRuleRequest.currency)
         && Objects.equals(this.fundingSource, updateSplitConfigurationRuleRequest.fundingSource)
         && Objects.equals(this.paymentMethod, updateSplitConfigurationRuleRequest.paymentMethod)
+        && Objects.equals(this.regionality, updateSplitConfigurationRuleRequest.regionality)
         && Objects.equals(
             this.shopperInteraction, updateSplitConfigurationRuleRequest.shopperInteraction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currency, fundingSource, paymentMethod, shopperInteraction);
+    return Objects.hash(currency, fundingSource, paymentMethod, regionality, shopperInteraction);
   }
 
   @Override
@@ -277,6 +310,7 @@ public class UpdateSplitConfigurationRuleRequest {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    regionality: ").append(toIndentedString(regionality)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
     sb.append("}");
     return sb.toString();
