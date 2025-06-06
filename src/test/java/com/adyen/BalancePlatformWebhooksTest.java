@@ -14,11 +14,15 @@ import com.adyen.model.reportwebhooks.ReportNotificationRequest;
 import com.adyen.model.reportwebhooks.ReportWebhooksHandler;
 import com.adyen.model.transactionwebhooks.TransactionNotificationRequestV4;
 import com.adyen.model.transactionwebhooks.TransactionWebhooksHandler;
+import com.adyen.model.transferwebhooks.PlatformPayment;
+import com.adyen.model.transferwebhooks.TransferNotificationRequest;
+import com.adyen.model.transferwebhooks.TransferWebhooksHandler;
 import com.adyen.util.HMACValidator;
 import java.security.SignatureException;
 import java.util.Optional;
 import org.junit.Assert;
 import org.junit.Test;
+
 
 /** Unit testing for all AfP/Bank related webhooks */
 public class BalancePlatformWebhooksTest extends BaseTest {
@@ -352,4 +356,31 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals(
         "YOUR_BALANCE_PLATFORM", networkTokenNotificationRequest.getData().getBalancePlatform());
   }
+
+  @Test
+  public void testTransferNotificationRequest() throws Exception {
+    String json =
+            getFileContents(
+                    "mocks/balancePlatform-webhooks/transfer-updated.json");
+
+    Optional<TransferNotificationRequest> optionalTransferNotificationRequest =
+            new TransferWebhooksHandler(json).getTransferNotificationRequest();
+    assertTrue(optionalTransferNotificationRequest.isPresent());
+
+    TransferNotificationRequest transferNotificationRequest =
+            optionalTransferNotificationRequest.get();
+    assertEquals(
+            TransferNotificationRequest.TypeEnum.BALANCEPLATFORM_TRANSFER_UPDATED,
+            transferNotificationRequest.getType());
+    assertNotNull(transferNotificationRequest.getData());
+    assertEquals("YOUR_BALANCE_PLATFORM", transferNotificationRequest.getData().getBalancePlatform());
+
+    assertNotNull(transferNotificationRequest.getData().getCategoryData().getPlatformPayment());
+    assertEquals(PlatformPayment.PlatformPaymentTypeEnum.REMAINDER,
+            transferNotificationRequest.getData().getCategoryData().getPlatformPayment().getPlatformPaymentType());
+
+    assertNotNull(transferNotificationRequest.getData().getBalances());
+    assertEquals(1, transferNotificationRequest.getData().getBalances().size());
+  }
+
 }
