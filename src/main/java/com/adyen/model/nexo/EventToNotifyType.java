@@ -145,16 +145,12 @@ public enum EventToNotifyType {
           "A message request is rejected. An error explanation and the message in error have to be put in the EventDetails data element.")
   REJECT("Reject"),
 
-  /**
-   * The terminal has established a network connection to the POS and is online.
-   */
+  /** The terminal has established a network connection to the POS and is online. */
   @XmlEnumValue("NetworkConnected")
   @Schema(description = "The terminal is connected to the POS over the Internet.")
   NETWORK_CONNECTED("NetworkConnected"),
 
-  /**
-   * The terminal has lost its network connection to the POS and is offline.
-   */
+  /** The terminal has lost its network connection to the POS and is offline. */
   @XmlEnumValue("NetworkDisconnected")
   @Schema(description = "The terminal is disconnected from the POS.")
   NETWORK_DISCONNECTED("NetworkDisconnected");
@@ -182,8 +178,8 @@ public enum EventToNotifyType {
    */
   public static EventToNotifyType fromValue(String v) {
     return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElseThrow(() -> new IllegalArgumentException(v));
+        .filter(s -> s.value.equals(v))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(v));
   }
 }
