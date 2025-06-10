@@ -149,14 +149,14 @@ public enum EventToNotifyType {
    * The terminal has established a websocket connection and it is online
    */
   @XmlEnumValue("NetworkConnected")
-  @Schema(description = "The POI Terminal or the POI System is online")
+  @Schema(description = "The terminal is connected to the POS over the Internet.")
   NETWORK_CONNECTED("NetworkConnected"),
 
   /**
    * The terminal has closed the websocket connection and it is offline
    */
   @XmlEnumValue("NetworkDisconnected")
-  @Schema(description = "The POI Terminal or the POI System is offline")
+  @Schema(description = "The terminal is disconnected from the POS.")
   NETWORK_DISCONNECTED("NetworkDisconnected");
 
   private final String value;
