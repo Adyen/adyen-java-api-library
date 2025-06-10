@@ -146,7 +146,7 @@ public enum EventToNotifyType {
   REJECT("Reject"),
 
   /**
-   * The terminal has established a websocket connection and it is online
+   * The terminal has established a network connection to the POS and is online.
    */
   @XmlEnumValue("NetworkConnected")
   @Schema(description = "The terminal is connected to the POS over the Internet.")
