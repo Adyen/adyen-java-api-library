@@ -194,7 +194,6 @@ public class ResponseAdditionalDataCommon {
    * learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/)
    * fraud risk rule. The risk level indicates the likelihood that a transaction will result in a
    * fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh
-   * &gt;
    */
   public enum FraudRiskLevelEnum {
     VERYLOW(String.valueOf("veryLow")),
@@ -1297,13 +1296,12 @@ public class ResponseAdditionalDataCommon {
    * learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/)
    * fraud risk rule. The risk level indicates the likelihood that a transaction will result in a
    * fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh
-   * &gt;
    *
    * @param fraudRiskLevel The risk level of the transaction as classified by the [machine
    *     learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/)
    *     fraud risk rule. The risk level indicates the likelihood that a transaction will result in
    *     a fraudulent dispute. The possible return values are: * veryLow * low * medium * high *
-   *     veryHigh &gt;
+   *     veryHigh
    * @return the current {@code ResponseAdditionalDataCommon} instance, allowing for method chaining
    */
   public ResponseAdditionalDataCommon fraudRiskLevel(FraudRiskLevelEnum fraudRiskLevel) {
@@ -1316,13 +1314,12 @@ public class ResponseAdditionalDataCommon {
    * learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/)
    * fraud risk rule. The risk level indicates the likelihood that a transaction will result in a
    * fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh
-   * &gt;
    *
    * @return fraudRiskLevel The risk level of the transaction as classified by the [machine
    *     learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/)
    *     fraud risk rule. The risk level indicates the likelihood that a transaction will result in
    *     a fraudulent dispute. The possible return values are: * veryLow * low * medium * high *
-   *     veryHigh &gt;
+   *     veryHigh
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_RISK_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1335,13 +1332,12 @@ public class ResponseAdditionalDataCommon {
    * learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/)
    * fraud risk rule. The risk level indicates the likelihood that a transaction will result in a
    * fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh
-   * &gt;
    *
    * @param fraudRiskLevel The risk level of the transaction as classified by the [machine
    *     learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/)
    *     fraud risk rule. The risk level indicates the likelihood that a transaction will result in
    *     a fraudulent dispute. The possible return values are: * veryLow * low * medium * high *
-   *     veryHigh &gt;
+   *     veryHigh
    */
   @JsonProperty(JSON_PROPERTY_FRAUD_RISK_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -22,6 +22,7 @@ import java.util.Objects;
 /** PixRecurring */
 @JsonPropertyOrder({
   PixRecurring.JSON_PROPERTY_BILLING_DATE,
+  PixRecurring.JSON_PROPERTY_BUSINESS_DAY_ONLY,
   PixRecurring.JSON_PROPERTY_ENDS_AT,
   PixRecurring.JSON_PROPERTY_FREQUENCY,
   PixRecurring.JSON_PROPERTY_MIN_AMOUNT,
@@ -34,6 +35,9 @@ import java.util.Objects;
 public class PixRecurring {
   public static final String JSON_PROPERTY_BILLING_DATE = "billingDate";
   private String billingDate;
+
+  public static final String JSON_PROPERTY_BUSINESS_DAY_ONLY = "businessDayOnly";
+  private Boolean businessDayOnly;
 
   public static final String JSON_PROPERTY_ENDS_AT = "endsAt";
   private String endsAt;
@@ -134,6 +138,40 @@ public class PixRecurring {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingDate(String billingDate) {
     this.billingDate = billingDate;
+  }
+
+  /**
+   * Flag used to define whether liquidation can happen only on business days
+   *
+   * @param businessDayOnly Flag used to define whether liquidation can happen only on business days
+   * @return the current {@code PixRecurring} instance, allowing for method chaining
+   */
+  public PixRecurring businessDayOnly(Boolean businessDayOnly) {
+    this.businessDayOnly = businessDayOnly;
+    return this;
+  }
+
+  /**
+   * Flag used to define whether liquidation can happen only on business days
+   *
+   * @return businessDayOnly Flag used to define whether liquidation can happen only on business
+   *     days
+   */
+  @JsonProperty(JSON_PROPERTY_BUSINESS_DAY_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getBusinessDayOnly() {
+    return businessDayOnly;
+  }
+
+  /**
+   * Flag used to define whether liquidation can happen only on business days
+   *
+   * @param businessDayOnly Flag used to define whether liquidation can happen only on business days
+   */
+  @JsonProperty(JSON_PROPERTY_BUSINESS_DAY_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBusinessDayOnly(Boolean businessDayOnly) {
+    this.businessDayOnly = businessDayOnly;
   }
 
   /**
@@ -450,6 +488,7 @@ public class PixRecurring {
     }
     PixRecurring pixRecurring = (PixRecurring) o;
     return Objects.equals(this.billingDate, pixRecurring.billingDate)
+        && Objects.equals(this.businessDayOnly, pixRecurring.businessDayOnly)
         && Objects.equals(this.endsAt, pixRecurring.endsAt)
         && Objects.equals(this.frequency, pixRecurring.frequency)
         && Objects.equals(this.minAmount, pixRecurring.minAmount)
@@ -464,6 +503,7 @@ public class PixRecurring {
   public int hashCode() {
     return Objects.hash(
         billingDate,
+        businessDayOnly,
         endsAt,
         frequency,
         minAmount,
@@ -479,6 +519,7 @@ public class PixRecurring {
     StringBuilder sb = new StringBuilder();
     sb.append("class PixRecurring {\n");
     sb.append("    billingDate: ").append(toIndentedString(billingDate)).append("\n");
+    sb.append("    businessDayOnly: ").append(toIndentedString(businessDayOnly)).append("\n");
     sb.append("    endsAt: ").append(toIndentedString(endsAt)).append("\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    minAmount: ").append(toIndentedString(minAmount)).append("\n");

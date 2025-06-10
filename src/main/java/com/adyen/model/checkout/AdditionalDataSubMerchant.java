@@ -357,11 +357,13 @@ public class AdditionalDataSubMerchant {
   /**
    * Required for transactions performed by registered payment facilitators. The name of the
    * sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement
-   * that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
+   * that will appear in the card statement. Exception: for acquirers in Brazil, this value does not
+   * overwrite the shopper statement. * Format: Alphanumeric * Maximum length: 22 characters
    *
    * @param subMerchantSubSellerSubSellerNrName Required for transactions performed by registered
    *     payment facilitators. The name of the sub-merchant. Based on scheme specifications, this
-   *     value will overwrite the shopper statement that will appear in the card statement. *
+   *     value will overwrite the shopper statement that will appear in the card statement.
+   *     Exception: for acquirers in Brazil, this value does not overwrite the shopper statement. *
    *     Format: Alphanumeric * Maximum length: 22 characters
    * @return the current {@code AdditionalDataSubMerchant} instance, allowing for method chaining
    */
@@ -374,11 +376,13 @@ public class AdditionalDataSubMerchant {
   /**
    * Required for transactions performed by registered payment facilitators. The name of the
    * sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement
-   * that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
+   * that will appear in the card statement. Exception: for acquirers in Brazil, this value does not
+   * overwrite the shopper statement. * Format: Alphanumeric * Maximum length: 22 characters
    *
    * @return subMerchantSubSellerSubSellerNrName Required for transactions performed by registered
    *     payment facilitators. The name of the sub-merchant. Based on scheme specifications, this
-   *     value will overwrite the shopper statement that will appear in the card statement. *
+   *     value will overwrite the shopper statement that will appear in the card statement.
+   *     Exception: for acquirers in Brazil, this value does not overwrite the shopper statement. *
    *     Format: Alphanumeric * Maximum length: 22 characters
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME)
@@ -390,11 +394,13 @@ public class AdditionalDataSubMerchant {
   /**
    * Required for transactions performed by registered payment facilitators. The name of the
    * sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement
-   * that will appear in the card statement. * Format: Alphanumeric * Maximum length: 22 characters
+   * that will appear in the card statement. Exception: for acquirers in Brazil, this value does not
+   * overwrite the shopper statement. * Format: Alphanumeric * Maximum length: 22 characters
    *
    * @param subMerchantSubSellerSubSellerNrName Required for transactions performed by registered
    *     payment facilitators. The name of the sub-merchant. Based on scheme specifications, this
-   *     value will overwrite the shopper statement that will appear in the card statement. *
+   *     value will overwrite the shopper statement that will appear in the card statement.
+   *     Exception: for acquirers in Brazil, this value does not overwrite the shopper statement. *
    *     Format: Alphanumeric * Maximum length: 22 characters
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_NAME)

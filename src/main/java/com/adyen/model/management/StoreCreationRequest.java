@@ -28,7 +28,8 @@ import java.util.Objects;
   StoreCreationRequest.JSON_PROPERTY_PHONE_NUMBER,
   StoreCreationRequest.JSON_PROPERTY_REFERENCE,
   StoreCreationRequest.JSON_PROPERTY_SHOPPER_STATEMENT,
-  StoreCreationRequest.JSON_PROPERTY_SPLIT_CONFIGURATION
+  StoreCreationRequest.JSON_PROPERTY_SPLIT_CONFIGURATION,
+  StoreCreationRequest.JSON_PROPERTY_SUB_MERCHANT_DATA
 })
 public class StoreCreationRequest {
   public static final String JSON_PROPERTY_ADDRESS = "address";
@@ -54,6 +55,9 @@ public class StoreCreationRequest {
 
   public static final String JSON_PROPERTY_SPLIT_CONFIGURATION = "splitConfiguration";
   private StoreSplitConfiguration splitConfiguration;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANT_DATA = "subMerchantData";
+  private SubMerchantData subMerchantData;
 
   public StoreCreationRequest() {}
 
@@ -413,6 +417,39 @@ public class StoreCreationRequest {
     this.splitConfiguration = splitConfiguration;
   }
 
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   * @return the current {@code StoreCreationRequest} instance, allowing for method chaining
+   */
+  public StoreCreationRequest subMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+    return this;
+  }
+
+  /**
+   * Get subMerchantData
+   *
+   * @return subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SubMerchantData getSubMerchantData() {
+    return subMerchantData;
+  }
+
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+  }
+
   /** Return true if this StoreCreationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -430,7 +467,8 @@ public class StoreCreationRequest {
         && Objects.equals(this.phoneNumber, storeCreationRequest.phoneNumber)
         && Objects.equals(this.reference, storeCreationRequest.reference)
         && Objects.equals(this.shopperStatement, storeCreationRequest.shopperStatement)
-        && Objects.equals(this.splitConfiguration, storeCreationRequest.splitConfiguration);
+        && Objects.equals(this.splitConfiguration, storeCreationRequest.splitConfiguration)
+        && Objects.equals(this.subMerchantData, storeCreationRequest.subMerchantData);
   }
 
   @Override
@@ -443,7 +481,8 @@ public class StoreCreationRequest {
         phoneNumber,
         reference,
         shopperStatement,
-        splitConfiguration);
+        splitConfiguration,
+        subMerchantData);
   }
 
   @Override
@@ -460,6 +499,7 @@ public class StoreCreationRequest {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
     sb.append("    splitConfiguration: ").append(toIndentedString(splitConfiguration)).append("\n");
+    sb.append("    subMerchantData: ").append(toIndentedString(subMerchantData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

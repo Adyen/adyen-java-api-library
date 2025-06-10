@@ -25,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   PaymentRefundRequest.JSON_PROPERTY_AMOUNT,
   PaymentRefundRequest.JSON_PROPERTY_APPLICATION_INFO,
+  PaymentRefundRequest.JSON_PROPERTY_CAPTURE_PSP_REFERENCE,
   PaymentRefundRequest.JSON_PROPERTY_LINE_ITEMS,
   PaymentRefundRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentRefundRequest.JSON_PROPERTY_MERCHANT_REFUND_REASON,
@@ -38,6 +39,9 @@ public class PaymentRefundRequest {
 
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
+
+  public static final String JSON_PROPERTY_CAPTURE_PSP_REFERENCE = "capturePspReference";
+  private String capturePspReference;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
@@ -165,6 +169,51 @@ public class PaymentRefundRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+  }
+
+  /**
+   * This is only available for PayPal refunds. The
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * of the specific capture to refund.
+   *
+   * @param capturePspReference This is only available for PayPal refunds. The
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     of the specific capture to refund.
+   * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
+   */
+  public PaymentRefundRequest capturePspReference(String capturePspReference) {
+    this.capturePspReference = capturePspReference;
+    return this;
+  }
+
+  /**
+   * This is only available for PayPal refunds. The
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * of the specific capture to refund.
+   *
+   * @return capturePspReference This is only available for PayPal refunds. The
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     of the specific capture to refund.
+   */
+  @JsonProperty(JSON_PROPERTY_CAPTURE_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCapturePspReference() {
+    return capturePspReference;
+  }
+
+  /**
+   * This is only available for PayPal refunds. The
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * of the specific capture to refund.
+   *
+   * @param capturePspReference This is only available for PayPal refunds. The
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     of the specific capture to refund.
+   */
+  @JsonProperty(JSON_PROPERTY_CAPTURE_PSP_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCapturePspReference(String capturePspReference) {
+    this.capturePspReference = capturePspReference;
   }
 
   /**
@@ -453,6 +502,7 @@ public class PaymentRefundRequest {
     PaymentRefundRequest paymentRefundRequest = (PaymentRefundRequest) o;
     return Objects.equals(this.amount, paymentRefundRequest.amount)
         && Objects.equals(this.applicationInfo, paymentRefundRequest.applicationInfo)
+        && Objects.equals(this.capturePspReference, paymentRefundRequest.capturePspReference)
         && Objects.equals(this.lineItems, paymentRefundRequest.lineItems)
         && Objects.equals(this.merchantAccount, paymentRefundRequest.merchantAccount)
         && Objects.equals(this.merchantRefundReason, paymentRefundRequest.merchantRefundReason)
@@ -466,6 +516,7 @@ public class PaymentRefundRequest {
     return Objects.hash(
         amount,
         applicationInfo,
+        capturePspReference,
         lineItems,
         merchantAccount,
         merchantRefundReason,
@@ -480,6 +531,9 @@ public class PaymentRefundRequest {
     sb.append("class PaymentRefundRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+    sb.append("    capturePspReference: ")
+        .append(toIndentedString(capturePspReference))
+        .append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    merchantRefundReason: ")

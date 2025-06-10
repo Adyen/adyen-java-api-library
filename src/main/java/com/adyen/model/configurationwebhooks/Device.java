@@ -29,11 +29,11 @@ public class Device {
   public Device() {}
 
   /**
-   * The form factor of the device used for provisioning the network token. Possible values:
-   * **virtual**, **physical**.
+   * The type of the device used for provisioning the network token. For example, **phone**,
+   * **mobile_phone**, **watch**, **mobilephone_or_tablet**, etc
    *
-   * @param formFactor The form factor of the device used for provisioning the network token.
-   *     Possible values: **virtual**, **physical**.
+   * @param formFactor The type of the device used for provisioning the network token. For example,
+   *     **phone**, **mobile_phone**, **watch**, **mobilephone_or_tablet**, etc
    * @return the current {@code Device} instance, allowing for method chaining
    */
   public Device formFactor(String formFactor) {
@@ -42,11 +42,11 @@ public class Device {
   }
 
   /**
-   * The form factor of the device used for provisioning the network token. Possible values:
-   * **virtual**, **physical**.
+   * The type of the device used for provisioning the network token. For example, **phone**,
+   * **mobile_phone**, **watch**, **mobilephone_or_tablet**, etc
    *
-   * @return formFactor The form factor of the device used for provisioning the network token.
-   *     Possible values: **virtual**, **physical**.
+   * @return formFactor The type of the device used for provisioning the network token. For example,
+   *     **phone**, **mobile_phone**, **watch**, **mobilephone_or_tablet**, etc
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -55,11 +55,11 @@ public class Device {
   }
 
   /**
-   * The form factor of the device used for provisioning the network token. Possible values:
-   * **virtual**, **physical**.
+   * The type of the device used for provisioning the network token. For example, **phone**,
+   * **mobile_phone**, **watch**, **mobilephone_or_tablet**, etc
    *
-   * @param formFactor The form factor of the device used for provisioning the network token.
-   *     Possible values: **virtual**, **physical**.
+   * @param formFactor The type of the device used for provisioning the network token. For example,
+   *     **phone**, **mobile_phone**, **watch**, **mobilephone_or_tablet**, etc
    */
   @JsonProperty(JSON_PROPERTY_FORM_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

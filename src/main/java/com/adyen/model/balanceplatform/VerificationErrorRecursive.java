@@ -192,7 +192,9 @@ public class VerificationErrorRecursive {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  /** The type of error. Possible values: **invalidInput**, **dataMissing**. */
+  /**
+   * The type of error. Possible values: * **invalidInput** * **dataMissing** * **pendingStatus**
+   */
   public enum TypeEnum {
     DATAMISSING(String.valueOf("dataMissing")),
 
@@ -343,9 +345,10 @@ public class VerificationErrorRecursive {
   }
 
   /**
-   * The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * The type of error. Possible values: * **invalidInput** * **dataMissing** * **pendingStatus**
    *
-   * @param type The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * @param type The type of error. Possible values: * **invalidInput** * **dataMissing** *
+   *     **pendingStatus**
    * @return the current {@code VerificationErrorRecursive} instance, allowing for method chaining
    */
   public VerificationErrorRecursive type(TypeEnum type) {
@@ -354,9 +357,10 @@ public class VerificationErrorRecursive {
   }
 
   /**
-   * The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * The type of error. Possible values: * **invalidInput** * **dataMissing** * **pendingStatus**
    *
-   * @return type The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * @return type The type of error. Possible values: * **invalidInput** * **dataMissing** *
+   *     **pendingStatus**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,9 +369,10 @@ public class VerificationErrorRecursive {
   }
 
   /**
-   * The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * The type of error. Possible values: * **invalidInput** * **dataMissing** * **pendingStatus**
    *
-   * @param type The type of error. Possible values: **invalidInput**, **dataMissing**.
+   * @param type The type of error. Possible values: * **invalidInput** * **dataMissing** *
+   *     **pendingStatus**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

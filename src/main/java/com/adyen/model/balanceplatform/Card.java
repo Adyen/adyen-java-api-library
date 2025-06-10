@@ -513,13 +513,13 @@ public class Card {
   }
 
   /**
-   * Allocates a specific product range for either a physical or a virtual card. Possible values:
-   * **fullySupported**, **secureCorporate**. &gt; Reach out to your Adyen contact to get the values
-   * relevant for your integration.
+   * The 3DS configuration of the physical or the virtual card. Possible values: **fullySupported**,
+   * **secureCorporate**. &gt; Reach out to your Adyen contact to get the values relevant for your
+   * integration.
    *
-   * @param threeDSecure Allocates a specific product range for either a physical or a virtual card.
-   *     Possible values: **fullySupported**, **secureCorporate**. &gt; Reach out to your Adyen
-   *     contact to get the values relevant for your integration.
+   * @param threeDSecure The 3DS configuration of the physical or the virtual card. Possible values:
+   *     **fullySupported**, **secureCorporate**. &gt; Reach out to your Adyen contact to get the
+   *     values relevant for your integration.
    * @return the current {@code Card} instance, allowing for method chaining
    */
   public Card threeDSecure(String threeDSecure) {
@@ -528,13 +528,13 @@ public class Card {
   }
 
   /**
-   * Allocates a specific product range for either a physical or a virtual card. Possible values:
-   * **fullySupported**, **secureCorporate**. &gt; Reach out to your Adyen contact to get the values
-   * relevant for your integration.
+   * The 3DS configuration of the physical or the virtual card. Possible values: **fullySupported**,
+   * **secureCorporate**. &gt; Reach out to your Adyen contact to get the values relevant for your
+   * integration.
    *
-   * @return threeDSecure Allocates a specific product range for either a physical or a virtual
-   *     card. Possible values: **fullySupported**, **secureCorporate**. &gt; Reach out to your
-   *     Adyen contact to get the values relevant for your integration.
+   * @return threeDSecure The 3DS configuration of the physical or the virtual card. Possible
+   *     values: **fullySupported**, **secureCorporate**. &gt; Reach out to your Adyen contact to
+   *     get the values relevant for your integration.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -543,13 +543,13 @@ public class Card {
   }
 
   /**
-   * Allocates a specific product range for either a physical or a virtual card. Possible values:
-   * **fullySupported**, **secureCorporate**. &gt; Reach out to your Adyen contact to get the values
-   * relevant for your integration.
+   * The 3DS configuration of the physical or the virtual card. Possible values: **fullySupported**,
+   * **secureCorporate**. &gt; Reach out to your Adyen contact to get the values relevant for your
+   * integration.
    *
-   * @param threeDSecure Allocates a specific product range for either a physical or a virtual card.
-   *     Possible values: **fullySupported**, **secureCorporate**. &gt; Reach out to your Adyen
-   *     contact to get the values relevant for your integration.
+   * @param threeDSecure The 3DS configuration of the physical or the virtual card. Possible values:
+   *     **fullySupported**, **secureCorporate**. &gt; Reach out to your Adyen contact to get the
+   *     values relevant for your integration.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
