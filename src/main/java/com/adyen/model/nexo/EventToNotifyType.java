@@ -153,7 +153,7 @@ public enum EventToNotifyType {
   NETWORK_CONNECTED("NetworkConnected"),
 
   /**
-   * The terminal has closed the websocket connection and it is offline
+   * The terminal has lost its network connection to the POS and is offline.
    */
   @XmlEnumValue("NetworkDisconnected")
   @Schema(description = "The terminal is disconnected from the POS.")
