@@ -23,6 +23,7 @@ jobs:
       with: # running setup-java again overwrites the settings.xml
         distribution: 'temurin'
         java-version: '11'
+        server-id: central # Value of the central-publishing-maven-plugin publishingServerId in pom.xml
         server-username: MAVEN_USERNAME # env variable for username in deploy
         server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
         gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }} # Value of the GPG private key to import
