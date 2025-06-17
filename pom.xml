@@ -140,7 +140,7 @@
                     <publishingServerId>central</publishingServerId>
                     <tokenAuth>true</tokenAuth>
                     <autoPublish>true</autoPublish>
-                    <waitUntil>published</waitUntil>
+                    <waitUntil>validated</waitUntil>
                 </configuration>
             </plugin>
             <plugin>
