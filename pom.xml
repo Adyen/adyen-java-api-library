@@ -141,6 +141,7 @@
                     <tokenAuth>true</tokenAuth>
                     <autoPublish>true</autoPublish>
                     <waitUntil>validated</waitUntil>
+                    <deploymentName>adyen-java-api-library</deploymentName>
                 </configuration>
             </plugin>
             <plugin>
