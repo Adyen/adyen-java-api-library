@@ -643,14 +643,14 @@ public class BalancePlatformTest extends BaseTest {
     assertNotNull(response);
     assertEquals(2, response.getTransferRoutes().size());
     verify(client.getHttpClient())
-        .request(
-            eq("https://balanceplatform-api-test.adyen.com/bcl/v2/transferRoutes/calculate"),
-            anyString(),
-            eq(client.getConfig()),
-            eq(false),
-            eq(null),
-            eq(ApiConstants.HttpMethod.POST),
-            eq(null));
+            .request(
+                    eq("https://balanceplatform-api-test.adyen.com/bcl/v2/transferRoutes/calculate"),
+                    anyString(),
+                    eq(client.getConfig()),
+                    eq(false),
+                    eq(null),
+                    eq(ApiConstants.HttpMethod.POST),
+                    eq(null));
   }
 
   @Test
@@ -751,4 +751,80 @@ public class BalancePlatformTest extends BaseTest {
     assertNotNull(response.getId());
     assertEquals("USD", response.getCurrency());
   }
+
+  @Test
+  public void deleteAuthorisedCardUsersTest() throws Exception {
+    Client client = createMockClientFromResponse("");
+    AuthorizedCardUsersApi service = new AuthorizedCardUsersApi(client);
+    service.deleteAuthorisedCardUsers("PI1234567890" );
+
+    verify(client.getHttpClient())
+            .request(
+                    "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments/PI1234567890/authorisedCardUsers",
+                    null,
+                    client.getConfig(),
+                    false,
+                    null,
+                    ApiConstants.HttpMethod.DELETE,
+                    null);
+  }
+
+  @Test
+  public void createAuthorisedCardUsersTest() throws Exception {
+    Client client = createMockClientFromResponse("");
+    AuthorizedCardUsersApi service = new AuthorizedCardUsersApi(client);
+    service.createAuthorisedCardUsers("PI1234567890", new AuthorisedCardUsers()
+            .addLegalEntityIdsItem("LE1234567890"));
+
+    verify(client.getHttpClient())
+            .request(
+                    "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments/PI1234567890/authorisedCardUsers",
+                    "{\"legalEntityIds\":[\"LE1234567890\"]}",
+                    client.getConfig(),
+                    false,
+                    null,
+                    ApiConstants.HttpMethod.POST,
+                    null);
+  }
+
+  @Test
+  public void getAllAuthorisedCardUsers() throws Exception {
+    Client client =
+            createMockClientFromFile("mocks/balancePlatform/AuthorisedCardUsers.json");
+    AuthorizedCardUsersApi service = new AuthorizedCardUsersApi(client);
+    var response = service.getAllAuthorisedCardUsers("PI1234567890");
+
+    assertNotNull(response);
+    assertNotNull(response.getLegalEntityIds());
+    assertEquals(1, response.getLegalEntityIds().size());
+
+    verify(client.getHttpClient())
+            .request(
+                    "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments/PI1234567890/authorisedCardUsers",
+                    null,
+                    client.getConfig(),
+                    false,
+                    null,
+                    ApiConstants.HttpMethod.GET,
+                    null);
+  }
+
+  @Test
+  public void updateAuthorisedCardUsersTest() throws Exception {
+    Client client = createMockClientFromResponse("");
+    AuthorizedCardUsersApi service = new AuthorizedCardUsersApi(client);
+    service.updateAuthorisedCardUsers("PI1234567890", new AuthorisedCardUsers()
+            .addLegalEntityIdsItem("LE1234567890"));
+
+    verify(client.getHttpClient())
+            .request(
+                    "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments/PI1234567890/authorisedCardUsers",
+                    "{\"legalEntityIds\":[\"LE1234567890\"]}",
+                    client.getConfig(),
+                    false,
+                    null,
+                    ApiConstants.HttpMethod.PATCH,
+                    null);
+  }
+
 }
