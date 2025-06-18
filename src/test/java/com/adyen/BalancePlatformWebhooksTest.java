@@ -23,7 +23,6 @@ import java.util.Optional;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 /** Unit testing for all AfP/Bank related webhooks */
 public class BalancePlatformWebhooksTest extends BaseTest {
 
@@ -359,28 +358,31 @@ public class BalancePlatformWebhooksTest extends BaseTest {
 
   @Test
   public void testTransferNotificationRequest() throws Exception {
-    String json =
-            getFileContents(
-                    "mocks/balancePlatform-webhooks/transfer-updated.json");
+    String json = getFileContents("mocks/balancePlatform-webhooks/transfer-updated.json");
 
     Optional<TransferNotificationRequest> optionalTransferNotificationRequest =
-            new TransferWebhooksHandler(json).getTransferNotificationRequest();
+        new TransferWebhooksHandler(json).getTransferNotificationRequest();
     assertTrue(optionalTransferNotificationRequest.isPresent());
 
     TransferNotificationRequest transferNotificationRequest =
-            optionalTransferNotificationRequest.get();
+        optionalTransferNotificationRequest.get();
     assertEquals(
-            TransferNotificationRequest.TypeEnum.BALANCEPLATFORM_TRANSFER_UPDATED,
-            transferNotificationRequest.getType());
+        TransferNotificationRequest.TypeEnum.BALANCEPLATFORM_TRANSFER_UPDATED,
+        transferNotificationRequest.getType());
     assertNotNull(transferNotificationRequest.getData());
-    assertEquals("YOUR_BALANCE_PLATFORM", transferNotificationRequest.getData().getBalancePlatform());
+    assertEquals(
+        "YOUR_BALANCE_PLATFORM", transferNotificationRequest.getData().getBalancePlatform());
 
     assertNotNull(transferNotificationRequest.getData().getCategoryData().getPlatformPayment());
-    assertEquals(PlatformPayment.PlatformPaymentTypeEnum.REMAINDER,
-            transferNotificationRequest.getData().getCategoryData().getPlatformPayment().getPlatformPaymentType());
+    assertEquals(
+        PlatformPayment.PlatformPaymentTypeEnum.REMAINDER,
+        transferNotificationRequest
+            .getData()
+            .getCategoryData()
+            .getPlatformPayment()
+            .getPlatformPaymentType());
 
     assertNotNull(transferNotificationRequest.getData().getBalances());
     assertEquals(1, transferNotificationRequest.getData().getBalances().size());
   }
-
 }

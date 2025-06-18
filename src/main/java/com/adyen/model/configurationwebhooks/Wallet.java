@@ -55,11 +55,40 @@ public class Wallet {
 
     ACCOUNTTOONEWSINCELAUNCH(String.valueOf("accountTooNewSinceLaunch")),
 
+    CARDHOLDERPANASSOCIATEDTOACCOUNTWITHINTHRESHOLDDAYS(
+        String.valueOf("cardholderPanAssociatedToAccountWithinThresholdDays")),
+
+    CHANGESMADETOACCOUNTDATAWITHINTHRESHOLDDAYS(
+        String.valueOf("changesMadeToAccountDataWithinThresholdDays")),
+
+    DEVICEPROVISIONINGLOCATIONOUTSIDEOFCARDHOLDERSWALLETACCOUNTHOMECOUNTRY(
+        String.valueOf("deviceProvisioningLocationOutsideOfCardholdersWalletAccountHomeCountry")),
+
     DEVICERECENTLYLOST(String.valueOf("deviceRecentlyLost")),
+
+    ENCRYPTEDPAYMENTINSTRUMENTDATAISBEINGPUSHEDBYTHEISSUERTOTHESAMEDEVICETHATISSUERAPPLICATIONAUTHENTICATEDBUTWITHSUCCESSFULUPFRONTAUTHENTICATION(
+        String.valueOf(
+            "encryptedPaymentInstrumentDataIsBeingPushedByTheIssuerToTheSameDeviceThatIssuerApplicationAuthenticatedButWithSuccessfulUpfrontAuthentication")),
+
+    ENCRYPTEDPAYMENTINSTRUMENTDATAISBEINGPUSHEDBYTHEISSUERTOTHESAMEDEVICETHATISSUERAPPLICATIONAUTHENTICATEDBUTWITHOUTANYUPFRONTAUTHENTICATION(
+        String.valueOf(
+            "encryptedPaymentInstrumentDataIsBeingPushedByTheIssuerToTheSameDeviceThatIssuerApplicationAuthenticatedButWithoutAnyUpfrontAuthentication")),
+
+    ENCRYPTEDPAYMENTINSTRUMENTDATAISPUSHEDTOADIFFERENTDEVICETHANTHEONETHATISSUERAPPLICATIONAUTHENTICATED(
+        String.valueOf(
+            "encryptedPaymentInstrumentDataIsPushedToADifferentDeviceThanTheOneThatIssuerApplicationAuthenticated")),
+
+    ENCRYPTEDPAYMENTINSTRUMENTDATAISPUSHEDTOADIFFERENTUSERTHANTHECARDHOLDER(
+        String.valueOf("encryptedPaymentInstrumentDataIsPushedToADifferentUserThanTheCardHolder")),
 
     HASSUSPENDEDTOKENS(String.valueOf("hasSuspendedTokens")),
 
     INACTIVEACCOUNT(String.valueOf("inactiveAccount")),
+
+    ISSUERDEFERREDIDVDECISION(String.valueOf("issuerDeferredIDVDecision")),
+
+    ISSUERENCRYPTEDPAYMENTINSTRUMENTDATAEXPIRED(
+        String.valueOf("issuerEncryptedPaymentInstrumentDataExpired")),
 
     LOWACCOUNTSCORE(String.valueOf("lowAccountScore")),
 
@@ -67,9 +96,38 @@ public class Wallet {
 
     LOWPHONENUMBERSCORE(String.valueOf("lowPhoneNumberScore")),
 
+    NUMBEROFACTIVETOKENSGREATERTHANTHRESHOLD(
+        String.valueOf("numberOfActiveTokensGreaterThanThreshold")),
+
+    NUMBEROFACTIVETOKENSONALLDEVICESISGREATERTHANTHRESHOLD(
+        String.valueOf("numberOfActiveTokensOnAllDevicesIsGreaterThanThreshold")),
+
+    NUMBEROFDAYSSINCEDEVICEWASLASTREPORTEDLOSTISLESSTHANTHRESHOLDDAYS(
+        String.valueOf("numberOfDaysSinceDeviceWasLastReportedLostIsLessThanThresholdDays")),
+
+    NUMBEROFDEVICESWITHSAMEUSERIDWITHTOKENISGREATERTHANTHRESHOLD(
+        String.valueOf("numberOfDevicesWithSameUseridWithTokenIsGreaterThanThreshold")),
+
+    NUMBEROFTRANSACTIONSINLAST12MONTHSLESSTHANTHRESHOLDNUMBER(
+        String.valueOf("numberOfTransactionsInLast12MonthsLessThanThresholdNumber")),
+
     OUTSIDEHOMETERRITORY(String.valueOf("outSideHomeTerritory")),
 
+    SUSPENDEDCARDSINTHEWALLETACCOUNTISGREATERTHANTHRESHOLD(
+        String.valueOf("suspendedCardsInTheWALLETAccountIsGreaterThanThreshold")),
+
     SUSPICIOUSACTIVITY(String.valueOf("suspiciousActivity")),
+
+    THENUMBEROFPROVISIONINGATTEMPTSACROSSALLCARDSONTHISDEVICEINTHELAST24HOURSEXCEEDSTHETHRESHOLD(
+        String.valueOf(
+            "theNumberOfProvisioningAttemptsAcrossAllCardsOnThisDeviceInTheLast24HoursExceedsTheThreshold")),
+
+    THEWALLETACCOUNTINTOWHICHTHECARDISBEINGPROVISIONEDCONTAINDISTINCTNAMESGREATERTHANTHRESHOLD(
+        String.valueOf(
+            "theWALLETAccountIntoWhichTheCardIsBeingProvisionedContainDistinctNamesGreaterThanThreshold")),
+
+    THISACCOUNTHASNOTHADACTIVITYWITHINTHRESHOLDPERIOD(
+        String.valueOf("thisAccountHasNotHadActivityWithinThresholdPeriod")),
 
     TOOMANYDIFFERENTCARDHOLDERS(String.valueOf("tooManyDifferentCardholders")),
 
@@ -79,7 +137,23 @@ public class Wallet {
 
     UNABLETOASSESS(String.valueOf("unableToAssess")),
 
-    UNKNOWN(String.valueOf("unknown"));
+    UNKNOWN(String.valueOf("unknown")),
+
+    USERACCOUNTWASCREATEDWITHINTHRESHOLDDAYS(
+        String.valueOf("userAccountWasCreatedWithinThresholdDays")),
+
+    USERDEVICERECEIVINGENCRYPTEDPAYMENTINSTRUMENTDATAISDIFFERENTTHANTHEONETHATISPROVISIONINGTHETOKEN(
+        String.valueOf(
+            "userDeviceReceivingEncryptedPaymentInstrumentDataIsDifferentThanTheOneThatIsProvisioningTheToken")),
+
+    USERSACCOUNTONDEVICELESSTHANTHRESHOLDDAYS(
+        String.valueOf("usersAccountOnDeviceLessThanThresholdDays")),
+
+    WALLETACCOUNTCREATEDWITHINTHRESHOLDDAYS(
+        String.valueOf("walletAccountCreatedWithinThresholdDays")),
+
+    WALLETACCOUNTHOLDERNAMEONFILEDOESNOTMATCHCARDHOLDERENTEREDNAME(
+        String.valueOf("walletAccountHolderNameOnFileDoesNotMatchCardholderEnteredName"));
 
     private String value;
 
@@ -112,6 +186,8 @@ public class Wallet {
   private List<RecommendationReasonsEnum> recommendationReasons;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
+  // instead.
   private String type;
 
   public Wallet() {}
@@ -276,9 +352,14 @@ public class Wallet {
   }
 
   /**
-   * A list of codes that specify the reasons for the provided scores.
+   * A list of risk indicators triggered at the time of provisioning the network token. Some example
+   * values of risk indicators are: * **accountTooNewSinceLaunch** * **tooManyRecentAttempts** *
+   * **lowDeviceScore** * **lowAccountScore**
    *
-   * @param recommendationReasons A list of codes that specify the reasons for the provided scores.
+   * @param recommendationReasons A list of risk indicators triggered at the time of provisioning
+   *     the network token. Some example values of risk indicators are: *
+   *     **accountTooNewSinceLaunch** * **tooManyRecentAttempts** * **lowDeviceScore** *
+   *     **lowAccountScore**
    * @return the current {@code Wallet} instance, allowing for method chaining
    */
   public Wallet recommendationReasons(List<RecommendationReasonsEnum> recommendationReasons) {
@@ -295,9 +376,14 @@ public class Wallet {
   }
 
   /**
-   * A list of codes that specify the reasons for the provided scores.
+   * A list of risk indicators triggered at the time of provisioning the network token. Some example
+   * values of risk indicators are: * **accountTooNewSinceLaunch** * **tooManyRecentAttempts** *
+   * **lowDeviceScore** * **lowAccountScore**
    *
-   * @return recommendationReasons A list of codes that specify the reasons for the provided scores.
+   * @return recommendationReasons A list of risk indicators triggered at the time of provisioning
+   *     the network token. Some example values of risk indicators are: *
+   *     **accountTooNewSinceLaunch** * **tooManyRecentAttempts** * **lowDeviceScore** *
+   *     **lowAccountScore**
    */
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,9 +392,14 @@ public class Wallet {
   }
 
   /**
-   * A list of codes that specify the reasons for the provided scores.
+   * A list of risk indicators triggered at the time of provisioning the network token. Some example
+   * values of risk indicators are: * **accountTooNewSinceLaunch** * **tooManyRecentAttempts** *
+   * **lowDeviceScore** * **lowAccountScore**
    *
-   * @param recommendationReasons A list of codes that specify the reasons for the provided scores.
+   * @param recommendationReasons A list of risk indicators triggered at the time of provisioning
+   *     the network token. Some example values of risk indicators are: *
+   *     **accountTooNewSinceLaunch** * **tooManyRecentAttempts** * **lowDeviceScore** *
+   *     **lowAccountScore**
    */
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,7 +414,10 @@ public class Wallet {
    * @param type The type of wallet that the network token is associated with. Possible values:
    *     **applePay**, **googlePay**, **garminPay**.
    * @return the current {@code Wallet} instance, allowing for method chaining
+   * @deprecated since Configuration webhooks v2 Use name of the &#x60;tokenRequestor&#x60; instead.
    */
+  @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
+  // instead.
   public Wallet type(String type) {
     this.type = type;
     return this;
@@ -335,7 +429,11 @@ public class Wallet {
    *
    * @return type The type of wallet that the network token is associated with. Possible values:
    *     **applePay**, **googlePay**, **garminPay**.
+   * @deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
+   *     instead.
    */
+  @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
+  // instead.
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getType() {
@@ -348,7 +446,10 @@ public class Wallet {
    *
    * @param type The type of wallet that the network token is associated with. Possible values:
    *     **applePay**, **googlePay**, **garminPay**.
+   * @deprecated since Configuration webhooks v2 Use name of the &#x60;tokenRequestor&#x60; instead.
    */
+  @Deprecated // deprecated since Configuration webhooks v2: Use name of the `tokenRequestor`
+  // instead.
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {

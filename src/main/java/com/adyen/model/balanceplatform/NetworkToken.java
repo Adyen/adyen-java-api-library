@@ -29,6 +29,7 @@ import java.util.Objects;
   NetworkToken.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
   NetworkToken.JSON_PROPERTY_STATUS,
   NetworkToken.JSON_PROPERTY_TOKEN_LAST_FOUR,
+  NetworkToken.JSON_PROPERTY_TOKEN_REQUESTOR,
   NetworkToken.JSON_PROPERTY_TYPE
 })
 public class NetworkToken {
@@ -92,6 +93,9 @@ public class NetworkToken {
 
   public static final String JSON_PROPERTY_TOKEN_LAST_FOUR = "tokenLastFour";
   private String tokenLastFour;
+
+  public static final String JSON_PROPERTY_TOKEN_REQUESTOR = "tokenRequestor";
+  private NetworkTokenRequestor tokenRequestor;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -357,6 +361,39 @@ public class NetworkToken {
   }
 
   /**
+   * tokenRequestor
+   *
+   * @param tokenRequestor
+   * @return the current {@code NetworkToken} instance, allowing for method chaining
+   */
+  public NetworkToken tokenRequestor(NetworkTokenRequestor tokenRequestor) {
+    this.tokenRequestor = tokenRequestor;
+    return this;
+  }
+
+  /**
+   * Get tokenRequestor
+   *
+   * @return tokenRequestor
+   */
+  @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NetworkTokenRequestor getTokenRequestor() {
+    return tokenRequestor;
+  }
+
+  /**
+   * tokenRequestor
+   *
+   * @param tokenRequestor
+   */
+  @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTokenRequestor(NetworkTokenRequestor tokenRequestor) {
+    this.tokenRequestor = tokenRequestor;
+  }
+
+  /**
    * The type of network token. For example, **wallet**, **cof**.
    *
    * @param type The type of network token. For example, **wallet**, **cof**.
@@ -406,13 +443,22 @@ public class NetworkToken {
         && Objects.equals(this.paymentInstrumentId, networkToken.paymentInstrumentId)
         && Objects.equals(this.status, networkToken.status)
         && Objects.equals(this.tokenLastFour, networkToken.tokenLastFour)
+        && Objects.equals(this.tokenRequestor, networkToken.tokenRequestor)
         && Objects.equals(this.type, networkToken.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        brandVariant, creationDate, device, id, paymentInstrumentId, status, tokenLastFour, type);
+        brandVariant,
+        creationDate,
+        device,
+        id,
+        paymentInstrumentId,
+        status,
+        tokenLastFour,
+        tokenRequestor,
+        type);
   }
 
   @Override
@@ -428,6 +474,7 @@ public class NetworkToken {
         .append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tokenLastFour: ").append(toIndentedString(tokenLastFour)).append("\n");
+    sb.append("    tokenRequestor: ").append(toIndentedString(tokenRequestor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

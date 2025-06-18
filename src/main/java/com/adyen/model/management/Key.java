@@ -69,9 +69,23 @@ public class Key {
   }
 
   /**
-   * The secure passphrase to protect the shared key.
+   * The secure passphrase to protect the shared key. Must consist of: * At least 12 characters. *
+   * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase letter:
+   * &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special character.
+   * Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;, &#x60;%&#x60;,
+   * &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;,
+   * &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
+   * &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&lt;&#x60;.
    *
-   * @param passphrase The secure passphrase to protect the shared key.
+   * @param passphrase The secure passphrase to protect the shared key. Must consist of: * At least
+   *     12 characters. * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase
+   *     letter: &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special
+   *     character. Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;,
+   *     &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;,
+   *     &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;,
+   *     &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
    * @return the current {@code Key} instance, allowing for method chaining
    */
   public Key passphrase(String passphrase) {
@@ -80,9 +94,23 @@ public class Key {
   }
 
   /**
-   * The secure passphrase to protect the shared key.
+   * The secure passphrase to protect the shared key. Must consist of: * At least 12 characters. *
+   * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase letter:
+   * &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special character.
+   * Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;, &#x60;%&#x60;,
+   * &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;,
+   * &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
+   * &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&lt;&#x60;.
    *
-   * @return passphrase The secure passphrase to protect the shared key.
+   * @return passphrase The secure passphrase to protect the shared key. Must consist of: * At least
+   *     12 characters. * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase
+   *     letter: &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special
+   *     character. Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;,
+   *     &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;,
+   *     &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;,
+   *     &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,9 +119,23 @@ public class Key {
   }
 
   /**
-   * The secure passphrase to protect the shared key.
+   * The secure passphrase to protect the shared key. Must consist of: * At least 12 characters. *
+   * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase letter:
+   * &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special character.
+   * Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;, &#x60;%&#x60;,
+   * &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;,
+   * &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
+   * &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&lt;&#x60;.
    *
-   * @param passphrase The secure passphrase to protect the shared key.
+   * @param passphrase The secure passphrase to protect the shared key. Must consist of: * At least
+   *     12 characters. * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase
+   *     letter: &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special
+   *     character. Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;,
+   *     &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;,
+   *     &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;,
+   *     &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

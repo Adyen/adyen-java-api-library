@@ -34,7 +34,8 @@ import java.util.Objects;
   Store.JSON_PROPERTY_REFERENCE,
   Store.JSON_PROPERTY_SHOPPER_STATEMENT,
   Store.JSON_PROPERTY_SPLIT_CONFIGURATION,
-  Store.JSON_PROPERTY_STATUS
+  Store.JSON_PROPERTY_STATUS,
+  Store.JSON_PROPERTY_SUB_MERCHANT_DATA
 })
 public class Store {
   public static final String JSON_PROPERTY_LINKS = "_links";
@@ -113,6 +114,9 @@ public class Store {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  public static final String JSON_PROPERTY_SUB_MERCHANT_DATA = "subMerchantData";
+  private SubMerchantData subMerchantData;
 
   public Store() {}
 
@@ -613,6 +617,39 @@ public class Store {
     this.status = status;
   }
 
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   * @return the current {@code Store} instance, allowing for method chaining
+   */
+  public Store subMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+    return this;
+  }
+
+  /**
+   * Get subMerchantData
+   *
+   * @return subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SubMerchantData getSubMerchantData() {
+    return subMerchantData;
+  }
+
+  /**
+   * subMerchantData
+   *
+   * @param subMerchantData
+   */
+  @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubMerchantData(SubMerchantData subMerchantData) {
+    this.subMerchantData = subMerchantData;
+  }
+
   /** Return true if this Store object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -634,7 +671,8 @@ public class Store {
         && Objects.equals(this.reference, store.reference)
         && Objects.equals(this.shopperStatement, store.shopperStatement)
         && Objects.equals(this.splitConfiguration, store.splitConfiguration)
-        && Objects.equals(this.status, store.status);
+        && Objects.equals(this.status, store.status)
+        && Objects.equals(this.subMerchantData, store.subMerchantData);
   }
 
   @Override
@@ -651,7 +689,8 @@ public class Store {
         reference,
         shopperStatement,
         splitConfiguration,
-        status);
+        status,
+        subMerchantData);
   }
 
   @Override
@@ -672,6 +711,7 @@ public class Store {
     sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
     sb.append("    splitConfiguration: ").append(toIndentedString(splitConfiguration)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subMerchantData: ").append(toIndentedString(subMerchantData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

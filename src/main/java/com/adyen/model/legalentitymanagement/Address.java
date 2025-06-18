@@ -126,10 +126,13 @@ public class Address {
   }
 
   /**
-   * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * The postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or
+   * SW1A 1AA.
    *
-   * @param postalCode Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60;
-   *     is provided.
+   * @param postalCode The postal code. Required if &#x60;stateOrProvince&#x60; and/or
+   *     &#x60;city&#x60; is provided. When using alphanumeric postal codes, all letters must be
+   *     uppercase. For example, 1234 AB or SW1A 1AA.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address postalCode(String postalCode) {
@@ -138,10 +141,13 @@ public class Address {
   }
 
   /**
-   * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * The postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or
+   * SW1A 1AA.
    *
-   * @return postalCode Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60;
-   *     is provided.
+   * @return postalCode The postal code. Required if &#x60;stateOrProvince&#x60; and/or
+   *     &#x60;city&#x60; is provided. When using alphanumeric postal codes, all letters must be
+   *     uppercase. For example, 1234 AB or SW1A 1AA.
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,10 +156,13 @@ public class Address {
   }
 
   /**
-   * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * The postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
+   * When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or
+   * SW1A 1AA.
    *
-   * @param postalCode Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60;
-   *     is provided.
+   * @param postalCode The postal code. Required if &#x60;stateOrProvince&#x60; and/or
+   *     &#x60;city&#x60; is provided. When using alphanumeric postal codes, all letters must be
+   *     uppercase. For example, 1234 AB or SW1A 1AA.
    */
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

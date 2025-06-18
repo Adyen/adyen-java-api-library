@@ -226,7 +226,7 @@ public class AccountHoldersApi extends Service {
    */
   public GetTaxFormResponse getTaxForm(String id, String formType, Integer year)
       throws ApiException, IOException {
-    return getTaxForm(id, formType, year, null);
+    return getTaxForm(id, formType, year, null, null);
   }
 
   /**
@@ -237,13 +237,15 @@ public class AccountHoldersApi extends Service {
    *     values are **US1099k** and **US1099nec** (required)
    * @param year {@link Integer } Query: The tax year in YYYY format for the tax form you want to
    *     retrieve (required)
+   * @param legalEntityId {@link String } Query: The legal entity reference whose tax form you want
+   *     to retrieve (optional)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
    *     idempotency-keys (optional)
    * @return {@link GetTaxFormResponse }
    * @throws ApiException if fails to make API call
    */
   public GetTaxFormResponse getTaxForm(
-      String id, String formType, Integer year, RequestOptions requestOptions)
+      String id, String formType, Integer year, String legalEntityId, RequestOptions requestOptions)
       throws ApiException, IOException {
     // Add path params
     Map<String, String> pathParams = new HashMap<>();
@@ -259,6 +261,9 @@ public class AccountHoldersApi extends Service {
     }
     if (year != null) {
       queryParams.put("year", year.toString());
+    }
+    if (legalEntityId != null) {
+      queryParams.put("legalEntityId", legalEntityId);
     }
 
     String requestBody = null;

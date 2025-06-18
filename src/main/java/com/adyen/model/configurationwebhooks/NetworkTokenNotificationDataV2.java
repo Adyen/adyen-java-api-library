@@ -29,6 +29,7 @@ import java.util.Objects;
   NetworkTokenNotificationDataV2.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_STATUS,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_TOKEN_LAST_FOUR,
+  NetworkTokenNotificationDataV2.JSON_PROPERTY_TOKEN_REQUESTOR,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_TYPE,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_VALIDATION_FACTS,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_WALLET
@@ -57,6 +58,9 @@ public class NetworkTokenNotificationDataV2 {
 
   public static final String JSON_PROPERTY_TOKEN_LAST_FOUR = "tokenLastFour";
   private String tokenLastFour;
+
+  public static final String JSON_PROPERTY_TOKEN_REQUESTOR = "tokenRequestor";
+  private NetworkTokenRequestor tokenRequestor;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -360,6 +364,40 @@ public class NetworkTokenNotificationDataV2 {
   }
 
   /**
+   * tokenRequestor
+   *
+   * @param tokenRequestor
+   * @return the current {@code NetworkTokenNotificationDataV2} instance, allowing for method
+   *     chaining
+   */
+  public NetworkTokenNotificationDataV2 tokenRequestor(NetworkTokenRequestor tokenRequestor) {
+    this.tokenRequestor = tokenRequestor;
+    return this;
+  }
+
+  /**
+   * Get tokenRequestor
+   *
+   * @return tokenRequestor
+   */
+  @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NetworkTokenRequestor getTokenRequestor() {
+    return tokenRequestor;
+  }
+
+  /**
+   * tokenRequestor
+   *
+   * @param tokenRequestor
+   */
+  @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTokenRequestor(NetworkTokenRequestor tokenRequestor) {
+    this.tokenRequestor = tokenRequestor;
+  }
+
+  /**
    * The type of network token.
    *
    * @param type The type of network token.
@@ -494,6 +532,7 @@ public class NetworkTokenNotificationDataV2 {
             this.paymentInstrumentId, networkTokenNotificationDataV2.paymentInstrumentId)
         && Objects.equals(this.status, networkTokenNotificationDataV2.status)
         && Objects.equals(this.tokenLastFour, networkTokenNotificationDataV2.tokenLastFour)
+        && Objects.equals(this.tokenRequestor, networkTokenNotificationDataV2.tokenRequestor)
         && Objects.equals(this.type, networkTokenNotificationDataV2.type)
         && Objects.equals(this.validationFacts, networkTokenNotificationDataV2.validationFacts)
         && Objects.equals(this.wallet, networkTokenNotificationDataV2.wallet);
@@ -510,6 +549,7 @@ public class NetworkTokenNotificationDataV2 {
         paymentInstrumentId,
         status,
         tokenLastFour,
+        tokenRequestor,
         type,
         validationFacts,
         wallet);
@@ -531,6 +571,7 @@ public class NetworkTokenNotificationDataV2 {
         .append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tokenLastFour: ").append(toIndentedString(tokenLastFour)).append("\n");
+    sb.append("    tokenRequestor: ").append(toIndentedString(tokenRequestor)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validationFacts: ").append(toIndentedString(validationFacts)).append("\n");
     sb.append("    wallet: ").append(toIndentedString(wallet)).append("\n");
