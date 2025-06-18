@@ -24,22 +24,22 @@ import java.util.Objects;
 
 /** LegalEntity */
 @JsonPropertyOrder({
-        LegalEntity.JSON_PROPERTY_CAPABILITIES,
-        LegalEntity.JSON_PROPERTY_DOCUMENT_DETAILS,
-        LegalEntity.JSON_PROPERTY_DOCUMENTS,
-        LegalEntity.JSON_PROPERTY_ENTITY_ASSOCIATIONS,
-        LegalEntity.JSON_PROPERTY_ID,
-        LegalEntity.JSON_PROPERTY_INDIVIDUAL,
-        LegalEntity.JSON_PROPERTY_ORGANIZATION,
-        LegalEntity.JSON_PROPERTY_PROBLEMS,
-        LegalEntity.JSON_PROPERTY_REFERENCE,
-        LegalEntity.JSON_PROPERTY_SOLE_PROPRIETORSHIP,
-        LegalEntity.JSON_PROPERTY_TRANSFER_INSTRUMENTS,
-        LegalEntity.JSON_PROPERTY_TRUST,
-        LegalEntity.JSON_PROPERTY_TYPE,
-        LegalEntity.JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP,
-        LegalEntity.JSON_PROPERTY_VERIFICATION_DEADLINES,
-        LegalEntity.JSON_PROPERTY_VERIFICATION_PLAN
+  LegalEntity.JSON_PROPERTY_CAPABILITIES,
+  LegalEntity.JSON_PROPERTY_DOCUMENT_DETAILS,
+  LegalEntity.JSON_PROPERTY_DOCUMENTS,
+  LegalEntity.JSON_PROPERTY_ENTITY_ASSOCIATIONS,
+  LegalEntity.JSON_PROPERTY_ID,
+  LegalEntity.JSON_PROPERTY_INDIVIDUAL,
+  LegalEntity.JSON_PROPERTY_ORGANIZATION,
+  LegalEntity.JSON_PROPERTY_PROBLEMS,
+  LegalEntity.JSON_PROPERTY_REFERENCE,
+  LegalEntity.JSON_PROPERTY_SOLE_PROPRIETORSHIP,
+  LegalEntity.JSON_PROPERTY_TRANSFER_INSTRUMENTS,
+  LegalEntity.JSON_PROPERTY_TRUST,
+  LegalEntity.JSON_PROPERTY_TYPE,
+  LegalEntity.JSON_PROPERTY_UNINCORPORATED_PARTNERSHIP,
+  LegalEntity.JSON_PROPERTY_VERIFICATION_DEADLINES,
+  LegalEntity.JSON_PROPERTY_VERIFICATION_PLAN
 })
 public class LegalEntity {
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
@@ -138,11 +138,11 @@ public class LegalEntity {
 
   @JsonCreator
   public LegalEntity(
-          @JsonProperty(JSON_PROPERTY_CAPABILITIES) Map<String, LegalEntityCapability> capabilities,
-          @JsonProperty(JSON_PROPERTY_ID) String id,
-          @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENTS)
+      @JsonProperty(JSON_PROPERTY_CAPABILITIES) Map<String, LegalEntityCapability> capabilities,
+      @JsonProperty(JSON_PROPERTY_ID) String id,
+      @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENTS)
           List<TransferInstrumentReference> transferInstruments,
-          @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
+      @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
           List<VerificationDeadline> verificationDeadlines) {
     this();
     this.capabilities = capabilities;
@@ -588,7 +588,7 @@ public class LegalEntity {
    * @return the current {@code LegalEntity} instance, allowing for method chaining
    */
   public LegalEntity unincorporatedPartnership(
-          UnincorporatedPartnership unincorporatedPartnership) {
+      UnincorporatedPartnership unincorporatedPartnership) {
     this.unincorporatedPartnership = unincorporatedPartnership;
     return this;
   }
@@ -684,42 +684,42 @@ public class LegalEntity {
     }
     LegalEntity legalEntity = (LegalEntity) o;
     return Objects.equals(this.capabilities, legalEntity.capabilities)
-            && Objects.equals(this.documentDetails, legalEntity.documentDetails)
-            && Objects.equals(this.documents, legalEntity.documents)
-            && Objects.equals(this.entityAssociations, legalEntity.entityAssociations)
-            && Objects.equals(this.id, legalEntity.id)
-            && Objects.equals(this.individual, legalEntity.individual)
-            && Objects.equals(this.organization, legalEntity.organization)
-            && Objects.equals(this.problems, legalEntity.problems)
-            && Objects.equals(this.reference, legalEntity.reference)
-            && Objects.equals(this.soleProprietorship, legalEntity.soleProprietorship)
-            && Objects.equals(this.transferInstruments, legalEntity.transferInstruments)
-            && Objects.equals(this.trust, legalEntity.trust)
-            && Objects.equals(this.type, legalEntity.type)
-            && Objects.equals(this.unincorporatedPartnership, legalEntity.unincorporatedPartnership)
-            && Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines)
-            && Objects.equals(this.verificationPlan, legalEntity.verificationPlan);
+        && Objects.equals(this.documentDetails, legalEntity.documentDetails)
+        && Objects.equals(this.documents, legalEntity.documents)
+        && Objects.equals(this.entityAssociations, legalEntity.entityAssociations)
+        && Objects.equals(this.id, legalEntity.id)
+        && Objects.equals(this.individual, legalEntity.individual)
+        && Objects.equals(this.organization, legalEntity.organization)
+        && Objects.equals(this.problems, legalEntity.problems)
+        && Objects.equals(this.reference, legalEntity.reference)
+        && Objects.equals(this.soleProprietorship, legalEntity.soleProprietorship)
+        && Objects.equals(this.transferInstruments, legalEntity.transferInstruments)
+        && Objects.equals(this.trust, legalEntity.trust)
+        && Objects.equals(this.type, legalEntity.type)
+        && Objects.equals(this.unincorporatedPartnership, legalEntity.unincorporatedPartnership)
+        && Objects.equals(this.verificationDeadlines, legalEntity.verificationDeadlines)
+        && Objects.equals(this.verificationPlan, legalEntity.verificationPlan);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-            capabilities,
-            documentDetails,
-            documents,
-            entityAssociations,
-            id,
-            individual,
-            organization,
-            problems,
-            reference,
-            soleProprietorship,
-            transferInstruments,
-            trust,
-            type,
-            unincorporatedPartnership,
-            verificationDeadlines,
-            verificationPlan);
+        capabilities,
+        documentDetails,
+        documents,
+        entityAssociations,
+        id,
+        individual,
+        organization,
+        problems,
+        reference,
+        soleProprietorship,
+        transferInstruments,
+        trust,
+        type,
+        unincorporatedPartnership,
+        verificationDeadlines,
+        verificationPlan);
   }
 
   @Override
@@ -737,16 +737,16 @@ public class LegalEntity {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    soleProprietorship: ").append(toIndentedString(soleProprietorship)).append("\n");
     sb.append("    transferInstruments: ")
-            .append(toIndentedString(transferInstruments))
-            .append("\n");
+        .append(toIndentedString(transferInstruments))
+        .append("\n");
     sb.append("    trust: ").append(toIndentedString(trust)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    unincorporatedPartnership: ")
-            .append(toIndentedString(unincorporatedPartnership))
-            .append("\n");
+        .append(toIndentedString(unincorporatedPartnership))
+        .append("\n");
     sb.append("    verificationDeadlines: ")
-            .append(toIndentedString(verificationDeadlines))
-            .append("\n");
+        .append(toIndentedString(verificationDeadlines))
+        .append("\n");
     sb.append("    verificationPlan: ").append(toIndentedString(verificationPlan)).append("\n");
     sb.append("}");
     return sb.toString();
