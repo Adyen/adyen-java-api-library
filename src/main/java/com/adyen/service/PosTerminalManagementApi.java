@@ -36,7 +36,7 @@ import java.io.IOException;
  * terminals, you must use Management API: see
  * https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api/
  *
- * @deprecated Use instead PaymentsApi and ModificationsApi in the com.adyen.service.payment package
+ * @deprecated Use Management API instead
  */
 @Deprecated(since = "v37.0.0", forRemoval = true)
 public class PosTerminalManagementApi extends Service {
