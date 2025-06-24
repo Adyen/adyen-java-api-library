@@ -81,6 +81,16 @@ public class LegalEntityManagementTest extends BaseTest {
   }
 
   @Test
+  public void LegalEntitieInvalidEnumTest() throws Exception {
+    Client client =
+            createMockClientFromFile("mocks/legalentitymanagement/response/LegalEntityInvalidEnum.json");
+    LegalEntitiesApi service = new LegalEntitiesApi(client);
+    LegalEntity response = service.getLegalEntity("LE322JV223222D5GG42KN6869");
+    assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
+    assertEquals("string", response.getId());
+  }
+
+  @Test
   public void LegalEntitiesUpdateTest() throws Exception {
     Client client =
         createMockClientFromFile("mocks/legalentitymanagement/response/LegalEntity.json");

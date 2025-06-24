@@ -118,7 +118,8 @@ public class LegalEntity {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
+      //throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
 
