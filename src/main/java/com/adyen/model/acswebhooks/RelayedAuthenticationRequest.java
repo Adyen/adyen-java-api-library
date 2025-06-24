@@ -21,7 +21,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   RelayedAuthenticationRequest.JSON_PROPERTY_ID,
   RelayedAuthenticationRequest.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
-  RelayedAuthenticationRequest.JSON_PROPERTY_PURCHASE
+  RelayedAuthenticationRequest.JSON_PROPERTY_PURCHASE,
+  RelayedAuthenticationRequest.JSON_PROPERTY_THREE_D_S_REQUESTOR_APP_U_R_L
 })
 public class RelayedAuthenticationRequest {
   public static final String JSON_PROPERTY_ID = "id";
@@ -32,6 +33,9 @@ public class RelayedAuthenticationRequest {
 
   public static final String JSON_PROPERTY_PURCHASE = "purchase";
   private Purchase purchase;
+
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_APP_U_R_L = "threeDSRequestorAppURL";
+  private String threeDSRequestorAppURL;
 
   public RelayedAuthenticationRequest() {}
 
@@ -146,6 +150,45 @@ public class RelayedAuthenticationRequest {
     this.purchase = purchase;
   }
 
+  /**
+   * URL for auto-switching to the threeDS Requestor App. If not present, the threeDS Requestor App
+   * doesn&#39;t support auto-switching.
+   *
+   * @param threeDSRequestorAppURL URL for auto-switching to the threeDS Requestor App. If not
+   *     present, the threeDS Requestor App doesn&#39;t support auto-switching.
+   * @return the current {@code RelayedAuthenticationRequest} instance, allowing for method chaining
+   */
+  public RelayedAuthenticationRequest threeDSRequestorAppURL(String threeDSRequestorAppURL) {
+    this.threeDSRequestorAppURL = threeDSRequestorAppURL;
+    return this;
+  }
+
+  /**
+   * URL for auto-switching to the threeDS Requestor App. If not present, the threeDS Requestor App
+   * doesn&#39;t support auto-switching.
+   *
+   * @return threeDSRequestorAppURL URL for auto-switching to the threeDS Requestor App. If not
+   *     present, the threeDS Requestor App doesn&#39;t support auto-switching.
+   */
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_APP_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getThreeDSRequestorAppURL() {
+    return threeDSRequestorAppURL;
+  }
+
+  /**
+   * URL for auto-switching to the threeDS Requestor App. If not present, the threeDS Requestor App
+   * doesn&#39;t support auto-switching.
+   *
+   * @param threeDSRequestorAppURL URL for auto-switching to the threeDS Requestor App. If not
+   *     present, the threeDS Requestor App doesn&#39;t support auto-switching.
+   */
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_APP_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDSRequestorAppURL(String threeDSRequestorAppURL) {
+    this.threeDSRequestorAppURL = threeDSRequestorAppURL;
+  }
+
   /** Return true if this RelayedAuthenticationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -159,12 +202,14 @@ public class RelayedAuthenticationRequest {
     return Objects.equals(this.id, relayedAuthenticationRequest.id)
         && Objects.equals(
             this.paymentInstrumentId, relayedAuthenticationRequest.paymentInstrumentId)
-        && Objects.equals(this.purchase, relayedAuthenticationRequest.purchase);
+        && Objects.equals(this.purchase, relayedAuthenticationRequest.purchase)
+        && Objects.equals(
+            this.threeDSRequestorAppURL, relayedAuthenticationRequest.threeDSRequestorAppURL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, paymentInstrumentId, purchase);
+    return Objects.hash(id, paymentInstrumentId, purchase, threeDSRequestorAppURL);
   }
 
   @Override
@@ -176,6 +221,9 @@ public class RelayedAuthenticationRequest {
         .append(toIndentedString(paymentInstrumentId))
         .append("\n");
     sb.append("    purchase: ").append(toIndentedString(purchase)).append("\n");
+    sb.append("    threeDSRequestorAppURL: ")
+        .append(toIndentedString(threeDSRequestorAppURL))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }

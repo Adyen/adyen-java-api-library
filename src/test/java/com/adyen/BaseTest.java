@@ -92,10 +92,10 @@ public class BaseTest {
           .thenReturn(response);
       when(adyenHttpClient.request(
               anyString(), any(), any(Config.class), anyBoolean(), isNull(), any(), any()))
-              .thenReturn(response);
+          .thenReturn(response);
       when(adyenHttpClient.request(
               anyString(), any(), any(Config.class), anyBoolean(), isNotNull(), any(), any()))
-              .thenReturn(response);
+          .thenReturn(response);
 
     } catch (IOException | HTTPClientException e) {
       e.printStackTrace();
@@ -313,7 +313,7 @@ public class BaseTest {
     try {
       when(adyenHttpClient.request(
               anyString(), any(), any(Config.class), anyBoolean(), isNull(), any(), any()))
-              .thenThrow(httpClientException);
+          .thenThrow(httpClientException);
 
     } catch (IOException | HTTPClientException e) {
       fail("Unexpected exception: " + e.getMessage());

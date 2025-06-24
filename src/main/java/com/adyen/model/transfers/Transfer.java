@@ -28,6 +28,7 @@ import java.util.Objects;
   Transfer.JSON_PROPERTY_CATEGORY,
   Transfer.JSON_PROPERTY_CATEGORY_DATA,
   Transfer.JSON_PROPERTY_COUNTERPARTY,
+  Transfer.JSON_PROPERTY_CREATED_AT,
   Transfer.JSON_PROPERTY_CREATION_DATE,
   Transfer.JSON_PROPERTY_DESCRIPTION,
   Transfer.JSON_PROPERTY_DIRECT_DEBIT_INFORMATION,
@@ -111,7 +112,11 @@ public class Transfer {
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private CounterpartyV3 counterparty;
 
+  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
+  private OffsetDateTime createdAt;
+
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
+  @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
   private OffsetDateTime creationDate;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -255,7 +260,13 @@ public class Transfer {
   public static final String JSON_PROPERTY_REVIEW = "review";
   private TransferReview review;
 
-  /** The result of the transfer. For example, **authorised**, **refused**, or **error**. */
+  /**
+   * The result of the transfer. For example: - **received**: an outgoing transfer request is
+   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
+   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
+   * by the counterparty&#39;s bank.
+   */
   public enum StatusEnum {
     APPROVALPENDING(String.valueOf("approvalPending")),
 
@@ -778,13 +789,54 @@ public class Transfer {
   }
 
   /**
+   * The date and time when the transfer was created, in ISO 8601 extended format. For example,
+   * **2020-12-18T10:15:30+01:00**.
+   *
+   * @param createdAt The date and time when the transfer was created, in ISO 8601 extended format.
+   *     For example, **2020-12-18T10:15:30+01:00**.
+   * @return the current {@code Transfer} instance, allowing for method chaining
+   */
+  public Transfer createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The date and time when the transfer was created, in ISO 8601 extended format. For example,
+   * **2020-12-18T10:15:30+01:00**.
+   *
+   * @return createdAt The date and time when the transfer was created, in ISO 8601 extended format.
+   *     For example, **2020-12-18T10:15:30+01:00**.
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  /**
+   * The date and time when the transfer was created, in ISO 8601 extended format. For example,
+   * **2020-12-18T10:15:30+01:00**.
+   *
+   * @param createdAt The date and time when the transfer was created, in ISO 8601 extended format.
+   *     For example, **2020-12-18T10:15:30+01:00**.
+   */
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
    * **2020-12-18T10:15:30+01:00**.
    *
    * @param creationDate The date and time when the event was triggered, in ISO 8601 extended
    *     format. For example, **2020-12-18T10:15:30+01:00**.
    * @return the current {@code Transfer} instance, allowing for method chaining
+   * @deprecated since Transfers API v3 Use createdAt or updatedAt
    */
+  @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
   public Transfer creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
     return this;
@@ -796,7 +848,9 @@ public class Transfer {
    *
    * @return creationDate The date and time when the event was triggered, in ISO 8601 extended
    *     format. For example, **2020-12-18T10:15:30+01:00**.
+   * @deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
    */
+  @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreationDate() {
@@ -809,7 +863,9 @@ public class Transfer {
    *
    * @param creationDate The date and time when the event was triggered, in ISO 8601 extended
    *     format. For example, **2020-12-18T10:15:30+01:00**.
+   * @deprecated since Transfers API v3 Use createdAt or updatedAt
    */
+  @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
@@ -1201,10 +1257,17 @@ public class Transfer {
   }
 
   /**
-   * The result of the transfer. For example, **authorised**, **refused**, or **error**.
+   * The result of the transfer. For example: - **received**: an outgoing transfer request is
+   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
+   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
+   * by the counterparty&#39;s bank.
    *
-   * @param status The result of the transfer. For example, **authorised**, **refused**, or
-   *     **error**.
+   * @param status The result of the transfer. For example: - **received**: an outgoing transfer
+   *     request is created. - **authorised**: the transfer request is authorized and the funds are
+   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   *     transfer is returned by the counterparty&#39;s bank.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer status(StatusEnum status) {
@@ -1213,10 +1276,17 @@ public class Transfer {
   }
 
   /**
-   * The result of the transfer. For example, **authorised**, **refused**, or **error**.
+   * The result of the transfer. For example: - **received**: an outgoing transfer request is
+   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
+   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
+   * by the counterparty&#39;s bank.
    *
-   * @return status The result of the transfer. For example, **authorised**, **refused**, or
-   *     **error**.
+   * @return status The result of the transfer. For example: - **received**: an outgoing transfer
+   *     request is created. - **authorised**: the transfer request is authorized and the funds are
+   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   *     transfer is returned by the counterparty&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1225,10 +1295,17 @@ public class Transfer {
   }
 
   /**
-   * The result of the transfer. For example, **authorised**, **refused**, or **error**.
+   * The result of the transfer. For example: - **received**: an outgoing transfer request is
+   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
+   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
+   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
+   * by the counterparty&#39;s bank.
    *
-   * @param status The result of the transfer. For example, **authorised**, **refused**, or
-   *     **error**.
+   * @param status The result of the transfer. For example: - **received**: an outgoing transfer
+   *     request is created. - **authorised**: the transfer request is authorized and the funds are
+   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   *     transfer is returned by the counterparty&#39;s bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1291,6 +1368,7 @@ public class Transfer {
         && Objects.equals(this.category, transfer.category)
         && Objects.equals(this.categoryData, transfer.categoryData)
         && Objects.equals(this.counterparty, transfer.counterparty)
+        && Objects.equals(this.createdAt, transfer.createdAt)
         && Objects.equals(this.creationDate, transfer.creationDate)
         && Objects.equals(this.description, transfer.description)
         && Objects.equals(this.directDebitInformation, transfer.directDebitInformation)
@@ -1315,6 +1393,7 @@ public class Transfer {
         category,
         categoryData,
         counterparty,
+        createdAt,
         creationDate,
         description,
         directDebitInformation,
@@ -1340,6 +1419,7 @@ public class Transfer {
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    categoryData: ").append(toIndentedString(categoryData)).append("\n");
     sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directDebitInformation: ")

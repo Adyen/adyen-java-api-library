@@ -67,7 +67,8 @@ public class TransactionsApi extends Service {
    */
   public TransactionSearchResponse getAllTransactions(
       OffsetDateTime createdSince, OffsetDateTime createdUntil) throws ApiException, IOException {
-    return getAllTransactions(null, null, null, null, null, createdSince, createdUntil, null, null);
+    return getAllTransactions(
+        null, null, null, null, null, createdSince, createdUntil, null, null, null);
   }
 
   /**
@@ -101,6 +102,9 @@ public class TransactionsApi extends Service {
    * @param createdUntil {@link OffsetDateTime } Query: Only include transactions that have been
    *     created on or before this point in time. The value must be in ISO 8601 format. For example,
    *     **2021-05-30T15:07:40Z**. (required)
+   * @param sortOrder {@link String } Query: The transactions sorting order. Possible values: -
+   *     **asc**: Ascending order, from older to most recent. - **desc**: Descending order, from
+   *     most recent to older. (optional)
    * @param limit {@link Integer } Query: The number of items returned per page, maximum of 100
    *     items. By default, the response returns 10 items per page. (optional)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
@@ -116,6 +120,7 @@ public class TransactionsApi extends Service {
       String cursor,
       OffsetDateTime createdSince,
       OffsetDateTime createdUntil,
+      String sortOrder,
       Integer limit,
       RequestOptions requestOptions)
       throws ApiException, IOException {
@@ -141,6 +146,9 @@ public class TransactionsApi extends Service {
     }
     if (createdUntil != null) {
       queryParams.put("createdUntil", createdUntil.toString());
+    }
+    if (sortOrder != null) {
+      queryParams.put("sortOrder", sortOrder);
     }
     if (limit != null) {
       queryParams.put("limit", limit.toString());
