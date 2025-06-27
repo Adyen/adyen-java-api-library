@@ -17,10 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+
+import java.util.*;
+import java.util.logging.Logger;
 
 /** LegalEntity */
 @JsonPropertyOrder({
@@ -42,6 +41,8 @@ import java.util.Objects;
   LegalEntity.JSON_PROPERTY_VERIFICATION_PLAN
 })
 public class LegalEntity {
+  private static final Logger LOG = Logger.getLogger(LegalEntity.class.getName());
+
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private Map<String, LegalEntityCapability> capabilities;
 
@@ -118,8 +119,8 @@ public class LegalEntity {
           return b;
         }
       }
+      LOG.warning("Unexpected enum value '" + value + "' - Supported values are "+ Arrays.toString(TypeEnum.values()));
       return null;
-      //throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
 
