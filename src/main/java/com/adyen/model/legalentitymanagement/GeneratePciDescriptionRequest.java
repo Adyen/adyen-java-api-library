@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** GeneratePciDescriptionRequest */
 @JsonPropertyOrder({
@@ -36,6 +38,8 @@ public class GeneratePciDescriptionRequest {
     POS(String.valueOf("pos")),
 
     POSMOTO(String.valueOf("posMoto"));
+
+    private static final Logger LOG = Logger.getLogger(AdditionalSalesChannelsEnum.class.getName());
 
     private String value;
 
@@ -60,7 +64,13 @@ public class GeneratePciDescriptionRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AdditionalSalesChannelsEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AdditionalSalesChannelsEnum.values()));
+      return null;
     }
   }
 

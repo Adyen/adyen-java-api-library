@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** WebDataExemption */
 @JsonPropertyOrder({WebDataExemption.JSON_PROPERTY_REASON})
@@ -27,6 +29,8 @@ public class WebDataExemption {
     NOONLINEPRESENCE(String.valueOf("noOnlinePresence")),
 
     NOTCOLLECTEDDURINGONBOARDING(String.valueOf("notCollectedDuringOnboarding"));
+
+    private static final Logger LOG = Logger.getLogger(ReasonEnum.class.getName());
 
     private String value;
 
@@ -51,7 +55,13 @@ public class WebDataExemption {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ReasonEnum.values()));
+      return null;
     }
   }
 

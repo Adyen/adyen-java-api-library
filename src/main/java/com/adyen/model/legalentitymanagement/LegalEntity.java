@@ -17,8 +17,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /** LegalEntity */
@@ -41,8 +45,6 @@ import java.util.logging.Logger;
   LegalEntity.JSON_PROPERTY_VERIFICATION_PLAN
 })
 public class LegalEntity {
-  private static final Logger LOG = Logger.getLogger(LegalEntity.class.getName());
-
   public static final String JSON_PROPERTY_CAPABILITIES = "capabilities";
   private Map<String, LegalEntityCapability> capabilities;
 
@@ -96,6 +98,8 @@ public class LegalEntity {
 
     UNINCORPORATEDPARTNERSHIP(String.valueOf("unincorporatedPartnership"));
 
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
     private String value;
 
     TypeEnum(String value) {
@@ -119,7 +123,12 @@ public class LegalEntity {
           return b;
         }
       }
-      LOG.warning("Unexpected enum value '" + value + "' - Supported values are "+ Arrays.toString(TypeEnum.values()));
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
       return null;
     }
   }
@@ -140,14 +149,12 @@ public class LegalEntity {
 
   @JsonCreator
   public LegalEntity(
-      @JsonProperty(JSON_PROPERTY_CAPABILITIES) Map<String, LegalEntityCapability> capabilities,
       @JsonProperty(JSON_PROPERTY_ID) String id,
       @JsonProperty(JSON_PROPERTY_TRANSFER_INSTRUMENTS)
           List<TransferInstrumentReference> transferInstruments,
       @JsonProperty(JSON_PROPERTY_VERIFICATION_DEADLINES)
           List<VerificationDeadline> verificationDeadlines) {
     this();
-    this.capabilities = capabilities;
     this.id = id;
     this.transferInstruments = transferInstruments;
     this.verificationDeadlines = verificationDeadlines;
@@ -156,17 +163,57 @@ public class LegalEntity {
   /**
    * Contains key-value pairs that specify the actions that the legal entity can do in your
    * platform.The key is a capability required for your integration. For example, **issueCard** for
-   * Issuing.The value is an object containing the settings for the capability.
+   * Issuing. The value is an object containing the settings for the capability.
+   *
+   * @param capabilities Contains key-value pairs that specify the actions that the legal entity can
+   *     do in your platform.The key is a capability required for your integration. For example,
+   *     **issueCard** for Issuing. The value is an object containing the settings for the
+   *     capability.
+   * @return the current {@code LegalEntity} instance, allowing for method chaining
+   */
+  public LegalEntity capabilities(Map<String, LegalEntityCapability> capabilities) {
+    this.capabilities = capabilities;
+    return this;
+  }
+
+  public LegalEntity putCapabilitiesItem(String key, LegalEntityCapability capabilitiesItem) {
+    if (this.capabilities == null) {
+      this.capabilities = new HashMap<>();
+    }
+    this.capabilities.put(key, capabilitiesItem);
+    return this;
+  }
+
+  /**
+   * Contains key-value pairs that specify the actions that the legal entity can do in your
+   * platform.The key is a capability required for your integration. For example, **issueCard** for
+   * Issuing. The value is an object containing the settings for the capability.
    *
    * @return capabilities Contains key-value pairs that specify the actions that the legal entity
    *     can do in your platform.The key is a capability required for your integration. For example,
-   *     **issueCard** for Issuing.The value is an object containing the settings for the
+   *     **issueCard** for Issuing. The value is an object containing the settings for the
    *     capability.
    */
   @JsonProperty(JSON_PROPERTY_CAPABILITIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Map<String, LegalEntityCapability> getCapabilities() {
     return capabilities;
+  }
+
+  /**
+   * Contains key-value pairs that specify the actions that the legal entity can do in your
+   * platform.The key is a capability required for your integration. For example, **issueCard** for
+   * Issuing. The value is an object containing the settings for the capability.
+   *
+   * @param capabilities Contains key-value pairs that specify the actions that the legal entity can
+   *     do in your platform.The key is a capability required for your integration. For example,
+   *     **issueCard** for Issuing. The value is an object containing the settings for the
+   *     capability.
+   */
+  @JsonProperty(JSON_PROPERTY_CAPABILITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCapabilities(Map<String, LegalEntityCapability> capabilities) {
+    this.capabilities = capabilities;
   }
 
   /**
