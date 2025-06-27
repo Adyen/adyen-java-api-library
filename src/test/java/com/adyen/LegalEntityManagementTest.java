@@ -1,6 +1,6 @@
 package com.adyen;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
@@ -21,43 +21,39 @@ public class LegalEntityManagementTest extends BaseTest {
         createMockClientFromFile("mocks/legalentitymanagement/response/LegalEntity.json");
     LegalEntitiesApi service = new LegalEntitiesApi(client);
 
-    LegalEntityInfoRequiredType request = new LegalEntityInfoRequiredType()
+    LegalEntityInfoRequiredType request =
+        new LegalEntityInfoRequiredType()
             .type(LegalEntityInfoRequiredType.TypeEnum.INDIVIDUAL) // Using the enum for type
             .reference("string")
-            .individual(new Individual()
-                    .birthData(new BirthData()
-                            .dateOfBirth("string")) 
-                    .email("string") 
-                    .identificationData(new IdentificationData()
-                            .cardNumber("string") 
-                            .issuerState("string") 
-                            .nationalIdExempt(true) 
-                            .number("string") 
+            .individual(
+                new Individual()
+                    .birthData(new BirthData().dateOfBirth("string"))
+                    .email("string")
+                    .identificationData(
+                        new IdentificationData()
+                            .cardNumber("string")
+                            .issuerState("string")
+                            .nationalIdExempt(true)
+                            .number("string")
                             .type(IdentificationData.TypeEnum.NATIONALIDNUMBER))
-                    .name(new Name()
-                            .firstName("string") 
-                            .infix("string") 
-                            .lastName("string")) 
-                    .nationality("string") 
-                    .phone(new PhoneNumber()
-                            .number("string") 
-                            .type("string"))
-                    .residentialAddress(new Address()
-                            .city("string") 
-                            .country("string") 
-                            .postalCode("string") 
-                            .stateOrProvince("string") 
-                            .street("string") 
-                            .street2("string")) 
-                    .addTaxInformationItem(new TaxInformation()
-                            .country("st") 
-                            .number("string") 
-                            .type("string"))
-                    .webData(new WebData()
-                            .webAddress("string"))) 
-            .addEntityAssociationsItem(new LegalEntityAssociation()
-                    .jobTitle("string") 
-                    .legalEntityId("string") 
+                    .name(new Name().firstName("string").infix("string").lastName("string"))
+                    .nationality("string")
+                    .phone(new PhoneNumber().number("string").type("string"))
+                    .residentialAddress(
+                        new Address()
+                            .city("string")
+                            .country("string")
+                            .postalCode("string")
+                            .stateOrProvince("string")
+                            .street("string")
+                            .street2("string"))
+                    .addTaxInformationItem(
+                        new TaxInformation().country("st").number("string").type("string"))
+                    .webData(new WebData().webAddress("string")))
+            .addEntityAssociationsItem(
+                new LegalEntityAssociation()
+                    .jobTitle("string")
+                    .legalEntityId("string")
                     .type(LegalEntityAssociation.TypeEnum.PCISIGNATORY));
 
     // Note: The JSON also includes 'organization' and 'soleProprietorship' objects,
@@ -81,13 +77,17 @@ public class LegalEntityManagementTest extends BaseTest {
   }
 
   @Test
-  public void LegalEntitieInvalidEnumTest() throws Exception {
+  public void LegalEntitiesInvalidEnumTest() throws Exception {
     Client client =
-            createMockClientFromFile("mocks/legalentitymanagement/response/LegalEntityInvalidEnum.json");
+        createMockClientFromFile(
+            "mocks/legalentitymanagement/response/LegalEntityInvalidEnum.json");
     LegalEntitiesApi service = new LegalEntitiesApi(client);
     LegalEntity response = service.getLegalEntity("LE322JV223222D5GG42KN6869");
-    assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
-    assertEquals("string", response.getId());
+
+    assertNotNull(response);
+    assertEquals("string", response.getId()); // id is found
+    // type is null since enum value doesn't exist
+    assertNull(response.getType());
   }
 
   @Test
@@ -96,24 +96,23 @@ public class LegalEntityManagementTest extends BaseTest {
         createMockClientFromFile("mocks/legalentitymanagement/response/LegalEntity.json");
     LegalEntitiesApi service = new LegalEntitiesApi(client);
 
-    LegalEntityInfo request = new LegalEntityInfo()
+    LegalEntityInfo request =
+        new LegalEntityInfo()
             .type(LegalEntityInfo.TypeEnum.INDIVIDUAL)
-            .individual(new Individual()
-                    .residentialAddress(new Address()
+            .individual(
+                new Individual()
+                    .residentialAddress(
+                        new Address()
                             .city("San Francisco")
                             .country("US")
                             .postalCode("94107")
                             .street("Brannan Street 274")
                             .stateOrProvince("CA"))
-                    .phone(new PhoneNumber()
-                            .number("5551231234")
-                            .type("mobile"))
-                    .name(new Name()
-                            .firstName("Simone")
-                            .lastName("Hopper"))
-                    .birthData(new BirthData()
-                            .dateOfBirth("1981-12-01"))
-                    .email("s.hopper@example.com"));    LegalEntity response = service.updateLegalEntity("LE322JV223222D5GG42KN6869", request);
+                    .phone(new PhoneNumber().number("5551231234").type("mobile"))
+                    .name(new Name().firstName("Simone").lastName("Hopper"))
+                    .birthData(new BirthData().dateOfBirth("1981-12-01"))
+                    .email("s.hopper@example.com"));
+    LegalEntity response = service.updateLegalEntity("LE322JV223222D5GG42KN6869", request);
     assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
     assertEquals("string", response.getId());
   }
@@ -135,16 +134,17 @@ public class LegalEntityManagementTest extends BaseTest {
         createMockClientFromFile("mocks/legalentitymanagement/response/TransferInstrument.json");
     TransferInstrumentsApi service = new TransferInstrumentsApi(client);
 
-    TransferInstrumentInfo request = new TransferInstrumentInfo()
+    TransferInstrumentInfo request =
+        new TransferInstrumentInfo()
             .type(TransferInstrumentInfo.TypeEnum.BANKACCOUNT)
             .legalEntityId("string")
-            .bankAccount(new BankAccountInfo()
-                    .accountIdentification(new BankAccountInfoAccountIdentification(
+            .bankAccount(
+                new BankAccountInfo()
+                    .accountIdentification(
+                        new BankAccountInfoAccountIdentification(
                             new AULocalAccountIdentification()
-                                    .accountNumber("string")
-                                    .bsbCode("string")
-                    ))
-            );
+                                .accountNumber("string")
+                                .bsbCode("string"))));
 
     TransferInstrument response = service.createTransferInstrument(request);
     assertEquals(TransferInstrument.TypeEnum.BANKACCOUNT, response.getType());
@@ -167,16 +167,17 @@ public class LegalEntityManagementTest extends BaseTest {
         createMockClientFromFile("mocks/legalentitymanagement/response/TransferInstrument.json");
     TransferInstrumentsApi service = new TransferInstrumentsApi(client);
 
-    TransferInstrumentInfo request = new TransferInstrumentInfo()
+    TransferInstrumentInfo request =
+        new TransferInstrumentInfo()
             .type(TransferInstrumentInfo.TypeEnum.BANKACCOUNT)
             .legalEntityId("string")
-            .bankAccount(new BankAccountInfo()
-                    .accountIdentification(new BankAccountInfoAccountIdentification(
+            .bankAccount(
+                new BankAccountInfo()
+                    .accountIdentification(
+                        new BankAccountInfoAccountIdentification(
                             new AULocalAccountIdentification()
-                                    .accountNumber("string")
-                                    .bsbCode("string")
-                    ))
-            );
+                                .accountNumber("string")
+                                .bsbCode("string"))));
 
     TransferInstrument response =
         service.updateTransferInstrument("SE576BH223222F5GJVKHH6BDT", request);
@@ -198,17 +199,16 @@ public class LegalEntityManagementTest extends BaseTest {
         createMockClientFromFile("mocks/legalentitymanagement/response/BusinessLine.json");
     BusinessLinesApi service = new BusinessLinesApi(client);
 
-    BusinessLineInfo request = new BusinessLineInfo()
+    BusinessLineInfo request =
+        new BusinessLineInfo()
             .industryCode("string")
             .service(BusinessLineInfo.ServiceEnum.PAYMENTPROCESSING)
             .addSalesChannelsItem("string")
-            .sourceOfFunds(new SourceOfFunds()
-                    .adyenProcessedFunds(true))
+            .sourceOfFunds(new SourceOfFunds().adyenProcessedFunds(true))
             .legalEntityId("LE0000001")
-            .addWebDataItem(new WebData()
-                    .webAddress("string"))
-            .webDataExemption(new WebDataExemption()
-                    .reason(WebDataExemption.ReasonEnum.NOONLINEPRESENCE));
+            .addWebDataItem(new WebData().webAddress("string"))
+            .webDataExemption(
+                new WebDataExemption().reason(WebDataExemption.ReasonEnum.NOONLINEPRESENCE));
 
     BusinessLine response = service.createBusinessLine(request);
     assertEquals("string", response.getLegalEntityId());
@@ -231,17 +231,18 @@ public class LegalEntityManagementTest extends BaseTest {
         createMockClientFromFile("mocks/legalentitymanagement/response/BusinessLine.json");
     BusinessLinesApi service = new BusinessLinesApi(client);
 
-    BusinessLineInfoUpdate request = new BusinessLineInfoUpdate()
+    BusinessLineInfoUpdate request =
+        new BusinessLineInfoUpdate()
             .industryCode("string")
             .addSalesChannelsItem("string")
-            .sourceOfFunds(new SourceOfFunds()
+            .sourceOfFunds(
+                new SourceOfFunds()
                     .adyenProcessedFunds(true)
                     .description("string")
                     .type(SourceOfFunds.TypeEnum.BUSINESS))
-            .addWebDataItem(new WebData()
-                    .webAddress("string"))
-            .webDataExemption(new WebDataExemption()
-                    .reason(WebDataExemption.ReasonEnum.NOONLINEPRESENCE));
+            .addWebDataItem(new WebData().webAddress("string"))
+            .webDataExemption(
+                new WebDataExemption().reason(WebDataExemption.ReasonEnum.NOONLINEPRESENCE));
 
     BusinessLine response = service.updateBusinessLine("SE322KT223222D5FJ7TJN2986", request);
     assertEquals("string", response.getLegalEntityId());
@@ -262,15 +263,22 @@ public class LegalEntityManagementTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
     DocumentsApi service = new DocumentsApi(client);
 
-    Document request = new Document()
-            .attachment(new Attachment()
-                    .content("VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n".getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
+    Document request =
+        new Document()
+            .attachment(
+                new Attachment()
+                    .content(
+                        "VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n"
+                            .getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
                     .contentType("string")
                     .filename("string")
                     .pageName("string")
                     .pageType("string"))
-            .addAttachmentsItem(new Attachment() // Assuming 'addAttachmentsItem' or similar for list
-                    .content("VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n".getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
+            .addAttachmentsItem(
+                new Attachment() // Assuming 'addAttachmentsItem' or similar for list
+                    .content(
+                        "VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n"
+                            .getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
                     .contentType("string")
                     .filename("string")
                     .pageName("string")
@@ -281,9 +289,11 @@ public class LegalEntityManagementTest extends BaseTest {
             .issuerCountry("string")
             .issuerState("string")
             .number("string")
-            .owner(new OwnerEntity()
+            .owner(
+                new OwnerEntity()
                     .id("string")
-                    .type("string")) // If Owner has an enum for type, use that e.g., .type(Owner.TypeEnum.YOUR_TYPE)
+                    .type("string")) // If Owner has an enum for type, use that e.g.,
+            // .type(Owner.TypeEnum.YOUR_TYPE)
             .type(Document.TypeEnum.BANKSTATEMENT); // Using the enum for type
 
     Document response = service.uploadDocumentForVerificationChecks(request);
@@ -305,15 +315,22 @@ public class LegalEntityManagementTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
     DocumentsApi service = new DocumentsApi(client);
 
-    Document request = new Document()
-            .attachment(new Attachment()
-                    .content("VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n".getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
+    Document request =
+        new Document()
+            .attachment(
+                new Attachment()
+                    .content(
+                        "VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n"
+                            .getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
                     .contentType("string")
                     .filename("string")
                     .pageName("string")
                     .pageType("string"))
-            .addAttachmentsItem(new Attachment() // Assuming 'addAttachmentsItem' or similar for list
-                    .content("VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n".getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
+            .addAttachmentsItem(
+                new Attachment() // Assuming 'addAttachmentsItem' or similar for list
+                    .content(
+                        "VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n"
+                            .getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
                     .contentType("string")
                     .filename("string")
                     .pageName("string")
@@ -324,9 +341,11 @@ public class LegalEntityManagementTest extends BaseTest {
             .issuerCountry("string")
             .issuerState("string")
             .number("string")
-            .owner(new OwnerEntity()
+            .owner(
+                new OwnerEntity()
                     .id("string")
-                    .type("string")) // If Owner has an enum for type, use that e.g., .type(Owner.TypeEnum.YOUR_TYPE)
+                    .type("string")) // If Owner has an enum for type, use that e.g.,
+            // .type(Owner.TypeEnum.YOUR_TYPE)
             .type(Document.TypeEnum.BANKSTATEMENT); // Using the enum for type
 
     Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
@@ -355,7 +374,8 @@ public class LegalEntityManagementTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/legalentitymanagement/OnboardingLink.json");
     HostedOnboardingApi service = new HostedOnboardingApi(client);
 
-    OnboardingLinkInfo request = new OnboardingLinkInfo()
+    OnboardingLinkInfo request =
+        new OnboardingLinkInfo()
             .locale("cs-CZ")
             .redirectUrl("https://example.com")
             .themeId("123456789");
@@ -394,15 +414,22 @@ public class LegalEntityManagementTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
     DocumentsApi service = new DocumentsApi(client);
 
-    Document request = new Document()
-            .attachment(new Attachment()
-                    .content("VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n".getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
+    Document request =
+        new Document()
+            .attachment(
+                new Attachment()
+                    .content(
+                        "VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n"
+                            .getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
                     .contentType("string")
                     .filename("string")
                     .pageName("string")
                     .pageType("string"))
-            .addAttachmentsItem(new Attachment() // Assuming 'addAttachmentsItem' or similar for list
-                    .content("VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n".getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
+            .addAttachmentsItem(
+                new Attachment() // Assuming 'addAttachmentsItem' or similar for list
+                    .content(
+                        "VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n"
+                            .getBytes(StandardCharsets.UTF_8)) // "64 encoded string"
                     .contentType("string")
                     .filename("string")
                     .pageName("string")
@@ -413,9 +440,11 @@ public class LegalEntityManagementTest extends BaseTest {
             .issuerCountry("string")
             .issuerState("string")
             .number("string")
-            .owner(new OwnerEntity()
+            .owner(
+                new OwnerEntity()
                     .id("string")
-                    .type("string")) // If Owner has an enum for type, use that e.g., .type(Owner.TypeEnum.YOUR_TYPE)
+                    .type("string")) // If Owner has an enum for type, use that e.g.,
+            // .type(Owner.TypeEnum.YOUR_TYPE)
             .type(Document.TypeEnum.BANKSTATEMENT); // Using the enum for type
 
     Document response = service.updateDocument("SE322KT223222D5FJ7TJN2986", request);
