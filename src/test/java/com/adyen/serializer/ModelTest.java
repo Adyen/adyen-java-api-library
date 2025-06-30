@@ -12,6 +12,9 @@ import java.time.Month;
 import java.time.ZoneId;
 import org.junit.Test;
 
+/**
+ * Test model serialization (toJson) and deserialization (fromJson)
+ */
 public class ModelTest {
 
   @Test
