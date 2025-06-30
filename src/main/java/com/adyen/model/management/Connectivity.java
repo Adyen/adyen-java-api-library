@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** Connectivity */
 @JsonPropertyOrder({
@@ -36,6 +38,8 @@ public class Connectivity {
     ACTIVATED(String.valueOf("ACTIVATED")),
 
     INVENTORY(String.valueOf("INVENTORY"));
+
+    private static final Logger LOG = Logger.getLogger(SimcardStatusEnum.class.getName());
 
     private String value;
 
@@ -60,7 +64,13 @@ public class Connectivity {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "SimcardStatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(SimcardStatusEnum.values()));
+      return null;
     }
   }
 

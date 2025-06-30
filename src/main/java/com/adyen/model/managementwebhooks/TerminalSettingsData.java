@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** TerminalSettingsData */
 @JsonPropertyOrder({
@@ -50,6 +52,8 @@ public class TerminalSettingsData {
 
     MANAGEMENT_API(String.valueOf("Management Api"));
 
+    private static final Logger LOG = Logger.getLogger(UpdateSourceEnum.class.getName());
+
     private String value;
 
     UpdateSourceEnum(String value) {
@@ -73,7 +77,13 @@ public class TerminalSettingsData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "UpdateSourceEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(UpdateSourceEnum.values()));
+      return null;
     }
   }
 

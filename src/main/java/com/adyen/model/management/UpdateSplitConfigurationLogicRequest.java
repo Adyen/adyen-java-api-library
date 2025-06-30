@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** UpdateSplitConfigurationLogicRequest */
 @JsonPropertyOrder({
@@ -50,6 +52,8 @@ public class UpdateSplitConfigurationLogicRequest {
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
 
+    private static final Logger LOG = Logger.getLogger(AcquiringFeesEnum.class.getName());
+
     private String value;
 
     AcquiringFeesEnum(String value) {
@@ -73,7 +77,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AcquiringFeesEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AcquiringFeesEnum.values()));
+      return null;
     }
   }
 
@@ -93,6 +103,8 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(AdyenCommissionEnum.class.getName());
 
     private String value;
 
@@ -117,7 +129,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AdyenCommissionEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AdyenCommissionEnum.values()));
+      return null;
     }
   }
 
@@ -132,6 +150,8 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(AdyenFeesEnum.class.getName());
 
     private String value;
 
@@ -156,7 +176,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AdyenFeesEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AdyenFeesEnum.values()));
+      return null;
     }
   }
 
@@ -172,6 +198,8 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(AdyenMarkupEnum.class.getName());
 
     private String value;
 
@@ -196,7 +224,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AdyenMarkupEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AdyenMarkupEnum.values()));
+      return null;
     }
   }
 
@@ -214,6 +248,8 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount")),
 
     DEDUCTACCORDINGTOSPLITRATIO(String.valueOf("deductAccordingToSplitRatio"));
+
+    private static final Logger LOG = Logger.getLogger(ChargebackEnum.class.getName());
 
     private String value;
 
@@ -238,7 +274,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChargebackEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChargebackEnum.values()));
+      return null;
     }
   }
 
@@ -253,6 +295,9 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+
+    private static final Logger LOG =
+        Logger.getLogger(ChargebackCostAllocationEnum.class.getName());
 
     private String value;
 
@@ -277,7 +322,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChargebackCostAllocationEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChargebackCostAllocationEnum.values()));
+      return null;
     }
   }
 
@@ -295,6 +346,8 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(InterchangeEnum.class.getName());
 
     private String value;
 
@@ -319,7 +372,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "InterchangeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(InterchangeEnum.values()));
+      return null;
     }
   }
 
@@ -357,6 +416,8 @@ public class UpdateSplitConfigurationLogicRequest {
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
 
+    private static final Logger LOG = Logger.getLogger(PaymentFeeEnum.class.getName());
+
     private String value;
 
     PaymentFeeEnum(String value) {
@@ -380,7 +441,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PaymentFeeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PaymentFeeEnum.values()));
+      return null;
     }
   }
 
@@ -397,6 +464,8 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount")),
 
     DEDUCTACCORDINGTOSPLITRATIO(String.valueOf("deductAccordingToSplitRatio"));
+
+    private static final Logger LOG = Logger.getLogger(RefundEnum.class.getName());
 
     private String value;
 
@@ -421,7 +490,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RefundEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RefundEnum.values()));
+      return null;
     }
   }
 
@@ -436,6 +511,8 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(RefundCostAllocationEnum.class.getName());
 
     private String value;
 
@@ -460,7 +537,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RefundCostAllocationEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RefundCostAllocationEnum.values()));
+      return null;
     }
   }
 
@@ -475,6 +558,8 @@ public class UpdateSplitConfigurationLogicRequest {
     ADDTOLIABLEACCOUNT(String.valueOf("addToLiableAccount")),
 
     ADDTOONEBALANCEACCOUNT(String.valueOf("addToOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(RemainderEnum.class.getName());
 
     private String value;
 
@@ -499,7 +584,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RemainderEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RemainderEnum.values()));
+      return null;
     }
   }
 
@@ -514,6 +605,8 @@ public class UpdateSplitConfigurationLogicRequest {
     DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(SchemeFeeEnum.class.getName());
 
     private String value;
 
@@ -538,7 +631,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "SchemeFeeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(SchemeFeeEnum.values()));
+      return null;
     }
   }
 
@@ -556,6 +655,8 @@ public class UpdateSplitConfigurationLogicRequest {
     ADDTOLIABLEACCOUNT(String.valueOf("addToLiableAccount")),
 
     ADDTOONEBALANCEACCOUNT(String.valueOf("addToOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(SurchargeEnum.class.getName());
 
     private String value;
 
@@ -580,7 +681,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "SurchargeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(SurchargeEnum.values()));
+      return null;
     }
   }
 
@@ -595,6 +702,8 @@ public class UpdateSplitConfigurationLogicRequest {
     ADDTOLIABLEACCOUNT(String.valueOf("addToLiableAccount")),
 
     ADDTOONEBALANCEACCOUNT(String.valueOf("addToOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(TipEnum.class.getName());
 
     private String value;
 
@@ -619,7 +728,13 @@ public class UpdateSplitConfigurationLogicRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TipEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TipEnum.values()));
+      return null;
     }
   }
 
