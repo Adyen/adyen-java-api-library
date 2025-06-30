@@ -90,9 +90,6 @@ public enum ContentType {
    * @return the ContentType, or {@code null} if no match is found.
    */
   public static ContentType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

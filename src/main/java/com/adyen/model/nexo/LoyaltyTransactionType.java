@@ -84,9 +84,6 @@ public enum LoyaltyTransactionType {
    * @return the LoyaltyTransactionType, or {@code null} if no match is found.
    */
   public static LoyaltyTransactionType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

@@ -155,9 +155,6 @@ public enum POICapabilitiesType {
    * @return the POICapabilitiesType, or {@code null} if no match is found.
    */
   public static POICapabilitiesType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

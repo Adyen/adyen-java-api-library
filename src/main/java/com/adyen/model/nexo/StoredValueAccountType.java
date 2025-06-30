@@ -65,9 +65,6 @@ public enum StoredValueAccountType {
    * @return the StoredValueAccountType, or {@code null} if no match is found.
    */
   public static StoredValueAccountType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

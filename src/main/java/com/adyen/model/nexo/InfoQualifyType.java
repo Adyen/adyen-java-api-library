@@ -136,9 +136,6 @@ public enum InfoQualifyType {
    * @return the InfoQualifyType, or {@code null} if no match is found.
    */
   public static InfoQualifyType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

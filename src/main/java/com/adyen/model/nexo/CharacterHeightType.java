@@ -55,9 +55,6 @@ public enum CharacterHeightType {
    * @return the CharacterHeightType, or {@code null} if no match is found.
    */
   public static CharacterHeightType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

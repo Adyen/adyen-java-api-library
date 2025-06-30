@@ -98,7 +98,6 @@ public enum DocumentQualifierType {
     return value;
   }
 
-
   /**
    * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
@@ -106,9 +105,6 @@ public enum DocumentQualifierType {
    * @return the DocumentQualifierType, or {@code null} if no match is found.
    */
   public static DocumentQualifierType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

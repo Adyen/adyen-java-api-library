@@ -92,9 +92,6 @@ public enum AccountType {
    * @return the AccountType, or {@code null} if no match is found.
    */
   public static AccountType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

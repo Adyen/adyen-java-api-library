@@ -61,9 +61,6 @@ public enum SoundActionType {
    * @return the SoundActionType, or {@code null} if no match is found.
    */
   public static SoundActionType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

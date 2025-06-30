@@ -157,9 +157,6 @@ public enum UnitOfMeasureType {
    * @return the UnitOfMeasureType, or {@code null} if no match is found.
    */
   public static UnitOfMeasureType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

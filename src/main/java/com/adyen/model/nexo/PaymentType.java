@@ -125,9 +125,6 @@ public enum PaymentType {
    * @return the PaymentType, or {@code null} if no match is found.
    */
   public static PaymentType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

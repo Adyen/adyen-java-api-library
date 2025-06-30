@@ -109,9 +109,6 @@ public enum EntryModeType {
    * @return the EntryModeType, or {@code null} if no match is found.
    */
   public static EntryModeType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

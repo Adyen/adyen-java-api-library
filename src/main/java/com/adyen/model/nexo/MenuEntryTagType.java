@@ -72,9 +72,6 @@ public enum MenuEntryTagType {
    * @return the MenuEntryTagType, or {@code null} if no match is found.
    */
   public static MenuEntryTagType fromValue(String v) {
-    return Arrays.stream(values())
-            .filter(s -> s.value.equals(v))
-            .findFirst()
-            .orElse(null);
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }
