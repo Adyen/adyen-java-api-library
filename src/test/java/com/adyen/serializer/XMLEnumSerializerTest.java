@@ -59,7 +59,7 @@ public class XMLEnumSerializerTest {
   @Test
   public void testAuthenticationMethodTypeInvalidEnum() throws Exception {
     XMLEnumTypeAdapter<AuthenticationMethodType> adapter =
-            new XMLEnumTypeAdapter<>(AuthenticationMethodType.class);
+        new XMLEnumTypeAdapter<>(AuthenticationMethodType.class);
 
     String value1 = "\"unknown\"";
     JsonReader jsonReader1 = new JsonReader(new StringReader(value1));
@@ -113,5 +113,4 @@ public class XMLEnumSerializerTest {
     assertEquals("CardTotals", AccountType.CARD_TOTALS.value());
     assertEquals("EpurseCard", AccountType.EPURSE_CARD.value());
   }
-
 }

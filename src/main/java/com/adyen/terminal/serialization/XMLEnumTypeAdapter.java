@@ -63,9 +63,9 @@ public class XMLEnumTypeAdapter<T> extends TypeAdapter<T> {
     Enum enumValue = (Enum) value;
     try {
       if (enumValue.getClass().getField(enumValue.name()).getAnnotation(XmlEnumValue.class)
-              != null) {
+          != null) {
         XmlEnumValue xmlEnumValue =
-                enumValue.getClass().getField(enumValue.name()).getAnnotation(XmlEnumValue.class);
+            enumValue.getClass().getField(enumValue.name()).getAnnotation(XmlEnumValue.class);
         out.value(xmlEnumValue.value());
       } else {
         out.value(enumValue.name());
