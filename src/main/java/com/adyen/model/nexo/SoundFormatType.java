@@ -55,15 +55,15 @@ public enum SoundFormatType {
   }
 
   /**
-   * From value sound format type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the sound format type
+   * @param v string value
+   * @return the SoundFormatType, or {@code null} if no match is found.
    */
   public static SoundFormatType fromValue(String v) {
     return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+            .filter(s -> s.value.equals(v))
+            .findFirst()
+            .orElse(null);
   }
 }

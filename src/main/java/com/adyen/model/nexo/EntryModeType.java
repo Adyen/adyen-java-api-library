@@ -103,15 +103,15 @@ public enum EntryModeType {
   }
 
   /**
-   * From value entry mode type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the entry mode type
+   * @param v string value
+   * @return the EntryModeType, or {@code null} if no match is found.
    */
   public static EntryModeType fromValue(String v) {
     return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+            .filter(s -> s.value.equals(v))
+            .findFirst()
+            .orElse(null);
   }
 }

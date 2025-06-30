@@ -72,16 +72,10 @@ public enum ReconciliationType {
     return value;
   }
 
-  /**
-   * From value reconciliation type.
-   *
-   * @param v the v
-   * @return the reconciliation type
-   */
   public static ReconciliationType fromValue(String v) {
     return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+            .filter(s -> s.value.equals(v))
+            .findFirst()
+            .orElse(null);
   }
 }

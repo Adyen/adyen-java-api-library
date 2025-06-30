@@ -60,15 +60,15 @@ public enum MessageType {
   }
 
   /**
-   * From value message type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the message type
+   * @param v string value
+   * @return the MessageType, or {@code null} if no match is found.
    */
   public static MessageType fromValue(String v) {
     return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+            .filter(s -> s.value.equals(v))
+            .findFirst()
+            .orElse(null);
   }
 }

@@ -180,15 +180,15 @@ public enum ErrorConditionType {
   }
 
   /**
-   * From value error condition type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the error condition type
+   * @param v string value
+   * @return the ErrorConditionType, or {@code null} if no match is found.
    */
   public static ErrorConditionType fromValue(String v) {
     return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+            .filter(s -> s.value.equals(v))
+            .findFirst()
+            .orElse(null);
   }
 }

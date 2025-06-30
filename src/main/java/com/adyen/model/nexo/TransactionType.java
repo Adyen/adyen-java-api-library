@@ -164,15 +164,15 @@ public enum TransactionType {
   }
 
   /**
-   * From value transaction type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the transaction type
+   * @param v string value
+   * @return the TransactionType, or {@code null} if no match is found.
    */
   public static TransactionType fromValue(String v) {
     return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+            .filter(s -> s.value.equals(v))
+            .findFirst()
+            .orElse(null);
   }
 }
