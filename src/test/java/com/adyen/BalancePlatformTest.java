@@ -62,21 +62,22 @@ public class BalancePlatformTest extends BaseTest {
         createMockClientFromFile("mocks/balancePlatform/AccountHolderCreatedResponse.json");
     AccountHoldersApi service = new AccountHoldersApi(client);
     AccountHolderInfo request =
-            new AccountHolderInfo()
-                    .balancePlatform("YOUR_BALANCE_PLATFORM")
-                    .description("S.Hopper - Staff 123")
-                    .legalEntityId("LE322KT223222D5FJ7THR293F")
-                    .contactDetails(
-                            new ContactDetails()
-                                    .email("s.hopper@example.com")
-                                    .phone(new Phone().number("+315551231234").type(Phone.TypeEnum.MOBILE))
-                                    .address(
-                                            new Address()
-                                                    .city("Amsterdam")
-                                                    .country("NL")
-                                                    .street("Brannan Street")
-                                                    .houseNumberOrName("274")
-                                                    .postalCode("1020CD")));    AccountHolder response = service.createAccountHolder(request);
+        new AccountHolderInfo()
+            .balancePlatform("YOUR_BALANCE_PLATFORM")
+            .description("S.Hopper - Staff 123")
+            .legalEntityId("LE322KT223222D5FJ7THR293F")
+            .contactDetails(
+                new ContactDetails()
+                    .email("s.hopper@example.com")
+                    .phone(new Phone().number("+315551231234").type(Phone.TypeEnum.MOBILE))
+                    .address(
+                        new Address()
+                            .city("Amsterdam")
+                            .country("NL")
+                            .street("Brannan Street")
+                            .houseNumberOrName("274")
+                            .postalCode("1020CD")));
+    AccountHolder response = service.createAccountHolder(request);
     assertEquals("AH3227C223222B5CMD2SXFKGT", response.getId());
     assertEquals("LE322KT223222D5FJ7THR293F", response.getLegalEntityId());
   }
@@ -95,21 +96,21 @@ public class BalancePlatformTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/balancePlatform/AccountHolder.json");
     AccountHoldersApi service = new AccountHoldersApi(client);
     AccountHolderUpdateRequest request =
-            new AccountHolderUpdateRequest()
-                    .balancePlatform("YOUR_BALANCE_PLATFORM")
-                    .contactDetails(
-                            new ContactDetails()
-                                    .email("s.hopper@example.com")
-                                    .phone(new Phone().number("+315551231234").type(Phone.TypeEnum.MOBILE))
-                                    .address(
-                                            new Address()
-                                                    .city("Amsterdam")
-                                                    .country("NL")
-                                                    .street("Brannan Street")
-                                                    .houseNumberOrName("274")
-                                                    .postalCode("1020CD")))
-                    .description("S.Hopper - Staff 123")
-                    .status(AccountHolderUpdateRequest.StatusEnum.ACTIVE);
+        new AccountHolderUpdateRequest()
+            .balancePlatform("YOUR_BALANCE_PLATFORM")
+            .contactDetails(
+                new ContactDetails()
+                    .email("s.hopper@example.com")
+                    .phone(new Phone().number("+315551231234").type(Phone.TypeEnum.MOBILE))
+                    .address(
+                        new Address()
+                            .city("Amsterdam")
+                            .country("NL")
+                            .street("Brannan Street")
+                            .houseNumberOrName("274")
+                            .postalCode("1020CD")))
+            .description("S.Hopper - Staff 123")
+            .status(AccountHolderUpdateRequest.StatusEnum.ACTIVE);
     AccountHolder response = service.updateAccountHolder("AH3227C223222B5CMD2SXFKGT", request);
     assertEquals("AH3227C223222B5CMD2SXFKGT", response.getId());
     assertEquals("LE322KT223222D5FJ7THR293F", response.getLegalEntityId());
@@ -162,7 +163,8 @@ public class BalancePlatformTest extends BaseTest {
   public void BalanceAccountsCreateTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/BalanceAccount.json");
     BalanceAccountsApi service = new BalanceAccountsApi(client);
-    BalanceAccountInfo request = new BalanceAccountInfo()
+    BalanceAccountInfo request =
+        new BalanceAccountInfo()
             .accountHolderId("AH32272223222B59K6ZKBBFNQ")
             .description("S.Hopper - Main balance account");
     BalanceAccount response = service.createBalanceAccount(request);
@@ -183,7 +185,8 @@ public class BalancePlatformTest extends BaseTest {
   public void BalanceAccountsUpdateTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/BalanceAccount.json");
     BalanceAccountsApi service = new BalanceAccountsApi(client);
-    BalanceAccountUpdateRequest request = new BalanceAccountUpdateRequest()
+    BalanceAccountUpdateRequest request =
+        new BalanceAccountUpdateRequest()
             .accountHolderId("AH32272223222B59K6ZKBBFNQ")
             .reference("S.Hopper - Main balance account")
             .status(BalanceAccountUpdateRequest.StatusEnum.ACTIVE);
@@ -228,7 +231,8 @@ public class BalancePlatformTest extends BaseTest {
   public void BalanceAccountsCreateSweepTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
     BalanceAccountsApi service = new BalanceAccountsApi(client);
-    CreateSweepConfigurationV2 request = new CreateSweepConfigurationV2()
+    CreateSweepConfigurationV2 request =
+        new CreateSweepConfigurationV2()
             .counterparty(new SweepCounterparty().merchantAccount("YOUR_MERCHANT_ACCOUNT"))
             .triggerAmount(new Amount().currency("EUR").value(50000L))
             .currency("EUR")
@@ -243,10 +247,12 @@ public class BalancePlatformTest extends BaseTest {
   @Test
   public void sweepScheduleTest() throws Exception {
     // response -> from json
-    SweepConfigurationV2 request = new SweepConfigurationV2()
+    SweepConfigurationV2 request =
+        new SweepConfigurationV2()
             .counterparty(new SweepCounterparty().merchantAccount("YOUR_MERCHANT_ACCOUNT"))
             .currency("EUR")
-            // .ignoredField("I'm not part of the specs yet, and that's OK") // This field is ignored when using the builder
+            // .ignoredField("I'm not part of the specs yet, and that's OK") // This field is
+            // ignored when using the builder
             .schedule(new SweepSchedule().type(SweepSchedule.TypeEnum.BALANCE));
     assertThat(request.getSchedule(), instanceOf(SweepSchedule.class));
     assertEquals(SweepSchedule.TypeEnum.BALANCE, request.getSchedule().getType());
@@ -255,10 +261,12 @@ public class BalancePlatformTest extends BaseTest {
   @Test
   public void cronSweepScheduleTest() throws Exception {
     // response -> from json
-    SweepConfigurationV2 request = new SweepConfigurationV2()
+    SweepConfigurationV2 request =
+        new SweepConfigurationV2()
             .counterparty(new SweepCounterparty().merchantAccount("YOUR_MERCHANT_ACCOUNT"))
             .currency("EUR")
-            .schedule(new SweepSchedule()
+            .schedule(
+                new SweepSchedule()
                     .type(SweepSchedule.TypeEnum.CRON)
                     .cronExpression("*/5 * * * *"));
     assertThat(request.getSchedule(), instanceOf(SweepSchedule.class));
@@ -318,7 +326,8 @@ public class BalancePlatformTest extends BaseTest {
   public void BalanceAccountsUpdateSweepTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
     BalanceAccountsApi service = new BalanceAccountsApi(client);
-    UpdateSweepConfigurationV2 request = new UpdateSweepConfigurationV2()
+    UpdateSweepConfigurationV2 request =
+        new UpdateSweepConfigurationV2()
             .counterparty(new SweepCounterparty().merchantAccount("YOUR_MERCHANT_ACCOUNT"))
             .triggerAmount(new Amount().currency("EUR").value(50000L))
             .currency("EUR")
@@ -347,7 +356,8 @@ public class BalancePlatformTest extends BaseTest {
   public void PaymentInstrumentsCreateTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/PaymentInstrument.json");
     PaymentInstrumentsApi service = new PaymentInstrumentsApi(client);
-    PaymentInstrumentInfo request = new PaymentInstrumentInfo()
+    PaymentInstrumentInfo request =
+        new PaymentInstrumentInfo()
             .type(PaymentInstrumentInfo.TypeEnum.BANKACCOUNT)
             .description("YOUR_DESCRIPTION")
             .balanceAccountId("BA3227C223222B5CTBLR8BWJB")
@@ -372,8 +382,7 @@ public class BalancePlatformTest extends BaseTest {
     PaymentInstrumentsApi service = new PaymentInstrumentsApi(client);
 
     PaymentInstrumentUpdateRequest request =
-            new PaymentInstrumentUpdateRequest()
-                    .balanceAccountId("BA32272223222B5CM82WL892M");
+        new PaymentInstrumentUpdateRequest().balanceAccountId("BA32272223222B5CM82WL892M");
 
     UpdatePaymentInstrument response =
         service.updatePaymentInstrument("PI322LJ223222B5DJS7CD9LWL", request);
@@ -397,9 +406,8 @@ public class BalancePlatformTest extends BaseTest {
   public void PaymentInstrumentGroupsCreateTest() throws Exception {
     Client client = createMockClientFromFile("mocks/balancePlatform/PaymentInstrumentGroup.json");
     PaymentInstrumentGroupsApi service = new PaymentInstrumentGroupsApi(client);
-    PaymentInstrumentGroupInfo request = new PaymentInstrumentGroupInfo()
-            .balancePlatform("YOUR_BALANCE_PLATFORM")
-            .txVariant("mc");
+    PaymentInstrumentGroupInfo request =
+        new PaymentInstrumentGroupInfo().balancePlatform("YOUR_BALANCE_PLATFORM").txVariant("mc");
     PaymentInstrumentGroup response = service.createPaymentInstrumentGroup(request);
     assertEquals("PG3227C223222B5CMD3FJFKGZ", response.getId());
   }
@@ -430,17 +438,21 @@ public class BalancePlatformTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/balancePlatform/TransactionRule.json");
     TransactionRulesApi service = new TransactionRulesApi(client);
 
-    TransactionRuleInfo request = new TransactionRuleInfo()
+    TransactionRuleInfo request =
+        new TransactionRuleInfo()
             .description("Allow only point-of-sale transactions")
             .reference("YOUR_REFERENCE_4F7346")
-            .entityKey(new TransactionRuleEntityKey()
+            .entityKey(
+                new TransactionRuleEntityKey()
                     .entityType("paymentInstrument")
                     .entityReference("PI3227C223222B5BPCMFXD2XG"))
             .status(TransactionRuleInfo.StatusEnum.ACTIVE)
-            .interval(new TransactionRuleInterval()
-                    .type(TransactionRuleInterval.TypeEnum.PERTRANSACTION))
-            .ruleRestrictions(new TransactionRuleRestrictions()
-                    .processingTypes(new ProcessingTypesRestriction()
+            .interval(
+                new TransactionRuleInterval().type(TransactionRuleInterval.TypeEnum.PERTRANSACTION))
+            .ruleRestrictions(
+                new TransactionRuleRestrictions()
+                    .processingTypes(
+                        new ProcessingTypesRestriction()
                             .operation("noneMatch")
                             .addValueItem(ProcessingTypesRestriction.ValueEnum.POS)))
             .type(TransactionRuleInfo.TypeEnum.BLOCKLIST);
@@ -463,17 +475,21 @@ public class BalancePlatformTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/balancePlatform/TransactionRule.json");
     TransactionRulesApi service = new TransactionRulesApi(client);
 
-    TransactionRuleInfo request = new TransactionRuleInfo()
+    TransactionRuleInfo request =
+        new TransactionRuleInfo()
             .description("Allow only point-of-sale transactions")
             .reference("YOUR_REFERENCE_4F7346")
-            .entityKey(new TransactionRuleEntityKey()
+            .entityKey(
+                new TransactionRuleEntityKey()
                     .entityType("paymentInstrument")
                     .entityReference("PI3227C223222B5BPCMFXD2XG"))
             .status(TransactionRuleInfo.StatusEnum.ACTIVE)
-            .interval(new TransactionRuleInterval()
-                    .type(TransactionRuleInterval.TypeEnum.PERTRANSACTION))
-            .ruleRestrictions(new TransactionRuleRestrictions()
-                    .processingTypes(new ProcessingTypesRestriction()
+            .interval(
+                new TransactionRuleInterval().type(TransactionRuleInterval.TypeEnum.PERTRANSACTION))
+            .ruleRestrictions(
+                new TransactionRuleRestrictions()
+                    .processingTypes(
+                        new ProcessingTypesRestriction()
                             .operation("noneMatch")
                             .addValueItem(ProcessingTypesRestriction.ValueEnum.POS)))
             .type(TransactionRuleInfo.TypeEnum.BLOCKLIST);

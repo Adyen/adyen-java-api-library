@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** SoleProprietorship */
 @JsonPropertyOrder({
@@ -76,6 +78,8 @@ public class SoleProprietorship {
 
     BELOWTAXTHRESHOLD(String.valueOf("belowTaxThreshold"));
 
+    private static final Logger LOG = Logger.getLogger(VatAbsenceReasonEnum.class.getName());
+
     private String value;
 
     VatAbsenceReasonEnum(String value) {
@@ -99,7 +103,13 @@ public class SoleProprietorship {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "VatAbsenceReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(VatAbsenceReasonEnum.values()));
+      return null;
     }
   }
 

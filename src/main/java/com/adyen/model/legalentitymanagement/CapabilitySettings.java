@@ -17,11 +17,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** CapabilitySettings */
 @JsonPropertyOrder({
@@ -46,6 +48,8 @@ public class CapabilitySettings {
 
     PREPAID(String.valueOf("prepaid"));
 
+    private static final Logger LOG = Logger.getLogger(FundingSourceEnum.class.getName());
+
     private String value;
 
     FundingSourceEnum(String value) {
@@ -69,7 +73,13 @@ public class CapabilitySettings {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FundingSourceEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FundingSourceEnum.values()));
+      return null;
     }
   }
 
@@ -83,6 +93,8 @@ public class CapabilitySettings {
     MONTHLY(String.valueOf("monthly")),
 
     WEEKLY(String.valueOf("weekly"));
+
+    private static final Logger LOG = Logger.getLogger(IntervalEnum.class.getName());
 
     private String value;
 
@@ -107,7 +119,13 @@ public class CapabilitySettings {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "IntervalEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(IntervalEnum.values()));
+      return null;
     }
   }
 

@@ -22,10 +22,7 @@ package com.adyen;
 
 import static org.junit.Assert.*;
 
-import com.adyen.model.managementwebhooks.ManagementWebhooksHandler;
-import com.adyen.model.managementwebhooks.MerchantCreatedNotificationRequest;
-import com.adyen.model.managementwebhooks.MerchantUpdatedNotificationRequest;
-import com.adyen.model.managementwebhooks.PaymentMethodCreatedNotificationRequest;
+import com.adyen.model.managementwebhooks.*;
 import com.adyen.model.marketpaywebhooks.AccountHolderCreateNotification;
 import com.adyen.model.nexo.DeviceType;
 import com.adyen.model.nexo.DisplayOutput;
@@ -69,6 +66,23 @@ public class WebhookTest extends BaseTest {
         NotificationRequestItem.EVENT_CODE_AUTHORISATION, notificationRequestItem.getEventCode());
     assertTrue(notificationRequestItem.isSuccess());
     assertEquals("123456789", notificationRequestItem.getPspReference());
+  }
+
+  @Test
+  public void testAuthorisationSuccessWithAdditionalAttribute() {
+    try {
+      NotificationRequest notificationRequest =
+          readNotificationRequestFromFile(
+              "mocks/notification/authorisation-true-additional-attribute.json");
+
+      assertEquals(1, notificationRequest.getNotificationItems().size());
+      NotificationRequestItem notificationRequestItem =
+          notificationRequest.getNotificationItems().get(0);
+
+      assertTrue(notificationRequestItem.isSuccess());
+    } catch (Exception e) {
+      fail("Parsing should not throw an exception for notifications with unknown attributes.");
+    }
   }
 
   @Test
@@ -220,7 +234,7 @@ public class WebhookTest extends BaseTest {
   }
 
   @Test
-  public void testTerminalDisplayNotification() throws Exception {
+  public void testTerminalDisplayNotification() {
     String json = getFileContents("mocks/notification/display-notification.json");
     TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
     DisplayOutput displayOutput =
@@ -232,13 +246,41 @@ public class WebhookTest extends BaseTest {
   }
 
   @Test
-  public void testTerminalEventNotification() throws Exception {
+  public void testTerminalEventNotification() {
     String json = getFileContents("mocks/notification/event-notification.json");
     TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
     EventNotification eventNotification = notification.getSaleToPOIRequest().getEventNotification();
 
     assertEquals("newstate=IDLE&oldstate=START", eventNotification.getEventDetails());
     assertEquals(EventToNotifyType.SHUTDOWN, eventNotification.getEventToNotify());
+  }
+
+  // test with payload including unknown enum value
+  @Test
+  public void testTerminalInvalidEventNotification() {
+    String json = getFileContents("mocks/notification/event-invalid-notification.json");
+    TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
+    EventNotification eventNotification = notification.getSaleToPOIRequest().getEventNotification();
+
+    assertEquals("newstate=IDLE&oldstate=START", eventNotification.getEventDetails());
+    // unexpected event is set as null
+    assertNull(eventNotification.getEventToNotify());
+  }
+
+  // test with payload including additional (unexpected) attributes
+  @Test
+  public void testTerminalEventNotificationAdditionalAttribute() {
+    try {
+      String json =
+          getFileContents("mocks/notification/event-notification-additional-attribute.json");
+      TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
+      EventNotification eventNotification =
+          notification.getSaleToPOIRequest().getEventNotification();
+
+      assertEquals(EventToNotifyType.SHUTDOWN, eventNotification.getEventToNotify());
+    } catch (Exception e) {
+      fail("Parsing should not throw an exception for notifications with additional attributes.");
+    }
   }
 
   @Test
@@ -276,15 +318,15 @@ public class WebhookTest extends BaseTest {
             + "  \"notificationItems\": [\n"
             + "    {\n"
             + "      \"NotificationRequestItem\": {\n"
-            + "        \"additionalData\": { \"originalMerchantAccountCode\": \"LengrandECOM\" },\n"
+            + "        \"additionalData\": { \"originalMerchantAccountCode\": \"TestMerchantAccount\" },\n"
             + "        \"amount\": { \"currency\": \"EUR\", \"value\": 500 },\n"
             + "        \"eventCode\": \"DONATION\",\n"
             + "        \"eventDate\": \"2023-08-22T15:05:06+02:00\",\n"
             + "        \"merchantAccountCode\": \"MyCharity_Giving_TEST\",\n"
             + "        \"merchantReference\": \"9035b75a-e733-4247-a6f3-cda4c480db3d\",\n"
-            + "        \"originalReference\": \"WJZ75L2RPV5X8N82\",\n"
+            + "        \"originalReference\": \"WJ123456\",\n"
             + "        \"paymentMethod\": \"mc\",\n"
-            + "        \"pspReference\": \"FGLQR59BM3RZNN82\",\n"
+            + "        \"pspReference\": \"ABCD12345\",\n"
             + "        \"reason\": \"062791:1115:03/2030\",\n"
             + "        \"success\": \"true\"\n"
             + "      }\n"
@@ -303,7 +345,7 @@ public class WebhookTest extends BaseTest {
             .getAmount()
             .getCurrency());
     Assert.assertEquals(
-        "LengrandECOM",
+        "TestMerchantAccount",
         notificationRequest
             .getNotificationItemContainers()
             .get(0)
@@ -313,27 +355,33 @@ public class WebhookTest extends BaseTest {
   }
 
   @Test
-  public void testManagementWebhookPaymentMethodCreatedParsing() {
-    String notification =
-        "{\n"
-            + "  \"createdAt\": \"2022-01-24T14:59:11+01:00\",\n"
-            + "  \"data\": {\n"
-            + "    \"id\": \"PM3224R223224K5FH4M2K9B86\",\n"
-            + "    \"merchantId\": \"MERCHANT_ACCOUNT\",\n"
-            + "    \"result\": \"SUCCESS\",\n"
-            + "    \"storeId\": \"ST322LJ223223K5F4SQNR9XL5\",\n"
-            + "    \"type\": \"visa\"\n"
-            + "  },\n"
-            + "  \"environment\": \"test\",\n"
-            + "  \"type\": \"paymentMethod.created\"\n"
-            + "}";
-    ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(notification);
+  public void testManagementWebhookPaymentMethodCreatedParsing() throws IOException {
+    String json =
+        getFileContents("mocks/notification/management-webhook-payment-method-created.json");
+    ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(json);
     Assert.assertTrue(webhookHandler.getPaymentMethodCreatedNotificationRequest().isPresent());
     PaymentMethodCreatedNotificationRequest request =
         webhookHandler.getPaymentMethodCreatedNotificationRequest().get();
-    Assert.assertEquals("PM3224R223224K5FH4M2K9B86", request.getData().getId());
+    Assert.assertEquals("PM1234567890000000", request.getData().getId());
     Assert.assertEquals(
         PaymentMethodCreatedNotificationRequest.TypeEnum.PAYMENTMETHOD_CREATED, request.getType());
+    Assert.assertEquals(
+        MidServiceNotificationData.StatusEnum.SUCCESS, request.getData().getStatus());
+  }
+
+  @Test
+  public void testManagementWebhookPaymentMethodCreatedParsingWithUnknownEnum() throws IOException {
+    String json =
+        getFileContents(
+            "mocks/notification/management-webhook-payment-method-created-unknown-enum.json");
+    ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(json);
+    Assert.assertTrue(webhookHandler.getPaymentMethodCreatedNotificationRequest().isPresent());
+    PaymentMethodCreatedNotificationRequest request =
+        webhookHandler.getPaymentMethodCreatedNotificationRequest().get();
+    Assert.assertEquals("PM1234567890000000", request.getData().getId());
+    Assert.assertEquals(
+        PaymentMethodCreatedNotificationRequest.TypeEnum.PAYMENTMETHOD_CREATED, request.getType());
+    Assert.assertNull(request.getData().getStatus());
   }
 
   @Test

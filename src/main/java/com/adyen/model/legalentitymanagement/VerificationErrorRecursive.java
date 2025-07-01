@@ -18,9 +18,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** VerificationErrorRecursive */
 @JsonPropertyOrder({
@@ -156,6 +158,8 @@ public class VerificationErrorRecursive {
     WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCONSUMER(
         String.valueOf("withdrawFromAtmInRestrictedCountriesConsumer"));
 
+    private static final Logger LOG = Logger.getLogger(CapabilitiesEnum.class.getName());
+
     private String value;
 
     CapabilitiesEnum(String value) {
@@ -179,7 +183,13 @@ public class VerificationErrorRecursive {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "CapabilitiesEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CapabilitiesEnum.values()));
+      return null;
     }
   }
 
@@ -207,6 +217,8 @@ public class VerificationErrorRecursive {
 
     REJECTED(String.valueOf("rejected"));
 
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
     private String value;
 
     TypeEnum(String value) {
@@ -230,7 +242,13 @@ public class VerificationErrorRecursive {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

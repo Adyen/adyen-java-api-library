@@ -55,15 +55,12 @@ public enum CustomerOrderReqType {
   }
 
   /**
-   * From value customer order req type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the customer order req type
+   * @param v string value
+   * @return the CustomerOrderReqType, or {@code null} if no match is found.
    */
   public static CustomerOrderReqType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

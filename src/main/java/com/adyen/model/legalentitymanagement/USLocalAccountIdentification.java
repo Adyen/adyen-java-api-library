@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** USLocalAccountIdentification */
 @JsonPropertyOrder({
@@ -37,6 +39,8 @@ public class USLocalAccountIdentification {
     CHECKING(String.valueOf("checking")),
 
     SAVINGS(String.valueOf("savings"));
+
+    private static final Logger LOG = Logger.getLogger(AccountTypeEnum.class.getName());
 
     private String value;
 
@@ -61,7 +65,13 @@ public class USLocalAccountIdentification {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AccountTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AccountTypeEnum.values()));
+      return null;
     }
   }
 
@@ -74,6 +84,8 @@ public class USLocalAccountIdentification {
   /** **usLocal** */
   public enum TypeEnum {
     USLOCAL(String.valueOf("usLocal"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -98,7 +110,13 @@ public class USLocalAccountIdentification {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

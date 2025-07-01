@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** UpdateCompanyWebhookRequest */
 @JsonPropertyOrder({
@@ -68,6 +70,8 @@ public class UpdateCompanyWebhookRequest {
 
     SOAP(String.valueOf("soap"));
 
+    private static final Logger LOG = Logger.getLogger(CommunicationFormatEnum.class.getName());
+
     private String value;
 
     CommunicationFormatEnum(String value) {
@@ -91,7 +95,13 @@ public class UpdateCompanyWebhookRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "CommunicationFormatEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CommunicationFormatEnum.values()));
+      return null;
     }
   }
 
@@ -112,6 +122,8 @@ public class UpdateCompanyWebhookRequest {
     TLSV1_2(String.valueOf("TLSv1.2")),
 
     TLSV1_3(String.valueOf("TLSv1.3"));
+
+    private static final Logger LOG = Logger.getLogger(EncryptionProtocolEnum.class.getName());
 
     private String value;
 
@@ -136,7 +148,13 @@ public class UpdateCompanyWebhookRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "EncryptionProtocolEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(EncryptionProtocolEnum.values()));
+      return null;
     }
   }
 
@@ -156,6 +174,9 @@ public class UpdateCompanyWebhookRequest {
     EXCLUDEACCOUNTS(String.valueOf("excludeAccounts")),
 
     INCLUDEACCOUNTS(String.valueOf("includeAccounts"));
+
+    private static final Logger LOG =
+        Logger.getLogger(FilterMerchantAccountTypeEnum.class.getName());
 
     private String value;
 
@@ -180,7 +201,13 @@ public class UpdateCompanyWebhookRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FilterMerchantAccountTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FilterMerchantAccountTypeEnum.values()));
+      return null;
     }
   }
 
@@ -199,6 +226,8 @@ public class UpdateCompanyWebhookRequest {
     LOCAL(String.valueOf("local")),
 
     PUBLIC(String.valueOf("public"));
+
+    private static final Logger LOG = Logger.getLogger(NetworkTypeEnum.class.getName());
 
     private String value;
 
@@ -223,7 +252,13 @@ public class UpdateCompanyWebhookRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "NetworkTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(NetworkTypeEnum.values()));
+      return null;
     }
   }
 

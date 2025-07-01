@@ -61,15 +61,12 @@ public enum PeriodUnitType {
   }
 
   /**
-   * From value period unit type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the period unit type
+   * @param v string value
+   * @return the PeriodUnitType, or {@code null} if no match is found.
    */
   public static PeriodUnitType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

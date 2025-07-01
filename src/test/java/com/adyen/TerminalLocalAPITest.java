@@ -20,10 +20,7 @@
  */
 package com.adyen;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
@@ -136,5 +133,28 @@ public class TerminalLocalAPITest extends BaseTest {
     assertNotNull(paymentResult.getAmountsResp());
     assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
     assertEquals(BigDecimal.ONE, paymentResult.getAmountsResp().getAuthorizedAmount());
+  }
+
+  /** Test success flow for local request that includes unexpected attributes */
+  @Test
+  public void syncPaymentRequestSuccessWithAdditionalAttributes() throws Exception {
+    try {
+      Client client =
+          createMockClientFromFile("mocks/terminal-api/payment-local-additional-attributes.json");
+      SecurityKey securityKey = new SecurityKey();
+      securityKey.setKeyVersion(1);
+      securityKey.setAdyenCryptoVersion(1);
+      securityKey.setKeyIdentifier("CryptoKeyIdentifier12345");
+      securityKey.setPassphrase("p@ssw0rd123456");
+      TerminalLocalAPI terminalLocalApi = new TerminalLocalAPI(client, securityKey);
+
+      TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
+      TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIPaymentRequest);
+
+      assertNotNull(terminalAPIResponse);
+      assertNotNull(terminalAPIResponse.getSaleToPOIResponse());
+    } catch (Exception e) {
+      fail("Parsing should not throw an exception for responses with additional attributes.");
+    }
   }
 }

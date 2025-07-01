@@ -104,15 +104,15 @@ public enum AuthenticationMethodType {
   }
 
   /**
-   * From value authentication method type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the authentication method type
+   * @param v string value
+   * @return the AuthenticationMethodType, or {@code null} if no match is found.
    */
   public static AuthenticationMethodType fromValue(String v) {
     return Arrays.stream(values())
         .filter(s -> Arrays.asList(s.value).contains(v))
         .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+        .orElse(null);
   }
 }

@@ -17,8 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.Arrays;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** GetAcceptedTermsOfServiceDocumentResponse */
 @JsonPropertyOrder({
@@ -46,6 +47,9 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
 
     TXT(String.valueOf("TXT"));
 
+    private static final Logger LOG =
+        Logger.getLogger(TermsOfServiceDocumentFormatEnum.class.getName());
+
     private String value;
 
     TermsOfServiceDocumentFormatEnum(String value) {
@@ -69,7 +73,13 @@ public class GetAcceptedTermsOfServiceDocumentResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TermsOfServiceDocumentFormatEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TermsOfServiceDocumentFormatEnum.values()));
+      return null;
     }
   }
 

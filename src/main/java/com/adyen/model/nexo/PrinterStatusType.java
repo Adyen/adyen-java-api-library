@@ -64,16 +64,7 @@ public enum PrinterStatusType {
     return value;
   }
 
-  /**
-   * From value printer status type.
-   *
-   * @param v the v
-   * @return the printer status type
-   */
   public static PrinterStatusType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** UninstallAndroidAppDetails */
 @JsonPropertyOrder({
@@ -31,6 +33,8 @@ public class UninstallAndroidAppDetails {
   /** Type of terminal action: Uninstall an Android app. */
   public enum TypeEnum {
     UNINSTALLANDROIDAPP(String.valueOf("UninstallAndroidApp"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -55,7 +59,13 @@ public class UninstallAndroidAppDetails {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

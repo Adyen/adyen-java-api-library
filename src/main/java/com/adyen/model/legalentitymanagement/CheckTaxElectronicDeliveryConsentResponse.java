@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
 
 /** CheckTaxElectronicDeliveryConsentResponse */
 @JsonPropertyOrder({CheckTaxElectronicDeliveryConsentResponse.JSON_PROPERTY_US1099K})

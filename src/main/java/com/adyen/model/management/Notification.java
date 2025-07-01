@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** Notification */
 @JsonPropertyOrder({
@@ -35,6 +37,8 @@ public class Notification {
     KEYPRESSED(String.valueOf("KeyPressed")),
 
     EMPTY(String.valueOf(""));
+
+    private static final Logger LOG = Logger.getLogger(CategoryEnum.class.getName());
 
     private String value;
 
@@ -59,7 +63,13 @@ public class Notification {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "CategoryEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CategoryEnum.values()));
+      return null;
     }
   }
 

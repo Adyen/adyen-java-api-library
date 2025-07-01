@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** TaxReportingClassification */
 @JsonPropertyOrder({
@@ -45,6 +47,8 @@ public class TaxReportingClassification {
 
     FINANCIALINSTITUTION(String.valueOf("financialInstitution"));
 
+    private static final Logger LOG = Logger.getLogger(BusinessTypeEnum.class.getName());
+
     private String value;
 
     BusinessTypeEnum(String value) {
@@ -68,7 +72,13 @@ public class TaxReportingClassification {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "BusinessTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(BusinessTypeEnum.values()));
+      return null;
     }
   }
 
@@ -95,6 +105,8 @@ public class TaxReportingClassification {
 
     OTHER(String.valueOf("other"));
 
+    private static final Logger LOG = Logger.getLogger(MainSourceOfIncomeEnum.class.getName());
+
     private String value;
 
     MainSourceOfIncomeEnum(String value) {
@@ -118,7 +130,13 @@ public class TaxReportingClassification {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "MainSourceOfIncomeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(MainSourceOfIncomeEnum.values()));
+      return null;
     }
   }
 
@@ -137,6 +155,8 @@ public class TaxReportingClassification {
     NONFINANCIALACTIVE(String.valueOf("nonFinancialActive")),
 
     NONFINANCIALPASSIVE(String.valueOf("nonFinancialPassive"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -161,7 +181,13 @@ public class TaxReportingClassification {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

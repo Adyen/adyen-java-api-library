@@ -64,15 +64,12 @@ public enum BarcodeType {
   }
 
   /**
-   * From value barcode type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the barcode type
+   * @param v string value
+   * @return the BarcodeType, or {@code null} if no match is found.
    */
   public static BarcodeType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }
