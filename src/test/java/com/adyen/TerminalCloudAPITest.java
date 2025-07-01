@@ -20,11 +20,7 @@
  */
 package com.adyen;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
@@ -170,6 +166,37 @@ public class TerminalCloudAPITest extends BaseTest {
         paymentResult.getCurrencyConversion().get(0).getConvertedAmount().getAmountValue());
     assertEquals(
         "EUR", paymentResult.getCurrencyConversion().get(0).getConvertedAmount().getCurrency());
+  }
+
+  /** Test success flow for POST /sync that includes unexpected attributes */
+  @Test
+  public void syncPaymentRequestSuccessWithAdditionalAttributes() throws Exception {
+    try {
+
+      Client client =
+          createMockClientFromFile("mocks/terminal-api/payment-sync-additional-attributes.json");
+      TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
+
+      TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
+
+      // add some data
+      SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
+      PaymentRequest paymentRequest = new PaymentRequest();
+      SaleData saleDataRequest = new SaleData();
+      SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
+      saleDataRequest.setSaleToAcquirerData(saleToAcquirerData);
+      paymentRequest.setSaleData(saleDataRequest);
+      saleToPOIRequest.setPaymentRequest(paymentRequest);
+      terminalAPIPaymentRequest.setSaleToPOIRequest(saleToPOIRequest);
+
+      TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIPaymentRequest);
+
+      assertNotNull(terminalAPIResponse);
+      assertNotNull(terminalAPIResponse.getSaleToPOIResponse());
+
+    } catch (Exception e) {
+      fail("Parsing should not throw an exception for responses with additional attributes.");
+    }
   }
 
   /** Test error flow for POST /sync */

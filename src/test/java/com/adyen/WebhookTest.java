@@ -234,7 +234,7 @@ public class WebhookTest extends BaseTest {
   }
 
   @Test
-  public void testTerminalDisplayNotification() throws Exception {
+  public void testTerminalDisplayNotification() {
     String json = getFileContents("mocks/notification/display-notification.json");
     TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
     DisplayOutput displayOutput =
@@ -246,7 +246,7 @@ public class WebhookTest extends BaseTest {
   }
 
   @Test
-  public void testTerminalEventNotification() throws Exception {
+  public void testTerminalEventNotification() {
     String json = getFileContents("mocks/notification/event-notification.json");
     TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
     EventNotification eventNotification = notification.getSaleToPOIRequest().getEventNotification();
@@ -255,8 +255,9 @@ public class WebhookTest extends BaseTest {
     assertEquals(EventToNotifyType.SHUTDOWN, eventNotification.getEventToNotify());
   }
 
+  // test with payload including unknown enum value
   @Test
-  public void testTerminalInvalidEventNotification() throws Exception {
+  public void testTerminalInvalidEventNotification() {
     String json = getFileContents("mocks/notification/event-invalid-notification.json");
     TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
     EventNotification eventNotification = notification.getSaleToPOIRequest().getEventNotification();
@@ -264,6 +265,22 @@ public class WebhookTest extends BaseTest {
     assertEquals("newstate=IDLE&oldstate=START", eventNotification.getEventDetails());
     // unexpected event is set as null
     assertNull(eventNotification.getEventToNotify());
+  }
+
+  // test with payload including additional (unexpected) attributes
+  @Test
+  public void testTerminalEventNotificationAdditionalAttribute() {
+    try {
+      String json =
+          getFileContents("mocks/notification/event-notification-additional-attribute.json");
+      TerminalAPIRequest notification = webhookHandler.handleTerminalNotificationJson(json);
+      EventNotification eventNotification =
+          notification.getSaleToPOIRequest().getEventNotification();
+
+      assertEquals(EventToNotifyType.SHUTDOWN, eventNotification.getEventToNotify());
+    } catch (Exception e) {
+      fail("Parsing should not throw an exception for notifications with additional attributes.");
+    }
   }
 
   @Test
