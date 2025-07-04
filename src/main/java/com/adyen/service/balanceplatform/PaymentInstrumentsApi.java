@@ -16,6 +16,8 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.balanceplatform.ListNetworkTokensResponse;
+import com.adyen.model.balanceplatform.NetworkTokenActivationDataRequest;
+import com.adyen.model.balanceplatform.NetworkTokenActivationDataResponse;
 import com.adyen.model.balanceplatform.PaymentInstrument;
 import com.adyen.model.balanceplatform.PaymentInstrumentInfo;
 import com.adyen.model.balanceplatform.PaymentInstrumentRevealInfo;
@@ -57,6 +59,51 @@ public class PaymentInstrumentsApi extends Service {
   public PaymentInstrumentsApi(Client client, String baseURL) {
     super(client);
     this.baseURL = baseURL;
+  }
+
+  /**
+   * Create network token activation data
+   *
+   * @param id {@link String } The unique identifier of the payment instrument. (required)
+   * @param networkTokenActivationDataRequest {@link NetworkTokenActivationDataRequest } (required)
+   * @return {@link NetworkTokenActivationDataResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public NetworkTokenActivationDataResponse createNetworkTokenActivationData(
+      String id, NetworkTokenActivationDataRequest networkTokenActivationDataRequest)
+      throws ApiException, IOException {
+    return createNetworkTokenActivationData(id, networkTokenActivationDataRequest, null);
+  }
+
+  /**
+   * Create network token activation data
+   *
+   * @param id {@link String } The unique identifier of the payment instrument. (required)
+   * @param networkTokenActivationDataRequest {@link NetworkTokenActivationDataRequest } (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   *     idempotency-keys (optional)
+   * @return {@link NetworkTokenActivationDataResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public NetworkTokenActivationDataResponse createNetworkTokenActivationData(
+      String id,
+      NetworkTokenActivationDataRequest networkTokenActivationDataRequest,
+      RequestOptions requestOptions)
+      throws ApiException, IOException {
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+    if (id == null) {
+      throw new IllegalArgumentException("Please provide the id path parameter");
+    }
+    pathParams.put("id", id);
+
+    String requestBody = networkTokenActivationDataRequest.toJson();
+    Resource resource =
+        new Resource(
+            this, this.baseURL + "/paymentInstruments/{id}/networkTokenActivationData", null);
+    String jsonResult =
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+    return NetworkTokenActivationDataResponse.fromJson(jsonResult);
   }
 
   /**
@@ -126,6 +173,45 @@ public class PaymentInstrumentsApi extends Service {
     String jsonResult =
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
     return TransactionRulesResponse.fromJson(jsonResult);
+  }
+
+  /**
+   * Get network token activation data
+   *
+   * @param id {@link String } The unique identifier of the payment instrument. (required)
+   * @return {@link NetworkTokenActivationDataResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public NetworkTokenActivationDataResponse getNetworkTokenActivationData(String id)
+      throws ApiException, IOException {
+    return getNetworkTokenActivationData(id, null);
+  }
+
+  /**
+   * Get network token activation data
+   *
+   * @param id {@link String } The unique identifier of the payment instrument. (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   *     idempotency-keys (optional)
+   * @return {@link NetworkTokenActivationDataResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public NetworkTokenActivationDataResponse getNetworkTokenActivationData(
+      String id, RequestOptions requestOptions) throws ApiException, IOException {
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+    if (id == null) {
+      throw new IllegalArgumentException("Please provide the id path parameter");
+    }
+    pathParams.put("id", id);
+
+    String requestBody = null;
+    Resource resource =
+        new Resource(
+            this, this.baseURL + "/paymentInstruments/{id}/networkTokenActivationData", null);
+    String jsonResult =
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
+    return NetworkTokenActivationDataResponse.fromJson(jsonResult);
   }
 
   /**

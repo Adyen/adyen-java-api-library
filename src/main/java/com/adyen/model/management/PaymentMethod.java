@@ -26,6 +26,7 @@ import java.util.Objects;
   PaymentMethod.JSON_PROPERTY_ACCEL,
   PaymentMethod.JSON_PROPERTY_AFFIRM,
   PaymentMethod.JSON_PROPERTY_AFTERPAY_TOUCH,
+  PaymentMethod.JSON_PROPERTY_ALIPAY_PLUS,
   PaymentMethod.JSON_PROPERTY_ALLOWED,
   PaymentMethod.JSON_PROPERTY_AMEX,
   PaymentMethod.JSON_PROPERTY_APPLE_PAY,
@@ -50,6 +51,7 @@ import java.util.Objects;
   PaymentMethod.JSON_PROPERTY_JCB,
   PaymentMethod.JSON_PROPERTY_KLARNA,
   PaymentMethod.JSON_PROPERTY_MAESTRO,
+  PaymentMethod.JSON_PROPERTY_MAESTRO_USA,
   PaymentMethod.JSON_PROPERTY_MC,
   PaymentMethod.JSON_PROPERTY_MEAL_VOUCHER_F_R,
   PaymentMethod.JSON_PROPERTY_NYCE,
@@ -83,6 +85,9 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_AFTERPAY_TOUCH = "afterpayTouch";
   private AfterpayTouchInfo afterpayTouch;
+
+  public static final String JSON_PROPERTY_ALIPAY_PLUS = "alipayPlus";
+  private AlipayPlusInfo alipayPlus;
 
   public static final String JSON_PROPERTY_ALLOWED = "allowed";
   private Boolean allowed;
@@ -155,6 +160,9 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_MAESTRO = "maestro";
   private GenericPmWithTdiInfo maestro;
+
+  public static final String JSON_PROPERTY_MAESTRO_USA = "maestro_usa";
+  private GenericPmWithTdiInfo maestroUsa;
 
   public static final String JSON_PROPERTY_MC = "mc";
   private GenericPmWithTdiInfo mc;
@@ -363,6 +371,39 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAfterpayTouch(AfterpayTouchInfo afterpayTouch) {
     this.afterpayTouch = afterpayTouch;
+  }
+
+  /**
+   * alipayPlus
+   *
+   * @param alipayPlus
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod alipayPlus(AlipayPlusInfo alipayPlus) {
+    this.alipayPlus = alipayPlus;
+    return this;
+  }
+
+  /**
+   * Get alipayPlus
+   *
+   * @return alipayPlus
+   */
+  @JsonProperty(JSON_PROPERTY_ALIPAY_PLUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AlipayPlusInfo getAlipayPlus() {
+    return alipayPlus;
+  }
+
+  /**
+   * alipayPlus
+   *
+   * @param alipayPlus
+   */
+  @JsonProperty(JSON_PROPERTY_ALIPAY_PLUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAlipayPlus(AlipayPlusInfo alipayPlus) {
+    this.alipayPlus = alipayPlus;
   }
 
   /**
@@ -1212,6 +1253,39 @@ public class PaymentMethod {
   }
 
   /**
+   * maestroUsa
+   *
+   * @param maestroUsa
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod maestroUsa(GenericPmWithTdiInfo maestroUsa) {
+    this.maestroUsa = maestroUsa;
+    return this;
+  }
+
+  /**
+   * Get maestroUsa
+   *
+   * @return maestroUsa
+   */
+  @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GenericPmWithTdiInfo getMaestroUsa() {
+    return maestroUsa;
+  }
+
+  /**
+   * maestroUsa
+   *
+   * @param maestroUsa
+   */
+  @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaestroUsa(GenericPmWithTdiInfo maestroUsa) {
+    this.maestroUsa = maestroUsa;
+  }
+
+  /**
    * mc
    *
    * @param mc
@@ -2003,6 +2077,7 @@ public class PaymentMethod {
     return Objects.equals(this.accel, paymentMethod.accel)
         && Objects.equals(this.affirm, paymentMethod.affirm)
         && Objects.equals(this.afterpayTouch, paymentMethod.afterpayTouch)
+        && Objects.equals(this.alipayPlus, paymentMethod.alipayPlus)
         && Objects.equals(this.allowed, paymentMethod.allowed)
         && Objects.equals(this.amex, paymentMethod.amex)
         && Objects.equals(this.applePay, paymentMethod.applePay)
@@ -2027,6 +2102,7 @@ public class PaymentMethod {
         && Objects.equals(this.jcb, paymentMethod.jcb)
         && Objects.equals(this.klarna, paymentMethod.klarna)
         && Objects.equals(this.maestro, paymentMethod.maestro)
+        && Objects.equals(this.maestroUsa, paymentMethod.maestroUsa)
         && Objects.equals(this.mc, paymentMethod.mc)
         && Objects.equals(this.mealVoucherFR, paymentMethod.mealVoucherFR)
         && Objects.equals(this.nyce, paymentMethod.nyce)
@@ -2058,6 +2134,7 @@ public class PaymentMethod {
         accel,
         affirm,
         afterpayTouch,
+        alipayPlus,
         allowed,
         amex,
         applePay,
@@ -2082,6 +2159,7 @@ public class PaymentMethod {
         jcb,
         klarna,
         maestro,
+        maestroUsa,
         mc,
         mealVoucherFR,
         nyce,
@@ -2114,6 +2192,7 @@ public class PaymentMethod {
     sb.append("    accel: ").append(toIndentedString(accel)).append("\n");
     sb.append("    affirm: ").append(toIndentedString(affirm)).append("\n");
     sb.append("    afterpayTouch: ").append(toIndentedString(afterpayTouch)).append("\n");
+    sb.append("    alipayPlus: ").append(toIndentedString(alipayPlus)).append("\n");
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
     sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
@@ -2138,6 +2217,7 @@ public class PaymentMethod {
     sb.append("    jcb: ").append(toIndentedString(jcb)).append("\n");
     sb.append("    klarna: ").append(toIndentedString(klarna)).append("\n");
     sb.append("    maestro: ").append(toIndentedString(maestro)).append("\n");
+    sb.append("    maestroUsa: ").append(toIndentedString(maestroUsa)).append("\n");
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");

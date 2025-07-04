@@ -11,19 +11,29 @@
 
 package com.adyen.model.acswebhooks;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /** RelayedAuthenticationRequest */
 @JsonPropertyOrder({
+  RelayedAuthenticationRequest.JSON_PROPERTY_ENVIRONMENT,
   RelayedAuthenticationRequest.JSON_PROPERTY_ID,
   RelayedAuthenticationRequest.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
-  RelayedAuthenticationRequest.JSON_PROPERTY_PURCHASE
+  RelayedAuthenticationRequest.JSON_PROPERTY_PURCHASE,
+  RelayedAuthenticationRequest.JSON_PROPERTY_THREE_D_S_REQUESTOR_APP_U_R_L,
+  RelayedAuthenticationRequest.JSON_PROPERTY_TIMESTAMP,
+  RelayedAuthenticationRequest.JSON_PROPERTY_TYPE
 })
 public class RelayedAuthenticationRequest {
+  public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  private String environment;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -33,7 +43,84 @@ public class RelayedAuthenticationRequest {
   public static final String JSON_PROPERTY_PURCHASE = "purchase";
   private Purchase purchase;
 
+  public static final String JSON_PROPERTY_THREE_D_S_REQUESTOR_APP_U_R_L = "threeDSRequestorAppURL";
+  private String threeDSRequestorAppURL;
+
+  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
+  private OffsetDateTime timestamp;
+
+  /** Type of notification. */
+  public enum TypeEnum {
+    BALANCEPLATFORM_AUTHENTICATION_RELAYED(
+        String.valueOf("balancePlatform.authentication.relayed"));
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TypeEnum type;
+
   public RelayedAuthenticationRequest() {}
+
+  /**
+   * The environment from which the webhook originated. Possible values: **test**, **live**.
+   *
+   * @param environment The environment from which the webhook originated. Possible values:
+   *     **test**, **live**.
+   * @return the current {@code RelayedAuthenticationRequest} instance, allowing for method chaining
+   */
+  public RelayedAuthenticationRequest environment(String environment) {
+    this.environment = environment;
+    return this;
+  }
+
+  /**
+   * The environment from which the webhook originated. Possible values: **test**, **live**.
+   *
+   * @return environment The environment from which the webhook originated. Possible values:
+   *     **test**, **live**.
+   */
+  @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnvironment() {
+    return environment;
+  }
+
+  /**
+   * The environment from which the webhook originated. Possible values: **test**, **live**.
+   *
+   * @param environment The environment from which the webhook originated. Possible values:
+   *     **test**, **live**.
+   */
+  @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnvironment(String environment) {
+    this.environment = environment;
+  }
 
   /**
    * The unique identifier of the challenge.
@@ -146,6 +233,111 @@ public class RelayedAuthenticationRequest {
     this.purchase = purchase;
   }
 
+  /**
+   * URL for auto-switching to the threeDS Requestor App. If not present, the threeDS Requestor App
+   * doesn&#39;t support auto-switching.
+   *
+   * @param threeDSRequestorAppURL URL for auto-switching to the threeDS Requestor App. If not
+   *     present, the threeDS Requestor App doesn&#39;t support auto-switching.
+   * @return the current {@code RelayedAuthenticationRequest} instance, allowing for method chaining
+   */
+  public RelayedAuthenticationRequest threeDSRequestorAppURL(String threeDSRequestorAppURL) {
+    this.threeDSRequestorAppURL = threeDSRequestorAppURL;
+    return this;
+  }
+
+  /**
+   * URL for auto-switching to the threeDS Requestor App. If not present, the threeDS Requestor App
+   * doesn&#39;t support auto-switching.
+   *
+   * @return threeDSRequestorAppURL URL for auto-switching to the threeDS Requestor App. If not
+   *     present, the threeDS Requestor App doesn&#39;t support auto-switching.
+   */
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_APP_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getThreeDSRequestorAppURL() {
+    return threeDSRequestorAppURL;
+  }
+
+  /**
+   * URL for auto-switching to the threeDS Requestor App. If not present, the threeDS Requestor App
+   * doesn&#39;t support auto-switching.
+   *
+   * @param threeDSRequestorAppURL URL for auto-switching to the threeDS Requestor App. If not
+   *     present, the threeDS Requestor App doesn&#39;t support auto-switching.
+   */
+  @JsonProperty(JSON_PROPERTY_THREE_D_S_REQUESTOR_APP_U_R_L)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDSRequestorAppURL(String threeDSRequestorAppURL) {
+    this.threeDSRequestorAppURL = threeDSRequestorAppURL;
+  }
+
+  /**
+   * When the event was queued.
+   *
+   * @param timestamp When the event was queued.
+   * @return the current {@code RelayedAuthenticationRequest} instance, allowing for method chaining
+   */
+  public RelayedAuthenticationRequest timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+  /**
+   * When the event was queued.
+   *
+   * @return timestamp When the event was queued.
+   */
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+  /**
+   * When the event was queued.
+   *
+   * @param timestamp When the event was queued.
+   */
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  /**
+   * Type of notification.
+   *
+   * @param type Type of notification.
+   * @return the current {@code RelayedAuthenticationRequest} instance, allowing for method chaining
+   */
+  public RelayedAuthenticationRequest type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Type of notification.
+   *
+   * @return type Type of notification.
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TypeEnum getType() {
+    return type;
+  }
+
+  /**
+   * Type of notification.
+   *
+   * @param type Type of notification.
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
   /** Return true if this RelayedAuthenticationRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -156,26 +348,38 @@ public class RelayedAuthenticationRequest {
       return false;
     }
     RelayedAuthenticationRequest relayedAuthenticationRequest = (RelayedAuthenticationRequest) o;
-    return Objects.equals(this.id, relayedAuthenticationRequest.id)
+    return Objects.equals(this.environment, relayedAuthenticationRequest.environment)
+        && Objects.equals(this.id, relayedAuthenticationRequest.id)
         && Objects.equals(
             this.paymentInstrumentId, relayedAuthenticationRequest.paymentInstrumentId)
-        && Objects.equals(this.purchase, relayedAuthenticationRequest.purchase);
+        && Objects.equals(this.purchase, relayedAuthenticationRequest.purchase)
+        && Objects.equals(
+            this.threeDSRequestorAppURL, relayedAuthenticationRequest.threeDSRequestorAppURL)
+        && Objects.equals(this.timestamp, relayedAuthenticationRequest.timestamp)
+        && Objects.equals(this.type, relayedAuthenticationRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, paymentInstrumentId, purchase);
+    return Objects.hash(
+        environment, id, paymentInstrumentId, purchase, threeDSRequestorAppURL, timestamp, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RelayedAuthenticationRequest {\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    paymentInstrumentId: ")
         .append(toIndentedString(paymentInstrumentId))
         .append("\n");
     sb.append("    purchase: ").append(toIndentedString(purchase)).append("\n");
+    sb.append("    threeDSRequestorAppURL: ")
+        .append(toIndentedString(threeDSRequestorAppURL))
+        .append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
