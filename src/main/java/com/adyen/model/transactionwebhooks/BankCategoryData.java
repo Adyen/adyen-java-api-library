@@ -28,8 +28,9 @@ public class BankCategoryData {
    * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
    * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers in [SEPA
-   * countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
+   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * United States and in [SEPA
+   * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
    * **crossBorder**: for high-value transfers to a recipient in a different country. *
    * **internal**: for transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
@@ -119,8 +120,9 @@ public class BankCategoryData {
    * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
    * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers in [SEPA
-   * countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
+   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * United States and in [SEPA
+   * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
    * **crossBorder**: for high-value transfers to a recipient in a different country. *
    * **internal**: for transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
@@ -131,8 +133,8 @@ public class BankCategoryData {
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
    *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
    *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
-   *     instant funds transfers in [SEPA
-   *     countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
+   *     instant funds transfers within the United States and in [SEPA
+   *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
    *     **crossBorder**: for high-value transfers to a recipient in a different country. *
    *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
@@ -149,8 +151,9 @@ public class BankCategoryData {
    * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
    * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers in [SEPA
-   * countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
+   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * United States and in [SEPA
+   * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
    * **crossBorder**: for high-value transfers to a recipient in a different country. *
    * **internal**: for transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
@@ -161,8 +164,8 @@ public class BankCategoryData {
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
    *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
    *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
-   *     instant funds transfers in [SEPA
-   *     countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
+   *     instant funds transfers within the United States and in [SEPA
+   *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
    *     **crossBorder**: for high-value transfers to a recipient in a different country. *
    *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
@@ -179,8 +182,9 @@ public class BankCategoryData {
    * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
    * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers in [SEPA
-   * countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
+   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * United States and in [SEPA
+   * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
    * **crossBorder**: for high-value transfers to a recipient in a different country. *
    * **internal**: for transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
@@ -191,8 +195,8 @@ public class BankCategoryData {
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
    *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
    *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
-   *     instant funds transfers in [SEPA
-   *     countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
+   *     instant funds transfers within the United States and in [SEPA
+   *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
    *     **crossBorder**: for high-value transfers to a recipient in a different country. *
    *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).

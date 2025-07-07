@@ -66,8 +66,8 @@ public class InternalReviewTrackingData {
 
   /**
    * The status of the transfer. Possible values: - **pending**: the transfer is under internal
-   * review. - **failed**: the transfer failed Adyen&#39;s internal review. For details, see
-   * &#x60;reason&#x60;.
+   * review by Adyen. - **failed**: the transfer failed Adyen&#39;s internal review. For details,
+   * see &#x60;reason&#x60;.
    */
   public enum StatusEnum {
     PENDING(String.valueOf("pending")),
@@ -193,12 +193,12 @@ public class InternalReviewTrackingData {
 
   /**
    * The status of the transfer. Possible values: - **pending**: the transfer is under internal
-   * review. - **failed**: the transfer failed Adyen&#39;s internal review. For details, see
-   * &#x60;reason&#x60;.
+   * review by Adyen. - **failed**: the transfer failed Adyen&#39;s internal review. For details,
+   * see &#x60;reason&#x60;.
    *
    * @param status The status of the transfer. Possible values: - **pending**: the transfer is under
-   *     internal review. - **failed**: the transfer failed Adyen&#39;s internal review. For
-   *     details, see &#x60;reason&#x60;.
+   *     internal review by Adyen. - **failed**: the transfer failed Adyen&#39;s internal review.
+   *     For details, see &#x60;reason&#x60;.
    * @return the current {@code InternalReviewTrackingData} instance, allowing for method chaining
    */
   public InternalReviewTrackingData status(StatusEnum status) {
@@ -208,12 +208,12 @@ public class InternalReviewTrackingData {
 
   /**
    * The status of the transfer. Possible values: - **pending**: the transfer is under internal
-   * review. - **failed**: the transfer failed Adyen&#39;s internal review. For details, see
-   * &#x60;reason&#x60;.
+   * review by Adyen. - **failed**: the transfer failed Adyen&#39;s internal review. For details,
+   * see &#x60;reason&#x60;.
    *
    * @return status The status of the transfer. Possible values: - **pending**: the transfer is
-   *     under internal review. - **failed**: the transfer failed Adyen&#39;s internal review. For
-   *     details, see &#x60;reason&#x60;.
+   *     under internal review by Adyen. - **failed**: the transfer failed Adyen&#39;s internal
+   *     review. For details, see &#x60;reason&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,12 +223,12 @@ public class InternalReviewTrackingData {
 
   /**
    * The status of the transfer. Possible values: - **pending**: the transfer is under internal
-   * review. - **failed**: the transfer failed Adyen&#39;s internal review. For details, see
-   * &#x60;reason&#x60;.
+   * review by Adyen. - **failed**: the transfer failed Adyen&#39;s internal review. For details,
+   * see &#x60;reason&#x60;.
    *
    * @param status The status of the transfer. Possible values: - **pending**: the transfer is under
-   *     internal review. - **failed**: the transfer failed Adyen&#39;s internal review. For
-   *     details, see &#x60;reason&#x60;.
+   *     internal review by Adyen. - **failed**: the transfer failed Adyen&#39;s internal review.
+   *     For details, see &#x60;reason&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

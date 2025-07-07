@@ -24,7 +24,6 @@ import java.util.Objects;
   SplitConfigurationRule.JSON_PROPERTY_CURRENCY,
   SplitConfigurationRule.JSON_PROPERTY_FUNDING_SOURCE,
   SplitConfigurationRule.JSON_PROPERTY_PAYMENT_METHOD,
-  SplitConfigurationRule.JSON_PROPERTY_REGIONALITY,
   SplitConfigurationRule.JSON_PROPERTY_RULE_ID,
   SplitConfigurationRule.JSON_PROPERTY_SHOPPER_INTERACTION,
   SplitConfigurationRule.JSON_PROPERTY_SPLIT_LOGIC
@@ -82,46 +81,6 @@ public class SplitConfigurationRule {
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
-
-  /** */
-  public enum RegionalityEnum {
-    INTERNATIONAL(String.valueOf("international")),
-
-    INTRAREGIONAL(String.valueOf("intraRegional")),
-
-    INTERREGIONAL(String.valueOf("interRegional")),
-
-    ANY(String.valueOf("ANY"));
-
-    private String value;
-
-    RegionalityEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static RegionalityEnum fromValue(String value) {
-      for (RegionalityEnum b : RegionalityEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_REGIONALITY = "regionality";
-  private RegionalityEnum regionality;
 
   public static final String JSON_PROPERTY_RULE_ID = "ruleId";
   private String ruleId;
@@ -323,33 +282,6 @@ public class SplitConfigurationRule {
   }
 
   /**
-   * @param regionality
-   * @return the current {@code SplitConfigurationRule} instance, allowing for method chaining
-   */
-  public SplitConfigurationRule regionality(RegionalityEnum regionality) {
-    this.regionality = regionality;
-    return this;
-  }
-
-  /**
-   * @return regionality
-   */
-  @JsonProperty(JSON_PROPERTY_REGIONALITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RegionalityEnum getRegionality() {
-    return regionality;
-  }
-
-  /**
-   * @param regionality
-   */
-  @JsonProperty(JSON_PROPERTY_REGIONALITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionality(RegionalityEnum regionality) {
-    this.regionality = regionality;
-  }
-
-  /**
    * The unique identifier of the split configuration rule.
    *
    * @return ruleId The unique identifier of the split configuration rule.
@@ -475,7 +407,6 @@ public class SplitConfigurationRule {
     return Objects.equals(this.currency, splitConfigurationRule.currency)
         && Objects.equals(this.fundingSource, splitConfigurationRule.fundingSource)
         && Objects.equals(this.paymentMethod, splitConfigurationRule.paymentMethod)
-        && Objects.equals(this.regionality, splitConfigurationRule.regionality)
         && Objects.equals(this.ruleId, splitConfigurationRule.ruleId)
         && Objects.equals(this.shopperInteraction, splitConfigurationRule.shopperInteraction)
         && Objects.equals(this.splitLogic, splitConfigurationRule.splitLogic);
@@ -484,13 +415,7 @@ public class SplitConfigurationRule {
   @Override
   public int hashCode() {
     return Objects.hash(
-        currency,
-        fundingSource,
-        paymentMethod,
-        regionality,
-        ruleId,
-        shopperInteraction,
-        splitLogic);
+        currency, fundingSource, paymentMethod, ruleId, shopperInteraction, splitLogic);
   }
 
   @Override
@@ -500,7 +425,6 @@ public class SplitConfigurationRule {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-    sb.append("    regionality: ").append(toIndentedString(regionality)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
     sb.append("    splitLogic: ").append(toIndentedString(splitLogic)).append("\n");

@@ -29,6 +29,7 @@ import java.util.Objects;
   IssuedCard.JSON_PROPERTY_RELAYED_AUTHORISATION_DATA,
   IssuedCard.JSON_PROPERTY_SCHEME_TRACE_ID,
   IssuedCard.JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID,
+  IssuedCard.JSON_PROPERTY_THREE_D_SECURE,
   IssuedCard.JSON_PROPERTY_TYPE,
   IssuedCard.JSON_PROPERTY_VALIDATION_FACTS
 })
@@ -145,6 +146,9 @@ public class IssuedCard {
   public static final String JSON_PROPERTY_SCHEME_UNIQUE_TRANSACTION_ID =
       "schemeUniqueTransactionId";
   private String schemeUniqueTransactionId;
+
+  public static final String JSON_PROPERTY_THREE_D_SECURE = "threeDSecure";
+  private ThreeDSecure threeDSecure;
 
   /** **issuedCard** */
   public enum TypeEnum {
@@ -435,6 +439,39 @@ public class IssuedCard {
   }
 
   /**
+   * threeDSecure
+   *
+   * @param threeDSecure
+   * @return the current {@code IssuedCard} instance, allowing for method chaining
+   */
+  public IssuedCard threeDSecure(ThreeDSecure threeDSecure) {
+    this.threeDSecure = threeDSecure;
+    return this;
+  }
+
+  /**
+   * Get threeDSecure
+   *
+   * @return threeDSecure
+   */
+  @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ThreeDSecure getThreeDSecure() {
+    return threeDSecure;
+  }
+
+  /**
+   * threeDSecure
+   *
+   * @param threeDSecure
+   */
+  @JsonProperty(JSON_PROPERTY_THREE_D_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDSecure(ThreeDSecure threeDSecure) {
+    this.threeDSecure = threeDSecure;
+  }
+
+  /**
    * **issuedCard**
    *
    * @param type **issuedCard**
@@ -530,6 +567,7 @@ public class IssuedCard {
         && Objects.equals(this.relayedAuthorisationData, issuedCard.relayedAuthorisationData)
         && Objects.equals(this.schemeTraceId, issuedCard.schemeTraceId)
         && Objects.equals(this.schemeUniqueTransactionId, issuedCard.schemeUniqueTransactionId)
+        && Objects.equals(this.threeDSecure, issuedCard.threeDSecure)
         && Objects.equals(this.type, issuedCard.type)
         && Objects.equals(this.validationFacts, issuedCard.validationFacts);
   }
@@ -543,6 +581,7 @@ public class IssuedCard {
         relayedAuthorisationData,
         schemeTraceId,
         schemeUniqueTransactionId,
+        threeDSecure,
         type,
         validationFacts);
   }
@@ -561,6 +600,7 @@ public class IssuedCard {
     sb.append("    schemeUniqueTransactionId: ")
         .append(toIndentedString(schemeUniqueTransactionId))
         .append("\n");
+    sb.append("    threeDSecure: ").append(toIndentedString(threeDSecure)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validationFacts: ").append(toIndentedString(validationFacts)).append("\n");
     sb.append("}");
