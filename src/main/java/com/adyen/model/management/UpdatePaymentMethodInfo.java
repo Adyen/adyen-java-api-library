@@ -38,6 +38,7 @@ import java.util.List;
   UpdatePaymentMethodInfo.JSON_PROPERTY_INTERAC_CARD,
   UpdatePaymentMethodInfo.JSON_PROPERTY_JCB,
   UpdatePaymentMethodInfo.JSON_PROPERTY_MAESTRO,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_MAESTRO_USA,
   UpdatePaymentMethodInfo.JSON_PROPERTY_MC,
   UpdatePaymentMethodInfo.JSON_PROPERTY_NYCE,
   UpdatePaymentMethodInfo.JSON_PROPERTY_PAYBYBANK_PLAID,
@@ -98,6 +99,9 @@ public class UpdatePaymentMethodInfo {
 
   public static final String JSON_PROPERTY_MAESTRO = "maestro";
   private GenericPmWithTdiInfo maestro;
+
+  public static final String JSON_PROPERTY_MAESTRO_USA = "maestro_usa";
+  private GenericPmWithTdiInfo maestroUsa;
 
   public static final String JSON_PROPERTY_MC = "mc";
   private GenericPmWithTdiInfo mc;
@@ -728,6 +732,39 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
+   * maestroUsa
+   *
+   * @param maestroUsa
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo maestroUsa(GenericPmWithTdiInfo maestroUsa) {
+    this.maestroUsa = maestroUsa;
+    return this;
+  }
+
+  /**
+   * Get maestroUsa
+   *
+   * @return maestroUsa
+   */
+  @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GenericPmWithTdiInfo getMaestroUsa() {
+    return maestroUsa;
+  }
+
+  /**
+   * maestroUsa
+   *
+   * @param maestroUsa
+   */
+  @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaestroUsa(GenericPmWithTdiInfo maestroUsa) {
+    this.maestroUsa = maestroUsa;
+  }
+
+  /**
    * mc
    *
    * @param mc
@@ -1038,6 +1075,7 @@ public class UpdatePaymentMethodInfo {
         && Objects.equals(this.interacCard, updatePaymentMethodInfo.interacCard)
         && Objects.equals(this.jcb, updatePaymentMethodInfo.jcb)
         && Objects.equals(this.maestro, updatePaymentMethodInfo.maestro)
+        && Objects.equals(this.maestroUsa, updatePaymentMethodInfo.maestroUsa)
         && Objects.equals(this.mc, updatePaymentMethodInfo.mc)
         && Objects.equals(this.nyce, updatePaymentMethodInfo.nyce)
         && Objects.equals(this.paybybankPlaid, updatePaymentMethodInfo.paybybankPlaid)
@@ -1068,6 +1106,7 @@ public class UpdatePaymentMethodInfo {
         interacCard,
         jcb,
         maestro,
+        maestroUsa,
         mc,
         nyce,
         paybybankPlaid,
@@ -1099,6 +1138,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    interacCard: ").append(toIndentedString(interacCard)).append("\n");
     sb.append("    jcb: ").append(toIndentedString(jcb)).append("\n");
     sb.append("    maestro: ").append(toIndentedString(maestro)).append("\n");
+    sb.append("    maestroUsa: ").append(toIndentedString(maestroUsa)).append("\n");
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
     sb.append("    paybybankPlaid: ").append(toIndentedString(paybybankPlaid)).append("\n");

@@ -28,6 +28,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_ACCEL,
   PaymentMethodSetupInfo.JSON_PROPERTY_AFFIRM,
   PaymentMethodSetupInfo.JSON_PROPERTY_AFTERPAY_TOUCH,
+  PaymentMethodSetupInfo.JSON_PROPERTY_ALIPAY_PLUS,
   PaymentMethodSetupInfo.JSON_PROPERTY_AMEX,
   PaymentMethodSetupInfo.JSON_PROPERTY_APPLE_PAY,
   PaymentMethodSetupInfo.JSON_PROPERTY_BCMC,
@@ -49,6 +50,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_JCB,
   PaymentMethodSetupInfo.JSON_PROPERTY_KLARNA,
   PaymentMethodSetupInfo.JSON_PROPERTY_MAESTRO,
+  PaymentMethodSetupInfo.JSON_PROPERTY_MAESTRO_USA,
   PaymentMethodSetupInfo.JSON_PROPERTY_MC,
   PaymentMethodSetupInfo.JSON_PROPERTY_MEAL_VOUCHER_F_R,
   PaymentMethodSetupInfo.JSON_PROPERTY_NYCE,
@@ -81,6 +83,9 @@ public class PaymentMethodSetupInfo {
 
   public static final String JSON_PROPERTY_AFTERPAY_TOUCH = "afterpayTouch";
   private AfterpayTouchInfo afterpayTouch;
+
+  public static final String JSON_PROPERTY_ALIPAY_PLUS = "alipayPlus";
+  private AlipayPlusInfo alipayPlus;
 
   public static final String JSON_PROPERTY_AMEX = "amex";
   private AmexInfo amex;
@@ -144,6 +149,9 @@ public class PaymentMethodSetupInfo {
 
   public static final String JSON_PROPERTY_MAESTRO = "maestro";
   private GenericPmWithTdiInfo maestro;
+
+  public static final String JSON_PROPERTY_MAESTRO_USA = "maestro_usa";
+  private GenericPmWithTdiInfo maestroUsa;
 
   public static final String JSON_PROPERTY_MC = "mc";
   private GenericPmWithTdiInfo mc;
@@ -264,11 +272,19 @@ public class PaymentMethodSetupInfo {
 
     ALIPAY_HK(String.valueOf("alipay_hk")),
 
+    ALIPAY_PLUS(String.valueOf("alipay_plus")),
+
     ALIPAY_WAP(String.valueOf("alipay_wap")),
 
     AMEX(String.valueOf("amex")),
 
     APPLEPAY(String.valueOf("applepay")),
+
+    AVANCARD(String.valueOf("avancard")),
+
+    AVANCARD_CREDIT(String.valueOf("avancard_credit")),
+
+    AVANCARD_DEBIT(String.valueOf("avancard_debit")),
 
     BANESE_CARD(String.valueOf("banese_card")),
 
@@ -287,6 +303,22 @@ public class PaymentMethodSetupInfo {
     CLEARPAY(String.valueOf("clearpay")),
 
     CLICKTOPAY(String.valueOf("clicktopay")),
+
+    COOPER(String.valueOf("cooper")),
+
+    COOPER_CREDIT(String.valueOf("cooper_credit")),
+
+    COOPER_DEBIT(String.valueOf("cooper_debit")),
+
+    COOPER_FOOD_DEBIT(String.valueOf("cooper_food_debit")),
+
+    COOPER_MEAL_DEBIT(String.valueOf("cooper_meal_debit")),
+
+    COOPER_PREPAID(String.valueOf("cooper_prepaid")),
+
+    COOPER_PRIVATE_CREDIT(String.valueOf("cooper_private_credit")),
+
+    COOPER_RETAIL_CREDIT(String.valueOf("cooper_retail_credit")),
 
     CREDTODOS(String.valueOf("credtodos")),
 
@@ -318,6 +350,18 @@ public class PaymentMethodSetupInfo {
 
     GOOGLEPAY(String.valueOf("googlepay")),
 
+    GREEN_CARD(String.valueOf("green_card")),
+
+    GREEN_CARD_CREDIT(String.valueOf("green_card_credit")),
+
+    GREEN_CARD_DEBIT(String.valueOf("green_card_debit")),
+
+    GREEN_CARD_FOOD_PREPAID(String.valueOf("green_card_food_prepaid")),
+
+    GREEN_CARD_MEAL_PREPAID(String.valueOf("green_card_meal_prepaid")),
+
+    GREEN_CARD_PREPAID(String.valueOf("green_card_prepaid")),
+
     HIPER(String.valueOf("hiper")),
 
     HIPERCARD(String.valueOf("hipercard")),
@@ -334,7 +378,19 @@ public class PaymentMethodSetupInfo {
 
     KLARNA_PAYNOW(String.valueOf("klarna_paynow")),
 
+    LE_CARD(String.valueOf("le_card")),
+
+    LE_CARD_CREDIT(String.valueOf("le_card_credit")),
+
+    LE_CARD_DEBIT(String.valueOf("le_card_debit")),
+
     MAESTRO(String.valueOf("maestro")),
+
+    MAESTRO_USA(String.valueOf("maestro_usa")),
+
+    MAXIFROTA(String.valueOf("maxifrota")),
+
+    MAXIFROTA_PREPAID(String.valueOf("maxifrota_prepaid")),
 
     MBWAY(String.valueOf("mbway")),
 
@@ -344,9 +400,19 @@ public class PaymentMethodSetupInfo {
 
     MEALVOUCHER_FR(String.valueOf("mealVoucher_FR")),
 
+    MEGALEVE(String.valueOf("megaleve")),
+
+    MEGALEVE_CREDIT(String.valueOf("megaleve_credit")),
+
+    MEGALEVE_DEBIT(String.valueOf("megaleve_debit")),
+
     MOBILEPAY(String.valueOf("mobilepay")),
 
     MULTIBANCO(String.valueOf("multibanco")),
+
+    NUTRICASH(String.valueOf("nutricash")),
+
+    NUTRICASH_PREPAID(String.valueOf("nutricash_prepaid")),
 
     NYCE(String.valueOf("nyce")),
 
@@ -368,7 +434,17 @@ public class PaymentMethodSetupInfo {
 
     PAYTO(String.valueOf("payto")),
 
+    PERSONAL_CARD(String.valueOf("personal_card")),
+
+    PERSONAL_CARD_CREDIT(String.valueOf("personal_card_credit")),
+
+    PERSONAL_CARD_DEBIT(String.valueOf("personal_card_debit")),
+
     PULSE(String.valueOf("pulse")),
+
+    SENFF(String.valueOf("senff")),
+
+    SENFF_CREDIT(String.valueOf("senff_credit")),
 
     SODEXO(String.valueOf("sodexo")),
 
@@ -386,11 +462,31 @@ public class PaymentMethodSetupInfo {
 
     TWINT_POS(String.valueOf("twint_pos")),
 
+    UP_BRAZIL(String.valueOf("up_brazil")),
+
     UP_BRAZIL_CREDIT(String.valueOf("up_brazil_credit")),
+
+    UP_BRAZIL_DEBIT(String.valueOf("up_brazil_debit")),
+
+    UP_BRAZIL_PREPAID(String.valueOf("up_brazil_prepaid")),
 
     VALE_REFEICAO(String.valueOf("vale_refeicao")),
 
     VALE_REFEICAO_PREPAID(String.valueOf("vale_refeicao_prepaid")),
+
+    VEGAS_CARD(String.valueOf("vegas_card")),
+
+    VEGAS_CARD_CREDIT(String.valueOf("vegas_card_credit")),
+
+    VEGAS_CARD_DEBIT(String.valueOf("vegas_card_debit")),
+
+    VERO_CARD(String.valueOf("vero_card")),
+
+    VERO_CARD_CREDIT(String.valueOf("vero_card_credit")),
+
+    VERO_CARD_DEBIT(String.valueOf("vero_card_debit")),
+
+    VERO_CARD_PREPAID(String.valueOf("vero_card_prepaid")),
 
     VIPPS(String.valueOf("vipps")),
 
@@ -553,6 +649,39 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAfterpayTouch(AfterpayTouchInfo afterpayTouch) {
     this.afterpayTouch = afterpayTouch;
+  }
+
+  /**
+   * alipayPlus
+   *
+   * @param alipayPlus
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo alipayPlus(AlipayPlusInfo alipayPlus) {
+    this.alipayPlus = alipayPlus;
+    return this;
+  }
+
+  /**
+   * Get alipayPlus
+   *
+   * @return alipayPlus
+   */
+  @JsonProperty(JSON_PROPERTY_ALIPAY_PLUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AlipayPlusInfo getAlipayPlus() {
+    return alipayPlus;
+  }
+
+  /**
+   * alipayPlus
+   *
+   * @param alipayPlus
+   */
+  @JsonProperty(JSON_PROPERTY_ALIPAY_PLUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAlipayPlus(AlipayPlusInfo alipayPlus) {
+    this.alipayPlus = alipayPlus;
   }
 
   /**
@@ -1291,6 +1420,39 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaestro(GenericPmWithTdiInfo maestro) {
     this.maestro = maestro;
+  }
+
+  /**
+   * maestroUsa
+   *
+   * @param maestroUsa
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo maestroUsa(GenericPmWithTdiInfo maestroUsa) {
+    this.maestroUsa = maestroUsa;
+    return this;
+  }
+
+  /**
+   * Get maestroUsa
+   *
+   * @return maestroUsa
+   */
+  @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public GenericPmWithTdiInfo getMaestroUsa() {
+    return maestroUsa;
+  }
+
+  /**
+   * maestroUsa
+   *
+   * @param maestroUsa
+   */
+  @JsonProperty(JSON_PROPERTY_MAESTRO_USA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaestroUsa(GenericPmWithTdiInfo maestroUsa) {
+    this.maestroUsa = maestroUsa;
   }
 
   /**
@@ -2061,6 +2223,7 @@ public class PaymentMethodSetupInfo {
     return Objects.equals(this.accel, paymentMethodSetupInfo.accel)
         && Objects.equals(this.affirm, paymentMethodSetupInfo.affirm)
         && Objects.equals(this.afterpayTouch, paymentMethodSetupInfo.afterpayTouch)
+        && Objects.equals(this.alipayPlus, paymentMethodSetupInfo.alipayPlus)
         && Objects.equals(this.amex, paymentMethodSetupInfo.amex)
         && Objects.equals(this.applePay, paymentMethodSetupInfo.applePay)
         && Objects.equals(this.bcmc, paymentMethodSetupInfo.bcmc)
@@ -2082,6 +2245,7 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.jcb, paymentMethodSetupInfo.jcb)
         && Objects.equals(this.klarna, paymentMethodSetupInfo.klarna)
         && Objects.equals(this.maestro, paymentMethodSetupInfo.maestro)
+        && Objects.equals(this.maestroUsa, paymentMethodSetupInfo.maestroUsa)
         && Objects.equals(this.mc, paymentMethodSetupInfo.mc)
         && Objects.equals(this.mealVoucherFR, paymentMethodSetupInfo.mealVoucherFR)
         && Objects.equals(this.nyce, paymentMethodSetupInfo.nyce)
@@ -2112,6 +2276,7 @@ public class PaymentMethodSetupInfo {
         accel,
         affirm,
         afterpayTouch,
+        alipayPlus,
         amex,
         applePay,
         bcmc,
@@ -2133,6 +2298,7 @@ public class PaymentMethodSetupInfo {
         jcb,
         klarna,
         maestro,
+        maestroUsa,
         mc,
         mealVoucherFR,
         nyce,
@@ -2164,6 +2330,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    accel: ").append(toIndentedString(accel)).append("\n");
     sb.append("    affirm: ").append(toIndentedString(affirm)).append("\n");
     sb.append("    afterpayTouch: ").append(toIndentedString(afterpayTouch)).append("\n");
+    sb.append("    alipayPlus: ").append(toIndentedString(alipayPlus)).append("\n");
     sb.append("    amex: ").append(toIndentedString(amex)).append("\n");
     sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
     sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
@@ -2185,6 +2352,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    jcb: ").append(toIndentedString(jcb)).append("\n");
     sb.append("    klarna: ").append(toIndentedString(klarna)).append("\n");
     sb.append("    maestro: ").append(toIndentedString(maestro)).append("\n");
+    sb.append("    maestroUsa: ").append(toIndentedString(maestroUsa)).append("\n");
     sb.append("    mc: ").append(toIndentedString(mc)).append("\n");
     sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");

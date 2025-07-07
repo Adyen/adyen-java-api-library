@@ -129,7 +129,7 @@ public class TransfersApi extends Service {
   public FindTransfersResponse getAllTransfers(
       OffsetDateTime createdSince, OffsetDateTime createdUntil) throws ApiException, IOException {
     return getAllTransfers(
-        null, null, null, null, null, null, createdSince, createdUntil, null, null, null);
+        null, null, null, null, null, null, createdSince, createdUntil, null, null, null, null);
   }
 
   /**
@@ -174,6 +174,9 @@ public class TransfersApi extends Service {
    *     created on or before this point in time. The value must be in ISO 8601 format and not later
    *     than 6 months after the &#x60;createdSince&#x60; date. For example,
    *     **2021-05-30T15:07:40Z**. (required)
+   * @param sortOrder {@link String } Query: The transfers sorting order. Possible values: -
+   *     **asc**: Ascending order, from older to most recent. - **desc**: Descending order, from
+   *     most recent to older. (optional)
    * @param cursor {@link String } Query: The &#x60;cursor&#x60; returned in the links of the
    *     previous response. (optional)
    * @param limit {@link Integer } Query: The number of items returned per page, maximum of 100
@@ -192,6 +195,7 @@ public class TransfersApi extends Service {
       String category,
       OffsetDateTime createdSince,
       OffsetDateTime createdUntil,
+      String sortOrder,
       String cursor,
       Integer limit,
       RequestOptions requestOptions)
@@ -221,6 +225,9 @@ public class TransfersApi extends Service {
     }
     if (createdUntil != null) {
       queryParams.put("createdUntil", createdUntil.toString());
+    }
+    if (sortOrder != null) {
+      queryParams.put("sortOrder", sortOrder);
     }
     if (cursor != null) {
       queryParams.put("cursor", cursor);

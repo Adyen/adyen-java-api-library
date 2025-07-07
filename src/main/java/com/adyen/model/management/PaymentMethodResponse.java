@@ -60,11 +60,19 @@ public class PaymentMethodResponse {
 
     ALIPAY_HK(String.valueOf("alipay_hk")),
 
+    ALIPAY_PLUS(String.valueOf("alipay_plus")),
+
     ALIPAY_WAP(String.valueOf("alipay_wap")),
 
     AMEX(String.valueOf("amex")),
 
     APPLEPAY(String.valueOf("applepay")),
+
+    AVANCARD(String.valueOf("avancard")),
+
+    AVANCARD_CREDIT(String.valueOf("avancard_credit")),
+
+    AVANCARD_DEBIT(String.valueOf("avancard_debit")),
 
     BANESE_CARD(String.valueOf("banese_card")),
 
@@ -83,6 +91,22 @@ public class PaymentMethodResponse {
     CLEARPAY(String.valueOf("clearpay")),
 
     CLICKTOPAY(String.valueOf("clicktopay")),
+
+    COOPER(String.valueOf("cooper")),
+
+    COOPER_CREDIT(String.valueOf("cooper_credit")),
+
+    COOPER_DEBIT(String.valueOf("cooper_debit")),
+
+    COOPER_FOOD_DEBIT(String.valueOf("cooper_food_debit")),
+
+    COOPER_MEAL_DEBIT(String.valueOf("cooper_meal_debit")),
+
+    COOPER_PREPAID(String.valueOf("cooper_prepaid")),
+
+    COOPER_PRIVATE_CREDIT(String.valueOf("cooper_private_credit")),
+
+    COOPER_RETAIL_CREDIT(String.valueOf("cooper_retail_credit")),
 
     CREDTODOS(String.valueOf("credtodos")),
 
@@ -114,6 +138,18 @@ public class PaymentMethodResponse {
 
     GOOGLEPAY(String.valueOf("googlepay")),
 
+    GREEN_CARD(String.valueOf("green_card")),
+
+    GREEN_CARD_CREDIT(String.valueOf("green_card_credit")),
+
+    GREEN_CARD_DEBIT(String.valueOf("green_card_debit")),
+
+    GREEN_CARD_FOOD_PREPAID(String.valueOf("green_card_food_prepaid")),
+
+    GREEN_CARD_MEAL_PREPAID(String.valueOf("green_card_meal_prepaid")),
+
+    GREEN_CARD_PREPAID(String.valueOf("green_card_prepaid")),
+
     HIPER(String.valueOf("hiper")),
 
     HIPERCARD(String.valueOf("hipercard")),
@@ -130,7 +166,19 @@ public class PaymentMethodResponse {
 
     KLARNA_PAYNOW(String.valueOf("klarna_paynow")),
 
+    LE_CARD(String.valueOf("le_card")),
+
+    LE_CARD_CREDIT(String.valueOf("le_card_credit")),
+
+    LE_CARD_DEBIT(String.valueOf("le_card_debit")),
+
     MAESTRO(String.valueOf("maestro")),
+
+    MAESTRO_USA(String.valueOf("maestro_usa")),
+
+    MAXIFROTA(String.valueOf("maxifrota")),
+
+    MAXIFROTA_PREPAID(String.valueOf("maxifrota_prepaid")),
 
     MBWAY(String.valueOf("mbway")),
 
@@ -140,9 +188,19 @@ public class PaymentMethodResponse {
 
     MEALVOUCHER_FR(String.valueOf("mealVoucher_FR")),
 
+    MEGALEVE(String.valueOf("megaleve")),
+
+    MEGALEVE_CREDIT(String.valueOf("megaleve_credit")),
+
+    MEGALEVE_DEBIT(String.valueOf("megaleve_debit")),
+
     MOBILEPAY(String.valueOf("mobilepay")),
 
     MULTIBANCO(String.valueOf("multibanco")),
+
+    NUTRICASH(String.valueOf("nutricash")),
+
+    NUTRICASH_PREPAID(String.valueOf("nutricash_prepaid")),
 
     NYCE(String.valueOf("nyce")),
 
@@ -164,7 +222,17 @@ public class PaymentMethodResponse {
 
     PAYTO(String.valueOf("payto")),
 
+    PERSONAL_CARD(String.valueOf("personal_card")),
+
+    PERSONAL_CARD_CREDIT(String.valueOf("personal_card_credit")),
+
+    PERSONAL_CARD_DEBIT(String.valueOf("personal_card_debit")),
+
     PULSE(String.valueOf("pulse")),
+
+    SENFF(String.valueOf("senff")),
+
+    SENFF_CREDIT(String.valueOf("senff_credit")),
 
     SODEXO(String.valueOf("sodexo")),
 
@@ -182,11 +250,31 @@ public class PaymentMethodResponse {
 
     TWINT_POS(String.valueOf("twint_pos")),
 
+    UP_BRAZIL(String.valueOf("up_brazil")),
+
     UP_BRAZIL_CREDIT(String.valueOf("up_brazil_credit")),
+
+    UP_BRAZIL_DEBIT(String.valueOf("up_brazil_debit")),
+
+    UP_BRAZIL_PREPAID(String.valueOf("up_brazil_prepaid")),
 
     VALE_REFEICAO(String.valueOf("vale_refeicao")),
 
     VALE_REFEICAO_PREPAID(String.valueOf("vale_refeicao_prepaid")),
+
+    VEGAS_CARD(String.valueOf("vegas_card")),
+
+    VEGAS_CARD_CREDIT(String.valueOf("vegas_card_credit")),
+
+    VEGAS_CARD_DEBIT(String.valueOf("vegas_card_debit")),
+
+    VERO_CARD(String.valueOf("vero_card")),
+
+    VERO_CARD_CREDIT(String.valueOf("vero_card_credit")),
+
+    VERO_CARD_DEBIT(String.valueOf("vero_card_debit")),
+
+    VERO_CARD_PREPAID(String.valueOf("vero_card_prepaid")),
 
     VIPPS(String.valueOf("vipps")),
 
