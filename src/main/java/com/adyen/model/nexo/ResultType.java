@@ -64,16 +64,7 @@ public enum ResultType {
     return value;
   }
 
-  /**
-   * From value result type.
-   *
-   * @param v the v
-   * @return the result type
-   */
   public static ResultType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

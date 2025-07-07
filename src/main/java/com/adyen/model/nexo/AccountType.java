@@ -86,15 +86,12 @@ public enum AccountType {
   }
 
   /**
-   * From value account type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the account type
+   * @param v string value
+   * @return the AccountType, or {@code null} if no match is found.
    */
   public static AccountType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

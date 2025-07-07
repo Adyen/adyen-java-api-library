@@ -109,16 +109,7 @@ public enum ServiceProfilesType {
     return value;
   }
 
-  /**
-   * From value service profiles type.
-   *
-   * @param v the v
-   * @return the service profiles type
-   */
   public static ServiceProfilesType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

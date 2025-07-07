@@ -60,16 +60,7 @@ public enum PINRequestType {
     return value;
   }
 
-  /**
-   * From value pin request type.
-   *
-   * @param v the v
-   * @return the pin request type
-   */
   public static PINRequestType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

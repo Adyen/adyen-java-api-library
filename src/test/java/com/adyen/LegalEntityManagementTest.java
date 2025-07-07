@@ -1,6 +1,6 @@
 package com.adyen;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
@@ -74,6 +74,20 @@ public class LegalEntityManagementTest extends BaseTest {
     LegalEntity response = service.getLegalEntity("LE322JV223222D5GG42KN6869");
     assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
     assertEquals("string", response.getId());
+  }
+
+  @Test
+  public void LegalEntitiesInvalidEnumTest() throws Exception {
+    Client client =
+        createMockClientFromFile(
+            "mocks/legalentitymanagement/response/LegalEntityInvalidEnum.json");
+    LegalEntitiesApi service = new LegalEntitiesApi(client);
+    LegalEntity response = service.getLegalEntity("LE322JV223222D5GG42KN6869");
+
+    assertNotNull(response);
+    assertEquals("string", response.getId()); // id is found
+    // type is null since enum value doesn't exist
+    assertNull(response.getType());
   }
 
   @Test

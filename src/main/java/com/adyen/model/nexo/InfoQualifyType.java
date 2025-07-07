@@ -130,15 +130,12 @@ public enum InfoQualifyType {
   }
 
   /**
-   * From value info qualify type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the info qualify type
+   * @param v string value
+   * @return the InfoQualifyType, or {@code null} if no match is found.
    */
   public static InfoQualifyType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

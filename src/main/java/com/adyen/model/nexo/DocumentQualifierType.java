@@ -99,15 +99,12 @@ public enum DocumentQualifierType {
   }
 
   /**
-   * From value document qualifier type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the document qualifier type
+   * @param v string value
+   * @return the DocumentQualifierType, or {@code null} if no match is found.
    */
   public static DocumentQualifierType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

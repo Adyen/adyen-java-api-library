@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** BusinessLineInfo */
 @JsonPropertyOrder({
@@ -44,6 +46,8 @@ public class BusinessLineInfo {
 
     ISSUEBANKACCOUNT(String.valueOf("issueBankAccount"));
 
+    private static final Logger LOG = Logger.getLogger(CapabilityEnum.class.getName());
+
     private String value;
 
     CapabilityEnum(String value) {
@@ -67,7 +71,13 @@ public class BusinessLineInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "CapabilityEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CapabilityEnum.values()));
+      return null;
     }
   }
 
@@ -93,6 +103,8 @@ public class BusinessLineInfo {
 
     BANKING(String.valueOf("banking"));
 
+    private static final Logger LOG = Logger.getLogger(ServiceEnum.class.getName());
+
     private String value;
 
     ServiceEnum(String value) {
@@ -116,7 +128,13 @@ public class BusinessLineInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ServiceEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ServiceEnum.values()));
+      return null;
     }
   }
 

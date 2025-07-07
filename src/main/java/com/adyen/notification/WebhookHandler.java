@@ -25,7 +25,6 @@ import com.adyen.model.payout.JSON;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
@@ -35,7 +34,6 @@ public class WebhookHandler {
   private final Gson terminalGson;
 
   public WebhookHandler() {
-    GsonBuilder gsonBuilder = new GsonBuilder();
     terminalGson = TerminalAPIGsonBuilder.create();
   }
 

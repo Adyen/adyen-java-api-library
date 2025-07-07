@@ -61,15 +61,12 @@ public enum AttributeType {
   }
 
   /**
-   * From value attribute type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the attribute type
+   * @param v string value
+   * @return the AttributeType, or {@code null} if no match is found.
    */
   public static AttributeType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

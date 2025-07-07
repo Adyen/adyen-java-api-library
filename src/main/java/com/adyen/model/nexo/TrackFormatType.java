@@ -79,15 +79,12 @@ public enum TrackFormatType {
   }
 
   /**
-   * From value track format type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the track format type
+   * @param v string value
+   * @return the TrackFormatType, or {@code null} if no match is found.
    */
   public static TrackFormatType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

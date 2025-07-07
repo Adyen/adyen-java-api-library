@@ -18,9 +18,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** Document */
 @JsonPropertyOrder({
@@ -132,6 +134,8 @@ public class Document {
 
     PROOFOFRELATIONSHIP(String.valueOf("proofOfRelationship"));
 
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
     private String value;
 
     TypeEnum(String value) {
@@ -155,7 +159,13 @@ public class Document {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

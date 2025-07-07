@@ -103,15 +103,12 @@ public enum ForceEntryModeType {
   }
 
   /**
-   * From value force entry mode type.
+   * Returns the enum constant matching the given string, or {@code null} if no match is found.
    *
-   * @param v the v
-   * @return the force entry mode type
+   * @param v string value
+   * @return the ForceEntryModeType, or {@code null} if no match is found.
    */
   public static ForceEntryModeType fromValue(String v) {
-    return Arrays.stream(values())
-        .filter(s -> s.value.equals(v))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(v));
+    return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }
