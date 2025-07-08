@@ -30,7 +30,20 @@ public class {{serviceName}}Handler {
      * @return an Optional containing the deserialized object, or empty if deserialization fails
      */
     public Optional<{{model.name}}> get{{model.name}}() {
-        return getOptionalField({{model.name}}.class);
+
+        var optional{{model.name}} =  getOptionalField({{model.name}}.class);
+
+        if(optional{{model.name}}.isPresent()) {
+            // verify event type
+            for (var value : {{model.name}}.TypeEnum.values()) {
+                if (value.equals(optional{{model.name}}.get().getType())) {
+                    // found matching event type
+                    return optional{{model.name}};
+                }
+            }
+        }
+
+        return Optional.empty();
     }
 {{/model.vendorExtensions.x-webhook-root}}{{/models}}
     /**
