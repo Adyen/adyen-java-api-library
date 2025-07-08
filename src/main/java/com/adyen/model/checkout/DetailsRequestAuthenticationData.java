@@ -21,7 +21,7 @@ import java.util.*;
 @JsonPropertyOrder({DetailsRequestAuthenticationData.JSON_PROPERTY_AUTHENTICATION_ONLY})
 public class DetailsRequestAuthenticationData {
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
-  private Boolean authenticationOnly = false;
+  private Boolean authenticationOnly;
 
   public DetailsRequestAuthenticationData() {}
 

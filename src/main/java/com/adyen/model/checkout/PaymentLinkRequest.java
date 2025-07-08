@@ -275,13 +275,13 @@ public class PaymentLinkRequest {
 
   public static final String JSON_PROPERTY_SHOW_REMOVE_PAYMENT_METHOD_BUTTON =
       "showRemovePaymentMethodButton";
-  private Boolean showRemovePaymentMethodButton = true;
+  private Boolean showRemovePaymentMethodButton;
 
   public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
   private String socialSecurityNumber;
 
   public static final String JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
-  private Boolean splitCardFundingSources = false;
+  private Boolean splitCardFundingSources;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;

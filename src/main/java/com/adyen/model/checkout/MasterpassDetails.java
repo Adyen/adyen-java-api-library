@@ -122,7 +122,7 @@ public class MasterpassDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.MASTERPASS;
+  private TypeEnum type;
 
   public MasterpassDetails() {}
 

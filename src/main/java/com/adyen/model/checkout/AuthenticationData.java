@@ -80,7 +80,7 @@ public class AuthenticationData {
   private AttemptAuthenticationEnum attemptAuthentication;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
-  private Boolean authenticationOnly = false;
+  private Boolean authenticationOnly;
 
   public static final String JSON_PROPERTY_THREE_D_S_REQUEST_DATA = "threeDSRequestData";
   private ThreeDSRequestData threeDSRequestData;

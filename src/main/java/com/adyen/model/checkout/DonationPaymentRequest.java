@@ -360,7 +360,7 @@ public class DonationPaymentRequest {
       "threeDSAuthenticationOnly";
   @Deprecated // deprecated since Adyen Checkout API v69: Use
   // `authenticationData.authenticationOnly` instead.
-  private Boolean threeDSAuthenticationOnly = false;
+  private Boolean threeDSAuthenticationOnly;
 
   public DonationPaymentRequest() {}
 

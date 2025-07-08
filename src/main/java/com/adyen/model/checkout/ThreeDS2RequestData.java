@@ -172,7 +172,7 @@ public class ThreeDS2RequestData {
 
   public static final String JSON_PROPERTY_AUTHENTICATION_ONLY = "authenticationOnly";
   @Deprecated // deprecated since Adyen Checkout API v50: Use `threeDSAuthenticationOnly` instead.
-  private Boolean authenticationOnly = false;
+  private Boolean authenticationOnly;
 
   /**
    * Possibility to specify a preference for receiving a challenge from the issuer. Allowed values:
@@ -278,7 +278,7 @@ public class ThreeDS2RequestData {
   private SDKEphemPubKey sdkEphemPubKey;
 
   public static final String JSON_PROPERTY_SDK_MAX_TIMEOUT = "sdkMaxTimeout";
-  private Integer sdkMaxTimeout = 60;
+  private Integer sdkMaxTimeout;
 
   public static final String JSON_PROPERTY_SDK_REFERENCE_NUMBER = "sdkReferenceNumber";
   private String sdkReferenceNumber;

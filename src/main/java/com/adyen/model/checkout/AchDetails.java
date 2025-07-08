@@ -206,7 +206,7 @@ public class AchDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ACH;
+  private TypeEnum type;
 
   public AchDetails() {}
 

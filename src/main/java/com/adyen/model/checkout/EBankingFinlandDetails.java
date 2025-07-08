@@ -74,7 +74,7 @@ public class EBankingFinlandDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.EBANKING_FI;
+  private TypeEnum type;
 
   public EBankingFinlandDetails() {}
 

@@ -74,7 +74,7 @@ public class PayByBankDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYBYBANK;
+  private TypeEnum type;
 
   public PayByBankDetails() {}
 

@@ -137,7 +137,7 @@ public class PaymentMethodsRequest {
   private String shopperReference;
 
   public static final String JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
-  private Boolean splitCardFundingSources = false;
+  private Boolean splitCardFundingSources;
 
   public static final String JSON_PROPERTY_STORE = "store";
   private String store;

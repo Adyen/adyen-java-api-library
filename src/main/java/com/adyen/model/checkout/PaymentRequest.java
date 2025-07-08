@@ -565,7 +565,7 @@ public class PaymentRequest {
       "threeDSAuthenticationOnly";
   @Deprecated // deprecated since Adyen Checkout API v69: Use
   // `authenticationData.authenticationOnly` instead.
-  private Boolean threeDSAuthenticationOnly = false;
+  private Boolean threeDSAuthenticationOnly;
 
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
   private Boolean trustedShopper;
