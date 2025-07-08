@@ -8,5 +8,8 @@
       "currency": "EUR",
       "value": 14548
     }
-  }
+  },
+  "environment": "test",
+  "timestamp": "2025-07-08T02:01:05+02:00",
+  "type": "balancePlatform.authentication.relayed"
 }
