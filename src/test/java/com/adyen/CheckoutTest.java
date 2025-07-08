@@ -606,7 +606,6 @@ public class CheckoutTest extends BaseTest {
                         .id("Item #2")
                         .taxAmount(52L)
                         .amountIncludingTax(300L)));
-    paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(rivertyDetails));
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentResponse paymentResponse = checkout.payments(paymentRequest);
 
@@ -623,6 +622,51 @@ public class CheckoutTest extends BaseTest {
         .request(
             "https://checkout-test.adyen.com/v71/payments",
             paymentRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
+
+  @Test
+  public void TestPaymentMethodsNullLists() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/paymentMethodsResponse.json");
+    PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
+    paymentMethodsRequest.setMerchantAccount("myMerchantAccount");
+    PaymentsApi checkout = new PaymentsApi(client);
+    PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
+
+    assertEquals(1, paymentMethodsResponse.getPaymentMethods().size());
+    // verify storedPaymentMethods list is null
+    assertNull(paymentMethodsResponse.getStoredPaymentMethods());
+  }
+
+  @Test
+  public void TestSessionsCheckDefaultValues() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
+    CreateCheckoutSessionRequest sessionRequest = new CreateCheckoutSessionRequest();
+    sessionRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
+    sessionRequest.setCountryCode("NL");
+    sessionRequest.setReference("YOUR_PAYMENT_REFERENCE");
+    sessionRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
+    Amount amount = new Amount().currency("EUR").value(100L);
+    sessionRequest.setAmount(amount);
+    PaymentsApi checkout = new PaymentsApi(client);
+    CreateCheckoutSessionResponse createCheckoutSessionResponse = checkout.sessions(sessionRequest);
+    assertEquals("CS1453E3730C313478", createCheckoutSessionResponse.getId());
+
+    // check no attributes with default values are included (i.e. threeDSAuthenticationOnly)
+    String EXPECTED_REQUEST_PAYLOAD =
+        "{\"amount\":{\"currency\":\"EUR\",\"value\":100},"
+            + "\"countryCode\":\"NL\",\"merchantAccount\":\"YOUR_MERCHANT_ACCOUNT\","
+            + "\"reference\":\"YOUR_PAYMENT_REFERENCE\","
+            + "\"returnUrl\":\"https://your-company.com/checkout?shopperOrder=12xy..\"}";
+
+    verify(client.getHttpClient())
+        .request(
+            "https://checkout-test.adyen.com/v71/sessions",
+            EXPECTED_REQUEST_PAYLOAD,
             client.getConfig(),
             false,
             null,
