@@ -41,20 +41,6 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
 public class CheckoutTest extends BaseTest {
-  protected Client createMockErrorClient(String response) {
-    AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
-    try {
-      when(adyenHttpClient.request(
-              anyString(), any(), any(Config.class), anyBoolean(), isNull(), any()))
-          .thenThrow(new HTTPClientException("HTTP Exception"));
-    } catch (IOException | HTTPClientException e) {
-      e.printStackTrace();
-    }
-    Client client = new Client();
-    client.setHttpClient(adyenHttpClient);
-    client.setEnvironment(Environment.TEST, null);
-    return client;
-  }
 
   /** Should make a payment */
   @Test
@@ -110,8 +96,6 @@ public class CheckoutTest extends BaseTest {
 
   /**
    * Deserialise CardDetails (scheme)
-   *
-   * @throws Exception
    */
   @Test
   public void TestDeserializePaymentRequestScheme() throws Exception {
@@ -164,7 +148,7 @@ public class CheckoutTest extends BaseTest {
     LineItem lineItem = new LineItem();
     lineItem.setBrand("brand");
     lineItem.setColor("color");
-    List<LineItem> lineItemList = new ArrayList<LineItem>();
+    List<LineItem> lineItemList = new ArrayList<>();
     lineItemList.add(lineItem);
     createPaymentLinkRequest.setLineItems(lineItemList);
     PaymentLinksApi checkout = new PaymentLinksApi(client);
@@ -394,8 +378,8 @@ public class CheckoutTest extends BaseTest {
     RecurringApi checkout = new RecurringApi(client);
     ListStoredPaymentMethodsResponse response =
         checkout.getTokensForStoredPaymentDetails("test-1234", "TestMerchantAccount", null);
-    Assert.assertEquals(response.getMerchantAccount(), "merchantAccount");
-    Assert.assertEquals(response.getStoredPaymentMethods().get(0).getBrand(), "string");
+    Assert.assertEquals("merchantAccount", response.getMerchantAccount());
+    Assert.assertEquals("string", response.getStoredPaymentMethods().get(0).getBrand());
   }
 
   /** Should delete StoredPaymentMethods */
@@ -418,7 +402,7 @@ public class CheckoutTest extends BaseTest {
     client.setConfig(config);
     RecurringApi checkout = new RecurringApi(client);
     checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
-    HashMap<String, String> queryParams = new HashMap<String, String>();
+    HashMap<String, String> queryParams = new HashMap<>();
     queryParams.put("merchantAccount", "TestMerchantAccount");
     queryParams.put("shopperReference", "test-1234");
 
@@ -440,7 +424,7 @@ public class CheckoutTest extends BaseTest {
     client.setEnvironment(Environment.LIVE, "prefix");
     RecurringApi checkout = new RecurringApi(client);
     checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
-    HashMap<String, String> queryParams = new HashMap<String, String>();
+    HashMap<String, String> queryParams = new HashMap<>();
     queryParams.put("merchantAccount", "TestMerchantAccount");
     queryParams.put("shopperReference", "test-1234");
 
