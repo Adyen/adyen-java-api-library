@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** BalanceAccountBalanceNotificationRequest */
 @JsonPropertyOrder({
@@ -41,6 +43,8 @@ public class BalanceAccountBalanceNotificationRequest {
   public enum TypeEnum {
     BALANCEPLATFORM_BALANCEACCOUNT_BALANCE_UPDATED(
         String.valueOf("balancePlatform.balanceAccount.balance.updated"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -65,7 +69,13 @@ public class BalanceAccountBalanceNotificationRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

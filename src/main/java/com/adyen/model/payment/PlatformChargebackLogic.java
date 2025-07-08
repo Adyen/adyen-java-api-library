@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** PlatformChargebackLogic */
 @JsonPropertyOrder({
@@ -36,6 +38,8 @@ public class PlatformChargebackLogic {
     DEDUCTFROMLIABLEACCOUNT(String.valueOf("deductFromLiableAccount")),
 
     DEDUCTFROMONEBALANCEACCOUNT(String.valueOf("deductFromOneBalanceAccount"));
+
+    private static final Logger LOG = Logger.getLogger(BehaviorEnum.class.getName());
 
     private String value;
 
@@ -60,7 +64,13 @@ public class PlatformChargebackLogic {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "BehaviorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(BehaviorEnum.values()));
+      return null;
     }
   }
 

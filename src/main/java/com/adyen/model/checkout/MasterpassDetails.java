@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** MasterpassDetails */
 @JsonPropertyOrder({
@@ -38,6 +40,8 @@ public class MasterpassDetails {
     CREDIT(String.valueOf("credit")),
 
     DEBIT(String.valueOf("debit"));
+
+    private static final Logger LOG = Logger.getLogger(FundingSourceEnum.class.getName());
 
     private String value;
 
@@ -62,7 +66,13 @@ public class MasterpassDetails {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FundingSourceEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FundingSourceEnum.values()));
+      return null;
     }
   }
 
@@ -75,6 +85,8 @@ public class MasterpassDetails {
   /** **masterpass** */
   public enum TypeEnum {
     MASTERPASS(String.valueOf("masterpass"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -99,7 +111,13 @@ public class MasterpassDetails {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

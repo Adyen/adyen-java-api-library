@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
 
 /** TimeOfDay */
 @JsonPropertyOrder({TimeOfDay.JSON_PROPERTY_END_TIME, TimeOfDay.JSON_PROPERTY_START_TIME})

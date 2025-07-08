@@ -18,9 +18,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** TransferEvent */
 @JsonPropertyOrder({
@@ -128,6 +130,8 @@ public class TransferEvent {
 
     UNKNOWN(String.valueOf("unknown"));
 
+    private static final Logger LOG = Logger.getLogger(ReasonEnum.class.getName());
+
     private String value;
 
     ReasonEnum(String value) {
@@ -151,7 +155,13 @@ public class TransferEvent {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ReasonEnum.values()));
+      return null;
     }
   }
 
@@ -294,6 +304,8 @@ public class TransferEvent {
 
     UNDEFINED(String.valueOf("undefined"));
 
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
+
     private String value;
 
     StatusEnum(String value) {
@@ -317,7 +329,13 @@ public class TransferEvent {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 
@@ -335,6 +353,8 @@ public class TransferEvent {
     ACCOUNTING(String.valueOf("accounting")),
 
     TRACKING(String.valueOf("tracking"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -359,7 +379,13 @@ public class TransferEvent {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

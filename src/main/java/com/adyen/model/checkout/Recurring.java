@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** Recurring */
 @JsonPropertyOrder({
@@ -48,6 +50,8 @@ public class Recurring {
 
     PAYOUT(String.valueOf("PAYOUT"));
 
+    private static final Logger LOG = Logger.getLogger(ContractEnum.class.getName());
+
     private String value;
 
     ContractEnum(String value) {
@@ -71,7 +75,13 @@ public class Recurring {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ContractEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ContractEnum.values()));
+      return null;
     }
   }
 
@@ -97,6 +107,8 @@ public class Recurring {
 
     TOKEN_SHARING(String.valueOf("TOKEN_SHARING"));
 
+    private static final Logger LOG = Logger.getLogger(TokenServiceEnum.class.getName());
+
     private String value;
 
     TokenServiceEnum(String value) {
@@ -120,7 +132,13 @@ public class Recurring {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TokenServiceEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TokenServiceEnum.values()));
+      return null;
     }
   }
 

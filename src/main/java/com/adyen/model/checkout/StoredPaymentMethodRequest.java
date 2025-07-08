@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** StoredPaymentMethodRequest */
 @JsonPropertyOrder({
@@ -53,6 +55,9 @@ public class StoredPaymentMethodRequest {
 
     UNSCHEDULEDCARDONFILE(String.valueOf("UnscheduledCardOnFile"));
 
+    private static final Logger LOG =
+        Logger.getLogger(RecurringProcessingModelEnum.class.getName());
+
     private String value;
 
     RecurringProcessingModelEnum(String value) {
@@ -76,7 +81,13 @@ public class StoredPaymentMethodRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RecurringProcessingModelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RecurringProcessingModelEnum.values()));
+      return null;
     }
   }
 

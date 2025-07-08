@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** TransferReview */
 @JsonPropertyOrder({
@@ -39,6 +41,8 @@ public class TransferReview {
     NOTAPPLICABLE(String.valueOf("notApplicable")),
 
     REQUIRED(String.valueOf("required"));
+
+    private static final Logger LOG = Logger.getLogger(ScaOnApprovalEnum.class.getName());
 
     private String value;
 
@@ -63,7 +67,13 @@ public class TransferReview {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ScaOnApprovalEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ScaOnApprovalEnum.values()));
+      return null;
     }
   }
 

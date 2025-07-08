@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** PaymentRefundRequest */
 @JsonPropertyOrder({
@@ -64,6 +66,8 @@ public class PaymentRefundRequest {
 
     OTHER(String.valueOf("OTHER"));
 
+    private static final Logger LOG = Logger.getLogger(MerchantRefundReasonEnum.class.getName());
+
     private String value;
 
     MerchantRefundReasonEnum(String value) {
@@ -87,6 +91,12 @@ public class PaymentRefundRequest {
           return b;
         }
       }
+      // handling unexpected value
+      LOG.warning(
+          "MerchantRefundReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(MerchantRefundReasonEnum.values()));
       return null;
     }
   }

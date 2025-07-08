@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** PaymentAmountUpdateResponse */
 @JsonPropertyOrder({
@@ -48,6 +50,8 @@ public class PaymentAmountUpdateResponse {
 
     NOSHOW(String.valueOf("noShow"));
 
+    private static final Logger LOG = Logger.getLogger(IndustryUsageEnum.class.getName());
+
     private String value;
 
     IndustryUsageEnum(String value) {
@@ -71,7 +75,13 @@ public class PaymentAmountUpdateResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "IndustryUsageEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(IndustryUsageEnum.values()));
+      return null;
     }
   }
 
@@ -100,6 +110,8 @@ public class PaymentAmountUpdateResponse {
   public enum StatusEnum {
     RECEIVED(String.valueOf("received"));
 
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
+
     private String value;
 
     StatusEnum(String value) {
@@ -123,7 +135,13 @@ public class PaymentAmountUpdateResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 

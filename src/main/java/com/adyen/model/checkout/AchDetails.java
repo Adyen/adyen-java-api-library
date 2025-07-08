@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** AchDetails */
 @JsonPropertyOrder({
@@ -40,6 +42,8 @@ public class AchDetails {
     BUSINESS(String.valueOf("business")),
 
     PERSONAL(String.valueOf("personal"));
+
+    private static final Logger LOG = Logger.getLogger(AccountHolderTypeEnum.class.getName());
 
     private String value;
 
@@ -64,7 +68,13 @@ public class AchDetails {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AccountHolderTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AccountHolderTypeEnum.values()));
+      return null;
     }
   }
 
@@ -90,6 +100,8 @@ public class AchDetails {
 
     SAVINGS(String.valueOf("savings"));
 
+    private static final Logger LOG = Logger.getLogger(BankAccountTypeEnum.class.getName());
+
     private String value;
 
     BankAccountTypeEnum(String value) {
@@ -113,7 +125,13 @@ public class AchDetails {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "BankAccountTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(BankAccountTypeEnum.values()));
+      return null;
     }
   }
 
@@ -152,6 +170,8 @@ public class AchDetails {
 
     ACH_PLAID(String.valueOf("ach_plaid"));
 
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
     private String value;
 
     TypeEnum(String value) {
@@ -175,7 +195,13 @@ public class AchDetails {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

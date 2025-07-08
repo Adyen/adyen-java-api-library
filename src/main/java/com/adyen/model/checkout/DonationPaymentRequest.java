@@ -18,11 +18,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** DonationPaymentRequest */
 @JsonPropertyOrder({
@@ -104,6 +106,8 @@ public class DonationPaymentRequest {
 
     WEB(String.valueOf("Web"));
 
+    private static final Logger LOG = Logger.getLogger(ChannelEnum.class.getName());
+
     private String value;
 
     ChannelEnum(String value) {
@@ -127,7 +131,13 @@ public class DonationPaymentRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChannelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChannelEnum.values()));
+      return null;
     }
   }
 
@@ -208,6 +218,9 @@ public class DonationPaymentRequest {
 
     UNSCHEDULEDCARDONFILE(String.valueOf("UnscheduledCardOnFile"));
 
+    private static final Logger LOG =
+        Logger.getLogger(RecurringProcessingModelEnum.class.getName());
+
     private String value;
 
     RecurringProcessingModelEnum(String value) {
@@ -231,7 +244,13 @@ public class DonationPaymentRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RecurringProcessingModelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RecurringProcessingModelEnum.values()));
+      return null;
     }
   }
 
@@ -281,6 +300,8 @@ public class DonationPaymentRequest {
 
     POS(String.valueOf("POS"));
 
+    private static final Logger LOG = Logger.getLogger(ShopperInteractionEnum.class.getName());
+
     private String value;
 
     ShopperInteractionEnum(String value) {
@@ -304,7 +325,13 @@ public class DonationPaymentRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ShopperInteractionEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ShopperInteractionEnum.values()));
+      return null;
     }
   }
 

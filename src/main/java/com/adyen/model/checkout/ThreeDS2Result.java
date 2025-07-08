@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** ThreeDS2Result */
 @JsonPropertyOrder({
@@ -63,6 +65,8 @@ public class ThreeDS2Result {
 
     _07(String.valueOf("07"));
 
+    private static final Logger LOG = Logger.getLogger(ChallengeCancelEnum.class.getName());
+
     private String value;
 
     ChallengeCancelEnum(String value) {
@@ -86,7 +90,13 @@ public class ThreeDS2Result {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChallengeCancelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChallengeCancelEnum.values()));
+      return null;
     }
   }
 
@@ -113,6 +123,8 @@ public class ThreeDS2Result {
 
     TRANSACTIONRISKANALYSIS(String.valueOf("transactionRiskAnalysis"));
 
+    private static final Logger LOG = Logger.getLogger(ExemptionIndicatorEnum.class.getName());
+
     private String value;
 
     ExemptionIndicatorEnum(String value) {
@@ -136,7 +148,13 @@ public class ThreeDS2Result {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ExemptionIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ExemptionIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -168,6 +186,9 @@ public class ThreeDS2Result {
 
     _06(String.valueOf("06"));
 
+    private static final Logger LOG =
+        Logger.getLogger(ThreeDSRequestorChallengeIndEnum.class.getName());
+
     private String value;
 
     ThreeDSRequestorChallengeIndEnum(String value) {
@@ -191,7 +212,13 @@ public class ThreeDS2Result {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ThreeDSRequestorChallengeIndEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ThreeDSRequestorChallengeIndEnum.values()));
+      return null;
     }
   }
 

@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** MerchantRiskIndicator */
 @JsonPropertyOrder({
@@ -61,6 +63,9 @@ public class MerchantRiskIndicator {
 
     OTHER(String.valueOf("other"));
 
+    private static final Logger LOG =
+        Logger.getLogger(DeliveryAddressIndicatorEnum.class.getName());
+
     private String value;
 
     DeliveryAddressIndicatorEnum(String value) {
@@ -84,7 +89,13 @@ public class MerchantRiskIndicator {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "DeliveryAddressIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(DeliveryAddressIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -112,6 +123,8 @@ public class MerchantRiskIndicator {
 
     TWOORMOREDAYSSHIPPING(String.valueOf("twoOrMoreDaysShipping"));
 
+    private static final Logger LOG = Logger.getLogger(DeliveryTimeframeEnum.class.getName());
+
     private String value;
 
     DeliveryTimeframeEnum(String value) {
@@ -135,7 +148,13 @@ public class MerchantRiskIndicator {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "DeliveryTimeframeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(DeliveryTimeframeEnum.values()));
+      return null;
     }
   }
 

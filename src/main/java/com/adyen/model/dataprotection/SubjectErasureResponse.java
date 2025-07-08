@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** SubjectErasureResponse */
 @JsonPropertyOrder({SubjectErasureResponse.JSON_PROPERTY_RESULT})
@@ -31,6 +33,8 @@ public class SubjectErasureResponse {
     PAYMENT_NOT_FOUND(String.valueOf("PAYMENT_NOT_FOUND")),
 
     SUCCESS(String.valueOf("SUCCESS"));
+
+    private static final Logger LOG = Logger.getLogger(ResultEnum.class.getName());
 
     private String value;
 
@@ -55,7 +59,13 @@ public class SubjectErasureResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ResultEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ResultEnum.values()));
+      return null;
     }
   }
 

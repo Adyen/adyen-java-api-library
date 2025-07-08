@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** Mandate */
 @JsonPropertyOrder({
@@ -45,6 +47,8 @@ public class Mandate {
 
     EXACT(String.valueOf("exact"));
 
+    private static final Logger LOG = Logger.getLogger(AmountRuleEnum.class.getName());
+
     private String value;
 
     AmountRuleEnum(String value) {
@@ -68,7 +72,13 @@ public class Mandate {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AmountRuleEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AmountRuleEnum.values()));
+      return null;
     }
   }
 
@@ -86,6 +96,8 @@ public class Mandate {
     BEFORE(String.valueOf("before")),
 
     AFTER(String.valueOf("after"));
+
+    private static final Logger LOG = Logger.getLogger(BillingAttemptsRuleEnum.class.getName());
 
     private String value;
 
@@ -110,7 +122,13 @@ public class Mandate {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "BillingAttemptsRuleEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(BillingAttemptsRuleEnum.values()));
+      return null;
     }
   }
 
@@ -147,6 +165,8 @@ public class Mandate {
 
     YEARLY(String.valueOf("yearly"));
 
+    private static final Logger LOG = Logger.getLogger(FrequencyEnum.class.getName());
+
     private String value;
 
     FrequencyEnum(String value) {
@@ -170,7 +190,13 @@ public class Mandate {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FrequencyEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FrequencyEnum.values()));
+      return null;
     }
   }
 

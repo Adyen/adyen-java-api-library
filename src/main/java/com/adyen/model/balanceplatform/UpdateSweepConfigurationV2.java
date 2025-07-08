@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** UpdateSweepConfigurationV2 */
 @JsonPropertyOrder({
@@ -56,6 +58,8 @@ public class UpdateSweepConfigurationV2 {
 
     PLATFORMPAYMENT(String.valueOf("platformPayment"));
 
+    private static final Logger LOG = Logger.getLogger(CategoryEnum.class.getName());
+
     private String value;
 
     CategoryEnum(String value) {
@@ -79,7 +83,13 @@ public class UpdateSweepConfigurationV2 {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "CategoryEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CategoryEnum.values()));
+      return null;
     }
   }
 
@@ -112,6 +122,8 @@ public class UpdateSweepConfigurationV2 {
 
     WIRE(String.valueOf("wire"));
 
+    private static final Logger LOG = Logger.getLogger(PrioritiesEnum.class.getName());
+
     private String value;
 
     PrioritiesEnum(String value) {
@@ -135,7 +147,13 @@ public class UpdateSweepConfigurationV2 {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PrioritiesEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PrioritiesEnum.values()));
+      return null;
     }
   }
 
@@ -193,6 +211,8 @@ public class UpdateSweepConfigurationV2 {
 
     UNKNOWN(String.valueOf("unknown"));
 
+    private static final Logger LOG = Logger.getLogger(ReasonEnum.class.getName());
+
     private String value;
 
     ReasonEnum(String value) {
@@ -216,7 +236,13 @@ public class UpdateSweepConfigurationV2 {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ReasonEnum.values()));
+      return null;
     }
   }
 
@@ -245,6 +271,8 @@ public class UpdateSweepConfigurationV2 {
 
     INACTIVE(String.valueOf("inactive"));
 
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
+
     private String value;
 
     StatusEnum(String value) {
@@ -268,7 +296,13 @@ public class UpdateSweepConfigurationV2 {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 
@@ -295,6 +329,8 @@ public class UpdateSweepConfigurationV2 {
 
     PUSH(String.valueOf("push"));
 
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
     private String value;
 
     TypeEnum(String value) {
@@ -318,7 +354,13 @@ public class UpdateSweepConfigurationV2 {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** InternalReviewTrackingData */
 @JsonPropertyOrder({
@@ -33,6 +35,8 @@ public class InternalReviewTrackingData {
    */
   public enum ReasonEnum {
     REFUSEDFORREGULATORYREASONS(String.valueOf("refusedForRegulatoryReasons"));
+
+    private static final Logger LOG = Logger.getLogger(ReasonEnum.class.getName());
 
     private String value;
 
@@ -57,7 +61,13 @@ public class InternalReviewTrackingData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ReasonEnum.values()));
+      return null;
     }
   }
 
@@ -73,6 +83,8 @@ public class InternalReviewTrackingData {
     PENDING(String.valueOf("pending")),
 
     FAILED(String.valueOf("failed"));
+
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
 
     private String value;
 
@@ -97,7 +109,13 @@ public class InternalReviewTrackingData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 
@@ -110,6 +128,8 @@ public class InternalReviewTrackingData {
    */
   public enum TypeEnum {
     INTERNALREVIEW(String.valueOf("internalReview"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -134,7 +154,13 @@ public class InternalReviewTrackingData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

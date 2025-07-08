@@ -177,6 +177,9 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     String jsonRequest =
         "{ \"data\": {\"balancePlatform\": \"YOUR_BALANCE_PLATFORM\",\"accountHolder\": {\"contactDetails\": {\"address\": {\"country\": \"NL\",\"houseNumberOrName\": \"274\",\"postalCode\": \"1020CD\",\"street\": \"Brannan Street\"},\"email\": \"s.hopper@example.com\",\"phone\": {\"number\": \"+315551231234\",\"type\": \"mobile\"}},\"description\": \"S.Hopper - Staff 123\",\"id\": \"AH00000000000000000000001\",\"status\": \"active\"}},\"environment\": \"test\",\"type\": \"balancePlatform.accountHolder.created\"}";
     ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(jsonRequest);
+
+    Assert.assertTrue(webhookHandler.getAccountHolderNotificationRequest().isPresent());
+
     AccountHolderNotificationRequest accountHolderNotificationRequest =
         webhookHandler.getAccountHolderNotificationRequest().get();
     Assert.assertEquals(
@@ -191,10 +194,17 @@ public class BalancePlatformWebhooksTest extends BaseTest {
             "mocks/balancePlatform-webhooks/configuration-accountHolder-created-castexception.json");
     ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(json);
     Assert.assertTrue(webhookHandler.getAccountHolderNotificationRequest().isPresent());
-    // access missing object causes deserialization error
+    // verify other event is not present
     Assert.assertFalse(webhookHandler.getCardOrderNotificationRequest().isPresent());
-    // access missing object causes deserialization error
+    // verify other event is not present
     Assert.assertFalse(webhookHandler.getBalanceAccountNotificationRequest().isPresent());
+  }
+
+  @Test
+  public void testBankingWebhookInvalidPayload() {
+    String jsonRequest = "{ invalid json ...";
+    ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(jsonRequest);
+    Assert.assertTrue(webhookHandler.getAccountHolderNotificationRequest().isEmpty());
   }
 
   @Test

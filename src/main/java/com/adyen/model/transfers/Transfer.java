@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** Transfer */
 @JsonPropertyOrder({
@@ -76,6 +78,8 @@ public class Transfer {
 
     TOPUP(String.valueOf("topUp"));
 
+    private static final Logger LOG = Logger.getLogger(CategoryEnum.class.getName());
+
     private String value;
 
     CategoryEnum(String value) {
@@ -99,7 +103,13 @@ public class Transfer {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "CategoryEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CategoryEnum.values()));
+      return null;
     }
   }
 
@@ -131,6 +141,8 @@ public class Transfer {
 
     OUTGOING(String.valueOf("outgoing"));
 
+    private static final Logger LOG = Logger.getLogger(DirectionEnum.class.getName());
+
     private String value;
 
     DirectionEnum(String value) {
@@ -154,7 +166,13 @@ public class Transfer {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "DirectionEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(DirectionEnum.values()));
+      return null;
     }
   }
 
@@ -221,6 +239,8 @@ public class Transfer {
 
     UNKNOWN(String.valueOf("unknown"));
 
+    private static final Logger LOG = Logger.getLogger(ReasonEnum.class.getName());
+
     private String value;
 
     ReasonEnum(String value) {
@@ -244,7 +264,13 @@ public class Transfer {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ReasonEnum.values()));
+      return null;
     }
   }
 
@@ -402,6 +428,8 @@ public class Transfer {
 
     UNDEFINED(String.valueOf("undefined"));
 
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
+
     private String value;
 
     StatusEnum(String value) {
@@ -425,7 +453,13 @@ public class Transfer {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 
@@ -513,6 +547,8 @@ public class Transfer {
 
     BALANCEMIGRATION(String.valueOf("balanceMigration"));
 
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
     private String value;
 
     TypeEnum(String value) {
@@ -536,7 +572,13 @@ public class Transfer {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

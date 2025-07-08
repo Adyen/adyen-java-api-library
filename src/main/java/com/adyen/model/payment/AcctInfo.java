@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** AcctInfo */
 @JsonPropertyOrder({
@@ -55,6 +57,8 @@ public class AcctInfo {
 
     _05(String.valueOf("05"));
 
+    private static final Logger LOG = Logger.getLogger(ChAccAgeIndEnum.class.getName());
+
     private String value;
 
     ChAccAgeIndEnum(String value) {
@@ -78,7 +82,13 @@ public class AcctInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChAccAgeIndEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChAccAgeIndEnum.values()));
+      return null;
     }
   }
 
@@ -103,6 +113,8 @@ public class AcctInfo {
 
     _04(String.valueOf("04"));
 
+    private static final Logger LOG = Logger.getLogger(ChAccChangeIndEnum.class.getName());
+
     private String value;
 
     ChAccChangeIndEnum(String value) {
@@ -126,7 +138,13 @@ public class AcctInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChAccChangeIndEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChAccChangeIndEnum.values()));
+      return null;
     }
   }
 
@@ -153,6 +171,8 @@ public class AcctInfo {
 
     _05(String.valueOf("05"));
 
+    private static final Logger LOG = Logger.getLogger(ChAccPwChangeIndEnum.class.getName());
+
     private String value;
 
     ChAccPwChangeIndEnum(String value) {
@@ -176,7 +196,13 @@ public class AcctInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChAccPwChangeIndEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChAccPwChangeIndEnum.values()));
+      return null;
     }
   }
 
@@ -209,6 +235,8 @@ public class AcctInfo {
 
     _05(String.valueOf("05"));
 
+    private static final Logger LOG = Logger.getLogger(PaymentAccIndEnum.class.getName());
+
     private String value;
 
     PaymentAccIndEnum(String value) {
@@ -232,7 +260,13 @@ public class AcctInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PaymentAccIndEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PaymentAccIndEnum.values()));
+      return null;
     }
   }
 
@@ -259,6 +293,8 @@ public class AcctInfo {
 
     _04(String.valueOf("04"));
 
+    private static final Logger LOG = Logger.getLogger(ShipAddressUsageIndEnum.class.getName());
+
     private String value;
 
     ShipAddressUsageIndEnum(String value) {
@@ -282,7 +318,13 @@ public class AcctInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ShipAddressUsageIndEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ShipAddressUsageIndEnum.values()));
+      return null;
     }
   }
 
@@ -298,6 +340,8 @@ public class AcctInfo {
     _01(String.valueOf("01")),
 
     _02(String.valueOf("02"));
+
+    private static final Logger LOG = Logger.getLogger(ShipNameIndicatorEnum.class.getName());
 
     private String value;
 
@@ -322,7 +366,13 @@ public class AcctInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ShipNameIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ShipNameIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -338,6 +388,8 @@ public class AcctInfo {
     _01(String.valueOf("01")),
 
     _02(String.valueOf("02"));
+
+    private static final Logger LOG = Logger.getLogger(SuspiciousAccActivityEnum.class.getName());
 
     private String value;
 
@@ -362,7 +414,13 @@ public class AcctInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "SuspiciousAccActivityEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(SuspiciousAccActivityEnum.values()));
+      return null;
     }
   }
 

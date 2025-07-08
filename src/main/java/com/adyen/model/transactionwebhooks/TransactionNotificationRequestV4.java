@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** TransactionNotificationRequestV4 */
 @JsonPropertyOrder({
@@ -40,6 +42,8 @@ public class TransactionNotificationRequestV4 {
   /** Type of the webhook. */
   public enum TypeEnum {
     BALANCEPLATFORM_TRANSACTION_CREATED(String.valueOf("balancePlatform.transaction.created"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -64,7 +68,13 @@ public class TransactionNotificationRequestV4 {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

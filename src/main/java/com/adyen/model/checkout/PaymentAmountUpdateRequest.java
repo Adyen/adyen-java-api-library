@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** PaymentAmountUpdateRequest */
 @JsonPropertyOrder({
@@ -49,6 +51,8 @@ public class PaymentAmountUpdateRequest {
 
     NOSHOW(String.valueOf("noShow"));
 
+    private static final Logger LOG = Logger.getLogger(IndustryUsageEnum.class.getName());
+
     private String value;
 
     IndustryUsageEnum(String value) {
@@ -72,7 +76,13 @@ public class PaymentAmountUpdateRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "IndustryUsageEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(IndustryUsageEnum.values()));
+      return null;
     }
   }
 

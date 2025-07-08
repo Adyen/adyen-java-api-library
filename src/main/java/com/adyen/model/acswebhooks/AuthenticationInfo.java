@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** AuthenticationInfo */
 @JsonPropertyOrder({
@@ -76,6 +78,8 @@ public class AuthenticationInfo {
 
     _82(String.valueOf("82"));
 
+    private static final Logger LOG = Logger.getLogger(ChallengeIndicatorEnum.class.getName());
+
     private String value;
 
     ChallengeIndicatorEnum(String value) {
@@ -99,7 +103,13 @@ public class AuthenticationInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChallengeIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChallengeIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -120,6 +130,8 @@ public class AuthenticationInfo {
     BROWSER(String.valueOf("browser")),
 
     THREEDSREQUESTORINITIATED(String.valueOf("ThreeDSRequestorInitiated"));
+
+    private static final Logger LOG = Logger.getLogger(DeviceChannelEnum.class.getName());
 
     private String value;
 
@@ -144,7 +156,13 @@ public class AuthenticationInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "DeviceChannelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(DeviceChannelEnum.values()));
+      return null;
     }
   }
 
@@ -175,6 +193,8 @@ public class AuthenticationInfo {
 
     VISADAFEXEMPTION(String.valueOf("visaDAFExemption"));
 
+    private static final Logger LOG = Logger.getLogger(ExemptionIndicatorEnum.class.getName());
+
     private String value;
 
     ExemptionIndicatorEnum(String value) {
@@ -198,7 +218,13 @@ public class AuthenticationInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ExemptionIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ExemptionIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -216,6 +242,8 @@ public class AuthenticationInfo {
     PAYMENT(String.valueOf("payment")),
 
     NONPAYMENT(String.valueOf("nonPayment"));
+
+    private static final Logger LOG = Logger.getLogger(MessageCategoryEnum.class.getName());
 
     private String value;
 
@@ -240,7 +268,13 @@ public class AuthenticationInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "MessageCategoryEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(MessageCategoryEnum.values()));
+      return null;
     }
   }
 
@@ -274,6 +308,8 @@ public class AuthenticationInfo {
 
     U(String.valueOf("U"));
 
+    private static final Logger LOG = Logger.getLogger(TransStatusEnum.class.getName());
+
     private String value;
 
     TransStatusEnum(String value) {
@@ -297,7 +333,13 @@ public class AuthenticationInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TransStatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TransStatusEnum.values()));
+      return null;
     }
   }
 
@@ -380,6 +422,8 @@ public class AuthenticationInfo {
 
     _88(String.valueOf("88"));
 
+    private static final Logger LOG = Logger.getLogger(TransStatusReasonEnum.class.getName());
+
     private String value;
 
     TransStatusReasonEnum(String value) {
@@ -403,7 +447,13 @@ public class AuthenticationInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TransStatusReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TransStatusReasonEnum.values()));
+      return null;
     }
   }
 
@@ -415,6 +465,8 @@ public class AuthenticationInfo {
     FRICTIONLESS(String.valueOf("frictionless")),
 
     CHALLENGE(String.valueOf("challenge"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -439,7 +491,13 @@ public class AuthenticationInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

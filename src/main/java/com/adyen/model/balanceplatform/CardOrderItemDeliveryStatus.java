@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** CardOrderItemDeliveryStatus */
 @JsonPropertyOrder({
@@ -47,6 +49,8 @@ public class CardOrderItemDeliveryStatus {
 
     UNKNOWN(String.valueOf("unknown"));
 
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
+
     private String value;
 
     StatusEnum(String value) {
@@ -70,7 +74,13 @@ public class CardOrderItemDeliveryStatus {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 

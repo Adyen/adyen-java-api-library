@@ -13,6 +13,7 @@ package com.adyen.model.sessionauthentication;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.*;
 
 /** Gets or Sets ProductType */
 public enum ProductType {

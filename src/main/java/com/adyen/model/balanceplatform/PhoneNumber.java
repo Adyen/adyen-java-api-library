@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** PhoneNumber */
 @JsonPropertyOrder({
@@ -42,6 +44,8 @@ public class PhoneNumber {
 
     SIP(String.valueOf("SIP"));
 
+    private static final Logger LOG = Logger.getLogger(PhoneTypeEnum.class.getName());
+
     private String value;
 
     PhoneTypeEnum(String value) {
@@ -65,7 +69,13 @@ public class PhoneNumber {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PhoneTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PhoneTypeEnum.values()));
+      return null;
     }
   }
 

@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** GrantOffer */
 @JsonPropertyOrder({
@@ -44,6 +46,8 @@ public class GrantOffer {
 
     LOAN(String.valueOf("loan"));
 
+    private static final Logger LOG = Logger.getLogger(ContractTypeEnum.class.getName());
+
     private String value;
 
     ContractTypeEnum(String value) {
@@ -67,7 +71,13 @@ public class GrantOffer {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ContractTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ContractTypeEnum.values()));
+      return null;
     }
   }
 

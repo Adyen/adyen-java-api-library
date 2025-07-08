@@ -18,9 +18,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** VerificationDeadline */
 @JsonPropertyOrder({
@@ -153,6 +155,8 @@ public class VerificationDeadline {
     WITHDRAWFROMATMINRESTRICTEDCOUNTRIESCONSUMER(
         String.valueOf("withdrawFromAtmInRestrictedCountriesConsumer"));
 
+    private static final Logger LOG = Logger.getLogger(CapabilitiesEnum.class.getName());
+
     private String value;
 
     CapabilitiesEnum(String value) {
@@ -176,7 +180,13 @@ public class VerificationDeadline {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "CapabilitiesEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CapabilitiesEnum.values()));
+      return null;
     }
   }
 

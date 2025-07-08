@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** BankAccountModel */
 @JsonPropertyOrder({BankAccountModel.JSON_PROPERTY_FORM_FACTOR})
@@ -36,6 +38,8 @@ public class BankAccountModel {
     UNKNOWN(String.valueOf("unknown")),
 
     VIRTUAL(String.valueOf("virtual"));
+
+    private static final Logger LOG = Logger.getLogger(FormFactorEnum.class.getName());
 
     private String value;
 
@@ -60,6 +64,12 @@ public class BankAccountModel {
           return b;
         }
       }
+      // handling unexpected value
+      LOG.warning(
+          "FormFactorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FormFactorEnum.values()));
       return null;
     }
   }

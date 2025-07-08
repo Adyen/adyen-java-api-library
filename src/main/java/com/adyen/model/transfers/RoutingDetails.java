@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** RoutingDetails */
 @JsonPropertyOrder({
@@ -59,6 +61,8 @@ public class RoutingDetails {
 
     WIRE(String.valueOf("wire"));
 
+    private static final Logger LOG = Logger.getLogger(PriorityEnum.class.getName());
+
     private String value;
 
     PriorityEnum(String value) {
@@ -82,7 +86,13 @@ public class RoutingDetails {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PriorityEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PriorityEnum.values()));
+      return null;
     }
   }
 

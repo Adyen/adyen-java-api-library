@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** SourceAccountTypesRestriction */
 @JsonPropertyOrder({
@@ -35,6 +37,8 @@ public class SourceAccountTypesRestriction {
     BALANCEACCOUNT(String.valueOf("balanceAccount")),
 
     BUSINESSACCOUNT(String.valueOf("businessAccount"));
+
+    private static final Logger LOG = Logger.getLogger(ValueEnum.class.getName());
 
     private String value;
 
@@ -59,7 +63,13 @@ public class SourceAccountTypesRestriction {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ValueEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ValueEnum.values()));
+      return null;
     }
   }
 

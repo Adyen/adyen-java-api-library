@@ -40,7 +40,21 @@ public class ConfigurationWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<AccountHolderNotificationRequest> getAccountHolderNotificationRequest() {
-    return getOptionalField(AccountHolderNotificationRequest.class);
+
+    var optionalAccountHolderNotificationRequest =
+        getOptionalField(AccountHolderNotificationRequest.class);
+
+    if (optionalAccountHolderNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : AccountHolderNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalAccountHolderNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalAccountHolderNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -49,7 +63,21 @@ public class ConfigurationWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<BalanceAccountNotificationRequest> getBalanceAccountNotificationRequest() {
-    return getOptionalField(BalanceAccountNotificationRequest.class);
+
+    var optionalBalanceAccountNotificationRequest =
+        getOptionalField(BalanceAccountNotificationRequest.class);
+
+    if (optionalBalanceAccountNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : BalanceAccountNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalBalanceAccountNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalBalanceAccountNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -58,7 +86,20 @@ public class ConfigurationWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<CardOrderNotificationRequest> getCardOrderNotificationRequest() {
-    return getOptionalField(CardOrderNotificationRequest.class);
+
+    var optionalCardOrderNotificationRequest = getOptionalField(CardOrderNotificationRequest.class);
+
+    if (optionalCardOrderNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : CardOrderNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalCardOrderNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalCardOrderNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -67,7 +108,21 @@ public class ConfigurationWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<NetworkTokenNotificationRequest> getNetworkTokenNotificationRequest() {
-    return getOptionalField(NetworkTokenNotificationRequest.class);
+
+    var optionalNetworkTokenNotificationRequest =
+        getOptionalField(NetworkTokenNotificationRequest.class);
+
+    if (optionalNetworkTokenNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : NetworkTokenNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalNetworkTokenNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalNetworkTokenNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -76,7 +131,20 @@ public class ConfigurationWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<PaymentNotificationRequest> getPaymentNotificationRequest() {
-    return getOptionalField(PaymentNotificationRequest.class);
+
+    var optionalPaymentNotificationRequest = getOptionalField(PaymentNotificationRequest.class);
+
+    if (optionalPaymentNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : PaymentNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalPaymentNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalPaymentNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -86,7 +154,21 @@ public class ConfigurationWebhooksHandler {
    */
   public Optional<SweepConfigurationNotificationRequest>
       getSweepConfigurationNotificationRequest() {
-    return getOptionalField(SweepConfigurationNotificationRequest.class);
+
+    var optionalSweepConfigurationNotificationRequest =
+        getOptionalField(SweepConfigurationNotificationRequest.class);
+
+    if (optionalSweepConfigurationNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : SweepConfigurationNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalSweepConfigurationNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalSweepConfigurationNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**

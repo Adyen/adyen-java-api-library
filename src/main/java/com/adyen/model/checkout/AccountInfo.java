@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** AccountInfo */
 @JsonPropertyOrder({
@@ -59,6 +61,8 @@ public class AccountInfo {
 
     MORETHAN60DAYS(String.valueOf("moreThan60Days"));
 
+    private static final Logger LOG = Logger.getLogger(AccountAgeIndicatorEnum.class.getName());
+
     private String value;
 
     AccountAgeIndicatorEnum(String value) {
@@ -82,7 +86,13 @@ public class AccountInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AccountAgeIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AccountAgeIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -104,6 +114,8 @@ public class AccountInfo {
     FROM30TO60DAYS(String.valueOf("from30To60Days")),
 
     MORETHAN60DAYS(String.valueOf("moreThan60Days"));
+
+    private static final Logger LOG = Logger.getLogger(AccountChangeIndicatorEnum.class.getName());
 
     private String value;
 
@@ -128,7 +140,13 @@ public class AccountInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AccountChangeIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AccountChangeIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -148,6 +166,8 @@ public class AccountInfo {
     CREDIT(String.valueOf("credit")),
 
     DEBIT(String.valueOf("debit"));
+
+    private static final Logger LOG = Logger.getLogger(AccountTypeEnum.class.getName());
 
     private String value;
 
@@ -172,7 +192,13 @@ public class AccountInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AccountTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AccountTypeEnum.values()));
+      return null;
     }
   }
 
@@ -198,6 +224,9 @@ public class AccountInfo {
 
     MORETHAN60DAYS(String.valueOf("moreThan60Days"));
 
+    private static final Logger LOG =
+        Logger.getLogger(DeliveryAddressUsageIndicatorEnum.class.getName());
+
     private String value;
 
     DeliveryAddressUsageIndicatorEnum(String value) {
@@ -221,7 +250,13 @@ public class AccountInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "DeliveryAddressUsageIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(DeliveryAddressUsageIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -257,6 +292,8 @@ public class AccountInfo {
 
     MORETHAN60DAYS(String.valueOf("moreThan60Days"));
 
+    private static final Logger LOG = Logger.getLogger(PasswordChangeIndicatorEnum.class.getName());
+
     private String value;
 
     PasswordChangeIndicatorEnum(String value) {
@@ -280,7 +317,13 @@ public class AccountInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PasswordChangeIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PasswordChangeIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -312,6 +355,8 @@ public class AccountInfo {
 
     MORETHAN60DAYS(String.valueOf("moreThan60Days"));
 
+    private static final Logger LOG = Logger.getLogger(PaymentAccountIndicatorEnum.class.getName());
+
     private String value;
 
     PaymentAccountIndicatorEnum(String value) {
@@ -335,7 +380,13 @@ public class AccountInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PaymentAccountIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PaymentAccountIndicatorEnum.values()));
+      return null;
     }
   }
 

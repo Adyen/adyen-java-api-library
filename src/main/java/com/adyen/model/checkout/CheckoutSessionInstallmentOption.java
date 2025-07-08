@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** CheckoutSessionInstallmentOption */
 @JsonPropertyOrder({
@@ -50,6 +52,8 @@ public class CheckoutSessionInstallmentOption {
 
     WITH_INTEREST(String.valueOf("with_interest"));
 
+    private static final Logger LOG = Logger.getLogger(PlansEnum.class.getName());
+
     private String value;
 
     PlansEnum(String value) {
@@ -73,7 +77,13 @@ public class CheckoutSessionInstallmentOption {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PlansEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PlansEnum.values()));
+      return null;
     }
   }
 

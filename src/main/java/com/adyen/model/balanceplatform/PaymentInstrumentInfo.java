@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** PaymentInstrumentInfo */
 @JsonPropertyOrder({
@@ -74,6 +76,8 @@ public class PaymentInstrumentInfo {
 
     SUSPENDED(String.valueOf("suspended"));
 
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
+
     private String value;
 
     StatusEnum(String value) {
@@ -97,7 +101,13 @@ public class PaymentInstrumentInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 
@@ -132,6 +142,8 @@ public class PaymentInstrumentInfo {
 
     TRANSACTIONRULE(String.valueOf("transactionRule"));
 
+    private static final Logger LOG = Logger.getLogger(StatusReasonEnum.class.getName());
+
     private String value;
 
     StatusReasonEnum(String value) {
@@ -155,7 +167,13 @@ public class PaymentInstrumentInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusReasonEnum.values()));
+      return null;
     }
   }
 
@@ -167,6 +185,8 @@ public class PaymentInstrumentInfo {
     BANKACCOUNT(String.valueOf("bankAccount")),
 
     CARD(String.valueOf("card"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -191,7 +211,13 @@ public class PaymentInstrumentInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

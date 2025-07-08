@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** PlatformPayment */
 @JsonPropertyOrder({
@@ -96,6 +98,8 @@ public class PlatformPayment {
 
     VAT(String.valueOf("VAT"));
 
+    private static final Logger LOG = Logger.getLogger(PlatformPaymentTypeEnum.class.getName());
+
     private String value;
 
     PlatformPaymentTypeEnum(String value) {
@@ -119,7 +123,13 @@ public class PlatformPayment {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PlatformPaymentTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PlatformPaymentTypeEnum.values()));
+      return null;
     }
   }
 
@@ -132,6 +142,8 @@ public class PlatformPayment {
   /** **platformPayment** */
   public enum TypeEnum {
     PLATFORMPAYMENT(String.valueOf("platformPayment"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -156,7 +168,13 @@ public class PlatformPayment {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

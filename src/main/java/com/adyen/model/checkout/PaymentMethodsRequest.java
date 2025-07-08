@@ -17,11 +17,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** PaymentMethodsRequest */
 @JsonPropertyOrder({
@@ -72,6 +74,8 @@ public class PaymentMethodsRequest {
 
     WEB(String.valueOf("Web"));
 
+    private static final Logger LOG = Logger.getLogger(ChannelEnum.class.getName());
+
     private String value;
 
     ChannelEnum(String value) {
@@ -95,7 +99,13 @@ public class PaymentMethodsRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChannelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChannelEnum.values()));
+      return null;
     }
   }
 
@@ -145,6 +155,8 @@ public class PaymentMethodsRequest {
 
     SKIPFILTER(String.valueOf("skipFilter"));
 
+    private static final Logger LOG = Logger.getLogger(StoreFiltrationModeEnum.class.getName());
+
     private String value;
 
     StoreFiltrationModeEnum(String value) {
@@ -168,7 +180,13 @@ public class PaymentMethodsRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StoreFiltrationModeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StoreFiltrationModeEnum.values()));
+      return null;
     }
   }
 

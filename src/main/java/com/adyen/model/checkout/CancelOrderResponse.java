@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** CancelOrderResponse */
 @JsonPropertyOrder({
@@ -34,6 +36,8 @@ public class CancelOrderResponse {
    */
   public enum ResultCodeEnum {
     RECEIVED(String.valueOf("Received"));
+
+    private static final Logger LOG = Logger.getLogger(ResultCodeEnum.class.getName());
 
     private String value;
 
@@ -58,7 +62,13 @@ public class CancelOrderResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ResultCodeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ResultCodeEnum.values()));
+      return null;
     }
   }
 

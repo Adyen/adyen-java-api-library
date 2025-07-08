@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** IssuedCard */
 @JsonPropertyOrder({
@@ -56,6 +58,8 @@ public class IssuedCard {
 
     TOKEN(String.valueOf("token"));
 
+    private static final Logger LOG = Logger.getLogger(PanEntryModeEnum.class.getName());
+
     private String value;
 
     PanEntryModeEnum(String value) {
@@ -79,7 +83,13 @@ public class IssuedCard {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PanEntryModeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PanEntryModeEnum.values()));
+      return null;
     }
   }
 
@@ -107,6 +117,8 @@ public class IssuedCard {
 
     TOKEN(String.valueOf("token"));
 
+    private static final Logger LOG = Logger.getLogger(ProcessingTypeEnum.class.getName());
+
     private String value;
 
     ProcessingTypeEnum(String value) {
@@ -130,7 +142,13 @@ public class IssuedCard {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ProcessingTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ProcessingTypeEnum.values()));
+      return null;
     }
   }
 
@@ -153,6 +171,8 @@ public class IssuedCard {
   /** **issuedCard** */
   public enum TypeEnum {
     ISSUEDCARD(String.valueOf("issuedCard"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -177,7 +197,13 @@ public class IssuedCard {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

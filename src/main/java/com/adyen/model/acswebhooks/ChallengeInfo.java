@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** ChallengeInfo */
 @JsonPropertyOrder({
@@ -58,6 +60,8 @@ public class ChallengeInfo {
 
     _08(String.valueOf("08"));
 
+    private static final Logger LOG = Logger.getLogger(ChallengeCancelEnum.class.getName());
+
     private String value;
 
     ChallengeCancelEnum(String value) {
@@ -81,7 +85,13 @@ public class ChallengeInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChallengeCancelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChallengeCancelEnum.values()));
+      return null;
     }
   }
 
@@ -99,6 +109,8 @@ public class ChallengeInfo {
     PWD_OTP_EMAIL_FL(String.valueOf("PWD_OTP_EMAIL_FL")),
 
     OOB_TRIGGER_FL(String.valueOf("OOB_TRIGGER_FL"));
+
+    private static final Logger LOG = Logger.getLogger(FlowEnum.class.getName());
 
     private String value;
 
@@ -123,7 +135,13 @@ public class ChallengeInfo {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FlowEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FlowEnum.values()));
+      return null;
     }
   }
 

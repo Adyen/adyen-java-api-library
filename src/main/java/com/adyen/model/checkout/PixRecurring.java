@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** PixRecurring */
 @JsonPropertyOrder({
@@ -54,6 +56,8 @@ public class PixRecurring {
 
     YEARLY(String.valueOf("yearly"));
 
+    private static final Logger LOG = Logger.getLogger(FrequencyEnum.class.getName());
+
     private String value;
 
     FrequencyEnum(String value) {
@@ -77,7 +81,13 @@ public class PixRecurring {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FrequencyEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FrequencyEnum.values()));
+      return null;
     }
   }
 

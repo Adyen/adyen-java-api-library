@@ -13,6 +13,7 @@ package com.adyen.model.balanceplatform;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.*;
 
 /** Gets or Sets SettingType */
 public enum SettingType {

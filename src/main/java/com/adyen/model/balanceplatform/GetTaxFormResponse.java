@@ -17,8 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.Arrays;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** GetTaxFormResponse */
 @JsonPropertyOrder({
@@ -32,6 +33,8 @@ public class GetTaxFormResponse {
   /** The content type of the tax form. Possible values: * **application/pdf** */
   public enum ContentTypeEnum {
     APPLICATION_PDF(String.valueOf("application/pdf"));
+
+    private static final Logger LOG = Logger.getLogger(ContentTypeEnum.class.getName());
 
     private String value;
 
@@ -56,7 +59,13 @@ public class GetTaxFormResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ContentTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ContentTypeEnum.values()));
+      return null;
     }
   }
 

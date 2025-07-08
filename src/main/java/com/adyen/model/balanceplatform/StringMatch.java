@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** StringMatch */
 @JsonPropertyOrder({StringMatch.JSON_PROPERTY_OPERATION, StringMatch.JSON_PROPERTY_VALUE})
@@ -34,6 +36,8 @@ public class StringMatch {
     ISEQUALTO(String.valueOf("isEqualTo")),
 
     STARTSWITH(String.valueOf("startsWith"));
+
+    private static final Logger LOG = Logger.getLogger(OperationEnum.class.getName());
 
     private String value;
 
@@ -58,7 +62,13 @@ public class StringMatch {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "OperationEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(OperationEnum.values()));
+      return null;
     }
   }
 

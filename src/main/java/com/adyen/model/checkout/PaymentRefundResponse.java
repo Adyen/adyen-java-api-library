@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** PaymentRefundResponse */
 @JsonPropertyOrder({
@@ -60,6 +62,8 @@ public class PaymentRefundResponse {
 
     OTHER(String.valueOf("OTHER"));
 
+    private static final Logger LOG = Logger.getLogger(MerchantRefundReasonEnum.class.getName());
+
     private String value;
 
     MerchantRefundReasonEnum(String value) {
@@ -83,6 +87,12 @@ public class PaymentRefundResponse {
           return b;
         }
       }
+      // handling unexpected value
+      LOG.warning(
+          "MerchantRefundReasonEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(MerchantRefundReasonEnum.values()));
       return null;
     }
   }
@@ -105,6 +115,8 @@ public class PaymentRefundResponse {
   /** The status of your request. This will always have the value **received**. */
   public enum StatusEnum {
     RECEIVED(String.valueOf("received"));
+
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
 
     private String value;
 
@@ -129,7 +141,13 @@ public class PaymentRefundResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 

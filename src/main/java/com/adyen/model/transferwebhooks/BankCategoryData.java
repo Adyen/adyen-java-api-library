@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** BankCategoryData */
 @JsonPropertyOrder({BankCategoryData.JSON_PROPERTY_PRIORITY, BankCategoryData.JSON_PROPERTY_TYPE})
@@ -48,6 +50,8 @@ public class BankCategoryData {
 
     WIRE(String.valueOf("wire"));
 
+    private static final Logger LOG = Logger.getLogger(PriorityEnum.class.getName());
+
     private String value;
 
     PriorityEnum(String value) {
@@ -71,7 +75,13 @@ public class BankCategoryData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PriorityEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PriorityEnum.values()));
+      return null;
     }
   }
 
@@ -81,6 +91,8 @@ public class BankCategoryData {
   /** **bank** */
   public enum TypeEnum {
     BANK(String.valueOf("bank"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -105,7 +117,13 @@ public class BankCategoryData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

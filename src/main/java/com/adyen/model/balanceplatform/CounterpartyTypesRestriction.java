@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** CounterpartyTypesRestriction */
 @JsonPropertyOrder({
@@ -39,6 +41,8 @@ public class CounterpartyTypesRestriction {
     CARD(String.valueOf("card")),
 
     TRANSFERINSTRUMENT(String.valueOf("transferInstrument"));
+
+    private static final Logger LOG = Logger.getLogger(ValueEnum.class.getName());
 
     private String value;
 
@@ -63,7 +67,13 @@ public class CounterpartyTypesRestriction {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ValueEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ValueEnum.values()));
+      return null;
     }
   }
 

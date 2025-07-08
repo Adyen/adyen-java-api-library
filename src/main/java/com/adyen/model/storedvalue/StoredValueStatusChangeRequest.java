@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** StoredValueStatusChangeRequest */
 @JsonPropertyOrder({
@@ -71,6 +73,8 @@ public class StoredValueStatusChangeRequest {
 
     POS(String.valueOf("POS"));
 
+    private static final Logger LOG = Logger.getLogger(ShopperInteractionEnum.class.getName());
+
     private String value;
 
     ShopperInteractionEnum(String value) {
@@ -94,7 +98,13 @@ public class StoredValueStatusChangeRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ShopperInteractionEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ShopperInteractionEnum.values()));
+      return null;
     }
   }
 
@@ -109,6 +119,8 @@ public class StoredValueStatusChangeRequest {
     ACTIVE(String.valueOf("active")),
 
     INACTIVE(String.valueOf("inactive"));
+
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
 
     private String value;
 
@@ -133,7 +145,13 @@ public class StoredValueStatusChangeRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 

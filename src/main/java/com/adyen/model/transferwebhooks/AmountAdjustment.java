@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** AmountAdjustment */
 @JsonPropertyOrder({
@@ -42,6 +44,8 @@ public class AmountAdjustment {
 
     FOREXMARKUP(String.valueOf("forexMarkup"));
 
+    private static final Logger LOG = Logger.getLogger(AmountAdjustmentTypeEnum.class.getName());
+
     private String value;
 
     AmountAdjustmentTypeEnum(String value) {
@@ -65,7 +69,13 @@ public class AmountAdjustment {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AmountAdjustmentTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AmountAdjustmentTypeEnum.values()));
+      return null;
     }
   }
 

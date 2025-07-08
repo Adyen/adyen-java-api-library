@@ -18,9 +18,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
+import java.util.*;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** SubmitRequest */
 @JsonPropertyOrder({
@@ -60,6 +62,8 @@ public class SubmitRequest {
 
     COMPANY(String.valueOf("Company"));
 
+    private static final Logger LOG = Logger.getLogger(EntityTypeEnum.class.getName());
+
     private String value;
 
     EntityTypeEnum(String value) {
@@ -83,7 +87,13 @@ public class SubmitRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "EntityTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(EntityTypeEnum.values()));
+      return null;
     }
   }
 

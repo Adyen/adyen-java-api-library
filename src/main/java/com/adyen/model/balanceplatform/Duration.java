@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** Duration */
 @JsonPropertyOrder({Duration.JSON_PROPERTY_UNIT, Duration.JSON_PROPERTY_VALUE})
@@ -36,6 +38,8 @@ public class Duration {
     MONTHS(String.valueOf("months")),
 
     WEEKS(String.valueOf("weeks"));
+
+    private static final Logger LOG = Logger.getLogger(UnitEnum.class.getName());
 
     private String value;
 
@@ -60,7 +64,13 @@ public class Duration {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "UnitEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(UnitEnum.values()));
+      return null;
     }
   }
 

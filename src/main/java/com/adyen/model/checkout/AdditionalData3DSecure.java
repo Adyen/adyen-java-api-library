@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** AdditionalData3DSecure */
 @JsonPropertyOrder({
@@ -50,6 +52,8 @@ public class AdditionalData3DSecure {
 
     _05(String.valueOf("05"));
 
+    private static final Logger LOG = Logger.getLogger(ChallengeWindowSizeEnum.class.getName());
+
     private String value;
 
     ChallengeWindowSizeEnum(String value) {
@@ -73,7 +77,13 @@ public class AdditionalData3DSecure {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChallengeWindowSizeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChallengeWindowSizeEnum.values()));
+      return null;
     }
   }
 

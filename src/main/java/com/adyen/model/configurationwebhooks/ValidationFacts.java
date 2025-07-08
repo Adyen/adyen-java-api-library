@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** ValidationFacts */
 @JsonPropertyOrder({
@@ -44,6 +46,8 @@ public class ValidationFacts {
 
     VALID(String.valueOf("valid"));
 
+    private static final Logger LOG = Logger.getLogger(ResultEnum.class.getName());
+
     private String value;
 
     ResultEnum(String value) {
@@ -67,7 +71,13 @@ public class ValidationFacts {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ResultEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ResultEnum.values()));
+      return null;
     }
   }
 

@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** DeviceRenderOptions */
 @JsonPropertyOrder({
@@ -34,6 +36,8 @@ public class DeviceRenderOptions {
     HTML(String.valueOf("html")),
 
     BOTH(String.valueOf("both"));
+
+    private static final Logger LOG = Logger.getLogger(SdkInterfaceEnum.class.getName());
 
     private String value;
 
@@ -58,7 +62,13 @@ public class DeviceRenderOptions {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "SdkInterfaceEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(SdkInterfaceEnum.values()));
+      return null;
     }
   }
 
@@ -76,6 +86,8 @@ public class DeviceRenderOptions {
     SINGLESELECT(String.valueOf("singleSelect")),
 
     TEXT(String.valueOf("text"));
+
+    private static final Logger LOG = Logger.getLogger(SdkUiTypeEnum.class.getName());
 
     private String value;
 
@@ -100,7 +112,13 @@ public class DeviceRenderOptions {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "SdkUiTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(SdkUiTypeEnum.values()));
+      return null;
     }
   }
 

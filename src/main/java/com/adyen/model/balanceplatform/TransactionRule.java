@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** TransactionRule */
 @JsonPropertyOrder({
@@ -72,6 +74,8 @@ public class TransactionRule {
 
     TIMEDBLOCK(String.valueOf("timedBlock"));
 
+    private static final Logger LOG = Logger.getLogger(OutcomeTypeEnum.class.getName());
+
     private String value;
 
     OutcomeTypeEnum(String value) {
@@ -95,7 +99,13 @@ public class TransactionRule {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "OutcomeTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(OutcomeTypeEnum.values()));
+      return null;
     }
   }
 
@@ -118,6 +128,8 @@ public class TransactionRule {
     BANKTRANSFER(String.valueOf("bankTransfer")),
 
     TOKENIZATION(String.valueOf("tokenization"));
+
+    private static final Logger LOG = Logger.getLogger(RequestTypeEnum.class.getName());
 
     private String value;
 
@@ -142,7 +154,13 @@ public class TransactionRule {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RequestTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RequestTypeEnum.values()));
+      return null;
     }
   }
 
@@ -168,6 +186,8 @@ public class TransactionRule {
 
     INACTIVE(String.valueOf("inactive"));
 
+    private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
+
     private String value;
 
     StatusEnum(String value) {
@@ -191,7 +211,13 @@ public class TransactionRule {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StatusEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusEnum.values()));
+      return null;
     }
   }
 
@@ -216,6 +242,8 @@ public class TransactionRule {
 
     VELOCITY(String.valueOf("velocity"));
 
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
+
     private String value;
 
     TypeEnum(String value) {
@@ -239,7 +267,13 @@ public class TransactionRule {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

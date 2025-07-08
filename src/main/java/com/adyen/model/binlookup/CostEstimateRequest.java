@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** CostEstimateRequest */
 @JsonPropertyOrder({
@@ -80,6 +82,8 @@ public class CostEstimateRequest {
 
     POS(String.valueOf("POS"));
 
+    private static final Logger LOG = Logger.getLogger(ShopperInteractionEnum.class.getName());
+
     private String value;
 
     ShopperInteractionEnum(String value) {
@@ -103,7 +107,13 @@ public class CostEstimateRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ShopperInteractionEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ShopperInteractionEnum.values()));
+      return null;
     }
   }
 

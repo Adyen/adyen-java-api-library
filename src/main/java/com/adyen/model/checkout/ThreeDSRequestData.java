@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** ThreeDSRequestData */
 @JsonPropertyOrder({
@@ -43,6 +45,8 @@ public class ThreeDSRequestData {
 
     _05(String.valueOf("05"));
 
+    private static final Logger LOG = Logger.getLogger(ChallengeWindowSizeEnum.class.getName());
+
     private String value;
 
     ChallengeWindowSizeEnum(String value) {
@@ -66,7 +70,13 @@ public class ThreeDSRequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChallengeWindowSizeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChallengeWindowSizeEnum.values()));
+      return null;
     }
   }
 
@@ -78,6 +88,8 @@ public class ThreeDSRequestData {
     FALSE(String.valueOf("false")),
 
     TRUE(String.valueOf("true"));
+
+    private static final Logger LOG = Logger.getLogger(DataOnlyEnum.class.getName());
 
     private String value;
 
@@ -102,7 +114,13 @@ public class ThreeDSRequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "DataOnlyEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(DataOnlyEnum.values()));
+      return null;
     }
   }
 
@@ -119,6 +137,8 @@ public class ThreeDSRequestData {
     PREFERRED(String.valueOf("preferred")),
 
     DISABLED(String.valueOf("disabled"));
+
+    private static final Logger LOG = Logger.getLogger(NativeThreeDSEnum.class.getName());
 
     private String value;
 
@@ -143,7 +163,13 @@ public class ThreeDSRequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "NativeThreeDSEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(NativeThreeDSEnum.values()));
+      return null;
     }
   }
 
@@ -155,6 +181,8 @@ public class ThreeDSRequestData {
     _2_1_0(String.valueOf("2.1.0")),
 
     _2_2_0(String.valueOf("2.2.0"));
+
+    private static final Logger LOG = Logger.getLogger(ThreeDSVersionEnum.class.getName());
 
     private String value;
 
@@ -179,7 +207,13 @@ public class ThreeDSRequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ThreeDSVersionEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ThreeDSVersionEnum.values()));
+      return null;
     }
   }
 

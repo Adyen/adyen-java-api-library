@@ -17,11 +17,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** PaymentMethod */
 @JsonPropertyOrder({
@@ -55,6 +57,8 @@ public class PaymentMethod {
 
     DEBIT(String.valueOf("debit"));
 
+    private static final Logger LOG = Logger.getLogger(FundingSourceEnum.class.getName());
+
     private String value;
 
     FundingSourceEnum(String value) {
@@ -78,7 +82,13 @@ public class PaymentMethod {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FundingSourceEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FundingSourceEnum.values()));
+      return null;
     }
   }
 

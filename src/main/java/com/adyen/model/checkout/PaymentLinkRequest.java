@@ -19,11 +19,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** PaymentLinkRequest */
 @JsonPropertyOrder({
@@ -155,6 +157,9 @@ public class PaymentLinkRequest {
 
     UNSCHEDULEDCARDONFILE(String.valueOf("UnscheduledCardOnFile"));
 
+    private static final Logger LOG =
+        Logger.getLogger(RecurringProcessingModelEnum.class.getName());
+
     private String value;
 
     RecurringProcessingModelEnum(String value) {
@@ -178,7 +183,13 @@ public class PaymentLinkRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RecurringProcessingModelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RecurringProcessingModelEnum.values()));
+      return null;
     }
   }
 
@@ -199,6 +210,8 @@ public class PaymentLinkRequest {
     SHOPPERNAME(String.valueOf("shopperName")),
 
     TELEPHONENUMBER(String.valueOf("telephoneNumber"));
+
+    private static final Logger LOG = Logger.getLogger(RequiredShopperFieldsEnum.class.getName());
 
     private String value;
 
@@ -223,7 +236,13 @@ public class PaymentLinkRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RequiredShopperFieldsEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RequiredShopperFieldsEnum.values()));
+      return null;
     }
   }
 
@@ -286,6 +305,8 @@ public class PaymentLinkRequest {
 
     ENABLED(String.valueOf("enabled"));
 
+    private static final Logger LOG = Logger.getLogger(StorePaymentMethodModeEnum.class.getName());
+
     private String value;
 
     StorePaymentMethodModeEnum(String value) {
@@ -309,7 +330,13 @@ public class PaymentLinkRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "StorePaymentMethodModeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StorePaymentMethodModeEnum.values()));
+      return null;
     }
   }
 

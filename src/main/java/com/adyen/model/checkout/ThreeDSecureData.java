@@ -17,8 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.Arrays;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** ThreeDSecureData */
 @JsonPropertyOrder({
@@ -49,6 +50,8 @@ public class ThreeDSecureData {
 
     A(String.valueOf("A"));
 
+    private static final Logger LOG = Logger.getLogger(AuthenticationResponseEnum.class.getName());
+
     private String value;
 
     AuthenticationResponseEnum(String value) {
@@ -72,7 +75,13 @@ public class ThreeDSecureData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AuthenticationResponseEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AuthenticationResponseEnum.values()));
+      return null;
     }
   }
 
@@ -105,6 +114,8 @@ public class ThreeDSecureData {
 
     _07(String.valueOf("07"));
 
+    private static final Logger LOG = Logger.getLogger(ChallengeCancelEnum.class.getName());
+
     private String value;
 
     ChallengeCancelEnum(String value) {
@@ -128,7 +139,13 @@ public class ThreeDSecureData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChallengeCancelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChallengeCancelEnum.values()));
+      return null;
     }
   }
 
@@ -153,6 +170,8 @@ public class ThreeDSecureData {
 
     Y(String.valueOf("Y"));
 
+    private static final Logger LOG = Logger.getLogger(DirectoryResponseEnum.class.getName());
+
     private String value;
 
     DirectoryResponseEnum(String value) {
@@ -176,7 +195,13 @@ public class ThreeDSecureData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "DirectoryResponseEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(DirectoryResponseEnum.values()));
+      return null;
     }
   }
 

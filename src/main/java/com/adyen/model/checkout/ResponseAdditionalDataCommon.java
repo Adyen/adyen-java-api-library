@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** ResponseAdditionalDataCommon */
 @JsonPropertyOrder({
@@ -159,6 +161,8 @@ public class ResponseAdditionalDataCommon {
 
     FRAUD(String.valueOf("FRAUD"));
 
+    private static final Logger LOG = Logger.getLogger(FraudResultTypeEnum.class.getName());
+
     private String value;
 
     FraudResultTypeEnum(String value) {
@@ -182,7 +186,13 @@ public class ResponseAdditionalDataCommon {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FraudResultTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FraudResultTypeEnum.values()));
+      return null;
     }
   }
 
@@ -205,6 +215,8 @@ public class ResponseAdditionalDataCommon {
     HIGH(String.valueOf("high")),
 
     VERYHIGH(String.valueOf("veryHigh"));
+
+    private static final Logger LOG = Logger.getLogger(FraudRiskLevelEnum.class.getName());
 
     private String value;
 
@@ -229,7 +241,13 @@ public class ResponseAdditionalDataCommon {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "FraudRiskLevelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(FraudRiskLevelEnum.values()));
+      return null;
     }
   }
 
@@ -315,6 +333,9 @@ public class ResponseAdditionalDataCommon {
 
     UNSCHEDULEDCARDONFILE(String.valueOf("UnscheduledCardOnFile"));
 
+    private static final Logger LOG =
+        Logger.getLogger(RecurringProcessingModelEnum.class.getName());
+
     private String value;
 
     RecurringProcessingModelEnum(String value) {
@@ -338,7 +359,13 @@ public class ResponseAdditionalDataCommon {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "RecurringProcessingModelEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(RecurringProcessingModelEnum.values()));
+      return null;
     }
   }
 
@@ -398,6 +425,9 @@ public class ResponseAdditionalDataCommon {
 
     ALREADYEXISTING(String.valueOf("alreadyExisting"));
 
+    private static final Logger LOG =
+        Logger.getLogger(TokenizationStoreOperationTypeEnum.class.getName());
+
     private String value;
 
     TokenizationStoreOperationTypeEnum(String value) {
@@ -421,7 +451,13 @@ public class ResponseAdditionalDataCommon {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TokenizationStoreOperationTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TokenizationStoreOperationTypeEnum.values()));
+      return null;
     }
   }
 

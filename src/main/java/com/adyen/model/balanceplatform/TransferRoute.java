@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** TransferRoute */
 @JsonPropertyOrder({
@@ -56,6 +58,8 @@ public class TransferRoute {
 
     UPGRADE(String.valueOf("upgrade"));
 
+    private static final Logger LOG = Logger.getLogger(CategoryEnum.class.getName());
+
     private String value;
 
     CategoryEnum(String value) {
@@ -79,7 +83,13 @@ public class TransferRoute {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "CategoryEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(CategoryEnum.values()));
+      return null;
     }
   }
 
@@ -117,6 +127,8 @@ public class TransferRoute {
 
     WIRE(String.valueOf("wire"));
 
+    private static final Logger LOG = Logger.getLogger(PriorityEnum.class.getName());
+
     private String value;
 
     PriorityEnum(String value) {
@@ -140,7 +152,13 @@ public class TransferRoute {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "PriorityEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PriorityEnum.values()));
+      return null;
     }
   }
 

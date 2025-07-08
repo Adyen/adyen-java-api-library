@@ -17,9 +17,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Logger;
 
 /** BankAccountIdentificationTypeRequirement */
 @JsonPropertyOrder({
@@ -64,6 +66,9 @@ public class BankAccountIdentificationTypeRequirement {
 
     USLOCAL(String.valueOf("usLocal"));
 
+    private static final Logger LOG =
+        Logger.getLogger(BankAccountIdentificationTypesEnum.class.getName());
+
     private String value;
 
     BankAccountIdentificationTypesEnum(String value) {
@@ -87,7 +92,13 @@ public class BankAccountIdentificationTypeRequirement {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "BankAccountIdentificationTypesEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(BankAccountIdentificationTypesEnum.values()));
+      return null;
     }
   }
 
@@ -102,6 +113,8 @@ public class BankAccountIdentificationTypeRequirement {
   public enum TypeEnum {
     BANKACCOUNTIDENTIFICATIONTYPEREQUIREMENT(
         String.valueOf("bankAccountIdentificationTypeRequirement"));
+
+    private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
     private String value;
 
@@ -126,7 +139,13 @@ public class BankAccountIdentificationTypeRequirement {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TypeEnum.values()));
+      return null;
     }
   }
 

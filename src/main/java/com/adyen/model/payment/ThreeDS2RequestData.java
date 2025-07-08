@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import java.util.Objects;
+import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** ThreeDS2RequestData */
 @JsonPropertyOrder({
@@ -76,6 +78,8 @@ public class ThreeDS2RequestData {
 
     _03(String.valueOf("03"));
 
+    private static final Logger LOG = Logger.getLogger(AcctTypeEnum.class.getName());
+
     private String value;
 
     AcctTypeEnum(String value) {
@@ -99,7 +103,13 @@ public class ThreeDS2RequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AcctTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AcctTypeEnum.values()));
+      return null;
     }
   }
 
@@ -121,6 +131,8 @@ public class ThreeDS2RequestData {
     Y(String.valueOf("Y")),
 
     N(String.valueOf("N"));
+
+    private static final Logger LOG = Logger.getLogger(AddrMatchEnum.class.getName());
 
     private String value;
 
@@ -145,7 +157,13 @@ public class ThreeDS2RequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "AddrMatchEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(AddrMatchEnum.values()));
+      return null;
     }
   }
 
@@ -170,6 +188,8 @@ public class ThreeDS2RequestData {
 
     REQUESTCHALLENGEASMANDATE(String.valueOf("requestChallengeAsMandate"));
 
+    private static final Logger LOG = Logger.getLogger(ChallengeIndicatorEnum.class.getName());
+
     private String value;
 
     ChallengeIndicatorEnum(String value) {
@@ -193,7 +213,13 @@ public class ThreeDS2RequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ChallengeIndicatorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ChallengeIndicatorEnum.values()));
+      return null;
     }
   }
 
@@ -292,6 +318,9 @@ public class ThreeDS2RequestData {
 
     _06(String.valueOf("06"));
 
+    private static final Logger LOG =
+        Logger.getLogger(ThreeDSRequestorChallengeIndEnum.class.getName());
+
     private String value;
 
     ThreeDSRequestorChallengeIndEnum(String value) {
@@ -315,7 +344,13 @@ public class ThreeDS2RequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "ThreeDSRequestorChallengeIndEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(ThreeDSRequestorChallengeIndEnum.values()));
+      return null;
     }
   }
 
@@ -352,6 +387,8 @@ public class ThreeDS2RequestData {
 
     _28(String.valueOf("28"));
 
+    private static final Logger LOG = Logger.getLogger(TransTypeEnum.class.getName());
+
     private String value;
 
     TransTypeEnum(String value) {
@@ -375,7 +412,13 @@ public class ThreeDS2RequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TransTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TransTypeEnum.values()));
+      return null;
     }
   }
 
@@ -393,6 +436,8 @@ public class ThreeDS2RequestData {
     QUASICASHTRANSACTION(String.valueOf("quasiCashTransaction")),
 
     PREPAIDACTIVATIONANDLOAD(String.valueOf("prepaidActivationAndLoad"));
+
+    private static final Logger LOG = Logger.getLogger(TransactionTypeEnum.class.getName());
 
     private String value;
 
@@ -417,7 +462,13 @@ public class ThreeDS2RequestData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      // handling unexpected value
+      LOG.warning(
+          "TransactionTypeEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(TransactionTypeEnum.values()));
+      return null;
     }
   }
 
