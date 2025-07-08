@@ -32,11 +32,13 @@ import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
+import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
 public class CheckoutTest extends BaseTest {
   protected Client createMockErrorClient(String response) {
@@ -663,14 +665,23 @@ public class CheckoutTest extends BaseTest {
             + "\"reference\":\"YOUR_PAYMENT_REFERENCE\","
             + "\"returnUrl\":\"https://your-company.com/checkout?shopperOrder=12xy..\"}";
 
+    final ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
     verify(client.getHttpClient())
         .request(
-            "https://checkout-test.adyen.com/v71/sessions",
-            EXPECTED_REQUEST_PAYLOAD,
-            client.getConfig(),
-            false,
-            null,
-            ApiConstants.HttpMethod.POST,
-            null);
+            eq("https://checkout-test.adyen.com/v71/sessions"),
+            captor.capture(),
+            any(com.adyen.Config.class),
+            eq(false),
+            isNull(),
+            eq(ApiConstants.HttpMethod.POST),
+            isNull());
+
+    // Comparing JSON
+    final com.fasterxml.jackson.databind.ObjectMapper mapper =
+        new com.fasterxml.jackson.databind.ObjectMapper();
+    final JsonNode expected = mapper.readTree(EXPECTED_REQUEST_PAYLOAD);
+    final JsonNode actual = mapper.readTree(captor.getValue());
+    assertEquals(expected, actual);
+
   }
 }
