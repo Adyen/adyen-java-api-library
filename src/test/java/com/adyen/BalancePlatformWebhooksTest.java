@@ -202,8 +202,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
 
   @Test
   public void testBankingWebhookInvalidPayload() {
-    String jsonRequest =
-            "{ invalid json ...";
+    String jsonRequest = "{ invalid json ...";
     ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(jsonRequest);
     Assert.assertTrue(webhookHandler.getAccountHolderNotificationRequest().isEmpty());
   }
