@@ -40,7 +40,21 @@ public class AcsWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<AuthenticationNotificationRequest> getAuthenticationNotificationRequest() {
-    return getOptionalField(AuthenticationNotificationRequest.class);
+
+    var optionalAuthenticationNotificationRequest =
+        getOptionalField(AuthenticationNotificationRequest.class);
+
+    if (optionalAuthenticationNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : AuthenticationNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalAuthenticationNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalAuthenticationNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -49,7 +63,20 @@ public class AcsWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<RelayedAuthenticationRequest> getRelayedAuthenticationRequest() {
-    return getOptionalField(RelayedAuthenticationRequest.class);
+
+    var optionalRelayedAuthenticationRequest = getOptionalField(RelayedAuthenticationRequest.class);
+
+    if (optionalRelayedAuthenticationRequest.isPresent()) {
+      // verify event type
+      for (var value : RelayedAuthenticationRequest.TypeEnum.values()) {
+        if (value.equals(optionalRelayedAuthenticationRequest.get().getType())) {
+          // found matching event type
+          return optionalRelayedAuthenticationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**

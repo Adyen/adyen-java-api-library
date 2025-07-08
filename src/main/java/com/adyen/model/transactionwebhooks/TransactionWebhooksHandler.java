@@ -40,7 +40,21 @@ public class TransactionWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<TransactionNotificationRequestV4> getTransactionNotificationRequestV4() {
-    return getOptionalField(TransactionNotificationRequestV4.class);
+
+    var optionalTransactionNotificationRequestV4 =
+        getOptionalField(TransactionNotificationRequestV4.class);
+
+    if (optionalTransactionNotificationRequestV4.isPresent()) {
+      // verify event type
+      for (var value : TransactionNotificationRequestV4.TypeEnum.values()) {
+        if (value.equals(optionalTransactionNotificationRequestV4.get().getType())) {
+          // found matching event type
+          return optionalTransactionNotificationRequestV4;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**

@@ -40,7 +40,20 @@ public class ReportWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<ReportNotificationRequest> getReportNotificationRequest() {
-    return getOptionalField(ReportNotificationRequest.class);
+
+    var optionalReportNotificationRequest = getOptionalField(ReportNotificationRequest.class);
+
+    if (optionalReportNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : ReportNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalReportNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalReportNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**

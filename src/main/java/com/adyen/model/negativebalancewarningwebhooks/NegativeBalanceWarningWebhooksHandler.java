@@ -44,7 +44,22 @@ public class NegativeBalanceWarningWebhooksHandler {
    */
   public Optional<NegativeBalanceCompensationWarningNotificationRequest>
       getNegativeBalanceCompensationWarningNotificationRequest() {
-    return getOptionalField(NegativeBalanceCompensationWarningNotificationRequest.class);
+
+    var optionalNegativeBalanceCompensationWarningNotificationRequest =
+        getOptionalField(NegativeBalanceCompensationWarningNotificationRequest.class);
+
+    if (optionalNegativeBalanceCompensationWarningNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : NegativeBalanceCompensationWarningNotificationRequest.TypeEnum.values()) {
+        if (value.equals(
+            optionalNegativeBalanceCompensationWarningNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalNegativeBalanceCompensationWarningNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**

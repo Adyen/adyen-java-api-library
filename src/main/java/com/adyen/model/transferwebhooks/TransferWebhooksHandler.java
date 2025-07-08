@@ -40,7 +40,20 @@ public class TransferWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<TransferNotificationRequest> getTransferNotificationRequest() {
-    return getOptionalField(TransferNotificationRequest.class);
+
+    var optionalTransferNotificationRequest = getOptionalField(TransferNotificationRequest.class);
+
+    if (optionalTransferNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : TransferNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalTransferNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalTransferNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**

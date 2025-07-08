@@ -40,7 +40,21 @@ public class ManagementWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<MerchantCreatedNotificationRequest> getMerchantCreatedNotificationRequest() {
-    return getOptionalField(MerchantCreatedNotificationRequest.class);
+
+    var optionalMerchantCreatedNotificationRequest =
+        getOptionalField(MerchantCreatedNotificationRequest.class);
+
+    if (optionalMerchantCreatedNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : MerchantCreatedNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalMerchantCreatedNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalMerchantCreatedNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -49,7 +63,21 @@ public class ManagementWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<MerchantUpdatedNotificationRequest> getMerchantUpdatedNotificationRequest() {
-    return getOptionalField(MerchantUpdatedNotificationRequest.class);
+
+    var optionalMerchantUpdatedNotificationRequest =
+        getOptionalField(MerchantUpdatedNotificationRequest.class);
+
+    if (optionalMerchantUpdatedNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : MerchantUpdatedNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalMerchantUpdatedNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalMerchantUpdatedNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -59,7 +87,21 @@ public class ManagementWebhooksHandler {
    */
   public Optional<PaymentMethodCreatedNotificationRequest>
       getPaymentMethodCreatedNotificationRequest() {
-    return getOptionalField(PaymentMethodCreatedNotificationRequest.class);
+
+    var optionalPaymentMethodCreatedNotificationRequest =
+        getOptionalField(PaymentMethodCreatedNotificationRequest.class);
+
+    if (optionalPaymentMethodCreatedNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : PaymentMethodCreatedNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalPaymentMethodCreatedNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalPaymentMethodCreatedNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -70,7 +112,21 @@ public class ManagementWebhooksHandler {
    */
   public Optional<PaymentMethodRequestRemovedNotificationRequest>
       getPaymentMethodRequestRemovedNotificationRequest() {
-    return getOptionalField(PaymentMethodRequestRemovedNotificationRequest.class);
+
+    var optionalPaymentMethodRequestRemovedNotificationRequest =
+        getOptionalField(PaymentMethodRequestRemovedNotificationRequest.class);
+
+    if (optionalPaymentMethodRequestRemovedNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : PaymentMethodRequestRemovedNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalPaymentMethodRequestRemovedNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalPaymentMethodRequestRemovedNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -81,7 +137,22 @@ public class ManagementWebhooksHandler {
    */
   public Optional<PaymentMethodScheduledForRemovalNotificationRequest>
       getPaymentMethodScheduledForRemovalNotificationRequest() {
-    return getOptionalField(PaymentMethodScheduledForRemovalNotificationRequest.class);
+
+    var optionalPaymentMethodScheduledForRemovalNotificationRequest =
+        getOptionalField(PaymentMethodScheduledForRemovalNotificationRequest.class);
+
+    if (optionalPaymentMethodScheduledForRemovalNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : PaymentMethodScheduledForRemovalNotificationRequest.TypeEnum.values()) {
+        if (value.equals(
+            optionalPaymentMethodScheduledForRemovalNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalPaymentMethodScheduledForRemovalNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -90,7 +161,21 @@ public class ManagementWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<TerminalBoardingNotificationRequest> getTerminalBoardingNotificationRequest() {
-    return getOptionalField(TerminalBoardingNotificationRequest.class);
+
+    var optionalTerminalBoardingNotificationRequest =
+        getOptionalField(TerminalBoardingNotificationRequest.class);
+
+    if (optionalTerminalBoardingNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : TerminalBoardingNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalTerminalBoardingNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalTerminalBoardingNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
@@ -99,7 +184,21 @@ public class ManagementWebhooksHandler {
    * @return an Optional containing the deserialized object, or empty if deserialization fails
    */
   public Optional<TerminalSettingsNotificationRequest> getTerminalSettingsNotificationRequest() {
-    return getOptionalField(TerminalSettingsNotificationRequest.class);
+
+    var optionalTerminalSettingsNotificationRequest =
+        getOptionalField(TerminalSettingsNotificationRequest.class);
+
+    if (optionalTerminalSettingsNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : TerminalSettingsNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalTerminalSettingsNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalTerminalSettingsNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**

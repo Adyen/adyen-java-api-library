@@ -41,7 +41,21 @@ public class BalanceWebhooksHandler {
    */
   public Optional<BalanceAccountBalanceNotificationRequest>
       getBalanceAccountBalanceNotificationRequest() {
-    return getOptionalField(BalanceAccountBalanceNotificationRequest.class);
+
+    var optionalBalanceAccountBalanceNotificationRequest =
+        getOptionalField(BalanceAccountBalanceNotificationRequest.class);
+
+    if (optionalBalanceAccountBalanceNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : BalanceAccountBalanceNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalBalanceAccountBalanceNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalBalanceAccountBalanceNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
   }
 
   /**
