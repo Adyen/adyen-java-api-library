@@ -22,18 +22,14 @@ package com.adyen;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
-import com.adyen.httpclient.AdyenHttpClient;
-import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import java.io.IOException;
+
 import java.time.OffsetDateTime;
 import java.util.*;
 import org.junit.Assert;
@@ -249,21 +245,6 @@ public class CheckoutTest extends BaseTest {
     CreateOrderResponse checkoutCreateOrderResponse = checkout.orders(checkoutCreateOrderRequest);
     assertEquals("8616178914061985", checkoutCreateOrderResponse.getPspReference());
     assertEquals("Abzt3JH4wnzErMnOZwSdgA==", checkoutCreateOrderResponse.getOrderData());
-  }
-
-  /** Should make ordersCancel call */
-  protected CreateCheckoutSessionRequest createCreateCheckoutSessionRequest() {
-    CreateCheckoutSessionRequest createCheckoutSessionRequest = new CreateCheckoutSessionRequest();
-    createCheckoutSessionRequest.setMerchantAccount("TestMerchant");
-    createCheckoutSessionRequest.setReference("TestReference");
-    createCheckoutSessionRequest.setReturnUrl("http://test-url.com");
-
-    Amount amount = new Amount();
-    amount.setCurrency("EUR");
-    amount.setValue(10000L);
-
-    createCheckoutSessionRequest.setAmount(amount);
-    return createCheckoutSessionRequest;
   }
 
   @Test
