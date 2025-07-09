@@ -70,7 +70,7 @@ public class InstallAndroidAppDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.INSTALLANDROIDAPP;
+  private TypeEnum type;
 
   public InstallAndroidAppDetails() {}
 

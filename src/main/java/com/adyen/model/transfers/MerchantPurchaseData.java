@@ -78,7 +78,7 @@ public class MerchantPurchaseData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.MERCHANTPURCHASEDATA;
+  private TypeEnum type;
 
   public MerchantPurchaseData() {}
 

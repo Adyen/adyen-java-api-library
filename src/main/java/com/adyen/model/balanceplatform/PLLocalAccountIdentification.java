@@ -70,7 +70,7 @@ public class PLLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PLLOCAL;
+  private TypeEnum type;
 
   public PLLocalAccountIdentification() {}
 

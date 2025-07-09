@@ -74,7 +74,7 @@ public class AULocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.AULOCAL;
+  private TypeEnum type;
 
   public AULocalAccountIdentification() {}
 

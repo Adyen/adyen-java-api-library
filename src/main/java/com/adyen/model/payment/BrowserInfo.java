@@ -40,7 +40,7 @@ public class BrowserInfo {
   private Boolean javaEnabled;
 
   public static final String JSON_PROPERTY_JAVA_SCRIPT_ENABLED = "javaScriptEnabled";
-  private Boolean javaScriptEnabled = true;
+  private Boolean javaScriptEnabled;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;

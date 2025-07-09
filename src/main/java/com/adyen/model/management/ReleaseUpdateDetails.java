@@ -67,7 +67,7 @@ public class ReleaseUpdateDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.RELEASEUPDATE;
+  private TypeEnum type;
 
   public static final String JSON_PROPERTY_UPDATE_AT_FIRST_MAINTENANCE_CALL =
       "updateAtFirstMaintenanceCall";

@@ -74,7 +74,7 @@ public class UKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.UKLOCAL;
+  private TypeEnum type;
 
   public UKLocalAccountIdentification() {}
 

@@ -70,7 +70,7 @@ public class NZLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.NZLOCAL;
+  private TypeEnum type;
 
   public NZLocalAccountIdentification() {}
 

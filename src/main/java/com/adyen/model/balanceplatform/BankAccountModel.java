@@ -75,7 +75,7 @@ public class BankAccountModel {
   }
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private FormFactorEnum formFactor = FormFactorEnum.PHYSICAL;
+  private FormFactorEnum formFactor;
 
   public BankAccountModel() {}
 

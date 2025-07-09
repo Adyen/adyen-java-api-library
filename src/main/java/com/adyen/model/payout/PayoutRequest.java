@@ -476,12 +476,12 @@ public class PayoutRequest {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest shopperEmail(String shopperEmail) {
@@ -491,12 +491,12 @@ public class PayoutRequest {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @return shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -506,12 +506,12 @@ public class PayoutRequest {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -700,9 +700,17 @@ public class PayoutRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number.
+   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    * @return the current {@code PayoutRequest} instance, allowing for method chaining
    */
   public PayoutRequest telephoneNumber(String telephoneNumber) {
@@ -711,9 +719,17 @@ public class PayoutRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @return telephoneNumber The shopper&#39;s telephone number.
+   * @return telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -722,9 +738,17 @@ public class PayoutRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number.
+   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

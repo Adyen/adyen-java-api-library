@@ -76,7 +76,7 @@ public class IbanAccountIdentificationRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.IBANACCOUNTIDENTIFICATIONREQUIREMENT;
+  private TypeEnum type;
 
   public IbanAccountIdentificationRequirement() {}
 

@@ -70,7 +70,7 @@ public class HULocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.HULOCAL;
+  private TypeEnum type;
 
   public HULocalAccountIdentification() {}
 

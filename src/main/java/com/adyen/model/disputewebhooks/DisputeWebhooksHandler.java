@@ -35,6 +35,28 @@ public class DisputeWebhooksHandler {
   }
 
   /**
+   * Attempts to deserialize the webhook payload into a DisputeNotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<DisputeNotificationRequest> getDisputeNotificationRequest() {
+
+    var optionalDisputeNotificationRequest = getOptionalField(DisputeNotificationRequest.class);
+
+    if (optionalDisputeNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : DisputeNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalDisputeNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalDisputeNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
    * Deserializes the payload into the specified class type.
    *
    * @param clazz the class to deserialize into

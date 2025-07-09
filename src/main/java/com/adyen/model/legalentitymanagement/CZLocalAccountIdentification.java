@@ -74,7 +74,7 @@ public class CZLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CZLOCAL;
+  private TypeEnum type;
 
   public CZLocalAccountIdentification() {}
 

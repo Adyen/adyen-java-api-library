@@ -70,7 +70,7 @@ public class USInternationalAchAddressRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.USINTERNATIONALACHADDRESSREQUIREMENT;
+  private TypeEnum type;
 
   public USInternationalAchAddressRequirement() {}
 

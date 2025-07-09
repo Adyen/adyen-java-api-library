@@ -8,6 +8,8 @@ import com.adyen.model.acswebhooks.RelayedAuthenticationRequest;
 import com.adyen.model.balancewebhooks.BalanceAccountBalanceNotificationRequest;
 import com.adyen.model.balancewebhooks.BalanceWebhooksHandler;
 import com.adyen.model.configurationwebhooks.*;
+import com.adyen.model.disputewebhooks.DisputeNotificationRequest;
+import com.adyen.model.disputewebhooks.DisputeWebhooksHandler;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceCompensationWarningNotificationRequest;
 import com.adyen.model.negativebalancewarningwebhooks.NegativeBalanceWarningWebhooksHandler;
 import com.adyen.model.reportwebhooks.ReportNotificationRequest;
@@ -394,5 +396,44 @@ public class BalancePlatformWebhooksTest extends BaseTest {
 
     assertNotNull(transferNotificationRequest.getData().getBalances());
     assertEquals(1, transferNotificationRequest.getData().getBalances().size());
+  }
+
+  @Test
+  public void testGetDisputeNotificationRequestSuccess() {
+
+    String json = getFileContents("mocks/balancePlatform-webhooks/dispute-created.json");
+
+    DisputeWebhooksHandler handler = new DisputeWebhooksHandler(json);
+    Optional<DisputeNotificationRequest> optionalDisputeNotificationRequest =
+        handler.getDisputeNotificationRequest();
+    assertTrue(optionalDisputeNotificationRequest.isPresent());
+
+    DisputeNotificationRequest request = optionalDisputeNotificationRequest.get();
+    assertNotNull(request.getData());
+    assertEquals(
+        DisputeNotificationRequest.TypeEnum.BALANCEPLATFORM_DISPUTE_CREATED, request.getType());
+    assertEquals("DS00000000000000000001", request.getData().getId());
+  }
+
+  @Test
+  public void testGetDisputeNotificationRequestWithUnknownType() {
+    String payload =
+        "{\n"
+            + "  \"type\": \"SomeUnknownEventType\",\n"
+            + "  \"pspReference\": \"883585332216073C\"\n"
+            + "}";
+
+    DisputeWebhooksHandler handler = new DisputeWebhooksHandler(payload);
+    Optional<DisputeNotificationRequest> result = handler.getDisputeNotificationRequest();
+    assertFalse(result.isPresent());
+  }
+
+  @Test
+  public void testGetDisputeNotificationRequestWithEmptyJson() {
+    String payload = "{}";
+
+    DisputeWebhooksHandler handler = new DisputeWebhooksHandler(payload);
+    Optional<DisputeNotificationRequest> result = handler.getDisputeNotificationRequest();
+    assertFalse(result.isPresent());
   }
 }

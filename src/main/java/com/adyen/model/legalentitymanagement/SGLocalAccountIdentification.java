@@ -74,7 +74,7 @@ public class SGLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.SGLOCAL;
+  private TypeEnum type;
 
   public SGLocalAccountIdentification() {}
 

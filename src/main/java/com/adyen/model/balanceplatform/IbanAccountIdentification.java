@@ -70,7 +70,7 @@ public class IbanAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.IBAN;
+  private TypeEnum type;
 
   public IbanAccountIdentification() {}
 

@@ -74,7 +74,7 @@ public class DKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.DKLOCAL;
+  private TypeEnum type;
 
   public DKLocalAccountIdentification() {}
 

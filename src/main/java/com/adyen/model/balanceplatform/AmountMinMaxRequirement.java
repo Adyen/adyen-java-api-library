@@ -78,7 +78,7 @@ public class AmountMinMaxRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.AMOUNTMINMAXREQUIREMENT;
+  private TypeEnum type;
 
   public AmountMinMaxRequirement() {}
 

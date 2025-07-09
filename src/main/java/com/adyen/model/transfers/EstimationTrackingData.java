@@ -74,7 +74,7 @@ public class EstimationTrackingData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ESTIMATION;
+  private TypeEnum type;
 
   public EstimationTrackingData() {}
 

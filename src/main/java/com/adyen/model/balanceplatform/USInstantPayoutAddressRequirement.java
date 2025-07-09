@@ -70,7 +70,7 @@ public class USInstantPayoutAddressRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.USINSTANTPAYOUTADDRESSREQUIREMENT;
+  private TypeEnum type;
 
   public USInstantPayoutAddressRequirement() {}
 

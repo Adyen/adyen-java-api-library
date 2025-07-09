@@ -150,7 +150,7 @@ public class BankAccountIdentificationTypeRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BANKACCOUNTIDENTIFICATIONTYPEREQUIREMENT;
+  private TypeEnum type;
 
   public BankAccountIdentificationTypeRequirement() {}
 

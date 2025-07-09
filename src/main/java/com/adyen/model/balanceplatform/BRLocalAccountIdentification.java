@@ -82,7 +82,7 @@ public class BRLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BRLOCAL;
+  private TypeEnum type;
 
   public BRLocalAccountIdentification() {}
 

@@ -76,7 +76,7 @@ public class USLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  private AccountTypeEnum accountType = AccountTypeEnum.CHECKING;
+  private AccountTypeEnum accountType;
 
   public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
   private String routingNumber;
@@ -121,7 +121,7 @@ public class USLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.USLOCAL;
+  private TypeEnum type;
 
   public USLocalAccountIdentification() {}
 

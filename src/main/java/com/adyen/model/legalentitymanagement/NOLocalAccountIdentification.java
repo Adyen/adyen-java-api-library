@@ -70,7 +70,7 @@ public class NOLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.NOLOCAL;
+  private TypeEnum type;
 
   public NOLocalAccountIdentification() {}
 

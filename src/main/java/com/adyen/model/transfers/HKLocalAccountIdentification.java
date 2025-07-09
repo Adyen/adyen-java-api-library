@@ -74,7 +74,7 @@ public class HKLocalAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.HKLOCAL;
+  private TypeEnum type;
 
   public HKLocalAccountIdentification() {}
 

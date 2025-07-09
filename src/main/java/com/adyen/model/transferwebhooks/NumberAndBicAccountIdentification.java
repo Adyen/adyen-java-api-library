@@ -79,7 +79,7 @@ public class NumberAndBicAccountIdentification {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.NUMBERANDBIC;
+  private TypeEnum type;
 
   public NumberAndBicAccountIdentification() {}
 

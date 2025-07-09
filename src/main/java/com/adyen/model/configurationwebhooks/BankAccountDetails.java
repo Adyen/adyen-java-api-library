@@ -33,13 +33,13 @@ public class BankAccountDetails {
   private String accountNumber;
 
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
-  private String accountType = "checking";
+  private String accountType;
 
   public static final String JSON_PROPERTY_BRANCH_NUMBER = "branchNumber";
   private String branchNumber;
 
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
-  private String formFactor = "physical";
+  private String formFactor;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
@@ -51,7 +51,7 @@ public class BankAccountDetails {
   private String sortCode;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "iban";
+  private String type;
 
   public BankAccountDetails() {}
 

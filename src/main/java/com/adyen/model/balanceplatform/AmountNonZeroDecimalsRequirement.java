@@ -70,7 +70,7 @@ public class AmountNonZeroDecimalsRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.AMOUNTNONZERODECIMALSREQUIREMENT;
+  private TypeEnum type;
 
   public AmountNonZeroDecimalsRequirement() {}
 

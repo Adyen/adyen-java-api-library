@@ -75,7 +75,7 @@ public class InternalCategoryData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.INTERNAL;
+  private TypeEnum type;
 
   public InternalCategoryData() {}
 

@@ -32,7 +32,7 @@ public class AmexInfo {
   private String midNumber;
 
   public static final String JSON_PROPERTY_REUSE_MID_NUMBER = "reuseMidNumber";
-  private Boolean reuseMidNumber = false;
+  private Boolean reuseMidNumber;
 
   /**
    * Specifies the service level (settlement type) of this payment method. Possible values: *

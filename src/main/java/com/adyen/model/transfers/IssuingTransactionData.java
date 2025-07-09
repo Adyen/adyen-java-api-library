@@ -73,7 +73,7 @@ public class IssuingTransactionData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ISSUINGTRANSACTIONDATA;
+  private TypeEnum type;
 
   public IssuingTransactionData() {}
 

@@ -70,7 +70,7 @@ public class InstallAndroidCertificateDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.INSTALLANDROIDCERTIFICATE;
+  private TypeEnum type;
 
   public InstallAndroidCertificateDetails() {}
 

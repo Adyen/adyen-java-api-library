@@ -29,7 +29,6 @@ import com.adyen.enums.Environment;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
 import com.fasterxml.jackson.databind.JsonNode;
-
 import java.time.OffsetDateTime;
 import java.util.*;
 import org.junit.Assert;
@@ -90,9 +89,7 @@ public class CheckoutTest extends BaseTest {
     assertEquals("https://your-company.com/..", parsedCheckoutPaymentRequest.getReturnUrl());
   }
 
-  /**
-   * Deserialise CardDetails (scheme)
-   */
+  /** Deserialise CardDetails (scheme) */
   @Test
   public void TestDeserializePaymentRequestScheme() throws Exception {
     String paymentRequestJson = getFileContents("mocks/checkout/paymentRequestScheme.json");
@@ -647,6 +644,5 @@ public class CheckoutTest extends BaseTest {
     final JsonNode expected = mapper.readTree(EXPECTED_REQUEST_PAYLOAD);
     final JsonNode actual = mapper.readTree(captor.getValue());
     assertEquals(expected, actual);
-
   }
 }

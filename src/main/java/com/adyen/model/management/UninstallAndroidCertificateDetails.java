@@ -70,7 +70,7 @@ public class UninstallAndroidCertificateDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.UNINSTALLANDROIDCERTIFICATE;
+  private TypeEnum type;
 
   public UninstallAndroidCertificateDetails() {}
 

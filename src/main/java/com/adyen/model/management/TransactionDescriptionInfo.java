@@ -85,7 +85,7 @@ public class TransactionDescriptionInfo {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.DYNAMIC;
+  private TypeEnum type;
 
   public TransactionDescriptionInfo() {}
 

@@ -317,7 +317,7 @@ public class PaymentRequest3d {
 
   public static final String JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY =
       "threeDSAuthenticationOnly";
-  private Boolean threeDSAuthenticationOnly = false;
+  private Boolean threeDSAuthenticationOnly;
 
   public static final String JSON_PROPERTY_TOTALS_GROUP = "totalsGroup";
   private String totalsGroup;
@@ -1617,12 +1617,12 @@ public class PaymentRequest3d {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    * @return the current {@code PaymentRequest3d} instance, allowing for method chaining
    */
   public PaymentRequest3d shopperEmail(String shopperEmail) {
@@ -1632,12 +1632,12 @@ public class PaymentRequest3d {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @return shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1647,12 +1647,12 @@ public class PaymentRequest3d {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1661,18 +1661,21 @@ public class PaymentRequest3d {
   }
 
   /**
-   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is
-   * used in a number of risk checks (for instance, number of payment attempts or location-based
-   * checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all
-   * browser-based implementations. This field is also mandatory for some merchants depending on
-   * your business model. For more information, [contact
-   * Support](https://www.adyen.help/hc/en-us/requests/new).
+   * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
+   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
+   * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
+   * integrations, the field is required to support cases where authentication is routed to the
+   * redirect flow. This field is also mandatory for some merchants depending on your business
+   * model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this
-   *     data, as it is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks). &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory
-   *     for some merchants depending on your business model. For more information, [contact
+   * @param shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
+   *     is used in a number of risk checks (for instance, number of payment attempts or
+   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
+   *     authentication for all web and mobile integrations, if you did not include the
+   *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
+   *     cases where authentication is routed to the redirect flow. This field is also mandatory for
+   *     some merchants depending on your business model. For more information, [contact
    *     Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return the current {@code PaymentRequest3d} instance, allowing for method chaining
    */
@@ -1682,18 +1685,21 @@ public class PaymentRequest3d {
   }
 
   /**
-   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is
-   * used in a number of risk checks (for instance, number of payment attempts or location-based
-   * checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all
-   * browser-based implementations. This field is also mandatory for some merchants depending on
-   * your business model. For more information, [contact
-   * Support](https://www.adyen.help/hc/en-us/requests/new).
+   * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
+   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
+   * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
+   * integrations, the field is required to support cases where authentication is routed to the
+   * redirect flow. This field is also mandatory for some merchants depending on your business
+   * model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @return shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this
-   *     data, as it is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks). &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory
-   *     for some merchants depending on your business model. For more information, [contact
+   * @return shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
+   *     is used in a number of risk checks (for instance, number of payment attempts or
+   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
+   *     authentication for all web and mobile integrations, if you did not include the
+   *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
+   *     cases where authentication is routed to the redirect flow. This field is also mandatory for
+   *     some merchants depending on your business model. For more information, [contact
    *     Support](https://www.adyen.help/hc/en-us/requests/new).
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
@@ -1703,18 +1709,21 @@ public class PaymentRequest3d {
   }
 
   /**
-   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is
-   * used in a number of risk checks (for instance, number of payment attempts or location-based
-   * checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all
-   * browser-based implementations. This field is also mandatory for some merchants depending on
-   * your business model. For more information, [contact
-   * Support](https://www.adyen.help/hc/en-us/requests/new).
+   * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
+   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
+   * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
+   * integrations, the field is required to support cases where authentication is routed to the
+   * redirect flow. This field is also mandatory for some merchants depending on your business
+   * model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this
-   *     data, as it is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks). &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory
-   *     for some merchants depending on your business model. For more information, [contact
+   * @param shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
+   *     is used in a number of risk checks (for instance, number of payment attempts or
+   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
+   *     authentication for all web and mobile integrations, if you did not include the
+   *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
+   *     cases where authentication is routed to the redirect flow. This field is also mandatory for
+   *     some merchants depending on your business model. For more information, [contact
    *     Support](https://www.adyen.help/hc/en-us/requests/new).
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
@@ -2155,9 +2164,17 @@ public class PaymentRequest3d {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number.
+   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    * @return the current {@code PaymentRequest3d} instance, allowing for method chaining
    */
   public PaymentRequest3d telephoneNumber(String telephoneNumber) {
@@ -2166,9 +2183,17 @@ public class PaymentRequest3d {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @return telephoneNumber The shopper&#39;s telephone number.
+   * @return telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2177,9 +2202,17 @@ public class PaymentRequest3d {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number.
+   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2221,13 +2254,15 @@ public class PaymentRequest3d {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorization.Default: **false**.
    *
-   * @param threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation.
+   * @param threeDSAuthenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorization.Default: **false**.
    * @return the current {@code PaymentRequest3d} instance, allowing for method chaining
    */
   public PaymentRequest3d threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
@@ -2236,13 +2271,15 @@ public class PaymentRequest3d {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorization.Default: **false**.
    *
-   * @return threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation.
+   * @return threeDSAuthenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorization.Default: **false**.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2251,13 +2288,15 @@ public class PaymentRequest3d {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorization.Default: **false**.
    *
-   * @param threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation.
+   * @param threeDSAuthenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorization.Default: **false**.
    */
   @JsonProperty(JSON_PROPERTY_THREE_D_S_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

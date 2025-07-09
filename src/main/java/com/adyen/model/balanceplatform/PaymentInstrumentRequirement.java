@@ -133,7 +133,7 @@ public class PaymentInstrumentRequirement {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYMENTINSTRUMENTREQUIREMENT;
+  private TypeEnum type;
 
   public PaymentInstrumentRequirement() {}
 

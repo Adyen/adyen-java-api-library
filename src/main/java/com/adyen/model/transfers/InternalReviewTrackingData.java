@@ -165,7 +165,7 @@ public class InternalReviewTrackingData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.INTERNALREVIEW;
+  private TypeEnum type;
 
   public InternalReviewTrackingData() {}
 
