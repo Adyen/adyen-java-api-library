@@ -131,7 +131,7 @@ public class ApplePayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.APPLEPAY;
+  private TypeEnum type;
 
   public ApplePayDetails() {}
 

@@ -70,7 +70,7 @@ public class AffirmDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.AFFIRM;
+  private TypeEnum type;
 
   public AffirmDetails() {}
 

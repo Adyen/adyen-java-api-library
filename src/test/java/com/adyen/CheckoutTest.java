@@ -22,37 +22,21 @@ package com.adyen;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
-import com.adyen.httpclient.AdyenHttpClient;
-import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
-import java.io.IOException;
+import com.fasterxml.jackson.databind.JsonNode;
+
 import java.time.OffsetDateTime;
 import java.util.*;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
 public class CheckoutTest extends BaseTest {
-  protected Client createMockErrorClient(String response) {
-    AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
-    try {
-      when(adyenHttpClient.request(
-              anyString(), any(), any(Config.class), anyBoolean(), isNull(), any()))
-          .thenThrow(new HTTPClientException("HTTP Exception"));
-    } catch (IOException | HTTPClientException e) {
-      e.printStackTrace();
-    }
-    Client client = new Client();
-    client.setHttpClient(adyenHttpClient);
-    client.setEnvironment(Environment.TEST, null);
-    return client;
-  }
 
   /** Should make a payment */
   @Test
@@ -108,8 +92,6 @@ public class CheckoutTest extends BaseTest {
 
   /**
    * Deserialise CardDetails (scheme)
-   *
-   * @throws Exception
    */
   @Test
   public void TestDeserializePaymentRequestScheme() throws Exception {
@@ -162,7 +144,7 @@ public class CheckoutTest extends BaseTest {
     LineItem lineItem = new LineItem();
     lineItem.setBrand("brand");
     lineItem.setColor("color");
-    List<LineItem> lineItemList = new ArrayList<LineItem>();
+    List<LineItem> lineItemList = new ArrayList<>();
     lineItemList.add(lineItem);
     createPaymentLinkRequest.setLineItems(lineItemList);
     PaymentLinksApi checkout = new PaymentLinksApi(client);
@@ -263,21 +245,6 @@ public class CheckoutTest extends BaseTest {
     CreateOrderResponse checkoutCreateOrderResponse = checkout.orders(checkoutCreateOrderRequest);
     assertEquals("8616178914061985", checkoutCreateOrderResponse.getPspReference());
     assertEquals("Abzt3JH4wnzErMnOZwSdgA==", checkoutCreateOrderResponse.getOrderData());
-  }
-
-  /** Should make ordersCancel call */
-  protected CreateCheckoutSessionRequest createCreateCheckoutSessionRequest() {
-    CreateCheckoutSessionRequest createCheckoutSessionRequest = new CreateCheckoutSessionRequest();
-    createCheckoutSessionRequest.setMerchantAccount("TestMerchant");
-    createCheckoutSessionRequest.setReference("TestReference");
-    createCheckoutSessionRequest.setReturnUrl("http://test-url.com");
-
-    Amount amount = new Amount();
-    amount.setCurrency("EUR");
-    amount.setValue(10000L);
-
-    createCheckoutSessionRequest.setAmount(amount);
-    return createCheckoutSessionRequest;
   }
 
   @Test
@@ -392,8 +359,8 @@ public class CheckoutTest extends BaseTest {
     RecurringApi checkout = new RecurringApi(client);
     ListStoredPaymentMethodsResponse response =
         checkout.getTokensForStoredPaymentDetails("test-1234", "TestMerchantAccount", null);
-    Assert.assertEquals(response.getMerchantAccount(), "merchantAccount");
-    Assert.assertEquals(response.getStoredPaymentMethods().get(0).getBrand(), "string");
+    Assert.assertEquals("merchantAccount", response.getMerchantAccount());
+    Assert.assertEquals("string", response.getStoredPaymentMethods().get(0).getBrand());
   }
 
   /** Should delete StoredPaymentMethods */
@@ -416,7 +383,7 @@ public class CheckoutTest extends BaseTest {
     client.setConfig(config);
     RecurringApi checkout = new RecurringApi(client);
     checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
-    HashMap<String, String> queryParams = new HashMap<String, String>();
+    HashMap<String, String> queryParams = new HashMap<>();
     queryParams.put("merchantAccount", "TestMerchantAccount");
     queryParams.put("shopperReference", "test-1234");
 
@@ -438,7 +405,7 @@ public class CheckoutTest extends BaseTest {
     client.setEnvironment(Environment.LIVE, "prefix");
     RecurringApi checkout = new RecurringApi(client);
     checkout.deleteTokenForStoredPaymentDetails("recurringId", "test-1234", "TestMerchantAccount");
-    HashMap<String, String> queryParams = new HashMap<String, String>();
+    HashMap<String, String> queryParams = new HashMap<>();
     queryParams.put("merchantAccount", "TestMerchantAccount");
     queryParams.put("shopperReference", "test-1234");
 
@@ -606,7 +573,6 @@ public class CheckoutTest extends BaseTest {
                         .id("Item #2")
                         .taxAmount(52L)
                         .amountIncludingTax(300L)));
-    paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(rivertyDetails));
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentResponse paymentResponse = checkout.payments(paymentRequest);
 
@@ -628,5 +594,59 @@ public class CheckoutTest extends BaseTest {
             null,
             ApiConstants.HttpMethod.POST,
             null);
+  }
+
+  @Test
+  public void TestPaymentMethodsNullLists() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/paymentMethodsResponse.json");
+    PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
+    paymentMethodsRequest.setMerchantAccount("myMerchantAccount");
+    PaymentsApi checkout = new PaymentsApi(client);
+    PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
+
+    assertEquals(1, paymentMethodsResponse.getPaymentMethods().size());
+    // verify storedPaymentMethods list is null
+    assertNull(paymentMethodsResponse.getStoredPaymentMethods());
+  }
+
+  @Test
+  public void TestSessionsCheckDefaultValues() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
+    CreateCheckoutSessionRequest sessionRequest = new CreateCheckoutSessionRequest();
+    sessionRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
+    sessionRequest.setCountryCode("NL");
+    sessionRequest.setReference("YOUR_PAYMENT_REFERENCE");
+    sessionRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
+    Amount amount = new Amount().currency("EUR").value(100L);
+    sessionRequest.setAmount(amount);
+    PaymentsApi checkout = new PaymentsApi(client);
+    CreateCheckoutSessionResponse createCheckoutSessionResponse = checkout.sessions(sessionRequest);
+    assertEquals("CS1453E3730C313478", createCheckoutSessionResponse.getId());
+
+    // check no attributes with default values are included (i.e. threeDSAuthenticationOnly)
+    String EXPECTED_REQUEST_PAYLOAD =
+        "{\"amount\":{\"currency\":\"EUR\",\"value\":100},"
+            + "\"countryCode\":\"NL\",\"merchantAccount\":\"YOUR_MERCHANT_ACCOUNT\","
+            + "\"reference\":\"YOUR_PAYMENT_REFERENCE\","
+            + "\"returnUrl\":\"https://your-company.com/checkout?shopperOrder=12xy..\"}";
+
+    final ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+    verify(client.getHttpClient())
+        .request(
+            eq("https://checkout-test.adyen.com/v71/sessions"),
+            captor.capture(),
+            any(com.adyen.Config.class),
+            eq(false),
+            isNull(),
+            eq(ApiConstants.HttpMethod.POST),
+            isNull());
+
+    // Comparing JSON
+    final com.fasterxml.jackson.databind.ObjectMapper mapper =
+        new com.fasterxml.jackson.databind.ObjectMapper();
+    final JsonNode expected = mapper.readTree(EXPECTED_REQUEST_PAYLOAD);
+    final JsonNode actual = mapper.readTree(captor.getValue());
+    assertEquals(expected, actual);
+
   }
 }

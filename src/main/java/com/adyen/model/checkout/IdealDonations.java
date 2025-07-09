@@ -83,7 +83,7 @@ public class IdealDonations {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.IDEAL;
+  private TypeEnum type;
 
   public IdealDonations() {}
 

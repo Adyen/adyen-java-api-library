@@ -89,7 +89,7 @@ public class UpiCollectDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.UPI_COLLECT;
+  private TypeEnum type;
 
   public static final String JSON_PROPERTY_VIRTUAL_PAYMENT_ADDRESS = "virtualPaymentAddress";
   private String virtualPaymentAddress;

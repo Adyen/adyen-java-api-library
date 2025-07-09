@@ -103,7 +103,7 @@ public class RivertyDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.RIVERTY;
+  private TypeEnum type;
 
   public RivertyDetails() {}
 

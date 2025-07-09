@@ -272,7 +272,7 @@ public class CreateCheckoutSessionRequest {
   }
 
   public static final String JSON_PROPERTY_MODE = "mode";
-  private ModeEnum mode = ModeEnum.EMBEDDED;
+  private ModeEnum mode;
 
   public static final String JSON_PROPERTY_MPI_DATA = "mpiData";
   private ThreeDSecureData mpiData;
@@ -447,7 +447,7 @@ public class CreateCheckoutSessionRequest {
   private String socialSecurityNumber;
 
   public static final String JSON_PROPERTY_SPLIT_CARD_FUNDING_SOURCES = "splitCardFundingSources";
-  private Boolean splitCardFundingSources = false;
+  private Boolean splitCardFundingSources;
 
   public static final String JSON_PROPERTY_SPLITS = "splits";
   private List<Split> splits;
@@ -574,7 +574,7 @@ public class CreateCheckoutSessionRequest {
       "threeDSAuthenticationOnly";
   @Deprecated // deprecated since Adyen Checkout API v69: Use
   // `authenticationData.authenticationOnly` instead.
-  private Boolean threeDSAuthenticationOnly = false;
+  private Boolean threeDSAuthenticationOnly;
 
   public static final String JSON_PROPERTY_TRUSTED_SHOPPER = "trustedShopper";
   private Boolean trustedShopper;

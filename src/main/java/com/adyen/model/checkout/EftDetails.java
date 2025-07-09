@@ -95,7 +95,7 @@ public class EftDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.EFT_DIRECTDEBIT_CA;
+  private TypeEnum type;
 
   public EftDetails() {}
 

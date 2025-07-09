@@ -79,7 +79,7 @@ public class PayByBankAISDirectDebitDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYBYBANK_AIS_DD;
+  private TypeEnum type;
 
   public PayByBankAISDirectDebitDetails() {}
 

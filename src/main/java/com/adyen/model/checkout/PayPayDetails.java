@@ -79,7 +79,7 @@ public class PayPayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PAYPAY;
+  private TypeEnum type;
 
   public PayPayDetails() {}
 

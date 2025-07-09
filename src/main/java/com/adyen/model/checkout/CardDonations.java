@@ -222,7 +222,7 @@ public class CardDonations {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.SCHEME;
+  private TypeEnum type;
 
   public CardDonations() {}
 

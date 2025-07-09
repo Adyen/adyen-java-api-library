@@ -70,7 +70,7 @@ public class AndroidPayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ANDROIDPAY;
+  private TypeEnum type;
 
   public AndroidPayDetails() {}
 

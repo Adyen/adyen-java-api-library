@@ -315,7 +315,7 @@ public class BalanceCheckRequest {
       "threeDSAuthenticationOnly";
   @Deprecated // deprecated since Adyen Checkout API v69: Use
   // `authenticationData.authenticationOnly` instead.
-  private Boolean threeDSAuthenticationOnly = false;
+  private Boolean threeDSAuthenticationOnly;
 
   public static final String JSON_PROPERTY_TOTALS_GROUP = "totalsGroup";
   private String totalsGroup;

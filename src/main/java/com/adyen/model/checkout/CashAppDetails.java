@@ -103,7 +103,7 @@ public class CashAppDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CASHAPP;
+  private TypeEnum type;
 
   public CashAppDetails() {}
 

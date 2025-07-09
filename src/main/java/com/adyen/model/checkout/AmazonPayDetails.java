@@ -78,7 +78,7 @@ public class AmazonPayDetails {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.AMAZONPAY;
+  private TypeEnum type;
 
   public AmazonPayDetails() {}
 
