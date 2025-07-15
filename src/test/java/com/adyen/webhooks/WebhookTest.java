@@ -34,10 +34,8 @@ import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.notification.ClassicPlatformWebhookHandler;
 import com.adyen.notification.WebhookHandler;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.google.gson.JsonParser;
+
 import java.io.IOException;
-import java.security.SignatureException;
 import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Before;
