@@ -31,7 +31,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
 
   // Test AccountHolder created with LEM API v1, v2
   @Test
-  public void testAccountHolderCreatedLemV2() throws Exception {
+  public void testAccountHolderCreatedLemV2() {
     String json =
         getFileContents(
             "mocks/balancePlatform-webhooks/configuration-accountHolder-created-lemv2.json");
@@ -62,7 +62,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
 
   // Test AccountHolder created with LEM API v3+
   @Test
-  public void testAccountHolderCreated() throws Exception {
+  public void testAccountHolderCreated() {
     String json =
         getFileContents("mocks/balancePlatform-webhooks/configuration-accountHolder-created.json");
 
@@ -104,7 +104,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testAccountHolderUpdated() throws Exception {
+  public void testAccountHolderUpdated() {
     String json =
         getFileContents("mocks/balancePlatform-webhooks/configuration-accountHolder-updated.json");
 
@@ -119,7 +119,6 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertEquals("test", accountHolderNotificationRequest.getEnvironment());
     assertNotNull(accountHolderNotificationRequest.getTimestamp());
 
-    AccountHolder accountHolder = accountHolderNotificationRequest.getData().getAccountHolder();
     assertEquals(
         "YOUR_BALANCE_PLATFORM", accountHolderNotificationRequest.getData().getBalancePlatform());
     assertEquals(
@@ -148,7 +147,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testReportCreated() throws Exception {
+  public void testReportCreated() {
     String json =
         getFileContents("mocks/balancePlatform-webhooks/balanceplatform-report-created.json");
 
@@ -222,7 +221,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testBankingWebhookAcsParsing() throws Exception {
+  public void testBankingWebhookAcsParsing() {
     String json =
         getFileContents(
             "mocks/balancePlatform-webhooks/balanceplatform-authentication-created.json");
@@ -256,7 +255,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testNegativeBalanceCompensationWarning() throws Exception {
+  public void testNegativeBalanceCompensationWarning() {
     String json =
         getFileContents(
             "mocks/balancePlatform-webhooks/balanceplatform-negativeBalanceCompensationWarning-scheduled.json");
@@ -291,7 +290,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testRelayedAuthenticationRequest() throws Exception {
+  public void testRelayedAuthenticationRequest() {
     String json =
         getFileContents(
             "mocks/balancePlatform-webhooks/balanceplatform-relayed-authentication-request.json");
@@ -308,7 +307,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testBalanceAccountBalanceNotificationRequest() throws Exception {
+  public void testBalanceAccountBalanceNotificationRequest() {
     String json =
         getFileContents(
             "mocks/balancePlatform-webhooks/balanceplatform-balanceAccount-balance-updated.json");
@@ -330,7 +329,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testNetworkTokenCreatedNotificationRequest() throws Exception {
+  public void testNetworkTokenCreatedNotificationRequest() {
     String json =
         getFileContents(
             "mocks/balancePlatform-webhooks/balanceplatform-balancePlatform-networkToken-created.json");
@@ -350,7 +349,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testNetworkTokenUpdatedNotificationRequest() throws Exception {
+  public void testNetworkTokenUpdatedNotificationRequest() {
     String json =
         getFileContents(
             "mocks/balancePlatform-webhooks/balanceplatform-balancePlatform-networkToken-updated.json");
@@ -370,7 +369,7 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   }
 
   @Test
-  public void testTransferNotificationRequest() throws Exception {
+  public void testTransferNotificationRequest() {
     String json = getFileContents("mocks/balancePlatform-webhooks/transfer-updated.json");
 
     Optional<TransferNotificationRequest> optionalTransferNotificationRequest =

@@ -23,7 +23,6 @@ package com.adyen.webhooks;
 import static org.junit.Assert.*;
 
 import com.adyen.BaseTest;
-import com.adyen.model.managementwebhooks.*;
 import com.adyen.model.marketpaywebhooks.AccountHolderCreateNotification;
 import com.adyen.model.nexo.DeviceType;
 import com.adyen.model.nexo.DisplayOutput;
@@ -243,7 +242,7 @@ public class WebhookTest extends BaseTest {
 
     assertEquals(InfoQualifyType.STATUS, displayOutput.getInfoQualify());
     assertEquals(DeviceType.CASHIER_DISPLAY, displayOutput.getDevice());
-    assertEquals(false, displayOutput.isResponseRequiredFlag());
+    assertFalse(displayOutput.isResponseRequiredFlag());
   }
 
   @Test
@@ -292,17 +291,12 @@ public class WebhookTest extends BaseTest {
     NotificationRequestItem requestItem = new NotificationRequestItem();
     requestItem.setPspReference("987654321");
     ArrayList<NotificationRequestItem> notificationRequestItems =
-        new ArrayList<NotificationRequestItem>();
+            new ArrayList<>();
     notificationRequestItems.add(requestItem);
     notificationRequest.setNotificationItems(notificationRequestItems);
 
     assertEquals(1, notificationRequest.getNotificationItems().size());
     assertEquals("987654321", notificationRequest.getNotificationItems().get(0).getPspReference());
-  }
-
-  private void assertJsonStringEquals(String firstInput, String secondInput) {
-    JsonParser parser = new JsonParser();
-    assertEquals(parser.parse(firstInput), parser.parse(secondInput));
   }
 
   private NotificationRequest readNotificationRequestFromFile(String resourcePath)
@@ -312,7 +306,7 @@ public class WebhookTest extends BaseTest {
   }
 
   @Test
-  public void testDonationWebhookJackson() throws SignatureException, IOException {
+  public void testDonationWebhookJackson() throws IOException {
     String notification =
         "{\n"
             + "  \"live\": \"false\",\n"
@@ -356,7 +350,7 @@ public class WebhookTest extends BaseTest {
   }
 
   @Test
-  public void testClassicPlatformParsing() throws JsonProcessingException {
+  public void testClassicPlatformParsing() {
     String notification =
         "{\n"
             + "  \"error\": {\n"
