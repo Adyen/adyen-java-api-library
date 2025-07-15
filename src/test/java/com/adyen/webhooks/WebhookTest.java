@@ -355,7 +355,6 @@ public class WebhookTest extends BaseTest {
             .get("originalMerchantAccountCode"));
   }
 
-
   @Test
   public void testClassicPlatformParsing() throws JsonProcessingException {
     String notification =
