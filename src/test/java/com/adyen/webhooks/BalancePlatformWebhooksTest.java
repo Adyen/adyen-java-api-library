@@ -1,7 +1,8 @@
-package com.adyen;
+package com.adyen.webhooks;
 
 import static org.junit.Assert.*;
 
+import com.adyen.BaseTest;
 import com.adyen.model.acswebhooks.AcsWebhooksHandler;
 import com.adyen.model.acswebhooks.AuthenticationNotificationRequest;
 import com.adyen.model.acswebhooks.RelayedAuthenticationRequest;
