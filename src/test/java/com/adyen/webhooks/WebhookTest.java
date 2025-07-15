@@ -34,7 +34,6 @@ import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.notification.ClassicPlatformWebhookHandler;
 import com.adyen.notification.WebhookHandler;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.Assert;
@@ -288,8 +287,7 @@ public class WebhookTest extends BaseTest {
     assertEquals("123456789", notificationRequest.getNotificationItems().get(0).getPspReference());
     NotificationRequestItem requestItem = new NotificationRequestItem();
     requestItem.setPspReference("987654321");
-    ArrayList<NotificationRequestItem> notificationRequestItems =
-            new ArrayList<>();
+    ArrayList<NotificationRequestItem> notificationRequestItems = new ArrayList<>();
     notificationRequestItems.add(requestItem);
     notificationRequest.setNotificationItems(notificationRequestItems);
 
