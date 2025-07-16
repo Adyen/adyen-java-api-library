@@ -161,7 +161,9 @@ import com.adyen.model.notification.NotificationRequestItem;
 
 // YOUR_HMAC_KEY from the Customer Area
 String hmacKey = "YOUR_HMAC_KEY";
+// The webhook payload
 String notificationRequestJson = "NOTIFICATION_REQUEST_JSON";
+
 HMACValidator hmacValidator = new HMACValidator();
 
 WebhookHandler webhookHandler = new WebhookHandler();
@@ -171,6 +173,7 @@ NotificationRequest notificationRequest = webhookHandler.handleNotificationJson(
 var notificationRequestItem = notificationRequest.getNotificationItems().stream().findFirst();
 
 if (notificationRequestItem.isPresent()) {
+    // validate the HMAC signature
     if ( hmacValidator.validateHMAC(notificationRequestItem, hmacKey) ) {
       // Process the notification based on the eventCode
       log.info("Received webhook with event {} : \n" +
@@ -187,16 +190,26 @@ if (notificationRequestItem.isPresent()) {
     }
 }
 ~~~~
-If you would like to deserialize the Banking Webhooks, first check if the payload is authentic: 
+When deserializing Banking or Management Webhooks, first check if the payload is authentic: 
 ~~~~ java
-String payload = "WEBHOOK_PAYLOAD";
-String signKey = "SIGNATURE_RETREIVED_FROM_CA";
-String hmacKey = "HMACKEY_RETREIVED_FROM_WEBHOOK_HEADER";
+// The webhook payload
+String payload = "WEBHOOK_JSON_PAYLOAD";
+// HMAC key from Customer Area
+String hmacKey = "HMAC_KEY_RETRIEVED_FROM_CA";
+
+// HMAC signature from hmacsignature header
+String hmacsignature = headers.get("hmacsignature");
+if (hmacsignature == null || hmacsignature.isBlank()) {
+   throw new RuntimeException("HMAC Signature not found");
+}
+
+// validate the HMAC signature
 HMACValidator hmacValidator = new HMACValidator();
-boolean authenticity = hmacValidator.validateHMAC(hmacKey, signKey, payload);
+if (!hmacValidator.validateHMAC(hmacsignature, hmacKey, payload)) {
+   throw new RuntimeException("Invalid HMAC signature");
+}
 ~~~~
-If this bool returns true, you can proceed to deserialize against the desired webhook type.  
-Use the relevant webhook handler (i.e. ConfigurationWebhooksHandler) to obtain the object representing the event:
+Use then the relevant webhook handler (i.e. ConfigurationWebhooksHandler) to obtain the object representing the event:
 ~~~~ java
 ConfigurationWebhooksHandler webhookHandler = new ConfigurationWebhooksHandler(payload);
 // onAccountHolderNotificationRequest
@@ -209,7 +222,7 @@ webhookHandler.getBalanceAccountNotificationRequest().ifPresent((BalanceAccountN
 });
 
 ~~~~
-To deserialize Management Webhooks instead, please use the specific webhook handler `ManagementWebhooksHandler`:
+To deserialize Management Webhooks use instead the specific webhook handler `ManagementWebhooksHandler`:
 ~~~~ java
 ManagementWebhooksHandler webhookHandler = new ManagementWebhooksHandler(payload);
 // onMerchantCreatedNotificationRequest
