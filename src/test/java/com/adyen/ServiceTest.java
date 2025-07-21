@@ -12,7 +12,6 @@ import static org.junit.Assert.fail;
  */
 public class ServiceTest extends BaseTest {
 
-    private Client client;
     private Config config;
     private Service service;
 
@@ -20,7 +19,7 @@ public class ServiceTest extends BaseTest {
     public void setUp() {
         config = new Config()
                 .environment(Environment.LIVE);
-        client = new Client(config);
+        Client client = new Client(config);
         service = new Service(client);
     }
 
