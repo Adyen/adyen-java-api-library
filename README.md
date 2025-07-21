@@ -122,8 +122,8 @@ import com.adyen.Client;
 import com.adyen.enums.Environment;
 import com.adyen.service.checkout.ModificationsApi
 
-// Setup Client and Service
-Client client = new Client("Your X-API-KEY", Environment.LIVE, "Your live URL prefix");
+// Setup Client and Service passing prefix
+Client client = new Client("Your X-API-KEY", Environment.LIVE, "mycompany123");
 ModificationsApi modificationsApi = new ModificationsApi(client);
 
 ...
@@ -135,8 +135,8 @@ import com.adyen.Client;
 import com.adyen.enums.Environment;
 import com.adyen.service.checkout.PaymentLinksApi
 
-// Setup Client and Service
-Client client = new Client("Your username", "Your password", Environment.LIVE, "Your live URL prefix", "Your application name");
+// Setup Client and Service passing prefix and 
+Client client = new Client("Your username", "Your password", Environment.LIVE, "mycompany123", "Your application name");
 PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
  
 ...
