@@ -18,15 +18,14 @@ public class Client {
   public static final String TERMINAL_API_ENDPOINT_APSE =
       "https://terminal-api-live-apse.adyen.com";
 
-  /**
-   * Create Client instance (empty config)
-   */
+  /** Create Client instance (empty config) */
   public Client() {
     this.config = new Config();
   }
 
   /**
    * Create Client instance with the given configuration
+   *
    * @param config Configuration
    */
   public Client(Config config) {
@@ -49,21 +48,20 @@ public class Client {
 
   /**
    * Create Client instance
+   *
    * @param username HTTP basic username
    * @param password HTTP basic password
    * @param environment Environment (Test or Live)
    * @param liveEndpointUrlPrefix Prefix required for Live integrations
    */
   public Client(
-          String username,
-          String password,
-          Environment environment,
-          String liveEndpointUrlPrefix) {
+      String username, String password, Environment environment, String liveEndpointUrlPrefix) {
     this(username, password, environment, liveEndpointUrlPrefix, null);
   }
 
   /**
    * Create Client instance
+   *
    * @param username HTTP basic username
    * @param password HTTP basic password
    * @param environment Environment (Test or Live)
@@ -85,6 +83,7 @@ public class Client {
 
   /**
    * Create Client instance
+   *
    * @param apiKey API Key
    * @param environment Environment (Test or Live)
    */
@@ -94,6 +93,7 @@ public class Client {
 
   /**
    * Create Client instance
+   *
    * @param apiKey API Key
    * @param environment Environment (Test or Live)
    * @param liveEndpointUrlPrefix Prefix required for the live integrations
@@ -106,6 +106,7 @@ public class Client {
 
   /**
    * Set Environment, together with the live endpoint url prefix.
+   *
    * @param environment Environment (Test or Live)
    * @param liveEndpointUrlPrefix The unique live url prefix (required for live integrations)
    */
@@ -119,6 +120,7 @@ public class Client {
 
   /**
    * Retrieve the Terminal Cloud endpoint based on Region and Environment
+   *
    * @param region The region for which the endpoint is requested. If null or the region is not
    *     found, defaults to default EU endpoint.
    * @param environment Environment (Test or Live)
