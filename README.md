@@ -303,8 +303,8 @@ Client client = new Client(sslContext, apiKey);
 ~~~~
 
 
-## Using the Cloud Terminal API Integration
-For In-Person Payments integration with [Terminal API over Cloud](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/), setup the Client including the closest [Region](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/#cloud):
+## Using the Cloud Terminal API
+For In-Person Payments integration with the [Cloud Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/), you must setup the Client **setting the closest** [Region](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/#cloud):
 ``` java
 // Step 1: Import the required classes
 import com.adyen.Client;
