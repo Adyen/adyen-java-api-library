@@ -120,7 +120,7 @@ public class ThreeDS2RequestFields {
   private String acquirerMerchantID;
 
   /**
-   * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same.
+   * Indicates whether the cardholder shipping Address and cardholder billing address are the same.
    * Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address
    * does not match Billing Address.
    */
@@ -653,12 +653,12 @@ public class ThreeDS2RequestFields {
   }
 
   /**
-   * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same.
+   * Indicates whether the cardholder shipping Address and cardholder billing address are the same.
    * Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address
    * does not match Billing Address.
    *
-   * @param addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing
-   *     Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
+   * @param addrMatch Indicates whether the cardholder shipping Address and cardholder billing
+   *     address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
    *     **N** — Shipping Address does not match Billing Address.
    * @return the current {@code ThreeDS2RequestFields} instance, allowing for method chaining
    */
@@ -668,12 +668,12 @@ public class ThreeDS2RequestFields {
   }
 
   /**
-   * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same.
+   * Indicates whether the cardholder shipping Address and cardholder billing address are the same.
    * Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address
    * does not match Billing Address.
    *
-   * @return addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing
-   *     Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
+   * @return addrMatch Indicates whether the cardholder shipping Address and cardholder billing
+   *     address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
    *     **N** — Shipping Address does not match Billing Address.
    */
   @JsonProperty(JSON_PROPERTY_ADDR_MATCH)
@@ -683,12 +683,12 @@ public class ThreeDS2RequestFields {
   }
 
   /**
-   * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same.
+   * Indicates whether the cardholder shipping Address and cardholder billing address are the same.
    * Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address
    * does not match Billing Address.
    *
-   * @param addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing
-   *     Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
+   * @param addrMatch Indicates whether the cardholder shipping Address and cardholder billing
+   *     address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
    *     **N** — Shipping Address does not match Billing Address.
    */
   @JsonProperty(JSON_PROPERTY_ADDR_MATCH)

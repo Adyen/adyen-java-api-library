@@ -20,12 +20,16 @@ import java.util.*;
 /** PaymentReversalRequest */
 @JsonPropertyOrder({
   PaymentReversalRequest.JSON_PROPERTY_APPLICATION_INFO,
+  PaymentReversalRequest.JSON_PROPERTY_ENHANCED_SCHEME_DATA,
   PaymentReversalRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentReversalRequest.JSON_PROPERTY_REFERENCE
 })
 public class PaymentReversalRequest {
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
+
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
+  private EnhancedSchemeData enhancedSchemeData;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -66,6 +70,39 @@ public class PaymentReversalRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   * @return the current {@code PaymentReversalRequest} instance, allowing for method chaining
+   */
+  public PaymentReversalRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
+    return this;
+  }
+
+  /**
+   * Get enhancedSchemeData
+   *
+   * @return enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnhancedSchemeData getEnhancedSchemeData() {
+    return enhancedSchemeData;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
   }
 
   /**
@@ -145,13 +182,14 @@ public class PaymentReversalRequest {
     }
     PaymentReversalRequest paymentReversalRequest = (PaymentReversalRequest) o;
     return Objects.equals(this.applicationInfo, paymentReversalRequest.applicationInfo)
+        && Objects.equals(this.enhancedSchemeData, paymentReversalRequest.enhancedSchemeData)
         && Objects.equals(this.merchantAccount, paymentReversalRequest.merchantAccount)
         && Objects.equals(this.reference, paymentReversalRequest.reference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationInfo, merchantAccount, reference);
+    return Objects.hash(applicationInfo, enhancedSchemeData, merchantAccount, reference);
   }
 
   @Override
@@ -159,6 +197,7 @@ public class PaymentReversalRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentReversalRequest {\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+    sb.append("    enhancedSchemeData: ").append(toIndentedString(enhancedSchemeData)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");

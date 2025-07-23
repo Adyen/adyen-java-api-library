@@ -31,6 +31,7 @@ import java.util.logging.Logger;
   RivertyDetails.JSON_PROPERTY_PERSONAL_DETAILS,
   RivertyDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   RivertyDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  RivertyDetails.JSON_PROPERTY_SUBTYPE,
   RivertyDetails.JSON_PROPERTY_TYPE
 })
 public class RivertyDetails {
@@ -58,6 +59,9 @@ public class RivertyDetails {
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
+
+  public static final String JSON_PROPERTY_SUBTYPE = "subtype";
+  private String subtype;
 
   /** **riverty** */
   public enum TypeEnum {
@@ -399,6 +403,39 @@ public class RivertyDetails {
   }
 
   /**
+   * The payment method subtype.
+   *
+   * @param subtype The payment method subtype.
+   * @return the current {@code RivertyDetails} instance, allowing for method chaining
+   */
+  public RivertyDetails subtype(String subtype) {
+    this.subtype = subtype;
+    return this;
+  }
+
+  /**
+   * The payment method subtype.
+   *
+   * @return subtype The payment method subtype.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSubtype() {
+    return subtype;
+  }
+
+  /**
+   * The payment method subtype.
+   *
+   * @param subtype The payment method subtype.
+   */
+  @JsonProperty(JSON_PROPERTY_SUBTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubtype(String subtype) {
+    this.subtype = subtype;
+  }
+
+  /**
    * **riverty**
    *
    * @param type **riverty**
@@ -449,6 +486,7 @@ public class RivertyDetails {
         && Objects.equals(this.personalDetails, rivertyDetails.personalDetails)
         && Objects.equals(this.recurringDetailReference, rivertyDetails.recurringDetailReference)
         && Objects.equals(this.storedPaymentMethodId, rivertyDetails.storedPaymentMethodId)
+        && Objects.equals(this.subtype, rivertyDetails.subtype)
         && Objects.equals(this.type, rivertyDetails.type);
   }
 
@@ -463,6 +501,7 @@ public class RivertyDetails {
         personalDetails,
         recurringDetailReference,
         storedPaymentMethodId,
+        subtype,
         type);
   }
 
@@ -482,6 +521,7 @@ public class RivertyDetails {
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -28,6 +28,7 @@ import java.util.logging.Logger;
   PaymentRefundRequest.JSON_PROPERTY_AMOUNT,
   PaymentRefundRequest.JSON_PROPERTY_APPLICATION_INFO,
   PaymentRefundRequest.JSON_PROPERTY_CAPTURE_PSP_REFERENCE,
+  PaymentRefundRequest.JSON_PROPERTY_ENHANCED_SCHEME_DATA,
   PaymentRefundRequest.JSON_PROPERTY_LINE_ITEMS,
   PaymentRefundRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   PaymentRefundRequest.JSON_PROPERTY_MERCHANT_REFUND_REASON,
@@ -44,6 +45,9 @@ public class PaymentRefundRequest {
 
   public static final String JSON_PROPERTY_CAPTURE_PSP_REFERENCE = "capturePspReference";
   private String capturePspReference;
+
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
+  private EnhancedSchemeData enhancedSchemeData;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   private List<LineItem> lineItems;
@@ -224,6 +228,39 @@ public class PaymentRefundRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCapturePspReference(String capturePspReference) {
     this.capturePspReference = capturePspReference;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   * @return the current {@code PaymentRefundRequest} instance, allowing for method chaining
+   */
+  public PaymentRefundRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
+    return this;
+  }
+
+  /**
+   * Get enhancedSchemeData
+   *
+   * @return enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnhancedSchemeData getEnhancedSchemeData() {
+    return enhancedSchemeData;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
   }
 
   /**
@@ -513,6 +550,7 @@ public class PaymentRefundRequest {
     return Objects.equals(this.amount, paymentRefundRequest.amount)
         && Objects.equals(this.applicationInfo, paymentRefundRequest.applicationInfo)
         && Objects.equals(this.capturePspReference, paymentRefundRequest.capturePspReference)
+        && Objects.equals(this.enhancedSchemeData, paymentRefundRequest.enhancedSchemeData)
         && Objects.equals(this.lineItems, paymentRefundRequest.lineItems)
         && Objects.equals(this.merchantAccount, paymentRefundRequest.merchantAccount)
         && Objects.equals(this.merchantRefundReason, paymentRefundRequest.merchantRefundReason)
@@ -527,6 +565,7 @@ public class PaymentRefundRequest {
         amount,
         applicationInfo,
         capturePspReference,
+        enhancedSchemeData,
         lineItems,
         merchantAccount,
         merchantRefundReason,
@@ -544,6 +583,7 @@ public class PaymentRefundRequest {
     sb.append("    capturePspReference: ")
         .append(toIndentedString(capturePspReference))
         .append("\n");
+    sb.append("    enhancedSchemeData: ").append(toIndentedString(enhancedSchemeData)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    merchantRefundReason: ")

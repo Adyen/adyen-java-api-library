@@ -20,6 +20,7 @@ import java.util.*;
 /** StandalonePaymentCancelRequest */
 @JsonPropertyOrder({
   StandalonePaymentCancelRequest.JSON_PROPERTY_APPLICATION_INFO,
+  StandalonePaymentCancelRequest.JSON_PROPERTY_ENHANCED_SCHEME_DATA,
   StandalonePaymentCancelRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
   StandalonePaymentCancelRequest.JSON_PROPERTY_PAYMENT_REFERENCE,
   StandalonePaymentCancelRequest.JSON_PROPERTY_REFERENCE
@@ -27,6 +28,9 @@ import java.util.*;
 public class StandalonePaymentCancelRequest {
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
+
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
+  private EnhancedSchemeData enhancedSchemeData;
 
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   private String merchantAccount;
@@ -71,6 +75,40 @@ public class StandalonePaymentCancelRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   * @return the current {@code StandalonePaymentCancelRequest} instance, allowing for method
+   *     chaining
+   */
+  public StandalonePaymentCancelRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
+    return this;
+  }
+
+  /**
+   * Get enhancedSchemeData
+   *
+   * @return enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnhancedSchemeData getEnhancedSchemeData() {
+    return enhancedSchemeData;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
   }
 
   /**
@@ -199,6 +237,8 @@ public class StandalonePaymentCancelRequest {
     StandalonePaymentCancelRequest standalonePaymentCancelRequest =
         (StandalonePaymentCancelRequest) o;
     return Objects.equals(this.applicationInfo, standalonePaymentCancelRequest.applicationInfo)
+        && Objects.equals(
+            this.enhancedSchemeData, standalonePaymentCancelRequest.enhancedSchemeData)
         && Objects.equals(this.merchantAccount, standalonePaymentCancelRequest.merchantAccount)
         && Objects.equals(this.paymentReference, standalonePaymentCancelRequest.paymentReference)
         && Objects.equals(this.reference, standalonePaymentCancelRequest.reference);
@@ -206,7 +246,8 @@ public class StandalonePaymentCancelRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationInfo, merchantAccount, paymentReference, reference);
+    return Objects.hash(
+        applicationInfo, enhancedSchemeData, merchantAccount, paymentReference, reference);
   }
 
   @Override
@@ -214,6 +255,7 @@ public class StandalonePaymentCancelRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StandalonePaymentCancelRequest {\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+    sb.append("    enhancedSchemeData: ").append(toIndentedString(enhancedSchemeData)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    paymentReference: ").append(toIndentedString(paymentReference)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");

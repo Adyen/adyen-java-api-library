@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   PaymentAmountUpdateRequest.JSON_PROPERTY_AMOUNT,
   PaymentAmountUpdateRequest.JSON_PROPERTY_APPLICATION_INFO,
+  PaymentAmountUpdateRequest.JSON_PROPERTY_ENHANCED_SCHEME_DATA,
   PaymentAmountUpdateRequest.JSON_PROPERTY_INDUSTRY_USAGE,
   PaymentAmountUpdateRequest.JSON_PROPERTY_LINE_ITEMS,
   PaymentAmountUpdateRequest.JSON_PROPERTY_MERCHANT_ACCOUNT,
@@ -39,6 +40,9 @@ public class PaymentAmountUpdateRequest {
 
   public static final String JSON_PROPERTY_APPLICATION_INFO = "applicationInfo";
   private ApplicationInfo applicationInfo;
+
+  public static final String JSON_PROPERTY_ENHANCED_SCHEME_DATA = "enhancedSchemeData";
+  private EnhancedSchemeData enhancedSchemeData;
 
   /**
    * The reason for the amount update. Possible values: * **delayedCharge** * **noShow** *
@@ -167,6 +171,39 @@ public class PaymentAmountUpdateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApplicationInfo(ApplicationInfo applicationInfo) {
     this.applicationInfo = applicationInfo;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   * @return the current {@code PaymentAmountUpdateRequest} instance, allowing for method chaining
+   */
+  public PaymentAmountUpdateRequest enhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
+    return this;
+  }
+
+  /**
+   * Get enhancedSchemeData
+   *
+   * @return enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EnhancedSchemeData getEnhancedSchemeData() {
+    return enhancedSchemeData;
+  }
+
+  /**
+   * enhancedSchemeData
+   *
+   * @param enhancedSchemeData
+   */
+  @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnhancedSchemeData(EnhancedSchemeData enhancedSchemeData) {
+    this.enhancedSchemeData = enhancedSchemeData;
   }
 
   /**
@@ -404,6 +441,7 @@ public class PaymentAmountUpdateRequest {
     PaymentAmountUpdateRequest paymentAmountUpdateRequest = (PaymentAmountUpdateRequest) o;
     return Objects.equals(this.amount, paymentAmountUpdateRequest.amount)
         && Objects.equals(this.applicationInfo, paymentAmountUpdateRequest.applicationInfo)
+        && Objects.equals(this.enhancedSchemeData, paymentAmountUpdateRequest.enhancedSchemeData)
         && Objects.equals(this.industryUsage, paymentAmountUpdateRequest.industryUsage)
         && Objects.equals(this.lineItems, paymentAmountUpdateRequest.lineItems)
         && Objects.equals(this.merchantAccount, paymentAmountUpdateRequest.merchantAccount)
@@ -414,7 +452,14 @@ public class PaymentAmountUpdateRequest {
   @Override
   public int hashCode() {
     return Objects.hash(
-        amount, applicationInfo, industryUsage, lineItems, merchantAccount, reference, splits);
+        amount,
+        applicationInfo,
+        enhancedSchemeData,
+        industryUsage,
+        lineItems,
+        merchantAccount,
+        reference,
+        splits);
   }
 
   @Override
@@ -423,6 +468,7 @@ public class PaymentAmountUpdateRequest {
     sb.append("class PaymentAmountUpdateRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+    sb.append("    enhancedSchemeData: ").append(toIndentedString(enhancedSchemeData)).append("\n");
     sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");

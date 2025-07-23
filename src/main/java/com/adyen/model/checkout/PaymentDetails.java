@@ -114,6 +114,10 @@ public class PaymentDetails {
 
     MOLPAY_FPX(String.valueOf("molpay_fpx")),
 
+    PAYME(String.valueOf("payme")),
+
+    PAYME_POS(String.valueOf("payme_pos")),
+
     KONBINI(String.valueOf("konbini")),
 
     DIRECTEBANKING(String.valueOf("directEbanking")),

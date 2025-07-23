@@ -36,6 +36,7 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_INPUT_DETAILS,
   PaymentMethod.JSON_PROPERTY_ISSUERS,
   PaymentMethod.JSON_PROPERTY_NAME,
+  PaymentMethod.JSON_PROPERTY_PROMOTED,
   PaymentMethod.JSON_PROPERTY_TYPE
 })
 public class PaymentMethod {
@@ -107,6 +108,9 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_PROMOTED = "promoted";
+  private Boolean promoted;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -460,6 +464,39 @@ public class PaymentMethod {
   }
 
   /**
+   * Indicates whether this payment method should be promoted or not.
+   *
+   * @param promoted Indicates whether this payment method should be promoted or not.
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod promoted(Boolean promoted) {
+    this.promoted = promoted;
+    return this;
+  }
+
+  /**
+   * Indicates whether this payment method should be promoted or not.
+   *
+   * @return promoted Indicates whether this payment method should be promoted or not.
+   */
+  @JsonProperty(JSON_PROPERTY_PROMOTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getPromoted() {
+    return promoted;
+  }
+
+  /**
+   * Indicates whether this payment method should be promoted or not.
+   *
+   * @param promoted Indicates whether this payment method should be promoted or not.
+   */
+  @JsonProperty(JSON_PROPERTY_PROMOTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPromoted(Boolean promoted) {
+    this.promoted = promoted;
+  }
+
+  /**
    * The unique payment method code.
    *
    * @param type The unique payment method code.
@@ -511,6 +548,7 @@ public class PaymentMethod {
         && Objects.equals(this.inputDetails, paymentMethod.inputDetails)
         && Objects.equals(this.issuers, paymentMethod.issuers)
         && Objects.equals(this.name, paymentMethod.name)
+        && Objects.equals(this.promoted, paymentMethod.promoted)
         && Objects.equals(this.type, paymentMethod.type);
   }
 
@@ -526,6 +564,7 @@ public class PaymentMethod {
         inputDetails,
         issuers,
         name,
+        promoted,
         type);
   }
 
@@ -542,6 +581,7 @@ public class PaymentMethod {
     sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");
     sb.append("    issuers: ").append(toIndentedString(issuers)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    promoted: ").append(toIndentedString(promoted)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

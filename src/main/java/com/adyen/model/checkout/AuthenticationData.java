@@ -151,13 +151,15 @@ public class AuthenticationData {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation. Default: **false**.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorization. Default: **false**.
    *
-   * @param authenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation. Default: **false**.
+   * @param authenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorization. Default: **false**.
    * @return the current {@code AuthenticationData} instance, allowing for method chaining
    */
   public AuthenticationData authenticationOnly(Boolean authenticationOnly) {
@@ -166,13 +168,15 @@ public class AuthenticationData {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation. Default: **false**.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorization. Default: **false**.
    *
-   * @return authenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation. Default: **false**.
+   * @return authenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorization. Default: **false**.
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,13 +185,15 @@ public class AuthenticationData {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation. Default: **false**.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorization. Default: **false**.
    *
-   * @param authenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation. Default: **false**.
+   * @param authenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorization. Default: **false**.
    */
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

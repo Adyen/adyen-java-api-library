@@ -2275,11 +2275,13 @@ public class PaymentRequest {
   }
 
   /**
-   * Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration. Set this parameter to the
-   * origin URL of the page that you are loading the 3D Secure Component from.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
+   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
+   * subdirectories and a trailing slash.
    *
-   * @param origin Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration. Set this
-   *     parameter to the origin URL of the page that you are loading the 3D Secure Component from.
+   * @param origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
+   *     transactions.Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest origin(String origin) {
@@ -2288,11 +2290,13 @@ public class PaymentRequest {
   }
 
   /**
-   * Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration. Set this parameter to the
-   * origin URL of the page that you are loading the 3D Secure Component from.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
+   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
+   * subdirectories and a trailing slash.
    *
-   * @return origin Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration. Set this
-   *     parameter to the origin URL of the page that you are loading the 3D Secure Component from.
+   * @return origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
+   *     transactions.Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2301,11 +2305,13 @@ public class PaymentRequest {
   }
 
   /**
-   * Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration. Set this parameter to the
-   * origin URL of the page that you are loading the 3D Secure Component from.
+   * &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2 transactions.Set this
+   * to the origin URL of the page where you are rendering the Drop-in/Component. Do not include
+   * subdirectories and a trailing slash.
    *
-   * @param origin Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration. Set this
-   *     parameter to the origin URL of the page that you are loading the 3D Secure Component from.
+   * @param origin &gt; Required for browser-based (&#x60;channel&#x60; **Web**) 3D Secure 2
+   *     transactions.Set this to the origin URL of the page where you are rendering the
+   *     Drop-in/Component. Do not include subdirectories and a trailing slash.
    */
   @JsonProperty(JSON_PROPERTY_ORIGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2660,31 +2666,32 @@ public class PaymentRequest {
    * The URL to return to in case of a redirection. The format depends on the channel. * For web,
    * include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own
    * additional query parameters, for example, shopper ID or order reference number. Example:
-   * &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
-   * custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
-   * Developer
+   * &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom
+   * URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer
    * documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    * Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your
    * app. You can configure it with an [intent
    * filter](https://developer.android.com/guide/components/intents-filters). Example:
    * &#x60;my-app://your.package.name&#x60; If the URL to return to includes non-ASCII characters,
-   * like spaces or special letters, URL encode the value. &gt; The URL must not include personally
-   * identifiable information (PII), for example name or email address.
+   * like spaces or special letters, URL encode the value. We strongly recommend that you use a
+   * maximum of 1024 characters. &gt; The URL must not include personally identifiable information
+   * (PII), for example name or email address.
    *
    * @param returnUrl The URL to return to in case of a redirection. The format depends on the
    *     channel. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You
    *     can also include your own additional query parameters, for example, shopper ID or order
    *     reference number. Example:
-   *     &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use
-   *     the custom URL for your app. To know more about setting custom URL schemes, refer to the
-   *     [Apple Developer
+   *     &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
+   *     custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
+   *     Developer
    *     documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    *     Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on
    *     your app. You can configure it with an [intent
    *     filter](https://developer.android.com/guide/components/intents-filters). Example:
    *     &#x60;my-app://your.package.name&#x60; If the URL to return to includes non-ASCII
-   *     characters, like spaces or special letters, URL encode the value. &gt; The URL must not
-   *     include personally identifiable information (PII), for example name or email address.
+   *     characters, like spaces or special letters, URL encode the value. We strongly recommend
+   *     that you use a maximum of 1024 characters. &gt; The URL must not include personally
+   *     identifiable information (PII), for example name or email address.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest returnUrl(String returnUrl) {
@@ -2696,31 +2703,32 @@ public class PaymentRequest {
    * The URL to return to in case of a redirection. The format depends on the channel. * For web,
    * include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own
    * additional query parameters, for example, shopper ID or order reference number. Example:
-   * &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
-   * custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
-   * Developer
+   * &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom
+   * URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer
    * documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    * Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your
    * app. You can configure it with an [intent
    * filter](https://developer.android.com/guide/components/intents-filters). Example:
    * &#x60;my-app://your.package.name&#x60; If the URL to return to includes non-ASCII characters,
-   * like spaces or special letters, URL encode the value. &gt; The URL must not include personally
-   * identifiable information (PII), for example name or email address.
+   * like spaces or special letters, URL encode the value. We strongly recommend that you use a
+   * maximum of 1024 characters. &gt; The URL must not include personally identifiable information
+   * (PII), for example name or email address.
    *
    * @return returnUrl The URL to return to in case of a redirection. The format depends on the
    *     channel. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You
    *     can also include your own additional query parameters, for example, shopper ID or order
    *     reference number. Example:
-   *     &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use
-   *     the custom URL for your app. To know more about setting custom URL schemes, refer to the
-   *     [Apple Developer
+   *     &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
+   *     custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
+   *     Developer
    *     documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    *     Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on
    *     your app. You can configure it with an [intent
    *     filter](https://developer.android.com/guide/components/intents-filters). Example:
    *     &#x60;my-app://your.package.name&#x60; If the URL to return to includes non-ASCII
-   *     characters, like spaces or special letters, URL encode the value. &gt; The URL must not
-   *     include personally identifiable information (PII), for example name or email address.
+   *     characters, like spaces or special letters, URL encode the value. We strongly recommend
+   *     that you use a maximum of 1024 characters. &gt; The URL must not include personally
+   *     identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2732,31 +2740,32 @@ public class PaymentRequest {
    * The URL to return to in case of a redirection. The format depends on the channel. * For web,
    * include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own
    * additional query parameters, for example, shopper ID or order reference number. Example:
-   * &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
-   * custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
-   * Developer
+   * &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom
+   * URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer
    * documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    * Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your
    * app. You can configure it with an [intent
    * filter](https://developer.android.com/guide/components/intents-filters). Example:
    * &#x60;my-app://your.package.name&#x60; If the URL to return to includes non-ASCII characters,
-   * like spaces or special letters, URL encode the value. &gt; The URL must not include personally
-   * identifiable information (PII), for example name or email address.
+   * like spaces or special letters, URL encode the value. We strongly recommend that you use a
+   * maximum of 1024 characters. &gt; The URL must not include personally identifiable information
+   * (PII), for example name or email address.
    *
    * @param returnUrl The URL to return to in case of a redirection. The format depends on the
    *     channel. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You
    *     can also include your own additional query parameters, for example, shopper ID or order
    *     reference number. Example:
-   *     &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use
-   *     the custom URL for your app. To know more about setting custom URL schemes, refer to the
-   *     [Apple Developer
+   *     &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
+   *     custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
+   *     Developer
    *     documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    *     Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on
    *     your app. You can configure it with an [intent
    *     filter](https://developer.android.com/guide/components/intents-filters). Example:
    *     &#x60;my-app://your.package.name&#x60; If the URL to return to includes non-ASCII
-   *     characters, like spaces or special letters, URL encode the value. &gt; The URL must not
-   *     include personally identifiable information (PII), for example name or email address.
+   *     characters, like spaces or special letters, URL encode the value. We strongly recommend
+   *     that you use a maximum of 1024 characters. &gt; The URL must not include personally
+   *     identifiable information (PII), for example name or email address.
    */
   @JsonProperty(JSON_PROPERTY_RETURN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2883,12 +2892,12 @@ public class PaymentRequest {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest shopperEmail(String shopperEmail) {
@@ -2898,12 +2907,12 @@ public class PaymentRequest {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @return shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2913,12 +2922,12 @@ public class PaymentRequest {
 
   /**
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in
-   * velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   * &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   * velocity fraud checks. &gt; Required for Visa and JCB transactions that require 3D Secure 2
+   * authentication if you did not include the &#x60;telephoneNumber&#x60;.
    *
    * @param shopperEmail The shopper&#39;s email address. We recommend that you provide this data,
-   *     as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
+   *     as it is used in velocity fraud checks. &gt; Required for Visa and JCB transactions that
+   *     require 3D Secure 2 authentication if you did not include the &#x60;telephoneNumber&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2927,18 +2936,21 @@ public class PaymentRequest {
   }
 
   /**
-   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is
-   * used in a number of risk checks (for instance, number of payment attempts or location-based
-   * checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all
-   * browser-based implementations. This field is also mandatory for some merchants depending on
-   * your business model. For more information, [contact
-   * Support](https://www.adyen.help/hc/en-us/requests/new).
+   * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
+   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
+   * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
+   * integrations, the field is required to support cases where authentication is routed to the
+   * redirect flow. This field is also mandatory for some merchants depending on your business
+   * model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this
-   *     data, as it is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks). &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory
-   *     for some merchants depending on your business model. For more information, [contact
+   * @param shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
+   *     is used in a number of risk checks (for instance, number of payment attempts or
+   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
+   *     authentication for all web and mobile integrations, if you did not include the
+   *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
+   *     cases where authentication is routed to the redirect flow. This field is also mandatory for
+   *     some merchants depending on your business model. For more information, [contact
    *     Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
@@ -2948,18 +2960,21 @@ public class PaymentRequest {
   }
 
   /**
-   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is
-   * used in a number of risk checks (for instance, number of payment attempts or location-based
-   * checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all
-   * browser-based implementations. This field is also mandatory for some merchants depending on
-   * your business model. For more information, [contact
-   * Support](https://www.adyen.help/hc/en-us/requests/new).
+   * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
+   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
+   * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
+   * integrations, the field is required to support cases where authentication is routed to the
+   * redirect flow. This field is also mandatory for some merchants depending on your business
+   * model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @return shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this
-   *     data, as it is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks). &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory
-   *     for some merchants depending on your business model. For more information, [contact
+   * @return shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
+   *     is used in a number of risk checks (for instance, number of payment attempts or
+   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
+   *     authentication for all web and mobile integrations, if you did not include the
+   *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
+   *     cases where authentication is routed to the redirect flow. This field is also mandatory for
+   *     some merchants depending on your business model. For more information, [contact
    *     Support](https://www.adyen.help/hc/en-us/requests/new).
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
@@ -2969,18 +2984,21 @@ public class PaymentRequest {
   }
 
   /**
-   * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is
-   * used in a number of risk checks (for instance, number of payment attempts or location-based
-   * checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all
-   * browser-based implementations. This field is also mandatory for some merchants depending on
-   * your business model. For more information, [contact
-   * Support](https://www.adyen.help/hc/en-us/requests/new).
+   * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
+   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
+   * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
+   * integrations, the field is required to support cases where authentication is routed to the
+   * redirect flow. This field is also mandatory for some merchants depending on your business
+   * model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    *
-   * @param shopperIP The shopper&#39;s IP address. In general, we recommend that you provide this
-   *     data, as it is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks). &gt; For 3D Secure 2 transactions, schemes require
-   *     &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory
-   *     for some merchants depending on your business model. For more information, [contact
+   * @param shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
+   *     is used in a number of risk checks (for instance, number of payment attempts or
+   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
+   *     authentication for all web and mobile integrations, if you did not include the
+   *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
+   *     cases where authentication is routed to the redirect flow. This field is also mandatory for
+   *     some merchants depending on your business model. For more information, [contact
    *     Support](https://www.adyen.help/hc/en-us/requests/new).
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_I_P)
@@ -3549,9 +3567,17 @@ public class PaymentRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number.
+   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest telephoneNumber(String telephoneNumber) {
@@ -3560,9 +3586,17 @@ public class PaymentRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @return telephoneNumber The shopper&#39;s telephone number.
+   * @return telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3571,9 +3605,17 @@ public class PaymentRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number.
+   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
+   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
+   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
+   * submit it for authentication.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number.
+   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
+   *     transactions that require 3D Secure 2 authentication, if you did not include the
+   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
+   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   *     follow the guidelines, we drop the value and do not submit it for authentication.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3615,13 +3657,15 @@ public class PaymentRequest {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorisation.Default: **false**.
    *
-   * @param threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation.
+   * @param threeDSAuthenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorisation.Default: **false**.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v69 Use &#x60;authenticationData.authenticationOnly&#x60;
    *     instead.
@@ -3634,13 +3678,15 @@ public class PaymentRequest {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorisation.Default: **false**.
    *
-   * @return threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation.
+   * @return threeDSAuthenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorisation.Default: **false**.
    * @deprecated // deprecated since Adyen Checkout API v69: Use
    *     `authenticationData.authenticationOnly` instead.
    */
@@ -3653,13 +3699,15 @@ public class PaymentRequest {
   }
 
   /**
-   * If set to true, you will only perform the [3D Secure 2
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   * and not the payment authorisation.
+   * Required to trigger the [authentication-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   * **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   * payment authorisation.Default: **false**.
    *
-   * @param threeDSAuthenticationOnly If set to true, you will only perform the [3D Secure 2
-   *     authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only),
-   *     and not the payment authorisation.
+   * @param threeDSAuthenticationOnly Required to trigger the [authentication-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to
+   *     **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the
+   *     payment authorisation.Default: **false**.
    * @deprecated since Adyen Checkout API v69 Use &#x60;authenticationData.authenticationOnly&#x60;
    *     instead.
    */

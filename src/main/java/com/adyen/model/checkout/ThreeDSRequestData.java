@@ -83,7 +83,11 @@ public class ThreeDSRequestData {
   public static final String JSON_PROPERTY_CHALLENGE_WINDOW_SIZE = "challengeWindowSize";
   private ChallengeWindowSizeEnum challengeWindowSize;
 
-  /** Flag for data only flow. */
+  /**
+   * Required to trigger the [data-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/data-only/). When set to **true**,
+   * forces the 3D Secure 2 data-only flow for all transactions where it is possible.
+   */
   public enum DataOnlyEnum {
     FALSE(String.valueOf("false")),
 
@@ -129,9 +133,11 @@ public class ThreeDSRequestData {
 
   /**
    * Indicates if [native 3D Secure
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used
-   * when available. Possible values: * **preferred**: Use native 3D Secure authentication when
-   * available. * **disabled**: Only use the redirect 3D Secure authentication flow.
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be
+   * triggered when available. Adyen can still select to fallback to the redirect flow to optimize
+   * authorization rates and improve the shopper&#39;s experience. Possible values: * **preferred**:
+   * Use native 3D Secure authentication when available. * **disabled**: Use the redirect 3D Secure
+   * authentication flow.
    */
   public enum NativeThreeDSEnum {
     PREFERRED(String.valueOf("preferred")),
@@ -268,9 +274,13 @@ public class ThreeDSRequestData {
   }
 
   /**
-   * Flag for data only flow.
+   * Required to trigger the [data-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/data-only/). When set to **true**,
+   * forces the 3D Secure 2 data-only flow for all transactions where it is possible.
    *
-   * @param dataOnly Flag for data only flow.
+   * @param dataOnly Required to trigger the [data-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/data-only/). When set to **true**,
+   *     forces the 3D Secure 2 data-only flow for all transactions where it is possible.
    * @return the current {@code ThreeDSRequestData} instance, allowing for method chaining
    */
   public ThreeDSRequestData dataOnly(DataOnlyEnum dataOnly) {
@@ -279,9 +289,13 @@ public class ThreeDSRequestData {
   }
 
   /**
-   * Flag for data only flow.
+   * Required to trigger the [data-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/data-only/). When set to **true**,
+   * forces the 3D Secure 2 data-only flow for all transactions where it is possible.
    *
-   * @return dataOnly Flag for data only flow.
+   * @return dataOnly Required to trigger the [data-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/data-only/). When set to **true**,
+   *     forces the 3D Secure 2 data-only flow for all transactions where it is possible.
    */
   @JsonProperty(JSON_PROPERTY_DATA_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,9 +304,13 @@ public class ThreeDSRequestData {
   }
 
   /**
-   * Flag for data only flow.
+   * Required to trigger the [data-only
+   * flow](https://docs.adyen.com/online-payments/3d-secure/data-only/). When set to **true**,
+   * forces the 3D Secure 2 data-only flow for all transactions where it is possible.
    *
-   * @param dataOnly Flag for data only flow.
+   * @param dataOnly Required to trigger the [data-only
+   *     flow](https://docs.adyen.com/online-payments/3d-secure/data-only/). When set to **true**,
+   *     forces the 3D Secure 2 data-only flow for all transactions where it is possible.
    */
   @JsonProperty(JSON_PROPERTY_DATA_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,14 +320,18 @@ public class ThreeDSRequestData {
 
   /**
    * Indicates if [native 3D Secure
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used
-   * when available. Possible values: * **preferred**: Use native 3D Secure authentication when
-   * available. * **disabled**: Only use the redirect 3D Secure authentication flow.
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be
+   * triggered when available. Adyen can still select to fallback to the redirect flow to optimize
+   * authorization rates and improve the shopper&#39;s experience. Possible values: * **preferred**:
+   * Use native 3D Secure authentication when available. * **disabled**: Use the redirect 3D Secure
+   * authentication flow.
    *
    * @param nativeThreeDS Indicates if [native 3D Secure
    *     authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be
-   *     used when available. Possible values: * **preferred**: Use native 3D Secure authentication
-   *     when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
+   *     triggered when available. Adyen can still select to fallback to the redirect flow to
+   *     optimize authorization rates and improve the shopper&#39;s experience. Possible values: *
+   *     **preferred**: Use native 3D Secure authentication when available. * **disabled**: Use the
+   *     redirect 3D Secure authentication flow.
    * @return the current {@code ThreeDSRequestData} instance, allowing for method chaining
    */
   public ThreeDSRequestData nativeThreeDS(NativeThreeDSEnum nativeThreeDS) {
@@ -319,14 +341,18 @@ public class ThreeDSRequestData {
 
   /**
    * Indicates if [native 3D Secure
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used
-   * when available. Possible values: * **preferred**: Use native 3D Secure authentication when
-   * available. * **disabled**: Only use the redirect 3D Secure authentication flow.
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be
+   * triggered when available. Adyen can still select to fallback to the redirect flow to optimize
+   * authorization rates and improve the shopper&#39;s experience. Possible values: * **preferred**:
+   * Use native 3D Secure authentication when available. * **disabled**: Use the redirect 3D Secure
+   * authentication flow.
    *
    * @return nativeThreeDS Indicates if [native 3D Secure
    *     authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be
-   *     used when available. Possible values: * **preferred**: Use native 3D Secure authentication
-   *     when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
+   *     triggered when available. Adyen can still select to fallback to the redirect flow to
+   *     optimize authorization rates and improve the shopper&#39;s experience. Possible values: *
+   *     **preferred**: Use native 3D Secure authentication when available. * **disabled**: Use the
+   *     redirect 3D Secure authentication flow.
    */
   @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,14 +362,18 @@ public class ThreeDSRequestData {
 
   /**
    * Indicates if [native 3D Secure
-   * authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be used
-   * when available. Possible values: * **preferred**: Use native 3D Secure authentication when
-   * available. * **disabled**: Only use the redirect 3D Secure authentication flow.
+   * authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be
+   * triggered when available. Adyen can still select to fallback to the redirect flow to optimize
+   * authorization rates and improve the shopper&#39;s experience. Possible values: * **preferred**:
+   * Use native 3D Secure authentication when available. * **disabled**: Use the redirect 3D Secure
+   * authentication flow.
    *
    * @param nativeThreeDS Indicates if [native 3D Secure
    *     authentication](https://docs.adyen.com/online-payments/3d-secure/native-3ds2) should be
-   *     used when available. Possible values: * **preferred**: Use native 3D Secure authentication
-   *     when available. * **disabled**: Only use the redirect 3D Secure authentication flow.
+   *     triggered when available. Adyen can still select to fallback to the redirect flow to
+   *     optimize authorization rates and improve the shopper&#39;s experience. Possible values: *
+   *     **preferred**: Use native 3D Secure authentication when available. * **disabled**: Use the
+   *     redirect 3D Secure authentication flow.
    */
   @JsonProperty(JSON_PROPERTY_NATIVE_THREE_D_S)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
