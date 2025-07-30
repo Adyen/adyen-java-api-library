@@ -154,11 +154,11 @@ public class NetworkToken {
   /**
    * Date and time when the network token was created, in [ISO
    * 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example,
-   * **2020-12-18T10:15:30+01:00**..
+   * **2025-03-19T10:15:30+01:00**..
    *
    * @param creationDate Date and time when the network token was created, in [ISO
    *     8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example,
-   *     **2020-12-18T10:15:30+01:00**..
+   *     **2025-03-19T10:15:30+01:00**..
    * @return the current {@code NetworkToken} instance, allowing for method chaining
    */
   public NetworkToken creationDate(OffsetDateTime creationDate) {
@@ -169,11 +169,11 @@ public class NetworkToken {
   /**
    * Date and time when the network token was created, in [ISO
    * 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example,
-   * **2020-12-18T10:15:30+01:00**..
+   * **2025-03-19T10:15:30+01:00**..
    *
    * @return creationDate Date and time when the network token was created, in [ISO
    *     8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example,
-   *     **2020-12-18T10:15:30+01:00**..
+   *     **2025-03-19T10:15:30+01:00**..
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,11 +184,11 @@ public class NetworkToken {
   /**
    * Date and time when the network token was created, in [ISO
    * 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example,
-   * **2020-12-18T10:15:30+01:00**..
+   * **2025-03-19T10:15:30+01:00**..
    *
    * @param creationDate Date and time when the network token was created, in [ISO
    *     8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example,
-   *     **2020-12-18T10:15:30+01:00**..
+   *     **2025-03-19T10:15:30+01:00**..
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

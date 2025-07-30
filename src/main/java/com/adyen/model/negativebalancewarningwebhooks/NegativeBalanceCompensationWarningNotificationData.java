@@ -162,10 +162,10 @@ public class NegativeBalanceCompensationWarningNotificationData {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
-   * **2020-12-18T10:15:30+01:00**.
+   * **2025-03-19T10:15:30+01:00**.
    *
    * @param creationDate The date and time when the event was triggered, in ISO 8601 extended
-   *     format. For example, **2020-12-18T10:15:30+01:00**.
+   *     format. For example, **2025-03-19T10:15:30+01:00**.
    * @return the current {@code NegativeBalanceCompensationWarningNotificationData} instance,
    *     allowing for method chaining
    */
@@ -177,10 +177,10 @@ public class NegativeBalanceCompensationWarningNotificationData {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
-   * **2020-12-18T10:15:30+01:00**.
+   * **2025-03-19T10:15:30+01:00**.
    *
    * @return creationDate The date and time when the event was triggered, in ISO 8601 extended
-   *     format. For example, **2020-12-18T10:15:30+01:00**.
+   *     format. For example, **2025-03-19T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,10 +190,10 @@ public class NegativeBalanceCompensationWarningNotificationData {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
-   * **2020-12-18T10:15:30+01:00**.
+   * **2025-03-19T10:15:30+01:00**.
    *
    * @param creationDate The date and time when the event was triggered, in ISO 8601 extended
-   *     format. For example, **2020-12-18T10:15:30+01:00**.
+   *     format. For example, **2025-03-19T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

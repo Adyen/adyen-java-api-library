@@ -166,6 +166,8 @@ public class SweepConfigurationV2 {
 
     AMOUNTLIMITEXCEEDED(String.valueOf("amountLimitExceeded")),
 
+    APPROVALEXPIRED(String.valueOf("approvalExpired")),
+
     APPROVED(String.valueOf("approved")),
 
     BALANCEACCOUNTTEMPORARILYBLOCKEDBYTRANSACTIONRULE(

@@ -26,11 +26,13 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   PartyIdentification.JSON_PROPERTY_ADDRESS,
   PartyIdentification.JSON_PROPERTY_DATE_OF_BIRTH,
+  PartyIdentification.JSON_PROPERTY_EMAIL,
   PartyIdentification.JSON_PROPERTY_FIRST_NAME,
   PartyIdentification.JSON_PROPERTY_FULL_NAME,
   PartyIdentification.JSON_PROPERTY_LAST_NAME,
   PartyIdentification.JSON_PROPERTY_REFERENCE,
-  PartyIdentification.JSON_PROPERTY_TYPE
+  PartyIdentification.JSON_PROPERTY_TYPE,
+  PartyIdentification.JSON_PROPERTY_URL
 })
 public class PartyIdentification {
   public static final String JSON_PROPERTY_ADDRESS = "address";
@@ -38,6 +40,9 @@ public class PartyIdentification {
 
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
+
+  public static final String JSON_PROPERTY_EMAIL = "email";
+  private String email;
 
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
@@ -100,6 +105,9 @@ public class PartyIdentification {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_URL = "url";
+  private String url;
 
   public PartyIdentification() {}
 
@@ -176,6 +184,42 @@ public class PartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+  }
+
+  /**
+   * The email address of the organization or individual. Maximum length: 254 characters.
+   *
+   * @param email The email address of the organization or individual. Maximum length: 254
+   *     characters.
+   * @return the current {@code PartyIdentification} instance, allowing for method chaining
+   */
+  public PartyIdentification email(String email) {
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * The email address of the organization or individual. Maximum length: 254 characters.
+   *
+   * @return email The email address of the organization or individual. Maximum length: 254
+   *     characters.
+   */
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEmail() {
+    return email;
+  }
+
+  /**
+   * The email address of the organization or individual. Maximum length: 254 characters.
+   *
+   * @param email The email address of the organization or individual. Maximum length: 254
+   *     characters.
+   */
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   /**
@@ -403,6 +447,39 @@ public class PartyIdentification {
     this.type = type;
   }
 
+  /**
+   * The URL of the organization or individual. Maximum length: 255 characters.
+   *
+   * @param url The URL of the organization or individual. Maximum length: 255 characters.
+   * @return the current {@code PartyIdentification} instance, allowing for method chaining
+   */
+  public PartyIdentification url(String url) {
+    this.url = url;
+    return this;
+  }
+
+  /**
+   * The URL of the organization or individual. Maximum length: 255 characters.
+   *
+   * @return url The URL of the organization or individual. Maximum length: 255 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrl() {
+    return url;
+  }
+
+  /**
+   * The URL of the organization or individual. Maximum length: 255 characters.
+   *
+   * @param url The URL of the organization or individual. Maximum length: 255 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
   /** Return true if this PartyIdentification object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -415,16 +492,19 @@ public class PartyIdentification {
     PartyIdentification partyIdentification = (PartyIdentification) o;
     return Objects.equals(this.address, partyIdentification.address)
         && Objects.equals(this.dateOfBirth, partyIdentification.dateOfBirth)
+        && Objects.equals(this.email, partyIdentification.email)
         && Objects.equals(this.firstName, partyIdentification.firstName)
         && Objects.equals(this.fullName, partyIdentification.fullName)
         && Objects.equals(this.lastName, partyIdentification.lastName)
         && Objects.equals(this.reference, partyIdentification.reference)
-        && Objects.equals(this.type, partyIdentification.type);
+        && Objects.equals(this.type, partyIdentification.type)
+        && Objects.equals(this.url, partyIdentification.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, dateOfBirth, firstName, fullName, lastName, reference, type);
+    return Objects.hash(
+        address, dateOfBirth, email, firstName, fullName, lastName, reference, type, url);
   }
 
   @Override
@@ -433,11 +513,13 @@ public class PartyIdentification {
     sb.append("class PartyIdentification {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

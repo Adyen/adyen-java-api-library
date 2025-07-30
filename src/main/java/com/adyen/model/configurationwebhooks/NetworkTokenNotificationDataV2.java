@@ -30,6 +30,7 @@ import java.util.List;
   NetworkTokenNotificationDataV2.JSON_PROPERTY_STATUS,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_TOKEN_LAST_FOUR,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_TOKEN_REQUESTOR,
+  NetworkTokenNotificationDataV2.JSON_PROPERTY_TRANSACTION_RULES_RESULT,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_TYPE,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_VALIDATION_FACTS,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_WALLET
@@ -61,6 +62,9 @@ public class NetworkTokenNotificationDataV2 {
 
   public static final String JSON_PROPERTY_TOKEN_REQUESTOR = "tokenRequestor";
   private NetworkTokenRequestor tokenRequestor;
+
+  public static final String JSON_PROPERTY_TRANSACTION_RULES_RESULT = "transactionRulesResult";
+  private NetworkTokenTransactionRulesResult transactionRulesResult;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -398,9 +402,44 @@ public class NetworkTokenNotificationDataV2 {
   }
 
   /**
-   * The type of network token.
+   * transactionRulesResult
    *
-   * @param type The type of network token.
+   * @param transactionRulesResult
+   * @return the current {@code NetworkTokenNotificationDataV2} instance, allowing for method
+   *     chaining
+   */
+  public NetworkTokenNotificationDataV2 transactionRulesResult(
+      NetworkTokenTransactionRulesResult transactionRulesResult) {
+    this.transactionRulesResult = transactionRulesResult;
+    return this;
+  }
+
+  /**
+   * Get transactionRulesResult
+   *
+   * @return transactionRulesResult
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NetworkTokenTransactionRulesResult getTransactionRulesResult() {
+    return transactionRulesResult;
+  }
+
+  /**
+   * transactionRulesResult
+   *
+   * @param transactionRulesResult
+   */
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_RULES_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionRulesResult(NetworkTokenTransactionRulesResult transactionRulesResult) {
+    this.transactionRulesResult = transactionRulesResult;
+  }
+
+  /**
+   * The type of network token. Possible values: **wallet**, **cof**.
+   *
+   * @param type The type of network token. Possible values: **wallet**, **cof**.
    * @return the current {@code NetworkTokenNotificationDataV2} instance, allowing for method
    *     chaining
    */
@@ -410,9 +449,9 @@ public class NetworkTokenNotificationDataV2 {
   }
 
   /**
-   * The type of network token.
+   * The type of network token. Possible values: **wallet**, **cof**.
    *
-   * @return type The type of network token.
+   * @return type The type of network token. Possible values: **wallet**, **cof**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -421,9 +460,9 @@ public class NetworkTokenNotificationDataV2 {
   }
 
   /**
-   * The type of network token.
+   * The type of network token. Possible values: **wallet**, **cof**.
    *
-   * @param type The type of network token.
+   * @param type The type of network token. Possible values: **wallet**, **cof**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -533,6 +572,8 @@ public class NetworkTokenNotificationDataV2 {
         && Objects.equals(this.status, networkTokenNotificationDataV2.status)
         && Objects.equals(this.tokenLastFour, networkTokenNotificationDataV2.tokenLastFour)
         && Objects.equals(this.tokenRequestor, networkTokenNotificationDataV2.tokenRequestor)
+        && Objects.equals(
+            this.transactionRulesResult, networkTokenNotificationDataV2.transactionRulesResult)
         && Objects.equals(this.type, networkTokenNotificationDataV2.type)
         && Objects.equals(this.validationFacts, networkTokenNotificationDataV2.validationFacts)
         && Objects.equals(this.wallet, networkTokenNotificationDataV2.wallet);
@@ -550,6 +591,7 @@ public class NetworkTokenNotificationDataV2 {
         status,
         tokenLastFour,
         tokenRequestor,
+        transactionRulesResult,
         type,
         validationFacts,
         wallet);
@@ -572,6 +614,9 @@ public class NetworkTokenNotificationDataV2 {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tokenLastFour: ").append(toIndentedString(tokenLastFour)).append("\n");
     sb.append("    tokenRequestor: ").append(toIndentedString(tokenRequestor)).append("\n");
+    sb.append("    transactionRulesResult: ")
+        .append(toIndentedString(transactionRulesResult))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validationFacts: ").append(toIndentedString(validationFacts)).append("\n");
     sb.append("    wallet: ").append(toIndentedString(wallet)).append("\n");

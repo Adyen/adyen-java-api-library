@@ -376,11 +376,11 @@ public class TransactionRuleInfo {
 
   /**
    * The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format.
-   * For example, **2020-12-18T10:15:30+01:00**. If not provided, the rule will be evaluated until
+   * For example, **2025-03-19T10:15:30+01:00**. If not provided, the rule will be evaluated until
    * the rule status is set to **inactive**.
    *
    * @param endDate The date when the rule will stop being evaluated, in ISO 8601 extended offset
-   *     date-time format. For example, **2020-12-18T10:15:30+01:00**. If not provided, the rule
+   *     date-time format. For example, **2025-03-19T10:15:30+01:00**. If not provided, the rule
    *     will be evaluated until the rule status is set to **inactive**.
    * @return the current {@code TransactionRuleInfo} instance, allowing for method chaining
    */
@@ -391,11 +391,11 @@ public class TransactionRuleInfo {
 
   /**
    * The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format.
-   * For example, **2020-12-18T10:15:30+01:00**. If not provided, the rule will be evaluated until
+   * For example, **2025-03-19T10:15:30+01:00**. If not provided, the rule will be evaluated until
    * the rule status is set to **inactive**.
    *
    * @return endDate The date when the rule will stop being evaluated, in ISO 8601 extended offset
-   *     date-time format. For example, **2020-12-18T10:15:30+01:00**. If not provided, the rule
+   *     date-time format. For example, **2025-03-19T10:15:30+01:00**. If not provided, the rule
    *     will be evaluated until the rule status is set to **inactive**.
    */
   @JsonProperty(JSON_PROPERTY_END_DATE)
@@ -406,11 +406,11 @@ public class TransactionRuleInfo {
 
   /**
    * The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format.
-   * For example, **2020-12-18T10:15:30+01:00**. If not provided, the rule will be evaluated until
+   * For example, **2025-03-19T10:15:30+01:00**. If not provided, the rule will be evaluated until
    * the rule status is set to **inactive**.
    *
    * @param endDate The date when the rule will stop being evaluated, in ISO 8601 extended offset
-   *     date-time format. For example, **2020-12-18T10:15:30+01:00**. If not provided, the rule
+   *     date-time format. For example, **2025-03-19T10:15:30+01:00**. If not provided, the rule
    *     will be evaluated until the rule status is set to **inactive**.
    */
   @JsonProperty(JSON_PROPERTY_END_DATE)
@@ -706,11 +706,11 @@ public class TransactionRuleInfo {
 
   /**
    * The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time
-   * format. For example, **2020-12-18T10:15:30+01:00**. If not provided when creating a transaction
+   * format. For example, **2025-03-19T10:15:30+01:00**. If not provided when creating a transaction
    * rule, the &#x60;startDate&#x60; is set to the date when the rule status is set to **active**.
    *
    * @param startDate The date when the rule will start to be evaluated, in ISO 8601 extended offset
-   *     date-time format. For example, **2020-12-18T10:15:30+01:00**. If not provided when creating
+   *     date-time format. For example, **2025-03-19T10:15:30+01:00**. If not provided when creating
    *     a transaction rule, the &#x60;startDate&#x60; is set to the date when the rule status is
    *     set to **active**.
    * @return the current {@code TransactionRuleInfo} instance, allowing for method chaining
@@ -722,11 +722,11 @@ public class TransactionRuleInfo {
 
   /**
    * The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time
-   * format. For example, **2020-12-18T10:15:30+01:00**. If not provided when creating a transaction
+   * format. For example, **2025-03-19T10:15:30+01:00**. If not provided when creating a transaction
    * rule, the &#x60;startDate&#x60; is set to the date when the rule status is set to **active**.
    *
    * @return startDate The date when the rule will start to be evaluated, in ISO 8601 extended
-   *     offset date-time format. For example, **2020-12-18T10:15:30+01:00**. If not provided when
+   *     offset date-time format. For example, **2025-03-19T10:15:30+01:00**. If not provided when
    *     creating a transaction rule, the &#x60;startDate&#x60; is set to the date when the rule
    *     status is set to **active**.
    */
@@ -738,11 +738,11 @@ public class TransactionRuleInfo {
 
   /**
    * The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time
-   * format. For example, **2020-12-18T10:15:30+01:00**. If not provided when creating a transaction
+   * format. For example, **2025-03-19T10:15:30+01:00**. If not provided when creating a transaction
    * rule, the &#x60;startDate&#x60; is set to the date when the rule status is set to **active**.
    *
    * @param startDate The date when the rule will start to be evaluated, in ISO 8601 extended offset
-   *     date-time format. For example, **2020-12-18T10:15:30+01:00**. If not provided when creating
+   *     date-time format. For example, **2025-03-19T10:15:30+01:00**. If not provided when creating
    *     a transaction rule, the &#x60;startDate&#x60; is set to the date when the rule status is
    *     set to **active**.
    */

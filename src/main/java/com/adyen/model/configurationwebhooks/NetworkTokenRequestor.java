@@ -32,9 +32,9 @@ public class NetworkTokenRequestor {
   public NetworkTokenRequestor() {}
 
   /**
-   * The id of the network token requestor.
+   * The unique identifier of the network token requestor.
    *
-   * @param id The id of the network token requestor.
+   * @param id The unique identifier of the network token requestor.
    * @return the current {@code NetworkTokenRequestor} instance, allowing for method chaining
    */
   public NetworkTokenRequestor id(String id) {
@@ -43,9 +43,9 @@ public class NetworkTokenRequestor {
   }
 
   /**
-   * The id of the network token requestor.
+   * The unique identifier of the network token requestor.
    *
-   * @return id The id of the network token requestor.
+   * @return id The unique identifier of the network token requestor.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -54,9 +54,9 @@ public class NetworkTokenRequestor {
   }
 
   /**
-   * The id of the network token requestor.
+   * The unique identifier of the network token requestor.
    *
-   * @param id The id of the network token requestor.
+   * @param id The unique identifier of the network token requestor.
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

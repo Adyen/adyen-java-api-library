@@ -194,6 +194,8 @@ public class Transfer {
 
     AMOUNTLIMITEXCEEDED(String.valueOf("amountLimitExceeded")),
 
+    APPROVALEXPIRED(String.valueOf("approvalExpired")),
+
     APPROVED(String.valueOf("approved")),
 
     BALANCEACCOUNTTEMPORARILYBLOCKEDBYTRANSACTIONRULE(

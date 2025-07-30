@@ -30,7 +30,8 @@ import java.util.logging.Logger;
   CardInfo.JSON_PROPERTY_CONFIGURATION,
   CardInfo.JSON_PROPERTY_DELIVERY_CONTACT,
   CardInfo.JSON_PROPERTY_FORM_FACTOR,
-  CardInfo.JSON_PROPERTY_THREE_D_SECURE
+  CardInfo.JSON_PROPERTY_THREE_D_SECURE,
+  CardInfo.JSON_PROPERTY_USAGE
 })
 public class CardInfo {
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
@@ -99,6 +100,9 @@ public class CardInfo {
 
   public static final String JSON_PROPERTY_THREE_D_SECURE = "threeDSecure";
   private String threeDSecure;
+
+  public static final String JSON_PROPERTY_USAGE = "usage";
+  private String usage;
 
   public CardInfo() {}
 
@@ -390,6 +394,48 @@ public class CardInfo {
     this.threeDSecure = threeDSecure;
   }
 
+  /**
+   * Specifies how many times the card can be used. Possible values: **singleUse**, **multiUse**.
+   * &gt; Reach out to your Adyen contact to determine the value relevant for your integration.
+   *
+   * @param usage Specifies how many times the card can be used. Possible values: **singleUse**,
+   *     **multiUse**. &gt; Reach out to your Adyen contact to determine the value relevant for your
+   *     integration.
+   * @return the current {@code CardInfo} instance, allowing for method chaining
+   */
+  public CardInfo usage(String usage) {
+    this.usage = usage;
+    return this;
+  }
+
+  /**
+   * Specifies how many times the card can be used. Possible values: **singleUse**, **multiUse**.
+   * &gt; Reach out to your Adyen contact to determine the value relevant for your integration.
+   *
+   * @return usage Specifies how many times the card can be used. Possible values: **singleUse**,
+   *     **multiUse**. &gt; Reach out to your Adyen contact to determine the value relevant for your
+   *     integration.
+   */
+  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUsage() {
+    return usage;
+  }
+
+  /**
+   * Specifies how many times the card can be used. Possible values: **singleUse**, **multiUse**.
+   * &gt; Reach out to your Adyen contact to determine the value relevant for your integration.
+   *
+   * @param usage Specifies how many times the card can be used. Possible values: **singleUse**,
+   *     **multiUse**. &gt; Reach out to your Adyen contact to determine the value relevant for your
+   *     integration.
+   */
+  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUsage(String usage) {
+    this.usage = usage;
+  }
+
   /** Return true if this CardInfo object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -407,7 +453,8 @@ public class CardInfo {
         && Objects.equals(this.configuration, cardInfo.configuration)
         && Objects.equals(this.deliveryContact, cardInfo.deliveryContact)
         && Objects.equals(this.formFactor, cardInfo.formFactor)
-        && Objects.equals(this.threeDSecure, cardInfo.threeDSecure);
+        && Objects.equals(this.threeDSecure, cardInfo.threeDSecure)
+        && Objects.equals(this.usage, cardInfo.usage);
   }
 
   @Override
@@ -420,7 +467,8 @@ public class CardInfo {
         configuration,
         deliveryContact,
         formFactor,
-        threeDSecure);
+        threeDSecure,
+        usage);
   }
 
   @Override
@@ -435,6 +483,7 @@ public class CardInfo {
     sb.append("    deliveryContact: ").append(toIndentedString(deliveryContact)).append("\n");
     sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    threeDSecure: ").append(toIndentedString(threeDSecure)).append("\n");
+    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

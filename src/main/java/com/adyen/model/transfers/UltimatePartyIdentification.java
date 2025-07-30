@@ -26,11 +26,13 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   UltimatePartyIdentification.JSON_PROPERTY_ADDRESS,
   UltimatePartyIdentification.JSON_PROPERTY_DATE_OF_BIRTH,
+  UltimatePartyIdentification.JSON_PROPERTY_EMAIL,
   UltimatePartyIdentification.JSON_PROPERTY_FIRST_NAME,
   UltimatePartyIdentification.JSON_PROPERTY_FULL_NAME,
   UltimatePartyIdentification.JSON_PROPERTY_LAST_NAME,
   UltimatePartyIdentification.JSON_PROPERTY_REFERENCE,
-  UltimatePartyIdentification.JSON_PROPERTY_TYPE
+  UltimatePartyIdentification.JSON_PROPERTY_TYPE,
+  UltimatePartyIdentification.JSON_PROPERTY_URL
 })
 public class UltimatePartyIdentification {
   public static final String JSON_PROPERTY_ADDRESS = "address";
@@ -38,6 +40,9 @@ public class UltimatePartyIdentification {
 
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
+
+  public static final String JSON_PROPERTY_EMAIL = "email";
+  private String email;
 
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
@@ -100,6 +105,9 @@ public class UltimatePartyIdentification {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_URL = "url";
+  private String url;
 
   public UltimatePartyIdentification() {}
 
@@ -176,6 +184,42 @@ public class UltimatePartyIdentification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
+  }
+
+  /**
+   * The email address of the organization or individual. Maximum length: 254 characters.
+   *
+   * @param email The email address of the organization or individual. Maximum length: 254
+   *     characters.
+   * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
+   */
+  public UltimatePartyIdentification email(String email) {
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * The email address of the organization or individual. Maximum length: 254 characters.
+   *
+   * @return email The email address of the organization or individual. Maximum length: 254
+   *     characters.
+   */
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEmail() {
+    return email;
+  }
+
+  /**
+   * The email address of the organization or individual. Maximum length: 254 characters.
+   *
+   * @param email The email address of the organization or individual. Maximum length: 254
+   *     characters.
+   */
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   /**
@@ -403,6 +447,39 @@ public class UltimatePartyIdentification {
     this.type = type;
   }
 
+  /**
+   * The URL of the organization or individual. Maximum length: 255 characters.
+   *
+   * @param url The URL of the organization or individual. Maximum length: 255 characters.
+   * @return the current {@code UltimatePartyIdentification} instance, allowing for method chaining
+   */
+  public UltimatePartyIdentification url(String url) {
+    this.url = url;
+    return this;
+  }
+
+  /**
+   * The URL of the organization or individual. Maximum length: 255 characters.
+   *
+   * @return url The URL of the organization or individual. Maximum length: 255 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrl() {
+    return url;
+  }
+
+  /**
+   * The URL of the organization or individual. Maximum length: 255 characters.
+   *
+   * @param url The URL of the organization or individual. Maximum length: 255 characters.
+   */
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
   /** Return true if this UltimatePartyIdentification object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -415,16 +492,19 @@ public class UltimatePartyIdentification {
     UltimatePartyIdentification ultimatePartyIdentification = (UltimatePartyIdentification) o;
     return Objects.equals(this.address, ultimatePartyIdentification.address)
         && Objects.equals(this.dateOfBirth, ultimatePartyIdentification.dateOfBirth)
+        && Objects.equals(this.email, ultimatePartyIdentification.email)
         && Objects.equals(this.firstName, ultimatePartyIdentification.firstName)
         && Objects.equals(this.fullName, ultimatePartyIdentification.fullName)
         && Objects.equals(this.lastName, ultimatePartyIdentification.lastName)
         && Objects.equals(this.reference, ultimatePartyIdentification.reference)
-        && Objects.equals(this.type, ultimatePartyIdentification.type);
+        && Objects.equals(this.type, ultimatePartyIdentification.type)
+        && Objects.equals(this.url, ultimatePartyIdentification.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, dateOfBirth, firstName, fullName, lastName, reference, type);
+    return Objects.hash(
+        address, dateOfBirth, email, firstName, fullName, lastName, reference, type, url);
   }
 
   @Override
@@ -433,11 +513,13 @@ public class UltimatePartyIdentification {
     sb.append("class UltimatePartyIdentification {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

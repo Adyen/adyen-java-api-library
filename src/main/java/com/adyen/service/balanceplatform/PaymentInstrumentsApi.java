@@ -62,21 +62,21 @@ public class PaymentInstrumentsApi extends Service {
   }
 
   /**
-   * Create network token activation data
+   * Create network token provisioning data
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
    * @param networkTokenActivationDataRequest {@link NetworkTokenActivationDataRequest } (required)
    * @return {@link NetworkTokenActivationDataResponse }
    * @throws ApiException if fails to make API call
    */
-  public NetworkTokenActivationDataResponse createNetworkTokenActivationData(
+  public NetworkTokenActivationDataResponse createNetworkTokenProvisioningData(
       String id, NetworkTokenActivationDataRequest networkTokenActivationDataRequest)
       throws ApiException, IOException {
-    return createNetworkTokenActivationData(id, networkTokenActivationDataRequest, null);
+    return createNetworkTokenProvisioningData(id, networkTokenActivationDataRequest, null);
   }
 
   /**
-   * Create network token activation data
+   * Create network token provisioning data
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
    * @param networkTokenActivationDataRequest {@link NetworkTokenActivationDataRequest } (required)
@@ -85,7 +85,7 @@ public class PaymentInstrumentsApi extends Service {
    * @return {@link NetworkTokenActivationDataResponse }
    * @throws ApiException if fails to make API call
    */
-  public NetworkTokenActivationDataResponse createNetworkTokenActivationData(
+  public NetworkTokenActivationDataResponse createNetworkTokenProvisioningData(
       String id,
       NetworkTokenActivationDataRequest networkTokenActivationDataRequest,
       RequestOptions requestOptions)

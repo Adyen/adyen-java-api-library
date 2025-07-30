@@ -171,13 +171,13 @@ public class Address {
   }
 
   /**
-   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. If you specify
-   * the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and
-   * &#x60;street&#x60;.
+   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. Required for
+   * Australia and New Zealand. If you specify the state or province, you must also send
+   * &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    *
    * @param stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA** in
-   *     the US. If you specify the state or province, you must also send &#x60;city&#x60;,
-   *     &#x60;postalCode&#x60;, and &#x60;street&#x60;.
+   *     the US. Required for Australia and New Zealand. If you specify the state or province, you
+   *     must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    * @return the current {@code Address} instance, allowing for method chaining
    */
   public Address stateOrProvince(String stateOrProvince) {
@@ -186,13 +186,13 @@ public class Address {
   }
 
   /**
-   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. If you specify
-   * the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and
-   * &#x60;street&#x60;.
+   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. Required for
+   * Australia and New Zealand. If you specify the state or province, you must also send
+   * &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    *
    * @return stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA**
-   *     in the US. If you specify the state or province, you must also send &#x60;city&#x60;,
-   *     &#x60;postalCode&#x60;, and &#x60;street&#x60;.
+   *     in the US. Required for Australia and New Zealand. If you specify the state or province,
+   *     you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,13 +201,13 @@ public class Address {
   }
 
   /**
-   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. If you specify
-   * the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and
-   * &#x60;street&#x60;.
+   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. Required for
+   * Australia and New Zealand. If you specify the state or province, you must also send
+   * &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    *
    * @param stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA** in
-   *     the US. If you specify the state or province, you must also send &#x60;city&#x60;,
-   *     &#x60;postalCode&#x60;, and &#x60;street&#x60;.
+   *     the US. Required for Australia and New Zealand. If you specify the state or province, you
+   *     must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
