@@ -280,11 +280,12 @@ public class DeliveryAddress {
   }
 
   /**
-   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in
-   * Canada. &gt; Required for the US and Canada.
+   * The state or province code, maximum 3 characters. For example, **CA** for California in the US
+   * or **ON** for Ontario in Canada. &gt; Required for the US and Canada.
    *
-   * @param stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA** in
-   *     the US or **ON** in Canada. &gt; Required for the US and Canada.
+   * @param stateOrProvince The state or province code, maximum 3 characters. For example, **CA**
+   *     for California in the US or **ON** for Ontario in Canada. &gt; Required for the US and
+   *     Canada.
    * @return the current {@code DeliveryAddress} instance, allowing for method chaining
    */
   public DeliveryAddress stateOrProvince(String stateOrProvince) {
@@ -293,11 +294,12 @@ public class DeliveryAddress {
   }
 
   /**
-   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in
-   * Canada. &gt; Required for the US and Canada.
+   * The state or province code, maximum 3 characters. For example, **CA** for California in the US
+   * or **ON** for Ontario in Canada. &gt; Required for the US and Canada.
    *
-   * @return stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA**
-   *     in the US or **ON** in Canada. &gt; Required for the US and Canada.
+   * @return stateOrProvince The state or province code, maximum 3 characters. For example, **CA**
+   *     for California in the US or **ON** for Ontario in Canada. &gt; Required for the US and
+   *     Canada.
    */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,11 +308,12 @@ public class DeliveryAddress {
   }
 
   /**
-   * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in
-   * Canada. &gt; Required for the US and Canada.
+   * The state or province code, maximum 3 characters. For example, **CA** for California in the US
+   * or **ON** for Ontario in Canada. &gt; Required for the US and Canada.
    *
-   * @param stateOrProvince The two-letter ISO 3166-2 state or province code. For example, **CA** in
-   *     the US or **ON** in Canada. &gt; Required for the US and Canada.
+   * @param stateOrProvince The state or province code, maximum 3 characters. For example, **CA**
+   *     for California in the US or **ON** for Ontario in Canada. &gt; Required for the US and
+   *     Canada.
    */
   @JsonProperty(JSON_PROPERTY_STATE_OR_PROVINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
