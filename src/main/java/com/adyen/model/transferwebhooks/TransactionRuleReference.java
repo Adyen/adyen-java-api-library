@@ -176,9 +176,11 @@ public class TransactionRuleReference {
   }
 
   /**
-   * The score of the rule in case it&#39;s a scoreBased rule.
+   * The transaction score determined by the rule. Returned only when &#x60;outcomeType&#x60; is
+   * **scoreBased**.
    *
-   * @param score The score of the rule in case it&#39;s a scoreBased rule.
+   * @param score The transaction score determined by the rule. Returned only when
+   *     &#x60;outcomeType&#x60; is **scoreBased**.
    * @return the current {@code TransactionRuleReference} instance, allowing for method chaining
    */
   public TransactionRuleReference score(Integer score) {
@@ -187,9 +189,11 @@ public class TransactionRuleReference {
   }
 
   /**
-   * The score of the rule in case it&#39;s a scoreBased rule.
+   * The transaction score determined by the rule. Returned only when &#x60;outcomeType&#x60; is
+   * **scoreBased**.
    *
-   * @return score The score of the rule in case it&#39;s a scoreBased rule.
+   * @return score The transaction score determined by the rule. Returned only when
+   *     &#x60;outcomeType&#x60; is **scoreBased**.
    */
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,9 +202,11 @@ public class TransactionRuleReference {
   }
 
   /**
-   * The score of the rule in case it&#39;s a scoreBased rule.
+   * The transaction score determined by the rule. Returned only when &#x60;outcomeType&#x60; is
+   * **scoreBased**.
    *
-   * @param score The score of the rule in case it&#39;s a scoreBased rule.
+   * @param score The transaction score determined by the rule. Returned only when
+   *     &#x60;outcomeType&#x60; is **scoreBased**.
    */
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

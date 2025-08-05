@@ -162,10 +162,10 @@ public class BalanceNotificationData {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
-   * **2020-12-18T10:15:30+01:00**.
+   * **2025-03-19T10:15:30+01:00**.
    *
    * @param creationDate The date and time when the event was triggered, in ISO 8601 extended
-   *     format. For example, **2020-12-18T10:15:30+01:00**.
+   *     format. For example, **2025-03-19T10:15:30+01:00**.
    * @return the current {@code BalanceNotificationData} instance, allowing for method chaining
    */
   public BalanceNotificationData creationDate(OffsetDateTime creationDate) {
@@ -175,10 +175,10 @@ public class BalanceNotificationData {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
-   * **2020-12-18T10:15:30+01:00**.
+   * **2025-03-19T10:15:30+01:00**.
    *
    * @return creationDate The date and time when the event was triggered, in ISO 8601 extended
-   *     format. For example, **2020-12-18T10:15:30+01:00**.
+   *     format. For example, **2025-03-19T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,10 +188,10 @@ public class BalanceNotificationData {
 
   /**
    * The date and time when the event was triggered, in ISO 8601 extended format. For example,
-   * **2020-12-18T10:15:30+01:00**.
+   * **2025-03-19T10:15:30+01:00**.
    *
    * @param creationDate The date and time when the event was triggered, in ISO 8601 extended
-   *     format. For example, **2020-12-18T10:15:30+01:00**.
+   *     format. For example, **2025-03-19T10:15:30+01:00**.
    */
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,10 +200,10 @@ public class BalanceNotificationData {
   }
 
   /**
-   * TThe three-character [ISO currency
+   * The three-character [ISO currency
    * code](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param currency TThe three-character [ISO currency
+   * @param currency The three-character [ISO currency
    *     code](https://docs.adyen.com/development-resources/currency-codes).
    * @return the current {@code BalanceNotificationData} instance, allowing for method chaining
    */
@@ -213,10 +213,10 @@ public class BalanceNotificationData {
   }
 
   /**
-   * TThe three-character [ISO currency
+   * The three-character [ISO currency
    * code](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @return currency TThe three-character [ISO currency
+   * @return currency The three-character [ISO currency
    *     code](https://docs.adyen.com/development-resources/currency-codes).
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
@@ -226,10 +226,10 @@ public class BalanceNotificationData {
   }
 
   /**
-   * TThe three-character [ISO currency
+   * The three-character [ISO currency
    * code](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param currency TThe three-character [ISO currency
+   * @param currency The three-character [ISO currency
    *     code](https://docs.adyen.com/development-resources/currency-codes).
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)

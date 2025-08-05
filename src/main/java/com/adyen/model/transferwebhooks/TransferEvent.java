@@ -85,6 +85,8 @@ public class TransferEvent {
 
     AMOUNTLIMITEXCEEDED(String.valueOf("amountLimitExceeded")),
 
+    APPROVALEXPIRED(String.valueOf("approvalExpired")),
+
     APPROVED(String.valueOf("approved")),
 
     BALANCEACCOUNTTEMPORARILYBLOCKEDBYTRANSACTIONRULE(

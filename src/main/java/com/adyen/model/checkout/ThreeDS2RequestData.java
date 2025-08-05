@@ -123,9 +123,9 @@ public class ThreeDS2RequestData {
   private String acquirerMerchantID;
 
   /**
-   * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same.
-   * Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address
-   * does not match Billing Address.
+   * Indicates whether the cardholder shipping address and cardholder billing address are the same.
+   * Allowed values: * **Y** — Shipping address matches billing address. * **N** — Shipping address
+   * does not match billing address.
    */
   public enum AddrMatchEnum {
     Y(String.valueOf("Y")),
@@ -665,13 +665,13 @@ public class ThreeDS2RequestData {
   }
 
   /**
-   * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same.
-   * Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address
-   * does not match Billing Address.
+   * Indicates whether the cardholder shipping address and cardholder billing address are the same.
+   * Allowed values: * **Y** — Shipping address matches billing address. * **N** — Shipping address
+   * does not match billing address.
    *
-   * @param addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing
-   *     Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
-   *     **N** — Shipping Address does not match Billing Address.
+   * @param addrMatch Indicates whether the cardholder shipping address and cardholder billing
+   *     address are the same. Allowed values: * **Y** — Shipping address matches billing address. *
+   *     **N** — Shipping address does not match billing address.
    * @return the current {@code ThreeDS2RequestData} instance, allowing for method chaining
    */
   public ThreeDS2RequestData addrMatch(AddrMatchEnum addrMatch) {
@@ -680,13 +680,13 @@ public class ThreeDS2RequestData {
   }
 
   /**
-   * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same.
-   * Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address
-   * does not match Billing Address.
+   * Indicates whether the cardholder shipping address and cardholder billing address are the same.
+   * Allowed values: * **Y** — Shipping address matches billing address. * **N** — Shipping address
+   * does not match billing address.
    *
-   * @return addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing
-   *     Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
-   *     **N** — Shipping Address does not match Billing Address.
+   * @return addrMatch Indicates whether the cardholder shipping address and cardholder billing
+   *     address are the same. Allowed values: * **Y** — Shipping address matches billing address. *
+   *     **N** — Shipping address does not match billing address.
    */
   @JsonProperty(JSON_PROPERTY_ADDR_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -695,13 +695,13 @@ public class ThreeDS2RequestData {
   }
 
   /**
-   * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same.
-   * Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address
-   * does not match Billing Address.
+   * Indicates whether the cardholder shipping address and cardholder billing address are the same.
+   * Allowed values: * **Y** — Shipping address matches billing address. * **N** — Shipping address
+   * does not match billing address.
    *
-   * @param addrMatch Indicates whether the Cardholder Shipping Address and Cardholder Billing
-   *     Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. *
-   *     **N** — Shipping Address does not match Billing Address.
+   * @param addrMatch Indicates whether the cardholder shipping address and cardholder billing
+   *     address are the same. Allowed values: * **Y** — Shipping address matches billing address. *
+   *     **N** — Shipping address does not match billing address.
    */
   @JsonProperty(JSON_PROPERTY_ADDR_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

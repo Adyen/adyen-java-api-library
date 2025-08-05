@@ -77,6 +77,35 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize AdditionalBankIdentificationRequirement
+      try {
+        boolean attemptParsing = true;
+        if (attemptParsing) {
+          // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+          boolean typeMatch =
+              Arrays.stream(AdditionalBankIdentificationRequirement.TypeEnum.values())
+                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+          if (typeMatch) {
+            deserialized =
+                tree.traverse(jp.getCodec())
+                    .readValueAs(AdditionalBankIdentificationRequirement.class);
+            // TODO: there is no validation against JSON schema constraints
+            // (min, max, enum, pattern...), this does not perform a strict JSON
+            // validation, which means the 'match' count may be higher than it should be.
+            match++;
+            log.log(
+                Level.FINER, "Input data matches schema 'AdditionalBankIdentificationRequirement'");
+          }
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'AdditionalBankIdentificationRequirement'",
+            e);
+      }
+
       // deserialize AddressRequirement
       try {
         boolean attemptParsing = true;
@@ -312,6 +341,11 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
+  public TransferRouteRequirementsInner(AdditionalBankIdentificationRequirement o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public TransferRouteRequirementsInner(AddressRequirement o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -353,6 +387,9 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
   }
 
   static {
+    schemas.put(
+        "AdditionalBankIdentificationRequirement",
+        new GenericType<AdditionalBankIdentificationRequirement>() {});
     schemas.put("AddressRequirement", new GenericType<AddressRequirement>() {});
     schemas.put("AmountMinMaxRequirement", new GenericType<AmountMinMaxRequirement>() {});
     schemas.put(
@@ -381,16 +418,23 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: AddressRequirement, AmountMinMaxRequirement,
-   * AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement,
-   * IbanAccountIdentificationRequirement, PaymentInstrumentRequirement,
-   * USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement
+   * against the oneOf child schemas: AdditionalBankIdentificationRequirement, AddressRequirement,
+   * AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement,
+   * BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement,
+   * PaymentInstrumentRequirement, USInstantPayoutAddressRequirement,
+   * USInternationalAchAddressRequirement
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        AdditionalBankIdentificationRequirement.class, instance, new HashSet<>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     if (JSON.isInstanceOf(AddressRequirement.class, instance, new HashSet<>())) {
       super.setActualInstance(instance);
       return;
@@ -433,24 +477,37 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
     }
 
     throw new RuntimeException(
-        "Invalid instance type. Must be AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement");
+        "Invalid instance type. Must be AdditionalBankIdentificationRequirement, AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement");
   }
 
   /**
-   * Get the actual instance, which can be the following: AddressRequirement,
-   * AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement,
+   * Get the actual instance, which can be the following: AdditionalBankIdentificationRequirement,
+   * AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement,
    * BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement,
    * PaymentInstrumentRequirement, USInstantPayoutAddressRequirement,
    * USInternationalAchAddressRequirement
    *
-   * @return The actual instance (AddressRequirement, AmountMinMaxRequirement,
-   *     AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement,
-   *     IbanAccountIdentificationRequirement, PaymentInstrumentRequirement,
-   *     USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement)
+   * @return The actual instance (AdditionalBankIdentificationRequirement, AddressRequirement,
+   *     AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement,
+   *     BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement,
+   *     PaymentInstrumentRequirement, USInstantPayoutAddressRequirement,
+   *     USInternationalAchAddressRequirement)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `AdditionalBankIdentificationRequirement`. If the actual instance is
+   * not `AdditionalBankIdentificationRequirement`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `AdditionalBankIdentificationRequirement`
+   * @throws ClassCastException if the instance is not `AdditionalBankIdentificationRequirement`
+   */
+  public AdditionalBankIdentificationRequirement getAdditionalBankIdentificationRequirement()
+      throws ClassCastException {
+    return (AdditionalBankIdentificationRequirement) super.getActualInstance();
   }
 
   /**

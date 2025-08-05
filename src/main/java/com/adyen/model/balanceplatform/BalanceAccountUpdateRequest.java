@@ -109,11 +109,11 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * The unique identifier of the [account
-   * holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id)
+   * holder](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/accountHolders#responses-200-id)
    * associated with the balance account.
    *
    * @param accountHolderId The unique identifier of the [account
-   *     holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id)
+   *     holder](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/accountHolders#responses-200-id)
    *     associated with the balance account.
    * @return the current {@code BalanceAccountUpdateRequest} instance, allowing for method chaining
    */
@@ -124,11 +124,11 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * The unique identifier of the [account
-   * holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id)
+   * holder](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/accountHolders#responses-200-id)
    * associated with the balance account.
    *
    * @return accountHolderId The unique identifier of the [account
-   *     holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id)
+   *     holder](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/accountHolders#responses-200-id)
    *     associated with the balance account.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)
@@ -139,11 +139,11 @@ public class BalanceAccountUpdateRequest {
 
   /**
    * The unique identifier of the [account
-   * holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id)
+   * holder](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/accountHolders#responses-200-id)
    * associated with the balance account.
    *
    * @param accountHolderId The unique identifier of the [account
-   *     holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id)
+   *     holder](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/accountHolders#responses-200-id)
    *     associated with the balance account.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_HOLDER_ID)

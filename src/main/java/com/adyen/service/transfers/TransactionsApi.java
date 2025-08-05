@@ -102,9 +102,10 @@ public class TransactionsApi extends Service {
    * @param createdUntil {@link OffsetDateTime } Query: Only include transactions that have been
    *     created on or before this point in time. The value must be in ISO 8601 format. For example,
    *     **2021-05-30T15:07:40Z**. (required)
-   * @param sortOrder {@link String } Query: The transactions sorting order. Possible values: -
-   *     **asc**: Ascending order, from older to most recent. - **desc**: Descending order, from
-   *     most recent to older. (optional)
+   * @param sortOrder {@link String } Query: Determines the sort order of the returned transactions.
+   *     The sort order is based on the creation date of the transaction. Possible values: -
+   *     **asc**: Ascending order, from oldest to most recent. - **desc**: Descending order, from
+   *     most recent to oldest. Default value: **asc**. (optional)
    * @param limit {@link Integer } Query: The number of items returned per page, maximum of 100
    *     items. By default, the response returns 10 items per page. (optional)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
