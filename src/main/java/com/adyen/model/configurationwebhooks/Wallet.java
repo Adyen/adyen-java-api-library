@@ -326,10 +326,11 @@ public class Wallet {
   }
 
   /**
-   * The method used for provisioning the network token. Possible values: **push**, **manual**.
+   * The method used for provisioning the network token. Possible values: **push**, **manual**,
+   * **cof**, **unknown**.
    *
    * @param provisioningMethod The method used for provisioning the network token. Possible values:
-   *     **push**, **manual**.
+   *     **push**, **manual**, **cof**, **unknown**.
    * @return the current {@code Wallet} instance, allowing for method chaining
    */
   public Wallet provisioningMethod(String provisioningMethod) {
@@ -338,10 +339,11 @@ public class Wallet {
   }
 
   /**
-   * The method used for provisioning the network token. Possible values: **push**, **manual**.
+   * The method used for provisioning the network token. Possible values: **push**, **manual**,
+   * **cof**, **unknown**.
    *
    * @return provisioningMethod The method used for provisioning the network token. Possible values:
-   *     **push**, **manual**.
+   *     **push**, **manual**, **cof**, **unknown**.
    */
   @JsonProperty(JSON_PROPERTY_PROVISIONING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,10 +352,11 @@ public class Wallet {
   }
 
   /**
-   * The method used for provisioning the network token. Possible values: **push**, **manual**.
+   * The method used for provisioning the network token. Possible values: **push**, **manual**,
+   * **cof**, **unknown**.
    *
    * @param provisioningMethod The method used for provisioning the network token. Possible values:
-   *     **push**, **manual**.
+   *     **push**, **manual**, **cof**, **unknown**.
    */
   @JsonProperty(JSON_PROPERTY_PROVISIONING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

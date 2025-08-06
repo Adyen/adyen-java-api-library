@@ -314,6 +314,35 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
             e);
       }
 
+      // deserialize USInternationalAchPriorityRequirement
+      try {
+        boolean attemptParsing = true;
+        if (attemptParsing) {
+          // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
+          boolean typeMatch =
+              Arrays.stream(USInternationalAchPriorityRequirement.TypeEnum.values())
+                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+
+          if (typeMatch) {
+            deserialized =
+                tree.traverse(jp.getCodec())
+                    .readValueAs(USInternationalAchPriorityRequirement.class);
+            // TODO: there is no validation against JSON schema constraints
+            // (min, max, enum, pattern...), this does not perform a strict JSON
+            // validation, which means the 'match' count may be higher than it should be.
+            match++;
+            log.log(
+                Level.FINER, "Input data matches schema 'USInternationalAchPriorityRequirement'");
+          }
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'USInternationalAchPriorityRequirement'",
+            e);
+      }
+
       if (match == 1) {
         TransferRouteRequirementsInner ret = new TransferRouteRequirementsInner();
         ret.setActualInstance(deserialized);
@@ -386,6 +415,11 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public TransferRouteRequirementsInner(USInternationalAchPriorityRequirement o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "AdditionalBankIdentificationRequirement",
@@ -407,6 +441,9 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
     schemas.put(
         "USInternationalAchAddressRequirement",
         new GenericType<USInternationalAchAddressRequirement>() {});
+    schemas.put(
+        "USInternationalAchPriorityRequirement",
+        new GenericType<USInternationalAchPriorityRequirement>() {});
     JSON.registerDescendants(
         TransferRouteRequirementsInner.class, Collections.unmodifiableMap(schemas));
   }
@@ -422,7 +459,7 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
    * AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement,
    * BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement,
    * PaymentInstrumentRequirement, USInstantPayoutAddressRequirement,
-   * USInternationalAchAddressRequirement
+   * USInternationalAchAddressRequirement, USInternationalAchPriorityRequirement
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -476,8 +513,13 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(USInternationalAchPriorityRequirement.class, instance, new HashSet<>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     throw new RuntimeException(
-        "Invalid instance type. Must be AdditionalBankIdentificationRequirement, AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement");
+        "Invalid instance type. Must be AdditionalBankIdentificationRequirement, AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement, USInternationalAchPriorityRequirement");
   }
 
   /**
@@ -485,13 +527,13 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
    * AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement,
    * BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement,
    * PaymentInstrumentRequirement, USInstantPayoutAddressRequirement,
-   * USInternationalAchAddressRequirement
+   * USInternationalAchAddressRequirement, USInternationalAchPriorityRequirement
    *
    * @return The actual instance (AdditionalBankIdentificationRequirement, AddressRequirement,
    *     AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement,
    *     BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement,
    *     PaymentInstrumentRequirement, USInstantPayoutAddressRequirement,
-   *     USInternationalAchAddressRequirement)
+   *     USInternationalAchAddressRequirement, USInternationalAchPriorityRequirement)
    */
   @Override
   public Object getActualInstance() {
@@ -601,6 +643,18 @@ public class TransferRouteRequirementsInner extends AbstractOpenApiSchema {
   public USInternationalAchAddressRequirement getUSInternationalAchAddressRequirement()
       throws ClassCastException {
     return (USInternationalAchAddressRequirement) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `USInternationalAchPriorityRequirement`. If the actual instance is
+   * not `USInternationalAchPriorityRequirement`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `USInternationalAchPriorityRequirement`
+   * @throws ClassCastException if the instance is not `USInternationalAchPriorityRequirement`
+   */
+  public USInternationalAchPriorityRequirement getUSInternationalAchPriorityRequirement()
+      throws ClassCastException {
+    return (USInternationalAchPriorityRequirement) super.getActualInstance();
   }
 
   /**

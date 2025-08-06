@@ -209,14 +209,14 @@ public class CardDetailsRequest {
 
   /**
    * The card brands you support. This is the
-   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    * array from your
    * [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    * response. If not included, our API uses the ones configured for your merchant account and, if
    * provided, the country code.
    *
    * @param supportedBrands The card brands you support. This is the
-   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    *     array from your
    *     [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    *     response. If not included, our API uses the ones configured for your merchant account and,
@@ -238,14 +238,14 @@ public class CardDetailsRequest {
 
   /**
    * The card brands you support. This is the
-   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    * array from your
    * [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    * response. If not included, our API uses the ones configured for your merchant account and, if
    * provided, the country code.
    *
    * @return supportedBrands The card brands you support. This is the
-   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    *     array from your
    *     [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    *     response. If not included, our API uses the ones configured for your merchant account and,
@@ -259,14 +259,14 @@ public class CardDetailsRequest {
 
   /**
    * The card brands you support. This is the
-   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    * array from your
    * [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    * response. If not included, our API uses the ones configured for your merchant account and, if
    * provided, the country code.
    *
    * @param supportedBrands The card brands you support. This is the
-   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    *     array from your
    *     [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    *     response. If not included, our API uses the ones configured for your merchant account and,

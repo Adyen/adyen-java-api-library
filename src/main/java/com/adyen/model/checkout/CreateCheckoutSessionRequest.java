@@ -2192,8 +2192,9 @@ public class CreateCheckoutSessionRequest {
    * The URL to return to in case of a redirection. The format depends on the channel. * For web,
    * include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own
    * additional query parameters, for example, shopper ID or order reference number. Example:
-   * &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom
-   * URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer
+   * &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
+   * custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
+   * Developer
    * documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    * Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your
    * app. You can configure it with an [intent
@@ -2207,9 +2208,9 @@ public class CreateCheckoutSessionRequest {
    *     channel. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You
    *     can also include your own additional query parameters, for example, shopper ID or order
    *     reference number. Example:
-   *     &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
-   *     custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
-   *     Developer
+   *     &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use
+   *     the custom URL for your app. To know more about setting custom URL schemes, refer to the
+   *     [Apple Developer
    *     documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    *     Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on
    *     your app. You can configure it with an [intent
@@ -2229,8 +2230,9 @@ public class CreateCheckoutSessionRequest {
    * The URL to return to in case of a redirection. The format depends on the channel. * For web,
    * include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own
    * additional query parameters, for example, shopper ID or order reference number. Example:
-   * &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom
-   * URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer
+   * &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
+   * custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
+   * Developer
    * documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    * Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your
    * app. You can configure it with an [intent
@@ -2244,9 +2246,9 @@ public class CreateCheckoutSessionRequest {
    *     channel. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You
    *     can also include your own additional query parameters, for example, shopper ID or order
    *     reference number. Example:
-   *     &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
-   *     custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
-   *     Developer
+   *     &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use
+   *     the custom URL for your app. To know more about setting custom URL schemes, refer to the
+   *     [Apple Developer
    *     documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    *     Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on
    *     your app. You can configure it with an [intent
@@ -2266,8 +2268,9 @@ public class CreateCheckoutSessionRequest {
    * The URL to return to in case of a redirection. The format depends on the channel. * For web,
    * include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own
    * additional query parameters, for example, shopper ID or order reference number. Example:
-   * &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom
-   * URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer
+   * &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
+   * custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
+   * Developer
    * documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    * Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your
    * app. You can configure it with an [intent
@@ -2281,9 +2284,9 @@ public class CreateCheckoutSessionRequest {
    *     channel. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You
    *     can also include your own additional query parameters, for example, shopper ID or order
    *     reference number. Example:
-   *     &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the
-   *     custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple
-   *     Developer
+   *     &#x60;https://your-company.example.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use
+   *     the custom URL for your app. To know more about setting custom URL schemes, refer to the
+   *     [Apple Developer
    *     documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app).
    *     Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on
    *     your app. You can configure it with an [intent
@@ -2367,7 +2370,7 @@ public class CreateCheckoutSessionRequest {
 
   /**
    * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
-   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * number of risk checks (for instance, number of payment attempts or location-based checks). &gt;
    * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
    * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
    * integrations, the field is required to support cases where authentication is routed to the
@@ -2376,8 +2379,8 @@ public class CreateCheckoutSessionRequest {
    *
    * @param shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
    *     is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
-   *     authentication for all web and mobile integrations, if you did not include the
+   *     location-based checks). &gt; Required for Visa and JCB transactions that require 3D Secure
+   *     2 authentication for all web and mobile integrations, if you did not include the
    *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
    *     cases where authentication is routed to the redirect flow. This field is also mandatory for
    *     some merchants depending on your business model. For more information, [contact
@@ -2391,7 +2394,7 @@ public class CreateCheckoutSessionRequest {
 
   /**
    * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
-   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * number of risk checks (for instance, number of payment attempts or location-based checks). &gt;
    * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
    * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
    * integrations, the field is required to support cases where authentication is routed to the
@@ -2400,8 +2403,8 @@ public class CreateCheckoutSessionRequest {
    *
    * @return shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
    *     is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
-   *     authentication for all web and mobile integrations, if you did not include the
+   *     location-based checks). &gt; Required for Visa and JCB transactions that require 3D Secure
+   *     2 authentication for all web and mobile integrations, if you did not include the
    *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
    *     cases where authentication is routed to the redirect flow. This field is also mandatory for
    *     some merchants depending on your business model. For more information, [contact
@@ -2415,7 +2418,7 @@ public class CreateCheckoutSessionRequest {
 
   /**
    * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
-   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * number of risk checks (for instance, number of payment attempts or location-based checks). &gt;
    * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
    * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
    * integrations, the field is required to support cases where authentication is routed to the
@@ -2424,8 +2427,8 @@ public class CreateCheckoutSessionRequest {
    *
    * @param shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
    *     is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
-   *     authentication for all web and mobile integrations, if you did not include the
+   *     location-based checks). &gt; Required for Visa and JCB transactions that require 3D Secure
+   *     2 authentication for all web and mobile integrations, if you did not include the
    *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
    *     cases where authentication is routed to the redirect flow. This field is also mandatory for
    *     some merchants depending on your business model. For more information, [contact
@@ -3140,17 +3143,17 @@ public class CreateCheckoutSessionRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @param telephoneNumber The shopper&#39;s telephone number. The phone number must include a plus
+   *     sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    * @return the current {@code CreateCheckoutSessionRequest} instance, allowing for method chaining
    */
   public CreateCheckoutSessionRequest telephoneNumber(String telephoneNumber) {
@@ -3159,17 +3162,17 @@ public class CreateCheckoutSessionRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @return telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @return telephoneNumber The shopper&#39;s telephone number. The phone number must include a
+   *     plus sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -3178,17 +3181,17 @@ public class CreateCheckoutSessionRequest {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @param telephoneNumber The shopper&#39;s telephone number. The phone number must include a plus
+   *     sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

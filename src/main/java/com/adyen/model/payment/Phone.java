@@ -29,9 +29,9 @@ public class Phone {
   public Phone() {}
 
   /**
-   * Country code. Length: 1–3 characters.
+   * Country code. Length: 1–3 digits.
    *
-   * @param cc Country code. Length: 1–3 characters.
+   * @param cc Country code. Length: 1–3 digits.
    * @return the current {@code Phone} instance, allowing for method chaining
    */
   public Phone cc(String cc) {
@@ -40,9 +40,9 @@ public class Phone {
   }
 
   /**
-   * Country code. Length: 1–3 characters.
+   * Country code. Length: 1–3 digits.
    *
-   * @return cc Country code. Length: 1–3 characters.
+   * @return cc Country code. Length: 1–3 digits.
    */
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -51,9 +51,9 @@ public class Phone {
   }
 
   /**
-   * Country code. Length: 1–3 characters.
+   * Country code. Length: 1–3 digits.
    *
-   * @param cc Country code. Length: 1–3 characters.
+   * @param cc Country code. Length: 1–3 digits.
    */
   @JsonProperty(JSON_PROPERTY_CC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -62,9 +62,9 @@ public class Phone {
   }
 
   /**
-   * Subscriber number. Maximum length: 15 characters.
+   * Subscriber number. Length: 4-15 digits.
    *
-   * @param subscriber Subscriber number. Maximum length: 15 characters.
+   * @param subscriber Subscriber number. Length: 4-15 digits.
    * @return the current {@code Phone} instance, allowing for method chaining
    */
   public Phone subscriber(String subscriber) {
@@ -73,9 +73,9 @@ public class Phone {
   }
 
   /**
-   * Subscriber number. Maximum length: 15 characters.
+   * Subscriber number. Length: 4-15 digits.
    *
-   * @return subscriber Subscriber number. Maximum length: 15 characters.
+   * @return subscriber Subscriber number. Length: 4-15 digits.
    */
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,9 +84,9 @@ public class Phone {
   }
 
   /**
-   * Subscriber number. Maximum length: 15 characters.
+   * Subscriber number. Length: 4-15 digits.
    *
-   * @param subscriber Subscriber number. Maximum length: 15 characters.
+   * @param subscriber Subscriber number. Length: 4-15 digits.
    */
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

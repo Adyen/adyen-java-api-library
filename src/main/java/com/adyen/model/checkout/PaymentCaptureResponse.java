@@ -235,11 +235,11 @@ public class PaymentCaptureResponse {
 
   /**
    * The
-   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    * of the payment to capture.
    *
    * @param paymentPspReference The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment to capture.
    * @return the current {@code PaymentCaptureResponse} instance, allowing for method chaining
    */
@@ -250,11 +250,11 @@ public class PaymentCaptureResponse {
 
   /**
    * The
-   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    * of the payment to capture.
    *
    * @return paymentPspReference The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment to capture.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
@@ -265,11 +265,11 @@ public class PaymentCaptureResponse {
 
   /**
    * The
-   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    * of the payment to capture.
    *
    * @param paymentPspReference The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment to capture.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)

@@ -69,6 +69,8 @@ public class RivertyDetails {
 
     RIVERTY_ACCOUNT(String.valueOf("riverty_account")),
 
+    RIVERTY_INSTALLMENTS(String.valueOf("riverty_installments")),
+
     SEPADIRECTDEBIT_RIVERTY(String.valueOf("sepadirectdebit_riverty"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());

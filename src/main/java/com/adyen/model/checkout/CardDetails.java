@@ -729,11 +729,11 @@ public class CardDetails {
 
   /**
    * The transaction identifier from card schemes. This is the
-   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    * from the response to the first payment.
    *
    * @param networkPaymentReference The transaction identifier from card schemes. This is the
-   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    *     from the response to the first payment.
    * @return the current {@code CardDetails} instance, allowing for method chaining
    */
@@ -744,11 +744,11 @@ public class CardDetails {
 
   /**
    * The transaction identifier from card schemes. This is the
-   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    * from the response to the first payment.
    *
    * @return networkPaymentReference The transaction identifier from card schemes. This is the
-   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    *     from the response to the first payment.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)
@@ -759,11 +759,11 @@ public class CardDetails {
 
   /**
    * The transaction identifier from card schemes. This is the
-   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    * from the response to the first payment.
    *
    * @param networkPaymentReference The transaction identifier from card schemes. This is the
-   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    *     from the response to the first payment.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)

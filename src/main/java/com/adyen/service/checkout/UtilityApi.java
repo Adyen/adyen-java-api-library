@@ -21,6 +21,8 @@ import com.adyen.model.checkout.PaypalUpdateOrderRequest;
 import com.adyen.model.checkout.PaypalUpdateOrderResponse;
 import com.adyen.model.checkout.UtilityRequest;
 import com.adyen.model.checkout.UtilityResponse;
+import com.adyen.model.checkout.ValidateShopperIdRequest;
+import com.adyen.model.checkout.ValidateShopperIdResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
 import java.io.IOException;
@@ -148,5 +150,37 @@ public class UtilityApi extends Service {
     String jsonResult =
         resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
     return PaypalUpdateOrderResponse.fromJson(jsonResult);
+  }
+
+  /**
+   * Validates shopper Id
+   *
+   * @param validateShopperIdRequest {@link ValidateShopperIdRequest } (required)
+   * @param validateShopperIdRequest {@link ValidateShopperIdRequest } (required)
+   * @return {@link ValidateShopperIdResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public ValidateShopperIdResponse validateShopperId(
+      ValidateShopperIdRequest validateShopperIdRequest) throws ApiException, IOException {
+    return validateShopperId(validateShopperIdRequest, null);
+  }
+
+  /**
+   * Validates shopper Id
+   *
+   * @param validateShopperIdRequest {@link ValidateShopperIdRequest } (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   *     idempotency-keys (optional)
+   * @return {@link ValidateShopperIdResponse }
+   * @throws ApiException if fails to make API call
+   */
+  public ValidateShopperIdResponse validateShopperId(
+      ValidateShopperIdRequest validateShopperIdRequest, RequestOptions requestOptions)
+      throws ApiException, IOException {
+    String requestBody = validateShopperIdRequest.toJson();
+    Resource resource = new Resource(this, this.baseURL + "/validateShopperId", null);
+    String jsonResult =
+        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
+    return ValidateShopperIdResponse.fromJson(jsonResult);
   }
 }

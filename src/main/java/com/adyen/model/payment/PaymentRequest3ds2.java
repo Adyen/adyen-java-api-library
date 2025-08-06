@@ -1591,7 +1591,7 @@ public class PaymentRequest3ds2 {
 
   /**
    * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
-   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * number of risk checks (for instance, number of payment attempts or location-based checks). &gt;
    * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
    * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
    * integrations, the field is required to support cases where authentication is routed to the
@@ -1600,8 +1600,8 @@ public class PaymentRequest3ds2 {
    *
    * @param shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
    *     is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
-   *     authentication for all web and mobile integrations, if you did not include the
+   *     location-based checks). &gt; Required for Visa and JCB transactions that require 3D Secure
+   *     2 authentication for all web and mobile integrations, if you did not include the
    *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
    *     cases where authentication is routed to the redirect flow. This field is also mandatory for
    *     some merchants depending on your business model. For more information, [contact
@@ -1615,7 +1615,7 @@ public class PaymentRequest3ds2 {
 
   /**
    * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
-   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * number of risk checks (for instance, number of payment attempts or location-based checks). &gt;
    * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
    * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
    * integrations, the field is required to support cases where authentication is routed to the
@@ -1624,8 +1624,8 @@ public class PaymentRequest3ds2 {
    *
    * @return shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
    *     is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
-   *     authentication for all web and mobile integrations, if you did not include the
+   *     location-based checks). &gt; Required for Visa and JCB transactions that require 3D Secure
+   *     2 authentication for all web and mobile integrations, if you did not include the
    *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
    *     cases where authentication is routed to the redirect flow. This field is also mandatory for
    *     some merchants depending on your business model. For more information, [contact
@@ -1639,7 +1639,7 @@ public class PaymentRequest3ds2 {
 
   /**
    * The shopper&#39;s IP address. We recommend that you provide this data, as it is used in a
-   * number of risk checks (for instance, number of payment attempts or location-based checks).&gt;
+   * number of risk checks (for instance, number of payment attempts or location-based checks). &gt;
    * Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and
    * mobile integrations, if you did not include the &#x60;shopperEmail&#x60;. For native mobile
    * integrations, the field is required to support cases where authentication is routed to the
@@ -1648,8 +1648,8 @@ public class PaymentRequest3ds2 {
    *
    * @param shopperIP The shopper&#39;s IP address. We recommend that you provide this data, as it
    *     is used in a number of risk checks (for instance, number of payment attempts or
-   *     location-based checks).&gt; Required for Visa and JCB transactions that require 3D Secure 2
-   *     authentication for all web and mobile integrations, if you did not include the
+   *     location-based checks). &gt; Required for Visa and JCB transactions that require 3D Secure
+   *     2 authentication for all web and mobile integrations, if you did not include the
    *     &#x60;shopperEmail&#x60;. For native mobile integrations, the field is required to support
    *     cases where authentication is routed to the redirect flow. This field is also mandatory for
    *     some merchants depending on your business model. For more information, [contact
@@ -2093,17 +2093,17 @@ public class PaymentRequest3ds2 {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @param telephoneNumber The shopper&#39;s telephone number. The phone number must include a plus
+   *     sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    * @return the current {@code PaymentRequest3ds2} instance, allowing for method chaining
    */
   public PaymentRequest3ds2 telephoneNumber(String telephoneNumber) {
@@ -2112,17 +2112,17 @@ public class PaymentRequest3ds2 {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @return telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @return telephoneNumber The shopper&#39;s telephone number. The phone number must include a
+   *     plus sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2131,17 +2131,17 @@ public class PaymentRequest3ds2 {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @param telephoneNumber The shopper&#39;s telephone number. The phone number must include a plus
+   *     sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

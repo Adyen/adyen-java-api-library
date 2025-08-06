@@ -121,11 +121,11 @@ public class PaymentReversalResponse {
 
   /**
    * The
-   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    * of the payment to reverse.
    *
    * @param paymentPspReference The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment to reverse.
    * @return the current {@code PaymentReversalResponse} instance, allowing for method chaining
    */
@@ -136,11 +136,11 @@ public class PaymentReversalResponse {
 
   /**
    * The
-   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    * of the payment to reverse.
    *
    * @return paymentPspReference The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment to reverse.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
@@ -151,11 +151,11 @@ public class PaymentReversalResponse {
 
   /**
    * The
-   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   * [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    * of the payment to reverse.
    *
    * @param paymentPspReference The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment to reverse.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT_PSP_REFERENCE)
