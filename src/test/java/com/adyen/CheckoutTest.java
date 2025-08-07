@@ -208,19 +208,23 @@ public class CheckoutTest extends BaseTest {
 
   @Test
   public void TestPaymentDetailsWithThreeDS2Action() throws Exception {
-    Client client = createMockClientFromFile("mocks/checkout/paymentDetailsResponseThreeDS2Action.json");
+    Client client =
+        createMockClientFromFile("mocks/checkout/paymentDetailsResponseThreeDS2Action.json");
     PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest();
     detailsRequest.setPaymentData("STATE_DATA");
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentDetailsResponse paymentDetailsResponse = checkout.paymentsDetails(detailsRequest);
     assertEquals(
-            PaymentDetailsResponse.ResultCodeEnum.CHALLENGESHOPPER, paymentDetailsResponse.getResultCode());
+        PaymentDetailsResponse.ResultCodeEnum.CHALLENGESHOPPER,
+        paymentDetailsResponse.getResultCode());
     assertNotNull(paymentDetailsResponse.getAction());
     assertNotNull(paymentDetailsResponse.getAction().getCheckoutThreeDS2Action());
-    assertEquals(CheckoutThreeDS2Action.TypeEnum.THREEDS2, paymentDetailsResponse.getAction().getCheckoutThreeDS2Action().getType());
-    assertEquals("challenge", paymentDetailsResponse.getAction().getCheckoutThreeDS2Action().getSubtype());
+    assertEquals(
+        CheckoutThreeDS2Action.TypeEnum.THREEDS2,
+        paymentDetailsResponse.getAction().getCheckoutThreeDS2Action().getType());
+    assertEquals(
+        "challenge", paymentDetailsResponse.getAction().getCheckoutThreeDS2Action().getSubtype());
   }
-
 
   /** Should make sessions call */
   @Test
