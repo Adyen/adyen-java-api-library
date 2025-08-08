@@ -148,6 +148,28 @@ public class ConfigurationWebhooksHandler {
   }
 
   /**
+   * Attempts to deserialize the webhook payload into a ScoreNotificationRequest
+   *
+   * @return an Optional containing the deserialized object, or empty if deserialization fails
+   */
+  public Optional<ScoreNotificationRequest> getScoreNotificationRequest() {
+
+    var optionalScoreNotificationRequest = getOptionalField(ScoreNotificationRequest.class);
+
+    if (optionalScoreNotificationRequest.isPresent()) {
+      // verify event type
+      for (var value : ScoreNotificationRequest.TypeEnum.values()) {
+        if (value.equals(optionalScoreNotificationRequest.get().getType())) {
+          // found matching event type
+          return optionalScoreNotificationRequest;
+        }
+      }
+    }
+
+    return Optional.empty();
+  }
+
+  /**
    * Attempts to deserialize the webhook payload into a SweepConfigurationNotificationRequest
    *
    * @return an Optional containing the deserialized object, or empty if deserialization fails
