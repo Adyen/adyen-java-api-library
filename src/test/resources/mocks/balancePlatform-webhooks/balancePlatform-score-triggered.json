@@ -1,0 +1,19 @@
+{
+  "data": {
+    "balancePlatform": "YOUR_BALANCE_PLATFORM",
+    "creationDate": "2025-07-20T17:12:07+02:00",
+    "id": "2235e7be-fcb0-4b88-a79b-895b68cfb855",
+    "accountHolder": {
+      "description": "AH 01",
+      "id": "AH00000000000001",
+      "reference": "ref1"
+    },
+    "riskScore": 100,
+    "scoreSignalsTriggered": [
+      "ChargebackCardholderDispute",
+      "ChargebackNonReceipt"
+    ]
+  },
+  "environment": "test",
+  "type": "balancePlatform.score.triggered"
+}
