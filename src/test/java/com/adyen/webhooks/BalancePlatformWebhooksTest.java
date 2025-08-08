@@ -440,7 +440,8 @@ public class BalancePlatformWebhooksTest extends BaseTest {
   @Test
   public void testScoreNotificationRequest() {
 
-    String json = getFileContents("mocks/balancePlatform-webhooks/balancePlatform-score-triggered.json");
+    String json =
+        getFileContents("mocks/balancePlatform-webhooks/balancePlatform-score-triggered.json");
 
     ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
     Optional<ScoreNotificationRequest> optionalRequest = handler.getScoreNotificationRequest();
@@ -448,7 +449,8 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     assertTrue("The ScoreNotificationRequest should be present", optionalRequest.isPresent());
 
     ScoreNotificationRequest request = optionalRequest.get();
-    assertEquals(ScoreNotificationRequest.TypeEnum.BALANCEPLATFORM_SCORE_TRIGGERED, request.getType());
+    assertEquals(
+        ScoreNotificationRequest.TypeEnum.BALANCEPLATFORM_SCORE_TRIGGERED, request.getType());
     assertEquals("test", request.getEnvironment());
 
     BankScoreSignalTriggeredData data = request.getData();
