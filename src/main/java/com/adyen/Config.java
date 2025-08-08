@@ -6,21 +6,25 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 
 public class Config {
+  // API key authentication
+  protected String apiKey;
+  // Basic authentication
   protected String username;
   protected String password;
+  // Environment: Test or Live
   protected Environment environment;
 
-  /** Application name: used as HTTP client User-Agent */
+  // Application name: used as HTTP client User-Agent
   protected String applicationName;
 
-  protected String apiKey;
+  // HTTP Client options
   protected int connectionTimeoutMillis = 60 * 1000; // default 60 sec
   protected int readTimeoutMillis = 60 * 1000; // default 60 sec
   protected int connectionRequestTimeoutMillis = 60 * 1000; // default 60 sec
   protected int defaultKeepAliveMillis = 60 * 1000; // default 60 sec
   protected Boolean protocolUpgradeEnabled;
 
-  // Terminal API Specific
+  // Terminal API configuration
   protected String terminalApiCloudEndpoint;
   protected String terminalApiLocalEndpoint;
   protected String liveEndpointUrlPrefix;
