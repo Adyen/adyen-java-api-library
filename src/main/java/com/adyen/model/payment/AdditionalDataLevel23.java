@@ -466,13 +466,20 @@ public class AdditionalDataLevel23 {
   }
 
   /**
-   * A description of the item. * Encoding: ASCII * Max length: 26 characters * Must not be a single
-   * character. * Must not be blank. * Must not start with a space or be all spaces. * Must not be
-   * all zeros.
+   * A description of the item, that provides details about the purchase. For Visa transactions with
+   * level 3 ESD, the description must not be the same or very similar to your merchant name, or,
+   * consist only of common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding:
+   * ASCII * Max length: 26 characters * Must not be a single character. * Must not be blank. * Must
+   * not be all special characters. * Must not be blank. * Must not start with a space or be all
+   * spaces. * Must not be all zeros.
    *
-   * @param enhancedSchemeDataItemDetailLineItemNrDescription A description of the item. * Encoding:
-   *     ASCII * Max length: 26 characters * Must not be a single character. * Must not be blank. *
-   *     Must not start with a space or be all spaces. * Must not be all zeros.
+   * @param enhancedSchemeDataItemDetailLineItemNrDescription A description of the item, that
+   *     provides details about the purchase. For Visa transactions with level 3 ESD, the
+   *     description must not be the same or very similar to your merchant name, or, consist only of
+   *     common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding: ASCII * Max
+   *     length: 26 characters * Must not be a single character. * Must not be blank. * Must not be
+   *     all special characters. * Must not be blank. * Must not start with a space or be all
+   *     spaces. * Must not be all zeros.
    * @return the current {@code AdditionalDataLevel23} instance, allowing for method chaining
    */
   public AdditionalDataLevel23 enhancedSchemeDataItemDetailLineItemNrDescription(
@@ -483,13 +490,20 @@ public class AdditionalDataLevel23 {
   }
 
   /**
-   * A description of the item. * Encoding: ASCII * Max length: 26 characters * Must not be a single
-   * character. * Must not be blank. * Must not start with a space or be all spaces. * Must not be
-   * all zeros.
+   * A description of the item, that provides details about the purchase. For Visa transactions with
+   * level 3 ESD, the description must not be the same or very similar to your merchant name, or,
+   * consist only of common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding:
+   * ASCII * Max length: 26 characters * Must not be a single character. * Must not be blank. * Must
+   * not be all special characters. * Must not be blank. * Must not start with a space or be all
+   * spaces. * Must not be all zeros.
    *
-   * @return enhancedSchemeDataItemDetailLineItemNrDescription A description of the item. *
-   *     Encoding: ASCII * Max length: 26 characters * Must not be a single character. * Must not be
-   *     blank. * Must not start with a space or be all spaces. * Must not be all zeros.
+   * @return enhancedSchemeDataItemDetailLineItemNrDescription A description of the item, that
+   *     provides details about the purchase. For Visa transactions with level 3 ESD, the
+   *     description must not be the same or very similar to your merchant name, or, consist only of
+   *     common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding: ASCII * Max
+   *     length: 26 characters * Must not be a single character. * Must not be blank. * Must not be
+   *     all special characters. * Must not be blank. * Must not start with a space or be all
+   *     spaces. * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -498,13 +512,20 @@ public class AdditionalDataLevel23 {
   }
 
   /**
-   * A description of the item. * Encoding: ASCII * Max length: 26 characters * Must not be a single
-   * character. * Must not be blank. * Must not start with a space or be all spaces. * Must not be
-   * all zeros.
+   * A description of the item, that provides details about the purchase. For Visa transactions with
+   * level 3 ESD, the description must not be the same or very similar to your merchant name, or,
+   * consist only of common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding:
+   * ASCII * Max length: 26 characters * Must not be a single character. * Must not be blank. * Must
+   * not be all special characters. * Must not be blank. * Must not start with a space or be all
+   * spaces. * Must not be all zeros.
    *
-   * @param enhancedSchemeDataItemDetailLineItemNrDescription A description of the item. * Encoding:
-   *     ASCII * Max length: 26 characters * Must not be a single character. * Must not be blank. *
-   *     Must not start with a space or be all spaces. * Must not be all zeros.
+   * @param enhancedSchemeDataItemDetailLineItemNrDescription A description of the item, that
+   *     provides details about the purchase. For Visa transactions with level 3 ESD, the
+   *     description must not be the same or very similar to your merchant name, or, consist only of
+   *     common words like \&quot;product\&quot;, or \&quot;service\&quot;. * Encoding: ASCII * Max
+   *     length: 26 characters * Must not be a single character. * Must not be blank. * Must not be
+   *     all special characters. * Must not be blank. * Must not start with a space or be all
+   *     spaces. * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_ITEM_DETAIL_LINE_ITEM_NR_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

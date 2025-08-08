@@ -899,12 +899,12 @@ public class AdditionalDataAirline {
 
   /**
    * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. *
-   * minLength: 1 character * maxLength: 6 characters * Must not be all spaces * Must not be all
+   * minLength: 1 character * maxLength: 15 characters * Must not be all spaces * Must not be all
    * zeros.
    *
    * @param airlineLegFareBaseCode The [fare basis
    *     code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1
-   *     character * maxLength: 6 characters * Must not be all spaces * Must not be all zeros.
+   *     character * maxLength: 15 characters * Must not be all spaces * Must not be all zeros.
    * @return the current {@code AdditionalDataAirline} instance, allowing for method chaining
    */
   public AdditionalDataAirline airlineLegFareBaseCode(String airlineLegFareBaseCode) {
@@ -914,12 +914,12 @@ public class AdditionalDataAirline {
 
   /**
    * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. *
-   * minLength: 1 character * maxLength: 6 characters * Must not be all spaces * Must not be all
+   * minLength: 1 character * maxLength: 15 characters * Must not be all spaces * Must not be all
    * zeros.
    *
    * @return airlineLegFareBaseCode The [fare basis
    *     code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1
-   *     character * maxLength: 6 characters * Must not be all spaces * Must not be all zeros.
+   *     character * maxLength: 15 characters * Must not be all spaces * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -929,12 +929,12 @@ public class AdditionalDataAirline {
 
   /**
    * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. *
-   * minLength: 1 character * maxLength: 6 characters * Must not be all spaces * Must not be all
+   * minLength: 1 character * maxLength: 15 characters * Must not be all spaces * Must not be all
    * zeros.
    *
    * @param airlineLegFareBaseCode The [fare basis
    *     code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1
-   *     character * maxLength: 6 characters * Must not be all spaces * Must not be all zeros.
+   *     character * maxLength: 15 characters * Must not be all spaces * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_AIRLINE_LEG_FARE_BASE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
