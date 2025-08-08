@@ -673,19 +673,17 @@ public class CheckoutTest extends BaseTest {
     PaymentRequest paymentRequest = new PaymentRequest();
     paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
     paymentRequest.setReference("YOUR_ORDER_NUMBER");
-    paymentRequest.setAmount(new Amount()
-            .currency("EUR")
-            .value(1000L));
-    paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(
+    paymentRequest.setAmount(new Amount().currency("EUR").value(1000L));
+    paymentRequest.setPaymentMethod(
+        new CheckoutPaymentMethod(
             new CardDetails()
-                    .type(CardDetails.TypeEnum.BCMC)
-                    .holderName("Ms Smith")
-                    .encryptedCardNumber("...")
-                    .encryptedExpiryMonth("...")
-                    .encryptedExpiryYear("...")
-                    .brand("bcmc")
-                    .checkoutAttemptId("...")
-    ));
+                .type(CardDetails.TypeEnum.BCMC)
+                .holderName("Ms Smith")
+                .encryptedCardNumber("...")
+                .encryptedExpiryMonth("...")
+                .encryptedExpiryYear("...")
+                .brand("bcmc")
+                .checkoutAttemptId("...")));
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentResponse paymentResponse = checkout.payments(paymentRequest);
     assertEquals(PaymentResponse.ResultCodeEnum.REDIRECTSHOPPER, paymentResponse.getResultCode());
@@ -699,17 +697,14 @@ public class CheckoutTest extends BaseTest {
     PaymentRequest paymentRequest = new PaymentRequest();
     paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
     paymentRequest.setReference("YOUR_ORDER_NUMBER");
-    paymentRequest.setAmount(new Amount()
-            .currency("EUR")
-            .value(1000L));
-    paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(
+    paymentRequest.setAmount(new Amount().currency("EUR").value(1000L));
+    paymentRequest.setPaymentMethod(
+        new CheckoutPaymentMethod(
             new StoredPaymentMethodDetails()
-                    .type(StoredPaymentMethodDetails.TypeEnum.BCMC_MOBILE)
-    ));
+                .type(StoredPaymentMethodDetails.TypeEnum.BCMC_MOBILE)));
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentResponse paymentResponse = checkout.payments(paymentRequest);
     assertEquals(PaymentResponse.ResultCodeEnum.PENDING, paymentResponse.getResultCode());
     assertNotNull(paymentResponse.getAction());
   }
-
 }
