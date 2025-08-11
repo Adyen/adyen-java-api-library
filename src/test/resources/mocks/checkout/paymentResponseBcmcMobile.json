@@ -1,0 +1,10 @@
+{
+  "resultCode": "Pending",
+  "action": {
+    "paymentData": "Ab02b4c0!BQABAgCpM2q6...==",
+    "paymentMethodType": "bcmc_mobile",
+    "url": "BEPGenApp://DoTx?TransId=1bcmc-test.adyen.com/pal/bep$P5FOT6N55HYZNXVPFDGIHEJC",
+    "qrCodeData": "BEP://1bcmc-test.adyen.com/pal/test",
+    "type": "qrCode"
+  }
+}

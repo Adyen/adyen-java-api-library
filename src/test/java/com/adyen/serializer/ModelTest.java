@@ -5,7 +5,10 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import com.adyen.model.checkout.CardDetails;
+import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
+import com.adyen.model.checkout.StoredPaymentMethodDetails;
 import com.adyen.model.legalentitymanagement.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.Month;
@@ -146,5 +149,50 @@ public class ModelTest {
     assertEquals(2022, response.getExpiresAt().getYear());
     assertEquals(Month.JANUARY, response.getExpiresAt().getMonth());
     assertEquals(ZoneId.of("+01:00"), response.getExpiresAt().toZonedDateTime().getZone());
+  }
+
+  @Test
+  public void testFromJsonCheckoutPaymentMethodBcmc() throws Exception {
+    String json =
+        "{\n"
+            + "  \"type\": \"bcmc\",\n"
+            + "  \"holderName\": \"Ms Smith\",\n"
+            + "  \"encryptedCardNumber\": \"...\",\n"
+            + "  \"encryptedExpiryMonth\": \"...\",\n"
+            + "  \"encryptedExpiryYear\": \"...\",\n"
+            + "  \"brand\": \"bcmc\",\n"
+            + "  \"checkoutAttemptId\": \"...\"\n"
+            + "}";
+
+    CheckoutPaymentMethod paymentMethod = CheckoutPaymentMethod.fromJson(json);
+
+    assertNotNull(paymentMethod);
+
+    CardDetails cardDetails = paymentMethod.getCardDetails();
+    assertNotNull(cardDetails);
+
+    assertEquals(CardDetails.TypeEnum.BCMC, cardDetails.getType());
+    assertEquals("bcmc", cardDetails.getBrand());
+    assertEquals("Ms Smith", cardDetails.getHolderName());
+  }
+
+  @Test
+  public void testFromJsonCheckoutPaymentMethodBcmcMobile() throws Exception {
+    String json =
+        "{\n"
+            + " \"type\":\"bcmc_mobile\",\n"
+            + " \"storedPaymentMethodId\":\"7219687191761347\"\n"
+            + "}";
+
+    CheckoutPaymentMethod paymentMethod = CheckoutPaymentMethod.fromJson(json);
+    assertNotNull(paymentMethod);
+
+    StoredPaymentMethodDetails storedPaymentMethodDetails =
+        paymentMethod.getStoredPaymentMethodDetails();
+    assertNotNull(storedPaymentMethodDetails);
+
+    assertEquals(
+        StoredPaymentMethodDetails.TypeEnum.BCMC_MOBILE, storedPaymentMethodDetails.getType());
+    assertEquals("7219687191761347", storedPaymentMethodDetails.getStoredPaymentMethodId());
   }
 }
