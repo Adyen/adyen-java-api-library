@@ -669,7 +669,6 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void TestBccm() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentResponseBcmc.json");
-    Amount amount = new Amount().currency("EUR").value(1000L);
     PaymentRequest paymentRequest = new PaymentRequest();
     paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
     paymentRequest.setReference("YOUR_ORDER_NUMBER");
