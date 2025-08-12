@@ -667,7 +667,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestPixActionQrCode() throws Exception {
+  public void testPixActionQrCode() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/pixQrCodeResponse.json");
 
     PaymentRequest paymentRequest = new PaymentRequest();
