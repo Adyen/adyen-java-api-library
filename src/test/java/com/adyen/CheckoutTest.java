@@ -682,13 +682,13 @@ public class CheckoutTest extends BaseTest {
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentResponse paymentResponse = checkout.payments(paymentRequest);
     assertEquals("8815658961765250", paymentResponse.getPspReference());
-    assertEquals(
-        CheckoutQrCodeAction.TypeEnum.QRCODE,
-        paymentResponse.getAction().getCheckoutQrCodeAction().getType());
-    assertEquals(
-        "pix", paymentResponse.getAction().getCheckoutQrCodeAction().getPaymentMethodType());
-    assertEquals(
-        "DMhpN90TFR2e7TzwHYRFkhw4brxm2wHBg",
-        paymentResponse.getAction().getCheckoutQrCodeAction().getQrCodeData());
+    assertEquals(PaymentResponse.ResultCodeEnum.PENDING, paymentResponse.getResultCode());
+
+    assertNotNull(paymentResponse.getAction());
+    final CheckoutQrCodeAction qrCodeAction = paymentResponse.getAction().getCheckoutQrCodeAction();
+    assertNotNull(qrCodeAction);
+    assertEquals(CheckoutQrCodeAction.TypeEnum.QRCODE, qrCodeAction.getType());
+    assertEquals("pix", qrCodeAction.getPaymentMethodType());
+    assertEquals("DMhpN90TFR2e7TzwHYRFkhw4brxm2wHBg", qrCodeAction.getQrCodeData());
   }
 }
