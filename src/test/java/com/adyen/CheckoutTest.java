@@ -671,7 +671,7 @@ public class CheckoutTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/checkout/pixQrCodeResponse.json");
 
     PaymentRequest paymentRequest = new PaymentRequest();
-    paymentRequest.setAmount(new Amount().currency("EUR").value(1000L));
+    paymentRequest.setAmount(new Amount().currency("EUR").value(100000L));
     paymentRequest.lineItems(
         Arrays.asList(
             new LineItem().id("Item 1").amountIncludingTax(40000L),
