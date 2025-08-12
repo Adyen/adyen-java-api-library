@@ -1,0 +1,15 @@
+{
+  "additionalData": {
+    "pix.expirationDate": "2021-12-21T13:00:00-03:00",
+    "acquirerReference": "00000000008815658961765250",
+    "acquirerAccountCode": "PixBTGAcquirerAccount"
+  },
+  "pspReference": "8815658961765250",
+  "resultCode": "Pending",
+  "action": {
+    "paymentData": "Ab02b4c0!BQABAgA...",
+    "paymentMethodType": "pix",
+    "type": "qrCode",
+    "qrCodeData": "DMhpN90TFR2e7TzwHYRFkhw4brxm2wHBg"
+  }
+}
