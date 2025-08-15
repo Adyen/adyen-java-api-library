@@ -830,10 +830,10 @@ public class CreateCompanyWebhookRequest {
    * **ach-notification-of-change-notification** - **direct-debit-notice-of-change-notification** -
    * **pending-notification** - **ideal-notification** - **ideal-pending-notification** -
    * **report-notification** - **rreq-notification** - **terminal-settings** - **terminal-boarding**
-   * Find out more about [standard notification
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes)
-   * and [other types of
-   * notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+   * Find out more about [standard
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes) and
+   * [other types of
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#other-webhooks).
    *
    * @param type The type of webhook that is being created. Possible values are: - **standard** -
    *     **account-settings-notification** - **banktransfer-notification** -
@@ -842,10 +842,10 @@ public class CreateCompanyWebhookRequest {
    *     **direct-debit-notice-of-change-notification** - **pending-notification** -
    *     **ideal-notification** - **ideal-pending-notification** - **report-notification** -
    *     **rreq-notification** - **terminal-settings** - **terminal-boarding** Find out more about
-   *     [standard notification
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes)
+   *     [standard
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes)
    *     and [other types of
-   *     notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#other-webhooks).
    * @return the current {@code CreateCompanyWebhookRequest} instance, allowing for method chaining
    */
   public CreateCompanyWebhookRequest type(String type) {
@@ -860,10 +860,10 @@ public class CreateCompanyWebhookRequest {
    * **ach-notification-of-change-notification** - **direct-debit-notice-of-change-notification** -
    * **pending-notification** - **ideal-notification** - **ideal-pending-notification** -
    * **report-notification** - **rreq-notification** - **terminal-settings** - **terminal-boarding**
-   * Find out more about [standard notification
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes)
-   * and [other types of
-   * notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+   * Find out more about [standard
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes) and
+   * [other types of
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#other-webhooks).
    *
    * @return type The type of webhook that is being created. Possible values are: - **standard** -
    *     **account-settings-notification** - **banktransfer-notification** -
@@ -872,10 +872,10 @@ public class CreateCompanyWebhookRequest {
    *     **direct-debit-notice-of-change-notification** - **pending-notification** -
    *     **ideal-notification** - **ideal-pending-notification** - **report-notification** -
    *     **rreq-notification** - **terminal-settings** - **terminal-boarding** Find out more about
-   *     [standard notification
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes)
+   *     [standard
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes)
    *     and [other types of
-   *     notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#other-webhooks).
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -890,10 +890,10 @@ public class CreateCompanyWebhookRequest {
    * **ach-notification-of-change-notification** - **direct-debit-notice-of-change-notification** -
    * **pending-notification** - **ideal-notification** - **ideal-pending-notification** -
    * **report-notification** - **rreq-notification** - **terminal-settings** - **terminal-boarding**
-   * Find out more about [standard notification
-   * webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes)
-   * and [other types of
-   * notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+   * Find out more about [standard
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes) and
+   * [other types of
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#other-webhooks).
    *
    * @param type The type of webhook that is being created. Possible values are: - **standard** -
    *     **account-settings-notification** - **banktransfer-notification** -
@@ -902,10 +902,10 @@ public class CreateCompanyWebhookRequest {
    *     **direct-debit-notice-of-change-notification** - **pending-notification** -
    *     **ideal-notification** - **ideal-pending-notification** - **report-notification** -
    *     **rreq-notification** - **terminal-settings** - **terminal-boarding** Find out more about
-   *     [standard notification
-   *     webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes)
+   *     [standard
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes)
    *     and [other types of
-   *     notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#other-webhooks).
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

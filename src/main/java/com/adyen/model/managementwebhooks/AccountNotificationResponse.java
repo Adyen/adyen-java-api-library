@@ -27,10 +27,10 @@ public class AccountNotificationResponse {
 
   /**
    * Respond with any **2xx** HTTP status code to [accept the
-   * webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   * webhook](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks).
    *
    * @param notificationResponse Respond with any **2xx** HTTP status code to [accept the
-   *     webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   *     webhook](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks).
    * @return the current {@code AccountNotificationResponse} instance, allowing for method chaining
    */
   public AccountNotificationResponse notificationResponse(String notificationResponse) {
@@ -40,10 +40,10 @@ public class AccountNotificationResponse {
 
   /**
    * Respond with any **2xx** HTTP status code to [accept the
-   * webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   * webhook](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks).
    *
    * @return notificationResponse Respond with any **2xx** HTTP status code to [accept the
-   *     webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   *     webhook](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks).
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -53,10 +53,10 @@ public class AccountNotificationResponse {
 
   /**
    * Respond with any **2xx** HTTP status code to [accept the
-   * webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   * webhook](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks).
    *
    * @param notificationResponse Respond with any **2xx** HTTP status code to [accept the
-   *     webhook](https://docs.adyen.com/development-resources/webhooks#accept-notifications).
+   *     webhook](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks).
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

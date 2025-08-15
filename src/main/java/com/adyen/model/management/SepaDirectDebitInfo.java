@@ -17,60 +17,60 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
-/** PayByBankPlaidInfo */
+/** SepaDirectDebitInfo */
 @JsonPropertyOrder({
-  PayByBankPlaidInfo.JSON_PROPERTY_LOGO,
-  PayByBankPlaidInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION
+  SepaDirectDebitInfo.JSON_PROPERTY_CREDITOR_ID,
+  SepaDirectDebitInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION
 })
-public class PayByBankPlaidInfo {
-  public static final String JSON_PROPERTY_LOGO = "logo";
-  private String logo;
+public class SepaDirectDebitInfo {
+  public static final String JSON_PROPERTY_CREDITOR_ID = "creditorId";
+  private String creditorId;
 
   public static final String JSON_PROPERTY_TRANSACTION_DESCRIPTION = "transactionDescription";
   private TransactionDescriptionInfo transactionDescription;
 
-  public PayByBankPlaidInfo() {}
+  public SepaDirectDebitInfo() {}
 
   /**
-   * Merchant logo (max. size 150kB). Format: Base64-encoded string.
+   * Creditor id
    *
-   * @param logo Merchant logo (max. size 150kB). Format: Base64-encoded string.
-   * @return the current {@code PayByBankPlaidInfo} instance, allowing for method chaining
+   * @param creditorId Creditor id
+   * @return the current {@code SepaDirectDebitInfo} instance, allowing for method chaining
    */
-  public PayByBankPlaidInfo logo(String logo) {
-    this.logo = logo;
+  public SepaDirectDebitInfo creditorId(String creditorId) {
+    this.creditorId = creditorId;
     return this;
   }
 
   /**
-   * Merchant logo (max. size 150kB). Format: Base64-encoded string.
+   * Creditor id
    *
-   * @return logo Merchant logo (max. size 150kB). Format: Base64-encoded string.
+   * @return creditorId Creditor id
    */
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(JSON_PROPERTY_CREDITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLogo() {
-    return logo;
+  public String getCreditorId() {
+    return creditorId;
   }
 
   /**
-   * Merchant logo (max. size 150kB). Format: Base64-encoded string.
+   * Creditor id
    *
-   * @param logo Merchant logo (max. size 150kB). Format: Base64-encoded string.
+   * @param creditorId Creditor id
    */
-  @JsonProperty(JSON_PROPERTY_LOGO)
+  @JsonProperty(JSON_PROPERTY_CREDITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLogo(String logo) {
-    this.logo = logo;
+  public void setCreditorId(String creditorId) {
+    this.creditorId = creditorId;
   }
 
   /**
    * transactionDescription
    *
    * @param transactionDescription
-   * @return the current {@code PayByBankPlaidInfo} instance, allowing for method chaining
+   * @return the current {@code SepaDirectDebitInfo} instance, allowing for method chaining
    */
-  public PayByBankPlaidInfo transactionDescription(
+  public SepaDirectDebitInfo transactionDescription(
       TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
     return this;
@@ -98,7 +98,7 @@ public class PayByBankPlaidInfo {
     this.transactionDescription = transactionDescription;
   }
 
-  /** Return true if this PayByBankPlaidInfo object is equal to o. */
+  /** Return true if this SepaDirectDebitInfo object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,21 +107,21 @@ public class PayByBankPlaidInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PayByBankPlaidInfo payByBankPlaidInfo = (PayByBankPlaidInfo) o;
-    return Objects.equals(this.logo, payByBankPlaidInfo.logo)
-        && Objects.equals(this.transactionDescription, payByBankPlaidInfo.transactionDescription);
+    SepaDirectDebitInfo sepaDirectDebitInfo = (SepaDirectDebitInfo) o;
+    return Objects.equals(this.creditorId, sepaDirectDebitInfo.creditorId)
+        && Objects.equals(this.transactionDescription, sepaDirectDebitInfo.transactionDescription);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logo, transactionDescription);
+    return Objects.hash(creditorId, transactionDescription);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PayByBankPlaidInfo {\n");
-    sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
+    sb.append("class SepaDirectDebitInfo {\n");
+    sb.append("    creditorId: ").append(toIndentedString(creditorId)).append("\n");
     sb.append("    transactionDescription: ")
         .append(toIndentedString(transactionDescription))
         .append("\n");
@@ -140,19 +140,19 @@ public class PayByBankPlaidInfo {
   }
 
   /**
-   * Create an instance of PayByBankPlaidInfo given an JSON string
+   * Create an instance of SepaDirectDebitInfo given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PayByBankPlaidInfo
+   * @return An instance of SepaDirectDebitInfo
    * @throws JsonProcessingException if the JSON string is invalid with respect to
-   *     PayByBankPlaidInfo
+   *     SepaDirectDebitInfo
    */
-  public static PayByBankPlaidInfo fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, PayByBankPlaidInfo.class);
+  public static SepaDirectDebitInfo fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SepaDirectDebitInfo.class);
   }
 
   /**
-   * Convert an instance of PayByBankPlaidInfo to an JSON string
+   * Convert an instance of SepaDirectDebitInfo to an JSON string
    *
    * @return JSON string
    */

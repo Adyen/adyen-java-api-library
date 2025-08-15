@@ -63,6 +63,7 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_PAYTO,
   PaymentMethod.JSON_PROPERTY_PULSE,
   PaymentMethod.JSON_PROPERTY_REFERENCE,
+  PaymentMethod.JSON_PROPERTY_SEPADIRECTDEBIT,
   PaymentMethod.JSON_PROPERTY_SHOPPER_INTERACTION,
   PaymentMethod.JSON_PROPERTY_SODEXO,
   PaymentMethod.JSON_PROPERTY_SOFORT,
@@ -192,6 +193,9 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  public static final String JSON_PROPERTY_SEPADIRECTDEBIT = "sepadirectdebit";
+  private SepaDirectDebitInfo sepadirectdebit;
 
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private String shopperInteraction;
@@ -1593,6 +1597,39 @@ public class PaymentMethod {
   }
 
   /**
+   * sepadirectdebit
+   *
+   * @param sepadirectdebit
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod sepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
+    this.sepadirectdebit = sepadirectdebit;
+    return this;
+  }
+
+  /**
+   * Get sepadirectdebit
+   *
+   * @return sepadirectdebit
+   */
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SepaDirectDebitInfo getSepadirectdebit() {
+    return sepadirectdebit;
+  }
+
+  /**
+   * sepadirectdebit
+   *
+   * @param sepadirectdebit
+   */
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
+    this.sepadirectdebit = sepadirectdebit;
+  }
+
+  /**
    * The sales channel.
    *
    * @param shopperInteraction The sales channel.
@@ -2122,6 +2159,7 @@ public class PaymentMethod {
         && Objects.equals(this.payto, paymentMethod.payto)
         && Objects.equals(this.pulse, paymentMethod.pulse)
         && Objects.equals(this.reference, paymentMethod.reference)
+        && Objects.equals(this.sepadirectdebit, paymentMethod.sepadirectdebit)
         && Objects.equals(this.shopperInteraction, paymentMethod.shopperInteraction)
         && Objects.equals(this.sodexo, paymentMethod.sodexo)
         && Objects.equals(this.sofort, paymentMethod.sofort)
@@ -2179,6 +2217,7 @@ public class PaymentMethod {
         payto,
         pulse,
         reference,
+        sepadirectdebit,
         shopperInteraction,
         sodexo,
         sofort,
@@ -2237,6 +2276,7 @@ public class PaymentMethod {
     sb.append("    payto: ").append(toIndentedString(payto)).append("\n");
     sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    sepadirectdebit: ").append(toIndentedString(sepadirectdebit)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
     sb.append("    sodexo: ").append(toIndentedString(sodexo)).append("\n");
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");

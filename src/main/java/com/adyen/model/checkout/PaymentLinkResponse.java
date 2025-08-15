@@ -1057,12 +1057,12 @@ public class PaymentLinkResponse {
 
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
-   * the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods
-   * such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
+   * Ratepay, and Riverty.
    *
    * @param lineItems Price and product information about the purchased items, to be included on the
-   *     invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay
-   *     later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   *     invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay,
+   *     Clearpay, Klarna, Ratepay, and Riverty.
    * @return the current {@code PaymentLinkResponse} instance, allowing for method chaining
    */
   public PaymentLinkResponse lineItems(List<LineItem> lineItems) {
@@ -1080,12 +1080,12 @@ public class PaymentLinkResponse {
 
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
-   * the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods
-   * such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
+   * Ratepay, and Riverty.
    *
    * @return lineItems Price and product information about the purchased items, to be included on
-   *     the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay
-   *     later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   *     the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm,
+   *     Afterpay, Clearpay, Klarna, Ratepay, and Riverty.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1095,12 +1095,12 @@ public class PaymentLinkResponse {
 
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
-   * the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods
-   * such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
+   * Ratepay, and Riverty.
    *
    * @param lineItems Price and product information about the purchased items, to be included on the
-   *     invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay
-   *     later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   *     invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay,
+   *     Clearpay, Klarna, Ratepay, and Riverty.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

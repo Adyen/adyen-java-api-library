@@ -1756,11 +1756,11 @@ public class PaymentRequest {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
    * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
-   * Ratepay, Riverty, and Zip.
+   * Ratepay, and Riverty.
    *
    * @param lineItems Price and product information about the purchased items, to be included on the
    *     invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay,
-   *     Clearpay, Klarna, Ratepay, Riverty, and Zip.
+   *     Clearpay, Klarna, Ratepay, and Riverty.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest lineItems(List<LineItem> lineItems) {
@@ -1779,11 +1779,11 @@ public class PaymentRequest {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
    * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
-   * Ratepay, Riverty, and Zip.
+   * Ratepay, and Riverty.
    *
    * @return lineItems Price and product information about the purchased items, to be included on
    *     the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm,
-   *     Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
+   *     Afterpay, Clearpay, Klarna, Ratepay, and Riverty.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1794,11 +1794,11 @@ public class PaymentRequest {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
    * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
-   * Ratepay, Riverty, and Zip.
+   * Ratepay, and Riverty.
    *
    * @param lineItems Price and product information about the purchased items, to be included on the
    *     invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay,
-   *     Clearpay, Klarna, Ratepay, Riverty, and Zip.
+   *     Clearpay, Klarna, Ratepay, and Riverty.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

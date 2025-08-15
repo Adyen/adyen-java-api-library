@@ -185,11 +185,15 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO
    * 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value:
-   * **en** for English.
+   * **en** for English or **fr** for French. Note that French is only available for some
+   * integration types in certain countries/regions. Reach out to your Adyen contact for more
+   * information.
    *
    * @param language The language used for the Terms of Service document, specified by the
    *     two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language
-   *     code. Possible value: **en** for English.
+   *     code. Possible value: **en** for English or **fr** for French. Note that French is only
+   *     available for some integration types in certain countries/regions. Reach out to your Adyen
+   *     contact for more information.
    * @return the current {@code GetTermsOfServiceDocumentResponse} instance, allowing for method
    *     chaining
    */
@@ -201,11 +205,15 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO
    * 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value:
-   * **en** for English.
+   * **en** for English or **fr** for French. Note that French is only available for some
+   * integration types in certain countries/regions. Reach out to your Adyen contact for more
+   * information.
    *
    * @return language The language used for the Terms of Service document, specified by the
    *     two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language
-   *     code. Possible value: **en** for English.
+   *     code. Possible value: **en** for English or **fr** for French. Note that French is only
+   *     available for some integration types in certain countries/regions. Reach out to your Adyen
+   *     contact for more information.
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,11 +224,15 @@ public class GetTermsOfServiceDocumentResponse {
   /**
    * The language used for the Terms of Service document, specified by the two-letter [ISO
    * 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code. Possible value:
-   * **en** for English.
+   * **en** for English or **fr** for French. Note that French is only available for some
+   * integration types in certain countries/regions. Reach out to your Adyen contact for more
+   * information.
    *
    * @param language The language used for the Terms of Service document, specified by the
    *     two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language
-   *     code. Possible value: **en** for English.
+   *     code. Possible value: **en** for English or **fr** for French. Note that French is only
+   *     available for some integration types in certain countries/regions. Reach out to your Adyen
+   *     contact for more information.
    */
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
