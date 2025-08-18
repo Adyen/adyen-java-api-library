@@ -80,9 +80,12 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(IssuingTransactionData.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(IssuingTransactionData.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(IssuingTransactionData.class);
@@ -103,9 +106,12 @@ public class TransferEventEventsDataInner extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(MerchantPurchaseData.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(MerchantPurchaseData.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(MerchantPurchaseData.class);

@@ -78,9 +78,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(AchDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(AchDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(AchDetails.class);
@@ -101,9 +104,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(AffirmDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(AffirmDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(AffirmDetails.class);
@@ -124,9 +130,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(AfterpayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(AfterpayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(AfterpayDetails.class);
@@ -147,9 +156,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(AmazonPayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(AmazonPayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(AmazonPayDetails.class);
@@ -170,9 +182,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(AncvDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(AncvDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(AncvDetails.class);
@@ -193,9 +208,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(AndroidPayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(AndroidPayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(AndroidPayDetails.class);
@@ -216,9 +234,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(ApplePayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(ApplePayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(ApplePayDetails.class);
@@ -239,9 +260,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(BacsDirectDebitDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(BacsDirectDebitDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(BacsDirectDebitDetails.class);
@@ -262,9 +286,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(BillDeskDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(BillDeskDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(BillDeskDetails.class);
@@ -285,9 +312,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(BlikDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(BlikDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(BlikDetails.class);
@@ -308,9 +338,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CardDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CardDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CardDetails.class);
@@ -331,9 +364,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CashAppDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CashAppDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CashAppDetails.class);
@@ -354,9 +390,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CellulantDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CellulantDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CellulantDetails.class);
@@ -377,9 +416,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(DokuDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(DokuDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(DokuDetails.class);
@@ -400,9 +442,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(DragonpayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(DragonpayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(DragonpayDetails.class);
@@ -423,9 +468,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(EBankingFinlandDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(EBankingFinlandDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(EBankingFinlandDetails.class);
@@ -446,9 +494,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(EcontextVoucherDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(EcontextVoucherDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(EcontextVoucherDetails.class);
@@ -469,9 +520,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(EftDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(EftDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(EftDetails.class);
@@ -492,9 +546,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(FastlaneDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(FastlaneDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(FastlaneDetails.class);
@@ -515,9 +572,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(GenericIssuerPaymentMethodDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(GenericIssuerPaymentMethodDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -540,9 +600,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(GooglePayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(GooglePayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(GooglePayDetails.class);
@@ -563,9 +626,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(IdealDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(IdealDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(IdealDetails.class);
@@ -586,9 +652,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(KlarnaDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(KlarnaDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(KlarnaDetails.class);
@@ -609,9 +678,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(MasterpassDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(MasterpassDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(MasterpassDetails.class);
@@ -632,9 +704,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(MbwayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(MbwayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(MbwayDetails.class);
@@ -655,9 +730,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(MobilePayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(MobilePayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(MobilePayDetails.class);
@@ -678,9 +756,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(MolPayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(MolPayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(MolPayDetails.class);
@@ -701,9 +782,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(OpenInvoiceDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(OpenInvoiceDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(OpenInvoiceDetails.class);
@@ -724,9 +808,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PayByBankAISDirectDebitDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PayByBankAISDirectDebitDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -749,9 +836,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PayByBankDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PayByBankDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PayByBankDetails.class);
@@ -772,9 +862,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PayPalDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PayPalDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PayPalDetails.class);
@@ -795,9 +888,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PayPayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PayPayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PayPayDetails.class);
@@ -818,9 +914,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PayToDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PayToDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PayToDetails.class);
@@ -841,9 +940,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PayUUpiDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PayUUpiDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PayUUpiDetails.class);
@@ -864,9 +966,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PayWithGoogleDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PayWithGoogleDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PayWithGoogleDetails.class);
@@ -887,9 +992,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PaymentDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PaymentDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PaymentDetails.class);
@@ -910,9 +1018,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PixDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PixDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PixDetails.class);
@@ -933,9 +1044,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PseDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PseDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PseDetails.class);
@@ -956,9 +1070,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(RakutenPayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(RakutenPayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(RakutenPayDetails.class);
@@ -979,9 +1096,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(RatepayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(RatepayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(RatepayDetails.class);
@@ -1002,9 +1122,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(RivertyDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(RivertyDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(RivertyDetails.class);
@@ -1025,9 +1148,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(SamsungPayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(SamsungPayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(SamsungPayDetails.class);
@@ -1048,9 +1174,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(SepaDirectDebitDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(SepaDirectDebitDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(SepaDirectDebitDetails.class);
@@ -1071,9 +1200,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(StoredPaymentMethodDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(StoredPaymentMethodDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -1095,9 +1227,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(TwintDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(TwintDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(TwintDetails.class);
@@ -1118,9 +1253,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(UpiCollectDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(UpiCollectDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(UpiCollectDetails.class);
@@ -1141,9 +1279,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(UpiIntentDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(UpiIntentDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(UpiIntentDetails.class);
@@ -1164,9 +1305,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(VippsDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(VippsDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(VippsDetails.class);
@@ -1187,9 +1331,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(VisaCheckoutDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(VisaCheckoutDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(VisaCheckoutDetails.class);
@@ -1210,9 +1357,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(WeChatPayDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(WeChatPayDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(WeChatPayDetails.class);
@@ -1233,9 +1383,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(WeChatPayMiniProgramDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(WeChatPayMiniProgramDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -1257,9 +1410,12 @@ public class CheckoutPaymentMethod extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(ZipDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(ZipDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(ZipDetails.class);

@@ -89,9 +89,12 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(InstallAndroidAppDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(InstallAndroidAppDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(InstallAndroidAppDetails.class);
@@ -112,9 +115,12 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(InstallAndroidCertificateDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(InstallAndroidCertificateDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -137,9 +143,12 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(ReleaseUpdateDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(ReleaseUpdateDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(ReleaseUpdateDetails.class);
@@ -160,9 +169,12 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(UninstallAndroidAppDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(UninstallAndroidAppDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -184,9 +196,12 @@ public class ScheduleTerminalActionsRequestActionDetails extends AbstractOpenApi
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(UninstallAndroidCertificateDetails.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(UninstallAndroidCertificateDetails.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
