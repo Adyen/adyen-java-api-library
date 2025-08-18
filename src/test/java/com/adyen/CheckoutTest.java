@@ -665,4 +665,30 @@ public class CheckoutTest extends BaseTest {
     final JsonNode actual = mapper.readTree(captor.getValue());
     assertEquals(expected, actual);
   }
+
+  @Test
+  public void testPixActionQrCode() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/pixQrCodeResponse.json");
+
+    PaymentRequest paymentRequest = new PaymentRequest();
+    paymentRequest.setAmount(new Amount().currency("EUR").value(100000L));
+    paymentRequest.lineItems(
+        Arrays.asList(
+            new LineItem().id("Item 1").amountIncludingTax(40000L),
+            new LineItem().id("Item 2").amountIncludingTax(60000L)));
+    paymentRequest.shopperName(new Name().firstName("Jose").lastName("Silva"));
+    paymentRequest.setPaymentMethod(
+        new CheckoutPaymentMethod(new PixDetails().type(PixDetails.TypeEnum.PIX)));
+    PaymentsApi checkout = new PaymentsApi(client);
+    PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+    assertEquals("8815658961765250", paymentResponse.getPspReference());
+    assertEquals(PaymentResponse.ResultCodeEnum.PENDING, paymentResponse.getResultCode());
+
+    assertNotNull(paymentResponse.getAction());
+    final CheckoutQrCodeAction qrCodeAction = paymentResponse.getAction().getCheckoutQrCodeAction();
+    assertNotNull(qrCodeAction);
+    assertEquals(CheckoutQrCodeAction.TypeEnum.QRCODE, qrCodeAction.getType());
+    assertEquals("pix", qrCodeAction.getPaymentMethodType());
+    assertEquals("DMhpN90TFR2e7TzwHYRFkhw4brxm2wHBg", qrCodeAction.getQrCodeData());
+  }
 }
