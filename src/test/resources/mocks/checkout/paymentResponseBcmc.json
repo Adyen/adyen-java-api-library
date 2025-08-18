@@ -1,0 +1,14 @@
+{
+  "resultCode": "RedirectShopper",
+  "action": {
+    "paymentMethodType": "bccm",
+    "url": "https://your-company.example.com/checkout?shopperOrder=12xy..",
+    "data": {
+      "MD": "OEVudmZVMUlkWjd0MDNwUWs2bmhSdz09...",
+      "PaReq": "eNpVUttygjAQ/RXbDyAXBYRZ00HpTH3wUosPfe...",
+      "TermUrl": "https://example.com/checkout?shopperOrder=12xy..."
+    },
+    "method": "POST",
+    "type": "redirect"
+  }
+}

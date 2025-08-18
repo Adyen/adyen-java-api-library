@@ -667,6 +667,46 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
+  public void TestBccm() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/paymentResponseBcmc.json");
+    PaymentRequest paymentRequest = new PaymentRequest();
+    paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
+    paymentRequest.setReference("YOUR_ORDER_NUMBER");
+    paymentRequest.setAmount(new Amount().currency("EUR").value(1000L));
+    paymentRequest.setPaymentMethod(
+        new CheckoutPaymentMethod(
+            new CardDetails()
+                .type(CardDetails.TypeEnum.BCMC)
+                .holderName("Ms Smith")
+                .encryptedCardNumber("...")
+                .encryptedExpiryMonth("...")
+                .encryptedExpiryYear("...")
+                .brand("bcmc")
+                .checkoutAttemptId("...")));
+    PaymentsApi checkout = new PaymentsApi(client);
+    PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+    assertEquals(PaymentResponse.ResultCodeEnum.REDIRECTSHOPPER, paymentResponse.getResultCode());
+    assertNotNull(paymentResponse.getAction());
+  }
+
+  @Test
+  public void TestBccmMobile() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/paymentResponseBcmcMobile.json");
+    PaymentRequest paymentRequest = new PaymentRequest();
+    paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
+    paymentRequest.setReference("YOUR_ORDER_NUMBER");
+    paymentRequest.setAmount(new Amount().currency("EUR").value(1000L));
+    paymentRequest.setPaymentMethod(
+        new CheckoutPaymentMethod(
+            new StoredPaymentMethodDetails()
+                .type(StoredPaymentMethodDetails.TypeEnum.BCMC_MOBILE)));
+    PaymentsApi checkout = new PaymentsApi(client);
+    PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+    assertEquals(PaymentResponse.ResultCodeEnum.PENDING, paymentResponse.getResultCode());
+    assertNotNull(paymentResponse.getAction());
+  }
+   
+  @Test
   public void testPixActionQrCode() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/pixQrCodeResponse.json");
 
