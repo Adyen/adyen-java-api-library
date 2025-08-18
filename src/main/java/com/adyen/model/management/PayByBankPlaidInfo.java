@@ -19,15 +19,15 @@ import java.util.*;
 
 /** PayByBankPlaidInfo */
 @JsonPropertyOrder({
-        PayByBankPlaidInfo.JSON_PROPERTY_COUNTRY_CODE,
-        PayByBankPlaidInfo.JSON_PROPERTY_LOGO,
-        PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_CITY,
-        PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_LEGAL_NAME,
-        PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_SHOP_URL,
-        PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_STATE_PROVINCE,
-        PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_STREET_ADDRESS,
-        PayByBankPlaidInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION,
-        PayByBankPlaidInfo.JSON_PROPERTY_ZIP_CODE
+  PayByBankPlaidInfo.JSON_PROPERTY_COUNTRY_CODE,
+  PayByBankPlaidInfo.JSON_PROPERTY_LOGO,
+  PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_CITY,
+  PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_LEGAL_NAME,
+  PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_SHOP_URL,
+  PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_STATE_PROVINCE,
+  PayByBankPlaidInfo.JSON_PROPERTY_MERCHANT_STREET_ADDRESS,
+  PayByBankPlaidInfo.JSON_PROPERTY_TRANSACTION_DESCRIPTION,
+  PayByBankPlaidInfo.JSON_PROPERTY_ZIP_CODE
 })
 public class PayByBankPlaidInfo {
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
@@ -297,7 +297,7 @@ public class PayByBankPlaidInfo {
    * @return the current {@code PayByBankPlaidInfo} instance, allowing for method chaining
    */
   public PayByBankPlaidInfo transactionDescription(
-          TransactionDescriptionInfo transactionDescription) {
+      TransactionDescriptionInfo transactionDescription) {
     this.transactionDescription = transactionDescription;
     return this;
   }
@@ -368,28 +368,28 @@ public class PayByBankPlaidInfo {
     }
     PayByBankPlaidInfo payByBankPlaidInfo = (PayByBankPlaidInfo) o;
     return Objects.equals(this.countryCode, payByBankPlaidInfo.countryCode)
-            && Objects.equals(this.logo, payByBankPlaidInfo.logo)
-            && Objects.equals(this.merchantCity, payByBankPlaidInfo.merchantCity)
-            && Objects.equals(this.merchantLegalName, payByBankPlaidInfo.merchantLegalName)
-            && Objects.equals(this.merchantShopUrl, payByBankPlaidInfo.merchantShopUrl)
-            && Objects.equals(this.merchantStateProvince, payByBankPlaidInfo.merchantStateProvince)
-            && Objects.equals(this.merchantStreetAddress, payByBankPlaidInfo.merchantStreetAddress)
-            && Objects.equals(this.transactionDescription, payByBankPlaidInfo.transactionDescription)
-            && Objects.equals(this.zipCode, payByBankPlaidInfo.zipCode);
+        && Objects.equals(this.logo, payByBankPlaidInfo.logo)
+        && Objects.equals(this.merchantCity, payByBankPlaidInfo.merchantCity)
+        && Objects.equals(this.merchantLegalName, payByBankPlaidInfo.merchantLegalName)
+        && Objects.equals(this.merchantShopUrl, payByBankPlaidInfo.merchantShopUrl)
+        && Objects.equals(this.merchantStateProvince, payByBankPlaidInfo.merchantStateProvince)
+        && Objects.equals(this.merchantStreetAddress, payByBankPlaidInfo.merchantStreetAddress)
+        && Objects.equals(this.transactionDescription, payByBankPlaidInfo.transactionDescription)
+        && Objects.equals(this.zipCode, payByBankPlaidInfo.zipCode);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-            countryCode,
-            logo,
-            merchantCity,
-            merchantLegalName,
-            merchantShopUrl,
-            merchantStateProvince,
-            merchantStreetAddress,
-            transactionDescription,
-            zipCode);
+        countryCode,
+        logo,
+        merchantCity,
+        merchantLegalName,
+        merchantShopUrl,
+        merchantStateProvince,
+        merchantStreetAddress,
+        transactionDescription,
+        zipCode);
   }
 
   @Override
@@ -402,14 +402,14 @@ public class PayByBankPlaidInfo {
     sb.append("    merchantLegalName: ").append(toIndentedString(merchantLegalName)).append("\n");
     sb.append("    merchantShopUrl: ").append(toIndentedString(merchantShopUrl)).append("\n");
     sb.append("    merchantStateProvince: ")
-            .append(toIndentedString(merchantStateProvince))
-            .append("\n");
+        .append(toIndentedString(merchantStateProvince))
+        .append("\n");
     sb.append("    merchantStreetAddress: ")
-            .append(toIndentedString(merchantStreetAddress))
-            .append("\n");
+        .append(toIndentedString(merchantStreetAddress))
+        .append("\n");
     sb.append("    transactionDescription: ")
-            .append(toIndentedString(transactionDescription))
-            .append("\n");
+        .append(toIndentedString(transactionDescription))
+        .append("\n");
     sb.append("    zipCode: ").append(toIndentedString(zipCode)).append("\n");
     sb.append("}");
     return sb.toString();
