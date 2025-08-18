@@ -43,6 +43,7 @@ import java.util.List;
   UpdatePaymentMethodInfo.JSON_PROPERTY_NYCE,
   UpdatePaymentMethodInfo.JSON_PROPERTY_PAYBYBANK_PLAID,
   UpdatePaymentMethodInfo.JSON_PROPERTY_PULSE,
+  UpdatePaymentMethodInfo.JSON_PROPERTY_SEPADIRECTDEBIT,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STAR,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STORE_ID,
   UpdatePaymentMethodInfo.JSON_PROPERTY_STORE_IDS,
@@ -114,6 +115,9 @@ public class UpdatePaymentMethodInfo {
 
   public static final String JSON_PROPERTY_PULSE = "pulse";
   private PulseInfo pulse;
+
+  public static final String JSON_PROPERTY_SEPADIRECTDEBIT = "sepadirectdebit";
+  private SepaDirectDebitInfo sepadirectdebit;
 
   public static final String JSON_PROPERTY_STAR = "star";
   private StarInfo star;
@@ -897,6 +901,39 @@ public class UpdatePaymentMethodInfo {
   }
 
   /**
+   * sepadirectdebit
+   *
+   * @param sepadirectdebit
+   * @return the current {@code UpdatePaymentMethodInfo} instance, allowing for method chaining
+   */
+  public UpdatePaymentMethodInfo sepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
+    this.sepadirectdebit = sepadirectdebit;
+    return this;
+  }
+
+  /**
+   * Get sepadirectdebit
+   *
+   * @return sepadirectdebit
+   */
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SepaDirectDebitInfo getSepadirectdebit() {
+    return sepadirectdebit;
+  }
+
+  /**
+   * sepadirectdebit
+   *
+   * @param sepadirectdebit
+   */
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
+    this.sepadirectdebit = sepadirectdebit;
+  }
+
+  /**
    * star
    *
    * @param star
@@ -1080,6 +1117,7 @@ public class UpdatePaymentMethodInfo {
         && Objects.equals(this.nyce, updatePaymentMethodInfo.nyce)
         && Objects.equals(this.paybybankPlaid, updatePaymentMethodInfo.paybybankPlaid)
         && Objects.equals(this.pulse, updatePaymentMethodInfo.pulse)
+        && Objects.equals(this.sepadirectdebit, updatePaymentMethodInfo.sepadirectdebit)
         && Objects.equals(this.star, updatePaymentMethodInfo.star)
         && Objects.equals(this.storeId, updatePaymentMethodInfo.storeId)
         && Objects.equals(this.storeIds, updatePaymentMethodInfo.storeIds)
@@ -1111,6 +1149,7 @@ public class UpdatePaymentMethodInfo {
         nyce,
         paybybankPlaid,
         pulse,
+        sepadirectdebit,
         star,
         storeId,
         storeIds,
@@ -1143,6 +1182,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("    nyce: ").append(toIndentedString(nyce)).append("\n");
     sb.append("    paybybankPlaid: ").append(toIndentedString(paybybankPlaid)).append("\n");
     sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
+    sb.append("    sepadirectdebit: ").append(toIndentedString(sepadirectdebit)).append("\n");
     sb.append("    star: ").append(toIndentedString(star)).append("\n");
     sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");

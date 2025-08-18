@@ -26,9 +26,9 @@ public class AlipayPlusInfo {
   public AlipayPlusInfo() {}
 
   /**
-   * currency used for settlement. Defaults to USD
+   * The currency used for settlement. Defaults to USD.
    *
-   * @param settlementCurrencyCode currency used for settlement. Defaults to USD
+   * @param settlementCurrencyCode The currency used for settlement. Defaults to USD.
    * @return the current {@code AlipayPlusInfo} instance, allowing for method chaining
    */
   public AlipayPlusInfo settlementCurrencyCode(String settlementCurrencyCode) {
@@ -37,9 +37,9 @@ public class AlipayPlusInfo {
   }
 
   /**
-   * currency used for settlement. Defaults to USD
+   * The currency used for settlement. Defaults to USD.
    *
-   * @return settlementCurrencyCode currency used for settlement. Defaults to USD
+   * @return settlementCurrencyCode The currency used for settlement. Defaults to USD.
    */
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -48,9 +48,9 @@ public class AlipayPlusInfo {
   }
 
   /**
-   * currency used for settlement. Defaults to USD
+   * The currency used for settlement. Defaults to USD.
    *
-   * @param settlementCurrencyCode currency used for settlement. Defaults to USD
+   * @param settlementCurrencyCode The currency used for settlement. Defaults to USD.
    */
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

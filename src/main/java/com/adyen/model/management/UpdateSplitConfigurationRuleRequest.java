@@ -80,12 +80,11 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
   /**
-   * The funding source of the payment method. This only applies to card transactions. Possible
-   * values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
+   * The funding source of the payment method. Possible values: * **credit** * **debit** *
+   * **prepaid** * **deferred_debit** * **charged** * **ANY**
    *
-   * @param fundingSource The funding source of the payment method. This only applies to card
-   *     transactions. Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit**
-   *     * **charged** * **ANY**
+   * @param fundingSource The funding source of the payment method. Possible values: * **credit** *
+   *     **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
    * @return the current {@code UpdateSplitConfigurationRuleRequest} instance, allowing for method
    *     chaining
    */
@@ -95,12 +94,11 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
   /**
-   * The funding source of the payment method. This only applies to card transactions. Possible
-   * values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
+   * The funding source of the payment method. Possible values: * **credit** * **debit** *
+   * **prepaid** * **deferred_debit** * **charged** * **ANY**
    *
-   * @return fundingSource The funding source of the payment method. This only applies to card
-   *     transactions. Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit**
-   *     * **charged** * **ANY**
+   * @return fundingSource The funding source of the payment method. Possible values: * **credit** *
+   *     **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,12 +107,11 @@ public class UpdateSplitConfigurationRuleRequest {
   }
 
   /**
-   * The funding source of the payment method. This only applies to card transactions. Possible
-   * values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
+   * The funding source of the payment method. Possible values: * **credit** * **debit** *
+   * **prepaid** * **deferred_debit** * **charged** * **ANY**
    *
-   * @param fundingSource The funding source of the payment method. This only applies to card
-   *     transactions. Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit**
-   *     * **charged** * **ANY**
+   * @param fundingSource The funding source of the payment method. Possible values: * **credit** *
+   *     **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
    */
   @JsonProperty(JSON_PROPERTY_FUNDING_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
