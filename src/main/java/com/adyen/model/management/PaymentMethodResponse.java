@@ -46,6 +46,14 @@ public class PaymentMethodResponse {
 
   /** Gets or Sets typesWithErrors */
   public enum TypesWithErrorsEnum {
+    ABRAPETITE(String.valueOf("abrapetite")),
+
+    ABRAPETITE_CREDIT(String.valueOf("abrapetite_credit")),
+
+    ABRAPETITE_DEBIT(String.valueOf("abrapetite_debit")),
+
+    ABRAPETITE_PREPAID(String.valueOf("abrapetite_prepaid")),
+
     ACCEL(String.valueOf("accel")),
 
     ACH(String.valueOf("ach")),
@@ -230,9 +238,17 @@ public class PaymentMethodResponse {
 
     PULSE(String.valueOf("pulse")),
 
+    ROMCARD(String.valueOf("romcard")),
+
+    ROMCARD_CREDIT(String.valueOf("romcard_credit")),
+
+    ROMCARD_DEBIT(String.valueOf("romcard_debit")),
+
     SENFF(String.valueOf("senff")),
 
     SENFF_CREDIT(String.valueOf("senff_credit")),
+
+    SEPADIRECTDEBIT(String.valueOf("sepadirectdebit")),
 
     SODEXO(String.valueOf("sodexo")),
 
@@ -469,9 +485,10 @@ public class PaymentMethodResponse {
   }
 
   /**
-   * Payment method types with errors.
+   * The payment method types that were not successfully requested and their corresponding errors.
    *
-   * @param typesWithErrors Payment method types with errors.
+   * @param typesWithErrors The payment method types that were not successfully requested and their
+   *     corresponding errors.
    * @return the current {@code PaymentMethodResponse} instance, allowing for method chaining
    */
   public PaymentMethodResponse typesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
@@ -488,9 +505,10 @@ public class PaymentMethodResponse {
   }
 
   /**
-   * Payment method types with errors.
+   * The payment method types that were not successfully requested and their corresponding errors.
    *
-   * @return typesWithErrors Payment method types with errors.
+   * @return typesWithErrors The payment method types that were not successfully requested and their
+   *     corresponding errors.
    */
   @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -499,9 +517,10 @@ public class PaymentMethodResponse {
   }
 
   /**
-   * Payment method types with errors.
+   * The payment method types that were not successfully requested and their corresponding errors.
    *
-   * @param typesWithErrors Payment method types with errors.
+   * @param typesWithErrors The payment method types that were not successfully requested and their
+   *     corresponding errors.
    */
   @JsonProperty(JSON_PROPERTY_TYPES_WITH_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
