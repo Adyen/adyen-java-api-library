@@ -120,7 +120,10 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                 {{/isPrimitiveType}}
                 if (attemptParsing) {
                     // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-                    boolean typeMatch = Arrays.stream({{{dataType}}}.TypeEnum.values()).anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+                    boolean typeMatch = false;
+                    if(tree.findValue("type") != null) {
+                        typeMatch = Arrays.stream({{{dataType}}}.TypeEnum.values()).anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+                    }
 
                     if(typeMatch) {
                         {{#isMap}}
