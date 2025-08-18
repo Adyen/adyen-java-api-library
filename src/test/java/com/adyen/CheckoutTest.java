@@ -704,7 +704,8 @@ public class CheckoutTest extends BaseTest {
     PaymentResponse paymentResponse = checkout.payments(paymentRequest);
     assertEquals(PaymentResponse.ResultCodeEnum.PENDING, paymentResponse.getResultCode());
     assertNotNull(paymentResponse.getAction());
-
+  }
+   
   @Test
   public void testPixActionQrCode() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/pixQrCodeResponse.json");
