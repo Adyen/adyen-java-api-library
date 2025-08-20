@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * A helper class to parse and manage the key-value pairs within a PredefinedContent referenceID string.
- * The referenceID is expected to be in a URL query string format (e.g., "key1=value1&key2=value2").
+ * The referenceID is expected to be in a URL query string format (e.g., {@code key1=value1&key2=value2}).
  */
 public final class PredefinedContentHelper {
 
@@ -63,7 +63,6 @@ public final class PredefinedContentHelper {
      *
      * @return An {@link Optional} containing the {@link DisplayNotificationEvent} if it is present and valid,
      *         otherwise an empty Optional.
-     * @example
      * <pre>{@code
      * PredefinedContentHelper helper = new PredefinedContentHelper("...&event=PIN_ENTERED");
      * helper.getEvent().ifPresent(event -> System.out.println(event)); // Prints PIN_ENTERED
