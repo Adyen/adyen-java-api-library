@@ -14,6 +14,10 @@ import java.util.Optional;
  */
 public final class PredefinedContentHelper {
 
+    private static final String KEY_EVENT = "event";
+    private static final String KEY_TRANSACTION_ID = "TransactionID";
+    private static final String KEY_TIME_STAMP = "TimeStamp";
+
     /**
      * Defines the supported events for display notifications within a PredefinedContent reference ID.
      */
@@ -69,7 +73,7 @@ public final class PredefinedContentHelper {
      * }</pre>
      */
     public Optional<DisplayNotificationEvent> getEvent() {
-        return get("event").flatMap(eventValue -> {
+        return get(KEY_EVENT).flatMap(eventValue -> {
             try {
                 return Optional.of(DisplayNotificationEvent.valueOf(eventValue));
             } catch (IllegalArgumentException e) {
@@ -84,7 +88,7 @@ public final class PredefinedContentHelper {
      * @return An {@link Optional} containing the TransactionID, or an empty Optional if not present.
      */
     public Optional<String> getTransactionId() {
-        return get("TransactionID");
+        return get(KEY_TRANSACTION_ID);
     }
 
     /**
@@ -93,7 +97,7 @@ public final class PredefinedContentHelper {
      * @return An {@link Optional} containing the TimeStamp, or an empty Optional if not present.
      */
     public Optional<String> getTimeStamp() {
-        return get("TimeStamp");
+        return get(KEY_TIME_STAMP);
     }
 
     /**
@@ -130,15 +134,10 @@ public final class PredefinedContentHelper {
         String[] pairs = referenceId.split("&");
         for (String pair : pairs) {
             int idx = pair.indexOf("=");
-            if (idx > 0 && idx < pair.length() - 1) { // Ensure key and value are present
-                try {
-                    String key = URLDecoder.decode(pair.substring(0, idx), StandardCharsets.UTF_8.name());
-                    String value = URLDecoder.decode(pair.substring(idx + 1), StandardCharsets.UTF_8.name());
-                    queryPairs.put(key, value);
-                } catch (UnsupportedEncodingException e) {
-                    // This should never happen with UTF-8
-                    throw new IllegalStateException("UTF-8 encoding not supported", e);
-                }
+            if (idx > 0 && idx < pair.length() - 1) {
+                String key = URLDecoder.decode(pair.substring(0, idx), StandardCharsets.UTF_8);
+                String value = URLDecoder.decode(pair.substring(idx + 1), StandardCharsets.UTF_8);
+                queryPairs.put(key, value);
             }
         }
         return queryPairs;
