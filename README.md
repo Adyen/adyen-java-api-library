@@ -458,7 +458,7 @@ TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIReque
 
 Use `PredefinedContentHelper` to parse Display notification types which you find in `PredefinedContent->ReferenceID`
 ```java
-PredefinedContentHelper helper = predefinedContent.getHelper();
+PredefinedContentHelper helper = new PredefinedContentHelper(predefinedContent.getReferenceID());
 
 // Safely extract and use the event type with Optional
 helper.getEvent().ifPresent(event -> {
