@@ -454,6 +454,22 @@ terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
 TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIRequest);
 ```
 
+### Helper classes
+
+Use `PredefinedContentHelper` to parse Display notification types which you find in `PredefinedContent->ReferenceID`
+```java
+PredefinedContentHelper helper = predefinedContent.getHelper();
+
+// Safely extract and use the event type with Optional
+helper.getEvent().ifPresent(event -> {
+        System.out.println("Received event: " + event);
+    if (event == PredefinedContentHelper.DisplayNotificationEvent.PIN_ENTERED) {
+        // Handle PIN entry event
+        System.out.println("The user has entered their PIN.");
+    }
+});
+```
+
 ## Using the Local Terminal API Integration
 The request and response payloads are identical to the Cloud Terminal API, however, additional encryption details are required to perform the requests.
 ### Local terminal API Using Keystore
