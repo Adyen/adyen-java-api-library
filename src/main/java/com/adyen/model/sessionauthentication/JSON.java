@@ -1,18 +1,21 @@
 package com.adyen.model.sessionauthentication;
 
-import com.adyen.serializer.ByteArrayDeserializer;
 import com.adyen.serializer.ByteArraySerializer;
+import com.adyen.serializer.ByteArrayDeserializer;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import jakarta.ws.rs.core.GenericType;
-import jakarta.ws.rs.ext.ContextResolver;
+import com.adyen.model.sessionauthentication.*;
+
 import java.text.DateFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.ext.ContextResolver;
 
 public class JSON implements ContextResolver<ObjectMapper> {
   private static ObjectMapper mapper;
@@ -37,7 +40,6 @@ public class JSON implements ContextResolver<ObjectMapper> {
 
   /**
    * Set the date format for JSON (de)serialization with Date properties.
-   *
    * @param dateFormat Date format
    */
   public void setDateFormat(DateFormat dateFormat) {
@@ -54,13 +56,11 @@ public class JSON implements ContextResolver<ObjectMapper> {
    *
    * @return object mapper
    */
-  public static ObjectMapper getMapper() {
-    return mapper;
-  }
+  public static ObjectMapper getMapper() { return mapper; }
 
   /**
-   * Returns the target model class that should be used to deserialize the input data. The
-   * discriminator mappings are used to determine the target model class.
+   * Returns the target model class that should be used to deserialize the input data.
+   * The discriminator mappings are used to determine the target model class.
    *
    * @param node The input data.
    * @param modelClass The class that contains the discriminator mappings.
@@ -73,7 +73,9 @@ public class JSON implements ContextResolver<ObjectMapper> {
     return null;
   }
 
-  /** Helper class to register the discriminator mappings. */
+  /**
+   * Helper class to register the discriminator mappings.
+   */
   private static class ClassDiscriminatorMapping {
     // The model class name.
     Class<?> modelClass;
@@ -115,9 +117,9 @@ public class JSON implements ContextResolver<ObjectMapper> {
     }
 
     /**
-     * Returns the target model class that should be used to deserialize the input data. This
-     * function can be invoked for anyOf/oneOf composed models with discriminator mappings. The
-     * discriminator mappings are used to determine the target model class.
+     * Returns the target model class that should be used to deserialize the input data.
+     * This function can be invoked for anyOf/oneOf composed models with discriminator mappings.
+     * The discriminator mappings are used to determine the target model class.
      *
      * @param node The input data.
      * @param visitedClasses The set of classes that have already been visited.
@@ -162,14 +164,13 @@ public class JSON implements ContextResolver<ObjectMapper> {
   /**
    * Returns true if inst is an instance of modelClass in the OpenAPI model hierarchy.
    *
-   * <p>The Java class hierarchy is not implemented the same way as the OpenAPI model hierarchy, so
-   * it's not possible to use the instanceof keyword.
+   * The Java class hierarchy is not implemented the same way as the OpenAPI model hierarchy,
+   * so it's not possible to use the instanceof keyword.
    *
    * @param modelClass A OpenAPI model class.
    * @param inst The instance object.
    */
-  public static boolean isInstanceOf(
-      Class<?> modelClass, Object inst, Set<Class<?>> visitedClasses) {
+  public static boolean isInstanceOf(Class<?> modelClass, Object inst, Set<Class<?>> visitedClasses) {
     if (modelClass.isInstance(inst)) {
       // This handles the 'allOf' use case with single parent inheritance.
       return true;
@@ -193,58 +194,59 @@ public class JSON implements ContextResolver<ObjectMapper> {
     return false;
   }
 
-  /** A map of discriminators for all model classes. */
-  private static final Map<Class<?>, ClassDiscriminatorMapping> modelDiscriminators =
-      new HashMap<Class<?>, ClassDiscriminatorMapping>();
+  /**
+   * A map of discriminators for all model classes.
+   */
+  private static final Map<Class<?>, ClassDiscriminatorMapping> modelDiscriminators = new HashMap<Class<?>, ClassDiscriminatorMapping>();
 
-  /** A map of oneOf/anyOf descendants for each model class. */
+  /**
+   * A map of oneOf/anyOf descendants for each model class.
+   */
   private static final Map<Class<?>, Map<String, GenericType>> modelDescendants = new HashMap<>();
 
   /**
-   * Register a model class discriminator.
-   *
-   * @param modelClass the model class
-   * @param discriminatorPropertyName the name of the discriminator property
-   * @param mappings a map with the discriminator mappings.
-   */
-  public static void registerDiscriminator(
-      Class<?> modelClass, String discriminatorPropertyName, Map<String, Class<?>> mappings) {
-    ClassDiscriminatorMapping m =
-        new ClassDiscriminatorMapping(modelClass, discriminatorPropertyName, mappings);
+    * Register a model class discriminator.
+    *
+    * @param modelClass the model class
+    * @param discriminatorPropertyName the name of the discriminator property
+    * @param mappings a map with the discriminator mappings.
+    */
+  public static void registerDiscriminator(Class<?> modelClass, String discriminatorPropertyName, Map<String, Class<?>> mappings) {
+    ClassDiscriminatorMapping m = new ClassDiscriminatorMapping(modelClass, discriminatorPropertyName, mappings);
     modelDiscriminators.put(modelClass, m);
   }
 
   /**
-   * Register the oneOf/anyOf descendants of the modelClass.
-   *
-   * @param modelClass the model class
-   * @param descendants a map of oneOf/anyOf descendants.
-   */
-  public static void registerDescendants(
-      Class<?> modelClass, Map<String, GenericType> descendants) {
+    * Register the oneOf/anyOf descendants of the modelClass.
+    *
+    * @param modelClass the model class
+    * @param descendants a map of oneOf/anyOf descendants.
+    */
+  public static void registerDescendants(Class<?> modelClass, Map<String, GenericType> descendants) {
     modelDescendants.put(modelClass, descendants);
   }
 
   private static JSON json;
 
-  static {
+  static
+  {
     json = new JSON();
   }
 
   /**
-   * Get the default JSON instance.
-   *
-   * @return the default JSON instance
-   */
+    * Get the default JSON instance.
+    *
+    * @return the default JSON instance
+    */
   public static JSON getDefault() {
     return json;
   }
 
   /**
-   * Set the default JSON instance.
-   *
-   * @param json JSON instance to be used
-   */
+    * Set the default JSON instance.
+    *
+    * @param json JSON instance to be used
+    */
   public static void setDefault(JSON json) {
     JSON.json = json;
   }
