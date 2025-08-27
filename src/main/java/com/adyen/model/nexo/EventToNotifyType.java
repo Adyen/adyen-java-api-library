@@ -155,7 +155,7 @@ public enum EventToNotifyType {
   @Schema(description = "The terminal is disconnected from the POS.")
   NETWORK_DISCONNECTED("NetworkDisconnected"),
 
-  /** Delivers the result (or timeout failure) of the Barcode scan.. */
+  /** Delivers the result (or timeout failure) of the Barcode scan. */
   @XmlEnumValue("ScanBarcodeResult")
   @Schema(description = "Delivers the result (or timeout failure) of the Barcode scan.")
   SCAN_BARCODE_RESULT("ScanBarcodeResult");
