@@ -32,9 +32,9 @@ public class ValidateShopperIdResponse {
   public ValidateShopperIdResponse() {}
 
   /**
-   * reason
+   * Reason for the result.
    *
-   * @param reason
+   * @param reason Reason for the result.
    * @return the current {@code ValidateShopperIdResponse} instance, allowing for method chaining
    */
   public ValidateShopperIdResponse reason(String reason) {
@@ -43,9 +43,9 @@ public class ValidateShopperIdResponse {
   }
 
   /**
-   * Get reason
+   * Reason for the result.
    *
-   * @return reason
+   * @return reason Reason for the result.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -54,9 +54,9 @@ public class ValidateShopperIdResponse {
   }
 
   /**
-   * reason
+   * Reason for the result.
    *
-   * @param reason
+   * @param reason Reason for the result.
    */
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
