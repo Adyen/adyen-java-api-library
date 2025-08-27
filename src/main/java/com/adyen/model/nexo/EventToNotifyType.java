@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="Reject"/&gt;
  *     &lt;enumeration value="NetworkConnected"/&gt;
  *     &lt;enumeration value="NetworkDisconnected"/&gt;
+ *     &lt;enumeration value="ScanBarcodeResult"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -153,7 +154,13 @@ public enum EventToNotifyType {
   /** The terminal has lost its network connection to the POS and is offline. */
   @XmlEnumValue("NetworkDisconnected")
   @Schema(description = "The terminal is disconnected from the POS.")
-  NETWORK_DISCONNECTED("NetworkDisconnected");
+  NETWORK_DISCONNECTED("NetworkDisconnected"),
+
+  /** Delivers the result (or timeout failure) of the Barcode scan.. */
+  @XmlEnumValue("NetworkDisconnected")
+  @Schema(description = "Delivers the result (or timeout failure) of the Barcode scan.")
+  SCAN_BARCODE_RESULT("ScanBarcodeResult");
+
 
   private final String value;
 
