@@ -22,8 +22,8 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.model.terminal.TerminalAPIRequest;
-import com.adyen.model.terminal.TerminalAPIResponse;
+import com.adyen.model.terminaldemomanual.TerminalAPIRequest;
+import com.adyen.model.terminaldemomanual.TerminalAPIResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.terminal.cloud.Async;
 import com.adyen.service.resource.terminal.cloud.Sync;
