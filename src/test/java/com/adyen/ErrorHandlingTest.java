@@ -1,6 +1,7 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.model.ApiError;
 import com.adyen.model.management.CreateAllowedOriginRequest;
 import com.adyen.service.checkout.PaymentLinksApi;
 import com.adyen.service.exception.ApiException;
@@ -36,6 +37,10 @@ public class ErrorHandlingTest extends BaseTest {
       service.getPaymentLink("1234");
     } catch (ApiException e) {
       Assert.assertTrue(e.getResponseBody().contains("Invalid payment link ID"));
+      ApiError apiError = e.getError();
+      Assert.assertEquals("Validation", apiError.getErrorType());
+      Assert.assertEquals("Invalid payment link ID", apiError.getMessage());
+
     }
   }
 }
