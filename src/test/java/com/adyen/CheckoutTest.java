@@ -26,6 +26,7 @@ import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.*;
 import com.adyen.service.checkout.*;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -39,7 +40,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make a payment */
   @Test
-  public void TestPaymentSuccess() throws Exception {
+  public void testPaymentSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
     CardDetails cardDetails =
         new CardDetails()
@@ -75,7 +76,7 @@ public class CheckoutTest extends BaseTest {
    * serialization and deserialization)
    */
   @Test
-  public void TestDeserializePaymentRequestIdeal() throws Exception {
+  public void testDeserializePaymentRequestIdeal() throws Exception {
     String paymentRequestJson = getFileContents("mocks/checkout/paymentRequestIdeal.json");
 
     PaymentRequest parsedCheckoutPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
@@ -97,7 +98,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Deserialise CardDetails (scheme) */
   @Test
-  public void TestDeserializePaymentRequestScheme() throws Exception {
+  public void testDeserializePaymentRequestScheme() throws Exception {
     String paymentRequestJson = getFileContents("mocks/checkout/paymentRequestScheme.json");
 
     PaymentRequest parsedCheckoutPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
@@ -125,7 +126,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make paymentMethods call */
   @Test
-  public void TestPaymentMethodsSuccess() throws Exception {
+  public void testPaymentMethodsSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentMethodsResponse.json");
     PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest()
         .merchantAccount("myMerchantAccount");
@@ -138,7 +139,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make paymentLink call */
   @Test
-  public void TestPaymentLinkSuccess() throws Exception {
+  public void testPaymentLinkSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentLinkResponse.json");
     PaymentLinkRequest createPaymentLinkRequest = new PaymentLinkRequest()
         .amount(new Amount().currency("EUR").value(500L))
@@ -156,7 +157,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make paymentLink get call */
   @Test
-  public void TestGetPaymentLinkSuccess() throws Exception {
+  public void testGetPaymentLinkSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/getPaymentLinkResponse.json");
 
     PaymentLinksApi checkout = new PaymentLinksApi(client);
@@ -181,7 +182,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make payments/details call */
   @Test
-  public void TestPaymentDetailsSuccess() throws Exception {
+  public void testPaymentDetailsSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentDetailsResponse.json");
     PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest()
         .paymentData("STATE_DATA");
@@ -193,7 +194,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestPaymentDetailsWithThreeDSRequestorChallengeInd() throws Exception {
+  public void testPaymentDetailsWithThreeDSRequestorChallengeInd() throws Exception {
     Client client =
         createMockClientFromFile(
             "mocks/checkout/paymentDetailsResponseThreeDSRequestorChallengeInd.json");
@@ -211,7 +212,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestPaymentDetailsWithThreeDS2Action() throws Exception {
+  public void testPaymentDetailsWithThreeDS2Action() throws Exception {
     Client client =
         createMockClientFromFile("mocks/checkout/paymentDetailsResponseThreeDS2Action.json");
     PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest()
@@ -232,7 +233,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make sessions call */
   @Test
-  public void TestCreateSessionsSuccessCall() throws Exception {
+  public void testCreateSessionsSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
     CreateCheckoutSessionRequest sessionRequest = new CreateCheckoutSessionRequest()
         .merchantAccount("YOUR_MERCHANT_ACCOUNT")
@@ -256,7 +257,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make orders call */
   @Test
-  public void TestCreateOrderSuccessCall() throws Exception {
+  public void testCreateOrderSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/createOrderResponse.json");
     CreateOrderRequest checkoutCreateOrderRequest = new CreateOrderRequest()
         .amount(new Amount().currency("EUR").value(1000L))
@@ -270,7 +271,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestCancelOrderSuccessCall() throws Exception {
+  public void testCancelOrderSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/cancelOrderResponse.json");
     CancelOrderRequest checkoutCancelOrderRequest = new CancelOrderRequest()
         .merchantAccount("YOUR_MERCHANT_ACCOUNT")
@@ -288,7 +289,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make applePaySessions call */
   @Test
-  public void TestApplePaySessionsSuccessCall() throws Exception {
+  public void testApplePaySessionsSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/applePaySessionsResponse.json");
     ApplePaySessionRequest createApplePaySessionRequest = new ApplePaySessionRequest()
         .displayName("YOUR_MERCHANT_NAME")
@@ -303,7 +304,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make donations call */
   @Test
-  public void TestDonationsSuccessCall() throws Exception {
+  public void testDonationsSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/donationResponse.json");
     DonationPaymentRequest paymentDonationRequest = new DonationPaymentRequest()
         .donationAccount("YOUR_DONATION_ACCOUNT")
@@ -325,7 +326,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make paymentUpdateAmount call */
   @Test
-  public void TestPaymenUpdateAmountSuccessCall() throws Exception {
+  public void testPaymenUpdateAmountSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentUpdateAmountResponse.json");
     ModificationsApi checkout = new ModificationsApi(client);
     PaymentAmountUpdateRequest createPaymentAmountUpdateRequest = new PaymentAmountUpdateRequest();
@@ -343,7 +344,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should make cardDetails call */
   @Test
-  public void TestCardDetailsRequestSuccess() throws Exception {
+  public void testCardDetailsRequestSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/cardDetailsResponse.json");
     CardDetailsRequest cardDetailsRequest = new CardDetailsRequest();
     cardDetailsRequest.setCardNumber("123412341234");
@@ -357,7 +358,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should properly (de)serialize Dates */
   @Test
-  public void TestDateSerialization() throws Exception {
+  public void testDateSerialization() throws Exception {
     BalanceCheckRequest checkoutBalanceCheckRequest = new BalanceCheckRequest();
     OffsetDateTime date =
         OffsetDateTime.parse(
@@ -378,7 +379,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should get StoredPaymentMethods */
   @Test
-  public void TestGetStoredPaymentMethods() throws Exception {
+  public void testGetStoredPaymentMethods() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/getStoredPaymentMethodResponse.json");
     RecurringApi checkout = new RecurringApi(client);
     ListStoredPaymentMethodsResponse response =
@@ -389,7 +390,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should delete StoredPaymentMethods */
   @Test
-  public void TestDeleteStoredPaymentMethods() throws Exception {
+  public void testDeleteStoredPaymentMethods() throws Exception {
     Client client =
         createMockClientFromFile("mocks/checkout/deleteStoredPaymentMethodResponse.json");
     RecurringApi checkout = new RecurringApi(client);
@@ -398,7 +399,7 @@ public class CheckoutTest extends BaseTest {
 
   /** Should delete StoredPaymentMethods */
   @Test
-  public void TestLiveURLCheckout() throws Exception {
+  public void testLiveURLCheckout() throws Exception {
     Config config = new Config();
     config.setLiveEndpointUrlPrefix("prefix");
     config.setEnvironment(Environment.LIVE);
@@ -423,7 +424,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestLiveURLCheckoutWithSetEnviroment() throws Exception {
+  public void testLiveURLCheckoutWithSetEnviroment() throws Exception {
     Client client =
         createMockClientFromFile("mocks/checkout/deleteStoredPaymentMethodResponse.json");
     client.setEnvironment(Environment.LIVE, "prefix");
@@ -445,7 +446,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestCheckoutPaymentMethodSerialisation() throws Exception {
+  public void testCheckoutPaymentMethodSerialisation() throws Exception {
     // Checks that unknown parameters (in this case googlePayCardNetwork) in oneOf classes are not
     // strict and will
     // not throw an error.
@@ -484,7 +485,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestPaymentWithRatepay() throws Exception {
+  public void testPaymentWithRatepay() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentResponseRatepay.json");
 
     RatepayDetails ratepayDetails =
@@ -548,7 +549,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestPaymentWithRiverty() throws Exception {
+  public void testPaymentWithRiverty() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentResponseRiverty.json");
 
     RivertyDetails rivertyDetails =
@@ -621,7 +622,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestPaymentMethodsNullLists() throws Exception {
+  public void testPaymentMethodsNullLists() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentMethodsResponse.json");
     PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
     paymentMethodsRequest.setMerchantAccount("myMerchantAccount");
@@ -634,7 +635,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestSessionsCheckDefaultValues() throws Exception {
+  public void testSessionsCheckDefaultValues() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
     CreateCheckoutSessionRequest sessionRequest = new CreateCheckoutSessionRequest();
     sessionRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
@@ -674,7 +675,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestBccm() throws Exception {
+  public void testBccm() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentResponseBcmc.json");
     PaymentRequest paymentRequest = new PaymentRequest();
     paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
@@ -697,7 +698,7 @@ public class CheckoutTest extends BaseTest {
   }
 
   @Test
-  public void TestBccmMobile() throws Exception {
+  public void testBccmMobile() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentResponseBcmcMobile.json");
     PaymentRequest paymentRequest = new PaymentRequest();
     paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
@@ -738,4 +739,51 @@ public class CheckoutTest extends BaseTest {
     assertEquals("pix", qrCodeAction.getPaymentMethodType());
     assertEquals("DMhpN90TFR2e7TzwHYRFkhw4brxm2wHBg", qrCodeAction.getQrCodeData());
   }
+
+  @Test
+  public void testPaymentWithIdempotencyKey() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/paymentResultsResponse.json");
+    CardDetails cardDetails =
+        new CardDetails()
+            .type(CardDetails.TypeEnum.SCHEME)
+            .encryptedCardNumber("5136333333333335")
+            .holderName("John Doe")
+            .cvc("737")
+            .encryptedExpiryMonth("08")
+            .encryptedExpiryYear("2018");
+    PaymentRequest paymentRequest =
+        new PaymentRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .reference("YOUR_REFERENCE")
+            .amount(new Amount()
+                .currency("EUR")
+                .value(1000L))
+            .returnUrl("https://your-company.example.org/checkout?shopperOrder=12xy..")
+            .paymentMethod(new CheckoutPaymentMethod(cardDetails));
+
+    PaymentsApi checkout = new PaymentsApi(client);
+
+    // set Idempotency Key
+    RequestOptions requestOptions = new RequestOptions()
+        .idempotencyKey("99361789-5204-4576-b123-4f9a1b2c3d45");
+    PaymentResponse paymentResponse = checkout.payments(paymentRequest, requestOptions);
+    
+    assertEquals("V4HZ4RBFJGXXGN82", paymentResponse.getPspReference());
+    assertEquals(PaymentResponse.ResultCodeEnum.AUTHORISED, paymentResponse.getResultCode());
+
+    ArgumentCaptor<RequestOptions> optionsCaptor = ArgumentCaptor.forClass(RequestOptions.class);
+    verify(client.getHttpClient())
+        .request(
+            eq("https://checkout-test.adyen.com/v71/payments"),
+            isNotNull(),
+            eq(client.getConfig()),
+            eq(false),
+            optionsCaptor.capture(),
+            eq(ApiConstants.HttpMethod.POST),
+            isNull()
+        );
+    assertEquals("99361789-5204-4576-b123-4f9a1b2c3d45", optionsCaptor.getValue().getIdempotencyKey());
+
+  }
+
 }
