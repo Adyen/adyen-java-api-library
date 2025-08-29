@@ -36,6 +36,8 @@ public class PaymentDetails {
 
     MULTIBANCO(String.valueOf("multibanco")),
 
+    BANKTRANSFER(String.valueOf("bankTransfer")),
+
     BANKTRANSFER_IBAN(String.valueOf("bankTransfer_IBAN")),
 
     PAYBRIGHT(String.valueOf("paybright")),

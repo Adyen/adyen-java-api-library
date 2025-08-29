@@ -46,12 +46,12 @@ public class CardDetailsRequest {
   public CardDetailsRequest() {}
 
   /**
-   * A minimum of the first eight digits of the card number. The full card number gives the best
+   * A minimum of the first six digits of the card number. The full card number gives the best
    * result. You must be [fully PCI
    * compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect
    * raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60; field.
    *
-   * @param cardNumber A minimum of the first eight digits of the card number. The full card number
+   * @param cardNumber A minimum of the first six digits of the card number. The full card number
    *     gives the best result. You must be [fully PCI
    *     compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to
    *     collect raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60;
@@ -64,12 +64,12 @@ public class CardDetailsRequest {
   }
 
   /**
-   * A minimum of the first eight digits of the card number. The full card number gives the best
+   * A minimum of the first six digits of the card number. The full card number gives the best
    * result. You must be [fully PCI
    * compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect
    * raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60; field.
    *
-   * @return cardNumber A minimum of the first eight digits of the card number. The full card number
+   * @return cardNumber A minimum of the first six digits of the card number. The full card number
    *     gives the best result. You must be [fully PCI
    *     compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to
    *     collect raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60;
@@ -82,12 +82,12 @@ public class CardDetailsRequest {
   }
 
   /**
-   * A minimum of the first eight digits of the card number. The full card number gives the best
+   * A minimum of the first six digits of the card number. The full card number gives the best
    * result. You must be [fully PCI
    * compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect
    * raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60; field.
    *
-   * @param cardNumber A minimum of the first eight digits of the card number. The full card number
+   * @param cardNumber A minimum of the first six digits of the card number. The full card number
    *     gives the best result. You must be [fully PCI
    *     compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to
    *     collect raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60;

@@ -54,9 +54,7 @@ public class CheckoutTest extends BaseTest {
         new PaymentRequest()
             .merchantAccount("YOUR_MERCHANT_ACCOUNT")
             .reference("YOUR_REFERENCE")
-            .amount(new Amount()
-                .currency("EUR")
-                .value(1000L))
+            .amount(new Amount().currency("EUR").value(1000L))
             .returnUrl("https://your-company.example.org/checkout?shopperOrder=12xy..")
             .paymentMethod(new CheckoutPaymentMethod(cardDetails));
 
@@ -128,8 +126,8 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void testPaymentMethodsSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentMethodsResponse.json");
-    PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest()
-        .merchantAccount("myMerchantAccount");
+    PaymentMethodsRequest paymentMethodsRequest =
+        new PaymentMethodsRequest().merchantAccount("myMerchantAccount");
 
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
@@ -141,13 +139,12 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void testPaymentLinkSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentLinkResponse.json");
-    PaymentLinkRequest createPaymentLinkRequest = new PaymentLinkRequest()
-        .amount(new Amount().currency("EUR").value(500L))
-        .merchantAccount("myMerchantAccount")
-        .reference("merchantReference")
-        .lineItems(Arrays.asList(new LineItem()
-            .brand("brand")
-            .color("color")));
+    PaymentLinkRequest createPaymentLinkRequest =
+        new PaymentLinkRequest()
+            .amount(new Amount().currency("EUR").value(500L))
+            .merchantAccount("myMerchantAccount")
+            .reference("merchantReference")
+            .lineItems(Arrays.asList(new LineItem().brand("brand").color("color")));
     PaymentLinksApi checkout = new PaymentLinksApi(client);
 
     PaymentLinkResponse paymentLinkResponse = checkout.paymentLinks(createPaymentLinkRequest);
@@ -184,8 +181,7 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void testPaymentDetailsSuccess() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/paymentDetailsResponse.json");
-    PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest()
-        .paymentData("STATE_DATA");
+    PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest().paymentData("STATE_DATA");
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentDetailsResponse paymentDetailsResponse = checkout.paymentsDetails(detailsRequest);
     assertEquals(
@@ -198,8 +194,7 @@ public class CheckoutTest extends BaseTest {
     Client client =
         createMockClientFromFile(
             "mocks/checkout/paymentDetailsResponseThreeDSRequestorChallengeInd.json");
-    PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest()
-        .paymentData("STATE_DATA");
+    PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest().paymentData("STATE_DATA");
     PaymentsApi checkout = new PaymentsApi(client);
 
     PaymentDetailsResponse paymentDetailsResponse = checkout.paymentsDetails(detailsRequest);
@@ -215,8 +210,7 @@ public class CheckoutTest extends BaseTest {
   public void testPaymentDetailsWithThreeDS2Action() throws Exception {
     Client client =
         createMockClientFromFile("mocks/checkout/paymentDetailsResponseThreeDS2Action.json");
-    PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest()
-        .paymentData("STATE_DATA");
+    PaymentDetailsRequest detailsRequest = new PaymentDetailsRequest().paymentData("STATE_DATA");
     PaymentsApi checkout = new PaymentsApi(client);
     PaymentDetailsResponse paymentDetailsResponse = checkout.paymentsDetails(detailsRequest);
     assertEquals(
@@ -235,12 +229,13 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void testCreateSessionsSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
-    CreateCheckoutSessionRequest sessionRequest = new CreateCheckoutSessionRequest()
-        .merchantAccount("YOUR_MERCHANT_ACCOUNT")
-        .amount(new Amount().currency("EUR").value(1000L))
-        .reference("YOUR_PAYMENT_REFERENCE")
-        .returnUrl("https://your-company.com/checkout?shopperOrder=12xy..")
-        .countryCode("NL");
+    CreateCheckoutSessionRequest sessionRequest =
+        new CreateCheckoutSessionRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .amount(new Amount().currency("EUR").value(1000L))
+            .reference("YOUR_PAYMENT_REFERENCE")
+            .returnUrl("https://your-company.com/checkout?shopperOrder=12xy..")
+            .countryCode("NL");
 
     PaymentsApi checkout = new PaymentsApi(client);
     CreateCheckoutSessionResponse createCheckoutSessionResponse = checkout.sessions(sessionRequest);
@@ -259,10 +254,11 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void testCreateOrderSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/createOrderResponse.json");
-    CreateOrderRequest checkoutCreateOrderRequest = new CreateOrderRequest()
-        .amount(new Amount().currency("EUR").value(1000L))
-        .merchantAccount("YOUR_MERCHANT_ACCOUNT")
-        .reference("YOUR_ORDER_REFERENCE");
+    CreateOrderRequest checkoutCreateOrderRequest =
+        new CreateOrderRequest()
+            .amount(new Amount().currency("EUR").value(1000L))
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .reference("YOUR_ORDER_REFERENCE");
 
     OrdersApi checkout = new OrdersApi(client);
     CreateOrderResponse checkoutCreateOrderResponse = checkout.orders(checkoutCreateOrderRequest);
@@ -273,11 +269,13 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void testCancelOrderSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/cancelOrderResponse.json");
-    CancelOrderRequest checkoutCancelOrderRequest = new CancelOrderRequest()
-        .merchantAccount("YOUR_MERCHANT_ACCOUNT")
-        .order(new EncryptedOrderData()
-        .pspReference("8815517812932012")
-        .orderData("823fh892f8f18f4...148f13f9f3f"));
+    CancelOrderRequest checkoutCancelOrderRequest =
+        new CancelOrderRequest()
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .order(
+                new EncryptedOrderData()
+                    .pspReference("8815517812932012")
+                    .orderData("823fh892f8f18f4...148f13f9f3f"));
     OrdersApi checkout = new OrdersApi(client);
 
     CancelOrderResponse checkoutCancelOrderResponse =
@@ -291,10 +289,11 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void testApplePaySessionsSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/applePaySessionsResponse.json");
-    ApplePaySessionRequest createApplePaySessionRequest = new ApplePaySessionRequest()
-        .displayName("YOUR_MERCHANT_NAME")
-        .domainName("YOUR_MERCHANT_DOMAIN")
-        .merchantIdentifier("YOUR_MERCHANT_ID");
+    ApplePaySessionRequest createApplePaySessionRequest =
+        new ApplePaySessionRequest()
+            .displayName("YOUR_MERCHANT_NAME")
+            .domainName("YOUR_MERCHANT_DOMAIN")
+            .merchantIdentifier("YOUR_MERCHANT_ID");
 
     UtilityApi checkout = new UtilityApi(client);
     ApplePaySessionResponse applePaySessionResponse =
@@ -306,14 +305,16 @@ public class CheckoutTest extends BaseTest {
   @Test
   public void testDonationsSuccessCall() throws Exception {
     Client client = createMockClientFromFile("mocks/checkout/donationResponse.json");
-    DonationPaymentRequest paymentDonationRequest = new DonationPaymentRequest()
-        .donationAccount("YOUR_DONATION_ACCOUNT")
-        .merchantAccount("YOUR_MERCHANT_ACCOUNT")
-        .reference("YOUR_MERCHANT_REFERENCE")
-        .returnUrl("https://your-company.com/checkout?shopperOrder=12xy..")
-        .countryCode("NL")
-        .amount(new Amount().currency("EUR").value(1000L))
-        .paymentMethod(new DonationPaymentMethod(new CardDonations().type(CardDonations.TypeEnum.SCHEME)));
+    DonationPaymentRequest paymentDonationRequest =
+        new DonationPaymentRequest()
+            .donationAccount("YOUR_DONATION_ACCOUNT")
+            .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+            .reference("YOUR_MERCHANT_REFERENCE")
+            .returnUrl("https://your-company.com/checkout?shopperOrder=12xy..")
+            .countryCode("NL")
+            .amount(new Amount().currency("EUR").value(1000L))
+            .paymentMethod(
+                new DonationPaymentMethod(new CardDonations().type(CardDonations.TypeEnum.SCHEME)));
 
     DonationsApi donationsApi = new DonationsApi(client);
     DonationPaymentResponse donationResponse = donationsApi.donations(paymentDonationRequest);
@@ -755,19 +756,17 @@ public class CheckoutTest extends BaseTest {
         new PaymentRequest()
             .merchantAccount("YOUR_MERCHANT_ACCOUNT")
             .reference("YOUR_REFERENCE")
-            .amount(new Amount()
-                .currency("EUR")
-                .value(1000L))
+            .amount(new Amount().currency("EUR").value(1000L))
             .returnUrl("https://your-company.example.org/checkout?shopperOrder=12xy..")
             .paymentMethod(new CheckoutPaymentMethod(cardDetails));
 
     PaymentsApi checkout = new PaymentsApi(client);
 
     // set Idempotency Key
-    RequestOptions requestOptions = new RequestOptions()
-        .idempotencyKey("99361789-5204-4576-b123-4f9a1b2c3d45");
+    RequestOptions requestOptions =
+        new RequestOptions().idempotencyKey("99361789-5204-4576-b123-4f9a1b2c3d45");
     PaymentResponse paymentResponse = checkout.payments(paymentRequest, requestOptions);
-    
+
     assertEquals("V4HZ4RBFJGXXGN82", paymentResponse.getPspReference());
     assertEquals(PaymentResponse.ResultCodeEnum.AUTHORISED, paymentResponse.getResultCode());
 
@@ -780,10 +779,8 @@ public class CheckoutTest extends BaseTest {
             eq(false),
             optionsCaptor.capture(),
             eq(ApiConstants.HttpMethod.POST),
-            isNull()
-        );
-    assertEquals("99361789-5204-4576-b123-4f9a1b2c3d45", optionsCaptor.getValue().getIdempotencyKey());
-
+            isNull());
+    assertEquals(
+        "99361789-5204-4576-b123-4f9a1b2c3d45", optionsCaptor.getValue().getIdempotencyKey());
   }
-
 }
