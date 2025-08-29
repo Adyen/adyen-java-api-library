@@ -96,18 +96,23 @@ Client client = new Client("Your X-API-KEY", Environment.TEST);
 PaymentsApi paymentsApi = new PaymentsApi(client);
 
 // Create PaymentRequest 
-PaymentRequest paymentRequest = new PaymentRequest();
-paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
-CardDetails cardDetails = new CardDetails();
-    cardDetails.encryptedCardNumber("test_4111111111111111")
-        .encryptedSecurityCode("test_737")
-        .encryptedExpiryMonth("test_03")
-        .encryptedExpiryYear("test_2030");
-paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(cardDetails));
-Amount amount = new Amount().currency("EUR").value(1000L);
-paymentRequest.setAmount(amount);
-paymentRequest.setReference("Your order number");
-paymentRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
+CardDetails cardDetails =
+    new CardDetails()
+      .type(CardDetails.TypeEnum.SCHEME)
+      .encryptedCardNumber("5136333333333335")
+      .holderName("John Doe")
+      .cvc("737")
+      .encryptedExpiryMonth("08")
+      .encryptedExpiryYear("2018");
+PaymentRequest paymentRequest =
+  new PaymentRequest()
+      .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+      .reference("YOUR_REFERENCE")
+      .amount(new Amount()
+          .currency("EUR")
+          .value(1000L))
+      .returnUrl("https://your-company.example.org/checkout?shopperOrder=12xy..")
+      .paymentMethod(new CheckoutPaymentMethod(cardDetails));
 
 // Make a call to the /payments endpoint
 PaymentResponse paymentResponse = paymentsApi.payments(paymentRequest);
