@@ -40,7 +40,6 @@ public class ErrorHandlingTest extends BaseTest {
       ApiError apiError = e.getError();
       Assert.assertEquals("Validation", apiError.getErrorType());
       Assert.assertEquals("Invalid payment link ID", apiError.getMessage());
-
     }
   }
 }
