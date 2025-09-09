@@ -30,11 +30,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** NotificationRequest model class */
+/**
+ * NotificationRequest model class
+ * This class represents the payload of the Adyen webhooks related to Payments
+ **/
 public class NotificationRequest {
+
+  /**
+   * True when the event happened on the 'live' environment, false when it happened on 'test'
+   */
   @SerializedName("live")
   private String live = null;
 
+  /**
+   * List of NotificationRequestItem that includes only one NotificationRequestItem
+   * Developers should always fetch the first (and only) NotificationRequestItem
+   */
   @SerializedName("notificationItems")
   private List<NotificationRequestItemContainer> notificationItemContainers = null;
 
