@@ -25,9 +25,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
 /**
- * TerminalAPIRequest model class
- * This class represents the payload of the Adyen webhooks related to the Terminal API
- **/
+ * TerminalAPIRequest model class This class represents the payload of the Adyen webhooks related to
+ * the Terminal API
+ */
 public class TerminalAPIRequest {
   @SerializedName("SaleToPOIRequest")
   private SaleToPOIRequest saleToPOIRequest;
