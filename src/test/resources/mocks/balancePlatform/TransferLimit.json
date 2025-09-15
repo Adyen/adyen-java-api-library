@@ -1,0 +1,16 @@
+{
+  "amount": {
+    "value": 10000,
+    "currency": "EUR"
+  },
+  "id": "TRLI00000000000000000000000001",
+  "scope": "perTransaction",
+  "reference": "Your reference for the transfer limit",
+  "scaInformation": {
+    "status": "pending"
+  },
+  "startsAt": "2025-08-15T06:36:20+01:00",
+  "endsAt": "2026-08-13T23:00:00+01:00",
+  "limitStatus": "pendingSCA",
+  "transferType": "all"
+}
