@@ -11,179 +11,182 @@
 
 package com.adyen.service.balanceplatform;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.verify;
+
 import com.adyen.BaseTest;
 import com.adyen.Client;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.*;
-import org.junit.Test;
-
 import java.time.OffsetDateTime;
 import java.util.Map;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
+import org.junit.Test;
 
 public class TransferLimitsBalanceAccountLevelApiTest extends BaseTest {
 
-	@Test
-	public void approvePendingTransferLimitsTest() throws Exception {
-		Client client = createMockClientFromResponse("");
-		TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
-		String balanceAccountId = "BA12345677890";
-		String transferLimitId = "TRLI00000000000000000000000001";
-		ApproveTransferLimitRequest approveTransferLimitRequest = new ApproveTransferLimitRequest()
-				.addTransferLimitIdsItem(transferLimitId);
+  @Test
+  public void approvePendingTransferLimitsTest() throws Exception {
+    Client client = createMockClientFromResponse("");
+    TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
+    String balanceAccountId = "BA12345677890";
+    String transferLimitId = "TRLI00000000000000000000000001";
+    ApproveTransferLimitRequest approveTransferLimitRequest =
+        new ApproveTransferLimitRequest().addTransferLimitIdsItem(transferLimitId);
 
-		service.approvePendingTransferLimits(balanceAccountId, approveTransferLimitRequest);
-		verify(client.getHttpClient()).request(
-				"https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/approve",
-				approveTransferLimitRequest.toJson(),
-				client.getConfig(),
-				false,
-				null,
-				ApiConstants.HttpMethod.POST,
-				null
-		);
-	}
+    service.approvePendingTransferLimits(balanceAccountId, approveTransferLimitRequest);
+    verify(client.getHttpClient())
+        .request(
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/approve",
+            approveTransferLimitRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
 
-	@Test
-	public void createTransferLimitTest() throws Exception {
-		Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimit.json");
+  @Test
+  public void createTransferLimitTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimit.json");
 
-		TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
+    TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
 
-		String balanceAccountId = "BA12345677890";
-		CreateTransferLimitRequest createTransferLimitRequest = new CreateTransferLimitRequest()
-				.amount(new Amount()
-						.value(10000L)
-						.currency("EUR"))
-				.scope(Scope.PERTRANSACTION)
-				.reference("Your reference for the Transfer Limit")
-				.scaInformation(new CreateScaInformation()
-						.scaOnApproval(true))
-				.startsAt(OffsetDateTime.of(2025, 1, 1, 0, 0, 0, 0, OffsetDateTime.now().getOffset()))
-				.endsAt(OffsetDateTime.of(2025, 6, 1, 0, 0, 0, 0, OffsetDateTime.now().getOffset()))
-				.transferType(TransferType.ALL);
+    String balanceAccountId = "BA12345677890";
+    CreateTransferLimitRequest createTransferLimitRequest =
+        new CreateTransferLimitRequest()
+            .amount(new Amount().value(10000L).currency("EUR"))
+            .scope(Scope.PERTRANSACTION)
+            .reference("Your reference for the Transfer Limit")
+            .scaInformation(new CreateScaInformation().scaOnApproval(true))
+            .startsAt(OffsetDateTime.of(2025, 1, 1, 0, 0, 0, 0, OffsetDateTime.now().getOffset()))
+            .endsAt(OffsetDateTime.of(2025, 6, 1, 0, 0, 0, 0, OffsetDateTime.now().getOffset()))
+            .transferType(TransferType.ALL);
 
-		TransferLimit transferLimit = service.createTransferLimit(balanceAccountId, createTransferLimitRequest);
-		verify(client.getHttpClient()).request(
-				"https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits",
-				createTransferLimitRequest.toJson(),
-				client.getConfig(),
-				false,
-				null,
-				ApiConstants.HttpMethod.POST,
-				null
-		);
-		assertNotNull(transferLimit);
-		assertEquals("TRLI00000000000000000000000001", transferLimit.getId());
-	}
+    TransferLimit transferLimit =
+        service.createTransferLimit(balanceAccountId, createTransferLimitRequest);
+    verify(client.getHttpClient())
+        .request(
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits",
+            createTransferLimitRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+    assertNotNull(transferLimit);
+    assertEquals("TRLI00000000000000000000000001", transferLimit.getId());
+  }
 
-	@Test
-	public void deletePendingTransferLimitTest() throws Exception {
-		Client client = createMockClientFromResponse("");
-		TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
-		String balanceAccountId = "BA12345677890";
-		String transferLimitId = "TRLI00000000000000000000000001";
+  @Test
+  public void deletePendingTransferLimitTest() throws Exception {
+    Client client = createMockClientFromResponse("");
+    TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
+    String balanceAccountId = "BA12345677890";
+    String transferLimitId = "TRLI00000000000000000000000001";
 
-		service.deletePendingTransferLimit(transferLimitId, balanceAccountId);
-		verify(client.getHttpClient()).request(
-				"https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/TRLI00000000000000000000000001",
-				null,
-				client.getConfig(),
-				false,
-				null,
-				ApiConstants.HttpMethod.DELETE,
-				null
-		);
-	}
+    service.deletePendingTransferLimit(transferLimitId, balanceAccountId);
+    verify(client.getHttpClient())
+        .request(
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/TRLI00000000000000000000000001",
+            null,
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.DELETE,
+            null);
+  }
 
-	@Test
-	public void getCurrentTransferLimitsTest() throws Exception {
-		Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimits.json");
-		TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
-		String balanceAccountId = "BA12345677890";
+  @Test
+  public void getCurrentTransferLimitsTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimits.json");
+    TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
+    String balanceAccountId = "BA12345677890";
 
-		TransferLimitListResponse transferLimits = service.getCurrentTransferLimits(balanceAccountId);
-		verify(client.getHttpClient()).request(
-				"https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/current",
-				null,
-				client.getConfig(),
-				false,
-				null,
-				ApiConstants.HttpMethod.GET,
-				Map.of()
-		);
-		assertNotNull(transferLimits);
-		assertEquals(2, transferLimits.getTransferLimits().size());
-		assertEquals("TRLI00000000000000000000000001", transferLimits.getTransferLimits().get(0).getId());
-	}
+    TransferLimitListResponse transferLimits = service.getCurrentTransferLimits(balanceAccountId);
+    verify(client.getHttpClient())
+        .request(
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/current",
+            null,
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.GET,
+            Map.of());
+    assertNotNull(transferLimits);
+    assertEquals(2, transferLimits.getTransferLimits().size());
+    assertEquals(
+        "TRLI00000000000000000000000001", transferLimits.getTransferLimits().get(0).getId());
+  }
 
-	@Test
-	public void getCurrentTransferLimitsWithParametersTest() throws Exception {
-		Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimits.json");
-		TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
-		String balanceAccountId = "BA12345677890";
+  @Test
+  public void getCurrentTransferLimitsWithParametersTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimits.json");
+    TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
+    String balanceAccountId = "BA12345677890";
 
-		TransferLimitListResponse transferLimits = service.getCurrentTransferLimits(balanceAccountId, Scope.PERTRANSACTION, TransferType.INSTANT, null);
+    TransferLimitListResponse transferLimits =
+        service.getCurrentTransferLimits(
+            balanceAccountId, Scope.PERTRANSACTION, TransferType.INSTANT, null);
 
-		verify(client.getHttpClient()).request(
-				"https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/current",
-				null,
-				client.getConfig(),
-				false,
-				null,
-				ApiConstants.HttpMethod.GET,
-				Map.of("scope", "perTransaction", "transferType", "instant")
-		);
-		assertNotNull(transferLimits);
-		assertEquals(2, transferLimits.getTransferLimits().size());
-		assertEquals("TRLI00000000000000000000000001", transferLimits.getTransferLimits().get(0).getId());
-	}
+    verify(client.getHttpClient())
+        .request(
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/current",
+            null,
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.GET,
+            Map.of("scope", "perTransaction", "transferType", "instant"));
+    assertNotNull(transferLimits);
+    assertEquals(2, transferLimits.getTransferLimits().size());
+    assertEquals(
+        "TRLI00000000000000000000000001", transferLimits.getTransferLimits().get(0).getId());
+  }
 
-	@Test
-	public void getSpecificTransferLimitTest() throws Exception {
-		Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimit.json");
-		TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
-		String balanceAccountId = "BA12345677890";
-		String transferLimitId = "TRLI00000000000000000000000001";
+  @Test
+  public void getSpecificTransferLimitTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimit.json");
+    TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
+    String balanceAccountId = "BA12345677890";
+    String transferLimitId = "TRLI00000000000000000000000001";
 
-		TransferLimit transferLimit = service.getSpecificTransferLimit(transferLimitId, balanceAccountId);
+    TransferLimit transferLimit =
+        service.getSpecificTransferLimit(transferLimitId, balanceAccountId);
 
-		verify(client.getHttpClient()).request(
-				"https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/TRLI00000000000000000000000001",
-				null,
-				client.getConfig(),
-				false,
-				null,
-				ApiConstants.HttpMethod.GET,
-				null
-		);
-		assertNotNull(transferLimit);
-		assertEquals("TRLI00000000000000000000000001", transferLimit.getId());
-	}
+    verify(client.getHttpClient())
+        .request(
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/TRLI00000000000000000000000001",
+            null,
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.GET,
+            null);
+    assertNotNull(transferLimit);
+    assertEquals("TRLI00000000000000000000000001", transferLimit.getId());
+  }
 
-	@Test
-	public void getTransferLimitsTest() throws Exception {
-		Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimits.json");
+  @Test
+  public void getTransferLimitsTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimits.json");
 
-		TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
-		String balanceAccountId = "BA12345677890";
-		TransferLimitListResponse transferLimits = service.getTransferLimits(balanceAccountId);
+    TransferLimitsBalanceAccountLevelApi service = new TransferLimitsBalanceAccountLevelApi(client);
+    String balanceAccountId = "BA12345677890";
+    TransferLimitListResponse transferLimits = service.getTransferLimits(balanceAccountId);
 
-		verify(client.getHttpClient()).request(
-				"https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits",
-				null,
-				client.getConfig(),
-				false,
-				null,
-				ApiConstants.HttpMethod.GET,
-				Map.of()
-		);
-		assertNotNull(transferLimits);
-		assertEquals(2, transferLimits.getTransferLimits().size());
-		assertEquals("TRLI00000000000000000000000001", transferLimits.getTransferLimits().get(0).getId());
-	}
+    verify(client.getHttpClient())
+        .request(
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits",
+            null,
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.GET,
+            Map.of());
+    assertNotNull(transferLimits);
+    assertEquals(2, transferLimits.getTransferLimits().size());
+    assertEquals(
+        "TRLI00000000000000000000000001", transferLimits.getTransferLimits().get(0).getId());
+  }
 }
