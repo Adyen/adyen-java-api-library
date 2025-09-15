@@ -27,15 +27,22 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   Organization.JSON_PROPERTY_COUNTRY_OF_GOVERNING_LAW,
   Organization.JSON_PROPERTY_DATE_OF_INCORPORATION,
+  Organization.JSON_PROPERTY_DATE_OF_INITIATION_OF_LEGAL_PROCEEDING,
   Organization.JSON_PROPERTY_DESCRIPTION,
   Organization.JSON_PROPERTY_DOING_BUSINESS_AS,
+  Organization.JSON_PROPERTY_ECONOMIC_SECTOR,
   Organization.JSON_PROPERTY_EMAIL,
   Organization.JSON_PROPERTY_FINANCIAL_REPORTS,
+  Organization.JSON_PROPERTY_GLOBAL_LEGAL_ENTITY_IDENTIFIER,
+  Organization.JSON_PROPERTY_HEAD_OFFICE_INDICATOR,
+  Organization.JSON_PROPERTY_INSTITUTIONAL_SECTOR,
+  Organization.JSON_PROPERTY_LEGAL_FORM,
   Organization.JSON_PROPERTY_LEGAL_NAME,
   Organization.JSON_PROPERTY_PHONE,
   Organization.JSON_PROPERTY_PRINCIPAL_PLACE_OF_BUSINESS,
   Organization.JSON_PROPERTY_REGISTERED_ADDRESS,
   Organization.JSON_PROPERTY_REGISTRATION_NUMBER,
+  Organization.JSON_PROPERTY_STATUS_OF_LEGAL_PROCEEDING,
   Organization.JSON_PROPERTY_STOCK_DATA,
   Organization.JSON_PROPERTY_TAX_INFORMATION,
   Organization.JSON_PROPERTY_TAX_REPORTING_CLASSIFICATION,
@@ -51,17 +58,110 @@ public class Organization {
   public static final String JSON_PROPERTY_DATE_OF_INCORPORATION = "dateOfIncorporation";
   private String dateOfIncorporation;
 
+  public static final String JSON_PROPERTY_DATE_OF_INITIATION_OF_LEGAL_PROCEEDING =
+      "dateOfInitiationOfLegalProceeding";
+  private String dateOfInitiationOfLegalProceeding;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
   public static final String JSON_PROPERTY_DOING_BUSINESS_AS = "doingBusinessAs";
   private String doingBusinessAs;
 
+  public static final String JSON_PROPERTY_ECONOMIC_SECTOR = "economicSector";
+  private String economicSector;
+
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
   public static final String JSON_PROPERTY_FINANCIAL_REPORTS = "financialReports";
   private List<FinancialReport> financialReports;
+
+  public static final String JSON_PROPERTY_GLOBAL_LEGAL_ENTITY_IDENTIFIER =
+      "globalLegalEntityIdentifier";
+  private String globalLegalEntityIdentifier;
+
+  public static final String JSON_PROPERTY_HEAD_OFFICE_INDICATOR = "headOfficeIndicator";
+  private Boolean headOfficeIndicator;
+
+  /** The institutional sector the organization operates within. */
+  public enum InstitutionalSectorEnum {
+    NONFINANCIALCORPORATION(String.valueOf("nonFinancialCorporation")),
+
+    CENTRALBANK(String.valueOf("centralBank")),
+
+    CREDITINSTITUTIONS(String.valueOf("creditInstitutions")),
+
+    DEPOSITTAKINGCORPORATIONS(String.valueOf("depositTakingCorporations")),
+
+    MONEYMARKETFUNDS(String.valueOf("moneyMarketFunds")),
+
+    NONMMFINVESTMENTFUNDS(String.valueOf("nonMMFInvestmentFunds")),
+
+    FINANCIALVEHICLECORPORATION(String.valueOf("financialVehicleCorporation")),
+
+    OTHERFINANCIALINTERMEDIARIES(String.valueOf("otherFinancialIntermediaries")),
+
+    FINANCIALAUXILIARIES(String.valueOf("financialAuxiliaries")),
+
+    CAPTIVEFINANCIALINSTITUTIONSANDMONEYLENDERS(
+        String.valueOf("captiveFinancialInstitutionsAndMoneyLenders")),
+
+    INSURANCECORPORATIONS(String.valueOf("insuranceCorporations")),
+
+    PENSIONFUNDS(String.valueOf("pensionFunds")),
+
+    CENTRALGOVERNMENT(String.valueOf("centralGovernment")),
+
+    STATEGOVERNMENT(String.valueOf("stateGovernment")),
+
+    LOCALGOVERNMENT(String.valueOf("localGovernment")),
+
+    SOCIALSECURITYFUNDS(String.valueOf("socialSecurityFunds")),
+
+    NONPROFITINSTITUTIONSSERVINGHOUSEHOLDS(
+        String.valueOf("nonProfitInstitutionsServingHouseholds"));
+
+    private static final Logger LOG = Logger.getLogger(InstitutionalSectorEnum.class.getName());
+
+    private String value;
+
+    InstitutionalSectorEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static InstitutionalSectorEnum fromValue(String value) {
+      for (InstitutionalSectorEnum b : InstitutionalSectorEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "InstitutionalSectorEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(InstitutionalSectorEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_INSTITUTIONAL_SECTOR = "institutionalSector";
+  private InstitutionalSectorEnum institutionalSector;
+
+  public static final String JSON_PROPERTY_LEGAL_FORM = "legalForm";
+  private String legalForm;
 
   public static final String JSON_PROPERTY_LEGAL_NAME = "legalName";
   private String legalName;
@@ -77,6 +177,59 @@ public class Organization {
 
   public static final String JSON_PROPERTY_REGISTRATION_NUMBER = "registrationNumber";
   private String registrationNumber;
+
+  /**
+   * The status of any current or past legal action taken against the legal entity. Possible values:
+   * **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**,
+   * **otherLegalMeasures** If the value of this field is **noLegalActionsTaken**, then
+   * &#x60;dateOfInitiationOfLegalProceeding&#x60; is not required. Otherwise, it is required.
+   */
+  public enum StatusOfLegalProceedingEnum {
+    NOLEGALACTIONSTAKEN(String.valueOf("noLegalActionsTaken")),
+
+    UNDERJUDICIALADMINISTRATION(String.valueOf("underJudicialAdministration")),
+
+    BANKRUPTCYINSOLVENCY(String.valueOf("bankruptcyInsolvency")),
+
+    OTHERLEGALMEASURES(String.valueOf("otherLegalMeasures"));
+
+    private static final Logger LOG = Logger.getLogger(StatusOfLegalProceedingEnum.class.getName());
+
+    private String value;
+
+    StatusOfLegalProceedingEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusOfLegalProceedingEnum fromValue(String value) {
+      for (StatusOfLegalProceedingEnum b : StatusOfLegalProceedingEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "StatusOfLegalProceedingEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(StatusOfLegalProceedingEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_STATUS_OF_LEGAL_PROCEEDING = "statusOfLegalProceeding";
+  private StatusOfLegalProceedingEnum statusOfLegalProceeding;
 
   public static final String JSON_PROPERTY_STOCK_DATA = "stockData";
   private StockData stockData;
@@ -278,6 +431,57 @@ public class Organization {
   }
 
   /**
+   * Required if the value of &#x60;statusOfLegalProceeding&#x60; is one of the following:
+   * **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures** The date at
+   * which a legal proceeding was initiated, in **YYYY-MM-DD** format. Example: **2000-02-12**
+   *
+   * @param dateOfInitiationOfLegalProceeding Required if the value of
+   *     &#x60;statusOfLegalProceeding&#x60; is one of the following:
+   *     **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures** The date
+   *     at which a legal proceeding was initiated, in **YYYY-MM-DD** format. Example:
+   *     **2000-02-12**
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization dateOfInitiationOfLegalProceeding(String dateOfInitiationOfLegalProceeding) {
+    this.dateOfInitiationOfLegalProceeding = dateOfInitiationOfLegalProceeding;
+    return this;
+  }
+
+  /**
+   * Required if the value of &#x60;statusOfLegalProceeding&#x60; is one of the following:
+   * **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures** The date at
+   * which a legal proceeding was initiated, in **YYYY-MM-DD** format. Example: **2000-02-12**
+   *
+   * @return dateOfInitiationOfLegalProceeding Required if the value of
+   *     &#x60;statusOfLegalProceeding&#x60; is one of the following:
+   *     **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures** The date
+   *     at which a legal proceeding was initiated, in **YYYY-MM-DD** format. Example:
+   *     **2000-02-12**
+   */
+  @JsonProperty(JSON_PROPERTY_DATE_OF_INITIATION_OF_LEGAL_PROCEEDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDateOfInitiationOfLegalProceeding() {
+    return dateOfInitiationOfLegalProceeding;
+  }
+
+  /**
+   * Required if the value of &#x60;statusOfLegalProceeding&#x60; is one of the following:
+   * **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures** The date at
+   * which a legal proceeding was initiated, in **YYYY-MM-DD** format. Example: **2000-02-12**
+   *
+   * @param dateOfInitiationOfLegalProceeding Required if the value of
+   *     &#x60;statusOfLegalProceeding&#x60; is one of the following:
+   *     **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures** The date
+   *     at which a legal proceeding was initiated, in **YYYY-MM-DD** format. Example:
+   *     **2000-02-12**
+   */
+  @JsonProperty(JSON_PROPERTY_DATE_OF_INITIATION_OF_LEGAL_PROCEEDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDateOfInitiationOfLegalProceeding(String dateOfInitiationOfLegalProceeding) {
+    this.dateOfInitiationOfLegalProceeding = dateOfInitiationOfLegalProceeding;
+  }
+
+  /**
    * Your description for the organization.
    *
    * @param description Your description for the organization.
@@ -344,6 +548,57 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDoingBusinessAs(String doingBusinessAs) {
     this.doingBusinessAs = doingBusinessAs;
+  }
+
+  /**
+   * The sector of the economy the legal entity operates within, represented by a 2-4 digit code
+   * that may include a \&quot;.\&quot;. Example: 45.11 You can locate economic sector codes for
+   * your area by referencing codes defined by the NACE (Nomenclature of Economic Activities) used
+   * in the European Union.
+   *
+   * @param economicSector The sector of the economy the legal entity operates within, represented
+   *     by a 2-4 digit code that may include a \&quot;.\&quot;. Example: 45.11 You can locate
+   *     economic sector codes for your area by referencing codes defined by the NACE (Nomenclature
+   *     of Economic Activities) used in the European Union.
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization economicSector(String economicSector) {
+    this.economicSector = economicSector;
+    return this;
+  }
+
+  /**
+   * The sector of the economy the legal entity operates within, represented by a 2-4 digit code
+   * that may include a \&quot;.\&quot;. Example: 45.11 You can locate economic sector codes for
+   * your area by referencing codes defined by the NACE (Nomenclature of Economic Activities) used
+   * in the European Union.
+   *
+   * @return economicSector The sector of the economy the legal entity operates within, represented
+   *     by a 2-4 digit code that may include a \&quot;.\&quot;. Example: 45.11 You can locate
+   *     economic sector codes for your area by referencing codes defined by the NACE (Nomenclature
+   *     of Economic Activities) used in the European Union.
+   */
+  @JsonProperty(JSON_PROPERTY_ECONOMIC_SECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEconomicSector() {
+    return economicSector;
+  }
+
+  /**
+   * The sector of the economy the legal entity operates within, represented by a 2-4 digit code
+   * that may include a \&quot;.\&quot;. Example: 45.11 You can locate economic sector codes for
+   * your area by referencing codes defined by the NACE (Nomenclature of Economic Activities) used
+   * in the European Union.
+   *
+   * @param economicSector The sector of the economy the legal entity operates within, represented
+   *     by a 2-4 digit code that may include a \&quot;.\&quot;. Example: 45.11 You can locate
+   *     economic sector codes for your area by referencing codes defined by the NACE (Nomenclature
+   *     of Economic Activities) used in the European Union.
+   */
+  @JsonProperty(JSON_PROPERTY_ECONOMIC_SECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEconomicSector(String economicSector) {
+    this.economicSector = economicSector;
   }
 
   /**
@@ -418,6 +673,147 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinancialReports(List<FinancialReport> financialReports) {
     this.financialReports = financialReports;
+  }
+
+  /**
+   * The global legal entity identifier for the organization.
+   *
+   * @param globalLegalEntityIdentifier The global legal entity identifier for the organization.
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization globalLegalEntityIdentifier(String globalLegalEntityIdentifier) {
+    this.globalLegalEntityIdentifier = globalLegalEntityIdentifier;
+    return this;
+  }
+
+  /**
+   * The global legal entity identifier for the organization.
+   *
+   * @return globalLegalEntityIdentifier The global legal entity identifier for the organization.
+   */
+  @JsonProperty(JSON_PROPERTY_GLOBAL_LEGAL_ENTITY_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGlobalLegalEntityIdentifier() {
+    return globalLegalEntityIdentifier;
+  }
+
+  /**
+   * The global legal entity identifier for the organization.
+   *
+   * @param globalLegalEntityIdentifier The global legal entity identifier for the organization.
+   */
+  @JsonProperty(JSON_PROPERTY_GLOBAL_LEGAL_ENTITY_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGlobalLegalEntityIdentifier(String globalLegalEntityIdentifier) {
+    this.globalLegalEntityIdentifier = globalLegalEntityIdentifier;
+  }
+
+  /**
+   * Indicates that the registered business address is also the company&#39;s headquarters.
+   *
+   * @param headOfficeIndicator Indicates that the registered business address is also the
+   *     company&#39;s headquarters.
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization headOfficeIndicator(Boolean headOfficeIndicator) {
+    this.headOfficeIndicator = headOfficeIndicator;
+    return this;
+  }
+
+  /**
+   * Indicates that the registered business address is also the company&#39;s headquarters.
+   *
+   * @return headOfficeIndicator Indicates that the registered business address is also the
+   *     company&#39;s headquarters.
+   */
+  @JsonProperty(JSON_PROPERTY_HEAD_OFFICE_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHeadOfficeIndicator() {
+    return headOfficeIndicator;
+  }
+
+  /**
+   * Indicates that the registered business address is also the company&#39;s headquarters.
+   *
+   * @param headOfficeIndicator Indicates that the registered business address is also the
+   *     company&#39;s headquarters.
+   */
+  @JsonProperty(JSON_PROPERTY_HEAD_OFFICE_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHeadOfficeIndicator(Boolean headOfficeIndicator) {
+    this.headOfficeIndicator = headOfficeIndicator;
+  }
+
+  /**
+   * The institutional sector the organization operates within.
+   *
+   * @param institutionalSector The institutional sector the organization operates within.
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization institutionalSector(InstitutionalSectorEnum institutionalSector) {
+    this.institutionalSector = institutionalSector;
+    return this;
+  }
+
+  /**
+   * The institutional sector the organization operates within.
+   *
+   * @return institutionalSector The institutional sector the organization operates within.
+   */
+  @JsonProperty(JSON_PROPERTY_INSTITUTIONAL_SECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public InstitutionalSectorEnum getInstitutionalSector() {
+    return institutionalSector;
+  }
+
+  /**
+   * The institutional sector the organization operates within.
+   *
+   * @param institutionalSector The institutional sector the organization operates within.
+   */
+  @JsonProperty(JSON_PROPERTY_INSTITUTIONAL_SECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstitutionalSector(InstitutionalSectorEnum institutionalSector) {
+    this.institutionalSector = institutionalSector;
+  }
+
+  /**
+   * The type of business entity as defined in the national legal system. Use a legal form listed
+   * within the accepted legal forms compiled by the Central Bank of Europe.
+   *
+   * @param legalForm The type of business entity as defined in the national legal system. Use a
+   *     legal form listed within the accepted legal forms compiled by the Central Bank of Europe.
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization legalForm(String legalForm) {
+    this.legalForm = legalForm;
+    return this;
+  }
+
+  /**
+   * The type of business entity as defined in the national legal system. Use a legal form listed
+   * within the accepted legal forms compiled by the Central Bank of Europe.
+   *
+   * @return legalForm The type of business entity as defined in the national legal system. Use a
+   *     legal form listed within the accepted legal forms compiled by the Central Bank of Europe.
+   */
+  @JsonProperty(JSON_PROPERTY_LEGAL_FORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLegalForm() {
+    return legalForm;
+  }
+
+  /**
+   * The type of business entity as defined in the national legal system. Use a legal form listed
+   * within the accepted legal forms compiled by the Central Bank of Europe.
+   *
+   * @param legalForm The type of business entity as defined in the national legal system. Use a
+   *     legal form listed within the accepted legal forms compiled by the Central Bank of Europe.
+   */
+  @JsonProperty(JSON_PROPERTY_LEGAL_FORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLegalForm(String legalForm) {
+    this.legalForm = legalForm;
   }
 
   /**
@@ -583,6 +979,60 @@ public class Organization {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationNumber(String registrationNumber) {
     this.registrationNumber = registrationNumber;
+  }
+
+  /**
+   * The status of any current or past legal action taken against the legal entity. Possible values:
+   * **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**,
+   * **otherLegalMeasures** If the value of this field is **noLegalActionsTaken**, then
+   * &#x60;dateOfInitiationOfLegalProceeding&#x60; is not required. Otherwise, it is required.
+   *
+   * @param statusOfLegalProceeding The status of any current or past legal action taken against the
+   *     legal entity. Possible values: **noLegalActionsTaken**, **underJudicialAdministration**,
+   *     **bankruptcyInsolvency**, **otherLegalMeasures** If the value of this field is
+   *     **noLegalActionsTaken**, then &#x60;dateOfInitiationOfLegalProceeding&#x60; is not
+   *     required. Otherwise, it is required.
+   * @return the current {@code Organization} instance, allowing for method chaining
+   */
+  public Organization statusOfLegalProceeding(StatusOfLegalProceedingEnum statusOfLegalProceeding) {
+    this.statusOfLegalProceeding = statusOfLegalProceeding;
+    return this;
+  }
+
+  /**
+   * The status of any current or past legal action taken against the legal entity. Possible values:
+   * **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**,
+   * **otherLegalMeasures** If the value of this field is **noLegalActionsTaken**, then
+   * &#x60;dateOfInitiationOfLegalProceeding&#x60; is not required. Otherwise, it is required.
+   *
+   * @return statusOfLegalProceeding The status of any current or past legal action taken against
+   *     the legal entity. Possible values: **noLegalActionsTaken**,
+   *     **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures** If the
+   *     value of this field is **noLegalActionsTaken**, then
+   *     &#x60;dateOfInitiationOfLegalProceeding&#x60; is not required. Otherwise, it is required.
+   */
+  @JsonProperty(JSON_PROPERTY_STATUS_OF_LEGAL_PROCEEDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public StatusOfLegalProceedingEnum getStatusOfLegalProceeding() {
+    return statusOfLegalProceeding;
+  }
+
+  /**
+   * The status of any current or past legal action taken against the legal entity. Possible values:
+   * **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**,
+   * **otherLegalMeasures** If the value of this field is **noLegalActionsTaken**, then
+   * &#x60;dateOfInitiationOfLegalProceeding&#x60; is not required. Otherwise, it is required.
+   *
+   * @param statusOfLegalProceeding The status of any current or past legal action taken against the
+   *     legal entity. Possible values: **noLegalActionsTaken**, **underJudicialAdministration**,
+   *     **bankruptcyInsolvency**, **otherLegalMeasures** If the value of this field is
+   *     **noLegalActionsTaken**, then &#x60;dateOfInitiationOfLegalProceeding&#x60; is not
+   *     required. Otherwise, it is required.
+   */
+  @JsonProperty(JSON_PROPERTY_STATUS_OF_LEGAL_PROCEEDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatusOfLegalProceeding(StatusOfLegalProceedingEnum statusOfLegalProceeding) {
+    this.statusOfLegalProceeding = statusOfLegalProceeding;
   }
 
   /**
@@ -855,15 +1305,24 @@ public class Organization {
     Organization organization = (Organization) o;
     return Objects.equals(this.countryOfGoverningLaw, organization.countryOfGoverningLaw)
         && Objects.equals(this.dateOfIncorporation, organization.dateOfIncorporation)
+        && Objects.equals(
+            this.dateOfInitiationOfLegalProceeding, organization.dateOfInitiationOfLegalProceeding)
         && Objects.equals(this.description, organization.description)
         && Objects.equals(this.doingBusinessAs, organization.doingBusinessAs)
+        && Objects.equals(this.economicSector, organization.economicSector)
         && Objects.equals(this.email, organization.email)
         && Objects.equals(this.financialReports, organization.financialReports)
+        && Objects.equals(
+            this.globalLegalEntityIdentifier, organization.globalLegalEntityIdentifier)
+        && Objects.equals(this.headOfficeIndicator, organization.headOfficeIndicator)
+        && Objects.equals(this.institutionalSector, organization.institutionalSector)
+        && Objects.equals(this.legalForm, organization.legalForm)
         && Objects.equals(this.legalName, organization.legalName)
         && Objects.equals(this.phone, organization.phone)
         && Objects.equals(this.principalPlaceOfBusiness, organization.principalPlaceOfBusiness)
         && Objects.equals(this.registeredAddress, organization.registeredAddress)
         && Objects.equals(this.registrationNumber, organization.registrationNumber)
+        && Objects.equals(this.statusOfLegalProceeding, organization.statusOfLegalProceeding)
         && Objects.equals(this.stockData, organization.stockData)
         && Objects.equals(this.taxInformation, organization.taxInformation)
         && Objects.equals(this.taxReportingClassification, organization.taxReportingClassification)
@@ -878,15 +1337,22 @@ public class Organization {
     return Objects.hash(
         countryOfGoverningLaw,
         dateOfIncorporation,
+        dateOfInitiationOfLegalProceeding,
         description,
         doingBusinessAs,
+        economicSector,
         email,
         financialReports,
+        globalLegalEntityIdentifier,
+        headOfficeIndicator,
+        institutionalSector,
+        legalForm,
         legalName,
         phone,
         principalPlaceOfBusiness,
         registeredAddress,
         registrationNumber,
+        statusOfLegalProceeding,
         stockData,
         taxInformation,
         taxReportingClassification,
@@ -906,10 +1372,24 @@ public class Organization {
     sb.append("    dateOfIncorporation: ")
         .append(toIndentedString(dateOfIncorporation))
         .append("\n");
+    sb.append("    dateOfInitiationOfLegalProceeding: ")
+        .append(toIndentedString(dateOfInitiationOfLegalProceeding))
+        .append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
+    sb.append("    economicSector: ").append(toIndentedString(economicSector)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    financialReports: ").append(toIndentedString(financialReports)).append("\n");
+    sb.append("    globalLegalEntityIdentifier: ")
+        .append(toIndentedString(globalLegalEntityIdentifier))
+        .append("\n");
+    sb.append("    headOfficeIndicator: ")
+        .append(toIndentedString(headOfficeIndicator))
+        .append("\n");
+    sb.append("    institutionalSector: ")
+        .append(toIndentedString(institutionalSector))
+        .append("\n");
+    sb.append("    legalForm: ").append(toIndentedString(legalForm)).append("\n");
     sb.append("    legalName: ").append(toIndentedString(legalName)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    principalPlaceOfBusiness: ")
@@ -917,6 +1397,9 @@ public class Organization {
         .append("\n");
     sb.append("    registeredAddress: ").append(toIndentedString(registeredAddress)).append("\n");
     sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+    sb.append("    statusOfLegalProceeding: ")
+        .append(toIndentedString(statusOfLegalProceeding))
+        .append("\n");
     sb.append("    stockData: ").append(toIndentedString(stockData)).append("\n");
     sb.append("    taxInformation: ").append(toIndentedString(taxInformation)).append("\n");
     sb.append("    taxReportingClassification: ")

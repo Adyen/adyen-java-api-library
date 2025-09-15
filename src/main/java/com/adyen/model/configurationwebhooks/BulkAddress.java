@@ -24,6 +24,9 @@ import java.util.*;
   BulkAddress.JSON_PROPERTY_COUNTRY,
   BulkAddress.JSON_PROPERTY_EMAIL,
   BulkAddress.JSON_PROPERTY_HOUSE_NUMBER_OR_NAME,
+  BulkAddress.JSON_PROPERTY_LINE1,
+  BulkAddress.JSON_PROPERTY_LINE2,
+  BulkAddress.JSON_PROPERTY_LINE3,
   BulkAddress.JSON_PROPERTY_MOBILE,
   BulkAddress.JSON_PROPERTY_POSTAL_CODE,
   BulkAddress.JSON_PROPERTY_STATE_OR_PROVINCE,
@@ -44,6 +47,15 @@ public class BulkAddress {
 
   public static final String JSON_PROPERTY_HOUSE_NUMBER_OR_NAME = "houseNumberOrName";
   private String houseNumberOrName;
+
+  public static final String JSON_PROPERTY_LINE1 = "line1";
+  private String line1;
+
+  public static final String JSON_PROPERTY_LINE2 = "line2";
+  private String line2;
+
+  public static final String JSON_PROPERTY_LINE3 = "line3";
+  private String line3;
 
   public static final String JSON_PROPERTY_MOBILE = "mobile";
   private String mobile;
@@ -225,6 +237,114 @@ public class BulkAddress {
   }
 
   /**
+   * The name of the street and the number of the building. For example: **Simon Carmiggeltstraat
+   * 6-50**.
+   *
+   * @param line1 The name of the street and the number of the building. For example: **Simon
+   *     Carmiggeltstraat 6-50**.
+   * @return the current {@code BulkAddress} instance, allowing for method chaining
+   */
+  public BulkAddress line1(String line1) {
+    this.line1 = line1;
+    return this;
+  }
+
+  /**
+   * The name of the street and the number of the building. For example: **Simon Carmiggeltstraat
+   * 6-50**.
+   *
+   * @return line1 The name of the street and the number of the building. For example: **Simon
+   *     Carmiggeltstraat 6-50**.
+   */
+  @JsonProperty(JSON_PROPERTY_LINE1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLine1() {
+    return line1;
+  }
+
+  /**
+   * The name of the street and the number of the building. For example: **Simon Carmiggeltstraat
+   * 6-50**.
+   *
+   * @param line1 The name of the street and the number of the building. For example: **Simon
+   *     Carmiggeltstraat 6-50**.
+   */
+  @JsonProperty(JSON_PROPERTY_LINE1)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLine1(String line1) {
+    this.line1 = line1;
+  }
+
+  /**
+   * Additional information about the delivery address. For example, an apartment number.
+   *
+   * @param line2 Additional information about the delivery address. For example, an apartment
+   *     number.
+   * @return the current {@code BulkAddress} instance, allowing for method chaining
+   */
+  public BulkAddress line2(String line2) {
+    this.line2 = line2;
+    return this;
+  }
+
+  /**
+   * Additional information about the delivery address. For example, an apartment number.
+   *
+   * @return line2 Additional information about the delivery address. For example, an apartment
+   *     number.
+   */
+  @JsonProperty(JSON_PROPERTY_LINE2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLine2() {
+    return line2;
+  }
+
+  /**
+   * Additional information about the delivery address. For example, an apartment number.
+   *
+   * @param line2 Additional information about the delivery address. For example, an apartment
+   *     number.
+   */
+  @JsonProperty(JSON_PROPERTY_LINE2)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLine2(String line2) {
+    this.line2 = line2;
+  }
+
+  /**
+   * Additional information about the delivery address.
+   *
+   * @param line3 Additional information about the delivery address.
+   * @return the current {@code BulkAddress} instance, allowing for method chaining
+   */
+  public BulkAddress line3(String line3) {
+    this.line3 = line3;
+    return this;
+  }
+
+  /**
+   * Additional information about the delivery address.
+   *
+   * @return line3 Additional information about the delivery address.
+   */
+  @JsonProperty(JSON_PROPERTY_LINE3)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLine3() {
+    return line3;
+  }
+
+  /**
+   * Additional information about the delivery address.
+   *
+   * @param line3 Additional information about the delivery address.
+   */
+  @JsonProperty(JSON_PROPERTY_LINE3)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLine3(String line3) {
+    this.line3 = line3;
+  }
+
+  /**
    * The full telephone number.
    *
    * @param mobile The full telephone number.
@@ -383,6 +503,9 @@ public class BulkAddress {
         && Objects.equals(this.country, bulkAddress.country)
         && Objects.equals(this.email, bulkAddress.email)
         && Objects.equals(this.houseNumberOrName, bulkAddress.houseNumberOrName)
+        && Objects.equals(this.line1, bulkAddress.line1)
+        && Objects.equals(this.line2, bulkAddress.line2)
+        && Objects.equals(this.line3, bulkAddress.line3)
         && Objects.equals(this.mobile, bulkAddress.mobile)
         && Objects.equals(this.postalCode, bulkAddress.postalCode)
         && Objects.equals(this.stateOrProvince, bulkAddress.stateOrProvince)
@@ -397,6 +520,9 @@ public class BulkAddress {
         country,
         email,
         houseNumberOrName,
+        line1,
+        line2,
+        line3,
         mobile,
         postalCode,
         stateOrProvince,
@@ -412,6 +538,9 @@ public class BulkAddress {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    houseNumberOrName: ").append(toIndentedString(houseNumberOrName)).append("\n");
+    sb.append("    line1: ").append(toIndentedString(line1)).append("\n");
+    sb.append("    line2: ").append(toIndentedString(line2)).append("\n");
+    sb.append("    line3: ").append(toIndentedString(line3)).append("\n");
     sb.append("    mobile: ").append(toIndentedString(mobile)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append("\n");

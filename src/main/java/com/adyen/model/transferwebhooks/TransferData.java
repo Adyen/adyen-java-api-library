@@ -78,7 +78,7 @@ public class TransferData {
    * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
    * transfer between [balance
    * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by a Adyen-issued card. -
+   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
    * **platformPayment**: funds movements related to payments that are acquired for your users. -
    * **topUp**: an incoming transfer initiated by your user to top up their balance account.
    */
@@ -806,7 +806,7 @@ public class TransferData {
    * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
    * transfer between [balance
    * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by a Adyen-issued card. -
+   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
    * **platformPayment**: funds movements related to payments that are acquired for your users. -
    * **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
@@ -816,7 +816,7 @@ public class TransferData {
    *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
    *     transfer between [balance
    *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by a Adyen-issued card. -
+   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
    *     **platformPayment**: funds movements related to payments that are acquired for your users.
    *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    * @return the current {@code TransferData} instance, allowing for method chaining
@@ -832,7 +832,7 @@ public class TransferData {
    * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
    * transfer between [balance
    * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by a Adyen-issued card. -
+   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
    * **platformPayment**: funds movements related to payments that are acquired for your users. -
    * **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
@@ -842,7 +842,7 @@ public class TransferData {
    *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
    *     transfer between [balance
    *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by a Adyen-issued card. -
+   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
    *     **platformPayment**: funds movements related to payments that are acquired for your users.
    *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    */
@@ -858,7 +858,7 @@ public class TransferData {
    * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
    * transfer between [balance
    * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by a Adyen-issued card. -
+   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
    * **platformPayment**: funds movements related to payments that are acquired for your users. -
    * **topUp**: an incoming transfer initiated by your user to top up their balance account.
    *
@@ -868,7 +868,7 @@ public class TransferData {
    *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
    *     transfer between [balance
    *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by a Adyen-issued card. -
+   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
    *     **platformPayment**: funds movements related to payments that are acquired for your users.
    *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
    */
