@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "provider": {
+        "name": "Tink",
+        "logoURL" : "https://obgateway.adyen.com/obgateway/static/provider/images/tink-logo.svg"
+      },
+      "link": "https://obgateway.adyen.com/obgateway/provider/outgoing/tink/redirect/13ec4802-c987-4f8c-8909-9a75ff567256"
+    }
+  ]
+}

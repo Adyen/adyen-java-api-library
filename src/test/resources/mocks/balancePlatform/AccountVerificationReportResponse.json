@@ -1,0 +1,29 @@
+{
+  "id": "69ee9452ef824fe092f1417f37535755",
+  "country": "ES",
+  "accounts": [
+    {
+      "accountId": "ed5080e4f485430290475d246534c8fd",
+      "accountType": "CURRENT",
+      "accountName": "Checking Account 1",
+      "accountNumber": "ES1376230223254275408743",
+      "currency": "EUR",
+      "identifiers": {
+        "iban": {
+          "iban": "ES1376230223254275408743",
+          "bban": "76230223254275408743"
+        }
+      },
+      "parties": [
+        {
+          "identity": {
+            "fullLegalName": "Alberta Bobbeth Charleson",
+            "name": "Alberta Bobbeth Charleson"
+          },
+          "role": "HOLDER"
+        }
+      ],
+      "bankName": "Tink Demo Bank"
+    }
+  ]
+}
