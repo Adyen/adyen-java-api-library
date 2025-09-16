@@ -72,7 +72,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>39.3.0</version>
+  <version>39.4.0</version>
 </dependency>
 ```
 
