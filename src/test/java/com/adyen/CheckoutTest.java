@@ -41,15 +41,16 @@ public class CheckoutTest extends BaseTest {
   /** Should make a payment */
   @Test
   public void testPaymentSuccess() throws Exception {
+
     Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
     CardDetails cardDetails =
         new CardDetails()
             .type(CardDetails.TypeEnum.SCHEME)
-            .encryptedCardNumber("5136333333333335")
+            .encryptedCardNumber("test_4111111111111111")
             .holderName("John Doe")
-            .cvc("737")
-            .encryptedExpiryMonth("08")
-            .encryptedExpiryYear("2018");
+            .encryptedSecurityCode("test_737")
+            .encryptedExpiryMonth("test_03")
+            .encryptedExpiryYear("test_2030");
     PaymentRequest paymentRequest =
         new PaymentRequest()
             .merchantAccount("YOUR_MERCHANT_ACCOUNT")
