@@ -261,6 +261,7 @@ public class AdyenHttpClient implements ClientInterface {
             PoolingHttpClientConnectionManagerBuilder.create()
                 .setSSLSocketFactory(socketFactory)
                 .build())
+        .setRedirectStrategy(new AdyenCustomRedirectStrategy())
         .build();
   }
 
