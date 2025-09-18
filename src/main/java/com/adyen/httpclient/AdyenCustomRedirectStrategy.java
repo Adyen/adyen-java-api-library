@@ -7,13 +7,12 @@ import org.apache.hc.core5.http.HttpRequest;
 import org.apache.hc.core5.http.HttpResponse;
 import org.apache.hc.core5.http.protocol.HttpContext;
 
-/**
- * Implements a custom redirect strategy when the API returns 308
- */
+/** Implements a custom redirect strategy when the API returns 308 */
 public class AdyenCustomRedirectStrategy extends DefaultRedirectStrategy {
 
   /**
    * Override getLocationURI to validate the location header
+   *
    * @param request the request
    * @param response the response
    * @param context the context
