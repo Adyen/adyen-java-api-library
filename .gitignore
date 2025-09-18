@@ -3,3 +3,6 @@
 **/target/**
 .DS_Store
 .vscode
+
+# Property file with secrets (integration testing)
+config.properties
