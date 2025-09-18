@@ -48,6 +48,13 @@ public class AdyenCustomRedirectStrategyTest {
   }
 
   @Test
+  public void testIsVerifyLocationMaliciousDomain() {
+    assertFalse(redirectStrategy.isVerifyLocation("https://adyen.com.evil.com"));
+    assertFalse(redirectStrategy.isVerifyLocation("https://evil.com?q=.adyen.com"));
+    assertFalse(redirectStrategy.isVerifyLocation("https://evil.com/.adyen.com"));
+  }
+
+  @Test
   public void testIsVerifyLocationEmpty() {
     assertFalse(redirectStrategy.isVerifyLocation(""));
   }
@@ -76,7 +83,7 @@ public class AdyenCustomRedirectStrategyTest {
   public void testGetLocationURI308InvadidDomainThrowsException() {
     when(response.getCode()).thenReturn(308);
     when(response.getFirstHeader("Location")).thenReturn(locationHeader);
-    String location = "https://test.example.com";
+    String location = "https://test.example.com/";
     when(locationHeader.getValue()).thenReturn(location);
 
     try {

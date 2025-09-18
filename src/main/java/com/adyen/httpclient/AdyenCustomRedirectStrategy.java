@@ -2,7 +2,6 @@ package com.adyen.httpclient;
 
 import java.net.URI;
 import org.apache.hc.client5.http.impl.DefaultRedirectStrategy;
-import org.apache.hc.core5.http.Header;
 import org.apache.hc.core5.http.HttpException;
 import org.apache.hc.core5.http.HttpRequest;
 import org.apache.hc.core5.http.HttpResponse;
@@ -18,7 +17,7 @@ public class AdyenCustomRedirectStrategy extends DefaultRedirectStrategy {
    * @param request the request
    * @param response the response
    * @param context the context
-   * @return
+   * @return location url as URI
    * @throws HttpException an error has occurred
    */
   @Override
@@ -29,12 +28,8 @@ public class AdyenCustomRedirectStrategy extends DefaultRedirectStrategy {
     int statusCode = response.getCode();
     if (statusCode == 308) {
       // validate 308 redirect
-      Header locationHeader = response.getFirstHeader("Location");
-      if (locationHeader == null) {
-        throw new HttpException("Redirect location is missing");
-      }
-      if (!isVerifyLocation(locationHeader.getValue())) {
-        throw new HttpException("Redirect location is invalid: " + locationHeader.getValue());
+      if (!isVerifyLocation(uri.toString())) {
+        throw new HttpException("Redirect location is invalid: " + uri);
       }
     }
 
@@ -48,8 +43,19 @@ public class AdyenCustomRedirectStrategy extends DefaultRedirectStrategy {
    * @return true if valid
    */
   boolean isVerifyLocation(String location) {
-    location = location.toLowerCase();
-    return location.contains(".adyen.com") || location.contains(".adyenpayments.com");
+    if (location == null) {
+      return false;
+    }
+    try {
+      URI uri = new URI(location);
+      String host = uri.getHost();
+      if (host == null) {
+        return false;
+      }
+      String lowerCaseHost = host.toLowerCase();
+      return lowerCaseHost.endsWith(".adyen.com") || lowerCaseHost.endsWith(".adyenpayments.com");
+    } catch (java.net.URISyntaxException e) {
+      return false;
+    }
   }
-
 }
