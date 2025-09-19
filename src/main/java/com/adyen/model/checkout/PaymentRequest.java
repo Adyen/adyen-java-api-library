@@ -529,7 +529,7 @@ public class PaymentRequest {
   private String shopperLocale;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
-  private ShopperName shopperName;
+  private Name shopperName;
 
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
@@ -3151,7 +3151,7 @@ public class PaymentRequest {
    * @param shopperName
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
-  public PaymentRequest shopperName(ShopperName shopperName) {
+  public PaymentRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -3163,7 +3163,7 @@ public class PaymentRequest {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ShopperName getShopperName() {
+  public Name getShopperName() {
     return shopperName;
   }
 
@@ -3174,7 +3174,7 @@ public class PaymentRequest {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShopperName(ShopperName shopperName) {
+  public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
