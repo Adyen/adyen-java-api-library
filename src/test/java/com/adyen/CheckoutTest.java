@@ -783,4 +783,24 @@ public class CheckoutTest extends BaseTest {
     assertEquals(
         "99361789-5204-4576-b123-4f9a1b2c3d45", optionsCaptor.getValue().getIdempotencyKey());
   }
+
+  @Test
+  public void testUpiQrCode() throws Exception {
+    Client client = createMockClientFromFile("mocks/checkout/paymentResponseUpiQrCode.json");
+
+    PaymentRequest paymentRequest = new PaymentRequest();
+    paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
+    paymentRequest.setReference("YOUR_ORDER_NUMBER");
+    paymentRequest.setAmount(new Amount().currency("EUR").value(1000L));
+    paymentRequest.setPaymentMethod(
+        new CheckoutPaymentMethod(
+            new UpiQrDetails().type(UpiQrDetails.TypeEnum.UPI_QR).billingSequenceNumber("2")));
+    PaymentsApi checkout = new PaymentsApi(client);
+    PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+
+    assertEquals(PaymentResponse.ResultCodeEnum.PENDING, paymentResponse.getResultCode());
+    assertNotNull(paymentResponse.getAction());
+    assertEquals(
+        "upi_qr", paymentResponse.getAction().getCheckoutQrCodeAction().getPaymentMethodType());
+  }
 }
