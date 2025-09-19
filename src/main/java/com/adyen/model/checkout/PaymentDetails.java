@@ -46,6 +46,8 @@ public class PaymentDetails {
 
     AFFIRM_POS(String.valueOf("affirm_pos")),
 
+    IRIS(String.valueOf("iris")),
+
     TRUSTLY(String.valueOf("trustly")),
 
     TRUSTLYVECTOR(String.valueOf("trustlyvector")),
@@ -85,8 +87,6 @@ public class PaymentDetails {
     PAYU_IN_CASHCARD(String.valueOf("payu_IN_cashcard")),
 
     PAYU_IN_NB(String.valueOf("payu_IN_nb")),
-
-    UPI_QR(String.valueOf("upi_qr")),
 
     PAYTM(String.valueOf("paytm")),
 

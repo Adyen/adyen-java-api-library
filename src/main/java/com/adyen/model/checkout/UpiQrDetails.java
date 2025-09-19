@@ -21,20 +21,16 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-/** UpiIntentDetails */
+/** UpiQrDetails */
 @JsonPropertyOrder({
-  UpiIntentDetails.JSON_PROPERTY_APP_ID,
-  UpiIntentDetails.JSON_PROPERTY_BILLING_SEQUENCE_NUMBER,
-  UpiIntentDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
-  UpiIntentDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
-  UpiIntentDetails.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
-  UpiIntentDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
-  UpiIntentDetails.JSON_PROPERTY_TYPE
+  UpiQrDetails.JSON_PROPERTY_BILLING_SEQUENCE_NUMBER,
+  UpiQrDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  UpiQrDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  UpiQrDetails.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
+  UpiQrDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
+  UpiQrDetails.JSON_PROPERTY_TYPE
 })
-public class UpiIntentDetails {
-  public static final String JSON_PROPERTY_APP_ID = "appId";
-  private String appId;
-
+public class UpiQrDetails {
   public static final String JSON_PROPERTY_BILLING_SEQUENCE_NUMBER = "billingSequenceNumber";
   private String billingSequenceNumber;
 
@@ -52,9 +48,9 @@ public class UpiIntentDetails {
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
 
-  /** **upi_intent** */
+  /** **upi_qr** */
   public enum TypeEnum {
-    UPI_INTENT(String.valueOf("upi_intent"));
+    UPI_QR(String.valueOf("upi_qr"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
@@ -94,40 +90,7 @@ public class UpiIntentDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public UpiIntentDetails() {}
-
-  /**
-   * TPAP (Third Party Application) Id that is being used to make the UPI payment
-   *
-   * @param appId TPAP (Third Party Application) Id that is being used to make the UPI payment
-   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
-   */
-  public UpiIntentDetails appId(String appId) {
-    this.appId = appId;
-    return this;
-  }
-
-  /**
-   * TPAP (Third Party Application) Id that is being used to make the UPI payment
-   *
-   * @return appId TPAP (Third Party Application) Id that is being used to make the UPI payment
-   */
-  @JsonProperty(JSON_PROPERTY_APP_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAppId() {
-    return appId;
-  }
-
-  /**
-   * TPAP (Third Party Application) Id that is being used to make the UPI payment
-   *
-   * @param appId TPAP (Third Party Application) Id that is being used to make the UPI payment
-   */
-  @JsonProperty(JSON_PROPERTY_APP_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+  public UpiQrDetails() {}
 
   /**
    * The sequence number for the debit. For example, send **2** if this is the second debit for the
@@ -136,9 +99,9 @@ public class UpiIntentDetails {
    * @param billingSequenceNumber The sequence number for the debit. For example, send **2** if this
    *     is the second debit for the subscription. The sequence number is included in the
    *     notification sent to the shopper.
-   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
+   * @return the current {@code UpiQrDetails} instance, allowing for method chaining
    */
-  public UpiIntentDetails billingSequenceNumber(String billingSequenceNumber) {
+  public UpiQrDetails billingSequenceNumber(String billingSequenceNumber) {
     this.billingSequenceNumber = billingSequenceNumber;
     return this;
   }
@@ -175,9 +138,9 @@ public class UpiIntentDetails {
    * The checkout attempt identifier.
    *
    * @param checkoutAttemptId The checkout attempt identifier.
-   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
+   * @return the current {@code UpiQrDetails} instance, allowing for method chaining
    */
-  public UpiIntentDetails checkoutAttemptId(String checkoutAttemptId) {
+  public UpiQrDetails checkoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
     return this;
   }
@@ -210,11 +173,11 @@ public class UpiIntentDetails {
    *
    * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
    *     the response when you created the token.
-   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
+   * @return the current {@code UpiQrDetails} instance, allowing for method chaining
    * @deprecated since Adyen Checkout API v49 Use &#x60;storedPaymentMethodId&#x60; instead.
    */
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
-  public UpiIntentDetails recurringDetailReference(String recurringDetailReference) {
+  public UpiQrDetails recurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
     return this;
   }
@@ -255,9 +218,9 @@ public class UpiIntentDetails {
    *
    * @param shopperNotificationReference The &#x60;shopperNotificationReference&#x60; returned in
    *     the response when you requested to notify the shopper. Used for recurring payment only.
-   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
+   * @return the current {@code UpiQrDetails} instance, allowing for method chaining
    */
-  public UpiIntentDetails shopperNotificationReference(String shopperNotificationReference) {
+  public UpiQrDetails shopperNotificationReference(String shopperNotificationReference) {
     this.shopperNotificationReference = shopperNotificationReference;
     return this;
   }
@@ -294,9 +257,9 @@ public class UpiIntentDetails {
    *
    * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
    *     response when you created the token.
-   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
+   * @return the current {@code UpiQrDetails} instance, allowing for method chaining
    */
-  public UpiIntentDetails storedPaymentMethodId(String storedPaymentMethodId) {
+  public UpiQrDetails storedPaymentMethodId(String storedPaymentMethodId) {
     this.storedPaymentMethodId = storedPaymentMethodId;
     return this;
   }
@@ -328,20 +291,20 @@ public class UpiIntentDetails {
   }
 
   /**
-   * **upi_intent**
+   * **upi_qr**
    *
-   * @param type **upi_intent**
-   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
+   * @param type **upi_qr**
+   * @return the current {@code UpiQrDetails} instance, allowing for method chaining
    */
-  public UpiIntentDetails type(TypeEnum type) {
+  public UpiQrDetails type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
   /**
-   * **upi_intent**
+   * **upi_qr**
    *
-   * @return type **upi_intent**
+   * @return type **upi_qr**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,9 +313,9 @@ public class UpiIntentDetails {
   }
 
   /**
-   * **upi_intent**
+   * **upi_qr**
    *
-   * @param type **upi_intent**
+   * @param type **upi_qr**
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,7 +323,7 @@ public class UpiIntentDetails {
     this.type = type;
   }
 
-  /** Return true if this UpiIntentDetails object is equal to o. */
+  /** Return true if this UpiQrDetails object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -369,21 +332,19 @@ public class UpiIntentDetails {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpiIntentDetails upiIntentDetails = (UpiIntentDetails) o;
-    return Objects.equals(this.appId, upiIntentDetails.appId)
-        && Objects.equals(this.billingSequenceNumber, upiIntentDetails.billingSequenceNumber)
-        && Objects.equals(this.checkoutAttemptId, upiIntentDetails.checkoutAttemptId)
-        && Objects.equals(this.recurringDetailReference, upiIntentDetails.recurringDetailReference)
+    UpiQrDetails upiQrDetails = (UpiQrDetails) o;
+    return Objects.equals(this.billingSequenceNumber, upiQrDetails.billingSequenceNumber)
+        && Objects.equals(this.checkoutAttemptId, upiQrDetails.checkoutAttemptId)
+        && Objects.equals(this.recurringDetailReference, upiQrDetails.recurringDetailReference)
         && Objects.equals(
-            this.shopperNotificationReference, upiIntentDetails.shopperNotificationReference)
-        && Objects.equals(this.storedPaymentMethodId, upiIntentDetails.storedPaymentMethodId)
-        && Objects.equals(this.type, upiIntentDetails.type);
+            this.shopperNotificationReference, upiQrDetails.shopperNotificationReference)
+        && Objects.equals(this.storedPaymentMethodId, upiQrDetails.storedPaymentMethodId)
+        && Objects.equals(this.type, upiQrDetails.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        appId,
         billingSequenceNumber,
         checkoutAttemptId,
         recurringDetailReference,
@@ -395,8 +356,7 @@ public class UpiIntentDetails {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpiIntentDetails {\n");
-    sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
+    sb.append("class UpiQrDetails {\n");
     sb.append("    billingSequenceNumber: ")
         .append(toIndentedString(billingSequenceNumber))
         .append("\n");
@@ -426,18 +386,18 @@ public class UpiIntentDetails {
   }
 
   /**
-   * Create an instance of UpiIntentDetails given an JSON string
+   * Create an instance of UpiQrDetails given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of UpiIntentDetails
-   * @throws JsonProcessingException if the JSON string is invalid with respect to UpiIntentDetails
+   * @return An instance of UpiQrDetails
+   * @throws JsonProcessingException if the JSON string is invalid with respect to UpiQrDetails
    */
-  public static UpiIntentDetails fromJson(String jsonString) throws JsonProcessingException {
-    return JSON.getMapper().readValue(jsonString, UpiIntentDetails.class);
+  public static UpiQrDetails fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, UpiQrDetails.class);
   }
 
   /**
-   * Convert an instance of UpiIntentDetails to an JSON string
+   * Convert an instance of UpiQrDetails to an JSON string
    *
    * @return JSON string
    */

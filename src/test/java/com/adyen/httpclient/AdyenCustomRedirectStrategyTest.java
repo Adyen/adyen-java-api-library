@@ -93,5 +93,4 @@ public class AdyenCustomRedirectStrategyTest {
       assertEquals("Redirect location is invalid: " + location, e.getMessage());
     }
   }
-
 }
