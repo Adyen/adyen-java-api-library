@@ -26,22 +26,32 @@ import java.security.cert.X509Certificate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**                                                                                                                                          │
+ * Validates the Common Name of a terminal API certificate.                                                                                  │
+ **/
 public final class TerminalCommonNameValidator {
 
   private static final String ENVIRONMENT_WILDCARD = "{ENVIRONMENT}";
   private static final String TERMINAL_API_CN_REGEX =
-      "[a-zA-Z0-9]{3,}-[0-9]{9,15}\\." + ENVIRONMENT_WILDCARD + "\\.terminal\\.adyen\\.com";
+      "[a-zA-Z0-9]{3,}-[a-zA-Z0-9]{9,15}\\." + ENVIRONMENT_WILDCARD + "\\.terminal\\.adyen\\.com";
   private static final String TERMINAL_API_LEGACY_CN =
       "legacy-terminal-certificate." + ENVIRONMENT_WILDCARD + ".terminal.adyen.com";
 
   private TerminalCommonNameValidator() {}
 
+  /**
+   *  Validates the Common Name of the given {@link X509Certificate} for the given {@link Environment}.
+   * @param certificate certificate the {@link X509Certificate} to validate.
+   * @param environment  environment the {@link Environment}.
+   * @return  true if the Common Name is valid, false otherwise.
+   */
   public static boolean validateCertificate(X509Certificate certificate, Environment environment) {
     String environmentName = environment.name().toLowerCase();
     String name = certificate.getSubjectX500Principal().getName();
     String patternRegex = "(?:^|,\\s?)(?:([A-Z]+)=(\"(?:[^\"]|\"\")+\"|[^,]+))+";
     Pattern pattern = Pattern.compile(patternRegex);
     Matcher matcher = pattern.matcher(name);
+
     boolean valid = false;
     while (matcher.find() && !valid) {
       String groupName = matcher.group(1);
@@ -55,7 +65,7 @@ public final class TerminalCommonNameValidator {
                         TERMINAL_API_LEGACY_CN.replace(ENVIRONMENT_WILDCARD, environmentName)));
       }
     }
-
     return valid;
   }
+
 }
