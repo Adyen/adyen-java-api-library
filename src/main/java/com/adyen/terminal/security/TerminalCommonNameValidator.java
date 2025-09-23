@@ -26,8 +26,8 @@ import java.security.cert.X509Certificate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**                                                                                                                                          │
- * Validates the Common Name of a terminal API certificate.                                                                                  │
+/**
+ * Validates the Common Name of a terminal API certificate.
  **/
 public final class TerminalCommonNameValidator {
 
@@ -41,8 +41,8 @@ public final class TerminalCommonNameValidator {
 
   /**
    *  Validates the Common Name of the given {@link X509Certificate} for the given {@link Environment}.
-   * @param certificate certificate the {@link X509Certificate} to validate.
-   * @param environment  environment the {@link Environment}.
+   * @param certificate the {@link X509Certificate} to validate.
+   * @param environment the {@link Environment}.
    * @return  true if the Common Name is valid, false otherwise.
    */
   public static boolean validateCertificate(X509Certificate certificate, Environment environment) {
