@@ -7,14 +7,14 @@ import java.math.BigInteger;
 
 /** Content of the PIN Request message. */
 @JsonPropertyOrder({
-    "CardholderPIN",
-    "PINRequestType",
-    "PINVerifMethod",
-    "AdditionalInput",
-    "PINEncAlgorithm",
-    "PINFormat",
-    "KeyReference",
-    "MaxWaitingTime"
+  "CardholderPIN",
+  "PINRequestType",
+  "PINVerifMethod",
+  "AdditionalInput",
+  "PINEncAlgorithm",
+  "PINFormat",
+  "KeyReference",
+  "MaxWaitingTime"
 })
 public class PINRequest {
 

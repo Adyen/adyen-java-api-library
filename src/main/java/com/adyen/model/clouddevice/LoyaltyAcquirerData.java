@@ -6,10 +6,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Data related to the loyalty Acquirer during a loyalty transaction. */
 @JsonPropertyOrder({
-    "ApprovalCode",
-    "LoyaltyTransactionID",
-    "LoyaltyAcquirerID",
-    "HostReconciliationID"
+  "ApprovalCode",
+  "LoyaltyTransactionID",
+  "LoyaltyAcquirerID",
+  "HostReconciliationID"
 })
 public class LoyaltyAcquirerData {
 

@@ -29,7 +29,8 @@ public class Issuer {
    *
    * @param relativeDistinguishedName the relative distinguished name
    */
-  public void setRelativeDistinguishedName(List<RelativeDistinguishedName> relativeDistinguishedName) {
+  public void setRelativeDistinguishedName(
+      List<RelativeDistinguishedName> relativeDistinguishedName) {
     this.relativeDistinguishedName = relativeDistinguishedName;
   }
 }

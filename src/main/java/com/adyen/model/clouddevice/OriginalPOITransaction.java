@@ -6,14 +6,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Identification of a previous POI transaction. */
 @JsonPropertyOrder({
-    "POITransactionID",
-    "ApprovalCode",
-    "HostTransactionID",
-    "SaleID",
-    "POIID",
-    "ReuseCardDataFlag",
-    "CustomerLanguage",
-    "AcquirerID"
+  "POITransactionID",
+  "ApprovalCode",
+  "HostTransactionID",
+  "SaleID",
+  "POIID",
+  "ReuseCardDataFlag",
+  "CustomerLanguage",
+  "AcquirerID"
 })
 public class OriginalPOITransaction {
 

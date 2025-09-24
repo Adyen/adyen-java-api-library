@@ -9,12 +9,12 @@ import java.util.List;
 
 /** Content of the Reversal Response message. */
 @JsonPropertyOrder({
-    "Response",
-    "POIData",
-    "OriginalPOITransaction",
-    "PaymentReceipt",
-    "ReversedAmount",
-    "CustomerOrderID"
+  "Response",
+  "POIData",
+  "OriginalPOITransaction",
+  "PaymentReceipt",
+  "ReversedAmount",
+  "CustomerOrderID"
 })
 public class ReversalResponse {
 

@@ -9,11 +9,11 @@ import java.util.List;
 
 /** Content of the Card Reader Init Request message. */
 @JsonPropertyOrder({
-    "ForceEntryMode",
-    "DisplayOutput",
-    "WarmResetFlag",
-    "LeaveCardFlag",
-    "MaxWaitingTime"
+  "ForceEntryMode",
+  "DisplayOutput",
+  "WarmResetFlag",
+  "LeaveCardFlag",
+  "MaxWaitingTime"
 })
 public class CardReaderInitRequest {
 

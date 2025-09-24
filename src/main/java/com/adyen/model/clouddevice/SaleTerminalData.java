@@ -6,15 +6,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Information related to the software and hardware feature of the Sale Terminal.
- */
-@JsonPropertyOrder({
-    "SaleCapabilities",
-    "SaleProfile",
-    "TerminalEnvironment",
-    "TotalsGroupID"
-})
+/** Information related to the software and hardware feature of the Sale Terminal. */
+@JsonPropertyOrder({"SaleCapabilities", "SaleProfile", "TerminalEnvironment", "TotalsGroupID"})
 public class SaleTerminalData {
 
   @JsonProperty("SaleCapabilities")
@@ -110,5 +103,17 @@ public class SaleTerminalData {
    */
   public void setTotalsGroupID(String totalsGroupID) {
     this.totalsGroupID = totalsGroupID;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("SaleTerminalData{");
+    sb.append("saleCapabilities=").append(saleCapabilities);
+    sb.append(", saleProfile=").append(saleProfile);
+    sb.append(", terminalEnvironment=").append(terminalEnvironment);
+    sb.append(", totalsGroupID='").append(totalsGroupID).append('\'');
+    sb.append('}');
+    return sb.toString();
   }
 }

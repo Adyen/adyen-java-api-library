@@ -8,12 +8,12 @@ import java.util.List;
 
 /** An entryof the menu to present to the Cashier. */
 @JsonPropertyOrder({
-    "PredefinedContent",
-    "OutputText",
-    "OutputXHTML",
-    "MenuEntryTag",
-    "OutputFormat",
-    "DefaultSelectedFlag"
+  "PredefinedContent",
+  "OutputText",
+  "OutputXHTML",
+  "MenuEntryTag",
+  "OutputFormat",
+  "DefaultSelectedFlag"
 })
 public class MenuEntry {
 

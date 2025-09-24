@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /** The type Repeated message response body. */
 @JsonPropertyOrder({
-    "LoyaltyResponse",
-    "PaymentResponse",
-    "ReversalResponse",
-    "StoredValueResponse",
-    "CardAcquisitionResponse",
-    "CardReaderAPDUResponse"
+  "LoyaltyResponse",
+  "PaymentResponse",
+  "ReversalResponse",
+  "StoredValueResponse",
+  "CardAcquisitionResponse",
+  "CardReaderAPDUResponse"
 })
 public class RepeatedMessageResponseBody {
 

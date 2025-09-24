@@ -6,11 +6,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Data related to the response from the payment Acquirer. */
 @JsonPropertyOrder({
-    "AcquirerTransactionID",
-    "ApprovalCode",
-    "AcquirerID",
-    "MerchantID",
-    "AcquirerPOIID"
+  "AcquirerTransactionID",
+  "ApprovalCode",
+  "AcquirerID",
+  "MerchantID",
+  "AcquirerPOIID"
 })
 public class PaymentAcquirerData {
 

@@ -6,12 +6,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Information related to the mobile for the payment transaction. */
 @JsonPropertyOrder({
-    "MobileCountryCode",
-    "Geolocation",
-    "ProtectedMobileData",
-    "SensitiveMobileData",
-    "MobileNetworkCode",
-    "MaskedMSISDN"
+  "MobileCountryCode",
+  "Geolocation",
+  "ProtectedMobileData",
+  "SensitiveMobileData",
+  "MobileNetworkCode",
+  "MaskedMSISDN"
 })
 public class MobileData {
 

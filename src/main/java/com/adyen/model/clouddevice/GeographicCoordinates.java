@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-/**
- * Location on the Earth specified by two numbers representing vertical and horizontal position.
- */
+/** Location on the Earth specified by two numbers representing vertical and horizontal position. */
 @JsonPropertyOrder({"Latitude", "Longitude"})
 public class GeographicCoordinates {
 

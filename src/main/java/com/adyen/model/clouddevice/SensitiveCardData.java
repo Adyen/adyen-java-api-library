@@ -6,9 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Sensitive information related to the payment card, entered or read by the Sale System.
- */
+/** Sensitive information related to the payment card, entered or read by the Sale System. */
 @JsonPropertyOrder({"TrackData", "PAN", "CardSeqNumb", "ExpiryDate"})
 public class SensitiveCardData {
 
@@ -30,7 +28,8 @@ public class SensitiveCardData {
   protected String cardSeqNumb;
 
   @JsonProperty("ExpiryDate")
-  @Schema(description = "Date after which the card cannot be used. --Rule: if EntryMode is File",
+  @Schema(
+      description = "Date after which the card cannot be used. --Rule: if EntryMode is File",
       minLength = 4,
       maxLength = 4)
   protected String expiryDate;

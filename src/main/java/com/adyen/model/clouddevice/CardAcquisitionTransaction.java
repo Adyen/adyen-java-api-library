@@ -9,15 +9,15 @@ import java.util.List;
 
 /** Data related to the payment and loyalty card acquisition. */
 @JsonPropertyOrder({
-    "AllowedPaymentBrand",
-    "AllowedLoyaltyBrand",
-    "ForceEntryMode",
-    "LoyaltyHandling",
-    "CustomerLanguage",
-    "ForceCustomerSelectionFlag",
-    "TotalAmount",
-    "PaymentType",
-    "CashBackFlag"
+  "AllowedPaymentBrand",
+  "AllowedLoyaltyBrand",
+  "ForceEntryMode",
+  "LoyaltyHandling",
+  "CustomerLanguage",
+  "ForceCustomerSelectionFlag",
+  "TotalAmount",
+  "PaymentType",
+  "CashBackFlag"
 })
 public class CardAcquisitionTransaction {
 

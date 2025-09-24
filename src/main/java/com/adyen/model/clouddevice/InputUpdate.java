@@ -9,13 +9,13 @@ import java.util.List;
 
 /** Content of the Input Update message. */
 @JsonPropertyOrder({
-    "MessageReference",
-    "OutputContent",
-    "MenuEntry",
-    "OutputSignature",
-    "MinLength",
-    "MaxLength",
-    "MaxDecimalLength"
+  "MessageReference",
+  "OutputContent",
+  "MenuEntry",
+  "OutputSignature",
+  "MinLength",
+  "MaxLength",
+  "MaxDecimalLength"
 })
 public class InputUpdate {
 

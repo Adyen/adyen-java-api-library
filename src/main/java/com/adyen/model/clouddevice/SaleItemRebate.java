@@ -8,13 +8,13 @@ import java.math.BigInteger;
 
 /** The awarded amount that is attached to an item as a rebate. */
 @JsonPropertyOrder({
-    "UnitOfMeasure",
-    "Quantity",
-    "RebateLabel",
-    "ItemID",
-    "ProductCode",
-    "EanUpc",
-    "ItemAmount"
+  "UnitOfMeasure",
+  "Quantity",
+  "RebateLabel",
+  "ItemID",
+  "ProductCode",
+  "EanUpc",
+  "ItemAmount"
 })
 public class SaleItemRebate {
 

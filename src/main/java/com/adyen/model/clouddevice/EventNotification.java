@@ -8,13 +8,13 @@ import java.time.OffsetDateTime;
 
 /** Content of the EventNotification message. */
 @JsonPropertyOrder({
-    "EventDetails",
-    "RejectedMessage",
-    "DisplayOutput",
-    "TimeStamp",
-    "EventToNotify",
-    "MaintenanceRequiredFlag",
-    "CustomerLanguage"
+  "EventDetails",
+  "RejectedMessage",
+  "DisplayOutput",
+  "TimeStamp",
+  "EventToNotify",
+  "MaintenanceRequiredFlag",
+  "CustomerLanguage"
 })
 public class EventNotification {
 
@@ -194,15 +194,16 @@ public class EventNotification {
     sb.append("    displayOutput: ").append(toIndentedString(displayOutput)).append("\n");
     sb.append("    timeStamp: ").append(toIndentedString(timeStamp)).append("\n");
     sb.append("    eventToNotify: ").append(toIndentedString(eventToNotify)).append("\n");
-    sb.append("    maintenanceRequiredFlag: ").append(toIndentedString(maintenanceRequiredFlag)).append("\n");
+    sb.append("    maintenanceRequiredFlag: ")
+        .append(toIndentedString(maintenanceRequiredFlag))
+        .append("\n");
     sb.append("    customerLanguage: ").append(toIndentedString(customerLanguage)).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -7,12 +7,12 @@ import java.math.BigDecimal;
 
 /** Content of the Reversal Request message. */
 @JsonPropertyOrder({
-    "OriginalPOITransaction",
-    "CustomerOrderID",
-    "SaleReferenceID",
-    "ReversalReason",
-    "ReversedAmount",
-    "SaleData"
+  "OriginalPOITransaction",
+  "CustomerOrderID",
+  "SaleReferenceID",
+  "ReversalReason",
+  "ReversedAmount",
+  "SaleData"
 })
 public class ReversalRequest {
 

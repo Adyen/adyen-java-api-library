@@ -6,15 +6,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Information related to the software and hardware feature of the POI Terminal.
- */
-@JsonPropertyOrder({
-    "POICapabilities",
-    "POIProfile",
-    "TerminalEnvironment",
-    "POISerialNumber"
-})
+/** Information related to the software and hardware feature of the POI Terminal. */
+@JsonPropertyOrder({"POICapabilities", "POIProfile", "TerminalEnvironment", "POISerialNumber"})
 public class POITerminalData {
 
   @JsonProperty("POICapabilities")

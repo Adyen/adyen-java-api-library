@@ -6,10 +6,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Customer or Merchant payment receipt. */
 @JsonPropertyOrder({
-    "OutputContent",
-    "DocumentQualifier",
-    "IntegratedPrintFlag",
-    "RequiredSignatureFlag"
+  "OutputContent",
+  "DocumentQualifier",
+  "IntegratedPrintFlag",
+  "RequiredSignatureFlag"
 })
 public class PaymentReceipt {
 
@@ -111,5 +111,17 @@ public class PaymentReceipt {
    */
   public void setRequiredSignatureFlag(Boolean requiredSignatureFlag) {
     this.requiredSignatureFlag = requiredSignatureFlag;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("PaymentReceipt{");
+    sb.append("outputContent=").append(outputContent);
+    sb.append(", documentQualifier=").append(documentQualifier);
+    sb.append(", integratedPrintFlag=").append(integratedPrintFlag);
+    sb.append(", requiredSignatureFlag=").append(requiredSignatureFlag);
+    sb.append('}');
+    return sb.toString();
   }
 }

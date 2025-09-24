@@ -8,14 +8,14 @@ import java.util.List;
 
 /** State of a POI Terminal. */
 @JsonPropertyOrder({
-    "CashHandlingDevice",
-    "GlobalStatus",
-    "SecurityOKFlag",
-    "PEDOKFlag",
-    "CardReaderOKFlag",
-    "PrinterStatus",
-    "CommunicationOKFlag",
-    "FraudPreventionFlag"
+  "CashHandlingDevice",
+  "GlobalStatus",
+  "SecurityOKFlag",
+  "PEDOKFlag",
+  "CardReaderOKFlag",
+  "PrinterStatus",
+  "CommunicationOKFlag",
+  "FraudPreventionFlag"
 })
 public class POIStatus {
 

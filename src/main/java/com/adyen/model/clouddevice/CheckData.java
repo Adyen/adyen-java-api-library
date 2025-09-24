@@ -6,13 +6,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Information related to the paper check used for the transaction. */
 @JsonPropertyOrder({
-    "BankID",
-    "AccountNumber",
-    "CheckNumber",
-    "TrackData",
-    "CheckCardNumber",
-    "TypeCode",
-    "Country"
+  "BankID",
+  "AccountNumber",
+  "CheckNumber",
+  "TrackData",
+  "CheckCardNumber",
+  "TypeCode",
+  "Country"
 })
 public class CheckData {
 

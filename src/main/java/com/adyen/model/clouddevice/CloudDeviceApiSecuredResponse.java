@@ -22,11 +22,10 @@ package com.adyen.model.clouddevice;
 
 import com.adyen.model.clouddevice.security.SaleToPOISecuredMessage;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Objects;
 
 /** Terminal API Secured Response */
-public class TerminalAPISecuredResponse {
+public class CloudDeviceApiSecuredResponse {
   @JsonProperty("SaleToPOIResponse")
   private SaleToPOISecuredMessage saleToPOIResponse;
 
@@ -56,7 +55,7 @@ public class TerminalAPISecuredResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TerminalAPISecuredResponse that = (TerminalAPISecuredResponse) o;
+    CloudDeviceApiSecuredResponse that = (CloudDeviceApiSecuredResponse) o;
     return Objects.equals(saleToPOIResponse, that.saleToPOIResponse);
   }
 

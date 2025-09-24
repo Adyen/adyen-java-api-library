@@ -6,13 +6,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Data entered by the user, related to the input command. */
 @JsonPropertyOrder({
-    "ConfirmedFlag",
-    "FunctionKey",
-    "TextInput",
-    "DigitInput",
-    "Password",
-    "MenuEntryNumber",
-    "InputCommand"
+  "ConfirmedFlag",
+  "FunctionKey",
+  "TextInput",
+  "DigitInput",
+  "Password",
+  "MenuEntryNumber",
+  "InputCommand"
 })
 public class Input {
 

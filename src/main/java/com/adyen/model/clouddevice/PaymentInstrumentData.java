@@ -7,12 +7,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Data related to the instrument of payment for the transaction. */
 @JsonPropertyOrder({
-    "CardData",
-    "CheckData",
-    "MobileData",
-    "PaymentInstrumentType",
-    "StoredValueAccountID",
-    "ProtectedCardData"
+  "CardData",
+  "CheckData",
+  "MobileData",
+  "PaymentInstrumentType",
+  "StoredValueAccountID",
+  "ProtectedCardData"
 })
 public class PaymentInstrumentData {
 

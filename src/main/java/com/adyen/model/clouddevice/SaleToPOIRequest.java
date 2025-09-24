@@ -1,45 +1,42 @@
 package com.adyen.model.clouddevice;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-/**
- * SaleToPOIRequest
- */
+/** SaleToPOIRequest */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "MessageHeader",
-    "AbortRequest",
-    "BalanceInquiryRequest",
-    "BatchRequest",
-    "CardAcquisitionRequest",
-    "AdminRequest",
-    "DiagnosisRequest",
-    "DisplayRequest",
-    "EnableServiceRequest",
-    "EventNotification",
-    "GetTotalsRequest",
-    "InputRequest",
-    "InputUpdate",
-    "LoginRequest",
-    "LogoutRequest",
-    "LoyaltyRequest",
-    "PaymentRequest",
-    "PINRequest",
-    "PrintRequest",
-    "CardReaderInitRequest",
-    "CardReaderAPDURequest",
-    "CardReaderPowerOffRequest",
-    "ReconciliationRequest",
-    "ReversalRequest",
-    "SoundRequest",
-    "StoredValueRequest",
-    "TransactionStatusRequest",
-    "TransmitRequest",
-    "SecurityTrailer"
+  "MessageHeader",
+  "AbortRequest",
+  "BalanceInquiryRequest",
+  "BatchRequest",
+  "CardAcquisitionRequest",
+  "AdminRequest",
+  "DiagnosisRequest",
+  "DisplayRequest",
+  "EnableServiceRequest",
+  "EventNotification",
+  "GetTotalsRequest",
+  "InputRequest",
+  "InputUpdate",
+  "LoginRequest",
+  "LogoutRequest",
+  "LoyaltyRequest",
+  "PaymentRequest",
+  "PINRequest",
+  "PrintRequest",
+  "CardReaderInitRequest",
+  "CardReaderAPDURequest",
+  "CardReaderPowerOffRequest",
+  "ReconciliationRequest",
+  "ReversalRequest",
+  "SoundRequest",
+  "StoredValueRequest",
+  "TransactionStatusRequest",
+  "TransmitRequest",
+  "SecurityTrailer"
 })
 public class SaleToPOIRequest {
 
@@ -707,5 +704,42 @@ public class SaleToPOIRequest {
    */
   public void setSecurityTrailer(ContentInformation value) {
     this.securityTrailer = value;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("SaleToPOIRequest{");
+    sb.append("messageHeader=").append(messageHeader);
+    sb.append(", abortRequest=").append(abortRequest);
+    sb.append(", balanceInquiryRequest=").append(balanceInquiryRequest);
+    sb.append(", batchRequest=").append(batchRequest);
+    sb.append(", cardAcquisitionRequest=").append(cardAcquisitionRequest);
+    sb.append(", adminRequest=").append(adminRequest);
+    sb.append(", diagnosisRequest=").append(diagnosisRequest);
+    sb.append(", displayRequest=").append(displayRequest);
+    sb.append(", enableServiceRequest=").append(enableServiceRequest);
+    sb.append(", eventNotification=").append(eventNotification);
+    sb.append(", getTotalsRequest=").append(getTotalsRequest);
+    sb.append(", inputRequest=").append(inputRequest);
+    sb.append(", inputUpdate=").append(inputUpdate);
+    sb.append(", loginRequest=").append(loginRequest);
+    sb.append(", logoutRequest=").append(logoutRequest);
+    sb.append(", loyaltyRequest=").append(loyaltyRequest);
+    sb.append(", paymentRequest=").append(paymentRequest);
+    sb.append(", pinRequest=").append(pinRequest);
+    sb.append(", printRequest=").append(printRequest);
+    sb.append(", cardReaderInitRequest=").append(cardReaderInitRequest);
+    sb.append(", cardReaderAPDURequest=").append(cardReaderAPDURequest);
+    sb.append(", cardReaderPowerOffRequest=").append(cardReaderPowerOffRequest);
+    sb.append(", reconciliationRequest=").append(reconciliationRequest);
+    sb.append(", reversalRequest=").append(reversalRequest);
+    sb.append(", soundRequest=").append(soundRequest);
+    sb.append(", storedValueRequest=").append(storedValueRequest);
+    sb.append(", transactionStatusRequest=").append(transactionStatusRequest);
+    sb.append(", transmitRequest=").append(transmitRequest);
+    sb.append(", securityTrailer=").append(securityTrailer);
+    sb.append('}');
+    return sb.toString();
   }
 }

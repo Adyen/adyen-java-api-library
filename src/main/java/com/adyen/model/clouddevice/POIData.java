@@ -53,4 +53,14 @@ public class POIData {
   public void setPOIReconciliationID(String poiReconciliationID) {
     this.poiReconciliationID = poiReconciliationID;
   }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("POIData{");
+    sb.append("poiTransactionID=").append(poiTransactionID);
+    sb.append(", poiReconciliationID='").append(poiReconciliationID).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

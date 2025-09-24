@@ -10,16 +10,16 @@ import java.util.List;
 
 /** Content of the Login Request message. */
 @JsonPropertyOrder({
-    "DateTime",
-    "SaleSoftware",
-    "SaleTerminalData",
-    "TrainingModeFlag",
-    "OperatorLanguage",
-    "OperatorID",
-    "ShiftNumber",
-    "TokenRequestedType",
-    "CustomerOrderReq",
-    "POISerialNumber"
+  "DateTime",
+  "SaleSoftware",
+  "SaleTerminalData",
+  "TrainingModeFlag",
+  "OperatorLanguage",
+  "OperatorID",
+  "ShiftNumber",
+  "TokenRequestedType",
+  "CustomerOrderReq",
+  "POISerialNumber"
 })
 public class LoginRequest {
 

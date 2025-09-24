@@ -77,4 +77,15 @@ public class Response {
   public void setErrorCondition(ErrorConditionType errorCondition) {
     this.errorCondition = errorCondition;
   }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Response{");
+    sb.append("additionalResponse='").append(additionalResponse).append('\'');
+    sb.append(", result=").append(result);
+    sb.append(", errorCondition=").append(errorCondition);
+    sb.append('}');
+    return sb.toString();
+  }
 }

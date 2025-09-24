@@ -8,19 +8,19 @@ import java.util.List;
 
 /** Data related to the result of a processed payment transaction. */
 @JsonPropertyOrder({
-    "PaymentInstrumentData",
-    "AmountsResp",
-    "Instalment",
-    "CurrencyConversion",
-    "CapturedSignature",
-    "ProtectedSignature",
-    "PaymentAcquirerData",
-    "PaymentType",
-    "MerchantOverrideFlag",
-    "CustomerLanguage",
-    "OnlineFlag",
-    "AuthenticationMethod",
-    "ValidityDate"
+  "PaymentInstrumentData",
+  "AmountsResp",
+  "Instalment",
+  "CurrencyConversion",
+  "CapturedSignature",
+  "ProtectedSignature",
+  "PaymentAcquirerData",
+  "PaymentType",
+  "MerchantOverrideFlag",
+  "CustomerLanguage",
+  "OnlineFlag",
+  "AuthenticationMethod",
+  "ValidityDate"
 })
 public class PaymentResult {
 

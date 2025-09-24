@@ -9,12 +9,12 @@ import java.util.List;
 
 /** Result of performed transactions. */
 @JsonPropertyOrder({
-    "Response",
-    "SaleData",
-    "POIData",
-    "PaymentResult",
-    "LoyaltyResult",
-    "ReversedAmount"
+  "Response",
+  "SaleData",
+  "POIData",
+  "PaymentResult",
+  "LoyaltyResult",
+  "ReversedAmount"
 })
 public class PerformedTransaction {
 

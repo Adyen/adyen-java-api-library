@@ -7,11 +7,11 @@ import java.math.BigDecimal;
 
 /** Data related to the result of a processed loyalty transaction. */
 @JsonPropertyOrder({
-    "LoyaltyAccount",
-    "LoyaltyAmount",
-    "LoyaltyAcquirerData",
-    "Rebates",
-    "CurrentBalance"
+  "LoyaltyAccount",
+  "LoyaltyAmount",
+  "LoyaltyAcquirerData",
+  "Rebates",
+  "CurrentBalance"
 })
 public class LoyaltyResult {
 

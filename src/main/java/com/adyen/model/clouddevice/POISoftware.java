@@ -4,15 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-/**
- * Information related to the software of the POI System which manages the Sale to POI protocol.
- */
-@JsonPropertyOrder({
-    "ManufacturerID",
-    "ApplicationName",
-    "SoftwareVersion",
-    "CertificationCode"
-})
+/** Information related to the software of the POI System which manages the Sale to POI protocol. */
+@JsonPropertyOrder({"ManufacturerID", "ApplicationName", "SoftwareVersion", "CertificationCode"})
 public class POISoftware {
 
   @JsonProperty("ManufacturerID")

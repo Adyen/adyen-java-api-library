@@ -8,19 +8,19 @@ import java.util.List;
 
 /** Data related to the Sale System. */
 @JsonPropertyOrder({
-    "SaleTransactionID",
-    "SaleTerminalData",
-    "SponsoredMerchant",
-    "SaleToPOIData",
-    "SaleToAcquirerData",
-    "SaleToIssuerData",
-    "OperatorID",
-    "OperatorLanguage",
-    "ShiftNumber",
-    "SaleReferenceID",
-    "TokenRequestedType",
-    "CustomerOrderID",
-    "CustomerOrderReq"
+  "SaleTransactionID",
+  "SaleTerminalData",
+  "SponsoredMerchant",
+  "SaleToPOIData",
+  "SaleToAcquirerData",
+  "SaleToIssuerData",
+  "OperatorID",
+  "OperatorLanguage",
+  "ShiftNumber",
+  "SaleReferenceID",
+  "TokenRequestedType",
+  "CustomerOrderID",
+  "CustomerOrderReq"
 })
 public class SaleData {
 
@@ -41,7 +41,8 @@ public class SaleData {
   protected List<SponsoredMerchant> sponsoredMerchant;
 
   @JsonProperty("SaleToPOIData")
-  @Schema(description = "Sale information intended for the POI. --Rule: Stored with the transaction")
+  @Schema(
+      description = "Sale information intended for the POI. --Rule: Stored with the transaction")
   protected String saleToPOIData;
 
   @JsonProperty("SaleToAcquirerData")
@@ -333,5 +334,26 @@ public class SaleData {
    */
   public void setCustomerOrderReq(List<CustomerOrderReqType> customerOrderReq) {
     this.customerOrderReq = customerOrderReq;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("SaleData{");
+    sb.append("saleTransactionID=").append(saleTransactionID);
+    sb.append(", saleTerminalData=").append(saleTerminalData);
+    sb.append(", sponsoredMerchant=").append(sponsoredMerchant);
+    sb.append(", saleToPOIData='").append(saleToPOIData).append('\'');
+    sb.append(", saleToAcquirerData=").append(saleToAcquirerData);
+    sb.append(", saleToIssuerData=").append(saleToIssuerData);
+    sb.append(", operatorID='").append(operatorID).append('\'');
+    sb.append(", operatorLanguage='").append(operatorLanguage).append('\'');
+    sb.append(", shiftNumber='").append(shiftNumber).append('\'');
+    sb.append(", saleReferenceID='").append(saleReferenceID).append('\'');
+    sb.append(", tokenRequestedType=").append(tokenRequestedType);
+    sb.append(", customerOrderID='").append(customerOrderID).append('\'');
+    sb.append(", customerOrderReq=").append(customerOrderReq);
+    sb.append('}');
+    return sb.toString();
   }
 }

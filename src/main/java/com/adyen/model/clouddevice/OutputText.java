@@ -6,17 +6,17 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Content of text message to display or print. */
 @JsonPropertyOrder({
-    "Text",
-    "CharacterSet",
-    "Font",
-    "StartRow",
-    "StartColumn",
-    "Color",
-    "CharacterWidth",
-    "CharacterHeight",
-    "CharacterStyle",
-    "Alignment",
-    "EndOfLineFlag"
+  "Text",
+  "CharacterSet",
+  "Font",
+  "StartRow",
+  "StartColumn",
+  "Color",
+  "CharacterWidth",
+  "CharacterHeight",
+  "CharacterStyle",
+  "Alignment",
+  "EndOfLineFlag"
 })
 public class OutputText {
 

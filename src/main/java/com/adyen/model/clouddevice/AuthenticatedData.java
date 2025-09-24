@@ -5,9 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Cryptographic Message Syntax (CMS) data structure containing MACed data with encryption key.
- */
+/** Cryptographic Message Syntax (CMS) data structure containing MACed data with encryption key. */
 public class AuthenticatedData {
 
   @JsonProperty("KeyTransport")

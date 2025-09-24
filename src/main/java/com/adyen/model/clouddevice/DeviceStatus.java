@@ -4,22 +4,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 
-/** Width of the character. */
-public enum CharacterWidthType {
-
-  /** Single width character width type. */
-  SINGLE_WIDTH("SingleWidth"),
-  /** Double width character width type. */
-  DOUBLE_WIDTH("DoubleWidth");
+/** Enum status of the device. */
+public enum DeviceStatus {
+  ONLINE("ONLINE"),
+  OFFLINE("OFFLINE");
 
   private final String value;
 
-  CharacterWidthType(String v) {
+  DeviceStatus(String v) {
     value = v;
   }
 
   /**
-   * Returns the string representation of the CharacterWidthType.
+   * Returns the string representation of the DeviceStatus.
    *
    * @return the string value
    */
@@ -29,13 +26,13 @@ public enum CharacterWidthType {
   }
 
   /**
-   * Creates a CharacterWidthType from a string value.
+   * Creates an DeviceStatus from a string value.
    *
    * @param v the string value
-   * @return the corresponding CharacterWidthType
+   * @return the corresponding DeviceStatus
    */
   @JsonCreator
-  public static CharacterWidthType fromValue(String v) {
+  public static DeviceStatus fromValue(String v) {
     return Arrays.stream(values()).filter(s -> s.value.equals(v)).findFirst().orElse(null);
   }
 }

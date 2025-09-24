@@ -7,11 +7,11 @@ import java.math.BigDecimal;
 
 /** Data related to the result of a Balance Inquiry request. */
 @JsonPropertyOrder({
-    "PaymentInstrumentData",
-    "PaymentAcquirerData",
-    "LoyaltyAccountStatus",
-    "Currency",
-    "CurrentBalance"
+  "PaymentInstrumentData",
+  "PaymentAcquirerData",
+  "LoyaltyAccountStatus",
+  "Currency",
+  "CurrentBalance"
 })
 public class PaymentAccountStatus {
 

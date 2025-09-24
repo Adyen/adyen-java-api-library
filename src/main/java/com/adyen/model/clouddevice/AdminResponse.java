@@ -1,22 +1,19 @@
 package com.adyen.model.clouddevice;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Content of the Custom Admin Response message. -- Usage: It conveys the result of the Custom Admin.
+ * Content of the Custom Admin Response message. -- Usage: It conveys the result of the Custom
+ * Admin.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "Response"
-})
+@JsonPropertyOrder({"Response"})
 public class AdminResponse {
 
-  /**
-   * The Response.
-   */
+  /** The Response. */
   @JsonProperty("Response")
   @Schema(description = "Result of a message request processing.")
   protected Response response;
@@ -49,8 +46,7 @@ public class AdminResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

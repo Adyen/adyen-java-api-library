@@ -7,12 +7,12 @@ import java.math.BigDecimal;
 
 /** Information related to a currency conversion. */
 @JsonPropertyOrder({
-    "ConvertedAmount",
-    "Commission",
-    "Declaration",
-    "CustomerApprovedFlag",
-    "Rate",
-    "Markup"
+  "ConvertedAmount",
+  "Commission",
+  "Declaration",
+  "CustomerApprovedFlag",
+  "Rate",
+  "Markup"
 })
 public class CurrencyConversion {
 

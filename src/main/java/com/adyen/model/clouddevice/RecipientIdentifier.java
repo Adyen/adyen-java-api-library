@@ -3,9 +3,7 @@ package com.adyen.model.clouddevice;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/**
- * Cryptographic Message Syntax (CMS) data structure containing the Recipient Identifier.
- */
+/** Cryptographic Message Syntax (CMS) data structure containing the Recipient Identifier. */
 @JsonPropertyOrder({"IssuerAndSerialNumber"})
 public class RecipientIdentifier {
 

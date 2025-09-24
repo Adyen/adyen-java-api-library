@@ -7,32 +7,32 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Content of the Sale to POI Response message. */
 @JsonPropertyOrder({
-    "MessageHeader",
-    "BalanceInquiryResponse",
-    "BatchResponse",
-    "CardAcquisitionResponse",
-    "AdminResponse",
-    "DiagnosisResponse",
-    "DisplayResponse",
-    "EnableServiceResponse",
-    "GetTotalsResponse",
-    "InputResponse",
-    "LoginResponse",
-    "LogoutResponse",
-    "LoyaltyResponse",
-    "PaymentResponse",
-    "PINResponse",
-    "PrintResponse",
-    "CardReaderInitResponse",
-    "CardReaderAPDUResponse",
-    "CardReaderPowerOffResponse",
-    "ReconciliationResponse",
-    "ReversalResponse",
-    "SoundResponse",
-    "StoredValueResponse",
-    "TransactionStatusResponse",
-    "TransmitResponse",
-    "SecurityTrailer"
+  "MessageHeader",
+  "BalanceInquiryResponse",
+  "BatchResponse",
+  "CardAcquisitionResponse",
+  "AdminResponse",
+  "DiagnosisResponse",
+  "DisplayResponse",
+  "EnableServiceResponse",
+  "GetTotalsResponse",
+  "InputResponse",
+  "LoginResponse",
+  "LogoutResponse",
+  "LoyaltyResponse",
+  "PaymentResponse",
+  "PINResponse",
+  "PrintResponse",
+  "CardReaderInitResponse",
+  "CardReaderAPDUResponse",
+  "CardReaderPowerOffResponse",
+  "ReconciliationResponse",
+  "ReversalResponse",
+  "SoundResponse",
+  "StoredValueResponse",
+  "TransactionStatusResponse",
+  "TransmitResponse",
+  "SecurityTrailer"
 })
 public class SaleToPOIResponse {
 
@@ -637,13 +637,19 @@ public class SaleToPOIResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaleToPOIResponse {\n");
     sb.append("    messageHeader: ").append(toIndentedString(messageHeader)).append("\n");
-    sb.append("    balanceInquiryResponse: ").append(toIndentedString(balanceInquiryResponse)).append("\n");
+    sb.append("    balanceInquiryResponse: ")
+        .append(toIndentedString(balanceInquiryResponse))
+        .append("\n");
     sb.append("    batchResponse: ").append(toIndentedString(batchResponse)).append("\n");
-    sb.append("    cardAcquisitionResponse: ").append(toIndentedString(cardAcquisitionResponse)).append("\n");
+    sb.append("    cardAcquisitionResponse: ")
+        .append(toIndentedString(cardAcquisitionResponse))
+        .append("\n");
     sb.append("    adminResponse: ").append(toIndentedString(adminResponse)).append("\n");
     sb.append("    diagnosisResponse: ").append(toIndentedString(diagnosisResponse)).append("\n");
     sb.append("    displayResponse: ").append(toIndentedString(displayResponse)).append("\n");
-    sb.append("    enableServiceResponse: ").append(toIndentedString(enableServiceResponse)).append("\n");
+    sb.append("    enableServiceResponse: ")
+        .append(toIndentedString(enableServiceResponse))
+        .append("\n");
     sb.append("    getTotalsResponse: ").append(toIndentedString(getTotalsResponse)).append("\n");
     sb.append("    inputResponse: ").append(toIndentedString(inputResponse)).append("\n");
     sb.append("    loginResponse: ").append(toIndentedString(loginResponse)).append("\n");
@@ -652,14 +658,26 @@ public class SaleToPOIResponse {
     sb.append("    paymentResponse: ").append(toIndentedString(paymentResponse)).append("\n");
     sb.append("    pinResponse: ").append(toIndentedString(pinResponse)).append("\n");
     sb.append("    printResponse: ").append(toIndentedString(printResponse)).append("\n");
-    sb.append("    cardReaderInitResponse: ").append(toIndentedString(cardReaderInitResponse)).append("\n");
-    sb.append("    cardReaderAPDUResponse: ").append(toIndentedString(cardReaderAPDUResponse)).append("\n");
-    sb.append("    cardReaderPowerOffResponse: ").append(toIndentedString(cardReaderPowerOffResponse)).append("\n");
-    sb.append("    reconciliationResponse: ").append(toIndentedString(reconciliationResponse)).append("\n");
+    sb.append("    cardReaderInitResponse: ")
+        .append(toIndentedString(cardReaderInitResponse))
+        .append("\n");
+    sb.append("    cardReaderAPDUResponse: ")
+        .append(toIndentedString(cardReaderAPDUResponse))
+        .append("\n");
+    sb.append("    cardReaderPowerOffResponse: ")
+        .append(toIndentedString(cardReaderPowerOffResponse))
+        .append("\n");
+    sb.append("    reconciliationResponse: ")
+        .append(toIndentedString(reconciliationResponse))
+        .append("\n");
     sb.append("    reversalResponse: ").append(toIndentedString(reversalResponse)).append("\n");
     sb.append("    soundResponse: ").append(toIndentedString(soundResponse)).append("\n");
-    sb.append("    storedValueResponse: ").append(toIndentedString(storedValueResponse)).append("\n");
-    sb.append("    transactionStatusResponse: ").append(toIndentedString(transactionStatusResponse)).append("\n");
+    sb.append("    storedValueResponse: ")
+        .append(toIndentedString(storedValueResponse))
+        .append("\n");
+    sb.append("    transactionStatusResponse: ")
+        .append(toIndentedString(transactionStatusResponse))
+        .append("\n");
     sb.append("    transmitResponse: ").append(toIndentedString(transmitResponse)).append("\n");
     sb.append("    securityTrailer: ").append(toIndentedString(securityTrailer)).append("\n");
     sb.append("}\n");
@@ -667,8 +685,7 @@ public class SaleToPOIResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -676,5 +693,4 @@ public class SaleToPOIResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }

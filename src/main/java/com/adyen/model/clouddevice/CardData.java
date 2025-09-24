@@ -8,17 +8,17 @@ import java.util.List;
 
 /** Information related to the payment card used for the transaction. */
 @JsonPropertyOrder({
-    "ProtectedCardData",
-    "SensitiveCardData",
-    "AllowedProductCode",
-    "AllowedProduct",
-    "PaymentToken",
-    "CustomerOrder",
-    "PaymentBrand",
-    "MaskedPan",
-    "PaymentAccountRef",
-    "EntryMode",
-    "CardCountryCode"
+  "ProtectedCardData",
+  "SensitiveCardData",
+  "AllowedProductCode",
+  "AllowedProduct",
+  "PaymentToken",
+  "CustomerOrder",
+  "PaymentBrand",
+  "MaskedPan",
+  "PaymentAccountRef",
+  "EntryMode",
+  "CardCountryCode"
 })
 public class CardData {
 

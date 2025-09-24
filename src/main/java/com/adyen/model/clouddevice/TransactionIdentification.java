@@ -1,10 +1,8 @@
 package com.adyen.model.clouddevice;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.OffsetDateTime;
 
 public class TransactionIdentification {
@@ -18,8 +16,8 @@ public class TransactionIdentification {
   @JsonProperty("TimeStamp")
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
   @Schema(
-      description = "Date and time of a transaction for the Sale System, the POI System or the Acquirer."
-  )
+      description =
+          "Date and time of a transaction for the Sale System, the POI System or the Acquirer.")
   protected OffsetDateTime timeStamp;
 
   /**

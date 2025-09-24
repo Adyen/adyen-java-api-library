@@ -7,12 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Data related to the payment and loyalty transaction. */
-@JsonPropertyOrder({
-    "AmountsReq",
-    "OriginalPOITransaction",
-    "TransactionConditions",
-    "SaleItem"
-})
+@JsonPropertyOrder({"AmountsReq", "OriginalPOITransaction", "TransactionConditions", "SaleItem"})
 public class PaymentTransaction {
 
   @JsonProperty("AmountsReq")

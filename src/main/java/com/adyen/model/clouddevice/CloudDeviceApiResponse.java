@@ -22,7 +22,6 @@ package com.adyen.model.clouddevice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import java.util.Objects;
 
 /** CloudDeviceApiResponse */
@@ -77,8 +76,7 @@ public class CloudDeviceApiResponse {
    * @throws JsonProcessingException if the JSON string is invalid with respect to
    *     CloudDeviceApiResponse
    */
-  public static CloudDeviceApiResponse fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static CloudDeviceApiResponse fromJson(String jsonString) throws JsonProcessingException {
     return JSON.getMapper().readValue(jsonString, CloudDeviceApiResponse.class);
   }
 

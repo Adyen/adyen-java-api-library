@@ -8,11 +8,11 @@ import java.util.List;
 
 /** Content to display or print. */
 @JsonPropertyOrder({
-    "PredefinedContent",
-    "OutputText",
-    "OutputXHTML",
-    "OutputBarcode",
-    "OutputFormat"
+  "PredefinedContent",
+  "OutputText",
+  "OutputXHTML",
+  "OutputBarcode",
+  "OutputFormat"
 })
 public class OutputContent {
 

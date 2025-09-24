@@ -9,12 +9,12 @@ import java.util.List;
 
 /** Data related to the loyalty transaction. */
 @JsonPropertyOrder({
-    "OriginalPOITransaction",
-    "TransactionConditions",
-    "SaleItem",
-    "LoyaltyTransactionType",
-    "Currency",
-    "TotalAmount"
+  "OriginalPOITransaction",
+  "TransactionConditions",
+  "SaleItem",
+  "LoyaltyTransactionType",
+  "Currency",
+  "TotalAmount"
 })
 public class LoyaltyTransaction {
 

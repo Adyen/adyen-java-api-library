@@ -7,26 +7,26 @@ import java.math.BigInteger;
 
 /** Information related to an Input request. */
 @JsonPropertyOrder({
-    "DefaultInputString",
-    "StringMask",
-    "Device",
-    "InfoQualify",
-    "InputCommand",
-    "NotifyCardInputFlag",
-    "MaxInputTime",
-    "ImmediateResponseFlag",
-    "MinLength",
-    "MaxLength",
-    "MaxDecimalLength",
-    "WaitUserValidationFlag",
-    "FromRightToLeftFlag",
-    "MaskCharactersFlag",
-    "BeepKeyFlag",
-    "GlobalCorrectionFlag",
-    "DisableCancelFlag",
-    "DisableCorrectFlag",
-    "DisableValidFlag",
-    "MenuBackFlag"
+  "DefaultInputString",
+  "StringMask",
+  "Device",
+  "InfoQualify",
+  "InputCommand",
+  "NotifyCardInputFlag",
+  "MaxInputTime",
+  "ImmediateResponseFlag",
+  "MinLength",
+  "MaxLength",
+  "MaxDecimalLength",
+  "WaitUserValidationFlag",
+  "FromRightToLeftFlag",
+  "MaskCharactersFlag",
+  "BeepKeyFlag",
+  "GlobalCorrectionFlag",
+  "DisableCancelFlag",
+  "DisableCorrectFlag",
+  "DisableValidFlag",
+  "MenuBackFlag"
 })
 public class InputData {
 

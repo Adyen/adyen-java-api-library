@@ -6,13 +6,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Data related to the payment transaction. */
 @JsonPropertyOrder({
-    "CardAcquisitionReference",
-    "RequestedValidityDate",
-    "Instalment",
-    "CustomerOrder",
-    "PaymentInstrumentData",
-    "PaymentType",
-    "SplitPaymentFlag"
+  "CardAcquisitionReference",
+  "RequestedValidityDate",
+  "Instalment",
+  "CustomerOrder",
+  "PaymentInstrumentData",
+  "PaymentType",
+  "SplitPaymentFlag"
 })
 public class PaymentData {
 

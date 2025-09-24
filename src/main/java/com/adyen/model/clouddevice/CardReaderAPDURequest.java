@@ -6,12 +6,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Content of the Card Reader APDU Request message. */
 @JsonPropertyOrder({
-    "APDUData",
-    "APDUClass",
-    "APDUInstruction",
-    "APDUPar1",
-    "APDUPar2",
-    "APDUExpectedLength"
+  "APDUData",
+  "APDUClass",
+  "APDUInstruction",
+  "APDUPar1",
+  "APDUPar2",
+  "APDUExpectedLength"
 })
 public class CardReaderAPDURequest {
 

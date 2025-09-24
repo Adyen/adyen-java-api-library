@@ -23,7 +23,6 @@ package com.adyen.model.clouddevice.security;
 
 import com.adyen.model.clouddevice.MessageHeader;
 import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
 
 public class SaleToPOISecuredMessage {

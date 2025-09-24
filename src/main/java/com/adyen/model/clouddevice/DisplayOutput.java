@@ -8,13 +8,13 @@ import java.util.List;
 
 /** Information to display and the way to process the display. */
 @JsonPropertyOrder({
-    "OutputContent",
-    "MenuEntry",
-    "OutputSignature",
-    "ResponseRequiredFlag",
-    "MinimumDisplayTime",
-    "Device",
-    "InfoQualify"
+  "OutputContent",
+  "MenuEntry",
+  "OutputSignature",
+  "ResponseRequiredFlag",
+  "MinimumDisplayTime",
+  "Device",
+  "InfoQualify"
 })
 public class DisplayOutput {
 

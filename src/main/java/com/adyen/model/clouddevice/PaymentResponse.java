@@ -8,13 +8,13 @@ import java.util.List;
 
 /** Content of the Payment Response message. */
 @JsonPropertyOrder({
-    "Response",
-    "SaleData",
-    "POIData",
-    "PaymentResult",
-    "LoyaltyResult",
-    "PaymentReceipt",
-    "CustomerOrder"
+  "Response",
+  "SaleData",
+  "POIData",
+  "PaymentResult",
+  "LoyaltyResult",
+  "PaymentReceipt",
+  "CustomerOrder"
 })
 public class PaymentResponse {
 
@@ -205,8 +205,7 @@ public class PaymentResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -7,12 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * Information related to the software of the Sale System which manages the Sale to POI protocol.
  */
-@JsonPropertyOrder({
-    "ManufacturerID",
-    "ApplicationName",
-    "SoftwareVersion",
-    "CertificationCode"
-})
+@JsonPropertyOrder({"ManufacturerID", "ApplicationName", "SoftwareVersion", "CertificationCode"})
 public class SaleSoftware {
 
   @JsonProperty("ManufacturerID")

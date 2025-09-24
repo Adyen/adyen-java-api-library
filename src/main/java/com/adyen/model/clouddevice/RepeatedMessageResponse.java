@@ -7,13 +7,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Content of the requested Message Response. */
 @JsonPropertyOrder({
-    "MessageHeader",
-    "LoyaltyResponse",
-    "PaymentResponse",
-    "ReversalResponse",
-    "StoredValueResponse",
-    "CardAcquisitionResponse",
-    "CardReaderAPDUResponse"
+  "MessageHeader",
+  "LoyaltyResponse",
+  "PaymentResponse",
+  "ReversalResponse",
+  "StoredValueResponse",
+  "CardAcquisitionResponse",
+  "CardReaderAPDUResponse"
 })
 public class RepeatedMessageResponse {
 

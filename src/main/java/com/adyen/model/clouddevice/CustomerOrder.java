@@ -9,16 +9,16 @@ import java.time.OffsetDateTime;
 
 /** Customer order attached to a card, recorded in the POI system. */
 @JsonPropertyOrder({
-    "AdditionalInformation",
-    "CustomerOrderID",
-    "SaleReferenceID",
-    "OpenOrderState",
-    "StartDate",
-    "EndDate",
-    "ForecastedAmount",
-    "CurrentAmount",
-    "Currency",
-    "AccessedBy"
+  "AdditionalInformation",
+  "CustomerOrderID",
+  "SaleReferenceID",
+  "OpenOrderState",
+  "StartDate",
+  "EndDate",
+  "ForecastedAmount",
+  "CurrentAmount",
+  "Currency",
+  "AccessedBy"
 })
 public class CustomerOrder {
 

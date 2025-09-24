@@ -8,17 +8,17 @@ import java.math.BigInteger;
 
 /** Sale items of a transaction. */
 @JsonPropertyOrder({
-    "UnitOfMeasure",
-    "Quantity",
-    "UnitPrice",
-    "TaxCode",
-    "SaleChannel",
-    "ProductLabel",
-    "AdditionalProductInfo",
-    "ItemID",
-    "ProductCode",
-    "EanUpc",
-    "ItemAmount"
+  "UnitOfMeasure",
+  "Quantity",
+  "UnitPrice",
+  "TaxCode",
+  "SaleChannel",
+  "ProductLabel",
+  "AdditionalProductInfo",
+  "ItemID",
+  "ProductCode",
+  "EanUpc",
+  "ItemAmount"
 })
 public class SaleItem {
 

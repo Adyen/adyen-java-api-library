@@ -20,16 +20,13 @@
  */
 package com.adyen.model.clouddevice;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
 
-/**
- * CloudDeviceApiRequest
- */
+/** CloudDeviceApiRequest */
 public class CloudDeviceApiRequest {
-  @SerializedName("SaleToPOIRequest")
+  @JsonProperty("SaleToPOIRequest")
   private SaleToPOIRequest saleToPOIRequest;
 
   /**
@@ -37,6 +34,7 @@ public class CloudDeviceApiRequest {
    *
    * @return the sale to POI request
    */
+  @JsonProperty("SaleToPOIRequest")
   public SaleToPOIRequest getSaleToPOIRequest() {
     return saleToPOIRequest;
   }
@@ -70,8 +68,7 @@ public class CloudDeviceApiRequest {
    * @throws JsonProcessingException if the JSON string is invalid with respect to
    *     CloudDeviceApiRequest
    */
-  public static CloudDeviceApiRequest fromJson(String jsonString)
-      throws JsonProcessingException {
+  public static CloudDeviceApiRequest fromJson(String jsonString) throws JsonProcessingException {
     return JSON.getMapper().readValue(jsonString, CloudDeviceApiRequest.class);
   }
 

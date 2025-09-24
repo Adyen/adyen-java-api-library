@@ -6,12 +6,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** Information to print and the way to process the print. */
 @JsonPropertyOrder({
-    "OutputContent",
-    "OutputSignature",
-    "DocumentQualifier",
-    "ResponseMode",
-    "IntegratedPrintFlag",
-    "RequiredSignatureFlag"
+  "OutputContent",
+  "OutputSignature",
+  "DocumentQualifier",
+  "ResponseMode",
+  "IntegratedPrintFlag",
+  "RequiredSignatureFlag"
 })
 public class PrintOutput {
 
