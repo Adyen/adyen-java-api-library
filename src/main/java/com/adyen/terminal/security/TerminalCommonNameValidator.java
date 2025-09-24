@@ -29,16 +29,21 @@ import java.util.regex.Pattern;
 /** Validates the Common Name of a terminal API certificate. */
 public final class TerminalCommonNameValidator {
 
-  // regex for Terminal API CN format
-  private static final String TERMINAL_API_CN_TEST_ENVIRONMENT =
-      "[a-zA-Z0-9]{3,}-[a-zA-Z0-9]{9,15}\\.test\\.terminal\\.adyen\\.com";
-  private static final String TERMINAL_API_CN_LIVE_ENVIRONMENT =
-      "[a-zA-Z0-9]{3,}-[a-zA-Z0-9]{9,15}\\.live\\.terminal\\.adyen\\.com";
-  // regex for Legacy format
-  private static final String TERMINAL_API_LEGACY_CN_TEST_ENVIRONMENT =
+  // Precompiled regex for Terminal API CN format
+  private static final Pattern TERMINAL_API_CN_TEST =
+      Pattern.compile("[a-zA-Z0-9]{3,}-[a-zA-Z0-9]{9,15}\\.test\\.terminal\\.adyen\\.com");
+  private static final Pattern TERMINAL_API_CN_LIVE =
+      Pattern.compile("[a-zA-Z0-9]{3,}-[a-zA-Z0-9]{9,15}\\.live\\.terminal\\.adyen\\.com");
+
+  // Exact strings for legacy format (no regex needed)
+  private static final String TERMINAL_API_LEGACY_TEST =
       "legacy-terminal-certificate.test.terminal.adyen.com";
-  private static final String TERMINAL_API_LEGACY_CN_LIVE_ENVIRONMENT =
+  private static final String TERMINAL_API_LEGACY_LIVE =
       "legacy-terminal-certificate.live.terminal.adyen.com";
+
+  // Regex to extract CN from subject string
+  private static final Pattern SUBJECT_ATTRIBUTE_PATTERN =
+      Pattern.compile("(?:^|,\\s?)([A-Z]+)=((?:\"[^\"]+\")|[^,]+)");
 
   private TerminalCommonNameValidator() {}
 
@@ -51,53 +56,33 @@ public final class TerminalCommonNameValidator {
    * @return true if the Common Name is valid, false otherwise.
    */
   public static boolean validateCertificate(X509Certificate certificate, Environment environment) {
-
     String name = certificate.getSubjectX500Principal().getName();
-    String patternRegex = "(?:^|,\\s?)(?:([A-Z]+)=(\"(?:[^\"]|\"\")+\"|[^,]+))+";
-    Pattern pattern = Pattern.compile(patternRegex);
-    Matcher matcher = pattern.matcher(name);
+    Matcher matcher = SUBJECT_ATTRIBUTE_PATTERN.matcher(name);
 
-    boolean valid = false;
-    while (matcher.find() && !valid) {
+    while (matcher.find()) {
       String groupName = matcher.group(1);
       if ("CN".equals(groupName)) {
         String commonName = matcher.group(2);
-        valid =
-            commonName != null
-                &&
-                // must match any of the regex
-                (commonName.matches(getEnvironmentRegex(environment))
-                    || commonName.equals(getEnvironmentRegexLegacy(environment)));
+        return isValidCommonName(commonName, environment);
       }
     }
-    return valid;
+    return false;
   }
 
-  /**
-   * Returns the regex for the given {@link Environment}.
-   *
-   * @param environment Environment
-   * @return String with the regex
-   */
-  private static String getEnvironmentRegex(Environment environment) {
-    if (environment == Environment.LIVE) {
-      return TERMINAL_API_CN_LIVE_ENVIRONMENT;
-    } else {
-      return TERMINAL_API_CN_TEST_ENVIRONMENT;
+  private static boolean isValidCommonName(String commonName, Environment environment) {
+    if (commonName == null) {
+      return false;
     }
-  }
 
-  /**
-   * Returns the LEGACY regex for the given {@link Environment}.
-   *
-   * @param environment Environment
-   * @return String with the regex
-   */
-  private static String getEnvironmentRegexLegacy(Environment environment) {
-    if (environment == Environment.LIVE) {
-      return TERMINAL_API_LEGACY_CN_LIVE_ENVIRONMENT;
-    } else {
-      return TERMINAL_API_LEGACY_CN_TEST_ENVIRONMENT;
+    switch (environment) {
+      case LIVE:
+        return TERMINAL_API_CN_LIVE.matcher(commonName).matches()
+            || TERMINAL_API_LEGACY_LIVE.equals(commonName);
+      case TEST:
+        return TERMINAL_API_CN_TEST.matcher(commonName).matches()
+            || TERMINAL_API_LEGACY_TEST.equals(commonName);
+      default:
+        return false;
     }
   }
 }
