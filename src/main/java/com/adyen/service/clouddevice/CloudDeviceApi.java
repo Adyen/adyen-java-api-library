@@ -4,10 +4,20 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.clouddevice.*;
+import com.adyen.model.terminal.TerminalAPISecuredResponse;
+import com.adyen.security.clouddevice.EncryptionCredentialDetails;
+import com.adyen.security.clouddevice.NexoSecurityManager;
 import com.adyen.service.resource.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Cloud Device API service
+ *
+ * With the Cloud device API you can:
+ * - send Terminal API requests to the Adyen cloud endpoints.
+ * - check the cloud connection of a payment terminal or of a device used in a Mobile solution for in-person payments.
+ */
 public class CloudDeviceApi extends Service {
 
   public static final String API_VERSION = "1";
@@ -21,7 +31,7 @@ public class CloudDeviceApi extends Service {
    */
   public CloudDeviceApi(Client client) {
     super(client);
-    this.baseURL = createBaseURL("https://device-api-test.adyen.com/v1");
+    this.baseURL = createBaseURL("https://device-api-test.adyen.com/v" + API_VERSION);
   }
 
   /**
@@ -180,4 +190,59 @@ public class CloudDeviceApi extends Service {
 
     return DeviceStatusResponse.fromJson(response);
   }
+
+  /**
+   * Send a synchronous encrypted payment request.
+   *
+   * @param merchantAccount The unique identifier of the merchant account
+   * @param deviceId The unique identifier of the payment device that you send this request to (must
+   *     match POIID in the MessageHeader).
+   * @param cloudDeviceApiRequest The request to send.
+   * @return instance of CloudDeviceApiResponse
+   * @throws Exception when an error occurs
+   */
+  public CloudDeviceApiResponse sendEncryptedSync(
+      String merchantAccount, String deviceId, CloudDeviceApiRequest cloudDeviceApiRequest, EncryptionCredentialDetails encryptionCredentialDetails)
+      throws Exception {
+
+    NexoSecurityManager nexoSecurityManager = new NexoSecurityManager(encryptionCredentialDetails);
+
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+
+    if (merchantAccount == null) {
+      throw new IllegalArgumentException("Please provide the merchantAccount path parameter");
+    }
+    pathParams.put("merchantAccount", merchantAccount);
+
+    if (deviceId == null) {
+      throw new IllegalArgumentException("Please provide the deviceId path parameter");
+    }
+    pathParams.put("deviceId", deviceId);
+
+    // set deviceId
+    cloudDeviceApiRequest.getSaleToPOIRequest().getMessageHeader().setPOIID(deviceId);
+
+    // encrypt payload
+    SaleToPOISecuredMessage saleToPOISecuredRequest =
+        nexoSecurityManager.encrypt(cloudDeviceApiRequest.toJson(), cloudDeviceApiRequest.getSaleToPOIRequest().getMessageHeader());
+
+    CloudDeviceApiSecuredRequest cloudDeviceApiSecuredRequest = new CloudDeviceApiSecuredRequest();
+    cloudDeviceApiSecuredRequest.setSaleToPOIRequest(saleToPOISecuredRequest);
+
+    String encryptedJson = cloudDeviceApiSecuredRequest.toJson();
+
+    // perform API call
+    Resource resource =
+        new Resource(
+            this, this.baseURL + "/merchants/{merchantAccount}/devices/{deviceId}/sync", null);
+    String response = resource.request(encryptedJson, null, ApiConstants.HttpMethod.POST, pathParams);
+
+    // decrypt response
+    CloudDeviceApiSecuredResponse cloudDeviceApiSecuredResponse = CloudDeviceApiSecuredResponse.fromJson(response);
+    String jsonDecryptedResponse = nexoSecurityManager.decrypt(cloudDeviceApiSecuredResponse.getSaleToPOIResponse());
+
+    return CloudDeviceApiResponse.fromJson(jsonDecryptedResponse);
+  }
+
 }

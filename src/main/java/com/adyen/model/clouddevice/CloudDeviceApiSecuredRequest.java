@@ -20,8 +20,9 @@
  */
 package com.adyen.model.clouddevice;
 
-import com.adyen.model.clouddevice.security.SaleToPOISecuredMessage;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import java.util.Objects;
 
 /** Terminal API Secured Request */
@@ -46,6 +47,28 @@ public class CloudDeviceApiSecuredRequest {
   public void setSaleToPOIRequest(SaleToPOISecuredMessage saleToPOIRequest) {
     this.saleToPOIRequest = saleToPOIRequest;
   }
+
+  /**
+   * Create an instance of CloudDeviceApiSecuredRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CloudDeviceApiSecuredRequest
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     CloudDeviceApiSecuredRequest
+   */
+  public static CloudDeviceApiSecuredRequest fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, CloudDeviceApiSecuredRequest.class);
+  }
+
+  /**
+   * Convert an instance of CloudDeviceApiSecuredRequest to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
+  }
+
 
   @Override
   public boolean equals(Object o) {

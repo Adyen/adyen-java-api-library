@@ -19,20 +19,22 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.clouddevice.security;
+package com.adyen.model.clouddevice;
 
-import com.adyen.model.clouddevice.MessageHeader;
-import com.google.gson.annotations.SerializedName;
+import com.adyen.model.clouddevice.security.SecurityTrailer;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import java.util.Objects;
 
 public class SaleToPOISecuredMessage {
-  @SerializedName("MessageHeader")
+  @JsonProperty("MessageHeader")
   private MessageHeader messageHeader;
 
-  @SerializedName("NexoBlob")
+  @JsonProperty("NexoBlob")
   private String nexoBlob;
 
-  @SerializedName("SecurityTrailer")
+  @JsonProperty("SecurityTrailer")
   private SecurityTrailer securityTrailer;
 
   public MessageHeader getMessageHeader() {
@@ -57,6 +59,27 @@ public class SaleToPOISecuredMessage {
 
   public void setSecurityTrailer(SecurityTrailer securityTrailer) {
     this.securityTrailer = securityTrailer;
+  }
+
+  /**
+   * Create an instance of SaleToPOISecuredMessage given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SaleToPOISecuredMessage
+   * @throws JsonProcessingException if the JSON string is invalid with respect to
+   *     SaleToPOISecuredMessage
+   */
+  public static SaleToPOISecuredMessage fromJson(String jsonString) throws JsonProcessingException {
+    return JSON.getMapper().readValue(jsonString, SaleToPOISecuredMessage.class);
+  }
+
+  /**
+   * Convert an instance of SaleToPOISecuredMessage to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() throws JsonProcessingException {
+    return JSON.getMapper().writeValueAsString(this);
   }
 
   @Override
