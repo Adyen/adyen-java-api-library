@@ -84,7 +84,7 @@ public class DonationsApi extends Service {
   }
 
   /**
-   * Start a transaction for donations
+   * Make a donation
    *
    * @param donationPaymentRequest {@link DonationPaymentRequest } (required)
    * @return {@link DonationPaymentResponse }
@@ -96,7 +96,7 @@ public class DonationsApi extends Service {
   }
 
   /**
-   * Start a transaction for donations
+   * Make a donation
    *
    * @param donationPaymentRequest {@link DonationPaymentRequest } (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as

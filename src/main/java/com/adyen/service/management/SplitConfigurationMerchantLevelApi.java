@@ -114,7 +114,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Create a split configuration
+   * Create a split configuration profile
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfiguration {@link SplitConfiguration } (required)
@@ -127,7 +127,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Create a split configuration
+   * Create a split configuration profile
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfiguration {@link SplitConfiguration } (required)
@@ -155,7 +155,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Delete a split configuration
+   * Delete a split configuration profile
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
@@ -169,7 +169,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Delete a split configuration
+   * Delete a split configuration profile
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
@@ -205,7 +205,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Delete a split configuration rule
+   * Delete a rule
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
@@ -221,7 +221,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Delete a split configuration rule
+   * Delete a rule
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
@@ -263,7 +263,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Get a split configuration
+   * Get a split configuration profile
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
@@ -277,7 +277,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Get a split configuration
+   * Get a split configuration profile
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
@@ -313,7 +313,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Get a list of split configurations
+   * Get a list of split configuration profiles
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @return {@link SplitConfigurationList }
@@ -325,7 +325,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Get a list of split configurations
+   * Get a list of split configuration profiles
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
@@ -351,7 +351,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Update split conditions
+   * Update the split conditions
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The identifier of the split configuration.
@@ -373,7 +373,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Update split conditions
+   * Update the split conditions
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The identifier of the split configuration.
@@ -421,7 +421,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Update split configuration description
+   * Update the description of the split configuration profile
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
@@ -440,7 +440,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
   }
 
   /**
-   * Update split configuration description
+   * Update the description of the split configuration profile
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.

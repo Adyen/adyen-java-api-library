@@ -176,10 +176,10 @@ public class AccountCapabilityData {
   }
 
   /**
-   * List of entities that has problems with verification. The information includes the details of
+   * List of entities that have problems with verification. The information includes the details of
    * the errors and the actions that you can take to resolve them.
    *
-   * @param problems List of entities that has problems with verification. The information includes
+   * @param problems List of entities that have problems with verification. The information includes
    *     the details of the errors and the actions that you can take to resolve them.
    * @return the current {@code AccountCapabilityData} instance, allowing for method chaining
    */
@@ -197,11 +197,11 @@ public class AccountCapabilityData {
   }
 
   /**
-   * List of entities that has problems with verification. The information includes the details of
+   * List of entities that have problems with verification. The information includes the details of
    * the errors and the actions that you can take to resolve them.
    *
-   * @return problems List of entities that has problems with verification. The information includes
-   *     the details of the errors and the actions that you can take to resolve them.
+   * @return problems List of entities that have problems with verification. The information
+   *     includes the details of the errors and the actions that you can take to resolve them.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,10 +210,10 @@ public class AccountCapabilityData {
   }
 
   /**
-   * List of entities that has problems with verification. The information includes the details of
+   * List of entities that have problems with verification. The information includes the details of
    * the errors and the actions that you can take to resolve them.
    *
-   * @param problems List of entities that has problems with verification. The information includes
+   * @param problems List of entities that have problems with verification. The information includes
    *     the details of the errors and the actions that you can take to resolve them.
    */
   @JsonProperty(JSON_PROPERTY_PROBLEMS)

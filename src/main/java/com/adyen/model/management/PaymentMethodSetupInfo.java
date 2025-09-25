@@ -310,6 +310,8 @@ public class PaymentMethodSetupInfo {
 
     BLIK(String.valueOf("blik")),
 
+    BR_SCHEMES(String.valueOf("br_schemes")),
+
     CARTEBANCAIRE(String.valueOf("cartebancaire")),
 
     CLEARPAY(String.valueOf("clearpay")),
