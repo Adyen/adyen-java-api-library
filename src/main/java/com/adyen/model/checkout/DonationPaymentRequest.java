@@ -342,7 +342,7 @@ public class DonationPaymentRequest {
   private String shopperLocale;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
-  private ShopperName shopperName;
+  private Name shopperName;
 
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
@@ -2003,7 +2003,7 @@ public class DonationPaymentRequest {
    * @param shopperName
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
-  public DonationPaymentRequest shopperName(ShopperName shopperName) {
+  public DonationPaymentRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -2015,7 +2015,7 @@ public class DonationPaymentRequest {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ShopperName getShopperName() {
+  public Name getShopperName() {
     return shopperName;
   }
 
@@ -2026,7 +2026,7 @@ public class DonationPaymentRequest {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShopperName(ShopperName shopperName) {
+  public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
 
