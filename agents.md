@@ -230,7 +230,7 @@ RequestOptions requestOptions = new RequestOptions()
     .idempotencyKey(UUID.randomUUID().toString());
 
 // Make the payment request with idempotency
-PaymentResponse paymentResponse = checkout.payments(paymentRequest, requestOptions);
+PaymentResponse paymentResponse = paymentsApi.payments(paymentRequest, requestOptions);
 
 System.out.println("Payment response: " + paymentResponse);
 
