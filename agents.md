@@ -34,7 +34,7 @@ It supports the following Adyen APIs:
 - **Management API** https://docs.adyen.com/api-explorer/Management/
 - **Legal Entity Management API** https://docs.adyen.com/api-explorer/legalentity/
 - **Balance Platform Configuration API** https://docs.adyen.com/api-explorer/balanceplatform/
-- **Tranfers API** https://docs.adyen.com/api-explorer/transfers/
+- **Transfers API** https://docs.adyen.com/api-explorer/transfers/
 - **Webhooks** https://docs.adyen.com/api-explorer/Webhooks/1/overview
 - **Balance Platform Configuration webhooks** https://docs.adyen.com/api-explorer/balanceplatform-webhooks/
 - **Transfers Webhooks** https://docs.adyen.com/api-explorer/transfer-webhooks/
