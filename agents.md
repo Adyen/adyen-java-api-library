@@ -55,7 +55,7 @@ Show developers how to add the library:
 </dependency>
 ```
 
-```groovy
+```gradle
 implementation 'com.adyen:adyen-java-api-library:LATEST_VERSION'
 
 ```
