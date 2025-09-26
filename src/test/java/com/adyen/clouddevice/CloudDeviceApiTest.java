@@ -8,6 +8,7 @@ import com.adyen.BaseTest;
 import com.adyen.Client;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.clouddevice.*;
+import com.adyen.security.clouddevice.EncryptionCredentialDetails;
 import com.adyen.service.clouddevice.CloudDeviceApi;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -62,6 +63,46 @@ public class CloudDeviceApiTest extends BaseTest {
     verify(client.getHttpClient())
         .request(
             "https://device-api-test.adyen.com/v1/merchants/myMerchant/devices/P400Plus-123456789/async",
+            cloudDeviceApiRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
+
+  @Test
+  public void sendEncryptedSync() throws Exception {
+    Client client =
+        createMockClientFromFile("mocks/clouddevice/payment-sync-encrypted-success.json");
+
+    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+
+    CloudDeviceApiRequest cloudDeviceApiRequest = createCloudDeviceAPIPaymentRequest();
+
+    EncryptionCredentialDetails encryptionCredentialDetails =
+        new EncryptionCredentialDetails()
+            .adyenCryptoVersion(0)
+            .keyIdentifier("CryptoKeyIdentifier12345")
+            .keyVersion(0)
+            .passphrase("p@ssw0rd123456");
+
+    var response =
+        cloudDeviceApi.sendEncryptedSync(
+            "TestMerchantAccount",
+            "MX915-284251016",
+            cloudDeviceApiRequest,
+            encryptionCredentialDetails);
+
+    assertNotNull(response);
+    assertNotNull(response.getSaleToPOIResponse());
+    assertNotNull(response.getSaleToPOIResponse().getMessageHeader());
+    assertEquals(
+        "P400Plus-123456789", response.getSaleToPOIResponse().getMessageHeader().getPOIID());
+
+    verify(client.getHttpClient())
+        .request(
+            "https://device-api-test.adyen.com/v1/merchants/myMerchant/devices/P400Plus-123456789/sync",
             cloudDeviceApiRequest.toJson(),
             client.getConfig(),
             false,

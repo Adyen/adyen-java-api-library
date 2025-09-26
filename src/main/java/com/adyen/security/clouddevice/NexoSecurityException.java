@@ -20,7 +20,6 @@
  */
 package com.adyen.security.clouddevice;
 
-
 public class NexoSecurityException extends Exception {
   public NexoSecurityException(String message) {
     super(message);

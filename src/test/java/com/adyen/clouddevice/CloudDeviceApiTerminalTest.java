@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import com.adyen.BaseIntegrationTest;
 import com.adyen.model.clouddevice.*;
+import com.adyen.security.clouddevice.EncryptionCredentialDetails;
 import com.adyen.service.clouddevice.CloudDeviceApi;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -40,6 +41,33 @@ public class CloudDeviceApiTerminalTest extends BaseIntegrationTest {
 
     var response =
         cloudDeviceApi.sendSync(getMerchantAccount(), getTerminalDeviceId(), cloudDeviceApiRequest);
+
+    assertNotNull(response);
+    System.out.println("Response: " + response);
+  }
+
+  @Ignore // enable when you want to test with the Terminal
+  @Test
+  public void sendEncryptedSync() throws Exception {
+
+    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(getClient());
+
+    CloudDeviceApiRequest cloudDeviceApiRequest =
+        createCloudDeviceAPIPaymentRequest(getTerminalDeviceId());
+
+    EncryptionCredentialDetails encryptionCredentialDetails =
+        new EncryptionCredentialDetails()
+            .adyenCryptoVersion(1)
+            .keyIdentifier(getTerminalDeviceKeyIdentifier())
+            .keyVersion(1)
+            .passphrase(getTerminalDevicePassphrase());
+
+    var response =
+        cloudDeviceApi.sendEncryptedSync(
+            getMerchantAccount(),
+            getTerminalDeviceId(),
+            cloudDeviceApiRequest,
+            encryptionCredentialDetails);
 
     assertNotNull(response);
     System.out.println("Response: " + response);

@@ -21,24 +21,24 @@
 
 package com.adyen.model.clouddevice.security;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class SecurityTrailer {
-  @SerializedName("AdyenCryptoVersion")
+  @JsonProperty("AdyenCryptoVersion")
   private Integer adyenCryptoVersion;
 
-  @SerializedName("KeyIdentifier")
+  @JsonProperty("KeyIdentifier")
   private String keyIdentifier;
 
-  @SerializedName("KeyVersion")
+  @JsonProperty("KeyVersion")
   private Integer keyVersion;
 
-  @SerializedName("Nonce")
+  @JsonProperty("Nonce")
   private byte[] nonce;
 
-  @SerializedName("Hmac")
+  @JsonProperty("Hmac")
   private byte[] hmac;
 
   public Integer getAdyenCryptoVersion() {

@@ -40,6 +40,14 @@ public class BaseIntegrationTest {
     return getProperty("ADYEN_TERMINAL_DEVICE_ID");
   }
 
+  protected String getTerminalDeviceKeyIdentifier() {
+    return getProperty("ADYEN_TERMINAL_DEVICE_KEY_IDENTIFIER");
+  }
+
+  protected String getTerminalDevicePassphrase() {
+    return getProperty("ADYEN_TERMINAL_DEVICE_PASSPHRASE");
+  }
+
   private Properties getProperties() {
     if (properties == null) {
       properties = new Properties();

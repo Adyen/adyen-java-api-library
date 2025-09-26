@@ -24,7 +24,6 @@ package com.adyen.model.clouddevice;
 import com.adyen.model.clouddevice.security.SecurityTrailer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import java.util.Objects;
 
 public class SaleToPOISecuredMessage {

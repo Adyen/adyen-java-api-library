@@ -22,7 +22,6 @@ package com.adyen.model.clouddevice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import java.util.Objects;
 
 /** Terminal API Secured Response */
@@ -56,7 +55,8 @@ public class CloudDeviceApiSecuredResponse {
    * @throws JsonProcessingException if the JSON string is invalid with respect to
    *     CloudDeviceApiSecuredResponse
    */
-  public static CloudDeviceApiSecuredResponse fromJson(String jsonString) throws JsonProcessingException {
+  public static CloudDeviceApiSecuredResponse fromJson(String jsonString)
+      throws JsonProcessingException {
     return JSON.getMapper().readValue(jsonString, CloudDeviceApiSecuredResponse.class);
   }
 
@@ -88,6 +88,6 @@ public class CloudDeviceApiSecuredResponse {
 
   @Override
   public String toString() {
-    return "TerminalAPISecuredResponse{" + "saleToPOIResponse=" + saleToPOIResponse + '}';
+    return "CloudDeviceApiSecuredResponse{" + "saleToPOIResponse=" + saleToPOIResponse + '}';
   }
 }

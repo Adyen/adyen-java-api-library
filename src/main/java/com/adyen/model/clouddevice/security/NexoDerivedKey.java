@@ -21,6 +21,8 @@
 
 package com.adyen.model.clouddevice.security;
 
+import java.util.Arrays;
+
 /**
  * A container for Nexo derived keys
  *
@@ -65,5 +67,39 @@ public class NexoDerivedKey {
 
   public void setIv(byte[] iv) {
     this.iv = iv;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    NexoDerivedKey that = (NexoDerivedKey) o;
+    return Arrays.equals(hmacKey, that.hmacKey)
+        && Arrays.equals(cipherKey, that.cipherKey)
+        && Arrays.equals(iv, that.iv);
+  }
+
+  @Override
+  public int hashCode() {
+    int result = Arrays.hashCode(hmacKey);
+    result = 31 * result + Arrays.hashCode(cipherKey);
+    result = 31 * result + Arrays.hashCode(iv);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "NexoDerivedKey{"
+        + "hmacKey="
+        + Arrays.toString(hmacKey)
+        + ", cipherKey="
+        + Arrays.toString(cipherKey)
+        + ", iv="
+        + Arrays.toString(iv)
+        + '}';
   }
 }

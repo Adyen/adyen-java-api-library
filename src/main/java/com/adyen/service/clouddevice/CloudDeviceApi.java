@@ -4,7 +4,6 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.clouddevice.*;
-import com.adyen.model.terminal.TerminalAPISecuredResponse;
 import com.adyen.security.clouddevice.EncryptionCredentialDetails;
 import com.adyen.security.clouddevice.NexoSecurityManager;
 import com.adyen.service.resource.Resource;
@@ -14,9 +13,9 @@ import java.util.Map;
 /**
  * Cloud Device API service
  *
- * With the Cloud device API you can:
- * - send Terminal API requests to the Adyen cloud endpoints.
- * - check the cloud connection of a payment terminal or of a device used in a Mobile solution for in-person payments.
+ * <p>With the Cloud device API you can: - send Terminal API requests to the Adyen cloud endpoints.
+ * - check the cloud connection of a payment terminal or of a device used in a Mobile solution for
+ * in-person payments.
  */
 public class CloudDeviceApi extends Service {
 
@@ -202,7 +201,10 @@ public class CloudDeviceApi extends Service {
    * @throws Exception when an error occurs
    */
   public CloudDeviceApiResponse sendEncryptedSync(
-      String merchantAccount, String deviceId, CloudDeviceApiRequest cloudDeviceApiRequest, EncryptionCredentialDetails encryptionCredentialDetails)
+      String merchantAccount,
+      String deviceId,
+      CloudDeviceApiRequest cloudDeviceApiRequest,
+      EncryptionCredentialDetails encryptionCredentialDetails)
       throws Exception {
 
     NexoSecurityManager nexoSecurityManager = new NexoSecurityManager(encryptionCredentialDetails);
@@ -225,24 +227,30 @@ public class CloudDeviceApi extends Service {
 
     // encrypt payload
     SaleToPOISecuredMessage saleToPOISecuredRequest =
-        nexoSecurityManager.encrypt(cloudDeviceApiRequest.toJson(), cloudDeviceApiRequest.getSaleToPOIRequest().getMessageHeader());
+        nexoSecurityManager.encrypt(
+            cloudDeviceApiRequest.toJson(),
+            cloudDeviceApiRequest.getSaleToPOIRequest().getMessageHeader());
 
     CloudDeviceApiSecuredRequest cloudDeviceApiSecuredRequest = new CloudDeviceApiSecuredRequest();
     cloudDeviceApiSecuredRequest.setSaleToPOIRequest(saleToPOISecuredRequest);
 
     String encryptedJson = cloudDeviceApiSecuredRequest.toJson();
+    System.out.println(encryptedJson);
 
     // perform API call
     Resource resource =
         new Resource(
             this, this.baseURL + "/merchants/{merchantAccount}/devices/{deviceId}/sync", null);
-    String response = resource.request(encryptedJson, null, ApiConstants.HttpMethod.POST, pathParams);
+    String response =
+        resource.request(encryptedJson, null, ApiConstants.HttpMethod.POST, pathParams);
 
-    // decrypt response
-    CloudDeviceApiSecuredResponse cloudDeviceApiSecuredResponse = CloudDeviceApiSecuredResponse.fromJson(response);
-    String jsonDecryptedResponse = nexoSecurityManager.decrypt(cloudDeviceApiSecuredResponse.getSaleToPOIResponse());
+    System.out.println(response);
+    CloudDeviceApiSecuredResponse cloudDeviceApiSecuredResponse =
+        CloudDeviceApiSecuredResponse.fromJson(response);
+
+    String jsonDecryptedResponse =
+        nexoSecurityManager.decrypt(cloudDeviceApiSecuredResponse.getSaleToPOIResponse());
 
     return CloudDeviceApiResponse.fromJson(jsonDecryptedResponse);
   }
-
 }
