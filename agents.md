@@ -161,7 +161,7 @@ try {
     // Check ApiError object
     ApiError apiError = e.getError();
     String errorCode = apiError.getErrorCode();
-    List<String> invalidFields = apiError.getInvalidFields();
+    List<com.adyen.model.InvalidField> invalidFields = apiError.getInvalidFields();
 }
 
 ```
