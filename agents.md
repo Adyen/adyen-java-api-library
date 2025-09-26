@@ -22,7 +22,7 @@ The goal is to provide **simple, working examples** that help developers quickly
 
 The Adyen Java API Library is a client SDK that allows developers to integrate with Adyen from Java applications. It provides:
 
-- Simplified access to Adyen APIs (Checkout, Terminal API, Plaforms and Financial Services).
+- Simplified access to Adyen APIs (Checkout, Terminal API, Platforms and Financial Services).
 - Request and response models for all API endpoints, so you don’t have to manually construct JSON.
 - Helpers for security and HTTP calls, including setting API keys, idempotency keys, and headers.
 - Error handling utilities to manage API exceptions in a structured way.
