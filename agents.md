@@ -177,7 +177,7 @@ import com.adyen.notification.WebhookHandler;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 
-String hmacKey = System.getenv().get("Your X-API-KEY");
+String hmacKey = System.getenv("ADYEN_HMAC_KEY");
 // The webhook payload
 String notificationRequestJson = "NOTIFICATION_REQUEST_JSON";
 
