@@ -187,16 +187,17 @@ WebhookHandler webhookHandler = new WebhookHandler();
 NotificationRequest notificationRequest = webhookHandler.handleNotificationJson(notificationRequestJson);
 
 // fetch first (and only) NotificationRequestItem
-var notificationRequestItem = notificationRequest.getNotificationItems().stream().findFirst();
+var notificationRequestItemOptional = notificationRequest.getNotificationItems().stream().findFirst();
 
-if (notificationRequestItem.isPresent()) {
+if (notificationRequestItemOptional.isPresent()) {
+    NotificationRequestItem notificationRequestItem = notificationRequestItemOptional.get();
     // validate the HMAC signature
     if ( hmacValidator.validateHMAC(notificationRequestItem, hmacKey) ) {
       // Process the notification based on the eventCode
-      log.info("Received webhook with event {} : \n" +
-        "Merchant Reference: {}\n" +
-        "Alias : {}\n" +
-        "PSP reference : {}", 
+      System.out.printf("Received webhook with event %s : %n" +
+        "Merchant Reference: %s%n" +
+        "Alias : %s%n" +
+        "PSP reference : %s%n", 
         notificationRequestItem.getEventCode(), 
         notificationRequestItem.getMerchantReference(),
         notificationRequestItem.getAdditionalData().get("alias"),
