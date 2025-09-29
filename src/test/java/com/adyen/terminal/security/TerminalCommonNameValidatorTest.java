@@ -46,6 +46,11 @@ public class TerminalCommonNameValidatorTest {
         new Object[][] {
           // Valid CNs and environment
           {
+            "EMAILADDRESS=mock@adyen.com, CN=TG300-G10M257M70004.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO",
+            Environment.TEST,
+            true
+          },
+          {
             "EMAILADDRESS=mock@adyen.com, CN=legacy-terminal-certificate.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO",
             Environment.TEST,
             true
