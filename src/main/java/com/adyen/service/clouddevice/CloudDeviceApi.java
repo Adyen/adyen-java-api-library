@@ -7,6 +7,8 @@ import com.adyen.model.clouddevice.*;
 import com.adyen.security.clouddevice.EncryptionCredentialDetails;
 import com.adyen.security.clouddevice.NexoSecurityManager;
 import com.adyen.service.resource.Resource;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +24,8 @@ public class CloudDeviceApi extends Service {
   public static final String API_VERSION = "1";
 
   protected String baseURL;
+
+  private final ObjectMapper objectMapper = new ObjectMapper();
 
   /**
    * CloudDeviceApi constructor in {@link com.adyen.service.clouddevice package}.
@@ -235,7 +239,6 @@ public class CloudDeviceApi extends Service {
     cloudDeviceApiSecuredRequest.setSaleToPOIRequest(saleToPOISecuredRequest);
 
     String encryptedJson = cloudDeviceApiSecuredRequest.toJson();
-    System.out.println(encryptedJson);
 
     // perform API call
     Resource resource =
@@ -244,13 +247,67 @@ public class CloudDeviceApi extends Service {
     String response =
         resource.request(encryptedJson, null, ApiConstants.HttpMethod.POST, pathParams);
 
-    System.out.println(response);
-    CloudDeviceApiSecuredResponse cloudDeviceApiSecuredResponse =
-        CloudDeviceApiSecuredResponse.fromJson(response);
+    CloudDeviceApiSecuredResponse cloudDeviceApiSecuredResponse = CloudDeviceApiSecuredResponse.fromJson(response);
 
-    String jsonDecryptedResponse =
-        nexoSecurityManager.decrypt(cloudDeviceApiSecuredResponse.getSaleToPOIResponse());
+    String jsonDecryptedResponse = nexoSecurityManager.decrypt(cloudDeviceApiSecuredResponse.getSaleToPOIResponse());
 
     return CloudDeviceApiResponse.fromJson(jsonDecryptedResponse);
   }
+
+  /**
+   * Send an asynchronous encrypted payment request.
+   *
+   * @param merchantAccount The unique identifier of the merchant account
+   * @param deviceId The unique identifier of the payment device that you send this request to (must
+   *     match POIID in the MessageHeader).
+   * @param cloudDeviceApiRequest The request to send.
+   * @return instance of CloudDeviceApiResponse
+   * @throws Exception when an error occurs
+   */
+  public String sendEncryptedAsync(
+      String merchantAccount,
+      String deviceId,
+      CloudDeviceApiRequest cloudDeviceApiRequest,
+      EncryptionCredentialDetails encryptionCredentialDetails)
+      throws Exception {
+
+    NexoSecurityManager nexoSecurityManager = new NexoSecurityManager(encryptionCredentialDetails);
+
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+
+    if (merchantAccount == null) {
+      throw new IllegalArgumentException("Please provide the merchantAccount path parameter");
+    }
+    pathParams.put("merchantAccount", merchantAccount);
+
+    if (deviceId == null) {
+      throw new IllegalArgumentException("Please provide the deviceId path parameter");
+    }
+    pathParams.put("deviceId", deviceId);
+
+    // set deviceId
+    cloudDeviceApiRequest.getSaleToPOIRequest().getMessageHeader().setPOIID(deviceId);
+
+    // encrypt payload
+    SaleToPOISecuredMessage saleToPOISecuredRequest =
+        nexoSecurityManager.encrypt(
+            cloudDeviceApiRequest.toJson(),
+            cloudDeviceApiRequest.getSaleToPOIRequest().getMessageHeader());
+
+    CloudDeviceApiSecuredRequest cloudDeviceApiSecuredRequest = new CloudDeviceApiSecuredRequest();
+    cloudDeviceApiSecuredRequest.setSaleToPOIRequest(saleToPOISecuredRequest);
+
+    String encryptedJson = cloudDeviceApiSecuredRequest.toJson();
+
+    // perform API call
+    Resource resource =
+        new Resource(
+            this, this.baseURL + "/merchants/{merchantAccount}/devices/{deviceId}/async", null);
+    String response =
+        resource.request(encryptedJson, null, ApiConstants.HttpMethod.POST, pathParams);
+
+    return response;
+  }
+
 }

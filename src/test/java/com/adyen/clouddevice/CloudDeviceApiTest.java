@@ -2,6 +2,8 @@ package com.adyen.clouddevice;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.BaseTest;
@@ -97,18 +99,62 @@ public class CloudDeviceApiTest extends BaseTest {
     assertNotNull(response);
     assertNotNull(response.getSaleToPOIResponse());
     assertNotNull(response.getSaleToPOIResponse().getMessageHeader());
-    assertEquals(
-        "P400Plus-123456789", response.getSaleToPOIResponse().getMessageHeader().getPOIID());
+    assertEquals("MX915-284251016", response.getSaleToPOIResponse().getMessageHeader().getPOIID());
 
     verify(client.getHttpClient())
         .request(
-            "https://device-api-test.adyen.com/v1/merchants/myMerchant/devices/P400Plus-123456789/sync",
-            cloudDeviceApiRequest.toJson(),
-            client.getConfig(),
-            false,
-            null,
-            ApiConstants.HttpMethod.POST,
-            null);
+            eq("https://device-api-test.adyen.com/v1/merchants/TestMerchantAccount/devices/MX915-284251016/sync"),
+            argThat(json -> {
+              assertTrue(json.contains("\"NexoBlob\":"), "JSON payload should contain NexoBlob field");
+              return true;
+            }),
+            eq(client.getConfig()),
+            eq(false),
+            isNull(),
+            eq(ApiConstants.HttpMethod.POST),
+            isNull()
+        );
+  }
+
+  @Test
+  public void sendEncryptedAsync() throws Exception {
+    Client client =
+        createMockClientFromFile("mocks/clouddevice/payment-async-success.json");
+
+    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+
+    CloudDeviceApiRequest cloudDeviceApiRequest = createCloudDeviceAPIPaymentRequest();
+
+    EncryptionCredentialDetails encryptionCredentialDetails =
+        new EncryptionCredentialDetails()
+            .adyenCryptoVersion(0)
+            .keyIdentifier("CryptoKeyIdentifier12345")
+            .keyVersion(0)
+            .passphrase("p@ssw0rd123456");
+
+    var response =
+        cloudDeviceApi.sendEncryptedAsync(
+            "TestMerchantAccount",
+            "MX915-284251016",
+            cloudDeviceApiRequest,
+            encryptionCredentialDetails);
+
+    assertNotNull(response);
+    assertEquals("ok", response);
+
+    verify(client.getHttpClient())
+        .request(
+            eq("https://device-api-test.adyen.com/v1/merchants/TestMerchantAccount/devices/MX915-284251016/async"),
+            argThat(json -> {
+              assertTrue(json.contains("\"NexoBlob\":"), "JSON payload should contain NexoBlob field");
+              return true;
+            }),
+            eq(client.getConfig()),
+            eq(false),
+            isNull(),
+            eq(ApiConstants.HttpMethod.POST),
+            isNull()
+        );
   }
 
   @Test

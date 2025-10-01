@@ -73,6 +73,33 @@ public class CloudDeviceApiTerminalTest extends BaseIntegrationTest {
     System.out.println("Response: " + response);
   }
 
+  @Ignore // enable when you want to test with the Terminal
+  @Test
+  public void sendEncryptedAsync() throws Exception {
+
+    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(getClient());
+
+    CloudDeviceApiRequest cloudDeviceApiRequest =
+        createCloudDeviceAPIPaymentRequest(getTerminalDeviceId());
+
+    EncryptionCredentialDetails encryptionCredentialDetails =
+        new EncryptionCredentialDetails()
+            .adyenCryptoVersion(1)
+            .keyIdentifier(getTerminalDeviceKeyIdentifier())
+            .keyVersion(1)
+            .passphrase(getTerminalDevicePassphrase());
+
+    var response =
+        cloudDeviceApi.sendEncryptedAsync(
+            getMerchantAccount(),
+            getTerminalDeviceId(),
+            cloudDeviceApiRequest,
+            encryptionCredentialDetails);
+
+    assertNotNull(response);
+    System.out.println("Response: " + response);
+  }
+
   protected CloudDeviceApiRequest createCloudDeviceAPIPaymentRequest(String deviceId) {
     SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
 

@@ -61,8 +61,7 @@ public class NexoSecurityManager {
         crypt(saleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.ENCRYPT_MODE);
 
     // Generate HMAC for message authentication
-    byte[] encryptedSaleToPoiMessageHmac = hmac(saleToPoiMessageByteArray, derivedKey);
-
+    byte[] hmacSignature = hmac(saleToPoiMessageByteArray, derivedKey);
 
     // Populate security trailer with metadata and HMAC
     SecurityTrailer securityTrailer = new SecurityTrailer();
@@ -70,9 +69,9 @@ public class NexoSecurityManager {
     securityTrailer.setKeyIdentifier(this.encryptionCredentialDetails.getKeyIdentifier());
     securityTrailer.setKeyVersion(this.encryptionCredentialDetails.getKeyVersion());
     securityTrailer.setNonce(Base64.encodeBase64String(ivNonce).getBytes());
-    securityTrailer.setHmac(Base64.encodeBase64String(encryptedSaleToPoiMessageHmac).getBytes());
+    securityTrailer.setHmac(Base64.encodeBase64String(hmacSignature).getBytes());
 
-    // Construct the secured message with the encrypted content and security trailer
+    // Construct the secured message with the encrypted content and securityTrailer
     SaleToPOISecuredMessage saleToPoiSecuredMessage = new SaleToPOISecuredMessage();
     saleToPoiSecuredMessage.setMessageHeader(messageHeader);
     saleToPoiSecuredMessage.setNexoBlob(Base64.encodeBase64String(encryptedSaleToPoiMessage));
@@ -94,7 +93,7 @@ public class NexoSecurityManager {
     byte[] encryptedSaleToPoiMessageByteArray =
         Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
 
-    // Retrieve the nonce (IV) from the security trailer
+    // Retrieve the nonce (IV) from the securityTrailer
     byte[] ivNonceB64 = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
     String nonceString = new String(ivNonceB64, StandardCharsets.UTF_8);
     byte[] ivNonce = Base64.decodeBase64(nonceString);
