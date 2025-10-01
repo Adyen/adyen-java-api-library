@@ -63,18 +63,19 @@ public class NexoSecurityManager {
     // Generate HMAC for message authentication
     byte[] encryptedSaleToPoiMessageHmac = hmac(saleToPoiMessageByteArray, derivedKey);
 
+
     // Populate security trailer with metadata and HMAC
     SecurityTrailer securityTrailer = new SecurityTrailer();
-    securityTrailer.setKeyVersion(this.encryptionCredentialDetails.getKeyVersion());
-    securityTrailer.setKeyIdentifier(this.encryptionCredentialDetails.getKeyIdentifier());
-    securityTrailer.setHmac(encryptedSaleToPoiMessageHmac);
-    securityTrailer.setNonce(ivNonce);
     securityTrailer.setAdyenCryptoVersion(this.encryptionCredentialDetails.getAdyenCryptoVersion());
+    securityTrailer.setKeyIdentifier(this.encryptionCredentialDetails.getKeyIdentifier());
+    securityTrailer.setKeyVersion(this.encryptionCredentialDetails.getKeyVersion());
+    securityTrailer.setNonce(Base64.encodeBase64String(ivNonce).getBytes());
+    securityTrailer.setHmac(Base64.encodeBase64String(encryptedSaleToPoiMessageHmac).getBytes());
 
     // Construct the secured message with the encrypted content and security trailer
     SaleToPOISecuredMessage saleToPoiSecuredMessage = new SaleToPOISecuredMessage();
     saleToPoiSecuredMessage.setMessageHeader(messageHeader);
-    saleToPoiSecuredMessage.setNexoBlob(new String(Base64.encodeBase64(encryptedSaleToPoiMessage)));
+    saleToPoiSecuredMessage.setNexoBlob(Base64.encodeBase64String(encryptedSaleToPoiMessage));
     saleToPoiSecuredMessage.setSecurityTrailer(securityTrailer);
 
     return saleToPoiSecuredMessage;
@@ -94,7 +95,9 @@ public class NexoSecurityManager {
         Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
 
     // Retrieve the nonce (IV) from the security trailer
-    byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
+    byte[] ivNonceB64 = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
+    String nonceString = new String(ivNonceB64, StandardCharsets.UTF_8);
+    byte[] ivNonce = Base64.decodeBase64(nonceString);
 
     // Decrypt the message
     byte[] decryptedSaleToPoiMessageByteArray =
@@ -103,7 +106,9 @@ public class NexoSecurityManager {
     // Validate HMAC to ensure message integrity
     byte[] receivedHmac = saleToPoiSecuredMessage.getSecurityTrailer().getHmac();
 
-    validateHmac(receivedHmac, decryptedSaleToPoiMessageByteArray, derivedKey);
+    String hmacString = new String(receivedHmac, StandardCharsets.UTF_8);
+    byte[] hmacBytes = Base64.decodeBase64(hmacString);
+    validateHmac(hmacBytes, decryptedSaleToPoiMessageByteArray, derivedKey);
 
     return new String(decryptedSaleToPoiMessageByteArray, StandardCharsets.UTF_8);
   }
@@ -131,7 +136,7 @@ public class NexoSecurityManager {
    *
    * @return the derived key material
    */
-  private NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
+   NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
     if (nexoDerivedKey == null) {
       synchronized (this) {
         if (nexoDerivedKey == null) {
@@ -169,7 +174,7 @@ public class NexoSecurityManager {
   }
 
   /** Generates an HMAC for message authentication. */
-  private byte[] hmac(byte[] bytes, NexoDerivedKey derivedKey)
+  byte[] hmac(byte[] bytes, NexoDerivedKey derivedKey)
       throws NoSuchAlgorithmException, InvalidKeyException {
     Mac mac = Mac.getInstance("HmacSHA256");
     SecretKeySpec s = new SecretKeySpec(derivedKey.getHmacKey(), "HmacSHA256");
@@ -179,14 +184,10 @@ public class NexoSecurityManager {
   }
 
   /** Validates the HMAC of a decrypted message to ensure data integrity. */
-  private void validateHmac(byte[] receivedHmac, byte[] decryptedMessage, NexoDerivedKey derivedKey)
+  void validateHmac(byte[] receivedHmac, byte[] decryptedMessage, NexoDerivedKey derivedKey)
       throws NexoSecurityException, InvalidKeyException, NoSuchAlgorithmException {
     byte[] hmac = hmac(decryptedMessage, derivedKey);
-    System.out.println(new String(decryptedMessage, StandardCharsets.UTF_8));
     boolean valid = MessageDigest.isEqual(hmac, receivedHmac);
-
-    System.out.println(new String(receivedHmac, StandardCharsets.UTF_8));
-    System.out.println(new String(hmac, StandardCharsets.UTF_8));
 
     if (!valid) {
       throw new NexoSecurityException("HMAC validation failed");
