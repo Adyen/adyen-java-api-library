@@ -321,7 +321,7 @@ Build a feature-rich [in-person payments](https://docs.adyen.com/point-of-sale/)
 
 For In-Person Payments integrations, the recommended solution is the [Cloud Device API](https://docs.adyen.com/api-explorer/cloud-device-api/1/overview).
 
-Check the [Cloud Device API README](CloudDeviceApi.md).
+Check the [Cloud Device API README](doc/CloudDeviceApi.md).
 
 ### Using the Terminal API
 
