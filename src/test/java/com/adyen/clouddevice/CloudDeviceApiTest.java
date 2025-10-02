@@ -1,7 +1,6 @@
 package com.adyen.clouddevice;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
@@ -61,6 +60,35 @@ public class CloudDeviceApiTest extends BaseTest {
 
     assertNotNull(response);
     assertNotNull("ok", response);
+    assertNull(response.getSaleToPOIRequest());
+
+    verify(client.getHttpClient())
+        .request(
+            "https://device-api-test.adyen.com/v1/merchants/myMerchant/devices/P400Plus-123456789/async",
+            cloudDeviceApiRequest.toJson(),
+            client.getConfig(),
+            false,
+            null,
+            ApiConstants.HttpMethod.POST,
+            null);
+  }
+
+  @Test
+  public void sendAsyncReturningError() throws Exception {
+    Client client = createMockClientFromFile("mocks/clouddevice/payment-async-error.json");
+
+    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+
+    CloudDeviceApiRequest cloudDeviceApiRequest = createCloudDeviceAPIPaymentRequest();
+
+    var response =
+        cloudDeviceApi.sendAsync("myMerchant", "P400Plus-123456789", cloudDeviceApiRequest);
+
+    assertNotNull(response);
+    assertNull(response.getResult());
+    assertNotNull(response.getSaleToPOIRequest());
+
+    assertEquals("Invalid event", EventToNotifyType.REJECT, response.getSaleToPOIRequest().getEventNotification().getEventToNotify());
 
     verify(client.getHttpClient())
         .request(

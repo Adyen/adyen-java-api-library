@@ -48,6 +48,24 @@ public class CloudDeviceApiTerminalTest extends BaseIntegrationTest {
 
   @Ignore // enable when you want to test with the Terminal
   @Test
+  public void sendAsync() throws Exception {
+
+    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(getClient());
+
+    CloudDeviceApiRequest cloudDeviceApiRequest =
+        createCloudDeviceAPIPaymentRequest(getTerminalDeviceId());
+
+    cloudDeviceApiRequest.getSaleToPOIRequest().setPaymentRequest(null);
+
+    var response =
+        cloudDeviceApi.sendAsync(getMerchantAccount(), getTerminalDeviceId(), cloudDeviceApiRequest);
+
+    assertNotNull(response);
+    System.out.println("Response: " + response);
+  }
+
+  @Ignore // enable when you want to test with the Terminal
+  @Test
   public void sendEncryptedSync() throws Exception {
 
     CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(getClient());
@@ -73,7 +91,7 @@ public class CloudDeviceApiTerminalTest extends BaseIntegrationTest {
     System.out.println("Response: " + response);
   }
 
-  @Ignore // enable when you want to test with the Terminal
+  //@Ignore // enable when you want to test with the Terminal
   @Test
   public void sendEncryptedAsync() throws Exception {
 
