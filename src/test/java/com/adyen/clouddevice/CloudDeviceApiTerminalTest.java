@@ -91,7 +91,7 @@ public class CloudDeviceApiTerminalTest extends BaseIntegrationTest {
     System.out.println("Response: " + response);
   }
 
-  //@Ignore // enable when you want to test with the Terminal
+  @Ignore // enable when you want to test with the Terminal
   @Test
   public void sendEncryptedAsync() throws Exception {
 
