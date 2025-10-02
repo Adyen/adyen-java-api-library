@@ -7,6 +7,7 @@ import com.adyen.model.clouddevice.*;
 import com.adyen.security.clouddevice.EncryptionCredentialDetails;
 import com.adyen.security.clouddevice.NexoSecurityManager;
 import com.adyen.service.resource.Resource;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
@@ -318,6 +319,38 @@ public class CloudDeviceApi extends Service {
         resource.request(encryptedJson, null, ApiConstants.HttpMethod.POST, pathParams);
 
     return response;
+  }
+
+  /**
+   * Decrypt an event notification
+   * @param payload Event notification in JSON string format: it can be SaleToPOIResponse (async response) or SaleToPOIRequest (event notification)
+   * @param encryptionCredentialDetails The details of the encryption credential used for decrypting the payload (nexoBlob)
+   * @return the decrypted payload
+   * @throws Exception when an error occurs
+   */
+  public String decryptNotification(String payload, EncryptionCredentialDetails encryptionCredentialDetails) throws Exception {
+    NexoSecurityManager nexoSecurityManager = new NexoSecurityManager(encryptionCredentialDetails);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    JsonNode jsonNode = objectMapper.readTree(payload);
+
+    if(jsonNode.isNull()) {
+      throw new RuntimeException("Invalid payload");
+    }
+
+    String decryptedMessage;
+    if(jsonNode.has("SaleToPOIResponse")) {
+      // async response received
+      var cloudDeviceApiSecuredResponse = CloudDeviceApiSecuredResponse.fromJson(payload);
+      decryptedMessage = nexoSecurityManager.decrypt(cloudDeviceApiSecuredResponse.getSaleToPOIResponse());
+    } else if(jsonNode.has("SaleToPOIRequest")) {
+      var cloudDeviceApiSecuredRequest = CloudDeviceApiSecuredRequest.fromJson(payload);
+      decryptedMessage = nexoSecurityManager.decrypt(cloudDeviceApiSecuredRequest.getSaleToPOIRequest());
+    } else {
+      throw new RuntimeException("Unexpected payload");
+    }
+
+    return decryptedMessage;
   }
 
 }

@@ -1,6 +1,7 @@
 package com.adyen.clouddevice;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
@@ -15,6 +16,8 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.Map;
+import java.util.Objects;
+
 import org.junit.Test;
 
 public class CloudDeviceApiTest extends BaseTest {
@@ -252,6 +255,28 @@ public class CloudDeviceApiTest extends BaseTest {
             null,
             ApiConstants.HttpMethod.GET,
             null);
+  }
+
+  @Test
+  public void decryptNotification() throws Exception {
+
+    Client client = createMockClientFromResponse(""); // nop client
+    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+
+    String payload = getFileContents("mocks/clouddevice/encrypted-event-notification.json");
+
+    EncryptionCredentialDetails encryptionCredentialDetails =
+        new EncryptionCredentialDetails()
+            .adyenCryptoVersion(1)
+            .keyIdentifier("Key123456789crypt")
+            .keyVersion(1)
+            .passphrase("P@ssw0rd123456");
+
+    var response = cloudDeviceApi.decryptNotification(payload, encryptionCredentialDetails);
+
+    assertNotNull(response);
+	  assertFalse(response.contains("\"NexoBlob\":"));
+    assertTrue(response.contains("\"PaymentResponse\":"));
   }
 
   protected CloudDeviceApiRequest createCloudDeviceAPIPaymentRequest() {
