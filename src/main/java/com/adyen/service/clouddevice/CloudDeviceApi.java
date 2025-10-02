@@ -83,10 +83,10 @@ public class CloudDeviceApi extends Service {
    * @param deviceId The unique identifier of the device that you send this request to (must match
    *     POIID in the MessageHeader).
    * @param cloudDeviceApiRequest The request to send.
-   * @return instance of CloudDeviceApiResponse
+   * @return instance of CloudDeviceApiAsyncResponse wrapping the response (success or an EventNotification with error details)
    * @throws Exception when an error occurs
    */
-  public String sendAsync(
+  public CloudDeviceApiAsyncResponse sendAsync(
       String merchantAccount, String deviceId, CloudDeviceApiRequest cloudDeviceApiRequest)
       throws Exception {
 
@@ -112,7 +112,17 @@ public class CloudDeviceApi extends Service {
             this, this.baseURL + "/merchants/{merchantAccount}/devices/{deviceId}/async", null);
     String response = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);
 
-    return response;
+    CloudDeviceApiAsyncResponse cloudDeviceApiAsyncResponse = new CloudDeviceApiAsyncResponse();
+
+    // Define response based on the outcome
+    if ("ok".equals(response)) {
+      cloudDeviceApiAsyncResponse.setResult(response);
+    } else {
+      CloudDeviceApiResponse errorResponse = CloudDeviceApiResponse.fromJson(response);
+      cloudDeviceApiAsyncResponse.setSaleToPOIRequest(errorResponse.getSaleToPOIRequest());
+    }
+
+    return cloudDeviceApiAsyncResponse;
   }
 
   /**
