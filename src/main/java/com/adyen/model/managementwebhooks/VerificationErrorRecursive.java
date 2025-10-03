@@ -46,6 +46,8 @@ public class VerificationErrorRecursive {
   public enum TypeEnum {
     DATAMISSING(String.valueOf("dataMissing")),
 
+    DATAREVIEW(String.valueOf("dataReview")),
+
     INVALIDINPUT(String.valueOf("invalidInput")),
 
     PENDINGSTATUS(String.valueOf("pendingStatus"));

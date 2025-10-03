@@ -21,6 +21,7 @@ import java.util.*;
 @JsonPropertyOrder({
   TerminalAssignmentNotificationRequest.JSON_PROPERTY_ASSIGNED_TO_ACCOUNT,
   TerminalAssignmentNotificationRequest.JSON_PROPERTY_ASSIGNED_TO_STORE,
+  TerminalAssignmentNotificationRequest.JSON_PROPERTY_ASSIGNED_TO_STORE_ID,
   TerminalAssignmentNotificationRequest.JSON_PROPERTY_EVENT_DATE,
   TerminalAssignmentNotificationRequest.JSON_PROPERTY_PSP_REFERENCE,
   TerminalAssignmentNotificationRequest.JSON_PROPERTY_UNIQUE_TERMINAL_ID
@@ -31,6 +32,9 @@ public class TerminalAssignmentNotificationRequest {
 
   public static final String JSON_PROPERTY_ASSIGNED_TO_STORE = "assignedToStore";
   private String assignedToStore;
+
+  public static final String JSON_PROPERTY_ASSIGNED_TO_STORE_ID = "assignedToStoreId";
+  private String assignedToStoreId;
 
   public static final String JSON_PROPERTY_EVENT_DATE = "eventDate";
   private String eventDate;
@@ -81,9 +85,11 @@ public class TerminalAssignmentNotificationRequest {
   }
 
   /**
-   * The unique identifier of the store to which the terminal is assigned.
+   * The store that the terminal is assigned to, identified by the store reference (also known as
+   * store code).
    *
-   * @param assignedToStore The unique identifier of the store to which the terminal is assigned.
+   * @param assignedToStore The store that the terminal is assigned to, identified by the store
+   *     reference (also known as store code).
    * @return the current {@code TerminalAssignmentNotificationRequest} instance, allowing for method
    *     chaining
    */
@@ -93,9 +99,11 @@ public class TerminalAssignmentNotificationRequest {
   }
 
   /**
-   * The unique identifier of the store to which the terminal is assigned.
+   * The store that the terminal is assigned to, identified by the store reference (also known as
+   * store code).
    *
-   * @return assignedToStore The unique identifier of the store to which the terminal is assigned.
+   * @return assignedToStore The store that the terminal is assigned to, identified by the store
+   *     reference (also known as store code).
    */
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,14 +112,50 @@ public class TerminalAssignmentNotificationRequest {
   }
 
   /**
-   * The unique identifier of the store to which the terminal is assigned.
+   * The store that the terminal is assigned to, identified by the store reference (also known as
+   * store code).
    *
-   * @param assignedToStore The unique identifier of the store to which the terminal is assigned.
+   * @param assignedToStore The store that the terminal is assigned to, identified by the store
+   *     reference (also known as store code).
    */
   @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_STORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignedToStore(String assignedToStore) {
     this.assignedToStore = assignedToStore;
+  }
+
+  /**
+   * The unique identifier of the store to which the terminal is assigned.
+   *
+   * @param assignedToStoreId The unique identifier of the store to which the terminal is assigned.
+   * @return the current {@code TerminalAssignmentNotificationRequest} instance, allowing for method
+   *     chaining
+   */
+  public TerminalAssignmentNotificationRequest assignedToStoreId(String assignedToStoreId) {
+    this.assignedToStoreId = assignedToStoreId;
+    return this;
+  }
+
+  /**
+   * The unique identifier of the store to which the terminal is assigned.
+   *
+   * @return assignedToStoreId The unique identifier of the store to which the terminal is assigned.
+   */
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_STORE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAssignedToStoreId() {
+    return assignedToStoreId;
+  }
+
+  /**
+   * The unique identifier of the store to which the terminal is assigned.
+   *
+   * @param assignedToStoreId The unique identifier of the store to which the terminal is assigned.
+   */
+  @JsonProperty(JSON_PROPERTY_ASSIGNED_TO_STORE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAssignedToStoreId(String assignedToStoreId) {
+    this.assignedToStoreId = assignedToStoreId;
   }
 
   /**
@@ -231,6 +275,8 @@ public class TerminalAssignmentNotificationRequest {
             this.assignedToAccount, terminalAssignmentNotificationRequest.assignedToAccount)
         && Objects.equals(
             this.assignedToStore, terminalAssignmentNotificationRequest.assignedToStore)
+        && Objects.equals(
+            this.assignedToStoreId, terminalAssignmentNotificationRequest.assignedToStoreId)
         && Objects.equals(this.eventDate, terminalAssignmentNotificationRequest.eventDate)
         && Objects.equals(this.pspReference, terminalAssignmentNotificationRequest.pspReference)
         && Objects.equals(
@@ -240,7 +286,12 @@ public class TerminalAssignmentNotificationRequest {
   @Override
   public int hashCode() {
     return Objects.hash(
-        assignedToAccount, assignedToStore, eventDate, pspReference, uniqueTerminalId);
+        assignedToAccount,
+        assignedToStore,
+        assignedToStoreId,
+        eventDate,
+        pspReference,
+        uniqueTerminalId);
   }
 
   @Override
@@ -249,6 +300,7 @@ public class TerminalAssignmentNotificationRequest {
     sb.append("class TerminalAssignmentNotificationRequest {\n");
     sb.append("    assignedToAccount: ").append(toIndentedString(assignedToAccount)).append("\n");
     sb.append("    assignedToStore: ").append(toIndentedString(assignedToStore)).append("\n");
+    sb.append("    assignedToStoreId: ").append(toIndentedString(assignedToStoreId)).append("\n");
     sb.append("    eventDate: ").append(toIndentedString(eventDate)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    uniqueTerminalId: ").append(toIndentedString(uniqueTerminalId)).append("\n");
