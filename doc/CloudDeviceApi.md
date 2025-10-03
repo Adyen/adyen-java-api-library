@@ -95,7 +95,8 @@ cloudDeviceApiRequest.setSaleToPOIRequest(saleToPOIRequest);
 CloudDeviceApiAsyncResponse response = cloudDeviceApi.sendAsync("myMerchant", "P400Plus-123456789", cloudDeviceApiRequest);
 
 //
-if(response.equals("ok")) {
+if("ok".equals(response.getResult())) {
+
   // success	
 } else {
 	// request failed: see details in the EventNotification object
