@@ -58,7 +58,8 @@ public class CloudDeviceApiTerminalTest extends BaseIntegrationTest {
     cloudDeviceApiRequest.getSaleToPOIRequest().setPaymentRequest(null);
 
     var response =
-        cloudDeviceApi.sendAsync(getMerchantAccount(), getTerminalDeviceId(), cloudDeviceApiRequest);
+        cloudDeviceApi.sendAsync(
+            getMerchantAccount(), getTerminalDeviceId(), cloudDeviceApiRequest);
 
     assertNotNull(response);
     System.out.println("Response: " + response);
