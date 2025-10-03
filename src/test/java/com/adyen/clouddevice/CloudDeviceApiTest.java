@@ -12,11 +12,12 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.clouddevice.*;
 import com.adyen.security.clouddevice.EncryptionCredentialDetails;
 import com.adyen.service.clouddevice.CloudDeviceApi;
+import com.adyen.service.exception.CloudDeviceException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.Map;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CloudDeviceApiTest extends BaseTest {
@@ -90,7 +91,10 @@ public class CloudDeviceApiTest extends BaseTest {
     assertNull(response.getResult());
     assertNotNull(response.getSaleToPOIRequest());
 
-    assertEquals("Invalid event", EventToNotifyType.REJECT, response.getSaleToPOIRequest().getEventNotification().getEventToNotify());
+    assertEquals(
+        "Invalid event",
+        EventToNotifyType.REJECT,
+        response.getSaleToPOIRequest().getEventNotification().getEventToNotify());
 
     verify(client.getHttpClient())
         .request(
@@ -133,23 +137,24 @@ public class CloudDeviceApiTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            eq("https://device-api-test.adyen.com/v1/merchants/TestMerchantAccount/devices/MX915-284251016/sync"),
-            argThat(json -> {
-              assertTrue(json.contains("\"NexoBlob\":"), "JSON payload should contain NexoBlob field");
-              return true;
-            }),
+            eq(
+                "https://device-api-test.adyen.com/v1/merchants/TestMerchantAccount/devices/MX915-284251016/sync"),
+            argThat(
+                json -> {
+                  assertTrue(
+                      json.contains("\"NexoBlob\":"), "JSON payload should contain NexoBlob field");
+                  return true;
+                }),
             eq(client.getConfig()),
             eq(false),
             isNull(),
             eq(ApiConstants.HttpMethod.POST),
-            isNull()
-        );
+            isNull());
   }
 
   @Test
   public void sendEncryptedAsync() throws Exception {
-    Client client =
-        createMockClientFromFile("mocks/clouddevice/payment-async-success.json");
+    Client client = createMockClientFromFile("mocks/clouddevice/payment-async-success.json");
 
     CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
 
@@ -174,17 +179,19 @@ public class CloudDeviceApiTest extends BaseTest {
 
     verify(client.getHttpClient())
         .request(
-            eq("https://device-api-test.adyen.com/v1/merchants/TestMerchantAccount/devices/MX915-284251016/async"),
-            argThat(json -> {
-              assertTrue(json.contains("\"NexoBlob\":"), "JSON payload should contain NexoBlob field");
-              return true;
-            }),
+            eq(
+                "https://device-api-test.adyen.com/v1/merchants/TestMerchantAccount/devices/MX915-284251016/async"),
+            argThat(
+                json -> {
+                  assertTrue(
+                      json.contains("\"NexoBlob\":"), "JSON payload should contain NexoBlob field");
+                  return true;
+                }),
             eq(client.getConfig()),
             eq(false),
             isNull(),
             eq(ApiConstants.HttpMethod.POST),
-            isNull()
-        );
+            isNull());
   }
 
   @Test
@@ -274,8 +281,28 @@ public class CloudDeviceApiTest extends BaseTest {
     var response = cloudDeviceApi.decryptNotification(payload, encryptionCredentialDetails);
 
     assertNotNull(response);
-	  assertFalse(response.contains("\"NexoBlob\":"));
+    assertFalse(response.contains("\"NexoBlob\":"));
     assertTrue(response.contains("\"PaymentResponse\":"));
+  }
+
+  @Test
+  public void decryptNotificationInvalidPayload() throws Exception {
+
+    Client client = createMockClientFromResponse(""); // nop client
+    CloudDeviceApi cloudDeviceApi = new CloudDeviceApi(client);
+
+    String payload = "{...}";
+
+    EncryptionCredentialDetails encryptionCredentialDetails =
+        new EncryptionCredentialDetails()
+            .adyenCryptoVersion(1)
+            .keyIdentifier("Key123456789crypt")
+            .keyVersion(1)
+            .passphrase("P@ssw0rd123456");
+
+    Assert.assertThrows(
+        CloudDeviceException.class,
+        () -> cloudDeviceApi.decryptNotification(payload, encryptionCredentialDetails));
   }
 
   protected CloudDeviceApiRequest createCloudDeviceAPIPaymentRequest() {
