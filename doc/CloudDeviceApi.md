@@ -104,7 +104,8 @@ if("ok".equals(response.getResult())) {
 }
 ```
 
-### Verity the status of the terminals
+### Verify the status of the terminals
+
 
 The Cloud Device API allows your integration to check the status of the terminals.
 
