@@ -3,3 +3,6 @@
 **/target/**
 .DS_Store
 .vscode
+
+# test configuration
+src/test/resources/config.properties
