@@ -23,16 +23,14 @@ package com.adyen.model.clouddevice;
 import java.util.Objects;
 
 /**
- * Response of the /async endpoint.
- * When successful the `results` contains `ok`
- * In case of failure the `saleToPOIRequest` contains the EventNotification details
+ * Response of the /async endpoint. When successful the `results` contains `ok` In case of failure
+ * the `saleToPOIRequest` contains the EventNotification details
  */
 public class CloudDeviceApiAsyncResponse {
 
   private String result;
 
   private SaleToPOIRequest saleToPOIRequest;
-
 
   public String getResult() {
     return result;
@@ -59,7 +57,6 @@ public class CloudDeviceApiAsyncResponse {
   public void setSaleToPOIRequest(SaleToPOIRequest saleToPOIRequest) {
     this.saleToPOIRequest = saleToPOIRequest;
   }
-
 
   @Override
   public boolean equals(Object o) {

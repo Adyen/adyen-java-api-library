@@ -46,38 +46,45 @@ public class NexoSecurityManager {
    * @param saleToPoiMessageJson the JSON string representing the SaleToPOI message
    * @param messageHeader the message header for encryption
    * @return encrypted SaleToPOISecuredMessage
+   * @throws NexoSecurityException if encryption fails
    */
   public SaleToPOISecuredMessage encrypt(String saleToPoiMessageJson, MessageHeader messageHeader)
-      throws Exception {
+      throws NexoSecurityException {
 
-    NexoDerivedKey derivedKey = getNexoDerivedKey();
-    byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.UTF_8);
+    try {
+      NexoDerivedKey derivedKey = getNexoDerivedKey();
+      byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.UTF_8);
 
-    // Generate a random initialization vector (IV) nonce
-    byte[] ivNonce = generateRandomIvNonce();
+      // Generate a random initialization vector (IV) nonce
+      byte[] ivNonce = generateRandomIvNonce();
 
-    // Perform AES encryption
-    byte[] encryptedSaleToPoiMessage =
-        crypt(saleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.ENCRYPT_MODE);
+      // Perform AES encryption
+      byte[] encryptedSaleToPoiMessage =
+          crypt(saleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.ENCRYPT_MODE);
 
-    // Generate HMAC for message authentication
-    byte[] hmacSignature = hmac(saleToPoiMessageByteArray, derivedKey);
+      // Generate HMAC for message authentication
+      byte[] hmacSignature = hmac(saleToPoiMessageByteArray, derivedKey);
 
-    // Populate security trailer with metadata and HMAC
-    SecurityTrailer securityTrailer = new SecurityTrailer();
-    securityTrailer.setAdyenCryptoVersion(this.encryptionCredentialDetails.getAdyenCryptoVersion());
-    securityTrailer.setKeyIdentifier(this.encryptionCredentialDetails.getKeyIdentifier());
-    securityTrailer.setKeyVersion(this.encryptionCredentialDetails.getKeyVersion());
-    securityTrailer.setNonce(Base64.encodeBase64String(ivNonce).getBytes());
-    securityTrailer.setHmac(Base64.encodeBase64String(hmacSignature).getBytes());
+      // Populate security trailer with metadata and HMAC
+      SecurityTrailer securityTrailer = new SecurityTrailer();
+      securityTrailer.setAdyenCryptoVersion(
+          this.encryptionCredentialDetails.getAdyenCryptoVersion());
+      securityTrailer.setKeyIdentifier(this.encryptionCredentialDetails.getKeyIdentifier());
+      securityTrailer.setKeyVersion(this.encryptionCredentialDetails.getKeyVersion());
+      securityTrailer.setNonce(Base64.encodeBase64String(ivNonce).getBytes());
+      securityTrailer.setHmac(Base64.encodeBase64String(hmacSignature).getBytes());
 
-    // Construct the secured message with the encrypted content and securityTrailer
-    SaleToPOISecuredMessage saleToPoiSecuredMessage = new SaleToPOISecuredMessage();
-    saleToPoiSecuredMessage.setMessageHeader(messageHeader);
-    saleToPoiSecuredMessage.setNexoBlob(Base64.encodeBase64String(encryptedSaleToPoiMessage));
-    saleToPoiSecuredMessage.setSecurityTrailer(securityTrailer);
+      // Construct the secured message with the encrypted content and securityTrailer
+      SaleToPOISecuredMessage saleToPoiSecuredMessage = new SaleToPOISecuredMessage();
+      saleToPoiSecuredMessage.setMessageHeader(messageHeader);
+      saleToPoiSecuredMessage.setNexoBlob(Base64.encodeBase64String(encryptedSaleToPoiMessage));
+      saleToPoiSecuredMessage.setSecurityTrailer(securityTrailer);
 
-    return saleToPoiSecuredMessage;
+      return saleToPoiSecuredMessage;
+
+    } catch (Exception e) {
+      throw new NexoSecurityException("Cannot encrypt the SaleToPOISecuredMessage", e);
+    }
   }
 
   /**
@@ -85,31 +92,38 @@ public class NexoSecurityManager {
    *
    * @param saleToPoiSecuredMessage the encrypted message
    * @return the decrypted SaleToPOI message as a JSON string
+   * @throws NexoSecurityException if decryption fails
    */
-  public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage) throws Exception {
-    NexoDerivedKey derivedKey = getNexoDerivedKey();
+  public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage)
+      throws NexoSecurityException {
+    try {
+      NexoDerivedKey derivedKey = getNexoDerivedKey();
 
-    // Decode the encrypted blob
-    byte[] encryptedSaleToPoiMessageByteArray =
-        Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
+      // Decode the encrypted blob
+      byte[] encryptedSaleToPoiMessageByteArray =
+          Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
 
-    // Retrieve the nonce (IV) from the securityTrailer
-    byte[] ivNonceB64 = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
-    String nonceString = new String(ivNonceB64, StandardCharsets.UTF_8);
-    byte[] ivNonce = Base64.decodeBase64(nonceString);
+      // Retrieve the nonce (IV) from the securityTrailer
+      byte[] ivNonceB64 = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
+      String nonceString = new String(ivNonceB64, StandardCharsets.UTF_8);
+      byte[] ivNonce = Base64.decodeBase64(nonceString);
 
-    // Decrypt the message
-    byte[] decryptedSaleToPoiMessageByteArray =
-        crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
+      // Decrypt the message
+      byte[] decryptedSaleToPoiMessageByteArray =
+          crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
 
-    // Validate HMAC to ensure message integrity
-    byte[] receivedHmac = saleToPoiSecuredMessage.getSecurityTrailer().getHmac();
+      // Validate HMAC to ensure message integrity
+      byte[] receivedHmac = saleToPoiSecuredMessage.getSecurityTrailer().getHmac();
 
-    String hmacString = new String(receivedHmac, StandardCharsets.UTF_8);
-    byte[] hmacBytes = Base64.decodeBase64(hmacString);
-    validateHmac(hmacBytes, decryptedSaleToPoiMessageByteArray, derivedKey);
+      String hmacString = new String(receivedHmac, StandardCharsets.UTF_8);
+      byte[] hmacBytes = Base64.decodeBase64(hmacString);
+      validateHmac(hmacBytes, decryptedSaleToPoiMessageByteArray, derivedKey);
 
-    return new String(decryptedSaleToPoiMessageByteArray, StandardCharsets.UTF_8);
+      return new String(decryptedSaleToPoiMessageByteArray, StandardCharsets.UTF_8);
+
+    } catch (Exception e) {
+      throw new NexoSecurityException("Cannot decrypt the SaleToPOISecuredMessage", e);
+    }
   }
 
   /**
@@ -135,7 +149,7 @@ public class NexoSecurityManager {
    *
    * @return the derived key material
    */
-   NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
+  NexoDerivedKey getNexoDerivedKey() throws GeneralSecurityException {
     if (nexoDerivedKey == null) {
       synchronized (this) {
         if (nexoDerivedKey == null) {
