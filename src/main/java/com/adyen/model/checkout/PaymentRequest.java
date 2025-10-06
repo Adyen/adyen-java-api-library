@@ -81,6 +81,7 @@ import java.util.logging.Logger;
   PaymentRequest.JSON_PROPERTY_REFERENCE,
   PaymentRequest.JSON_PROPERTY_RETURN_URL,
   PaymentRequest.JSON_PROPERTY_RISK_DATA,
+  PaymentRequest.JSON_PROPERTY_SDK_DATA,
   PaymentRequest.JSON_PROPERTY_SESSION_VALIDITY,
   PaymentRequest.JSON_PROPERTY_SHOPPER_CONVERSION_ID,
   PaymentRequest.JSON_PROPERTY_SHOPPER_EMAIL,
@@ -453,6 +454,9 @@ public class PaymentRequest {
   public static final String JSON_PROPERTY_RISK_DATA = "riskData";
   private RiskData riskData;
 
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
+
   public static final String JSON_PROPERTY_SESSION_VALIDITY = "sessionValidity";
   private String sessionValidity;
 
@@ -529,7 +533,7 @@ public class PaymentRequest {
   private String shopperLocale;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
-  private Name shopperName;
+  private ShopperName shopperName;
 
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
@@ -2810,6 +2814,46 @@ public class PaymentRequest {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK to function
+   * optimally. Clients must not add unrelated or sensitive personal information.
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *     to function optimally. Clients must not add unrelated or sensitive personal information.
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK to function
+   * optimally. Clients must not add unrelated or sensitive personal information.
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK to function optimally. Clients must not add unrelated or sensitive personal
+   *     information.
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK to function
+   * optimally. Clients must not add unrelated or sensitive personal information.
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *     to function optimally. Clients must not add unrelated or sensitive personal information.
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * The date and time until when the session remains valid, in [ISO
    * 8601](https://www.w3.org/TR/NOTE-datetime) format. For example: 2020-07-18T15:42:40.428+01:00
    *
@@ -3151,7 +3195,7 @@ public class PaymentRequest {
    * @param shopperName
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
-  public PaymentRequest shopperName(Name shopperName) {
+  public PaymentRequest shopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -3163,7 +3207,7 @@ public class PaymentRequest {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Name getShopperName() {
+  public ShopperName getShopperName() {
     return shopperName;
   }
 
@@ -3174,7 +3218,7 @@ public class PaymentRequest {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShopperName(Name shopperName) {
+  public void setShopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
   }
 
@@ -3818,6 +3862,7 @@ public class PaymentRequest {
         && Objects.equals(this.reference, paymentRequest.reference)
         && Objects.equals(this.returnUrl, paymentRequest.returnUrl)
         && Objects.equals(this.riskData, paymentRequest.riskData)
+        && Objects.equals(this.sdkData, paymentRequest.sdkData)
         && Objects.equals(this.sessionValidity, paymentRequest.sessionValidity)
         && Objects.equals(this.shopperConversionId, paymentRequest.shopperConversionId)
         && Objects.equals(this.shopperEmail, paymentRequest.shopperEmail)
@@ -3895,6 +3940,7 @@ public class PaymentRequest {
         reference,
         returnUrl,
         riskData,
+        sdkData,
         sessionValidity,
         shopperConversionId,
         shopperEmail,
@@ -3987,6 +4033,7 @@ public class PaymentRequest {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
     sb.append("    riskData: ").append(toIndentedString(riskData)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
     sb.append("    shopperConversionId: ")
         .append(toIndentedString(shopperConversionId))

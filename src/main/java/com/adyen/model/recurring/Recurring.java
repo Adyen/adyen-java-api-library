@@ -41,14 +41,20 @@ public class Recurring {
    * transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp).
    * * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the
    * shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make a
-   * payout](https://docs.adyen.com/online-payments/online-payouts).
+   * payout](https://docs.adyen.com/online-payments/online-payouts). * &#x60;EXTERNAL&#x60; - Use
+   * this when you store payment details and send the raw card number or network token directly in
+   * your API request.
    */
   public enum ContractEnum {
     ONECLICK(String.valueOf("ONECLICK")),
 
+    ONECLICK_RECURRING(String.valueOf("ONECLICK,RECURRING")),
+
     RECURRING(String.valueOf("RECURRING")),
 
-    PAYOUT(String.valueOf("PAYOUT"));
+    PAYOUT(String.valueOf("PAYOUT")),
+
+    EXTERNAL(String.valueOf("EXTERNAL"));
 
     private static final Logger LOG = Logger.getLogger(ContractEnum.class.getName());
 
@@ -157,7 +163,9 @@ public class Recurring {
    * transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp).
    * * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the
    * shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make a
-   * payout](https://docs.adyen.com/online-payments/online-payouts).
+   * payout](https://docs.adyen.com/online-payments/online-payouts). * &#x60;EXTERNAL&#x60; - Use
+   * this when you store payment details and send the raw card number or network token directly in
+   * your API request.
    *
    * @param contract The type of recurring contract to be used. Possible values: *
    *     &#x60;ONECLICK&#x60; – Payment details can be used to initiate a one-click payment, where
@@ -168,7 +176,9 @@ public class Recurring {
    *     transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp).
    *     * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the
    *     shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make
-   *     a payout](https://docs.adyen.com/online-payments/online-payouts).
+   *     a payout](https://docs.adyen.com/online-payments/online-payouts). * &#x60;EXTERNAL&#x60; -
+   *     Use this when you store payment details and send the raw card number or network token
+   *     directly in your API request.
    * @return the current {@code Recurring} instance, allowing for method chaining
    */
   public Recurring contract(ContractEnum contract) {
@@ -186,7 +196,9 @@ public class Recurring {
    * transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp).
    * * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the
    * shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make a
-   * payout](https://docs.adyen.com/online-payments/online-payouts).
+   * payout](https://docs.adyen.com/online-payments/online-payouts). * &#x60;EXTERNAL&#x60; - Use
+   * this when you store payment details and send the raw card number or network token directly in
+   * your API request.
    *
    * @return contract The type of recurring contract to be used. Possible values: *
    *     &#x60;ONECLICK&#x60; – Payment details can be used to initiate a one-click payment, where
@@ -197,7 +209,9 @@ public class Recurring {
    *     transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp).
    *     * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the
    *     shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make
-   *     a payout](https://docs.adyen.com/online-payments/online-payouts).
+   *     a payout](https://docs.adyen.com/online-payments/online-payouts). * &#x60;EXTERNAL&#x60; -
+   *     Use this when you store payment details and send the raw card number or network token
+   *     directly in your API request.
    */
   @JsonProperty(JSON_PROPERTY_CONTRACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,7 +229,9 @@ public class Recurring {
    * transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp).
    * * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the
    * shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make a
-   * payout](https://docs.adyen.com/online-payments/online-payouts).
+   * payout](https://docs.adyen.com/online-payments/online-payouts). * &#x60;EXTERNAL&#x60; - Use
+   * this when you store payment details and send the raw card number or network token directly in
+   * your API request.
    *
    * @param contract The type of recurring contract to be used. Possible values: *
    *     &#x60;ONECLICK&#x60; – Payment details can be used to initiate a one-click payment, where
@@ -226,7 +242,9 @@ public class Recurring {
    *     transactions](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-not-present-cnp).
    *     * &#x60;ONECLICK,RECURRING&#x60; – Payment details can be used regardless of whether the
    *     shopper is on your site or not. * &#x60;PAYOUT&#x60; – Payment details can be used to [make
-   *     a payout](https://docs.adyen.com/online-payments/online-payouts).
+   *     a payout](https://docs.adyen.com/online-payments/online-payouts). * &#x60;EXTERNAL&#x60; -
+   *     Use this when you store payment details and send the raw card number or network token
+   *     directly in your API request.
    */
   @JsonProperty(JSON_PROPERTY_CONTRACT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -496,7 +496,7 @@ public class CheckoutTest extends BaseTest {
         new PaymentRequest()
             .paymentMethod(new CheckoutPaymentMethod(ratepayDetails))
             .amount(new Amount().currency("EUR").value(700L))
-            .shopperName(new Name().firstName("Simon").lastName("Hopper"))
+            .shopperName(new ShopperName().firstName("Simon").lastName("Hopper"))
             .telephoneNumber("+31858888138")
             .shopperEmail("s.hopper@example.com")
             .billingAddress(
@@ -562,7 +562,7 @@ public class CheckoutTest extends BaseTest {
         new PaymentRequest()
             .paymentMethod(new CheckoutPaymentMethod(rivertyDetails))
             .amount(new Amount().currency("EUR").value(700L))
-            .shopperName(new Name().firstName("Simon").lastName("Hopper"))
+            .shopperName(new ShopperName().firstName("Simon").lastName("Hopper"))
             .telephoneNumber("+31858888138")
             .shopperIP("123.123.123.123")
             .shopperEmail("s.hopper@example.com")
@@ -725,7 +725,7 @@ public class CheckoutTest extends BaseTest {
         Arrays.asList(
             new LineItem().id("Item 1").amountIncludingTax(40000L),
             new LineItem().id("Item 2").amountIncludingTax(60000L)));
-    paymentRequest.shopperName(new Name().firstName("Jose").lastName("Silva"));
+    paymentRequest.shopperName(new ShopperName().firstName("Jose").lastName("Silva"));
     paymentRequest.setPaymentMethod(
         new CheckoutPaymentMethod(new PixDetails().type(PixDetails.TypeEnum.PIX)));
     PaymentsApi checkout = new PaymentsApi(client);

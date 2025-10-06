@@ -436,7 +436,7 @@ public class CreateCheckoutSessionResponse {
   private String shopperLocale;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
-  private Name shopperName;
+  private ShopperName shopperName;
 
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
@@ -2690,7 +2690,7 @@ public class CreateCheckoutSessionResponse {
    * @return the current {@code CreateCheckoutSessionResponse} instance, allowing for method
    *     chaining
    */
-  public CreateCheckoutSessionResponse shopperName(Name shopperName) {
+  public CreateCheckoutSessionResponse shopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -2702,7 +2702,7 @@ public class CreateCheckoutSessionResponse {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Name getShopperName() {
+  public ShopperName getShopperName() {
     return shopperName;
   }
 
@@ -2713,7 +2713,7 @@ public class CreateCheckoutSessionResponse {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShopperName(Name shopperName) {
+  public void setShopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
   }
 
