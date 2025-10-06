@@ -105,7 +105,7 @@ public class Service {
       if (config.getLiveEndpointUrlPrefix() == null) {
         throw new IllegalArgumentException("please provide a live url prefix in the client");
       }
-      if (url.contains("/possdk")) {
+      if (url.contains("/possdk/")) {
         // Custom handling of POS Mobile API url
         url =
             url.replaceFirst(
