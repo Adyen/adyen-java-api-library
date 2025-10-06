@@ -948,14 +948,15 @@ public class AdditionalDataLevel23 {
    * The amount of state or provincial [tax included in the total transaction
    * amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    * in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example,
-   * 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not be all zeros.
+   * 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * For L2 data: must not
+   * be all zeroes. * For L3 data: can be zero.
    *
    * @param enhancedSchemeDataTotalTaxAmount The amount of state or provincial [tax included in the
    *     total transaction
    *     amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    *     in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For
-   *     example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not
-   *     be all zeros.
+   *     example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * For L2
+   *     data: must not be all zeroes. * For L3 data: can be zero.
    * @return the current {@code AdditionalDataLevel23} instance, allowing for method chaining
    */
   public AdditionalDataLevel23 enhancedSchemeDataTotalTaxAmount(
@@ -968,14 +969,15 @@ public class AdditionalDataLevel23 {
    * The amount of state or provincial [tax included in the total transaction
    * amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    * in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example,
-   * 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not be all zeros.
+   * 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * For L2 data: must not
+   * be all zeroes. * For L3 data: can be zero.
    *
    * @return enhancedSchemeDataTotalTaxAmount The amount of state or provincial [tax included in the
    *     total transaction
    *     amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    *     in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For
-   *     example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not
-   *     be all zeros.
+   *     example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * For L2
+   *     data: must not be all zeroes. * For L3 data: can be zero.
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -987,14 +989,15 @@ public class AdditionalDataLevel23 {
    * The amount of state or provincial [tax included in the total transaction
    * amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    * in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example,
-   * 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not be all zeros.
+   * 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * For L2 data: must not
+   * be all zeroes. * For L3 data: can be zero.
    *
    * @param enhancedSchemeDataTotalTaxAmount The amount of state or provincial [tax included in the
    *     total transaction
    *     amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd),
    *     in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For
-   *     example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * Must not
-   *     be all zeros.
+   *     example, 2000 means USD 20.00. * Encoding: Numeric * Max length: 12 characters * For L2
+   *     data: must not be all zeroes. * For L3 data: can be zero.
    */
   @JsonProperty(JSON_PROPERTY_ENHANCED_SCHEME_DATA_TOTAL_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

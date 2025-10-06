@@ -24,13 +24,16 @@ import com.adyen.model.nexo.SaleToPOIRequest;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
-/** Terminal API Request */
+/**
+ * TerminalAPIRequest model class This class represents the payload of the Adyen webhooks related to
+ * the Terminal API
+ */
 public class TerminalAPIRequest {
   @SerializedName("SaleToPOIRequest")
   private SaleToPOIRequest saleToPOIRequest;
 
   /**
-   * Gets sale to POI request.
+   * Gets saleToPOIRequest.
    *
    * @return the sale to POI request
    */
@@ -39,7 +42,7 @@ public class TerminalAPIRequest {
   }
 
   /**
-   * Sets sale to POI request.
+   * Sets saleToPOIRequest.
    *
    * @param saleToPOIRequest the sale to POI request
    */

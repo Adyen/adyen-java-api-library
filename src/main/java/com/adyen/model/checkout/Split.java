@@ -61,12 +61,10 @@ public class Split {
    * specified &#x60;account&#x60;. * **TopUp**: allows you and your users to top up balance
    * accounts using direct debit, card payments, or other payment methods. * **VAT**: the
    * value-added tax charged on the payment, booked to your platforms liable balance account. *
-   * **Commission**: your platform&#39;s commission (specified in &#x60;amount&#x60;) on the
-   * payment, booked to your liable balance account. * **Default**: in very specific use cases,
-   * allows you to book the specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For
-   * more information, contact Adyen support. Possible values for the [Classic Platforms
-   * integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
-   * **MarketPlace**, **PaymentFee**, **VAT**.
+   * **Default**: in very specific use cases, allows you to book the specified &#x60;amount&#x60; to
+   * the specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
+   * for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
+   * **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
    */
   public enum TypeEnum {
     ACQUIRINGFEES(String.valueOf("AcquiringFees")),
@@ -364,12 +362,10 @@ public class Split {
    * specified &#x60;account&#x60;. * **TopUp**: allows you and your users to top up balance
    * accounts using direct debit, card payments, or other payment methods. * **VAT**: the
    * value-added tax charged on the payment, booked to your platforms liable balance account. *
-   * **Commission**: your platform&#39;s commission (specified in &#x60;amount&#x60;) on the
-   * payment, booked to your liable balance account. * **Default**: in very specific use cases,
-   * allows you to book the specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For
-   * more information, contact Adyen support. Possible values for the [Classic Platforms
-   * integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
-   * **MarketPlace**, **PaymentFee**, **VAT**.
+   * **Default**: in very specific use cases, allows you to book the specified &#x60;amount&#x60; to
+   * the specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
+   * for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
+   * **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
    *
    * @param type The part of the payment you want to book to the specified &#x60;account&#x60;.
    *     Possible values for the [Balance
@@ -390,12 +386,11 @@ public class Split {
    *     conversion, booked to the specified &#x60;account&#x60;. * **TopUp**: allows you and your
    *     users to top up balance accounts using direct debit, card payments, or other payment
    *     methods. * **VAT**: the value-added tax charged on the payment, booked to your platforms
-   *     liable balance account. * **Commission**: your platform&#39;s commission (specified in
-   *     &#x60;amount&#x60;) on the payment, booked to your liable balance account. * **Default**:
-   *     in very specific use cases, allows you to book the specified &#x60;amount&#x60; to the
-   *     specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
-   *     for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
-   *     **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
+   *     liable balance account. * **Default**: in very specific use cases, allows you to book the
+   *     specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information,
+   *     contact Adyen support. Possible values for the [Classic Platforms
+   *     integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
+   *     **MarketPlace**, **PaymentFee**, **VAT**.
    * @return the current {@code Split} instance, allowing for method chaining
    */
   public Split type(TypeEnum type) {
@@ -422,12 +417,10 @@ public class Split {
    * specified &#x60;account&#x60;. * **TopUp**: allows you and your users to top up balance
    * accounts using direct debit, card payments, or other payment methods. * **VAT**: the
    * value-added tax charged on the payment, booked to your platforms liable balance account. *
-   * **Commission**: your platform&#39;s commission (specified in &#x60;amount&#x60;) on the
-   * payment, booked to your liable balance account. * **Default**: in very specific use cases,
-   * allows you to book the specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For
-   * more information, contact Adyen support. Possible values for the [Classic Platforms
-   * integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
-   * **MarketPlace**, **PaymentFee**, **VAT**.
+   * **Default**: in very specific use cases, allows you to book the specified &#x60;amount&#x60; to
+   * the specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
+   * for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
+   * **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
    *
    * @return type The part of the payment you want to book to the specified &#x60;account&#x60;.
    *     Possible values for the [Balance
@@ -448,12 +441,11 @@ public class Split {
    *     conversion, booked to the specified &#x60;account&#x60;. * **TopUp**: allows you and your
    *     users to top up balance accounts using direct debit, card payments, or other payment
    *     methods. * **VAT**: the value-added tax charged on the payment, booked to your platforms
-   *     liable balance account. * **Commission**: your platform&#39;s commission (specified in
-   *     &#x60;amount&#x60;) on the payment, booked to your liable balance account. * **Default**:
-   *     in very specific use cases, allows you to book the specified &#x60;amount&#x60; to the
-   *     specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
-   *     for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
-   *     **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
+   *     liable balance account. * **Default**: in very specific use cases, allows you to book the
+   *     specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information,
+   *     contact Adyen support. Possible values for the [Classic Platforms
+   *     integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
+   *     **MarketPlace**, **PaymentFee**, **VAT**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -480,12 +472,10 @@ public class Split {
    * specified &#x60;account&#x60;. * **TopUp**: allows you and your users to top up balance
    * accounts using direct debit, card payments, or other payment methods. * **VAT**: the
    * value-added tax charged on the payment, booked to your platforms liable balance account. *
-   * **Commission**: your platform&#39;s commission (specified in &#x60;amount&#x60;) on the
-   * payment, booked to your liable balance account. * **Default**: in very specific use cases,
-   * allows you to book the specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For
-   * more information, contact Adyen support. Possible values for the [Classic Platforms
-   * integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
-   * **MarketPlace**, **PaymentFee**, **VAT**.
+   * **Default**: in very specific use cases, allows you to book the specified &#x60;amount&#x60; to
+   * the specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
+   * for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
+   * **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
    *
    * @param type The part of the payment you want to book to the specified &#x60;account&#x60;.
    *     Possible values for the [Balance
@@ -506,12 +496,11 @@ public class Split {
    *     conversion, booked to the specified &#x60;account&#x60;. * **TopUp**: allows you and your
    *     users to top up balance accounts using direct debit, card payments, or other payment
    *     methods. * **VAT**: the value-added tax charged on the payment, booked to your platforms
-   *     liable balance account. * **Commission**: your platform&#39;s commission (specified in
-   *     &#x60;amount&#x60;) on the payment, booked to your liable balance account. * **Default**:
-   *     in very specific use cases, allows you to book the specified &#x60;amount&#x60; to the
-   *     specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
-   *     for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
-   *     **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
+   *     liable balance account. * **Default**: in very specific use cases, allows you to book the
+   *     specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information,
+   *     contact Adyen support. Possible values for the [Classic Platforms
+   *     integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
+   *     **MarketPlace**, **PaymentFee**, **VAT**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

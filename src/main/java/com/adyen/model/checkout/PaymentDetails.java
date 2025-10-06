@@ -36,6 +36,8 @@ public class PaymentDetails {
 
     MULTIBANCO(String.valueOf("multibanco")),
 
+    BANKTRANSFER(String.valueOf("bankTransfer")),
+
     BANKTRANSFER_IBAN(String.valueOf("bankTransfer_IBAN")),
 
     PAYBRIGHT(String.valueOf("paybright")),
@@ -43,6 +45,8 @@ public class PaymentDetails {
     PAYNOW(String.valueOf("paynow")),
 
     AFFIRM_POS(String.valueOf("affirm_pos")),
+
+    IRIS(String.valueOf("iris")),
 
     TRUSTLY(String.valueOf("trustly")),
 
@@ -83,8 +87,6 @@ public class PaymentDetails {
     PAYU_IN_CASHCARD(String.valueOf("payu_IN_cashcard")),
 
     PAYU_IN_NB(String.valueOf("payu_IN_nb")),
-
-    UPI_QR(String.valueOf("upi_qr")),
 
     PAYTM(String.valueOf("paytm")),
 

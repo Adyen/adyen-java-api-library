@@ -29,10 +29,13 @@ import java.util.logging.Logger;
 public class ConfirmationTrackingData {
   /**
    * The status of the transfer. Possible values: - **credited**: the funds are credited to your
-   * user&#39;s transfer instrument or bank account.
+   * user&#39;s transfer instrument or bank account.- **accepted**: the request is accepted by the
+   * integration.
    */
   public enum StatusEnum {
-    CREDITED(String.valueOf("credited"));
+    CREDITED(String.valueOf("credited")),
+
+    ACCEPTED(String.valueOf("accepted"));
 
     private static final Logger LOG = Logger.getLogger(StatusEnum.class.getName());
 
@@ -121,10 +124,12 @@ public class ConfirmationTrackingData {
 
   /**
    * The status of the transfer. Possible values: - **credited**: the funds are credited to your
-   * user&#39;s transfer instrument or bank account.
+   * user&#39;s transfer instrument or bank account.- **accepted**: the request is accepted by the
+   * integration.
    *
    * @param status The status of the transfer. Possible values: - **credited**: the funds are
-   *     credited to your user&#39;s transfer instrument or bank account.
+   *     credited to your user&#39;s transfer instrument or bank account.- **accepted**: the request
+   *     is accepted by the integration.
    * @return the current {@code ConfirmationTrackingData} instance, allowing for method chaining
    */
   public ConfirmationTrackingData status(StatusEnum status) {
@@ -134,10 +139,12 @@ public class ConfirmationTrackingData {
 
   /**
    * The status of the transfer. Possible values: - **credited**: the funds are credited to your
-   * user&#39;s transfer instrument or bank account.
+   * user&#39;s transfer instrument or bank account.- **accepted**: the request is accepted by the
+   * integration.
    *
    * @return status The status of the transfer. Possible values: - **credited**: the funds are
-   *     credited to your user&#39;s transfer instrument or bank account.
+   *     credited to your user&#39;s transfer instrument or bank account.- **accepted**: the request
+   *     is accepted by the integration.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,10 +154,12 @@ public class ConfirmationTrackingData {
 
   /**
    * The status of the transfer. Possible values: - **credited**: the funds are credited to your
-   * user&#39;s transfer instrument or bank account.
+   * user&#39;s transfer instrument or bank account.- **accepted**: the request is accepted by the
+   * integration.
    *
    * @param status The status of the transfer. Possible values: - **credited**: the funds are
-   *     credited to your user&#39;s transfer instrument or bank account.
+   *     credited to your user&#39;s transfer instrument or bank account.- **accepted**: the request
+   *     is accepted by the integration.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

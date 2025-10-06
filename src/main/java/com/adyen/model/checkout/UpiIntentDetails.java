@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 /** UpiIntentDetails */
 @JsonPropertyOrder({
   UpiIntentDetails.JSON_PROPERTY_APP_ID,
+  UpiIntentDetails.JSON_PROPERTY_BILLING_SEQUENCE_NUMBER,
   UpiIntentDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   UpiIntentDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   UpiIntentDetails.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
@@ -33,6 +34,9 @@ import java.util.logging.Logger;
 public class UpiIntentDetails {
   public static final String JSON_PROPERTY_APP_ID = "appId";
   private String appId;
+
+  public static final String JSON_PROPERTY_BILLING_SEQUENCE_NUMBER = "billingSequenceNumber";
+  private String billingSequenceNumber;
 
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
@@ -123,6 +127,48 @@ public class UpiIntentDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAppId(String appId) {
     this.appId = appId;
+  }
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @param billingSequenceNumber The sequence number for the debit. For example, send **2** if this
+   *     is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
+   */
+  public UpiIntentDetails billingSequenceNumber(String billingSequenceNumber) {
+    this.billingSequenceNumber = billingSequenceNumber;
+    return this;
+  }
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @return billingSequenceNumber The sequence number for the debit. For example, send **2** if
+   *     this is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   */
+  @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBillingSequenceNumber() {
+    return billingSequenceNumber;
+  }
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @param billingSequenceNumber The sequence number for the debit. For example, send **2** if this
+   *     is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   */
+  @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBillingSequenceNumber(String billingSequenceNumber) {
+    this.billingSequenceNumber = billingSequenceNumber;
   }
 
   /**
@@ -325,6 +371,7 @@ public class UpiIntentDetails {
     }
     UpiIntentDetails upiIntentDetails = (UpiIntentDetails) o;
     return Objects.equals(this.appId, upiIntentDetails.appId)
+        && Objects.equals(this.billingSequenceNumber, upiIntentDetails.billingSequenceNumber)
         && Objects.equals(this.checkoutAttemptId, upiIntentDetails.checkoutAttemptId)
         && Objects.equals(this.recurringDetailReference, upiIntentDetails.recurringDetailReference)
         && Objects.equals(
@@ -337,6 +384,7 @@ public class UpiIntentDetails {
   public int hashCode() {
     return Objects.hash(
         appId,
+        billingSequenceNumber,
         checkoutAttemptId,
         recurringDetailReference,
         shopperNotificationReference,
@@ -349,6 +397,9 @@ public class UpiIntentDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpiIntentDetails {\n");
     sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
+    sb.append("    billingSequenceNumber: ")
+        .append(toIndentedString(billingSequenceNumber))
+        .append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))

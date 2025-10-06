@@ -26,26 +26,50 @@ public class ClientTest extends BaseTest {
 
   @Mock private SSLContext clientCertificateAuthSSLContext;
 
-  @Mock private String apiKey;
-
   @Test
   public void testConfigTestClient() {
     Config config = new Config();
     config.setEnvironment(Environment.TEST);
-    config.setApiKey(apiKey);
+    config.setApiKey("Your-X-API-KEY");
     Client client = new Client(config);
     assertEquals(Environment.TEST, client.getConfig().getEnvironment());
   }
 
   @Test
   public void testConfigLiveClient() {
-    Config config = new Config();
-    config.setEnvironment(Environment.LIVE);
-    config.setLiveEndpointUrlPrefix("prefix");
-    config.setApiKey(apiKey);
+    Config config =
+        new Config()
+            .environment(Environment.LIVE)
+            .liveEndpointUrlPrefix("myCompany")
+            .apiKey("Your-X-API-KEY");
     Client client = new Client(config);
     assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
-    assertEquals("prefix", client.getConfig().getLiveEndpointUrlPrefix());
+    assertEquals("myCompany", client.getConfig().getLiveEndpointUrlPrefix());
+  }
+
+  @Test
+  public void testConstructorConfigLiveClient() {
+    Client client = new Client("Your-X-API-KEY", Environment.LIVE, "myCompany");
+    assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+    assertEquals("myCompany", client.getConfig().getLiveEndpointUrlPrefix());
+  }
+
+  @Test
+  public void testConfigLiveClientWithBasicAuth() {
+    Client client = new Client("", "", Environment.LIVE, "myCompany");
+    assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+    assertEquals("myCompany", client.getConfig().getLiveEndpointUrlPrefix());
+    assertNull(client.getConfig().getApiKey());
+    assertNull(client.getConfig().getApplicationName());
+  }
+
+  @Test
+  public void testConfigLiveClientWithBasicAuthAndApplication() {
+    Client client = new Client("", "", Environment.LIVE, "myCompany", "myApplication");
+    assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+    assertEquals("myCompany", client.getConfig().getLiveEndpointUrlPrefix());
+    assertEquals("myApplication", client.getConfig().getApplicationName());
+    assertNull(client.getConfig().getApiKey());
   }
 
   private static Stream<Arguments> provideCloudTestEndpointTestCases() {
@@ -61,11 +85,11 @@ public class ClientTest extends BaseTest {
   @MethodSource("provideCloudTestEndpointTestCases")
   public void testGetCloudEndpointForTestEnvironment(
       Region region, Environment environment, String expectedEndpoint) {
-    Config testConfig = new Config();
-    testConfig.setEnvironment(Environment.TEST);
-    testConfig.setTerminalApiRegion(region);
-    Client testClient = new Client(testConfig);
-    assertEquals(expectedEndpoint, testConfig.getTerminalApiCloudEndpoint());
+    Config config =
+        new Config().environment(environment).terminalApiRegion(region).apiKey("Your-X-API-KEY");
+    Client client = new Client(config);
+
+    assertEquals(expectedEndpoint, config.getTerminalApiCloudEndpoint());
   }
 
   private static Stream<Arguments> provideCloudLiveEndpointTestCases() {
@@ -81,11 +105,11 @@ public class ClientTest extends BaseTest {
   @MethodSource("provideCloudLiveEndpointTestCases")
   public void testGetCloudEndpointForLiveEnvironment(
       Region region, Environment environment, String expectedEndpoint) {
-    Config liveConfig = new Config();
-    liveConfig.setEnvironment(Environment.LIVE);
-    liveConfig.setTerminalApiRegion(region);
-    Client liveClient = new Client(liveConfig);
-    assertEquals(expectedEndpoint, liveConfig.getTerminalApiCloudEndpoint());
+    Config config =
+        new Config().environment(environment).terminalApiRegion(region).apiKey("Your-X-API-KEY");
+    Client client = new Client(config);
+
+    assertEquals(expectedEndpoint, config.getTerminalApiCloudEndpoint());
   }
 
   @Test
@@ -99,7 +123,7 @@ public class ClientTest extends BaseTest {
 
   @Test
   public void testClientCertificateAuth() {
-    Client client = new Client(clientCertificateAuthSSLContext, apiKey);
+    Client client = new Client(clientCertificateAuthSSLContext, "Your-X-API-KEY");
     assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
   }
 

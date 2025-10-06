@@ -342,7 +342,7 @@ public class DonationPaymentRequest {
   private String shopperLocale;
 
   public static final String JSON_PROPERTY_SHOPPER_NAME = "shopperName";
-  private Name shopperName;
+  private ShopperName shopperName;
 
   public static final String JSON_PROPERTY_SHOPPER_REFERENCE = "shopperReference";
   private String shopperReference;
@@ -1092,11 +1092,11 @@ public class DonationPaymentRequest {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
    * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
-   * Ratepay, Riverty, and Zip.
+   * Ratepay, and Riverty.
    *
    * @param lineItems Price and product information about the purchased items, to be included on the
    *     invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay,
-   *     Clearpay, Klarna, Ratepay, Riverty, and Zip.
+   *     Clearpay, Klarna, Ratepay, and Riverty.
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
   public DonationPaymentRequest lineItems(List<LineItem> lineItems) {
@@ -1115,11 +1115,11 @@ public class DonationPaymentRequest {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
    * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
-   * Ratepay, Riverty, and Zip.
+   * Ratepay, and Riverty.
    *
    * @return lineItems Price and product information about the purchased items, to be included on
    *     the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm,
-   *     Afterpay, Clearpay, Klarna, Ratepay, Riverty, and Zip.
+   *     Afterpay, Clearpay, Klarna, Ratepay, and Riverty.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1130,11 +1130,11 @@ public class DonationPaymentRequest {
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
    * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
-   * Ratepay, Riverty, and Zip.
+   * Ratepay, and Riverty.
    *
    * @param lineItems Price and product information about the purchased items, to be included on the
    *     invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay,
-   *     Clearpay, Klarna, Ratepay, Riverty, and Zip.
+   *     Clearpay, Klarna, Ratepay, and Riverty.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2003,7 +2003,7 @@ public class DonationPaymentRequest {
    * @param shopperName
    * @return the current {@code DonationPaymentRequest} instance, allowing for method chaining
    */
-  public DonationPaymentRequest shopperName(Name shopperName) {
+  public DonationPaymentRequest shopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -2015,7 +2015,7 @@ public class DonationPaymentRequest {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Name getShopperName() {
+  public ShopperName getShopperName() {
     return shopperName;
   }
 
@@ -2026,7 +2026,7 @@ public class DonationPaymentRequest {
    */
   @JsonProperty(JSON_PROPERTY_SHOPPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShopperName(Name shopperName) {
+  public void setShopperName(ShopperName shopperName) {
     this.shopperName = shopperName;
   }
 

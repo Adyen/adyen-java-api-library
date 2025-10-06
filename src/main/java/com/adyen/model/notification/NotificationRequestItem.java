@@ -20,7 +20,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/** NotificationRequestItem model class */
+/**
+ * NotificationRequestItem model class This class represents the NotificationRequestItem object that
+ * includes the information about the webhook event.
+ */
 public class NotificationRequestItem {
 
   // Standard Event codes
@@ -74,18 +77,26 @@ public class NotificationRequestItem {
   public static final String EVENT_CODE_MANUAL_REVIEW_ACCEPT = "MANUAL_REVIEW_ACCEPT";
   public static final String EVENT_CODE_MANUAL_REVIEW_REJECT = "MANUAL_REVIEW_REJECT";
 
+  /**
+   * The payment amount. For HTTP POST notifications, currency and value are returned as URL
+   * parameters.
+   */
   @SerializedName("amount")
   private Amount amount = null;
 
+  /** The type of event the notification item is for. */
   @SerializedName("eventCode")
   private String eventCode = null;
 
+  /** The time when the event was generated. Format: ISO 8601; yyyy-MM-DDThh:mm:ssTZD */
   @SerializedName("eventDate")
   private Date eventDate = null;
 
+  /** The merchant account identifier used in the transaction the notification item is for. */
   @SerializedName("merchantAccountCode")
   private String merchantAccountCode = null;
 
+  /** Your reference to uniquely identify the payment. */
   @SerializedName("merchantReference")
   private String merchantReference = null;
 
@@ -95,21 +106,37 @@ public class NotificationRequestItem {
   @SerializedName("originalPsp")
   private String originalPsp = null;
 
+  /**
+   * Adyen's 16-character unique reference associated with the transaction or request. This value is
+   * globally unique. Use it when communicating with us about this request.
+   */
   @SerializedName("pspReference")
   private String pspReference = null;
 
+  /**
+   * If success = true and paymentMethod = visa, mc, or amex then this field contains the following
+   * details: Authorisation code, last 4 digits of the card, card expiry date. In case of failure,
+   * this contains information about the authorisation failure
+   */
   @SerializedName("reason")
   private String reason = null;
 
+  /**
+   * If true: The payment request was successful. If false: The payment request failed. Check the
+   * reason field for failure information.
+   */
   @SerializedName("success")
   private boolean success;
 
+  /** The payment method used in the transaction. */
   @SerializedName("paymentMethod")
   private String paymentMethod;
 
+  /** The operations indicate the supported follow-up actions concerning the payment. */
   @SerializedName("operations")
   private List<String> operations;
 
+  /** This object is a generic container that can hold extra fields. */
   @SerializedName("additionalData")
   private Map<String, String> additionalData = null;
 

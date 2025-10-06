@@ -84,16 +84,16 @@ public class TestOutput {
    * A short, human-readable explanation of the test result. Your server must respond with **HTTP
    * 2xx* for the test webhook to be successful (&#x60;data.status&#x60;: **success**). Find out
    * more about [accepting
-   * notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications) You
-   * can use the value of this field together with the
+   * notifications](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks) You can
+   * use the value of this field together with the
    * [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode)
    * value to troubleshoot unsuccessful test webhooks.
    *
    * @param output A short, human-readable explanation of the test result. Your server must respond
    *     with **HTTP 2xx* for the test webhook to be successful (&#x60;data.status&#x60;:
    *     **success**). Find out more about [accepting
-   *     notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)
-   *     You can use the value of this field together with the
+   *     notifications](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks) You
+   *     can use the value of this field together with the
    *     [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode)
    *     value to troubleshoot unsuccessful test webhooks.
    * @return the current {@code TestOutput} instance, allowing for method chaining
@@ -107,16 +107,16 @@ public class TestOutput {
    * A short, human-readable explanation of the test result. Your server must respond with **HTTP
    * 2xx* for the test webhook to be successful (&#x60;data.status&#x60;: **success**). Find out
    * more about [accepting
-   * notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications) You
-   * can use the value of this field together with the
+   * notifications](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks) You can
+   * use the value of this field together with the
    * [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode)
    * value to troubleshoot unsuccessful test webhooks.
    *
    * @return output A short, human-readable explanation of the test result. Your server must respond
    *     with **HTTP 2xx* for the test webhook to be successful (&#x60;data.status&#x60;:
    *     **success**). Find out more about [accepting
-   *     notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)
-   *     You can use the value of this field together with the
+   *     notifications](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks) You
+   *     can use the value of this field together with the
    *     [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode)
    *     value to troubleshoot unsuccessful test webhooks.
    */
@@ -130,16 +130,16 @@ public class TestOutput {
    * A short, human-readable explanation of the test result. Your server must respond with **HTTP
    * 2xx* for the test webhook to be successful (&#x60;data.status&#x60;: **success**). Find out
    * more about [accepting
-   * notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications) You
-   * can use the value of this field together with the
+   * notifications](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks) You can
+   * use the value of this field together with the
    * [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode)
    * value to troubleshoot unsuccessful test webhooks.
    *
    * @param output A short, human-readable explanation of the test result. Your server must respond
    *     with **HTTP 2xx* for the test webhook to be successful (&#x60;data.status&#x60;:
    *     **success**). Find out more about [accepting
-   *     notifications](https://docs.adyen.com/development-resources/webhooks#accept-notifications)
-   *     You can use the value of this field together with the
+   *     notifications](https://docs.adyen.com/development-resources/webhooks/#accept-webhooks) You
+   *     can use the value of this field together with the
    *     [&#x60;responseCode&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode)
    *     value to troubleshoot unsuccessful test webhooks.
    */

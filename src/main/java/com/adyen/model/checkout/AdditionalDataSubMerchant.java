@@ -411,11 +411,11 @@ public class AdditionalDataSubMerchant {
 
   /**
    * Required for transactions performed by registered payment facilitators. The phone number of the
-   * sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   * sub-merchant. * Format: Alphanumeric and special characters * Maximum length: 20 characters
    *
    * @param subMerchantSubSellerSubSellerNrPhoneNumber Required for transactions performed by
-   *     registered payment facilitators. The phone number of the sub-merchant.* Format:
-   *     Alphanumeric * Maximum length: 20 characters
+   *     registered payment facilitators. The phone number of the sub-merchant. * Format:
+   *     Alphanumeric and special characters * Maximum length: 20 characters
    * @return the current {@code AdditionalDataSubMerchant} instance, allowing for method chaining
    */
   public AdditionalDataSubMerchant subMerchantSubSellerSubSellerNrPhoneNumber(
@@ -426,11 +426,11 @@ public class AdditionalDataSubMerchant {
 
   /**
    * Required for transactions performed by registered payment facilitators. The phone number of the
-   * sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   * sub-merchant. * Format: Alphanumeric and special characters * Maximum length: 20 characters
    *
    * @return subMerchantSubSellerSubSellerNrPhoneNumber Required for transactions performed by
-   *     registered payment facilitators. The phone number of the sub-merchant.* Format:
-   *     Alphanumeric * Maximum length: 20 characters
+   *     registered payment facilitators. The phone number of the sub-merchant. * Format:
+   *     Alphanumeric and special characters * Maximum length: 20 characters
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,11 +440,11 @@ public class AdditionalDataSubMerchant {
 
   /**
    * Required for transactions performed by registered payment facilitators. The phone number of the
-   * sub-merchant.* Format: Alphanumeric * Maximum length: 20 characters
+   * sub-merchant. * Format: Alphanumeric and special characters * Maximum length: 20 characters
    *
    * @param subMerchantSubSellerSubSellerNrPhoneNumber Required for transactions performed by
-   *     registered payment facilitators. The phone number of the sub-merchant.* Format:
-   *     Alphanumeric * Maximum length: 20 characters
+   *     registered payment facilitators. The phone number of the sub-merchant. * Format:
+   *     Alphanumeric and special characters * Maximum length: 20 characters
    */
   @JsonProperty(JSON_PROPERTY_SUB_MERCHANT_SUB_SELLER_SUB_SELLER_NR_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

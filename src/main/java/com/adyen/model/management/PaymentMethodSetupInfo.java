@@ -60,6 +60,7 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_PAYTO,
   PaymentMethodSetupInfo.JSON_PROPERTY_PULSE,
   PaymentMethodSetupInfo.JSON_PROPERTY_REFERENCE,
+  PaymentMethodSetupInfo.JSON_PROPERTY_SEPADIRECTDEBIT,
   PaymentMethodSetupInfo.JSON_PROPERTY_SHOPPER_INTERACTION,
   PaymentMethodSetupInfo.JSON_PROPERTY_SODEXO,
   PaymentMethodSetupInfo.JSON_PROPERTY_SOFORT,
@@ -180,6 +181,9 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  public static final String JSON_PROPERTY_SEPADIRECTDEBIT = "sepadirectdebit";
+  private SepaDirectDebitInfo sepadirectdebit;
+
   /**
    * The sales channel. Required if the merchant account does not have a sales channel. When you
    * provide this field, it overrides the default sales channel set on the merchant account.
@@ -258,6 +262,14 @@ public class PaymentMethodSetupInfo {
    * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    */
   public enum TypeEnum {
+    ABRAPETITE(String.valueOf("abrapetite")),
+
+    ABRAPETITE_CREDIT(String.valueOf("abrapetite_credit")),
+
+    ABRAPETITE_DEBIT(String.valueOf("abrapetite_debit")),
+
+    ABRAPETITE_PREPAID(String.valueOf("abrapetite_prepaid")),
+
     ACCEL(String.valueOf("accel")),
 
     ACH(String.valueOf("ach")),
@@ -297,6 +309,8 @@ public class PaymentMethodSetupInfo {
     BCMC(String.valueOf("bcmc")),
 
     BLIK(String.valueOf("blik")),
+
+    BR_SCHEMES(String.valueOf("br_schemes")),
 
     CARTEBANCAIRE(String.valueOf("cartebancaire")),
 
@@ -442,9 +456,17 @@ public class PaymentMethodSetupInfo {
 
     PULSE(String.valueOf("pulse")),
 
+    ROMCARD(String.valueOf("romcard")),
+
+    ROMCARD_CREDIT(String.valueOf("romcard_credit")),
+
+    ROMCARD_DEBIT(String.valueOf("romcard_debit")),
+
     SENFF(String.valueOf("senff")),
 
     SENFF_CREDIT(String.valueOf("senff_credit")),
+
+    SEPADIRECTDEBIT(String.valueOf("sepadirectdebit")),
 
     SODEXO(String.valueOf("sodexo")),
 
@@ -1753,6 +1775,39 @@ public class PaymentMethodSetupInfo {
   }
 
   /**
+   * sepadirectdebit
+   *
+   * @param sepadirectdebit
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo sepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
+    this.sepadirectdebit = sepadirectdebit;
+    return this;
+  }
+
+  /**
+   * Get sepadirectdebit
+   *
+   * @return sepadirectdebit
+   */
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SepaDirectDebitInfo getSepadirectdebit() {
+    return sepadirectdebit;
+  }
+
+  /**
+   * sepadirectdebit
+   *
+   * @param sepadirectdebit
+   */
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSepadirectdebit(SepaDirectDebitInfo sepadirectdebit) {
+    this.sepadirectdebit = sepadirectdebit;
+  }
+
+  /**
    * The sales channel. Required if the merchant account does not have a sales channel. When you
    * provide this field, it overrides the default sales channel set on the merchant account.
    * Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
@@ -2255,6 +2310,7 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.payto, paymentMethodSetupInfo.payto)
         && Objects.equals(this.pulse, paymentMethodSetupInfo.pulse)
         && Objects.equals(this.reference, paymentMethodSetupInfo.reference)
+        && Objects.equals(this.sepadirectdebit, paymentMethodSetupInfo.sepadirectdebit)
         && Objects.equals(this.shopperInteraction, paymentMethodSetupInfo.shopperInteraction)
         && Objects.equals(this.sodexo, paymentMethodSetupInfo.sodexo)
         && Objects.equals(this.sofort, paymentMethodSetupInfo.sofort)
@@ -2308,6 +2364,7 @@ public class PaymentMethodSetupInfo {
         payto,
         pulse,
         reference,
+        sepadirectdebit,
         shopperInteraction,
         sodexo,
         sofort,
@@ -2362,6 +2419,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    payto: ").append(toIndentedString(payto)).append("\n");
     sb.append("    pulse: ").append(toIndentedString(pulse)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    sepadirectdebit: ").append(toIndentedString(sepadirectdebit)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
     sb.append("    sodexo: ").append(toIndentedString(sodexo)).append("\n");
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");

@@ -27,6 +27,7 @@ import java.util.List;
   NetworkTokenNotificationDataV2.JSON_PROPERTY_DECISION,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_ID,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_PAYMENT_INSTRUMENT_ID,
+  NetworkTokenNotificationDataV2.JSON_PROPERTY_SCHEME_RISK_SCORE,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_STATUS,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_TOKEN_LAST_FOUR,
   NetworkTokenNotificationDataV2.JSON_PROPERTY_TOKEN_REQUESTOR,
@@ -53,6 +54,9 @@ public class NetworkTokenNotificationDataV2 {
 
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
+
+  public static final String JSON_PROPERTY_SCHEME_RISK_SCORE = "schemeRiskScore";
+  private String schemeRiskScore;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -291,6 +295,55 @@ public class NetworkTokenNotificationDataV2 {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+  }
+
+  /**
+   * The confidence score of scheme, indicating the degree of risk associated with a token. A high
+   * score indicates a high level of risk. A low score indicates a low level of risk. Possible
+   * values for visa : **00** to **99**, a value of 00 signifies no score was provided by visa
+   *
+   * @param schemeRiskScore The confidence score of scheme, indicating the degree of risk associated
+   *     with a token. A high score indicates a high level of risk. A low score indicates a low
+   *     level of risk. Possible values for visa : **00** to **99**, a value of 00 signifies no
+   *     score was provided by visa
+   * @return the current {@code NetworkTokenNotificationDataV2} instance, allowing for method
+   *     chaining
+   */
+  public NetworkTokenNotificationDataV2 schemeRiskScore(String schemeRiskScore) {
+    this.schemeRiskScore = schemeRiskScore;
+    return this;
+  }
+
+  /**
+   * The confidence score of scheme, indicating the degree of risk associated with a token. A high
+   * score indicates a high level of risk. A low score indicates a low level of risk. Possible
+   * values for visa : **00** to **99**, a value of 00 signifies no score was provided by visa
+   *
+   * @return schemeRiskScore The confidence score of scheme, indicating the degree of risk
+   *     associated with a token. A high score indicates a high level of risk. A low score indicates
+   *     a low level of risk. Possible values for visa : **00** to **99**, a value of 00 signifies
+   *     no score was provided by visa
+   */
+  @JsonProperty(JSON_PROPERTY_SCHEME_RISK_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSchemeRiskScore() {
+    return schemeRiskScore;
+  }
+
+  /**
+   * The confidence score of scheme, indicating the degree of risk associated with a token. A high
+   * score indicates a high level of risk. A low score indicates a low level of risk. Possible
+   * values for visa : **00** to **99**, a value of 00 signifies no score was provided by visa
+   *
+   * @param schemeRiskScore The confidence score of scheme, indicating the degree of risk associated
+   *     with a token. A high score indicates a high level of risk. A low score indicates a low
+   *     level of risk. Possible values for visa : **00** to **99**, a value of 00 signifies no
+   *     score was provided by visa
+   */
+  @JsonProperty(JSON_PROPERTY_SCHEME_RISK_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSchemeRiskScore(String schemeRiskScore) {
+    this.schemeRiskScore = schemeRiskScore;
   }
 
   /**
@@ -569,6 +622,7 @@ public class NetworkTokenNotificationDataV2 {
         && Objects.equals(this.id, networkTokenNotificationDataV2.id)
         && Objects.equals(
             this.paymentInstrumentId, networkTokenNotificationDataV2.paymentInstrumentId)
+        && Objects.equals(this.schemeRiskScore, networkTokenNotificationDataV2.schemeRiskScore)
         && Objects.equals(this.status, networkTokenNotificationDataV2.status)
         && Objects.equals(this.tokenLastFour, networkTokenNotificationDataV2.tokenLastFour)
         && Objects.equals(this.tokenRequestor, networkTokenNotificationDataV2.tokenRequestor)
@@ -588,6 +642,7 @@ public class NetworkTokenNotificationDataV2 {
         decision,
         id,
         paymentInstrumentId,
+        schemeRiskScore,
         status,
         tokenLastFour,
         tokenRequestor,
@@ -611,6 +666,7 @@ public class NetworkTokenNotificationDataV2 {
     sb.append("    paymentInstrumentId: ")
         .append(toIndentedString(paymentInstrumentId))
         .append("\n");
+    sb.append("    schemeRiskScore: ").append(toIndentedString(schemeRiskScore)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tokenLastFour: ").append(toIndentedString(tokenLastFour)).append("\n");
     sb.append("    tokenRequestor: ").append(toIndentedString(tokenRequestor)).append("\n");

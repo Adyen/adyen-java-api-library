@@ -101,9 +101,7 @@ public class RecurringApi extends Service {
    * @param disableRequest {@link DisableRequest } (required)
    * @return {@link DisableResult }
    * @throws ApiException if fails to make API call
-   * @deprecated since Adyen Recurring API v68
    */
-  @Deprecated
   public DisableResult disable(DisableRequest disableRequest) throws ApiException, IOException {
     return disable(disableRequest, null);
   }
@@ -116,9 +114,7 @@ public class RecurringApi extends Service {
    *     idempotency-keys (optional)
    * @return {@link DisableResult }
    * @throws ApiException if fails to make API call
-   * @deprecated since Adyen Recurring API v68
    */
-  @Deprecated
   public DisableResult disable(DisableRequest disableRequest, RequestOptions requestOptions)
       throws ApiException, IOException {
     String requestBody = disableRequest.toJson();
@@ -169,9 +165,7 @@ public class RecurringApi extends Service {
    * @param recurringDetailsRequest {@link RecurringDetailsRequest } (required)
    * @return {@link RecurringDetailsResult }
    * @throws ApiException if fails to make API call
-   * @deprecated since Adyen Recurring API v68
    */
-  @Deprecated
   public RecurringDetailsResult listRecurringDetails(
       RecurringDetailsRequest recurringDetailsRequest) throws ApiException, IOException {
     return listRecurringDetails(recurringDetailsRequest, null);
@@ -185,9 +179,7 @@ public class RecurringApi extends Service {
    *     idempotency-keys (optional)
    * @return {@link RecurringDetailsResult }
    * @throws ApiException if fails to make API call
-   * @deprecated since Adyen Recurring API v68
    */
-  @Deprecated
   public RecurringDetailsResult listRecurringDetails(
       RecurringDetailsRequest recurringDetailsRequest, RequestOptions requestOptions)
       throws ApiException, IOException {
@@ -204,9 +196,7 @@ public class RecurringApi extends Service {
    * @param notifyShopperRequest {@link NotifyShopperRequest } (required)
    * @return {@link NotifyShopperResult }
    * @throws ApiException if fails to make API call
-   * @deprecated since Adyen Recurring API v68
    */
-  @Deprecated
   public NotifyShopperResult notifyShopper(NotifyShopperRequest notifyShopperRequest)
       throws ApiException, IOException {
     return notifyShopper(notifyShopperRequest, null);
@@ -220,9 +210,7 @@ public class RecurringApi extends Service {
    *     idempotency-keys (optional)
    * @return {@link NotifyShopperResult }
    * @throws ApiException if fails to make API call
-   * @deprecated since Adyen Recurring API v68
    */
-  @Deprecated
   public NotifyShopperResult notifyShopper(
       NotifyShopperRequest notifyShopperRequest, RequestOptions requestOptions)
       throws ApiException, IOException {
@@ -239,9 +227,7 @@ public class RecurringApi extends Service {
    * @param scheduleAccountUpdaterRequest {@link ScheduleAccountUpdaterRequest } (required)
    * @return {@link ScheduleAccountUpdaterResult }
    * @throws ApiException if fails to make API call
-   * @deprecated since Adyen Recurring API v68
    */
-  @Deprecated
   public ScheduleAccountUpdaterResult scheduleAccountUpdater(
       ScheduleAccountUpdaterRequest scheduleAccountUpdaterRequest)
       throws ApiException, IOException {
@@ -256,9 +242,7 @@ public class RecurringApi extends Service {
    *     idempotency-keys (optional)
    * @return {@link ScheduleAccountUpdaterResult }
    * @throws ApiException if fails to make API call
-   * @deprecated since Adyen Recurring API v68
    */
-  @Deprecated
   public ScheduleAccountUpdaterResult scheduleAccountUpdater(
       ScheduleAccountUpdaterRequest scheduleAccountUpdaterRequest, RequestOptions requestOptions)
       throws ApiException, IOException {
