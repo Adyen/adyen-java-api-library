@@ -85,7 +85,8 @@ public class ClientTest extends BaseTest {
   @MethodSource("provideCloudTestEndpointTestCases")
   public void testGetCloudEndpointForTestEnvironment(
       Region region, Environment environment, String expectedEndpoint) {
-    Config config = new Config().environment(environment).terminalApiRegion(region).apiKey("Your-X-API-KEY");
+    Config config =
+        new Config().environment(environment).terminalApiRegion(region).apiKey("Your-X-API-KEY");
     Client client = new Client(config);
 
     assertEquals(expectedEndpoint, config.getTerminalApiCloudEndpoint());
@@ -104,7 +105,8 @@ public class ClientTest extends BaseTest {
   @MethodSource("provideCloudLiveEndpointTestCases")
   public void testGetCloudEndpointForLiveEnvironment(
       Region region, Environment environment, String expectedEndpoint) {
-    Config config = new Config().environment(environment).terminalApiRegion(region).apiKey("Your-X-API-KEY");
+    Config config =
+        new Config().environment(environment).terminalApiRegion(region).apiKey("Your-X-API-KEY");
     Client client = new Client(config);
 
     assertEquals(expectedEndpoint, config.getTerminalApiCloudEndpoint());
