@@ -1,0 +1,19 @@
+{
+  "resultCode": "Pending",
+  "action": {
+    "paymentMethodType": "upi_qr",
+    "qrCodeData": "iVBORw0KGgoAAAANSUhEUgAAAMgAAADIA….",
+    "type": "qrCode"
+  },
+  "details": [
+    {
+      "key": "payload",
+      "type": "text"
+    }
+  ],
+  "redirect": {
+    "data": {
+      "qrCodeData": "iVBORw0KGgoAAAANS…."
+    }
+  }
+}

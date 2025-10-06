@@ -17,13 +17,14 @@ The Library supports all APIs under the following services:
 | [Configuration API](https://docs.adyen.com/api-explorer/balanceplatform/2/overview)                                          | The Configuration API enables you to create a platform where you can onboard your users as account holders and create balance accounts, cards, and business accounts.                                                                                                                                                                                                                                                                                   | balanceplatform package subclasses       | **v2**            |
 | [DataProtection API](https://docs.adyen.com/development-resources/data-protection-api)                                       | Adyen Data Protection API provides a way for you to process [Subject Erasure Requests](https://gdpr-info.eu/art-17-gdpr/) as mandated in GDPR. Use our API to submit a request to delete shopper's data, including payment details and other related information (for example, delivery address or shopper email)                                                                                                                                       | DataProtection                           | **v1**            |
 | [Legal Entity Management API](https://docs.adyen.com/api-explorer/legalentity/3/overview)                                    | Manage legal entities that contain information required for verification.                                                                                                                                                                                                                                                                                                                                                                               | legalentitymanagement package subclasses | **v3**            |
-| [Local/Cloud-based Terminal API](https://docs.adyen.com/point-of-sale/terminal-api-reference)                                | Our point-of-sale integration.                                                                                                                                                                                                                                                                                                                                                                                                                          | TerminalLocalAPI or TerminalCloudAPI     | **v1**                 |
+| [Local/Cloud-based Terminal API](https://docs.adyen.com/point-of-sale/terminal-api-reference)                                | Our point-of-sale integration.                                                                                                                                                                                                                                                                                                                                                                                                                          | TerminalLocalAPI or TerminalCloudAPI     | **v1**            |
 | [Management API](https://docs.adyen.com/api-explorer/Management/3/overview)                                                  | Configure and manage your Adyen company and merchant accounts, stores, and payment terminals.                                                                                                                                                                                                                                                                                                                                                           | management package subclasses            | **v3**            |
+| [Open Banking API](https://docs.adyen.com/api-explorer/open-banking/1/overview)                                              | The Open Banking API provides secure endpoints to share financial data and services with third parties.                                                                                                                                                                                                                                                                                                                                                 | openbanking package subclasses           | **v1**            |
 | [Payments API](https://docs.adyen.com/api-explorer/Payment/68/overview)                                                      | Our classic integration for online payments.                                                                                                                                                                                                                                                                                                                                                                                                            | Payment                                  | **v68**           |
 | [Payouts API](https://docs.adyen.com/api-explorer/Payout/68/overview)                                                        | Endpoints for sending funds to your customers.                                                                                                                                                                                                                                                                                                                                                                                                          | Payout                                   | **v68**           |
 | [POS Terminal Management API](https://docs.adyen.com/api-explorer/postfmapi/1/overview)                                      | ~~Endpoints for managing your point-of-sale payment terminals.~~  ‼️ **Deprecated**: use instead the [Management API](https://docs.adyen.com/api-explorer/Management/latest/overview) for the management of your terminal fleet.                                                                                                                                                                                                                                                                                                                                                             | ~~TerminalManagement~~                   | ~~**v1**~~        |
 | [Recurring API](https://docs.adyen.com/api-explorer/Recurring/68/overview)                                                   | Endpoints for managing saved payment details.                                                                                                                                                                                                                                                                                                                                                                                                           | Recurring                                | **v68**           |
-| [Session Authentication API](https://docs.adyen.com/api-explorer/sessionauthentication/1/overview)                             | Create and manage the JSON Web Tokens (JWT) required for integrating [Onboarding](https://docs.adyen.com/platforms/onboard-users/components) and [Platform Experience](https://docs.adyen.com/platforms/build-user-dashboards) components.                                                                                                                                                                                                                                                                                                                                             | SessionAuthentication                    | **v1**            |
+| [Session Authentication API](https://docs.adyen.com/api-explorer/sessionauthentication/1/overview)                           | Create and manage the JSON Web Tokens (JWT) required for integrating [Onboarding](https://docs.adyen.com/platforms/onboard-users/components) and [Platform Experience](https://docs.adyen.com/platforms/build-user-dashboards) components.                                                                                                                                                                                                                                                                                                                                             | SessionAuthentication                    | **v1**            |
 | [Stored Value API](https://docs.adyen.com/payment-methods/gift-cards/stored-value-api)                                       | Manage both online and point-of-sale gift cards and other stored-value cards.                                                                                                                                                                                                                                                                                                                                                                           | StoredValue                              | **v46**           |
 | [Transfers API](https://docs.adyen.com/api-explorer/transfers/4/overview)                                                    | The Transfers API provides endpoints that can be used to get information about all your transactions, move funds within your balance platform or send funds from your balance platform to a transfer instrument.                                                                                                                                                                                                                                        | Transfers                                | **v4**            |
 | [Webhooks](https://docs.adyen.com/api-explorer/Webhooks/1/overview)                                                          | Adyen uses webhooks to send notifications about payment status updates, newly available reports, and other events that can be subscribed to. For more information, refer to our [documentation](https://docs.adyen.com/development-resources/webhooks).                                                                                                                                                                                                 | *Models only*                            | **v1**            |
@@ -71,7 +72,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>39.2.0</version>
+  <version>39.5.0</version>
 </dependency>
 ```
 
@@ -103,18 +104,23 @@ Client client = new Client(config);
 PaymentsApi paymentsApi = new PaymentsApi(client);
 
 // Create PaymentRequest 
-PaymentRequest paymentRequest = new PaymentRequest();
-paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
-CardDetails cardDetails = new CardDetails();
-    cardDetails.encryptedCardNumber("test_4111111111111111")
-        .encryptedSecurityCode("test_737")
-        .encryptedExpiryMonth("test_03")
-        .encryptedExpiryYear("test_2030");
-paymentRequest.setPaymentMethod(new CheckoutPaymentMethod(cardDetails));
-Amount amount = new Amount().currency("EUR").value(1000L);
-paymentRequest.setAmount(amount);
-paymentRequest.setReference("Your order number");
-paymentRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
+CardDetails cardDetails =
+    new CardDetails()
+      .type(CardDetails.TypeEnum.SCHEME)
+      .encryptedCardNumber("5136333333333335")
+      .holderName("John Doe")
+      .cvc("737")
+      .encryptedExpiryMonth("08")
+      .encryptedExpiryYear("2018");
+PaymentRequest paymentRequest =
+  new PaymentRequest()
+      .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+      .reference("YOUR_REFERENCE")
+      .amount(new Amount()
+          .currency("EUR")
+          .value(1000L))
+      .returnUrl("https://your-company.example.org/checkout?shopperOrder=12xy..")
+      .paymentMethod(new CheckoutPaymentMethod(cardDetails));
 
 // Make a call to the /payments endpoint
 PaymentResponse paymentResponse = paymentsApi.payments(paymentRequest);
@@ -445,6 +451,22 @@ saleToPOIRequest.setMessageHeader(messageHeader);
 terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
 
 TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIRequest);
+```
+
+### Helper classes
+
+Use `PredefinedContentHelper` to parse Display notification types which you find in `PredefinedContent->ReferenceID`
+```java
+PredefinedContentHelper helper = new PredefinedContentHelper(predefinedContent.getReferenceID());
+
+// Safely extract and use the event type with Optional
+helper.getEvent().ifPresent(event -> {
+        System.out.println("Received event: " + event);
+    if (event == PredefinedContentHelper.DisplayNotificationEvent.PIN_ENTERED) {
+        // Handle PIN entry event
+        System.out.println("The user has entered their PIN.");
+    }
+});
 ```
 
 ## Using the Local Terminal API Integration

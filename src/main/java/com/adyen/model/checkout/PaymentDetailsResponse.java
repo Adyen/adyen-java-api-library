@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 
 /** PaymentDetailsResponse */
 @JsonPropertyOrder({
+  PaymentDetailsResponse.JSON_PROPERTY_ACTION,
   PaymentDetailsResponse.JSON_PROPERTY_ADDITIONAL_DATA,
   PaymentDetailsResponse.JSON_PROPERTY_AMOUNT,
   PaymentDetailsResponse.JSON_PROPERTY_DONATION_TOKEN,
@@ -42,6 +43,9 @@ import java.util.logging.Logger;
   PaymentDetailsResponse.JSON_PROPERTY_THREE_D_S_PAYMENT_DATA
 })
 public class PaymentDetailsResponse {
+  public static final String JSON_PROPERTY_ACTION = "action";
+  private PaymentDetailsResponseAction action;
+
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private Map<String, String> additionalData;
 
@@ -181,6 +185,39 @@ public class PaymentDetailsResponse {
   private String threeDSPaymentData;
 
   public PaymentDetailsResponse() {}
+
+  /**
+   * action
+   *
+   * @param action
+   * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
+   */
+  public PaymentDetailsResponse action(PaymentDetailsResponseAction action) {
+    this.action = action;
+    return this;
+  }
+
+  /**
+   * Get action
+   *
+   * @return action
+   */
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PaymentDetailsResponseAction getAction() {
+    return action;
+  }
+
+  /**
+   * action
+   *
+   * @param action
+   */
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAction(PaymentDetailsResponseAction action) {
+    this.action = action;
+  }
 
   /**
    * Contains additional information about the payment. Some data fields are included only if you
@@ -911,7 +948,8 @@ public class PaymentDetailsResponse {
       return false;
     }
     PaymentDetailsResponse paymentDetailsResponse = (PaymentDetailsResponse) o;
-    return Objects.equals(this.additionalData, paymentDetailsResponse.additionalData)
+    return Objects.equals(this.action, paymentDetailsResponse.action)
+        && Objects.equals(this.additionalData, paymentDetailsResponse.additionalData)
         && Objects.equals(this.amount, paymentDetailsResponse.amount)
         && Objects.equals(this.donationToken, paymentDetailsResponse.donationToken)
         && Objects.equals(this.fraudResult, paymentDetailsResponse.fraudResult)
@@ -931,6 +969,7 @@ public class PaymentDetailsResponse {
   @Override
   public int hashCode() {
     return Objects.hash(
+        action,
         additionalData,
         amount,
         donationToken,
@@ -952,6 +991,7 @@ public class PaymentDetailsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentDetailsResponse {\n");
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");

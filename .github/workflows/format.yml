@@ -5,11 +5,12 @@ on:
     branches:
       - 'sdk-automation/models'
 
+permissions:
+  contents: write
+
 jobs:
   format:
     if: ${{ github.event.commits != null && !startsWith(github.event.head_commit.message, 'style(fmt)') }}
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
 
     steps:

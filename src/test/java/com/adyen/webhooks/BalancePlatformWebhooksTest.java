@@ -436,4 +436,34 @@ public class BalancePlatformWebhooksTest extends BaseTest {
     Optional<DisputeNotificationRequest> result = handler.getDisputeNotificationRequest();
     assertFalse(result.isPresent());
   }
+
+  @Test
+  public void testScoreNotificationRequest() {
+
+    String json =
+        getFileContents("mocks/balancePlatform-webhooks/balancePlatform-score-triggered.json");
+
+    ConfigurationWebhooksHandler handler = new ConfigurationWebhooksHandler(json);
+    Optional<ScoreNotificationRequest> optionalRequest = handler.getScoreNotificationRequest();
+
+    assertTrue("The ScoreNotificationRequest should be present", optionalRequest.isPresent());
+
+    ScoreNotificationRequest request = optionalRequest.get();
+    assertEquals(
+        ScoreNotificationRequest.TypeEnum.BALANCEPLATFORM_SCORE_TRIGGERED, request.getType());
+    assertEquals("test", request.getEnvironment());
+
+    BankScoreSignalTriggeredData data = request.getData();
+    assertNotNull(data);
+    assertEquals("2235e7be-fcb0-4b88-a79b-895b68cfb855", data.getId());
+    assertEquals(Integer.valueOf(100), data.getRiskScore());
+
+    assertNotNull(data.getAccountHolder());
+    assertEquals("AH00000000000001", data.getAccountHolder().getId());
+
+    assertNotNull(data.getScoreSignalsTriggered());
+    assertEquals(2, data.getScoreSignalsTriggered().size());
+    assertEquals("ChargebackCardholderDispute", data.getScoreSignalsTriggered().get(0));
+    assertEquals("ChargebackNonReceipt", data.getScoreSignalsTriggered().get(1));
+  }
 }

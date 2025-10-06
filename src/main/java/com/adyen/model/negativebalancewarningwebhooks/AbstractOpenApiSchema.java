@@ -137,10 +137,6 @@ public abstract class AbstractOpenApiSchema {
    * @return true if it's nullable
    */
   public Boolean isNullable() {
-    if (Boolean.TRUE.equals(isNullable)) {
-      return Boolean.TRUE;
-    } else {
-      return Boolean.FALSE;
-    }
+    return Boolean.TRUE.equals(isNullable);
   }
 }

@@ -18,10 +18,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** Refunds */
-@JsonPropertyOrder({Refunds.JSON_PROPERTY_REFERENCED})
+@JsonPropertyOrder({Refunds.JSON_PROPERTY_REFERENCED, Refunds.JSON_PROPERTY_UNREFERENCED})
 public class Refunds {
   public static final String JSON_PROPERTY_REFERENCED = "referenced";
   private Referenced referenced;
+
+  public static final String JSON_PROPERTY_UNREFERENCED = "unreferenced";
+  private Unreferenced unreferenced;
 
   public Refunds() {}
 
@@ -58,6 +61,39 @@ public class Refunds {
     this.referenced = referenced;
   }
 
+  /**
+   * unreferenced
+   *
+   * @param unreferenced
+   * @return the current {@code Refunds} instance, allowing for method chaining
+   */
+  public Refunds unreferenced(Unreferenced unreferenced) {
+    this.unreferenced = unreferenced;
+    return this;
+  }
+
+  /**
+   * Get unreferenced
+   *
+   * @return unreferenced
+   */
+  @JsonProperty(JSON_PROPERTY_UNREFERENCED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Unreferenced getUnreferenced() {
+    return unreferenced;
+  }
+
+  /**
+   * unreferenced
+   *
+   * @param unreferenced
+   */
+  @JsonProperty(JSON_PROPERTY_UNREFERENCED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUnreferenced(Unreferenced unreferenced) {
+    this.unreferenced = unreferenced;
+  }
+
   /** Return true if this Refunds object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -68,12 +104,13 @@ public class Refunds {
       return false;
     }
     Refunds refunds = (Refunds) o;
-    return Objects.equals(this.referenced, refunds.referenced);
+    return Objects.equals(this.referenced, refunds.referenced)
+        && Objects.equals(this.unreferenced, refunds.unreferenced);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(referenced);
+    return Objects.hash(referenced, unreferenced);
   }
 
   @Override
@@ -81,6 +118,7 @@ public class Refunds {
     StringBuilder sb = new StringBuilder();
     sb.append("class Refunds {\n");
     sb.append("    referenced: ").append(toIndentedString(referenced)).append("\n");
+    sb.append("    unreferenced: ").append(toIndentedString(unreferenced)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11,6 +11,9 @@ on:
       - promote/main
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 jobs:
   java-check:
     name: Java Code Check

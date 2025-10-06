@@ -79,9 +79,12 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(BankCategoryData.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(BankCategoryData.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(BankCategoryData.class);
@@ -102,9 +105,12 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(InternalCategoryData.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(InternalCategoryData.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(InternalCategoryData.class);
@@ -125,9 +131,12 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(IssuedCard.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(IssuedCard.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(IssuedCard.class);
@@ -148,9 +157,12 @@ public class TransferDataCategoryData extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(PlatformPayment.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(PlatformPayment.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(PlatformPayment.class);

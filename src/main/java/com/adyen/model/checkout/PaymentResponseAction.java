@@ -80,9 +80,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutAwaitAction.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutAwaitAction.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutAwaitAction.class);
@@ -103,9 +106,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutBankTransferAction.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutBankTransferAction.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -127,9 +133,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutDelegatedAuthenticationAction.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutDelegatedAuthenticationAction.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -156,9 +165,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutNativeRedirectAction.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutNativeRedirectAction.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =
@@ -180,9 +192,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutQrCodeAction.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutQrCodeAction.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutQrCodeAction.class);
@@ -203,9 +218,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutRedirectAction.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutRedirectAction.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutRedirectAction.class);
@@ -226,9 +244,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutSDKAction.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutSDKAction.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutSDKAction.class);
@@ -249,9 +270,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutThreeDS2Action.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutThreeDS2Action.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutThreeDS2Action.class);
@@ -272,9 +296,12 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(CheckoutVoucherAction.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(CheckoutVoucherAction.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized = tree.traverse(jp.getCodec()).readValueAs(CheckoutVoucherAction.class);

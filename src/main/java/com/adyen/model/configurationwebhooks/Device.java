@@ -18,8 +18,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** Device */
-@JsonPropertyOrder({Device.JSON_PROPERTY_FORM_FACTOR, Device.JSON_PROPERTY_OS_NAME})
+@JsonPropertyOrder({
+  Device.JSON_PROPERTY_DEVICE_ID,
+  Device.JSON_PROPERTY_FORM_FACTOR,
+  Device.JSON_PROPERTY_OS_NAME
+})
 public class Device {
+  public static final String JSON_PROPERTY_DEVICE_ID = "deviceId";
+  private String deviceId;
+
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
   private String formFactor;
 
@@ -27,6 +34,39 @@ public class Device {
   private String osName;
 
   public Device() {}
+
+  /**
+   * The unique identifier of the device used for provisioning the network token.
+   *
+   * @param deviceId The unique identifier of the device used for provisioning the network token.
+   * @return the current {@code Device} instance, allowing for method chaining
+   */
+  public Device deviceId(String deviceId) {
+    this.deviceId = deviceId;
+    return this;
+  }
+
+  /**
+   * The unique identifier of the device used for provisioning the network token.
+   *
+   * @return deviceId The unique identifier of the device used for provisioning the network token.
+   */
+  @JsonProperty(JSON_PROPERTY_DEVICE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDeviceId() {
+    return deviceId;
+  }
+
+  /**
+   * The unique identifier of the device used for provisioning the network token.
+   *
+   * @param deviceId The unique identifier of the device used for provisioning the network token.
+   */
+  @JsonProperty(JSON_PROPERTY_DEVICE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeviceId(String deviceId) {
+    this.deviceId = deviceId;
+  }
 
   /**
    * The type of the device used for provisioning the network token. For example, **phone**,
@@ -110,19 +150,21 @@ public class Device {
       return false;
     }
     Device device = (Device) o;
-    return Objects.equals(this.formFactor, device.formFactor)
+    return Objects.equals(this.deviceId, device.deviceId)
+        && Objects.equals(this.formFactor, device.formFactor)
         && Objects.equals(this.osName, device.osName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(formFactor, osName);
+    return Objects.hash(deviceId, formFactor, osName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Device {\n");
+    sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
     sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("}");

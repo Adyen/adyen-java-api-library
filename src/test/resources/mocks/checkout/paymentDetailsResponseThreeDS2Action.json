@@ -1,0 +1,11 @@
+{
+  "resultCode": "ChallengeShopper",
+  "action": {
+    "paymentData": "...",
+    "paymentMethodType": "card",
+    "authorisationToken": "...",
+    "subtype": "challenge",
+    "token": "eyJhY3NSZWZlcmVuY2VOdW1iZXIiOiJBRF...",
+    "type": "threeDS2"
+  }
+}

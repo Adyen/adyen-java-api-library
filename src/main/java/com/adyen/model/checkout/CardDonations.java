@@ -31,6 +31,7 @@ import java.util.logging.Logger;
   CardDonations.JSON_PROPERTY_ENCRYPTED_CARD_NUMBER,
   CardDonations.JSON_PROPERTY_ENCRYPTED_EXPIRY_MONTH,
   CardDonations.JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR,
+  CardDonations.JSON_PROPERTY_ENCRYPTED_PASSWORD,
   CardDonations.JSON_PROPERTY_ENCRYPTED_SECURITY_CODE,
   CardDonations.JSON_PROPERTY_EXPIRY_MONTH,
   CardDonations.JSON_PROPERTY_EXPIRY_YEAR,
@@ -74,6 +75,9 @@ public class CardDonations {
 
   public static final String JSON_PROPERTY_ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
   private String encryptedExpiryYear;
+
+  public static final String JSON_PROPERTY_ENCRYPTED_PASSWORD = "encryptedPassword";
+  private String encryptedPassword;
 
   public static final String JSON_PROPERTY_ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
   private String encryptedSecurityCode;
@@ -509,6 +513,45 @@ public class CardDonations {
   }
 
   /**
+   * This field contains an encrypted, one-time password or an authentication code provided by the
+   * cardholder.
+   *
+   * @param encryptedPassword This field contains an encrypted, one-time password or an
+   *     authentication code provided by the cardholder.
+   * @return the current {@code CardDonations} instance, allowing for method chaining
+   */
+  public CardDonations encryptedPassword(String encryptedPassword) {
+    this.encryptedPassword = encryptedPassword;
+    return this;
+  }
+
+  /**
+   * This field contains an encrypted, one-time password or an authentication code provided by the
+   * cardholder.
+   *
+   * @return encryptedPassword This field contains an encrypted, one-time password or an
+   *     authentication code provided by the cardholder.
+   */
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEncryptedPassword() {
+    return encryptedPassword;
+  }
+
+  /**
+   * This field contains an encrypted, one-time password or an authentication code provided by the
+   * cardholder.
+   *
+   * @param encryptedPassword This field contains an encrypted, one-time password or an
+   *     authentication code provided by the cardholder.
+   */
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEncryptedPassword(String encryptedPassword) {
+    this.encryptedPassword = encryptedPassword;
+  }
+
+  /**
    * The encrypted card verification code.
    *
    * @param encryptedSecurityCode The encrypted card verification code.
@@ -729,11 +772,11 @@ public class CardDonations {
 
   /**
    * The transaction identifier from card schemes. This is the
-   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    * from the response to the first payment.
    *
    * @param networkPaymentReference The transaction identifier from card schemes. This is the
-   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    *     from the response to the first payment.
    * @return the current {@code CardDonations} instance, allowing for method chaining
    */
@@ -744,11 +787,11 @@ public class CardDonations {
 
   /**
    * The transaction identifier from card schemes. This is the
-   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    * from the response to the first payment.
    *
    * @return networkPaymentReference The transaction identifier from card schemes. This is the
-   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    *     from the response to the first payment.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)
@@ -759,11 +802,11 @@ public class CardDonations {
 
   /**
    * The transaction identifier from card schemes. This is the
-   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   * [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    * from the response to the first payment.
    *
    * @param networkPaymentReference The transaction identifier from card schemes. This is the
-   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference)
+   *     [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference)
    *     from the response to the first payment.
    */
   @JsonProperty(JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE)
@@ -1162,6 +1205,7 @@ public class CardDonations {
         && Objects.equals(this.encryptedCardNumber, cardDonations.encryptedCardNumber)
         && Objects.equals(this.encryptedExpiryMonth, cardDonations.encryptedExpiryMonth)
         && Objects.equals(this.encryptedExpiryYear, cardDonations.encryptedExpiryYear)
+        && Objects.equals(this.encryptedPassword, cardDonations.encryptedPassword)
         && Objects.equals(this.encryptedSecurityCode, cardDonations.encryptedSecurityCode)
         && Objects.equals(this.expiryMonth, cardDonations.expiryMonth)
         && Objects.equals(this.expiryYear, cardDonations.expiryYear)
@@ -1193,6 +1237,7 @@ public class CardDonations {
         encryptedCardNumber,
         encryptedExpiryMonth,
         encryptedExpiryYear,
+        encryptedPassword,
         encryptedSecurityCode,
         expiryMonth,
         expiryYear,
@@ -1232,6 +1277,7 @@ public class CardDonations {
     sb.append("    encryptedExpiryYear: ")
         .append(toIndentedString(encryptedExpiryYear))
         .append("\n");
+    sb.append("    encryptedPassword: ").append(toIndentedString(encryptedPassword)).append("\n");
     sb.append("    encryptedSecurityCode: ")
         .append(toIndentedString(encryptedSecurityCode))
         .append("\n");

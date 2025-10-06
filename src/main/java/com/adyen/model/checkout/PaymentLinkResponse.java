@@ -1057,12 +1057,12 @@ public class PaymentLinkResponse {
 
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
-   * the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods
-   * such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
+   * Ratepay, and Riverty.
    *
    * @param lineItems Price and product information about the purchased items, to be included on the
-   *     invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay
-   *     later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   *     invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay,
+   *     Clearpay, Klarna, Ratepay, and Riverty.
    * @return the current {@code PaymentLinkResponse} instance, allowing for method chaining
    */
   public PaymentLinkResponse lineItems(List<LineItem> lineItems) {
@@ -1080,12 +1080,12 @@ public class PaymentLinkResponse {
 
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
-   * the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods
-   * such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
+   * Ratepay, and Riverty.
    *
    * @return lineItems Price and product information about the purchased items, to be included on
-   *     the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay
-   *     later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   *     the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm,
+   *     Afterpay, Clearpay, Klarna, Ratepay, and Riverty.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1095,12 +1095,12 @@ public class PaymentLinkResponse {
 
   /**
    * Price and product information about the purchased items, to be included on the invoice sent to
-   * the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods
-   * such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   * the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna,
+   * Ratepay, and Riverty.
    *
    * @param lineItems Price and product information about the purchased items, to be included on the
-   *     invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay
-   *     later_) payment methods such Afterpay, Clearpay, Klarna, RatePay, Riverty, and Zip.
+   *     invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay,
+   *     Clearpay, Klarna, Ratepay, and Riverty.
    */
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2239,17 +2239,17 @@ public class PaymentLinkResponse {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @param telephoneNumber The shopper&#39;s telephone number. The phone number must include a plus
+   *     sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    * @return the current {@code PaymentLinkResponse} instance, allowing for method chaining
    */
   public PaymentLinkResponse telephoneNumber(String telephoneNumber) {
@@ -2258,17 +2258,17 @@ public class PaymentLinkResponse {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @return telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @return telephoneNumber The shopper&#39;s telephone number. The phone number must include a
+   *     plus sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2277,17 +2277,17 @@ public class PaymentLinkResponse {
   }
 
   /**
-   * The shopper&#39;s telephone number. &gt; Required for Visa and JCB transactions that require 3D
-   * Secure 2 authentication, if you did not include the &#x60;shopperEmail&#x60;. The phone number
-   * must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15
-   * digits). If the value you provide does not follow the guidelines, we drop the value and do not
-   * submit it for authentication.
+   * The shopper&#39;s telephone number. The phone number must include a plus sign (+) and a country
+   * code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
+   * follow the guidelines, we do not submit it for authentication. &gt; Required for Visa and JCB
+   * transactions that require 3D Secure 2 authentication, if you did not include the
+   * &#x60;shopperEmail&#x60;.
    *
-   * @param telephoneNumber The shopper&#39;s telephone number. &gt; Required for Visa and JCB
-   *     transactions that require 3D Secure 2 authentication, if you did not include the
-   *     &#x60;shopperEmail&#x60;. The phone number must include a plus sign (+) and a country code
-   *     (1-3 digits), followed by the number (4-15 digits). If the value you provide does not
-   *     follow the guidelines, we drop the value and do not submit it for authentication.
+   * @param telephoneNumber The shopper&#39;s telephone number. The phone number must include a plus
+   *     sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the
+   *     value you provide does not follow the guidelines, we do not submit it for authentication.
+   *     &gt; Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you
+   *     did not include the &#x60;shopperEmail&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_TELEPHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

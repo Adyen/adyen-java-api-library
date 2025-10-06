@@ -19,7 +19,9 @@ import java.util.*;
 public enum ProductType {
   ONBOARDING("onboarding"),
 
-  PLATFORM("platform");
+  PLATFORM("platform"),
+
+  BANK("bank");
 
   private String value;
 

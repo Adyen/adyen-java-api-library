@@ -353,11 +353,11 @@ public class Leg {
 
   /**
    * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. *
-   * minLength: 1 character * maxLength: 6 characters * Must not start with a space or be all
+   * minLength: 1 character * maxLength: 15 characters * Must not start with a space or be all
    * spaces. * Must not be all zeros.
    *
    * @param fareBasisCode The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code),
-   *     alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not start with a
+   *     alphanumeric. * minLength: 1 character * maxLength: 15 characters * Must not start with a
    *     space or be all spaces. * Must not be all zeros.
    * @return the current {@code Leg} instance, allowing for method chaining
    */
@@ -368,11 +368,11 @@ public class Leg {
 
   /**
    * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. *
-   * minLength: 1 character * maxLength: 6 characters * Must not start with a space or be all
+   * minLength: 1 character * maxLength: 15 characters * Must not start with a space or be all
    * spaces. * Must not be all zeros.
    *
    * @return fareBasisCode The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code),
-   *     alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not start with a
+   *     alphanumeric. * minLength: 1 character * maxLength: 15 characters * Must not start with a
    *     space or be all spaces. * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_FARE_BASIS_CODE)
@@ -383,11 +383,11 @@ public class Leg {
 
   /**
    * The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. *
-   * minLength: 1 character * maxLength: 6 characters * Must not start with a space or be all
+   * minLength: 1 character * maxLength: 15 characters * Must not start with a space or be all
    * spaces. * Must not be all zeros.
    *
    * @param fareBasisCode The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code),
-   *     alphanumeric. * minLength: 1 character * maxLength: 6 characters * Must not start with a
+   *     alphanumeric. * minLength: 1 character * maxLength: 15 characters * Must not start with a
    *     space or be all spaces. * Must not be all zeros.
    */
   @JsonProperty(JSON_PROPERTY_FARE_BASIS_CODE)

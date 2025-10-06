@@ -46,12 +46,12 @@ public class CardDetailsRequest {
   public CardDetailsRequest() {}
 
   /**
-   * A minimum of the first eight digits of the card number. The full card number gives the best
+   * A minimum of the first six digits of the card number. The full card number gives the best
    * result. You must be [fully PCI
    * compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect
    * raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60; field.
    *
-   * @param cardNumber A minimum of the first eight digits of the card number. The full card number
+   * @param cardNumber A minimum of the first six digits of the card number. The full card number
    *     gives the best result. You must be [fully PCI
    *     compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to
    *     collect raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60;
@@ -64,12 +64,12 @@ public class CardDetailsRequest {
   }
 
   /**
-   * A minimum of the first eight digits of the card number. The full card number gives the best
+   * A minimum of the first six digits of the card number. The full card number gives the best
    * result. You must be [fully PCI
    * compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect
    * raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60; field.
    *
-   * @return cardNumber A minimum of the first eight digits of the card number. The full card number
+   * @return cardNumber A minimum of the first six digits of the card number. The full card number
    *     gives the best result. You must be [fully PCI
    *     compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to
    *     collect raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60;
@@ -82,12 +82,12 @@ public class CardDetailsRequest {
   }
 
   /**
-   * A minimum of the first eight digits of the card number. The full card number gives the best
+   * A minimum of the first six digits of the card number. The full card number gives the best
    * result. You must be [fully PCI
    * compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to collect
    * raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60; field.
    *
-   * @param cardNumber A minimum of the first eight digits of the card number. The full card number
+   * @param cardNumber A minimum of the first six digits of the card number. The full card number
    *     gives the best result. You must be [fully PCI
    *     compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide) to
    *     collect raw card data. Alternatively, you can use the &#x60;encryptedCardNumber&#x60;
@@ -209,14 +209,14 @@ public class CardDetailsRequest {
 
   /**
    * The card brands you support. This is the
-   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    * array from your
    * [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    * response. If not included, our API uses the ones configured for your merchant account and, if
    * provided, the country code.
    *
    * @param supportedBrands The card brands you support. This is the
-   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    *     array from your
    *     [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    *     response. If not included, our API uses the ones configured for your merchant account and,
@@ -238,14 +238,14 @@ public class CardDetailsRequest {
 
   /**
    * The card brands you support. This is the
-   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    * array from your
    * [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    * response. If not included, our API uses the ones configured for your merchant account and, if
    * provided, the country code.
    *
    * @return supportedBrands The card brands you support. This is the
-   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    *     array from your
    *     [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    *     response. If not included, our API uses the ones configured for your merchant account and,
@@ -259,14 +259,14 @@ public class CardDetailsRequest {
 
   /**
    * The card brands you support. This is the
-   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   * [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    * array from your
    * [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    * response. If not included, our API uses the ones configured for your merchant account and, if
    * provided, the country code.
    *
    * @param supportedBrands The card brands you support. This is the
-   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods__resParam_paymentMethods-brands)
+   *     [&#x60;brands&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands)
    *     array from your
    *     [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods)
    *     response. If not included, our API uses the ones configured for your merchant account and,

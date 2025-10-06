@@ -4,7 +4,6 @@ import com.adyen.serializer.ByteArrayDeserializer;
 import com.adyen.serializer.ByteArraySerializer;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.ws.rs.core.GenericType;
@@ -18,10 +17,10 @@ import java.util.Set;
 public class JSON implements ContextResolver<ObjectMapper> {
   private static ObjectMapper mapper;
 
-  public JSON() {
+  private JSON() {
     mapper = new ObjectMapper();
     mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-    JsonMapper.builder().configure(MapperFeature.ALLOW_COERCION_OF_SCALARS, false);
+    mapper.configure(MapperFeature.ALLOW_COERCION_OF_SCALARS, true);
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     mapper.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, true);
     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
@@ -69,7 +68,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
   public static Class<?> getClassForElement(JsonNode node, Class<?> modelClass) {
     ClassDiscriminatorMapping cdm = modelDiscriminators.get(modelClass);
     if (cdm != null) {
-      return cdm.getClassForElement(node, new HashSet<Class<?>>());
+      return cdm.getClassForElement(node, new HashSet<>());
     }
     return null;
   }
@@ -87,7 +86,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
     ClassDiscriminatorMapping(Class<?> cls, String propertyName, Map<String, Class<?>> mappings) {
       modelClass = cls;
       discriminatorName = propertyName;
-      discriminatorMappings = new HashMap<String, Class<?>>();
+      discriminatorMappings = new HashMap<>();
       if (mappings != null) {
         discriminatorMappings.putAll(mappings);
       }
@@ -195,12 +194,11 @@ public class JSON implements ContextResolver<ObjectMapper> {
   }
 
   /** A map of discriminators for all model classes. */
-  private static Map<Class<?>, ClassDiscriminatorMapping> modelDiscriminators =
+  private static final Map<Class<?>, ClassDiscriminatorMapping> modelDiscriminators =
       new HashMap<Class<?>, ClassDiscriminatorMapping>();
 
   /** A map of oneOf/anyOf descendants for each model class. */
-  private static Map<Class<?>, Map<String, GenericType>> modelDescendants =
-      new HashMap<Class<?>, Map<String, GenericType>>();
+  private static final Map<Class<?>, Map<String, GenericType>> modelDescendants = new HashMap<>();
 
   /**
    * Register a model class discriminator.

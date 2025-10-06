@@ -90,9 +90,12 @@ public class PaymentInstrumentAdditionalBankAccountIdentificationsInner
         boolean attemptParsing = true;
         if (attemptParsing) {
           // Checks if the unique type of the oneOf json matches any of the object TypeEnum values
-          boolean typeMatch =
-              Arrays.stream(IbanAccountIdentification.TypeEnum.values())
-                  .anyMatch((t) -> t.getValue().contains(tree.findValue("type").asText()));
+          boolean typeMatch = false;
+          if (tree.findValue("type") != null) {
+            typeMatch =
+                Arrays.stream(IbanAccountIdentification.TypeEnum.values())
+                    .anyMatch((t) -> t.getValue().equals(tree.findValue("type").asText()));
+          }
 
           if (typeMatch) {
             deserialized =

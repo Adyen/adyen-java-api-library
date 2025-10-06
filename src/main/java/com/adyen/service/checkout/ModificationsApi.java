@@ -98,7 +98,7 @@ public class ModificationsApi extends Service {
    * Cancel an authorised payment
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to cancel. (required)
    * @param paymentCancelRequest {@link PaymentCancelRequest } (required)
    * @return {@link PaymentCancelResponse }
@@ -114,7 +114,7 @@ public class ModificationsApi extends Service {
    * Cancel an authorised payment
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to cancel. (required)
    * @param paymentCancelRequest {@link PaymentCancelRequest } (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
@@ -146,7 +146,7 @@ public class ModificationsApi extends Service {
    * Capture an authorised payment
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to capture. (required)
    * @param paymentCaptureRequest {@link PaymentCaptureRequest } (required)
    * @return {@link PaymentCaptureResponse }
@@ -162,7 +162,7 @@ public class ModificationsApi extends Service {
    * Capture an authorised payment
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to capture. (required)
    * @param paymentCaptureRequest {@link PaymentCaptureRequest } (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
@@ -194,7 +194,7 @@ public class ModificationsApi extends Service {
    * Refund a captured payment
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to refund. (required)
    * @param paymentRefundRequest {@link PaymentRefundRequest } (required)
    * @return {@link PaymentRefundResponse }
@@ -210,7 +210,7 @@ public class ModificationsApi extends Service {
    * Refund a captured payment
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to refund. (required)
    * @param paymentRefundRequest {@link PaymentRefundRequest } (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
@@ -242,7 +242,7 @@ public class ModificationsApi extends Service {
    * Refund or cancel a payment
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to reverse. (required)
    * @param paymentReversalRequest {@link PaymentReversalRequest } (required)
    * @return {@link PaymentReversalResponse }
@@ -258,7 +258,7 @@ public class ModificationsApi extends Service {
    * Refund or cancel a payment
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to reverse. (required)
    * @param paymentReversalRequest {@link PaymentReversalRequest } (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
@@ -290,7 +290,7 @@ public class ModificationsApi extends Service {
    * Update an authorised amount
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment. (required)
    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest } (required)
    * @return {@link PaymentAmountUpdateResponse }
@@ -306,7 +306,7 @@ public class ModificationsApi extends Service {
    * Update an authorised amount
    *
    * @param paymentPspReference {@link String } The
-   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference)
+   *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment. (required)
    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest } (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
