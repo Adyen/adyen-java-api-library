@@ -82,8 +82,10 @@ Alternatively, you can download the [release on GitHub](https://github.com/Adyen
 
 ### General use with API key
 
-Every API the library supports is represented by a service object. The name of the service matching the corresponding
-API is listed in the [Supported API versions](#supported-api-versions) section of this document.
+For every API, one or more corresponding service classes can be found in the folder with the same name.
+Check the [Supported API versions](#supported-api-versions).
+
+**Note**: For requests on `live` environment, you must define the [Live URL Prefix](https://docs.adyen.com/development-resources/live-endpoints#live-url-prefix) in the Client object:
 
 ~~~~ java
 // Import the required classes
@@ -92,8 +94,13 @@ import com.adyen.enums.Environment;
 import com.adyen.service.checkout.PaymentsApi;
 import com.adyen.model.checkout.*;
 
-// Setup Client and Service
-Client client = new Client("Your X-API-KEY", Environment.TEST);
+// Setup Client using Config object
+Config config = new Config()
+    .environment(Environment.LIVE)
+    .liveEndpointUrlPrefix("myCompany")
+    .apiKey(apiKey);
+Client client = new Client(config);
+
 PaymentsApi paymentsApi = new PaymentsApi(client);
 
 // Create PaymentRequest 
@@ -120,20 +127,6 @@ PaymentResponse paymentResponse = paymentsApi.payments(paymentRequest);
 
 ~~~~
  
-### General use with API key for live environment
-For requests on live environment, you need to pass the [Live URL Prefix](https://docs.adyen.com/development-resources/live-endpoints#live-url-prefix) to the Client object:
-~~~~ java
-// Import the required classes
-import com.adyen.Client;
-import com.adyen.enums.Environment;
-import com.adyen.service.checkout.ModificationsApi
-
-// Setup Client and Service
-Client client = new Client("Your X-API-KEY", Environment.LIVE, "Your live URL prefix");
-ModificationsApi modificationsApi = new ModificationsApi(client);
-
-...
-~~~~
 ### General use with basic auth
 ~~~~ java
 // Import the required classes
@@ -141,8 +134,11 @@ import com.adyen.Client;
 import com.adyen.enums.Environment;
 import com.adyen.service.checkout.PaymentLinksApi
 
-// Setup Client and Service
-Client client = new Client("Your username", "Your password", Environment.LIVE, "Your live URL prefix", "Your application name");
+// Setup Client and Service passing prefix  
+Client client = new Client("Your username", "Your password", Environment.LIVE, "mycompany123");
+// Or setup Client and Service passing prefix and application name 
+//Client client = new Client("Your username", "Your password", Environment.LIVE, "mycompany123", "Your application name");
+
 PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
  
 ...
@@ -155,6 +151,23 @@ import com.adyen.model.checkout.PaymentRequest;
 
 // Deserialize using built-in function
 PaymentRequest paymentRequest = PaymentRequest.fromJson("YOUR_JSON_STRING");
+~~~~
+### Error handling
+
+Use a try-catch block to handle API errors. Catch the `ApiException` to inspect the response and handle specific cases:
+~~~~
+try {
+    service.getPaymentLink("1234");
+} catch (ApiException e) {
+    // Obtain response 
+    int statusCode = e.getStatusCode();
+    String responseBody = e.getResponseBody();
+    // Check ApiError object
+    ApiError apiError = e.getError();
+    String errorCode = apiError.getErrorCode();
+    List<String> invalidFields = apiError.getInvalidFields();
+    ....
+}
 ~~~~
 ### Using notification webhooks parser
 ~~~~ java
@@ -295,27 +308,9 @@ Client client = new Client(sslContext, apiKey);
 // Use the client
 ~~~~
 
-### Classic Platforms Error Handling
 
-When requests fail, the library throws exceptions. For Classic AFP endpoints like [Create Account Holder](https://docs.adyen.com/api-explorer/Account/6/post/createAccountHolder), you can decode further details from the exception:  
-
-```java
-Client client = new Client("Your YOUR_API_KEY", Environment.TEST);
-ClassicPlatformAccountApi api = new ClassicPlatformAccountApi(client);
-CreateAccountHolderRequest request = new CreateAccountHolderRequest();
-
-try {
-    api.createAccountHolder(request);
-} catch (ApiException e) {
-    CreateAccountHolderResponse error = CreateAccountHolderResponse.fromJson(e.getResponseBody());
-    // inspect the error
-    System.out.println(e.getStatusCode());
-    System.out.println(error.getInvalidFields());
-}
-```
-
-## Using the Cloud Terminal API Integration
-In order to submit In-Person requests with [Terminal API over Cloud](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/) you need to initialize the client in a similar way as the steps listed above for Ecommerce transactions, but make sure to include `TerminalCloudAPI`:
+## Using the Cloud Terminal API
+For In-Person Payments integrations with the [Cloud Terminal API](https://docs.adyen.com/point-of-sale/design-your-integration/choose-your-architecture/cloud/), you must initialise the Client **setting the closest** [Region](https://docs.adyen.com/point-of-sale/design-your-integration/terminal-api/#cloud):
 ``` java
 // Step 1: Import the required classes
 import com.adyen.Client;
@@ -325,13 +320,11 @@ import com.adyen.model.nexo.*;
 import com.adyen.model.terminal.*;
 
 // Step 2: Initialize the client object
-Client client = new Client("Your YOUR_API_KEY", Environment.TEST);
-
-// for LIVE environment use
-// Config config = new Config();
-// config.setEnvironment(Environment.LIVE);
-// config.setTerminalApiRegion(Region.EU);
-// Client client = new Client(config);
+Config config = new Config()
+    .environment(Environment.LIVE)
+    .terminalApiRegion(Region.EU)
+    .apiKey(apiKey);
+Client client = new Client(config);
 
 // Step 3: Initialize the API object
 TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
@@ -567,9 +560,7 @@ TerminalAPIRequest terminalAPIPaymentRequest = new TerminalAPIRequest();
 TerminalAPIResponse terminalAPIResponse = terminalLocalAPI.request(terminalAPIRequest);
 ```
 
-
 ### Example integrations
- 
 For a closer look at how our Java library works, you can clone one of our example integrations:
 * [Java Spring Boot example integration](https://github.com/adyen-examples/adyen-java-spring-online-payments).
 * [Kotlin Spring Boot example integration](https://github.com/adyen-examples/adyen-kotlin-spring-online-payments).
@@ -580,20 +571,15 @@ These include commented code, highlighting key features and concepts, and exampl
 We value your input! Help us enhance our API Libraries and improve the integration experience by providing your feedback. Please take a moment to fill out [our feedback form](https://forms.gle/A4EERrR6CWgKWe5r9) to share your thoughts, suggestions or ideas. 
 
 ## Contributing
- 
- 
-We encourage you to contribute to this repository, so everyone can benefit from new features, bug fixes, and any other improvements.
- 
+We encourage you to contribute to this repository, so everyone can benefit from new features, bug fixes, and any other improvements. 
  
 Have a look at our [contributing guidelines](CONTRIBUTING.md) to find out how to raise a pull request.
- 
- 
+
 ## Support
 If you have a feature request, or spotted a bug or a technical problem, [create an issue here](https://github.com/Adyen/adyen-java-api-library/issues/new/choose).
  
-For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/requests/new?ticket_form_id=39.1.1705420).
- 
- 
+For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/requests/new?ticket_form_id=39.0.0705420).
+
 ## Licence
 This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/main/LICENSE).
  
