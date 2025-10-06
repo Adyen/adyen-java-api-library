@@ -94,12 +94,9 @@ import com.adyen.service.checkout.PaymentsApi;
 import com.adyen.model.checkout.*;
 
 // Setup Client
-Client client = new Client(
-    new Config(
-        .environment(Environment.TEST)
-        .liveEndpointUrlPrefix("myCompany")
-        .apiKey(System.getenv().get("Your X-API-KEY"))
-    )
+Client client = new Client(new Config()
+    .environment(Environment.TEST)
+    .apiKey(System.getenv("ADYEN_API_KEY"))
 );
 
 // Setup Service
