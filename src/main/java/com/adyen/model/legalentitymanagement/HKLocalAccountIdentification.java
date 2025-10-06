@@ -79,11 +79,11 @@ public class HKLocalAccountIdentification {
   public HKLocalAccountIdentification() {}
 
   /**
-   * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace.
-   * Starts with the 3-digit branch code.
+   * The 9- to 17-digit bank account number, without separators or whitespace. Starts with the
+   * 3-digit branch code.
    *
-   * @param accountNumber The 9- to 15-character bank account number (alphanumeric), without
-   *     separators or whitespace. Starts with the 3-digit branch code.
+   * @param accountNumber The 9- to 17-digit bank account number, without separators or whitespace.
+   *     Starts with the 3-digit branch code.
    * @return the current {@code HKLocalAccountIdentification} instance, allowing for method chaining
    */
   public HKLocalAccountIdentification accountNumber(String accountNumber) {
@@ -92,11 +92,11 @@ public class HKLocalAccountIdentification {
   }
 
   /**
-   * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace.
-   * Starts with the 3-digit branch code.
+   * The 9- to 17-digit bank account number, without separators or whitespace. Starts with the
+   * 3-digit branch code.
    *
-   * @return accountNumber The 9- to 15-character bank account number (alphanumeric), without
-   *     separators or whitespace. Starts with the 3-digit branch code.
+   * @return accountNumber The 9- to 17-digit bank account number, without separators or whitespace.
+   *     Starts with the 3-digit branch code.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,11 +105,11 @@ public class HKLocalAccountIdentification {
   }
 
   /**
-   * The 9- to 15-character bank account number (alphanumeric), without separators or whitespace.
-   * Starts with the 3-digit branch code.
+   * The 9- to 17-digit bank account number, without separators or whitespace. Starts with the
+   * 3-digit branch code.
    *
-   * @param accountNumber The 9- to 15-character bank account number (alphanumeric), without
-   *     separators or whitespace. Starts with the 3-digit branch code.
+   * @param accountNumber The 9- to 17-digit bank account number, without separators or whitespace.
+   *     Starts with the 3-digit branch code.
    */
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
