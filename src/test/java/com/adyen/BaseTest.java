@@ -32,15 +32,7 @@ import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.additionalData.InvoiceLine;
-import com.adyen.model.nexo.AmountsReq;
-import com.adyen.model.nexo.MessageCategoryType;
-import com.adyen.model.nexo.MessageClassType;
-import com.adyen.model.nexo.MessageHeader;
-import com.adyen.model.nexo.MessageType;
-import com.adyen.model.nexo.PaymentTransaction;
-import com.adyen.model.nexo.SaleData;
-import com.adyen.model.nexo.SaleToPOIRequest;
-import com.adyen.model.nexo.TransactionIdentification;
+import com.adyen.model.nexo.*;
 import com.adyen.model.payment.ApplicationInfo;
 import com.adyen.model.payment.AuthenticationResultRequest;
 import com.adyen.model.payment.BrowserInfo;
@@ -361,6 +353,38 @@ public class BaseTest {
     paymentRequest.setPaymentTransaction(paymentTransaction);
 
     saleToPOIRequest.setPaymentRequest(paymentRequest);
+
+    TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
+    terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
+
+    return terminalAPIRequest;
+  }
+
+  protected TerminalAPIRequest createTerminalAPIInputRequest()
+      throws DatatypeConfigurationException {
+    SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
+
+    MessageHeader messageHeader = new MessageHeader();
+    messageHeader.setProtocolVersion("3.0");
+    messageHeader.setMessageClass(MessageClassType.DEVICE);
+    messageHeader.setMessageCategory(MessageCategoryType.INPUT);
+    messageHeader.setMessageType(MessageType.REQUEST);
+    messageHeader.setSaleID("001");
+    messageHeader.setServiceID("001");
+    messageHeader.setPOIID("P400Plus-123456789");
+
+    saleToPOIRequest.setMessageHeader(messageHeader);
+
+    com.adyen.model.nexo.InputRequest inputRequest = new com.adyen.model.nexo.InputRequest();
+    DisplayOutput displayOutput = new DisplayOutput();
+    OutputContent outputContent = new OutputContent();
+    PredefinedContent predefinedContent = new PredefinedContent();
+    predefinedContent.setReferenceID("GetSignature");
+    outputContent.setPredefinedContent(predefinedContent);
+    displayOutput.setOutputContent(outputContent);
+    inputRequest.setDisplayOutput(displayOutput);
+
+    saleToPOIRequest.setInputRequest(inputRequest);
 
     TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
     terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);

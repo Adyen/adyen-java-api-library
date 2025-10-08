@@ -21,7 +21,12 @@
 package com.adyen;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isNull;
+import static org.mockito.Mockito.verify;
 
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
 import com.adyen.model.nexo.MessageHeader;
@@ -45,6 +50,7 @@ import com.adyen.service.TerminalCloudAPI;
 import java.math.BigDecimal;
 import java.util.List;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
 /** Tests for /sync and /async */
 public class TerminalCloudAPITest extends BaseTest {
@@ -166,6 +172,23 @@ public class TerminalCloudAPITest extends BaseTest {
         paymentResult.getCurrencyConversion().get(0).getConvertedAmount().getAmountValue());
     assertEquals(
         "EUR", paymentResult.getCurrencyConversion().get(0).getConvertedAmount().getCurrency());
+
+    final ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+    verify(client.getHttpClient())
+        .request(
+            isNotNull(),
+            captor.capture(),
+            any(com.adyen.Config.class),
+            eq(true),
+            isNull(),
+            eq(ApiConstants.HttpMethod.POST),
+            isNull());
+
+    String requestAsJson = captor.getValue();
+    assertTrue(
+        "SaleToAcquirerData field not found", requestAsJson.contains("\"SaleToAcquirerData\":"));
+    assertFalse("Found null value", requestAsJson.contains(":null"));
+    assertFalse("Found null value", requestAsJson.contains(": null"));
   }
 
   /** Test success flow for POST /sync that includes unexpected attributes */
@@ -230,7 +253,9 @@ public class TerminalCloudAPITest extends BaseTest {
     Client client = createMockClientFromFile("mocks/terminal-api/input-request-success.json");
     TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
 
-    TerminalAPIResponse requestResponse = terminalCloudApi.sync(new TerminalAPIRequest());
+    TerminalAPIRequest inputRequest = createTerminalAPIInputRequest();
+
+    TerminalAPIResponse requestResponse = terminalCloudApi.sync(inputRequest);
 
     assertNotNull(requestResponse);
     assertNotNull(requestResponse.getSaleToPOIResponse());
@@ -254,6 +279,24 @@ public class TerminalCloudAPITest extends BaseTest {
             .getInput()
             .getMenuEntryNumber()
             .length);
+
+    final ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+    verify(client.getHttpClient())
+        .request(
+            isNotNull(),
+            captor.capture(),
+            any(com.adyen.Config.class),
+            eq(true),
+            isNull(),
+            eq(ApiConstants.HttpMethod.POST),
+            isNull());
+
+    String requestAsJson = captor.getValue();
+    assertTrue("InputRequest field not found", requestAsJson.contains("\"InputRequest\":"));
+    assertTrue(
+        "PredefinedContent field not found", requestAsJson.contains("\"PredefinedContent\":"));
+    assertFalse("Found null value", requestAsJson.contains(":null"));
+    assertFalse("Found null value", requestAsJson.contains(": null"));
   }
 
   /** Mocked response for stored value type for POST /sync */
