@@ -249,7 +249,7 @@ public class LegalEntityManagementTest extends BaseTest {
     assertEquals("string", response.getId());
     verify(client.getHttpClient())
         .request(
-            "https://kyc-test.adyen.com/lem/v3/businessLines/SE322KT223222D5FJ7TJN2986",
+            "https://kyc-test.adyen.com/lem/v4/businessLines/SE322KT223222D5FJ7TJN2986",
             request.toJson(),
             client.getConfig(),
             false,
@@ -360,7 +360,7 @@ public class LegalEntityManagementTest extends BaseTest {
     service.deleteDocument("SE322KT223222D5FJ7TJN2986");
     verify(client.getHttpClient())
         .request(
-            "https://kyc-test.adyen.com/lem/v3/documents/SE322KT223222D5FJ7TJN2986",
+            "https://kyc-test.adyen.com/lem/v4/documents/SE322KT223222D5FJ7TJN2986",
             null,
             client.getConfig(),
             false,
@@ -400,7 +400,7 @@ public class LegalEntityManagementTest extends BaseTest {
     assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     verify(client.getHttpClient())
         .request(
-            "https://kyc-test.adyen.com/lem/v3/themes/SE322KT223222D5FJ7TJN2986",
+            "https://kyc-test.adyen.com/lem/v4/themes/SE322KT223222D5FJ7TJN2986",
             null,
             client.getConfig(),
             false,
