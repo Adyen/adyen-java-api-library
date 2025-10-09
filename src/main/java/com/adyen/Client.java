@@ -10,7 +10,7 @@ public class Client {
   private ClientInterface httpClient;
   private Config config;
   public static final String LIB_NAME = "adyen-java-api-library";
-  public static final String LIB_VERSION = "39.5.0";
+  public static final String LIB_VERSION = "40.0.0";
   public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
   public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
   public static final String TERMINAL_API_ENDPOINT_US = "https://terminal-api-live-us.adyen.com";
