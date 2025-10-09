@@ -82,16 +82,16 @@ public class AdditionalSettings {
   /**
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional
    * setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the
-   * value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true**
-   * means the standard notifications you get will contain the number of hours remaining until the
-   * payment will be captured.
+   * value indicates if the setting is enabled. For example, &#x60;includeCaptureDelayHours&#x60;:
+   * **true** means the standard notifications you get will contain the number of hours remaining
+   * until the payment will be captured.
    *
    * @param properties Object containing boolean key-value pairs. The key can be any [standard
    *     webhook additional
    *     setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and
-   *     the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;:
-   *     **true** means the standard notifications you get will contain the number of hours
-   *     remaining until the payment will be captured.
+   *     the value indicates if the setting is enabled. For example,
+   *     &#x60;includeCaptureDelayHours&#x60;: **true** means the standard notifications you get
+   *     will contain the number of hours remaining until the payment will be captured.
    * @return the current {@code AdditionalSettings} instance, allowing for method chaining
    */
   public AdditionalSettings properties(Map<String, Boolean> properties) {
@@ -110,16 +110,16 @@ public class AdditionalSettings {
   /**
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional
    * setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the
-   * value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true**
-   * means the standard notifications you get will contain the number of hours remaining until the
-   * payment will be captured.
+   * value indicates if the setting is enabled. For example, &#x60;includeCaptureDelayHours&#x60;:
+   * **true** means the standard notifications you get will contain the number of hours remaining
+   * until the payment will be captured.
    *
    * @return properties Object containing boolean key-value pairs. The key can be any [standard
    *     webhook additional
    *     setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and
-   *     the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;:
-   *     **true** means the standard notifications you get will contain the number of hours
-   *     remaining until the payment will be captured.
+   *     the value indicates if the setting is enabled. For example,
+   *     &#x60;includeCaptureDelayHours&#x60;: **true** means the standard notifications you get
+   *     will contain the number of hours remaining until the payment will be captured.
    */
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,16 +130,16 @@ public class AdditionalSettings {
   /**
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional
    * setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the
-   * value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true**
-   * means the standard notifications you get will contain the number of hours remaining until the
-   * payment will be captured.
+   * value indicates if the setting is enabled. For example, &#x60;includeCaptureDelayHours&#x60;:
+   * **true** means the standard notifications you get will contain the number of hours remaining
+   * until the payment will be captured.
    *
    * @param properties Object containing boolean key-value pairs. The key can be any [standard
    *     webhook additional
    *     setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and
-   *     the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;:
-   *     **true** means the standard notifications you get will contain the number of hours
-   *     remaining until the payment will be captured.
+   *     the value indicates if the setting is enabled. For example,
+   *     &#x60;includeCaptureDelayHours&#x60;: **true** means the standard notifications you get
+   *     will contain the number of hours remaining until the payment will be captured.
    */
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

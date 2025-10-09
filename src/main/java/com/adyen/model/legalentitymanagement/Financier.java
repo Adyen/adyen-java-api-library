@@ -139,9 +139,10 @@ public class Financier {
   }
 
   /**
-   * The location of the financier.
+   * The city and country/region where the financier is currently located. For example: Chicago, USA
    *
-   * @param location The location of the financier.
+   * @param location The city and country/region where the financier is currently located. For
+   *     example: Chicago, USA
    * @return the current {@code Financier} instance, allowing for method chaining
    */
   public Financier location(String location) {
@@ -150,9 +151,10 @@ public class Financier {
   }
 
   /**
-   * The location of the financier.
+   * The city and country/region where the financier is currently located. For example: Chicago, USA
    *
-   * @return location The location of the financier.
+   * @return location The city and country/region where the financier is currently located. For
+   *     example: Chicago, USA
    */
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,9 +163,10 @@ public class Financier {
   }
 
   /**
-   * The location of the financier.
+   * The city and country/region where the financier is currently located. For example: Chicago, USA
    *
-   * @param location The location of the financier.
+   * @param location The city and country/region where the financier is currently located. For
+   *     example: Chicago, USA
    */
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

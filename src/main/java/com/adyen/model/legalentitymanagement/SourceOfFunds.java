@@ -272,11 +272,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The cryptocurrency exchange where the funds were acquired. Required if &#x60;type&#x60; is
-   * **cryptocurrencyIncome**.
+   * Required if &#x60;type&#x60; is **cryptocurrencyIncome**. The cryptocurrency exchange where the
+   * funds were acquired.
    *
-   * @param cryptocurrencyExchange The cryptocurrency exchange where the funds were acquired.
-   *     Required if &#x60;type&#x60; is **cryptocurrencyIncome**.
+   * @param cryptocurrencyExchange Required if &#x60;type&#x60; is **cryptocurrencyIncome**. The
+   *     cryptocurrency exchange where the funds were acquired.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds cryptocurrencyExchange(String cryptocurrencyExchange) {
@@ -285,11 +285,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The cryptocurrency exchange where the funds were acquired. Required if &#x60;type&#x60; is
-   * **cryptocurrencyIncome**.
+   * Required if &#x60;type&#x60; is **cryptocurrencyIncome**. The cryptocurrency exchange where the
+   * funds were acquired.
    *
-   * @return cryptocurrencyExchange The cryptocurrency exchange where the funds were acquired.
-   *     Required if &#x60;type&#x60; is **cryptocurrencyIncome**.
+   * @return cryptocurrencyExchange Required if &#x60;type&#x60; is **cryptocurrencyIncome**. The
+   *     cryptocurrency exchange where the funds were acquired.
    */
   @JsonProperty(JSON_PROPERTY_CRYPTOCURRENCY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,11 +298,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The cryptocurrency exchange where the funds were acquired. Required if &#x60;type&#x60; is
-   * **cryptocurrencyIncome**.
+   * Required if &#x60;type&#x60; is **cryptocurrencyIncome**. The cryptocurrency exchange where the
+   * funds were acquired.
    *
-   * @param cryptocurrencyExchange The cryptocurrency exchange where the funds were acquired.
-   *     Required if &#x60;type&#x60; is **cryptocurrencyIncome**.
+   * @param cryptocurrencyExchange Required if &#x60;type&#x60; is **cryptocurrencyIncome**. The
+   *     cryptocurrency exchange where the funds were acquired.
    */
   @JsonProperty(JSON_PROPERTY_CRYPTOCURRENCY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,11 +311,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The date the funds were received, in YYYY-MM-DD format. Required if &#x60;type&#x60; is
-   * **donations** or **inheritance**.
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The date the funds were
+   * received, in YYYY-MM-DD format.
    *
-   * @param dateOfFundsReceived The date the funds were received, in YYYY-MM-DD format. Required if
-   *     &#x60;type&#x60; is **donations** or **inheritance**.
+   * @param dateOfFundsReceived Required if &#x60;type&#x60; is **donations** or **inheritance**.
+   *     The date the funds were received, in YYYY-MM-DD format.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds dateOfFundsReceived(LocalDate dateOfFundsReceived) {
@@ -324,11 +324,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The date the funds were received, in YYYY-MM-DD format. Required if &#x60;type&#x60; is
-   * **donations** or **inheritance**.
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The date the funds were
+   * received, in YYYY-MM-DD format.
    *
-   * @return dateOfFundsReceived The date the funds were received, in YYYY-MM-DD format. Required if
-   *     &#x60;type&#x60; is **donations** or **inheritance**.
+   * @return dateOfFundsReceived Required if &#x60;type&#x60; is **donations** or **inheritance**.
+   *     The date the funds were received, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_FUNDS_RECEIVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,11 +337,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The date the funds were received, in YYYY-MM-DD format. Required if &#x60;type&#x60; is
-   * **donations** or **inheritance**.
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The date the funds were
+   * received, in YYYY-MM-DD format.
    *
-   * @param dateOfFundsReceived The date the funds were received, in YYYY-MM-DD format. Required if
-   *     &#x60;type&#x60; is **donations** or **inheritance**.
+   * @param dateOfFundsReceived Required if &#x60;type&#x60; is **donations** or **inheritance**.
+   *     The date the funds were received, in YYYY-MM-DD format.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_FUNDS_RECEIVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -350,16 +350,15 @@ public class SourceOfFunds {
   }
 
   /**
-   * The date the funds were received, in YYYY-MM-DD format. Required if &#x60;type&#x60; is
-   * **assetSale** or **gamblingWinnings**. For example, if the source of funds is of type
-   * **assetSale**, the dateOfSourceEvent is the date of the sale. If the source of funds is of type
+   * Required if &#x60;type&#x60; is **assetSale** or **gamblingWinnings**. The date the funds were
+   * received, in YYYY-MM-DD format. For example, if the source of funds is of type **assetSale**,
+   * the dateOfSourceEvent is the date of the sale. If the source of funds is of type
    * **gamblingWinnings**, the dateOfSourceEvent is the date of winnings.
    *
-   * @param dateOfSourceEvent The date the funds were received, in YYYY-MM-DD format. Required if
-   *     &#x60;type&#x60; is **assetSale** or **gamblingWinnings**. For example, if the source of
-   *     funds is of type **assetSale**, the dateOfSourceEvent is the date of the sale. If the
-   *     source of funds is of type **gamblingWinnings**, the dateOfSourceEvent is the date of
-   *     winnings.
+   * @param dateOfSourceEvent Required if &#x60;type&#x60; is **assetSale** or **gamblingWinnings**.
+   *     The date the funds were received, in YYYY-MM-DD format. For example, if the source of funds
+   *     is of type **assetSale**, the dateOfSourceEvent is the date of the sale. If the source of
+   *     funds is of type **gamblingWinnings**, the dateOfSourceEvent is the date of winnings.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds dateOfSourceEvent(LocalDate dateOfSourceEvent) {
@@ -368,16 +367,16 @@ public class SourceOfFunds {
   }
 
   /**
-   * The date the funds were received, in YYYY-MM-DD format. Required if &#x60;type&#x60; is
-   * **assetSale** or **gamblingWinnings**. For example, if the source of funds is of type
-   * **assetSale**, the dateOfSourceEvent is the date of the sale. If the source of funds is of type
+   * Required if &#x60;type&#x60; is **assetSale** or **gamblingWinnings**. The date the funds were
+   * received, in YYYY-MM-DD format. For example, if the source of funds is of type **assetSale**,
+   * the dateOfSourceEvent is the date of the sale. If the source of funds is of type
    * **gamblingWinnings**, the dateOfSourceEvent is the date of winnings.
    *
-   * @return dateOfSourceEvent The date the funds were received, in YYYY-MM-DD format. Required if
-   *     &#x60;type&#x60; is **assetSale** or **gamblingWinnings**. For example, if the source of
-   *     funds is of type **assetSale**, the dateOfSourceEvent is the date of the sale. If the
-   *     source of funds is of type **gamblingWinnings**, the dateOfSourceEvent is the date of
-   *     winnings.
+   * @return dateOfSourceEvent Required if &#x60;type&#x60; is **assetSale** or
+   *     **gamblingWinnings**. The date the funds were received, in YYYY-MM-DD format. For example,
+   *     if the source of funds is of type **assetSale**, the dateOfSourceEvent is the date of the
+   *     sale. If the source of funds is of type **gamblingWinnings**, the dateOfSourceEvent is the
+   *     date of winnings.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_SOURCE_EVENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,16 +385,15 @@ public class SourceOfFunds {
   }
 
   /**
-   * The date the funds were received, in YYYY-MM-DD format. Required if &#x60;type&#x60; is
-   * **assetSale** or **gamblingWinnings**. For example, if the source of funds is of type
-   * **assetSale**, the dateOfSourceEvent is the date of the sale. If the source of funds is of type
+   * Required if &#x60;type&#x60; is **assetSale** or **gamblingWinnings**. The date the funds were
+   * received, in YYYY-MM-DD format. For example, if the source of funds is of type **assetSale**,
+   * the dateOfSourceEvent is the date of the sale. If the source of funds is of type
    * **gamblingWinnings**, the dateOfSourceEvent is the date of winnings.
    *
-   * @param dateOfSourceEvent The date the funds were received, in YYYY-MM-DD format. Required if
-   *     &#x60;type&#x60; is **assetSale** or **gamblingWinnings**. For example, if the source of
-   *     funds is of type **assetSale**, the dateOfSourceEvent is the date of the sale. If the
-   *     source of funds is of type **gamblingWinnings**, the dateOfSourceEvent is the date of
-   *     winnings.
+   * @param dateOfSourceEvent Required if &#x60;type&#x60; is **assetSale** or **gamblingWinnings**.
+   *     The date the funds were received, in YYYY-MM-DD format. For example, if the source of funds
+   *     is of type **assetSale**, the dateOfSourceEvent is the date of the sale. If the source of
+   *     funds is of type **gamblingWinnings**, the dateOfSourceEvent is the date of winnings.
    */
   @JsonProperty(JSON_PROPERTY_DATE_OF_SOURCE_EVENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,14 +402,14 @@ public class SourceOfFunds {
   }
 
   /**
-   * Text describing the source of funds. Required if &#x60;type&#x60; is **business** or
-   * **assetSale**. For example, for &#x60;type&#x60; **business**, provide a description of where
-   * the business transactions come from, such as payments through bank transfer. For
-   * &#x60;type&#x60; **assetSale**, provide a description of the asset. For example, the address of
-   * a residential property if it is a property sale.
+   * Required if &#x60;type&#x60; is **business** or **assetSale**. A description for the source of
+   * funds. For example, for &#x60;type&#x60; **business**, provide a description of where the
+   * business transactions come from, such as payments through bank transfer. For &#x60;type&#x60;
+   * **assetSale**, provide a description of the asset. For example, the address of a residential
+   * property if it is a property sale.
    *
-   * @param description Text describing the source of funds. Required if &#x60;type&#x60; is
-   *     **business** or **assetSale**. For example, for &#x60;type&#x60; **business**, provide a
+   * @param description Required if &#x60;type&#x60; is **business** or **assetSale**. A description
+   *     for the source of funds. For example, for &#x60;type&#x60; **business**, provide a
    *     description of where the business transactions come from, such as payments through bank
    *     transfer. For &#x60;type&#x60; **assetSale**, provide a description of the asset. For
    *     example, the address of a residential property if it is a property sale.
@@ -423,17 +421,17 @@ public class SourceOfFunds {
   }
 
   /**
-   * Text describing the source of funds. Required if &#x60;type&#x60; is **business** or
-   * **assetSale**. For example, for &#x60;type&#x60; **business**, provide a description of where
-   * the business transactions come from, such as payments through bank transfer. For
-   * &#x60;type&#x60; **assetSale**, provide a description of the asset. For example, the address of
-   * a residential property if it is a property sale.
+   * Required if &#x60;type&#x60; is **business** or **assetSale**. A description for the source of
+   * funds. For example, for &#x60;type&#x60; **business**, provide a description of where the
+   * business transactions come from, such as payments through bank transfer. For &#x60;type&#x60;
+   * **assetSale**, provide a description of the asset. For example, the address of a residential
+   * property if it is a property sale.
    *
-   * @return description Text describing the source of funds. Required if &#x60;type&#x60; is
-   *     **business** or **assetSale**. For example, for &#x60;type&#x60; **business**, provide a
-   *     description of where the business transactions come from, such as payments through bank
-   *     transfer. For &#x60;type&#x60; **assetSale**, provide a description of the asset. For
-   *     example, the address of a residential property if it is a property sale.
+   * @return description Required if &#x60;type&#x60; is **business** or **assetSale**. A
+   *     description for the source of funds. For example, for &#x60;type&#x60; **business**,
+   *     provide a description of where the business transactions come from, such as payments
+   *     through bank transfer. For &#x60;type&#x60; **assetSale**, provide a description of the
+   *     asset. For example, the address of a residential property if it is a property sale.
    */
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -442,14 +440,14 @@ public class SourceOfFunds {
   }
 
   /**
-   * Text describing the source of funds. Required if &#x60;type&#x60; is **business** or
-   * **assetSale**. For example, for &#x60;type&#x60; **business**, provide a description of where
-   * the business transactions come from, such as payments through bank transfer. For
-   * &#x60;type&#x60; **assetSale**, provide a description of the asset. For example, the address of
-   * a residential property if it is a property sale.
+   * Required if &#x60;type&#x60; is **business** or **assetSale**. A description for the source of
+   * funds. For example, for &#x60;type&#x60; **business**, provide a description of where the
+   * business transactions come from, such as payments through bank transfer. For &#x60;type&#x60;
+   * **assetSale**, provide a description of the asset. For example, the address of a residential
+   * property if it is a property sale.
    *
-   * @param description Text describing the source of funds. Required if &#x60;type&#x60; is
-   *     **business** or **assetSale**. For example, for &#x60;type&#x60; **business**, provide a
+   * @param description Required if &#x60;type&#x60; is **business** or **assetSale**. A description
+   *     for the source of funds. For example, for &#x60;type&#x60; **business**, provide a
    *     description of where the business transactions come from, such as payments through bank
    *     transfer. For &#x60;type&#x60; **assetSale**, provide a description of the asset. For
    *     example, the address of a residential property if it is a property sale.
@@ -461,10 +459,10 @@ public class SourceOfFunds {
   }
 
   /**
-   * Information about the financiers. Required if &#x60;type&#x60; is **thirdPartyFunding**.
+   * Required if &#x60;type&#x60; is **thirdPartyFunding**. Information about the financiers.
    *
-   * @param financiers Information about the financiers. Required if &#x60;type&#x60; is
-   *     **thirdPartyFunding**.
+   * @param financiers Required if &#x60;type&#x60; is **thirdPartyFunding**. Information about the
+   *     financiers.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds financiers(List<Financier> financiers) {
@@ -481,10 +479,10 @@ public class SourceOfFunds {
   }
 
   /**
-   * Information about the financiers. Required if &#x60;type&#x60; is **thirdPartyFunding**.
+   * Required if &#x60;type&#x60; is **thirdPartyFunding**. Information about the financiers.
    *
-   * @return financiers Information about the financiers. Required if &#x60;type&#x60; is
-   *     **thirdPartyFunding**.
+   * @return financiers Required if &#x60;type&#x60; is **thirdPartyFunding**. Information about the
+   *     financiers.
    */
   @JsonProperty(JSON_PROPERTY_FINANCIERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -493,10 +491,10 @@ public class SourceOfFunds {
   }
 
   /**
-   * Information about the financiers. Required if &#x60;type&#x60; is **thirdPartyFunding**.
+   * Required if &#x60;type&#x60; is **thirdPartyFunding**. Information about the financiers.
    *
-   * @param financiers Information about the financiers. Required if &#x60;type&#x60; is
-   *     **thirdPartyFunding**.
+   * @param financiers Required if &#x60;type&#x60; is **thirdPartyFunding**. Information about the
+   *     financiers.
    */
   @JsonProperty(JSON_PROPERTY_FINANCIERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -505,15 +503,16 @@ public class SourceOfFunds {
   }
 
   /**
-   * The legal entity ID representing the originator of the source of funds. Required if
-   * &#x60;type&#x60; is **donations** or **inheritance**. For example, if the source of funds is
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The legal entity ID
+   * representing the originator of the source of funds. For example, if the source of funds is
    * **inheritance**, then &#x60;originatorOfFundsReference&#x60; should be the legal entity
    * reference of the benefactor.
    *
-   * @param originatorLegalEntityId The legal entity ID representing the originator of the source of
-   *     funds. Required if &#x60;type&#x60; is **donations** or **inheritance**. For example, if
-   *     the source of funds is **inheritance**, then &#x60;originatorOfFundsReference&#x60; should
-   *     be the legal entity reference of the benefactor.
+   * @param originatorLegalEntityId Required if &#x60;type&#x60; is **donations** or
+   *     **inheritance**. The legal entity ID representing the originator of the source of funds.
+   *     For example, if the source of funds is **inheritance**, then
+   *     &#x60;originatorOfFundsReference&#x60; should be the legal entity reference of the
+   *     benefactor.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds originatorLegalEntityId(String originatorLegalEntityId) {
@@ -522,15 +521,16 @@ public class SourceOfFunds {
   }
 
   /**
-   * The legal entity ID representing the originator of the source of funds. Required if
-   * &#x60;type&#x60; is **donations** or **inheritance**. For example, if the source of funds is
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The legal entity ID
+   * representing the originator of the source of funds. For example, if the source of funds is
    * **inheritance**, then &#x60;originatorOfFundsReference&#x60; should be the legal entity
    * reference of the benefactor.
    *
-   * @return originatorLegalEntityId The legal entity ID representing the originator of the source
-   *     of funds. Required if &#x60;type&#x60; is **donations** or **inheritance**. For example, if
-   *     the source of funds is **inheritance**, then &#x60;originatorOfFundsReference&#x60; should
-   *     be the legal entity reference of the benefactor.
+   * @return originatorLegalEntityId Required if &#x60;type&#x60; is **donations** or
+   *     **inheritance**. The legal entity ID representing the originator of the source of funds.
+   *     For example, if the source of funds is **inheritance**, then
+   *     &#x60;originatorOfFundsReference&#x60; should be the legal entity reference of the
+   *     benefactor.
    */
   @JsonProperty(JSON_PROPERTY_ORIGINATOR_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -539,15 +539,16 @@ public class SourceOfFunds {
   }
 
   /**
-   * The legal entity ID representing the originator of the source of funds. Required if
-   * &#x60;type&#x60; is **donations** or **inheritance**. For example, if the source of funds is
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The legal entity ID
+   * representing the originator of the source of funds. For example, if the source of funds is
    * **inheritance**, then &#x60;originatorOfFundsReference&#x60; should be the legal entity
    * reference of the benefactor.
    *
-   * @param originatorLegalEntityId The legal entity ID representing the originator of the source of
-   *     funds. Required if &#x60;type&#x60; is **donations** or **inheritance**. For example, if
-   *     the source of funds is **inheritance**, then &#x60;originatorOfFundsReference&#x60; should
-   *     be the legal entity reference of the benefactor.
+   * @param originatorLegalEntityId Required if &#x60;type&#x60; is **donations** or
+   *     **inheritance**. The legal entity ID representing the originator of the source of funds.
+   *     For example, if the source of funds is **inheritance**, then
+   *     &#x60;originatorOfFundsReference&#x60; should be the legal entity reference of the
+   *     benefactor.
    */
   @JsonProperty(JSON_PROPERTY_ORIGINATOR_LEGAL_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -556,10 +557,10 @@ public class SourceOfFunds {
   }
 
   /**
-   * The reason for receiving the funds. Required if &#x60;type&#x60; is **donations**.
+   * Required if &#x60;type&#x60; is **donations**. The reason for receiving the funds.
    *
-   * @param purpose The reason for receiving the funds. Required if &#x60;type&#x60; is
-   *     **donations**.
+   * @param purpose Required if &#x60;type&#x60; is **donations**. The reason for receiving the
+   *     funds.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds purpose(String purpose) {
@@ -568,10 +569,10 @@ public class SourceOfFunds {
   }
 
   /**
-   * The reason for receiving the funds. Required if &#x60;type&#x60; is **donations**.
+   * Required if &#x60;type&#x60; is **donations**. The reason for receiving the funds.
    *
-   * @return purpose The reason for receiving the funds. Required if &#x60;type&#x60; is
-   *     **donations**.
+   * @return purpose Required if &#x60;type&#x60; is **donations**. The reason for receiving the
+   *     funds.
    */
   @JsonProperty(JSON_PROPERTY_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -580,10 +581,10 @@ public class SourceOfFunds {
   }
 
   /**
-   * The reason for receiving the funds. Required if &#x60;type&#x60; is **donations**.
+   * Required if &#x60;type&#x60; is **donations**. The reason for receiving the funds.
    *
-   * @param purpose The reason for receiving the funds. Required if &#x60;type&#x60; is
-   *     **donations**.
+   * @param purpose Required if &#x60;type&#x60; is **donations**. The reason for receiving the
+   *     funds.
    */
   @JsonProperty(JSON_PROPERTY_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -592,11 +593,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The relationship of the originator of the funds to the recipient. Required if &#x60;type&#x60;
-   * is **donations** or **inheritance**.
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The relationship of the
+   * originator of the funds to the recipient.
    *
-   * @param relationship The relationship of the originator of the funds to the recipient. Required
-   *     if &#x60;type&#x60; is **donations** or **inheritance**.
+   * @param relationship Required if &#x60;type&#x60; is **donations** or **inheritance**. The
+   *     relationship of the originator of the funds to the recipient.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds relationship(String relationship) {
@@ -605,11 +606,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The relationship of the originator of the funds to the recipient. Required if &#x60;type&#x60;
-   * is **donations** or **inheritance**.
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The relationship of the
+   * originator of the funds to the recipient.
    *
-   * @return relationship The relationship of the originator of the funds to the recipient. Required
-   *     if &#x60;type&#x60; is **donations** or **inheritance**.
+   * @return relationship Required if &#x60;type&#x60; is **donations** or **inheritance**. The
+   *     relationship of the originator of the funds to the recipient.
    */
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -618,11 +619,11 @@ public class SourceOfFunds {
   }
 
   /**
-   * The relationship of the originator of the funds to the recipient. Required if &#x60;type&#x60;
-   * is **donations** or **inheritance**.
+   * Required if &#x60;type&#x60; is **donations** or **inheritance**. The relationship of the
+   * originator of the funds to the recipient.
    *
-   * @param relationship The relationship of the originator of the funds to the recipient. Required
-   *     if &#x60;type&#x60; is **donations** or **inheritance**.
+   * @param relationship Required if &#x60;type&#x60; is **donations** or **inheritance**. The
+   *     relationship of the originator of the funds to the recipient.
    */
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -683,12 +684,13 @@ public class SourceOfFunds {
   }
 
   /**
-   * The location of the gambling site. Required if &#x60;type&#x60; is **gamblingWinnings**. If the
-   * source of funds is online gambling, provide the website of the gambling company.
+   * Required if &#x60;type&#x60; is **gamblingWinnings**. The location of the gambling site for the
+   * winnings. For example, if the source of funds is online gambling, provide the website of the
+   * gambling company.
    *
-   * @param website The location of the gambling site. Required if &#x60;type&#x60; is
-   *     **gamblingWinnings**. If the source of funds is online gambling, provide the website of the
-   *     gambling company.
+   * @param website Required if &#x60;type&#x60; is **gamblingWinnings**. The location of the
+   *     gambling site for the winnings. For example, if the source of funds is online gambling,
+   *     provide the website of the gambling company.
    * @return the current {@code SourceOfFunds} instance, allowing for method chaining
    */
   public SourceOfFunds website(String website) {
@@ -697,12 +699,13 @@ public class SourceOfFunds {
   }
 
   /**
-   * The location of the gambling site. Required if &#x60;type&#x60; is **gamblingWinnings**. If the
-   * source of funds is online gambling, provide the website of the gambling company.
+   * Required if &#x60;type&#x60; is **gamblingWinnings**. The location of the gambling site for the
+   * winnings. For example, if the source of funds is online gambling, provide the website of the
+   * gambling company.
    *
-   * @return website The location of the gambling site. Required if &#x60;type&#x60; is
-   *     **gamblingWinnings**. If the source of funds is online gambling, provide the website of the
-   *     gambling company.
+   * @return website Required if &#x60;type&#x60; is **gamblingWinnings**. The location of the
+   *     gambling site for the winnings. For example, if the source of funds is online gambling,
+   *     provide the website of the gambling company.
    */
   @JsonProperty(JSON_PROPERTY_WEBSITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -711,12 +714,13 @@ public class SourceOfFunds {
   }
 
   /**
-   * The location of the gambling site. Required if &#x60;type&#x60; is **gamblingWinnings**. If the
-   * source of funds is online gambling, provide the website of the gambling company.
+   * Required if &#x60;type&#x60; is **gamblingWinnings**. The location of the gambling site for the
+   * winnings. For example, if the source of funds is online gambling, provide the website of the
+   * gambling company.
    *
-   * @param website The location of the gambling site. Required if &#x60;type&#x60; is
-   *     **gamblingWinnings**. If the source of funds is online gambling, provide the website of the
-   *     gambling company.
+   * @param website Required if &#x60;type&#x60; is **gamblingWinnings**. The location of the
+   *     gambling site for the winnings. For example, if the source of funds is online gambling,
+   *     provide the website of the gambling company.
    */
   @JsonProperty(JSON_PROPERTY_WEBSITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
