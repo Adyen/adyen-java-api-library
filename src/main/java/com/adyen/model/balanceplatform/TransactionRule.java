@@ -59,11 +59,14 @@ public class TransactionRule {
 
   /**
    * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied
-   * when a transaction meets the conditions of the rule. Possible values: * **hardBlock**: the
-   * transaction is declined. * **scoreBased**: the transaction is assigned the &#x60;score&#x60;
-   * you specified. Adyen calculates the total score and if it exceeds 100, the transaction is
-   * declined. Default value: **hardBlock**. &gt; **scoreBased** is not allowed when
-   * &#x60;requestType&#x60; is **bankTransfer**.
+   * when a transaction meets the conditions of the rule. Possible values: * **hardBlock**
+   * (default): the transaction is declined. * **scoreBased**: the transaction is assigned the
+   * &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the
+   * transaction is declined. This value is not allowed when &#x60;requestType&#x60; is
+   * **bankTransfer**. * **enforceSCA**: your user is prompted to verify their identity using [3D
+   * Secure authentication](https://docs.adyen.com/issuing/3d-secure/). If the authentication fails
+   * or times out, the transaction is declined. This value is only allowed when
+   * &#x60;requestType&#x60; is **authentication**.
    */
   public enum OutcomeTypeEnum {
     ENFORCESCA(String.valueOf("enforceSCA")),
@@ -524,18 +527,25 @@ public class TransactionRule {
 
   /**
    * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied
-   * when a transaction meets the conditions of the rule. Possible values: * **hardBlock**: the
-   * transaction is declined. * **scoreBased**: the transaction is assigned the &#x60;score&#x60;
-   * you specified. Adyen calculates the total score and if it exceeds 100, the transaction is
-   * declined. Default value: **hardBlock**. &gt; **scoreBased** is not allowed when
-   * &#x60;requestType&#x60; is **bankTransfer**.
+   * when a transaction meets the conditions of the rule. Possible values: * **hardBlock**
+   * (default): the transaction is declined. * **scoreBased**: the transaction is assigned the
+   * &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the
+   * transaction is declined. This value is not allowed when &#x60;requestType&#x60; is
+   * **bankTransfer**. * **enforceSCA**: your user is prompted to verify their identity using [3D
+   * Secure authentication](https://docs.adyen.com/issuing/3d-secure/). If the authentication fails
+   * or times out, the transaction is declined. This value is only allowed when
+   * &#x60;requestType&#x60; is **authentication**.
    *
    * @param outcomeType The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that
    *     will be applied when a transaction meets the conditions of the rule. Possible values: *
-   *     **hardBlock**: the transaction is declined. * **scoreBased**: the transaction is assigned
-   *     the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds
-   *     100, the transaction is declined. Default value: **hardBlock**. &gt; **scoreBased** is not
-   *     allowed when &#x60;requestType&#x60; is **bankTransfer**.
+   *     **hardBlock** (default): the transaction is declined. * **scoreBased**: the transaction is
+   *     assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it
+   *     exceeds 100, the transaction is declined. This value is not allowed when
+   *     &#x60;requestType&#x60; is **bankTransfer**. * **enforceSCA**: your user is prompted to
+   *     verify their identity using [3D Secure
+   *     authentication](https://docs.adyen.com/issuing/3d-secure/). If the authentication fails or
+   *     times out, the transaction is declined. This value is only allowed when
+   *     &#x60;requestType&#x60; is **authentication**.
    * @return the current {@code TransactionRule} instance, allowing for method chaining
    */
   public TransactionRule outcomeType(OutcomeTypeEnum outcomeType) {
@@ -545,18 +555,25 @@ public class TransactionRule {
 
   /**
    * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied
-   * when a transaction meets the conditions of the rule. Possible values: * **hardBlock**: the
-   * transaction is declined. * **scoreBased**: the transaction is assigned the &#x60;score&#x60;
-   * you specified. Adyen calculates the total score and if it exceeds 100, the transaction is
-   * declined. Default value: **hardBlock**. &gt; **scoreBased** is not allowed when
-   * &#x60;requestType&#x60; is **bankTransfer**.
+   * when a transaction meets the conditions of the rule. Possible values: * **hardBlock**
+   * (default): the transaction is declined. * **scoreBased**: the transaction is assigned the
+   * &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the
+   * transaction is declined. This value is not allowed when &#x60;requestType&#x60; is
+   * **bankTransfer**. * **enforceSCA**: your user is prompted to verify their identity using [3D
+   * Secure authentication](https://docs.adyen.com/issuing/3d-secure/). If the authentication fails
+   * or times out, the transaction is declined. This value is only allowed when
+   * &#x60;requestType&#x60; is **authentication**.
    *
    * @return outcomeType The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome)
    *     that will be applied when a transaction meets the conditions of the rule. Possible values:
-   *     * **hardBlock**: the transaction is declined. * **scoreBased**: the transaction is assigned
-   *     the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds
-   *     100, the transaction is declined. Default value: **hardBlock**. &gt; **scoreBased** is not
-   *     allowed when &#x60;requestType&#x60; is **bankTransfer**.
+   *     * **hardBlock** (default): the transaction is declined. * **scoreBased**: the transaction
+   *     is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it
+   *     exceeds 100, the transaction is declined. This value is not allowed when
+   *     &#x60;requestType&#x60; is **bankTransfer**. * **enforceSCA**: your user is prompted to
+   *     verify their identity using [3D Secure
+   *     authentication](https://docs.adyen.com/issuing/3d-secure/). If the authentication fails or
+   *     times out, the transaction is declined. This value is only allowed when
+   *     &#x60;requestType&#x60; is **authentication**.
    */
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -566,18 +583,25 @@ public class TransactionRule {
 
   /**
    * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied
-   * when a transaction meets the conditions of the rule. Possible values: * **hardBlock**: the
-   * transaction is declined. * **scoreBased**: the transaction is assigned the &#x60;score&#x60;
-   * you specified. Adyen calculates the total score and if it exceeds 100, the transaction is
-   * declined. Default value: **hardBlock**. &gt; **scoreBased** is not allowed when
-   * &#x60;requestType&#x60; is **bankTransfer**.
+   * when a transaction meets the conditions of the rule. Possible values: * **hardBlock**
+   * (default): the transaction is declined. * **scoreBased**: the transaction is assigned the
+   * &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the
+   * transaction is declined. This value is not allowed when &#x60;requestType&#x60; is
+   * **bankTransfer**. * **enforceSCA**: your user is prompted to verify their identity using [3D
+   * Secure authentication](https://docs.adyen.com/issuing/3d-secure/). If the authentication fails
+   * or times out, the transaction is declined. This value is only allowed when
+   * &#x60;requestType&#x60; is **authentication**.
    *
    * @param outcomeType The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that
    *     will be applied when a transaction meets the conditions of the rule. Possible values: *
-   *     **hardBlock**: the transaction is declined. * **scoreBased**: the transaction is assigned
-   *     the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds
-   *     100, the transaction is declined. Default value: **hardBlock**. &gt; **scoreBased** is not
-   *     allowed when &#x60;requestType&#x60; is **bankTransfer**.
+   *     **hardBlock** (default): the transaction is declined. * **scoreBased**: the transaction is
+   *     assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it
+   *     exceeds 100, the transaction is declined. This value is not allowed when
+   *     &#x60;requestType&#x60; is **bankTransfer**. * **enforceSCA**: your user is prompted to
+   *     verify their identity using [3D Secure
+   *     authentication](https://docs.adyen.com/issuing/3d-secure/). If the authentication fails or
+   *     times out, the transaction is declined. This value is only allowed when
+   *     &#x60;requestType&#x60; is **authentication**.
    */
   @JsonProperty(JSON_PROPERTY_OUTCOME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
