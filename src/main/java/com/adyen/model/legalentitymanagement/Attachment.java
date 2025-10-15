@@ -198,13 +198,14 @@ public class Attachment {
 
   /**
    * Specifies which side of the ID card is uploaded. * If the &#x60;type&#x60; is
-   * **driversLicense** or **identityCard**, you must set this to **front** or **back**. * For any
-   * other types, when this is omitted, we infer the page number based on the order of attachments.
+   * **driversLicense** or **identityCard**, you must set this to **front** or **back** and include
+   * both sides in the same API request. * For any other types, when this is omitted, we infer the
+   * page number based on the order of attachments.
    *
    * @param pageType Specifies which side of the ID card is uploaded. * If the &#x60;type&#x60; is
-   *     **driversLicense** or **identityCard**, you must set this to **front** or **back**. * For
-   *     any other types, when this is omitted, we infer the page number based on the order of
-   *     attachments.
+   *     **driversLicense** or **identityCard**, you must set this to **front** or **back** and
+   *     include both sides in the same API request. * For any other types, when this is omitted, we
+   *     infer the page number based on the order of attachments.
    * @return the current {@code Attachment} instance, allowing for method chaining
    */
   public Attachment pageType(String pageType) {
@@ -214,13 +215,14 @@ public class Attachment {
 
   /**
    * Specifies which side of the ID card is uploaded. * If the &#x60;type&#x60; is
-   * **driversLicense** or **identityCard**, you must set this to **front** or **back**. * For any
-   * other types, when this is omitted, we infer the page number based on the order of attachments.
+   * **driversLicense** or **identityCard**, you must set this to **front** or **back** and include
+   * both sides in the same API request. * For any other types, when this is omitted, we infer the
+   * page number based on the order of attachments.
    *
    * @return pageType Specifies which side of the ID card is uploaded. * If the &#x60;type&#x60; is
-   *     **driversLicense** or **identityCard**, you must set this to **front** or **back**. * For
-   *     any other types, when this is omitted, we infer the page number based on the order of
-   *     attachments.
+   *     **driversLicense** or **identityCard**, you must set this to **front** or **back** and
+   *     include both sides in the same API request. * For any other types, when this is omitted, we
+   *     infer the page number based on the order of attachments.
    */
   @JsonProperty(JSON_PROPERTY_PAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,13 +232,14 @@ public class Attachment {
 
   /**
    * Specifies which side of the ID card is uploaded. * If the &#x60;type&#x60; is
-   * **driversLicense** or **identityCard**, you must set this to **front** or **back**. * For any
-   * other types, when this is omitted, we infer the page number based on the order of attachments.
+   * **driversLicense** or **identityCard**, you must set this to **front** or **back** and include
+   * both sides in the same API request. * For any other types, when this is omitted, we infer the
+   * page number based on the order of attachments.
    *
    * @param pageType Specifies which side of the ID card is uploaded. * If the &#x60;type&#x60; is
-   *     **driversLicense** or **identityCard**, you must set this to **front** or **back**. * For
-   *     any other types, when this is omitted, we infer the page number based on the order of
-   *     attachments.
+   *     **driversLicense** or **identityCard**, you must set this to **front** or **back** and
+   *     include both sides in the same API request. * For any other types, when this is omitted, we
+   *     infer the page number based on the order of attachments.
    */
   @JsonProperty(JSON_PROPERTY_PAGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
