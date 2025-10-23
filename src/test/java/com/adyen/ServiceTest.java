@@ -92,4 +92,13 @@ public class ServiceTest extends BaseTest {
     String actualUrl = service.createBaseURL(testUrl);
     assertEquals(expectedUrl, actualUrl);
   }
+
+  @Test
+  public void testSessionAuthenticationLiveUrl() {
+    String testUrl = "https://test.adyen.com/authe/api/v1";
+    String expectedUrl = "https://authe-live.adyen.com/authe/api/v1";
+
+    String actualUrl = service.createBaseURL(testUrl);
+    assertEquals(expectedUrl, actualUrl);
+  }
 }
