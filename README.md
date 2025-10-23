@@ -143,6 +143,67 @@ PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
  
 ...
 ~~~~
+
+### Making requests with additional headers
+
+You can include additional headers and an [idempotency key](https://docs.adyen.com/development-resources/api-idempotency/) in your API requests using the `RequestOptions` object.
+
+~~~~ java
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.enums.Environment;
+import com.adyen.model.RequestOptions;
+import com.adyen.service.checkout.PaymentsApi;
+import com.adyen.model.checkout.PaymentRequest;
+import com.adyen.model.checkout.PaymentResponse;
+import com.adyen.model.checkout.Amount;
+import com.adyen.model.checkout.CardDetails;
+import com.adyen.model.checkout.CheckoutPaymentMethod;
+
+import java.util.HashMap;
+import java.util.Map;
+
+// Setup Client using Config object
+Config config = new Config()
+    .environment(Environment.TEST) // Or Environment.LIVE
+    .apiKey("YOUR_API_KEY");
+Client client = new Client(config);
+
+// Create RequestOptions
+HashMap<String, String> additionalHeaders = new HashMap<>();
+additionalHeaders.put("X-Custom-Header", "custom-value");
+
+RequestOptions requestOptions = new RequestOptions()
+    .idempotencyKey("YOUR_IDEMPOTENCY_KEY") // use UUID
+    .additionalServiceHeaders(additionalHeaders);
+
+PaymentsApi paymentsApi = new PaymentsApi(client);
+
+// Create PaymentRequest (example from existing README)
+CardDetails cardDetails =
+    new CardDetails()
+      .type(CardDetails.TypeEnum.SCHEME)
+      .encryptedCardNumber("5136333333333335")
+      .holderName("John Doe")
+      .cvc("737")
+      .encryptedExpiryMonth("08")
+      .encryptedExpiryYear("2018");
+PaymentRequest paymentRequest =
+  new PaymentRequest()
+      .merchantAccount("YOUR_MERCHANT_ACCOUNT")
+      .reference("YOUR_REFERENCE")
+      .amount(new Amount()
+          .currency("EUR")
+          .value(1000L))
+      .returnUrl("https://your-company.example.org/checkout?shopperOrder=12xy..")
+      .paymentMethod(new CheckoutPaymentMethod(cardDetails));
+
+// Make a call to the /payments endpoint with RequestOptions
+PaymentResponse paymentResponse = paymentsApi.payments(paymentRequest, requestOptions);
+
+// Process paymentResponse
+System.out.println("Payment response: " + paymentResponse.toJson());
+~~~~
 ### Deserializing JSON Strings
 In some setups you might need to deserialize JSON strings to request objects. For example, when using the libraries in combination with [Dropin/Components](https://github.com/Adyen/adyen-web). Please use the built-in deserialization functions:
 ~~~~ java
