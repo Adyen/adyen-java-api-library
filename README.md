@@ -170,7 +170,7 @@ Config config = new Config()
 Client client = new Client(config);
 
 // Create RequestOptions
-Map<String, String> additionalHeaders = new HashMap<>();
+HashMap<String, String> additionalHeaders = new HashMap<>();
 additionalHeaders.put("X-Custom-Header", "custom-value");
 
 RequestOptions requestOptions = new RequestOptions()
