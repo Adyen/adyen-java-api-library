@@ -89,6 +89,10 @@ public class Service {
       return url.replaceFirst("-live", "-test");
     }
 
+    if (url.contains("/authe/")) {
+      return url.replaceFirst("https://test.adyen.com/", "https://authe-live.adyen.com/");
+    }
+
     if (url.contains("pal-")) {
       if (config.getLiveEndpointUrlPrefix() == null) {
         throw new IllegalArgumentException("please provide a live url prefix in the client");
