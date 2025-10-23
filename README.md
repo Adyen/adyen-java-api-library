@@ -148,7 +148,7 @@ PaymentLinksApi paymentLinksApi = new PaymentLinksApi(client);
 
 You can include additional headers and an [idempotency key](https://docs.adyen.com/development-resources/api-idempotency/) in your API requests using the `RequestOptions` object.
 
-~~~ java
+~~~~ java
 import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.enums.Environment;
