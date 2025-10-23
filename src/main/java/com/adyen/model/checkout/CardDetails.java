@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 
 /** CardDetails */
 @JsonPropertyOrder({
+  CardDetails.JSON_PROPERTY_BILLING_SEQUENCE_NUMBER,
   CardDetails.JSON_PROPERTY_BRAND,
   CardDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   CardDetails.JSON_PROPERTY_CUPSECUREPLUS_SMSCODE,
@@ -51,6 +52,9 @@ import java.util.logging.Logger;
   CardDetails.JSON_PROPERTY_TYPE
 })
 public class CardDetails {
+  public static final String JSON_PROPERTY_BILLING_SEQUENCE_NUMBER = "billingSequenceNumber";
+  private String billingSequenceNumber;
+
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
@@ -229,6 +233,48 @@ public class CardDetails {
   private TypeEnum type;
 
   public CardDetails() {}
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @param billingSequenceNumber The sequence number for the debit. For example, send **2** if this
+   *     is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   * @return the current {@code CardDetails} instance, allowing for method chaining
+   */
+  public CardDetails billingSequenceNumber(String billingSequenceNumber) {
+    this.billingSequenceNumber = billingSequenceNumber;
+    return this;
+  }
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @return billingSequenceNumber The sequence number for the debit. For example, send **2** if
+   *     this is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   */
+  @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBillingSequenceNumber() {
+    return billingSequenceNumber;
+  }
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @param billingSequenceNumber The sequence number for the debit. For example, send **2** if this
+   *     is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   */
+  @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBillingSequenceNumber(String billingSequenceNumber) {
+    this.billingSequenceNumber = billingSequenceNumber;
+  }
 
   /**
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
@@ -1197,7 +1243,8 @@ public class CardDetails {
       return false;
     }
     CardDetails cardDetails = (CardDetails) o;
-    return Objects.equals(this.brand, cardDetails.brand)
+    return Objects.equals(this.billingSequenceNumber, cardDetails.billingSequenceNumber)
+        && Objects.equals(this.brand, cardDetails.brand)
         && Objects.equals(this.checkoutAttemptId, cardDetails.checkoutAttemptId)
         && Objects.equals(this.cupsecureplusSmscode, cardDetails.cupsecureplusSmscode)
         && Objects.equals(this.cvc, cardDetails.cvc)
@@ -1229,6 +1276,7 @@ public class CardDetails {
   @Override
   public int hashCode() {
     return Objects.hash(
+        billingSequenceNumber,
         brand,
         checkoutAttemptId,
         cupsecureplusSmscode,
@@ -1261,6 +1309,9 @@ public class CardDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardDetails {\n");
+    sb.append("    billingSequenceNumber: ")
+        .append(toIndentedString(billingSequenceNumber))
+        .append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    cupsecureplusSmscode: ")

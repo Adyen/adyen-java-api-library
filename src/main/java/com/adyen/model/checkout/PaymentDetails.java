@@ -152,8 +152,6 @@ public class PaymentDetails {
 
     KCP_NAVERPAY(String.valueOf("kcp_naverpay")),
 
-    ONLINEBANKING_IN(String.valueOf("onlinebanking_IN")),
-
     FAWRY(String.valueOf("fawry")),
 
     ATOME(String.valueOf("atome")),

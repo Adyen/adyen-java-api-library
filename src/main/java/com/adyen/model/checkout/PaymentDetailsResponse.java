@@ -33,6 +33,7 @@ import java.util.logging.Logger;
   PaymentDetailsResponse.JSON_PROPERTY_MERCHANT_REFERENCE,
   PaymentDetailsResponse.JSON_PROPERTY_ORDER,
   PaymentDetailsResponse.JSON_PROPERTY_PAYMENT_METHOD,
+  PaymentDetailsResponse.JSON_PROPERTY_PAYMENT_VALIDATIONS,
   PaymentDetailsResponse.JSON_PROPERTY_PSP_REFERENCE,
   PaymentDetailsResponse.JSON_PROPERTY_REFUSAL_REASON,
   PaymentDetailsResponse.JSON_PROPERTY_REFUSAL_REASON_CODE,
@@ -66,6 +67,9 @@ public class PaymentDetailsResponse {
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private ResponsePaymentMethod paymentMethod;
+
+  public static final String JSON_PROPERTY_PAYMENT_VALIDATIONS = "paymentValidations";
+  private PaymentValidationsResponse paymentValidations;
 
   public static final String JSON_PROPERTY_PSP_REFERENCE = "pspReference";
   private String pspReference;
@@ -465,6 +469,39 @@ public class PaymentDetailsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(ResponsePaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
+  }
+
+  /**
+   * paymentValidations
+   *
+   * @param paymentValidations
+   * @return the current {@code PaymentDetailsResponse} instance, allowing for method chaining
+   */
+  public PaymentDetailsResponse paymentValidations(PaymentValidationsResponse paymentValidations) {
+    this.paymentValidations = paymentValidations;
+    return this;
+  }
+
+  /**
+   * Get paymentValidations
+   *
+   * @return paymentValidations
+   */
+  @JsonProperty(JSON_PROPERTY_PAYMENT_VALIDATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PaymentValidationsResponse getPaymentValidations() {
+    return paymentValidations;
+  }
+
+  /**
+   * paymentValidations
+   *
+   * @param paymentValidations
+   */
+  @JsonProperty(JSON_PROPERTY_PAYMENT_VALIDATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaymentValidations(PaymentValidationsResponse paymentValidations) {
+    this.paymentValidations = paymentValidations;
   }
 
   /**
@@ -956,6 +993,7 @@ public class PaymentDetailsResponse {
         && Objects.equals(this.merchantReference, paymentDetailsResponse.merchantReference)
         && Objects.equals(this.order, paymentDetailsResponse.order)
         && Objects.equals(this.paymentMethod, paymentDetailsResponse.paymentMethod)
+        && Objects.equals(this.paymentValidations, paymentDetailsResponse.paymentValidations)
         && Objects.equals(this.pspReference, paymentDetailsResponse.pspReference)
         && Objects.equals(this.refusalReason, paymentDetailsResponse.refusalReason)
         && Objects.equals(this.refusalReasonCode, paymentDetailsResponse.refusalReasonCode)
@@ -977,6 +1015,7 @@ public class PaymentDetailsResponse {
         merchantReference,
         order,
         paymentMethod,
+        paymentValidations,
         pspReference,
         refusalReason,
         refusalReasonCode,
@@ -999,6 +1038,7 @@ public class PaymentDetailsResponse {
     sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    paymentValidations: ").append(toIndentedString(paymentValidations)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
     sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");

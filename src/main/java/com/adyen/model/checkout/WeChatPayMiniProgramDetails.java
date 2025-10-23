@@ -26,6 +26,8 @@ import java.util.logging.Logger;
   WeChatPayMiniProgramDetails.JSON_PROPERTY_APP_ID,
   WeChatPayMiniProgramDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   WeChatPayMiniProgramDetails.JSON_PROPERTY_OPENID,
+  WeChatPayMiniProgramDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  WeChatPayMiniProgramDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   WeChatPayMiniProgramDetails.JSON_PROPERTY_TYPE
 })
 public class WeChatPayMiniProgramDetails {
@@ -37,6 +39,13 @@ public class WeChatPayMiniProgramDetails {
 
   public static final String JSON_PROPERTY_OPENID = "openid";
   private String openid;
+
+  public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
+  private String storedPaymentMethodId;
 
   /** **wechatpayMiniProgram** */
   public enum TypeEnum {
@@ -182,6 +191,90 @@ public class WeChatPayMiniProgramDetails {
   }
 
   /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
+   *
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
+   *     the response when you created the token.
+   * @return the current {@code WeChatPayMiniProgramDetails} instance, allowing for method chaining
+   * @deprecated since Adyen Checkout API v49 Use &#x60;storedPaymentMethodId&#x60; instead.
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  public WeChatPayMiniProgramDetails recurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+    return this;
+  }
+
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
+   *
+   * @return recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
+   *     the response when you created the token.
+   * @deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRecurringDetailReference() {
+    return recurringDetailReference;
+  }
+
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
+   *
+   * @param recurringDetailReference This is the &#x60;recurringDetailReference&#x60; returned in
+   *     the response when you created the token.
+   * @deprecated since Adyen Checkout API v49 Use &#x60;storedPaymentMethodId&#x60; instead.
+   */
+  @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
+  @JsonProperty(JSON_PROPERTY_RECURRING_DETAIL_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+  }
+
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
+   *
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
+   *     response when you created the token.
+   * @return the current {@code WeChatPayMiniProgramDetails} instance, allowing for method chaining
+   */
+  public WeChatPayMiniProgramDetails storedPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    return this;
+  }
+
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
+   *
+   * @return storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
+   *     response when you created the token.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStoredPaymentMethodId() {
+    return storedPaymentMethodId;
+  }
+
+  /**
+   * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
+   * token.
+   *
+   * @param storedPaymentMethodId This is the &#x60;recurringDetailReference&#x60; returned in the
+   *     response when you created the token.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+  }
+
+  /**
    * **wechatpayMiniProgram**
    *
    * @param type **wechatpayMiniProgram**
@@ -227,12 +320,17 @@ public class WeChatPayMiniProgramDetails {
     return Objects.equals(this.appId, weChatPayMiniProgramDetails.appId)
         && Objects.equals(this.checkoutAttemptId, weChatPayMiniProgramDetails.checkoutAttemptId)
         && Objects.equals(this.openid, weChatPayMiniProgramDetails.openid)
+        && Objects.equals(
+            this.recurringDetailReference, weChatPayMiniProgramDetails.recurringDetailReference)
+        && Objects.equals(
+            this.storedPaymentMethodId, weChatPayMiniProgramDetails.storedPaymentMethodId)
         && Objects.equals(this.type, weChatPayMiniProgramDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, checkoutAttemptId, openid, type);
+    return Objects.hash(
+        appId, checkoutAttemptId, openid, recurringDetailReference, storedPaymentMethodId, type);
   }
 
   @Override
@@ -242,6 +340,12 @@ public class WeChatPayMiniProgramDetails {
     sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    openid: ").append(toIndentedString(openid)).append("\n");
+    sb.append("    recurringDetailReference: ")
+        .append(toIndentedString(recurringDetailReference))
+        .append("\n");
+    sb.append("    storedPaymentMethodId: ")
+        .append(toIndentedString(storedPaymentMethodId))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

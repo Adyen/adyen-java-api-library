@@ -24,8 +24,10 @@ import java.util.logging.Logger;
 /** CheckoutBankTransferAction */
 @JsonPropertyOrder({
   CheckoutBankTransferAction.JSON_PROPERTY_ACCOUNT_NUMBER,
+  CheckoutBankTransferAction.JSON_PROPERTY_BANK_CODE,
   CheckoutBankTransferAction.JSON_PROPERTY_BENEFICIARY,
   CheckoutBankTransferAction.JSON_PROPERTY_BIC,
+  CheckoutBankTransferAction.JSON_PROPERTY_BRANCH_CODE,
   CheckoutBankTransferAction.JSON_PROPERTY_DOWNLOAD_URL,
   CheckoutBankTransferAction.JSON_PROPERTY_IBAN,
   CheckoutBankTransferAction.JSON_PROPERTY_PAYMENT_METHOD_TYPE,
@@ -41,11 +43,17 @@ public class CheckoutBankTransferAction {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
+  public static final String JSON_PROPERTY_BANK_CODE = "bankCode";
+  private String bankCode;
+
   public static final String JSON_PROPERTY_BENEFICIARY = "beneficiary";
   private String beneficiary;
 
   public static final String JSON_PROPERTY_BIC = "bic";
   private String bic;
+
+  public static final String JSON_PROPERTY_BRANCH_CODE = "branchCode";
+  private String branchCode;
 
   public static final String JSON_PROPERTY_DOWNLOAD_URL = "downloadUrl";
   private String downloadUrl;
@@ -152,6 +160,39 @@ public class CheckoutBankTransferAction {
   }
 
   /**
+   * The bank code of the bank transfer.
+   *
+   * @param bankCode The bank code of the bank transfer.
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
+  public CheckoutBankTransferAction bankCode(String bankCode) {
+    this.bankCode = bankCode;
+    return this;
+  }
+
+  /**
+   * The bank code of the bank transfer.
+   *
+   * @return bankCode The bank code of the bank transfer.
+   */
+  @JsonProperty(JSON_PROPERTY_BANK_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBankCode() {
+    return bankCode;
+  }
+
+  /**
+   * The bank code of the bank transfer.
+   *
+   * @param bankCode The bank code of the bank transfer.
+   */
+  @JsonProperty(JSON_PROPERTY_BANK_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBankCode(String bankCode) {
+    this.bankCode = bankCode;
+  }
+
+  /**
    * The name of the account holder.
    *
    * @param beneficiary The name of the account holder.
@@ -215,6 +256,39 @@ public class CheckoutBankTransferAction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBic(String bic) {
     this.bic = bic;
+  }
+
+  /**
+   * The branch code of the bank transfer.
+   *
+   * @param branchCode The branch code of the bank transfer.
+   * @return the current {@code CheckoutBankTransferAction} instance, allowing for method chaining
+   */
+  public CheckoutBankTransferAction branchCode(String branchCode) {
+    this.branchCode = branchCode;
+    return this;
+  }
+
+  /**
+   * The branch code of the bank transfer.
+   *
+   * @return branchCode The branch code of the bank transfer.
+   */
+  @JsonProperty(JSON_PROPERTY_BRANCH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBranchCode() {
+    return branchCode;
+  }
+
+  /**
+   * The branch code of the bank transfer.
+   *
+   * @param branchCode The branch code of the bank transfer.
+   */
+  @JsonProperty(JSON_PROPERTY_BRANCH_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBranchCode(String branchCode) {
+    this.branchCode = branchCode;
   }
 
   /**
@@ -558,8 +632,10 @@ public class CheckoutBankTransferAction {
     }
     CheckoutBankTransferAction checkoutBankTransferAction = (CheckoutBankTransferAction) o;
     return Objects.equals(this.accountNumber, checkoutBankTransferAction.accountNumber)
+        && Objects.equals(this.bankCode, checkoutBankTransferAction.bankCode)
         && Objects.equals(this.beneficiary, checkoutBankTransferAction.beneficiary)
         && Objects.equals(this.bic, checkoutBankTransferAction.bic)
+        && Objects.equals(this.branchCode, checkoutBankTransferAction.branchCode)
         && Objects.equals(this.downloadUrl, checkoutBankTransferAction.downloadUrl)
         && Objects.equals(this.iban, checkoutBankTransferAction.iban)
         && Objects.equals(this.paymentMethodType, checkoutBankTransferAction.paymentMethodType)
@@ -576,8 +652,10 @@ public class CheckoutBankTransferAction {
   public int hashCode() {
     return Objects.hash(
         accountNumber,
+        bankCode,
         beneficiary,
         bic,
+        branchCode,
         downloadUrl,
         iban,
         paymentMethodType,
@@ -595,8 +673,10 @@ public class CheckoutBankTransferAction {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckoutBankTransferAction {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    bankCode: ").append(toIndentedString(bankCode)).append("\n");
     sb.append("    beneficiary: ").append(toIndentedString(beneficiary)).append("\n");
     sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
+    sb.append("    branchCode: ").append(toIndentedString(branchCode)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append("\n");

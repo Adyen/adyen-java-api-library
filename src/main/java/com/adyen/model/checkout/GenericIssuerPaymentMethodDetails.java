@@ -51,7 +51,9 @@ public class GenericIssuerPaymentMethodDetails {
 
     ONLINEBANKING_SK(String.valueOf("onlineBanking_SK")),
 
-    ONLINEBANKING_CZ(String.valueOf("onlineBanking_CZ"));
+    ONLINEBANKING_CZ(String.valueOf("onlineBanking_CZ")),
+
+    ONLINEBANKING_IN(String.valueOf("onlinebanking_IN"));
 
     private static final Logger LOG = Logger.getLogger(TypeEnum.class.getName());
 
