@@ -176,4 +176,34 @@ public class ClientTest extends BaseTest {
     assertNotNull(userAgent);
     assertEquals(Client.LIB_NAME + "/" + Client.LIB_VERSION, userAgent.getValue());
   }
+
+  @Test
+  public void testRequestWithHttpHeaders() throws Exception {
+    AdyenHttpClient client = new AdyenHttpClient();
+    HashMap<String, String> additionalHeaders = new HashMap<>();
+    additionalHeaders.put("X-Custom-Header", "custom-value");
+
+    RequestOptions requestOptions =
+        new RequestOptions()
+            .idempotencyKey("test-idempotency-key")
+            .additionalServiceHeaders(additionalHeaders);
+
+    HttpUriRequestBase request =
+        client.createRequest(
+            "https://checkout-test.adyen.com/v68/payments",
+            "{}",
+            new Config(),
+            true,
+            requestOptions,
+            ApiConstants.HttpMethod.POST,
+            Map.of());
+
+    Header idempotencyKeyHeader = request.getFirstHeader("Idempotency-Key");
+    assertNotNull(idempotencyKeyHeader);
+    assertEquals("test-idempotency-key", idempotencyKeyHeader.getValue());
+
+    Header customHeader = request.getFirstHeader("X-Custom-Header");
+    assertNotNull(customHeader);
+    assertEquals("custom-value", customHeader.getValue());
+  }
 }
