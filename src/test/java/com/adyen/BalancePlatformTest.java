@@ -8,12 +8,15 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.balanceplatform.*;
 import com.adyen.service.balanceplatform.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
 public class BalancePlatformTest extends BaseTest {
   @Test
@@ -764,4 +767,36 @@ public class BalancePlatformTest extends BaseTest {
             ApiConstants.HttpMethod.PATCH,
             null);
   }
+
+	@Test
+	public void scaAssociationManagementApproveAssociationTest() throws Exception {
+		Client client = createMockClientFromFile("mocks/balancePlatform/ScaAssociations.json");
+		ScaAssociationManagementApi service = new ScaAssociationManagementApi(client);
+		ApproveAssociationResponse response = service.approveAssociation(
+				"1234567890ABCD", new ApproveAssociationRequest()
+						.status(AssociationStatus.ACTIVE)
+						.entityId("AH00000000000000000000001")
+						.entityType(ScaEntityType.ACCOUNTHOLDER)
+						.scaDeviceIds(List.of("BSDR42XV3223223S5N6CDQDGH53M8H")));
+
+		assertNotNull(response);
+		assertEquals(1, response.getScaAssociations().size());
+
+		ArgumentCaptor<RequestOptions> optionsCaptor = ArgumentCaptor.forClass(RequestOptions.class);
+		verify(client.getHttpClient())
+				.request(
+						eq("https://balanceplatform-api-test.adyen.com/bcl/v2/scaAssociations"),
+						anyString(),
+						eq(client.getConfig()),
+						eq(false),
+						optionsCaptor.capture(),
+						eq(ApiConstants.HttpMethod.PATCH),
+						eq(null));
+
+		assertNotNull(optionsCaptor.getValue().getAdditionalServiceHeaders());
+		assertEquals(1, optionsCaptor.getValue().getAdditionalServiceHeaders().size());
+		assertEquals("1234567890ABCD", optionsCaptor.getValue().getAdditionalServiceHeaders().get("WWW-Authenticate"));
+	}
+
+
 }

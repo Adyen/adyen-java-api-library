@@ -1,0 +1,10 @@
+{
+  "scaAssociations": [
+    {
+      "scaDeviceId": "BSDR42XV3223223S5N6CDQDGH53M8H",
+      "entityType": "accountHolder",
+      "entityId": "AH00000000000000000000001",
+      "status": "active"
+    }
+  ]
+}
