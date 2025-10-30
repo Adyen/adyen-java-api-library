@@ -47,6 +47,10 @@ public class {{classname}} extends Service {
     @Deprecated
 {{/isDeprecated}}
     public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{>api_overload}}) throws ApiException, IOException {
+        RequestOptions requestOptions = null;{{#requiredParams}}{{#isHeaderParam}}{{#-first}}
+        requestOptions = new RequestOptions()
+            .addAdditionalServiceHeader("{{baseName}}", {{paramName}}){{/-first}}{{^-first}}
+            .addAdditionalServiceHeader("{{baseName}}", {{paramName}}){{/-first}};{{/isHeaderParam}}{{/requiredParams}}
         {{#returnType}}return {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{>api_overload_invoke}});
     }
 
