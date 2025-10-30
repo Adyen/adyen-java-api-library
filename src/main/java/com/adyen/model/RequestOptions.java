@@ -22,6 +22,14 @@ public class RequestOptions {
     return this;
   }
 
+  public RequestOptions addAdditionalServiceHeader(String key, String value) {
+    if (this.additionalServiceHeaders == null) {
+      this.additionalServiceHeaders = new HashMap<>();
+    }
+    this.additionalServiceHeaders.put(key, value);
+    return this;
+  }
+
   public String getIdempotencyKey() {
     return idempotencyKey;
   }

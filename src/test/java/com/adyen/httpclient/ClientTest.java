@@ -140,6 +140,17 @@ public class ClientTest extends BaseTest {
   }
 
   @Test
+  public void testRequestOptionsAddAdditionalServiceHeader() {
+    RequestOptions requestOptions =
+        new RequestOptions()
+            .addAdditionalServiceHeader("key1", "value1")
+            .addAdditionalServiceHeader("key2", "value2")
+            .addAdditionalServiceHeader("key3", "value3");
+    assertNotNull(requestOptions.getAdditionalServiceHeaders());
+    assertEquals(3, requestOptions.getAdditionalServiceHeaders().size());
+  }
+
+  @Test
   public void testUserAgentWithApplicationName() throws Exception {
 
     AdyenHttpClient client = new AdyenHttpClient();
