@@ -64,7 +64,8 @@ public class GrantOffersApi extends Service {
   @Deprecated
   public GrantOffers getAllAvailableGrantOffers(String accountHolderId)
       throws ApiException, IOException {
-    return getAllAvailableGrantOffers(accountHolderId, null);
+    RequestOptions requestOptions = null;
+    return getAllAvailableGrantOffers(accountHolderId, requestOptions);
   }
 
   /**
@@ -107,7 +108,8 @@ public class GrantOffersApi extends Service {
    */
   @Deprecated
   public GrantOffer getGrantOffer(String grantOfferId) throws ApiException, IOException {
-    return getGrantOffer(grantOfferId, null);
+    RequestOptions requestOptions = null;
+    return getGrantOffer(grantOfferId, requestOptions);
   }
 
   /**

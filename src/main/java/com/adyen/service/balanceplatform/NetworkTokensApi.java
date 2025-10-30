@@ -61,7 +61,8 @@ public class NetworkTokensApi extends Service {
    */
   public GetNetworkTokenResponse getNetworkToken(String networkTokenId)
       throws ApiException, IOException {
-    return getNetworkToken(networkTokenId, null);
+    RequestOptions requestOptions = null;
+    return getNetworkToken(networkTokenId, requestOptions);
   }
 
   /**
@@ -99,7 +100,8 @@ public class NetworkTokensApi extends Service {
   public void updateNetworkToken(
       String networkTokenId, UpdateNetworkTokenRequest updateNetworkTokenRequest)
       throws ApiException, IOException {
-    updateNetworkToken(networkTokenId, updateNetworkTokenRequest, null);
+    RequestOptions requestOptions = null;
+    updateNetworkToken(networkTokenId, updateNetworkTokenRequest, requestOptions);
   }
 
   /**

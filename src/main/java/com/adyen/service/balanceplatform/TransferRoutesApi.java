@@ -59,7 +59,8 @@ public class TransferRoutesApi extends Service {
    */
   public TransferRouteResponse calculateTransferRoutes(TransferRouteRequest transferRouteRequest)
       throws ApiException, IOException {
-    return calculateTransferRoutes(transferRouteRequest, null);
+    RequestOptions requestOptions = null;
+    return calculateTransferRoutes(transferRouteRequest, requestOptions);
   }
 
   /**

@@ -70,7 +70,9 @@ public class BalancesApi extends Service {
       String webhookId,
       BalanceWebhookSettingInfo balanceWebhookSettingInfo)
       throws ApiException, IOException {
-    return createWebhookSetting(balancePlatformId, webhookId, balanceWebhookSettingInfo, null);
+    RequestOptions requestOptions = null;
+    return createWebhookSetting(
+        balancePlatformId, webhookId, balanceWebhookSettingInfo, requestOptions);
   }
 
   /**
@@ -125,7 +127,8 @@ public class BalancesApi extends Service {
    */
   public void deleteWebhookSetting(String balancePlatformId, String webhookId, String settingId)
       throws ApiException, IOException {
-    deleteWebhookSetting(balancePlatformId, webhookId, settingId, null);
+    RequestOptions requestOptions = null;
+    deleteWebhookSetting(balancePlatformId, webhookId, settingId, requestOptions);
   }
 
   /**
@@ -179,7 +182,8 @@ public class BalancesApi extends Service {
    */
   public WebhookSettings getAllWebhookSettings(String balancePlatformId, String webhookId)
       throws ApiException, IOException {
-    return getAllWebhookSettings(balancePlatformId, webhookId, null);
+    RequestOptions requestOptions = null;
+    return getAllWebhookSettings(balancePlatformId, webhookId, requestOptions);
   }
 
   /**
@@ -232,7 +236,8 @@ public class BalancesApi extends Service {
   public WebhookSetting getWebhookSetting(
       String balancePlatformId, String webhookId, String settingId)
       throws ApiException, IOException {
-    return getWebhookSetting(balancePlatformId, webhookId, settingId, null);
+    RequestOptions requestOptions = null;
+    return getWebhookSetting(balancePlatformId, webhookId, settingId, requestOptions);
   }
 
   /**
@@ -297,8 +302,9 @@ public class BalancesApi extends Service {
       String settingId,
       BalanceWebhookSettingInfoUpdate balanceWebhookSettingInfoUpdate)
       throws ApiException, IOException {
+    RequestOptions requestOptions = null;
     return updateWebhookSetting(
-        balancePlatformId, webhookId, settingId, balanceWebhookSettingInfoUpdate, null);
+        balancePlatformId, webhookId, settingId, balanceWebhookSettingInfoUpdate, requestOptions);
   }
 
   /**

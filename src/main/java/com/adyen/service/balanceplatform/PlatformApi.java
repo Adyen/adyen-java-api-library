@@ -62,7 +62,8 @@ public class PlatformApi extends Service {
    */
   public PaginatedAccountHoldersResponse getAllAccountHoldersUnderBalancePlatform(String id)
       throws ApiException, IOException {
-    return getAllAccountHoldersUnderBalancePlatform(id, null, null, null);
+    RequestOptions requestOptions = null;
+    return getAllAccountHoldersUnderBalancePlatform(id, null, null, requestOptions);
   }
 
   /**
@@ -114,7 +115,8 @@ public class PlatformApi extends Service {
    */
   public TransactionRulesResponse getAllTransactionRulesForBalancePlatform(String id)
       throws ApiException, IOException {
-    return getAllTransactionRulesForBalancePlatform(id, null);
+    RequestOptions requestOptions = null;
+    return getAllTransactionRulesForBalancePlatform(id, requestOptions);
   }
 
   /**
@@ -151,7 +153,8 @@ public class PlatformApi extends Service {
    * @throws ApiException if fails to make API call
    */
   public BalancePlatform getBalancePlatform(String id) throws ApiException, IOException {
-    return getBalancePlatform(id, null);
+    RequestOptions requestOptions = null;
+    return getBalancePlatform(id, requestOptions);
   }
 
   /**

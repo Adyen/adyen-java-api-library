@@ -62,7 +62,8 @@ public class CardOrdersApi extends Service {
    */
   public PaginatedGetCardOrderItemResponse getCardOrderItems(String id)
       throws ApiException, IOException {
-    return getCardOrderItems(id, null, null, null);
+    RequestOptions requestOptions = null;
+    return getCardOrderItems(id, null, null, requestOptions);
   }
 
   /**
@@ -114,7 +115,9 @@ public class CardOrdersApi extends Service {
    * @throws ApiException if fails to make API call
    */
   public PaginatedGetCardOrderResponse listCardOrders() throws ApiException, IOException {
-    return listCardOrders(null, null, null, null, null, null, null, null, null, null, null, null);
+    RequestOptions requestOptions = null;
+    return listCardOrders(
+        null, null, null, null, null, null, null, null, null, null, null, requestOptions);
   }
 
   /**

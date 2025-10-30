@@ -62,7 +62,8 @@ public class AuthorizedCardUsersApi extends Service {
   public void createAuthorisedCardUsers(
       String paymentInstrumentId, AuthorisedCardUsers authorisedCardUsers)
       throws ApiException, IOException {
-    createAuthorisedCardUsers(paymentInstrumentId, authorisedCardUsers, null);
+    RequestOptions requestOptions = null;
+    createAuthorisedCardUsers(paymentInstrumentId, authorisedCardUsers, requestOptions);
   }
 
   /**
@@ -103,7 +104,8 @@ public class AuthorizedCardUsersApi extends Service {
    */
   public void deleteAuthorisedCardUsers(String paymentInstrumentId)
       throws ApiException, IOException {
-    deleteAuthorisedCardUsers(paymentInstrumentId, null);
+    RequestOptions requestOptions = null;
+    deleteAuthorisedCardUsers(paymentInstrumentId, requestOptions);
   }
 
   /**
@@ -141,7 +143,8 @@ public class AuthorizedCardUsersApi extends Service {
    */
   public AuthorisedCardUsers getAllAuthorisedCardUsers(String paymentInstrumentId)
       throws ApiException, IOException {
-    return getAllAuthorisedCardUsers(paymentInstrumentId, null);
+    RequestOptions requestOptions = null;
+    return getAllAuthorisedCardUsers(paymentInstrumentId, requestOptions);
   }
 
   /**
@@ -184,7 +187,8 @@ public class AuthorizedCardUsersApi extends Service {
   public void updateAuthorisedCardUsers(
       String paymentInstrumentId, AuthorisedCardUsers authorisedCardUsers)
       throws ApiException, IOException {
-    updateAuthorisedCardUsers(paymentInstrumentId, authorisedCardUsers, null);
+    RequestOptions requestOptions = null;
+    updateAuthorisedCardUsers(paymentInstrumentId, authorisedCardUsers, requestOptions);
   }
 
   /**

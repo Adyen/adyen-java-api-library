@@ -62,7 +62,8 @@ public class GrantAccountsApi extends Service {
    */
   @Deprecated
   public CapitalGrantAccount getGrantAccount(String id) throws ApiException, IOException {
-    return getGrantAccount(id, null);
+    RequestOptions requestOptions = null;
+    return getGrantAccount(id, requestOptions);
   }
 
   /**

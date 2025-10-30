@@ -62,7 +62,8 @@ public class TransactionRulesApi extends Service {
    */
   public TransactionRule createTransactionRule(TransactionRuleInfo transactionRuleInfo)
       throws ApiException, IOException {
-    return createTransactionRule(transactionRuleInfo, null);
+    RequestOptions requestOptions = null;
+    return createTransactionRule(transactionRuleInfo, requestOptions);
   }
 
   /**
@@ -94,7 +95,8 @@ public class TransactionRulesApi extends Service {
    */
   public TransactionRule deleteTransactionRule(String transactionRuleId)
       throws ApiException, IOException {
-    return deleteTransactionRule(transactionRuleId, null);
+    RequestOptions requestOptions = null;
+    return deleteTransactionRule(transactionRuleId, requestOptions);
   }
 
   /**
@@ -134,7 +136,8 @@ public class TransactionRulesApi extends Service {
    */
   public TransactionRuleResponse getTransactionRule(String transactionRuleId)
       throws ApiException, IOException {
-    return getTransactionRule(transactionRuleId, null);
+    RequestOptions requestOptions = null;
+    return getTransactionRule(transactionRuleId, requestOptions);
   }
 
   /**
@@ -176,7 +179,8 @@ public class TransactionRulesApi extends Service {
   public TransactionRule updateTransactionRule(
       String transactionRuleId, TransactionRuleInfo transactionRuleInfo)
       throws ApiException, IOException {
-    return updateTransactionRule(transactionRuleId, transactionRuleInfo, null);
+    RequestOptions requestOptions = null;
+    return updateTransactionRule(transactionRuleId, transactionRuleInfo, requestOptions);
   }
 
   /**

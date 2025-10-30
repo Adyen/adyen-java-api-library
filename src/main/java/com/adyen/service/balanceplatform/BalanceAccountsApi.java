@@ -68,7 +68,8 @@ public class BalanceAccountsApi extends Service {
    */
   public BalanceAccount createBalanceAccount(BalanceAccountInfo balanceAccountInfo)
       throws ApiException, IOException {
-    return createBalanceAccount(balanceAccountInfo, null);
+    RequestOptions requestOptions = null;
+    return createBalanceAccount(balanceAccountInfo, requestOptions);
   }
 
   /**
@@ -102,7 +103,8 @@ public class BalanceAccountsApi extends Service {
   public SweepConfigurationV2 createSweep(
       String balanceAccountId, CreateSweepConfigurationV2 createSweepConfigurationV2)
       throws ApiException, IOException {
-    return createSweep(balanceAccountId, createSweepConfigurationV2, null);
+    RequestOptions requestOptions = null;
+    return createSweep(balanceAccountId, createSweepConfigurationV2, requestOptions);
   }
 
   /**
@@ -146,7 +148,8 @@ public class BalanceAccountsApi extends Service {
    */
   public void deleteSweep(String balanceAccountId, String sweepId)
       throws ApiException, IOException {
-    deleteSweep(balanceAccountId, sweepId, null);
+    RequestOptions requestOptions = null;
+    deleteSweep(balanceAccountId, sweepId, requestOptions);
   }
 
   /**
@@ -189,7 +192,8 @@ public class BalanceAccountsApi extends Service {
    */
   public BalanceSweepConfigurationsResponse getAllSweepsForBalanceAccount(String balanceAccountId)
       throws ApiException, IOException {
-    return getAllSweepsForBalanceAccount(balanceAccountId, null, null, null);
+    RequestOptions requestOptions = null;
+    return getAllSweepsForBalanceAccount(balanceAccountId, null, null, requestOptions);
   }
 
   /**
@@ -242,7 +246,8 @@ public class BalanceAccountsApi extends Service {
    */
   public TransactionRulesResponse getAllTransactionRulesForBalanceAccount(String id)
       throws ApiException, IOException {
-    return getAllTransactionRulesForBalanceAccount(id, null);
+    RequestOptions requestOptions = null;
+    return getAllTransactionRulesForBalanceAccount(id, requestOptions);
   }
 
   /**
@@ -279,7 +284,8 @@ public class BalanceAccountsApi extends Service {
    * @throws ApiException if fails to make API call
    */
   public BalanceAccount getBalanceAccount(String id) throws ApiException, IOException {
-    return getBalanceAccount(id, null);
+    RequestOptions requestOptions = null;
+    return getBalanceAccount(id, requestOptions);
   }
 
   /**
@@ -316,7 +322,8 @@ public class BalanceAccountsApi extends Service {
    */
   public PaginatedPaymentInstrumentsResponse getPaymentInstrumentsLinkedToBalanceAccount(String id)
       throws ApiException, IOException {
-    return getPaymentInstrumentsLinkedToBalanceAccount(id, null, null, null, null);
+    RequestOptions requestOptions = null;
+    return getPaymentInstrumentsLinkedToBalanceAccount(id, null, null, null, requestOptions);
   }
 
   /**
@@ -375,7 +382,8 @@ public class BalanceAccountsApi extends Service {
    */
   public SweepConfigurationV2 getSweep(String balanceAccountId, String sweepId)
       throws ApiException, IOException {
-    return getSweep(balanceAccountId, sweepId, null);
+    RequestOptions requestOptions = null;
+    return getSweep(balanceAccountId, sweepId, requestOptions);
   }
 
   /**
@@ -423,7 +431,8 @@ public class BalanceAccountsApi extends Service {
   public BalanceAccount updateBalanceAccount(
       String id, BalanceAccountUpdateRequest balanceAccountUpdateRequest)
       throws ApiException, IOException {
-    return updateBalanceAccount(id, balanceAccountUpdateRequest, null);
+    RequestOptions requestOptions = null;
+    return updateBalanceAccount(id, balanceAccountUpdateRequest, requestOptions);
   }
 
   /**
@@ -470,7 +479,8 @@ public class BalanceAccountsApi extends Service {
       String sweepId,
       UpdateSweepConfigurationV2 updateSweepConfigurationV2)
       throws ApiException, IOException {
-    return updateSweep(balanceAccountId, sweepId, updateSweepConfigurationV2, null);
+    RequestOptions requestOptions = null;
+    return updateSweep(balanceAccountId, sweepId, updateSweepConfigurationV2, requestOptions);
   }
 
   /**

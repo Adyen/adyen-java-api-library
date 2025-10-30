@@ -72,7 +72,9 @@ public class PaymentInstrumentsApi extends Service {
   public NetworkTokenActivationDataResponse createNetworkTokenProvisioningData(
       String id, NetworkTokenActivationDataRequest networkTokenActivationDataRequest)
       throws ApiException, IOException {
-    return createNetworkTokenProvisioningData(id, networkTokenActivationDataRequest, null);
+    RequestOptions requestOptions = null;
+    return createNetworkTokenProvisioningData(
+        id, networkTokenActivationDataRequest, requestOptions);
   }
 
   /**
@@ -115,7 +117,8 @@ public class PaymentInstrumentsApi extends Service {
    */
   public PaymentInstrument createPaymentInstrument(PaymentInstrumentInfo paymentInstrumentInfo)
       throws ApiException, IOException {
-    return createPaymentInstrument(paymentInstrumentInfo, null);
+    RequestOptions requestOptions = null;
+    return createPaymentInstrument(paymentInstrumentInfo, requestOptions);
   }
 
   /**
@@ -146,7 +149,8 @@ public class PaymentInstrumentsApi extends Service {
    */
   public TransactionRulesResponse getAllTransactionRulesForPaymentInstrument(String id)
       throws ApiException, IOException {
-    return getAllTransactionRulesForPaymentInstrument(id, null);
+    RequestOptions requestOptions = null;
+    return getAllTransactionRulesForPaymentInstrument(id, requestOptions);
   }
 
   /**
@@ -184,7 +188,8 @@ public class PaymentInstrumentsApi extends Service {
    */
   public NetworkTokenActivationDataResponse getNetworkTokenActivationData(String id)
       throws ApiException, IOException {
-    return getNetworkTokenActivationData(id, null);
+    RequestOptions requestOptions = null;
+    return getNetworkTokenActivationData(id, requestOptions);
   }
 
   /**
@@ -223,7 +228,8 @@ public class PaymentInstrumentsApi extends Service {
    */
   public PaymentInstrumentRevealInfo getPanOfPaymentInstrument(String id)
       throws ApiException, IOException {
-    return getPanOfPaymentInstrument(id, null);
+    RequestOptions requestOptions = null;
+    return getPanOfPaymentInstrument(id, requestOptions);
   }
 
   /**
@@ -259,7 +265,8 @@ public class PaymentInstrumentsApi extends Service {
    * @throws ApiException if fails to make API call
    */
   public PaymentInstrument getPaymentInstrument(String id) throws ApiException, IOException {
-    return getPaymentInstrument(id, null);
+    RequestOptions requestOptions = null;
+    return getPaymentInstrument(id, requestOptions);
   }
 
   /**
@@ -295,7 +302,8 @@ public class PaymentInstrumentsApi extends Service {
    * @throws ApiException if fails to make API call
    */
   public ListNetworkTokensResponse listNetworkTokens(String id) throws ApiException, IOException {
-    return listNetworkTokens(id, null);
+    RequestOptions requestOptions = null;
+    return listNetworkTokens(id, requestOptions);
   }
 
   /**
@@ -334,7 +342,8 @@ public class PaymentInstrumentsApi extends Service {
   public PaymentInstrumentRevealResponse revealDataOfPaymentInstrument(
       PaymentInstrumentRevealRequest paymentInstrumentRevealRequest)
       throws ApiException, IOException {
-    return revealDataOfPaymentInstrument(paymentInstrumentRevealRequest, null);
+    RequestOptions requestOptions = null;
+    return revealDataOfPaymentInstrument(paymentInstrumentRevealRequest, requestOptions);
   }
 
   /**
@@ -367,7 +376,8 @@ public class PaymentInstrumentsApi extends Service {
   public UpdatePaymentInstrument updatePaymentInstrument(
       String id, PaymentInstrumentUpdateRequest paymentInstrumentUpdateRequest)
       throws ApiException, IOException {
-    return updatePaymentInstrument(id, paymentInstrumentUpdateRequest, null);
+    RequestOptions requestOptions = null;
+    return updatePaymentInstrument(id, paymentInstrumentUpdateRequest, requestOptions);
   }
 
   /**

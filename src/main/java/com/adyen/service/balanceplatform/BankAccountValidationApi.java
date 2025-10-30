@@ -59,7 +59,8 @@ public class BankAccountValidationApi extends Service {
   public void validateBankAccountIdentification(
       BankAccountIdentificationValidationRequest bankAccountIdentificationValidationRequest)
       throws ApiException, IOException {
-    validateBankAccountIdentification(bankAccountIdentificationValidationRequest, null);
+    RequestOptions requestOptions = null;
+    validateBankAccountIdentification(bankAccountIdentificationValidationRequest, requestOptions);
   }
 
   /**

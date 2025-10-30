@@ -65,7 +65,8 @@ public class AccountHoldersApi extends Service {
    */
   public AccountHolder createAccountHolder(AccountHolderInfo accountHolderInfo)
       throws ApiException, IOException {
-    return createAccountHolder(accountHolderInfo, null);
+    RequestOptions requestOptions = null;
+    return createAccountHolder(accountHolderInfo, requestOptions);
   }
 
   /**
@@ -95,7 +96,8 @@ public class AccountHoldersApi extends Service {
    * @throws ApiException if fails to make API call
    */
   public AccountHolder getAccountHolder(String id) throws ApiException, IOException {
-    return getAccountHolder(id, null);
+    RequestOptions requestOptions = null;
+    return getAccountHolder(id, requestOptions);
   }
 
   /**
@@ -132,7 +134,8 @@ public class AccountHoldersApi extends Service {
    */
   public PaginatedBalanceAccountsResponse getAllBalanceAccountsOfAccountHolder(String id)
       throws ApiException, IOException {
-    return getAllBalanceAccountsOfAccountHolder(id, null, null, null);
+    RequestOptions requestOptions = null;
+    return getAllBalanceAccountsOfAccountHolder(id, null, null, requestOptions);
   }
 
   /**
@@ -184,7 +187,8 @@ public class AccountHoldersApi extends Service {
    */
   public TransactionRulesResponse getAllTransactionRulesForAccountHolder(String id)
       throws ApiException, IOException {
-    return getAllTransactionRulesForAccountHolder(id, null);
+    RequestOptions requestOptions = null;
+    return getAllTransactionRulesForAccountHolder(id, requestOptions);
   }
 
   /**
@@ -226,7 +230,8 @@ public class AccountHoldersApi extends Service {
    */
   public GetTaxFormResponse getTaxForm(String id, String formType, Integer year)
       throws ApiException, IOException {
-    return getTaxForm(id, formType, year, null, null);
+    RequestOptions requestOptions = null;
+    return getTaxForm(id, formType, year, null, requestOptions);
   }
 
   /**
@@ -285,7 +290,8 @@ public class AccountHoldersApi extends Service {
   public AccountHolder updateAccountHolder(
       String id, AccountHolderUpdateRequest accountHolderUpdateRequest)
       throws ApiException, IOException {
-    return updateAccountHolder(id, accountHolderUpdateRequest, null);
+    RequestOptions requestOptions = null;
+    return updateAccountHolder(id, accountHolderUpdateRequest, requestOptions);
   }
 
   /**

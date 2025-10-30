@@ -62,7 +62,8 @@ public class PaymentInstrumentGroupsApi extends Service {
    */
   public PaymentInstrumentGroup createPaymentInstrumentGroup(
       PaymentInstrumentGroupInfo paymentInstrumentGroupInfo) throws ApiException, IOException {
-    return createPaymentInstrumentGroup(paymentInstrumentGroupInfo, null);
+    RequestOptions requestOptions = null;
+    return createPaymentInstrumentGroup(paymentInstrumentGroupInfo, requestOptions);
   }
 
   /**
@@ -93,7 +94,8 @@ public class PaymentInstrumentGroupsApi extends Service {
    */
   public TransactionRulesResponse getAllTransactionRulesForPaymentInstrumentGroup(String id)
       throws ApiException, IOException {
-    return getAllTransactionRulesForPaymentInstrumentGroup(id, null);
+    RequestOptions requestOptions = null;
+    return getAllTransactionRulesForPaymentInstrumentGroup(id, requestOptions);
   }
 
   /**
@@ -131,7 +133,8 @@ public class PaymentInstrumentGroupsApi extends Service {
    */
   public PaymentInstrumentGroup getPaymentInstrumentGroup(String id)
       throws ApiException, IOException {
-    return getPaymentInstrumentGroup(id, null);
+    RequestOptions requestOptions = null;
+    return getPaymentInstrumentGroup(id, requestOptions);
   }
 
   /**

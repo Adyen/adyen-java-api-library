@@ -64,7 +64,8 @@ public class ManageCardPinApi extends Service {
    */
   public PinChangeResponse changeCardPin(PinChangeRequest pinChangeRequest)
       throws ApiException, IOException {
-    return changeCardPin(pinChangeRequest, null);
+    RequestOptions requestOptions = null;
+    return changeCardPin(pinChangeRequest, requestOptions);
   }
 
   /**
@@ -93,7 +94,8 @@ public class ManageCardPinApi extends Service {
    * @throws ApiException if fails to make API call
    */
   public PublicKeyResponse publicKey() throws ApiException, IOException {
-    return publicKey(null, null, null);
+    RequestOptions requestOptions = null;
+    return publicKey(null, null, requestOptions);
   }
 
   /**
@@ -136,7 +138,8 @@ public class ManageCardPinApi extends Service {
    */
   public RevealPinResponse revealCardPin(RevealPinRequest revealPinRequest)
       throws ApiException, IOException {
-    return revealCardPin(revealPinRequest, null);
+    RequestOptions requestOptions = null;
+    return revealCardPin(revealPinRequest, requestOptions);
   }
 
   /**

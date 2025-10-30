@@ -70,8 +70,9 @@ public class ManageScaDevicesApi extends Service {
   public AssociationFinaliseResponse completeAssociationBetweenScaDeviceAndResource(
       String deviceId, AssociationFinaliseRequest associationFinaliseRequest)
       throws ApiException, IOException {
+    RequestOptions requestOptions = null;
     return completeAssociationBetweenScaDeviceAndResource(
-        deviceId, associationFinaliseRequest, null);
+        deviceId, associationFinaliseRequest, requestOptions);
   }
 
   /**
@@ -118,7 +119,8 @@ public class ManageScaDevicesApi extends Service {
    */
   public RegisterSCAFinalResponse completeRegistrationOfScaDevice(
       String id, RegisterSCARequest registerSCARequest) throws ApiException, IOException {
-    return completeRegistrationOfScaDevice(id, registerSCARequest, null);
+    RequestOptions requestOptions = null;
+    return completeRegistrationOfScaDevice(id, registerSCARequest, requestOptions);
   }
 
   /**
@@ -161,7 +163,8 @@ public class ManageScaDevicesApi extends Service {
    */
   public void deleteRegistrationOfScaDevice(String id, String paymentInstrumentId)
       throws ApiException, IOException {
-    deleteRegistrationOfScaDevice(id, paymentInstrumentId, null);
+    RequestOptions requestOptions = null;
+    deleteRegistrationOfScaDevice(id, paymentInstrumentId, requestOptions);
   }
 
   /**
@@ -208,8 +211,9 @@ public class ManageScaDevicesApi extends Service {
   public AssociationInitiateResponse initiateAssociationBetweenScaDeviceAndResource(
       String deviceId, AssociationInitiateRequest associationInitiateRequest)
       throws ApiException, IOException {
+    RequestOptions requestOptions = null;
     return initiateAssociationBetweenScaDeviceAndResource(
-        deviceId, associationInitiateRequest, null);
+        deviceId, associationInitiateRequest, requestOptions);
   }
 
   /**
@@ -252,7 +256,8 @@ public class ManageScaDevicesApi extends Service {
    */
   public RegisterSCAResponse initiateRegistrationOfScaDevice(RegisterSCARequest registerSCARequest)
       throws ApiException, IOException {
-    return initiateRegistrationOfScaDevice(registerSCARequest, null);
+    RequestOptions requestOptions = null;
+    return initiateRegistrationOfScaDevice(registerSCARequest, requestOptions);
   }
 
   /**
@@ -284,7 +289,8 @@ public class ManageScaDevicesApi extends Service {
    */
   public SearchRegisteredDevicesResponse listRegisteredScaDevices(String paymentInstrumentId)
       throws ApiException, IOException {
-    return listRegisteredScaDevices(paymentInstrumentId, null, null, null);
+    RequestOptions requestOptions = null;
+    return listRegisteredScaDevices(paymentInstrumentId, null, null, requestOptions);
   }
 
   /**
