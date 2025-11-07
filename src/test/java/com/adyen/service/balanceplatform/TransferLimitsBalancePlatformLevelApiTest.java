@@ -64,7 +64,7 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
 
     TransferLimitsBalancePlatformLevelApi service =
         new TransferLimitsBalancePlatformLevelApi(client);
-	  String balancePlatform = "MY_BALANCE_PLATFORM";
+    String balancePlatform = "MY_BALANCE_PLATFORM";
     String transferLimitId = "TRLI00000000000000000000000001";
 
     service.deletePendingTransferLimit(balancePlatform, transferLimitId);
@@ -85,7 +85,7 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimit.json");
     TransferLimitsBalancePlatformLevelApi service =
         new TransferLimitsBalancePlatformLevelApi(client);
-	  String balancePlatform = "MY_BALANCE_PLATFORM";
+    String balancePlatform = "MY_BALANCE_PLATFORM";
     String transferLimitId = "TRLI00000000000000000000000001";
 
     TransferLimit transferLimit =
@@ -109,7 +109,7 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimits.json");
     TransferLimitsBalancePlatformLevelApi service =
         new TransferLimitsBalancePlatformLevelApi(client);
-	  String balancePlatform = "MY_BALANCE_PLATFORM";
+    String balancePlatform = "MY_BALANCE_PLATFORM";
 
     TransferLimitListResponse transferLimits = service.getTransferLimits(balancePlatform);
 
