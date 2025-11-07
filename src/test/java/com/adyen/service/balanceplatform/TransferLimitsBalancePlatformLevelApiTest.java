@@ -31,7 +31,7 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
     TransferLimitsBalancePlatformLevelApi service =
         new TransferLimitsBalancePlatformLevelApi(client);
 
-    String balanceAccountId = "BA12345677890";
+    String balancePlatform = "MY_BALANCE_PLATFORM";
     CreateTransferLimitRequest createTransferLimitRequest =
         new CreateTransferLimitRequest()
             .amount(new Amount().value(10000L).currency("EUR"))
@@ -43,11 +43,11 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
             .transferType(TransferType.ALL);
 
     TransferLimit transferLimit =
-        service.createTransferLimit(balanceAccountId, createTransferLimitRequest);
+        service.createTransferLimit(balancePlatform, createTransferLimitRequest);
 
     verify(client.getHttpClient())
         .request(
-            "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/BA12345677890/transferLimits",
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/MY_BALANCE_PLATFORM/transferLimits",
             createTransferLimitRequest.toJson(),
             client.getConfig(),
             false,
@@ -64,14 +64,14 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
 
     TransferLimitsBalancePlatformLevelApi service =
         new TransferLimitsBalancePlatformLevelApi(client);
+	  String balancePlatform = "MY_BALANCE_PLATFORM";
     String transferLimitId = "TRLI00000000000000000000000001";
-    String balanceAccountId = "BA12345677890";
 
-    service.deletePendingTransferLimit(balanceAccountId, transferLimitId);
+    service.deletePendingTransferLimit(balancePlatform, transferLimitId);
 
     verify(client.getHttpClient())
         .request(
-            "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/BA12345677890/transferLimits/TRLI00000000000000000000000001",
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/MY_BALANCE_PLATFORM/transferLimits/TRLI00000000000000000000000001",
             null,
             client.getConfig(),
             false,
@@ -85,15 +85,15 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimit.json");
     TransferLimitsBalancePlatformLevelApi service =
         new TransferLimitsBalancePlatformLevelApi(client);
-    String balanceAccountId = "BA12345677890";
+	  String balancePlatform = "MY_BALANCE_PLATFORM";
     String transferLimitId = "TRLI00000000000000000000000001";
 
     TransferLimit transferLimit =
-        service.getSpecificTransferLimit(balanceAccountId, transferLimitId);
+        service.getSpecificTransferLimit(balancePlatform, transferLimitId);
 
     verify(client.getHttpClient())
         .request(
-            "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/BA12345677890/transferLimits/TRLI00000000000000000000000001",
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/MY_BALANCE_PLATFORM/transferLimits/TRLI00000000000000000000000001",
             null,
             client.getConfig(),
             false,
@@ -109,13 +109,13 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
     Client client = createMockClientFromFile("mocks/balancePlatform/TransferLimits.json");
     TransferLimitsBalancePlatformLevelApi service =
         new TransferLimitsBalancePlatformLevelApi(client);
-    String balanceAccountId = "BA12345677890";
+	  String balancePlatform = "MY_BALANCE_PLATFORM";
 
-    TransferLimitListResponse transferLimits = service.getTransferLimits(balanceAccountId);
+    TransferLimitListResponse transferLimits = service.getTransferLimits(balancePlatform);
 
     verify(client.getHttpClient())
         .request(
-            "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/BA12345677890/transferLimits",
+            "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/MY_BALANCE_PLATFORM/transferLimits",
             null,
             client.getConfig(),
             false,
