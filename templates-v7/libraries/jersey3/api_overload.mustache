@@ -1,2 +1,3 @@
 {{! Overload contains just required and body params }}
-{{#requiredParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#bodyParams}}{{^required}}{{#hasRequiredParams}}, {{/hasRequiredParams}}{{{dataType}}} {{paramName}}{{/required}}{{/bodyParams}}
+{{#requiredParams}}{{^isHeaderParam}}{{^isBodyParam}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{#-last}}{{#hasBodyParam}}, {{/hasBodyParam}}{{/-last}}{{/isBodyParam}}{{/isHeaderParam}}
+{{/requiredParams}}{{#bodyParams}}{{{dataType}}} {{paramName}}{{/bodyParams}}
