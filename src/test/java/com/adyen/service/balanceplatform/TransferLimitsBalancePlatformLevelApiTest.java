@@ -67,7 +67,7 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
     String transferLimitId = "TRLI00000000000000000000000001";
     String balanceAccountId = "BA12345677890";
 
-    service.deletePendingTransferLimit(transferLimitId, balanceAccountId);
+    service.deletePendingTransferLimit(balanceAccountId, transferLimitId);
 
     verify(client.getHttpClient())
         .request(
@@ -89,7 +89,7 @@ public class TransferLimitsBalancePlatformLevelApiTest extends BaseTest {
     String transferLimitId = "TRLI00000000000000000000000001";
 
     TransferLimit transferLimit =
-        service.getSpecificTransferLimit(transferLimitId, balanceAccountId);
+        service.getSpecificTransferLimit(balanceAccountId, transferLimitId);
 
     verify(client.getHttpClient())
         .request(
