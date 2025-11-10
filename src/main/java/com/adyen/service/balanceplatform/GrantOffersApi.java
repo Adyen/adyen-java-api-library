@@ -55,7 +55,8 @@ public class GrantOffersApi extends Service {
   /**
    * Get all available grant offers
    *
-   * @param accountHolderId {@link String } The unique identifier of the grant account. (required)
+   * @param accountHolderId {@link String } Query: The unique identifier of the grant account.
+   *     (required)
    * @return {@link GrantOffers }
    * @throws ApiException if fails to make API call
    * @deprecated since Configuration API v2 Use the `/grantOffers` endpoint from the [Capital
