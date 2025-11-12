@@ -85,7 +85,7 @@ public class TransferLimitsBalanceAccountLevelApiTest extends BaseTest {
     String balanceAccountId = "BA12345677890";
     String transferLimitId = "TRLI00000000000000000000000001";
 
-    service.deletePendingTransferLimit(transferLimitId, balanceAccountId);
+    service.deletePendingTransferLimit(balanceAccountId, transferLimitId);
     verify(client.getHttpClient())
         .request(
             "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/BA12345677890/transferLimits/TRLI00000000000000000000000001",
@@ -152,7 +152,7 @@ public class TransferLimitsBalanceAccountLevelApiTest extends BaseTest {
     String transferLimitId = "TRLI00000000000000000000000001";
 
     TransferLimit transferLimit =
-        service.getSpecificTransferLimit(transferLimitId, balanceAccountId);
+        service.getSpecificTransferLimit(balanceAccountId, transferLimitId);
 
     verify(client.getHttpClient())
         .request(

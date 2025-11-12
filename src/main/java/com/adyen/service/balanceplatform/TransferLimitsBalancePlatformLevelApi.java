@@ -63,7 +63,6 @@ public class TransferLimitsBalancePlatformLevelApi extends Service {
    *
    * @param id {@link String } The unique identifier of the balance platform. (required)
    * @param createTransferLimitRequest {@link CreateTransferLimitRequest } (required)
-   * @param createTransferLimitRequest {@link CreateTransferLimitRequest } (required)
    * @return {@link TransferLimit }
    * @throws ApiException if fails to make API call
    */
@@ -106,37 +105,37 @@ public class TransferLimitsBalancePlatformLevelApi extends Service {
   /**
    * Delete a scheduled or pending transfer limit
    *
-   * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
    * @param id {@link String } The unique identifier of the balance platform. (required)
+   * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deletePendingTransferLimit(String transferLimitId, String id)
+  public void deletePendingTransferLimit(String id, String transferLimitId)
       throws ApiException, IOException {
-    deletePendingTransferLimit(transferLimitId, id, null);
+    deletePendingTransferLimit(id, transferLimitId, null);
   }
 
   /**
    * Delete a scheduled or pending transfer limit
    *
-   * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
    * @param id {@link String } The unique identifier of the balance platform. (required)
+   * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
   public void deletePendingTransferLimit(
-      String transferLimitId, String id, RequestOptions requestOptions)
+      String id, String transferLimitId, RequestOptions requestOptions)
       throws ApiException, IOException {
     // Add path params
     Map<String, String> pathParams = new HashMap<>();
-    if (transferLimitId == null) {
-      throw new IllegalArgumentException("Please provide the transferLimitId path parameter");
-    }
-    pathParams.put("transferLimitId", transferLimitId);
     if (id == null) {
       throw new IllegalArgumentException("Please provide the id path parameter");
     }
     pathParams.put("id", id);
+    if (transferLimitId == null) {
+      throw new IllegalArgumentException("Please provide the transferLimitId path parameter");
+    }
+    pathParams.put("transferLimitId", transferLimitId);
 
     String requestBody = null;
     Resource resource =
@@ -148,39 +147,39 @@ public class TransferLimitsBalancePlatformLevelApi extends Service {
   /**
    * Get the details of a transfer limit
    *
-   * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
    * @param id {@link String } The unique identifier of the balance platform. (required)
+   * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
    * @return {@link TransferLimit }
    * @throws ApiException if fails to make API call
    */
-  public TransferLimit getSpecificTransferLimit(String transferLimitId, String id)
+  public TransferLimit getSpecificTransferLimit(String id, String transferLimitId)
       throws ApiException, IOException {
-    return getSpecificTransferLimit(transferLimitId, id, null);
+    return getSpecificTransferLimit(id, transferLimitId, null);
   }
 
   /**
    * Get the details of a transfer limit
    *
-   * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
    * @param id {@link String } The unique identifier of the balance platform. (required)
+   * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
    * @param requestOptions {@link RequestOptions } Object to store additional data such as
    *     idempotency-keys (optional)
    * @return {@link TransferLimit }
    * @throws ApiException if fails to make API call
    */
   public TransferLimit getSpecificTransferLimit(
-      String transferLimitId, String id, RequestOptions requestOptions)
+      String id, String transferLimitId, RequestOptions requestOptions)
       throws ApiException, IOException {
     // Add path params
     Map<String, String> pathParams = new HashMap<>();
-    if (transferLimitId == null) {
-      throw new IllegalArgumentException("Please provide the transferLimitId path parameter");
-    }
-    pathParams.put("transferLimitId", transferLimitId);
     if (id == null) {
       throw new IllegalArgumentException("Please provide the id path parameter");
     }
     pathParams.put("id", id);
+    if (transferLimitId == null) {
+      throw new IllegalArgumentException("Please provide the transferLimitId path parameter");
+    }
+    pathParams.put("transferLimitId", transferLimitId);
 
     String requestBody = null;
     Resource resource =
