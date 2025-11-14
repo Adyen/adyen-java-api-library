@@ -147,9 +147,9 @@ public class RequestOptions {
   }
 
   /**
-   * Gets www authenticate header.
+   * Get the value of the WWW-Authenticate header.
    *
-   * @return the www authenticate header
+   * @return The WWW-Authenticate header value.
    */
   public String getWwwAuthenticateHeader() {
     return wwwAuthenticateHeader;
