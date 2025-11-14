@@ -10,7 +10,7 @@
 {{#queryParams}}
     * @param {{paramName}} {@link {{dataType}} } Query: {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
 {{/queryParams}}
-    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as idempotency-keys (optional)
 {{#returnType}}
     * @return {@link {{.}} }
 {{/returnType}}
