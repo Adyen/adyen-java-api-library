@@ -102,9 +102,9 @@ public class RequestOptions {
   }
 
   /**
-   * Sets idempotency key.
+   * Set the Idempotency-Key header for the request.
    *
-   * @param idempotencyKey the idempotency key
+   * @param idempotencyKey The idempotency key.
    */
   public void setIdempotencyKey(String idempotencyKey) {
     this.idempotencyKey = idempotencyKey;
