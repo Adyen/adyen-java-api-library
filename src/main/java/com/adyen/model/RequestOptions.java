@@ -129,9 +129,9 @@ public class RequestOptions {
   }
 
   /**
-   * Gets additional headers.
+   * Get additional headers for the request.
    *
-   * @return the additional headers
+   * @return A map of additional headers.
    */
   public HashMap<String, String> getAdditionalServiceHeaders() {
     return additionalServiceHeaders;
