@@ -155,8 +155,8 @@ public class ManageScaDevicesApi extends Service {
    * Delete a registration of an SCA device
    *
    * @param id {@link String } The unique identifier of the SCA device. (required)
-   * @param paymentInstrumentId {@link String } The unique identifier of the payment instrument
-   *     linked to the SCA device. (required)
+   * @param paymentInstrumentId {@link String } Query: The unique identifier of the payment
+   *     instrument linked to the SCA device. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteRegistrationOfScaDevice(String id, String paymentInstrumentId)
@@ -277,8 +277,9 @@ public class ManageScaDevicesApi extends Service {
   /**
    * Get a list of registered SCA devices
    *
-   * @param paymentInstrumentId {@link String } The unique identifier of a payment instrument. It
-   *     limits the returned list to SCA devices associated to this payment instrument. (required)
+   * @param paymentInstrumentId {@link String } Query: The unique identifier of a payment
+   *     instrument. It limits the returned list to SCA devices associated to this payment
+   *     instrument. (required)
    * @return {@link SearchRegisteredDevicesResponse }
    * @throws ApiException if fails to make API call
    */

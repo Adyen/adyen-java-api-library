@@ -30,6 +30,7 @@ import static com.adyen.constants.ApiConstants.RequestProperty.CONTENT_TYPE;
 import static com.adyen.constants.ApiConstants.RequestProperty.IDEMPOTENCY_KEY;
 import static com.adyen.constants.ApiConstants.RequestProperty.REQUESTED_VERIFICATION_CODE_HEADER;
 import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
+import static com.adyen.constants.ApiConstants.RequestProperty.WWW_AUTHENTICATE_HEADER;
 
 import com.adyen.Client;
 import com.adyen.Config;
@@ -198,6 +199,10 @@ public class AdyenHttpClient implements ClientInterface {
         httpUriRequest.addHeader(
             REQUESTED_VERIFICATION_CODE_HEADER,
             requestOptions.getRequestedVerificationCodeHeader());
+      }
+      if (requestOptions.getWwwAuthenticateHeader() != null) {
+        httpUriRequest.addHeader(
+            WWW_AUTHENTICATE_HEADER, requestOptions.getWwwAuthenticateHeader());
       }
 
       if (requestOptions.getAdditionalServiceHeaders() != null) {

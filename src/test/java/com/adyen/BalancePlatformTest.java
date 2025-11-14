@@ -8,12 +8,15 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.balanceplatform.*;
 import com.adyen.service.balanceplatform.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
 public class BalancePlatformTest extends BaseTest {
   @Test
@@ -763,5 +766,208 @@ public class BalancePlatformTest extends BaseTest {
             null,
             ApiConstants.HttpMethod.PATCH,
             null);
+  }
+
+  @Test
+  public void scaAssociationManagementApproveAssociationTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/balancePlatform/ScaAssociations.json");
+    ScaAssociationManagementApi service = new ScaAssociationManagementApi(client);
+    ApproveAssociationResponse response =
+        service.approveAssociation(
+            new ApproveAssociationRequest()
+                .status(AssociationStatus.ACTIVE)
+                .entityId("AH00000000000000000000001")
+                .entityType(ScaEntityType.ACCOUNTHOLDER)
+                .scaDeviceIds(List.of("BSDR42XV3223223S5N6CDQDGH53M8H")),
+            new RequestOptions().wwwAuthenticateHeader("abcd-1234-xyzw-5678"));
+
+    assertNotNull(response);
+    assertEquals(1, response.getScaAssociations().size());
+
+    ArgumentCaptor<RequestOptions> optionsCaptor = ArgumentCaptor.forClass(RequestOptions.class);
+    verify(client.getHttpClient())
+        .request(
+            eq("https://balanceplatform-api-test.adyen.com/bcl/v2/scaAssociations"),
+            anyString(),
+            eq(client.getConfig()),
+            eq(false),
+            optionsCaptor.capture(),
+            eq(ApiConstants.HttpMethod.PATCH),
+            eq(null));
+
+    assertNotNull(optionsCaptor.getValue().getWwwAuthenticateHeader());
+    assertEquals("abcd-1234-xyzw-5678", optionsCaptor.getValue().getWwwAuthenticateHeader());
+  }
+
+  @Test
+  public void scaAssociationManagementRemoveAssociationTest() throws Exception {
+    Client client = createMockClientFromResponse("");
+    ScaAssociationManagementApi service = new ScaAssociationManagementApi(client);
+    RemoveAssociationRequest removeAssociationRequest =
+        new RemoveAssociationRequest()
+            .entityId("AH00000000000000000000001")
+            .entityType(ScaEntityType.ACCOUNTHOLDER)
+            .scaDeviceIds(List.of("BSDR42XV3223223S5N6CDQDGH53M8H"));
+
+    service.removeAssociation(
+        removeAssociationRequest,
+        new RequestOptions().wwwAuthenticateHeader("abcd-1234-xyzw-5678"));
+
+    ArgumentCaptor<String> requestBodyCaptor = ArgumentCaptor.forClass(String.class);
+    ArgumentCaptor<RequestOptions> optionsCaptor = ArgumentCaptor.forClass(RequestOptions.class);
+    verify(client.getHttpClient())
+        .request(
+            eq("https://balanceplatform-api-test.adyen.com/bcl/v2/scaAssociations"),
+            requestBodyCaptor.capture(),
+            eq(client.getConfig()),
+            eq(false),
+            optionsCaptor.capture(),
+            eq(ApiConstants.HttpMethod.DELETE),
+            eq(null));
+
+    assertEquals(removeAssociationRequest.toJson(), requestBodyCaptor.getValue());
+    assertNotNull(optionsCaptor.getValue().getWwwAuthenticateHeader());
+    assertEquals("abcd-1234-xyzw-5678", optionsCaptor.getValue().getWwwAuthenticateHeader());
+  }
+
+  @Test
+  public void scaAssociationManagementListAssociationsTest() throws Exception {
+    Client client = createMockClientFromFile("mocks/balancePlatform/ScaAssociationsList.json");
+    ScaAssociationManagementApi service = new ScaAssociationManagementApi(client);
+    ListAssociationsResponse response =
+        service.listAssociations(ScaEntityType.ACCOUNTHOLDER, "AH00000000000000000000001", 10, 0);
+
+    assertNotNull(response);
+    assertEquals(2, response.getData().size());
+    assertEquals("BSDR11111111111A1AAA1AAAAA1AA1", response.getData().get(0).getScaDeviceId());
+
+    ArgumentCaptor<Map<String, String>> queryParamsCaptor = ArgumentCaptor.forClass(Map.class);
+    verify(client.getHttpClient())
+        .request(
+            eq("https://balanceplatform-api-test.adyen.com/bcl/v2/scaAssociations"),
+            eq(null),
+            eq(client.getConfig()),
+            eq(false),
+            eq(null),
+            eq(ApiConstants.HttpMethod.GET),
+            queryParamsCaptor.capture());
+
+    Map<String, String> queryParams = queryParamsCaptor.getValue();
+    assertEquals("accountHolder", queryParams.get("entityType"));
+    assertEquals("AH00000000000000000000001", queryParams.get("entityId"));
+    assertEquals("10", queryParams.get("pageSize"));
+    assertEquals("0", queryParams.get("pageNumber"));
+  }
+
+  @Test
+  public void scaDeviceManagementBeginScaDeviceRegistrationTest() throws Exception {
+    Client client =
+        createMockClientFromFile("mocks/balancePlatform/BeginScaDeviceRegistrationResponse.json");
+    ScaDeviceManagementApi service = new ScaDeviceManagementApi(client);
+
+    BeginScaDeviceRegistrationRequest request =
+        new BeginScaDeviceRegistrationRequest()
+            .name("My Device")
+            .sdkOutput(
+                "eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9");
+
+    BeginScaDeviceRegistrationResponse response = service.beginScaDeviceRegistration(request);
+
+    assertNotNull(response);
+    assertNotNull(response.getScaDevice());
+    assertEquals("BSDR42XV3223223S5N6CDQDGH53M8H", response.getScaDevice().getId());
+    assertEquals("My Device", response.getScaDevice().getName());
+    assertEquals(ScaDeviceType.IOS, response.getScaDevice().getType());
+    assertEquals(
+        "eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9",
+        response.getSdkInput());
+
+    ArgumentCaptor<String> requestBodyCaptor = ArgumentCaptor.forClass(String.class);
+    verify(client.getHttpClient())
+        .request(
+            eq("https://balanceplatform-api-test.adyen.com/bcl/v2/scaDevices"),
+            requestBodyCaptor.capture(),
+            eq(client.getConfig()),
+            eq(false),
+            eq(null),
+            eq(ApiConstants.HttpMethod.POST),
+            eq(null));
+
+    assertEquals(request.toJson(), requestBodyCaptor.getValue());
+  }
+
+  @Test
+  public void scaDeviceManagementFinishScaDeviceRegistrationTest() throws Exception {
+    Client client =
+        createMockClientFromFile("mocks/balancePlatform/FinishScaDeviceRegistrationResponse.json");
+    ScaDeviceManagementApi service = new ScaDeviceManagementApi(client);
+
+    String deviceId = "BSDR42XV3223223S5N6CDQDGH53M8H";
+    FinishScaDeviceRegistrationRequest request =
+        new FinishScaDeviceRegistrationRequest()
+            .sdkOutput(
+                "eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9");
+
+    FinishScaDeviceRegistrationResponse response =
+        service.finishScaDeviceRegistration(deviceId, request);
+
+    assertNotNull(response);
+    assertNotNull(response.getScaDevice());
+    assertEquals("BSDR42XV3223223S5N6CDQDGH53M8H", response.getScaDevice().getId());
+    assertEquals("Device", response.getScaDevice().getName());
+    assertEquals(ScaDeviceType.IOS, response.getScaDevice().getType());
+
+    ArgumentCaptor<String> requestBodyCaptor = ArgumentCaptor.forClass(String.class);
+    verify(client.getHttpClient())
+        .request(
+            eq(
+                "https://balanceplatform-api-test.adyen.com/bcl/v2/scaDevices/BSDR42XV3223223S5N6CDQDGH53M8H"),
+            requestBodyCaptor.capture(),
+            eq(client.getConfig()),
+            eq(false),
+            eq(null),
+            eq(ApiConstants.HttpMethod.PATCH),
+            eq(null));
+
+    assertEquals(request.toJson(), requestBodyCaptor.getValue());
+  }
+
+  @Test
+  public void scaDeviceManagementSubmitScaAssociationTest() throws Exception {
+    Client client =
+        createMockClientFromFile("mocks/balancePlatform/SubmitScaAssociationResponse.json");
+    ScaDeviceManagementApi service = new ScaDeviceManagementApi(client);
+
+    String deviceId = "BSDR11111111111A1AAA1AAAAA1AA1";
+    SubmitScaAssociationRequest request =
+        new SubmitScaAssociationRequest()
+            .addEntitiesItem(
+                new ScaEntity().type(ScaEntityType.ACCOUNTHOLDER).id("AH00000000000000000000001"));
+
+    SubmitScaAssociationResponse response = service.submitScaAssociation(deviceId, request);
+
+    assertNotNull(response);
+    assertNotNull(response.getScaAssociations());
+    assertEquals(1, response.getScaAssociations().size());
+    assertEquals(
+        "BSDR11111111111A1AAA1AAAAA1AA1", response.getScaAssociations().get(0).getScaDeviceId());
+    assertEquals(ScaEntityType.ACCOUNTHOLDER, response.getScaAssociations().get(0).getEntityType());
+    assertEquals("AH00000000000000000000001", response.getScaAssociations().get(0).getEntityId());
+    assertEquals(
+        AssociationStatus.PENDINGAPPROVAL, response.getScaAssociations().get(0).getStatus());
+
+    ArgumentCaptor<String> requestBodyCaptor = ArgumentCaptor.forClass(String.class);
+    verify(client.getHttpClient())
+        .request(
+            eq(
+                "https://balanceplatform-api-test.adyen.com/bcl/v2/scaDevices/BSDR11111111111A1AAA1AAAAA1AA1/scaAssociations"),
+            requestBodyCaptor.capture(),
+            eq(client.getConfig()),
+            eq(false),
+            eq(null),
+            eq(ApiConstants.HttpMethod.POST),
+            eq(null));
+
+    assertEquals(request.toJson(), requestBodyCaptor.getValue());
   }
 }

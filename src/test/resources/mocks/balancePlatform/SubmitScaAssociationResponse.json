@@ -1,0 +1,10 @@
+{
+  "scaAssociations": [
+    {
+      "scaDeviceId": "BSDR11111111111A1AAA1AAAAA1AA1",
+      "entityType": "accountHolder",
+      "entityId": "AH00000000000000000000001",
+      "status": "pendingApproval"
+    }
+  ]
+}

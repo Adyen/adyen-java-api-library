@@ -1,0 +1,29 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://exampledomain.com/bcl/api/v2/scaAssociations?pageNumber=0&entityType=accountHolder&pageSize=10&entityId=AH3227J223222D5HHM4779X6X"
+    }
+  },
+  "itemsTotal": 2,
+  "pagesTotal": 1,
+  "data": [
+    {
+      "scaDeviceId": "BSDR11111111111A1AAA1AAAAA1AA1",
+      "scaDeviceName": "Device 1",
+      "scaDeviceType": "ios",
+      "entityType": "accountHolder",
+      "entityId": "AH00000000000000000000001",
+      "status": "active",
+      "createdAt": "2025-09-02T14:39:17.232Z"
+    },
+    {
+      "scaDeviceId": "BSDR22222222222B2BBB2BBBBB2BB2",
+      "scaDeviceName": "Device 2",
+      "scaDeviceType": "ios",
+      "entityType": "accountHolder",
+      "entityId": "AH00000000000000000000001",
+      "status": "pendingApproval",
+      "createdAt": "2025-09-02T14:39:17.232Z"
+    }
+  ]
+}

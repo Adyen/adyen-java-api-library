@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class RequestOptions {
   private String idempotencyKey;
   private String requestedVerificationCodeHeader;
+  private String wwwAuthenticateHeader;
   private HashMap<String, String> additionalServiceHeaders;
 
   public RequestOptions idempotencyKey(String idempotencyKey) {
@@ -17,8 +18,21 @@ public class RequestOptions {
     return this;
   }
 
+  public RequestOptions wwwAuthenticateHeader(String wwwAuthenticateHeader) {
+    this.wwwAuthenticateHeader = wwwAuthenticateHeader;
+    return this;
+  }
+
   public RequestOptions additionalServiceHeaders(HashMap<String, String> additionalServiceHeaders) {
     this.additionalServiceHeaders = additionalServiceHeaders;
+    return this;
+  }
+
+  public RequestOptions addAdditionalServiceHeader(String key, String value) {
+    if (this.additionalServiceHeaders == null) {
+      this.additionalServiceHeaders = new HashMap<>();
+    }
+    this.additionalServiceHeaders.put(key, value);
     return this;
   }
 
@@ -46,6 +60,14 @@ public class RequestOptions {
     this.additionalServiceHeaders = additionalServiceHeaders;
   }
 
+  public String getWwwAuthenticateHeader() {
+    return wwwAuthenticateHeader;
+  }
+
+  public void setWwwAuthenticateHeader(String wwwAuthenticateHeader) {
+    this.wwwAuthenticateHeader = wwwAuthenticateHeader;
+  }
+
   @Override
   public String toString() {
     return "RequestOptions{"
@@ -54,6 +76,9 @@ public class RequestOptions {
         + '\''
         + ", requestedVerificationCodeHeader='"
         + requestedVerificationCodeHeader
+        + '\''
+        + ", wwwAuthenticateHeader='"
+        + wwwAuthenticateHeader
         + '\''
         + ", additionalServiceHeaders="
         + additionalServiceHeaders

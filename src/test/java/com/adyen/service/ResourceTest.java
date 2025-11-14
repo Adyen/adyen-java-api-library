@@ -37,6 +37,7 @@ import com.adyen.service.resource.Resource;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
@@ -196,6 +197,32 @@ public class ResourceTest extends BaseTest {
       fail("Expected exception");
     } catch (ApiException e) {
       assertEquals(422, e.getStatusCode());
+      assertNull(e.getError());
+    }
+  }
+
+  @Test
+  public void testRequestException401WithWWWAuthenticateHeader()
+      throws IOException, HTTPClientException {
+    try {
+      Map<String, List<String>> responseHeaders = new HashMap<>();
+      responseHeaders.put("WWW-Authenticate", Collections.singletonList("abcd-1234-xywx-5678"));
+
+      when(clientInterfaceMock.request(
+              "", "request", null, false, null, ApiConstants.HttpMethod.POST, null))
+          .thenThrow(new HTTPClientException("Unauthorized", 401, responseHeaders, null));
+
+      Resource resource = new Resource(serviceMock, "", null);
+      resource.request("request");
+
+      fail("Expected exception");
+    } catch (ApiException e) {
+      assertEquals(401, e.getStatusCode());
+      assertNotNull(e.getResponseHeaders());
+      assertTrue(e.getResponseHeaders().containsKey("WWW-Authenticate"));
+      assertEquals(
+          Collections.singletonList("abcd-1234-xywx-5678"),
+          e.getResponseHeaders().get("WWW-Authenticate"));
       assertNull(e.getError());
     }
   }

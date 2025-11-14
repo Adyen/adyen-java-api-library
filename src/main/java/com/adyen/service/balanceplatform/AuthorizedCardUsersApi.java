@@ -56,7 +56,6 @@ public class AuthorizedCardUsersApi extends Service {
    *
    * @param paymentInstrumentId {@link String } (required)
    * @param authorisedCardUsers {@link AuthorisedCardUsers } (required)
-   * @param authorisedCardUsers {@link AuthorisedCardUsers } (required)
    * @throws ApiException if fails to make API call
    */
   public void createAuthorisedCardUsers(
@@ -177,7 +176,6 @@ public class AuthorizedCardUsersApi extends Service {
    * Update the authorized users for a card.
    *
    * @param paymentInstrumentId {@link String } (required)
-   * @param authorisedCardUsers {@link AuthorisedCardUsers } (required)
    * @param authorisedCardUsers {@link AuthorisedCardUsers } (required)
    * @throws ApiException if fails to make API call
    */

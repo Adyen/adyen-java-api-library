@@ -1,12 +1,15 @@
     /**
     * {{summary}}
     *
-{{#requiredParams}}
+    {{#pathParams}}
+    * @param {{paramName}} {@link {{dataType}} } {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
+    {{/pathParams}}
+    {{#bodyParams}}
     * @param {{paramName}} {@link {{dataType}} } {{description}} (required)
-{{/requiredParams}}
-{{#bodyParams}}
-    * @param {{paramName}} {@link {{dataType}} } {{description}} (required)
-{{/bodyParams}}
+    {{/bodyParams}}
+    {{#queryParams}}{{#required}}
+    * @param {{paramName}} {@link {{dataType}} } Query: {{description}} (required)
+    {{/required}}{{/queryParams}}
 {{#returnType}}
     * @return {@link {{.}} }
 {{/returnType}}

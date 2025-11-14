@@ -109,6 +109,7 @@ public interface ApiConstants {
     String API_KEY = "x-api-key";
     String APPLICATION_JSON_TYPE = "application/json";
     String REQUESTED_VERIFICATION_CODE_HEADER = "x-requested-verification-code";
+    String WWW_AUTHENTICATE_HEADER = "WWW-Authenticate";
   }
 
   interface ThreeDS2Property {

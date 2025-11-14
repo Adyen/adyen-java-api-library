@@ -217,10 +217,10 @@ public class AccountHoldersApi extends Service {
    * Get a tax form
    *
    * @param id {@link String } The unique identifier of the account holder. (required)
-   * @param formType {@link String } The type of tax form you want to retrieve. Accepted values are
-   *     **US1099k** and **US1099nec** (required)
-   * @param year {@link Integer } The tax year in YYYY format for the tax form you want to retrieve
-   *     (required)
+   * @param formType {@link String } Query: The type of tax form you want to retrieve. Accepted
+   *     values are **US1099k** and **US1099nec** (required)
+   * @param year {@link Integer } Query: The tax year in YYYY format for the tax form you want to
+   *     retrieve (required)
    * @return {@link GetTaxFormResponse }
    * @throws ApiException if fails to make API call
    */

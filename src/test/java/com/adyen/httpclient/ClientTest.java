@@ -140,6 +140,17 @@ public class ClientTest extends BaseTest {
   }
 
   @Test
+  public void testRequestOptionsAddAdditionalServiceHeader() {
+    RequestOptions requestOptions =
+        new RequestOptions()
+            .addAdditionalServiceHeader("key1", "value1")
+            .addAdditionalServiceHeader("key2", "value2")
+            .addAdditionalServiceHeader("key3", "value3");
+    assertNotNull(requestOptions.getAdditionalServiceHeaders());
+    assertEquals(3, requestOptions.getAdditionalServiceHeaders().size());
+  }
+
+  @Test
   public void testUserAgentWithApplicationName() throws Exception {
 
     AdyenHttpClient client = new AdyenHttpClient();
@@ -186,6 +197,7 @@ public class ClientTest extends BaseTest {
     RequestOptions requestOptions =
         new RequestOptions()
             .idempotencyKey("test-idempotency-key")
+            .wwwAuthenticateHeader("www-authenticate-header")
             .additionalServiceHeaders(additionalHeaders);
 
     HttpUriRequestBase request =
@@ -205,5 +217,9 @@ public class ClientTest extends BaseTest {
     Header customHeader = request.getFirstHeader("X-Custom-Header");
     assertNotNull(customHeader);
     assertEquals("custom-value", customHeader.getValue());
+
+    Header wwwAuthenticate = request.getFirstHeader("WWW-Authenticate");
+    assertNotNull(wwwAuthenticate);
+    assertEquals("www-authenticate-header", wwwAuthenticate.getValue());
   }
 }
