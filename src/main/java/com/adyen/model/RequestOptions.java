@@ -93,9 +93,9 @@ public class RequestOptions {
   }
 
   /**
-   * Gets idempotency key.
+   * Get the value of the Idempotency-Key header.
    *
-   * @return the idempotency key
+   * @return The idempotency key.
    */
   public String getIdempotencyKey() {
     return idempotencyKey;
