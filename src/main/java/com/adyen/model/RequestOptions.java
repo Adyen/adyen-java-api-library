@@ -45,7 +45,7 @@ public class RequestOptions {
   }
 
   /**
-   * Set the Requested-Verification-Code header for the request.
+   * Set the x-requested-verification-code header for the request.
    *
    * @param requestedVerificationCodeHeader The requested verification code.
    * @return This {@link RequestOptions} instance.
@@ -111,7 +111,7 @@ public class RequestOptions {
   }
 
   /**
-   * Get the value of the Requested-Verification-Code header.
+   * Get the value of the x-requested-verification-code header.
    *
    * @return The requested verification code.
    */
@@ -120,7 +120,7 @@ public class RequestOptions {
   }
 
   /**
-   * Set the Requested-Verification-Code header for the request.
+   * Set the x-requested-verification-code header for the request.
    *
    * @param requestedVerificationCodeHeader The requested verification code.
    */
