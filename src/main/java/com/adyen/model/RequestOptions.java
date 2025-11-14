@@ -111,9 +111,9 @@ public class RequestOptions {
   }
 
   /**
-   * Gets requested verification code header.
+   * Get the value of the Requested-Verification-Code header.
    *
-   * @return the requested verification code header
+   * @return The requested verification code.
    */
   public String getRequestedVerificationCodeHeader() {
     return requestedVerificationCodeHeader;
