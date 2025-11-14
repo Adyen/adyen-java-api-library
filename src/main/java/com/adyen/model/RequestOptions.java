@@ -156,9 +156,9 @@ public class RequestOptions {
   }
 
   /**
-   * Sets www authenticate header.
+   * Set the WWW-Authenticate header for the request.
    *
-   * @param wwwAuthenticateHeader the www authenticate header
+   * @param wwwAuthenticateHeader The WWW-Authenticate header value.
    */
   public void setWwwAuthenticateHeader(String wwwAuthenticateHeader) {
     this.wwwAuthenticateHeader = wwwAuthenticateHeader;
