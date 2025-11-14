@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   DragonpayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   DragonpayDetails.JSON_PROPERTY_ISSUER,
+  DragonpayDetails.JSON_PROPERTY_SDK_DATA,
   DragonpayDetails.JSON_PROPERTY_SHOPPER_EMAIL,
   DragonpayDetails.JSON_PROPERTY_TYPE
 })
@@ -34,6 +35,9 @@ public class DragonpayDetails {
 
   public static final String JSON_PROPERTY_ISSUER = "issuer";
   private String issuer;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
@@ -161,6 +165,40 @@ public class DragonpayDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code DragonpayDetails} instance, allowing for method chaining
+   */
+  public DragonpayDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * The shopper’s email address.
    *
    * @param shopperEmail The shopper’s email address.
@@ -238,13 +276,14 @@ public class DragonpayDetails {
     DragonpayDetails dragonpayDetails = (DragonpayDetails) o;
     return Objects.equals(this.checkoutAttemptId, dragonpayDetails.checkoutAttemptId)
         && Objects.equals(this.issuer, dragonpayDetails.issuer)
+        && Objects.equals(this.sdkData, dragonpayDetails.sdkData)
         && Objects.equals(this.shopperEmail, dragonpayDetails.shopperEmail)
         && Objects.equals(this.type, dragonpayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, issuer, shopperEmail, type);
+    return Objects.hash(checkoutAttemptId, issuer, sdkData, shopperEmail, type);
   }
 
   @Override
@@ -253,6 +292,7 @@ public class DragonpayDetails {
     sb.append("class DragonpayDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

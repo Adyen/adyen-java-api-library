@@ -27,6 +27,7 @@ import java.util.logging.Logger;
   PayWithGoogleDonations.JSON_PROPERTY_FUNDING_SOURCE,
   PayWithGoogleDonations.JSON_PROPERTY_GOOGLE_PAY_TOKEN,
   PayWithGoogleDonations.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  PayWithGoogleDonations.JSON_PROPERTY_SDK_DATA,
   PayWithGoogleDonations.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   PayWithGoogleDonations.JSON_PROPERTY_THREE_D_S2_SDK_VERSION,
   PayWithGoogleDonations.JSON_PROPERTY_TYPE
@@ -88,6 +89,9 @@ public class PayWithGoogleDonations {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -305,6 +309,40 @@ public class PayWithGoogleDonations {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code PayWithGoogleDonations} instance, allowing for method chaining
+   */
+  public PayWithGoogleDonations sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -427,6 +465,7 @@ public class PayWithGoogleDonations {
         && Objects.equals(this.googlePayToken, payWithGoogleDonations.googlePayToken)
         && Objects.equals(
             this.recurringDetailReference, payWithGoogleDonations.recurringDetailReference)
+        && Objects.equals(this.sdkData, payWithGoogleDonations.sdkData)
         && Objects.equals(this.storedPaymentMethodId, payWithGoogleDonations.storedPaymentMethodId)
         && Objects.equals(this.threeDS2SdkVersion, payWithGoogleDonations.threeDS2SdkVersion)
         && Objects.equals(this.type, payWithGoogleDonations.type);
@@ -439,6 +478,7 @@ public class PayWithGoogleDonations {
         fundingSource,
         googlePayToken,
         recurringDetailReference,
+        sdkData,
         storedPaymentMethodId,
         threeDS2SdkVersion,
         type);
@@ -454,6 +494,7 @@ public class PayWithGoogleDonations {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

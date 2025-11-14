@@ -67,7 +67,7 @@ public class BankAccountValidationApi extends Service {
    *
    * @param bankAccountIdentificationValidationRequest {@link
    *     BankAccountIdentificationValidationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */

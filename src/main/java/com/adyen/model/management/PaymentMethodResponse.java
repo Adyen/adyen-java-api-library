@@ -174,6 +174,8 @@ public class PaymentMethodResponse {
 
     KLARNA_ACCOUNT(String.valueOf("klarna_account")),
 
+    KLARNA_B2B(String.valueOf("klarna_b2b")),
+
     KLARNA_PAYNOW(String.valueOf("klarna_paynow")),
 
     LE_CARD(String.valueOf("le_card")),
@@ -256,6 +258,8 @@ public class PaymentMethodResponse {
 
     STAR(String.valueOf("star")),
 
+    SVS(String.valueOf("svs")),
+
     SWISH(String.valueOf("swish")),
 
     TICKET(String.valueOf("ticket")),
@@ -279,6 +283,8 @@ public class PaymentMethodResponse {
     VALE_REFEICAO(String.valueOf("vale_refeicao")),
 
     VALE_REFEICAO_PREPAID(String.valueOf("vale_refeicao_prepaid")),
+
+    VALUELINK(String.valueOf("valueLink")),
 
     VEGAS_CARD(String.valueOf("vegas_card")),
 

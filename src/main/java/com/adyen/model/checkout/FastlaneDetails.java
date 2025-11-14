@@ -26,6 +26,7 @@ import java.util.logging.Logger;
   FastlaneDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   FastlaneDetails.JSON_PROPERTY_FASTLANE_DATA,
   FastlaneDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  FastlaneDetails.JSON_PROPERTY_SDK_DATA,
   FastlaneDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   FastlaneDetails.JSON_PROPERTY_TYPE
 })
@@ -39,6 +40,9 @@ public class FastlaneDetails {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -199,6 +203,40 @@ public class FastlaneDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code FastlaneDetails} instance, allowing for method chaining
+   */
+  public FastlaneDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -283,6 +321,7 @@ public class FastlaneDetails {
     return Objects.equals(this.checkoutAttemptId, fastlaneDetails.checkoutAttemptId)
         && Objects.equals(this.fastlaneData, fastlaneDetails.fastlaneData)
         && Objects.equals(this.recurringDetailReference, fastlaneDetails.recurringDetailReference)
+        && Objects.equals(this.sdkData, fastlaneDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, fastlaneDetails.storedPaymentMethodId)
         && Objects.equals(this.type, fastlaneDetails.type);
   }
@@ -290,7 +329,12 @@ public class FastlaneDetails {
   @Override
   public int hashCode() {
     return Objects.hash(
-        checkoutAttemptId, fastlaneData, recurringDetailReference, storedPaymentMethodId, type);
+        checkoutAttemptId,
+        fastlaneData,
+        recurringDetailReference,
+        sdkData,
+        storedPaymentMethodId,
+        type);
   }
 
   @Override
@@ -302,6 +346,7 @@ public class FastlaneDetails {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

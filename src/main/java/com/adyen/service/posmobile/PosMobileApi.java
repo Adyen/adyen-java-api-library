@@ -66,7 +66,7 @@ public class PosMobileApi extends Service {
    * Create a communication session
    *
    * @param createSessionRequest {@link CreateSessionRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreateSessionResponse }
    * @throws ApiException if fails to make API call

@@ -26,6 +26,7 @@ import java.util.logging.Logger;
   MasterpassDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   MasterpassDetails.JSON_PROPERTY_FUNDING_SOURCE,
   MasterpassDetails.JSON_PROPERTY_MASTERPASS_TRANSACTION_ID,
+  MasterpassDetails.JSON_PROPERTY_SDK_DATA,
   MasterpassDetails.JSON_PROPERTY_TYPE
 })
 public class MasterpassDetails {
@@ -81,6 +82,9 @@ public class MasterpassDetails {
 
   public static final String JSON_PROPERTY_MASTERPASS_TRANSACTION_ID = "masterpassTransactionId";
   private String masterpassTransactionId;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   /** **masterpass** */
   public enum TypeEnum {
@@ -235,6 +239,40 @@ public class MasterpassDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code MasterpassDetails} instance, allowing for method chaining
+   */
+  public MasterpassDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * **masterpass**
    *
    * @param type **masterpass**
@@ -280,12 +318,13 @@ public class MasterpassDetails {
     return Objects.equals(this.checkoutAttemptId, masterpassDetails.checkoutAttemptId)
         && Objects.equals(this.fundingSource, masterpassDetails.fundingSource)
         && Objects.equals(this.masterpassTransactionId, masterpassDetails.masterpassTransactionId)
+        && Objects.equals(this.sdkData, masterpassDetails.sdkData)
         && Objects.equals(this.type, masterpassDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, fundingSource, masterpassTransactionId, type);
+    return Objects.hash(checkoutAttemptId, fundingSource, masterpassTransactionId, sdkData, type);
   }
 
   @Override
@@ -297,6 +336,7 @@ public class MasterpassDetails {
     sb.append("    masterpassTransactionId: ")
         .append(toIndentedString(masterpassTransactionId))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

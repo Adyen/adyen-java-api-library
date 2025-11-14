@@ -30,6 +30,7 @@ import java.util.logging.Logger;
   RivertyDetails.JSON_PROPERTY_IBAN,
   RivertyDetails.JSON_PROPERTY_PERSONAL_DETAILS,
   RivertyDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  RivertyDetails.JSON_PROPERTY_SDK_DATA,
   RivertyDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   RivertyDetails.JSON_PROPERTY_SUBTYPE,
   RivertyDetails.JSON_PROPERTY_TYPE
@@ -56,6 +57,9 @@ public class RivertyDetails {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -366,6 +370,40 @@ public class RivertyDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code RivertyDetails} instance, allowing for method chaining
+   */
+  public RivertyDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -487,6 +525,7 @@ public class RivertyDetails {
         && Objects.equals(this.iban, rivertyDetails.iban)
         && Objects.equals(this.personalDetails, rivertyDetails.personalDetails)
         && Objects.equals(this.recurringDetailReference, rivertyDetails.recurringDetailReference)
+        && Objects.equals(this.sdkData, rivertyDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, rivertyDetails.storedPaymentMethodId)
         && Objects.equals(this.subtype, rivertyDetails.subtype)
         && Objects.equals(this.type, rivertyDetails.type);
@@ -502,6 +541,7 @@ public class RivertyDetails {
         iban,
         personalDetails,
         recurringDetailReference,
+        sdkData,
         storedPaymentMethodId,
         subtype,
         type);
@@ -520,6 +560,7 @@ public class RivertyDetails {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

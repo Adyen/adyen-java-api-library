@@ -72,7 +72,7 @@ public class LegalEntitiesApi extends Service {
    * Check a legal entity&#39;s verification errors
    *
    * @param id {@link String } The unique identifier of the legal entity. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link VerificationErrors }
    * @throws ApiException if fails to make API call
@@ -110,7 +110,7 @@ public class LegalEntitiesApi extends Service {
    * Confirm data review
    *
    * @param id {@link String } The unique identifier of the legal entity. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link DataReviewConfirmationResponse }
    * @throws ApiException if fails to make API call
@@ -148,7 +148,7 @@ public class LegalEntitiesApi extends Service {
    * Create a legal entity
    *
    * @param legalEntityInfoRequiredType {@link LegalEntityInfoRequiredType } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link LegalEntity }
    * @throws ApiException if fails to make API call
@@ -179,7 +179,7 @@ public class LegalEntitiesApi extends Service {
    * Get all business lines under a legal entity
    *
    * @param id {@link String } The unique identifier of the legal entity. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BusinessLines }
    * @throws ApiException if fails to make API call
@@ -216,7 +216,7 @@ public class LegalEntitiesApi extends Service {
    * Get a legal entity
    *
    * @param id {@link String } The unique identifier of the legal entity. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link LegalEntity }
    * @throws ApiException if fails to make API call
@@ -238,6 +238,39 @@ public class LegalEntitiesApi extends Service {
   }
 
   /**
+   * Request periodic data review.
+   *
+   * @param id {@link String } The unique identifier of the legal entity. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void requestPeriodicReview(String id) throws ApiException, IOException {
+    requestPeriodicReview(id, null);
+  }
+
+  /**
+   * Request periodic data review.
+   *
+   * @param id {@link String } The unique identifier of the legal entity. (required)
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
+   *     idempotency-keys (optional)
+   * @throws ApiException if fails to make API call
+   */
+  public void requestPeriodicReview(String id, RequestOptions requestOptions)
+      throws ApiException, IOException {
+    // Add path params
+    Map<String, String> pathParams = new HashMap<>();
+    if (id == null) {
+      throw new IllegalArgumentException("Please provide the id path parameter");
+    }
+    pathParams.put("id", id);
+
+    String requestBody = null;
+    Resource resource =
+        new Resource(this, this.baseURL + "/legalEntities/{id}/requestPeriodicReview", null);
+    resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
+  }
+
+  /**
    * Update a legal entity
    *
    * @param id {@link String } The unique identifier of the legal entity. (required)
@@ -255,7 +288,7 @@ public class LegalEntitiesApi extends Service {
    *
    * @param id {@link String } The unique identifier of the legal entity. (required)
    * @param legalEntityInfo {@link LegalEntityInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link LegalEntity }
    * @throws ApiException if fails to make API call

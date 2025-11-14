@@ -73,7 +73,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param id {@link String } The unique identifier of the app. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AndroidApp }
    * @throws ApiException if fails to make API call
@@ -120,7 +120,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
    * @param packageName {@link String } Query: The package name that uniquely identifies the Android
    *     app. (optional)
    * @param versionCode {@link Integer } Query: The version number of the app. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AndroidAppsResponse }
    * @throws ApiException if fails to make API call
@@ -184,7 +184,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 20 items on a page. (optional)
    * @param certificateName {@link String } Query: The name of the certificate. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AndroidCertificatesResponse }
    * @throws ApiException if fails to make API call
@@ -242,7 +242,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param id {@link String } The unique identifier of the app. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ReprocessAndroidAppResponse }
    * @throws ApiException if fails to make API call
@@ -284,7 +284,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
    * Upload Android App
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link UploadAndroidAppResponse }
    * @throws ApiException if fails to make API call
@@ -322,7 +322,7 @@ public class AndroidFilesCompanyLevelApi extends Service {
    * Upload Android Certificate
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link UploadAndroidCertificateResponse }
    * @throws ApiException if fails to make API call

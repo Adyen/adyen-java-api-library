@@ -71,7 +71,7 @@ public class AccountMerchantLevelApi extends Service {
    * Create a merchant account
    *
    * @param createMerchantRequest {@link CreateMerchantRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreateMerchantResponse }
    * @throws ApiException if fails to make API call
@@ -101,7 +101,7 @@ public class AccountMerchantLevelApi extends Service {
    * Get a merchant account
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Merchant }
    * @throws ApiException if fails to make API call
@@ -138,7 +138,7 @@ public class AccountMerchantLevelApi extends Service {
    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListMerchantResponse }
    * @throws ApiException if fails to make API call
@@ -179,7 +179,7 @@ public class AccountMerchantLevelApi extends Service {
    * Request to activate a merchant account
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link RequestActivationResponse }
    * @throws ApiException if fails to make API call

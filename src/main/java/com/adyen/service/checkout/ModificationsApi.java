@@ -79,7 +79,7 @@ public class ModificationsApi extends Service {
    * Cancel an authorised payment
    *
    * @param standalonePaymentCancelRequest {@link StandalonePaymentCancelRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StandalonePaymentCancelResponse }
    * @throws ApiException if fails to make API call
@@ -117,7 +117,7 @@ public class ModificationsApi extends Service {
    *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to cancel. (required)
    * @param paymentCancelRequest {@link PaymentCancelRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentCancelResponse }
    * @throws ApiException if fails to make API call
@@ -165,7 +165,7 @@ public class ModificationsApi extends Service {
    *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to capture. (required)
    * @param paymentCaptureRequest {@link PaymentCaptureRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentCaptureResponse }
    * @throws ApiException if fails to make API call
@@ -213,7 +213,7 @@ public class ModificationsApi extends Service {
    *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to refund. (required)
    * @param paymentRefundRequest {@link PaymentRefundRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentRefundResponse }
    * @throws ApiException if fails to make API call
@@ -261,7 +261,7 @@ public class ModificationsApi extends Service {
    *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment that you want to reverse. (required)
    * @param paymentReversalRequest {@link PaymentReversalRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentReversalResponse }
    * @throws ApiException if fails to make API call
@@ -309,7 +309,7 @@ public class ModificationsApi extends Service {
    *     [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
    *     of the payment. (required)
    * @param paymentAmountUpdateRequest {@link PaymentAmountUpdateRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentAmountUpdateResponse }
    * @throws ApiException if fails to make API call

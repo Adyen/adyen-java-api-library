@@ -77,7 +77,7 @@ public class StoredValueApi extends Service {
    * Changes the status of the payment method.
    *
    * @param storedValueStatusChangeRequest {@link StoredValueStatusChangeRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StoredValueStatusChangeResponse }
    * @throws ApiException if fails to make API call
@@ -109,7 +109,7 @@ public class StoredValueApi extends Service {
    * Checks the balance.
    *
    * @param storedValueBalanceCheckRequest {@link StoredValueBalanceCheckRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StoredValueBalanceCheckResponse }
    * @throws ApiException if fails to make API call
@@ -140,7 +140,7 @@ public class StoredValueApi extends Service {
    * Issues a new card.
    *
    * @param storedValueIssueRequest {@link StoredValueIssueRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StoredValueIssueResponse }
    * @throws ApiException if fails to make API call
@@ -171,7 +171,7 @@ public class StoredValueApi extends Service {
    * Loads the payment method.
    *
    * @param storedValueLoadRequest {@link StoredValueLoadRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StoredValueLoadResponse }
    * @throws ApiException if fails to make API call
@@ -203,7 +203,7 @@ public class StoredValueApi extends Service {
    * Merge the balance of two cards.
    *
    * @param storedValueBalanceMergeRequest {@link StoredValueBalanceMergeRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StoredValueBalanceMergeResponse }
    * @throws ApiException if fails to make API call
@@ -234,7 +234,7 @@ public class StoredValueApi extends Service {
    * Voids a transaction.
    *
    * @param storedValueVoidRequest {@link StoredValueVoidRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StoredValueVoidResponse }
    * @throws ApiException if fails to make API call

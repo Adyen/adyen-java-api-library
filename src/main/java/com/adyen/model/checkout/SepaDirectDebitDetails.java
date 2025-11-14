@@ -24,9 +24,11 @@ import java.util.logging.Logger;
 /** SepaDirectDebitDetails */
 @JsonPropertyOrder({
   SepaDirectDebitDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  SepaDirectDebitDetails.JSON_PROPERTY_DUE_DATE,
   SepaDirectDebitDetails.JSON_PROPERTY_IBAN,
   SepaDirectDebitDetails.JSON_PROPERTY_OWNER_NAME,
   SepaDirectDebitDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  SepaDirectDebitDetails.JSON_PROPERTY_SDK_DATA,
   SepaDirectDebitDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   SepaDirectDebitDetails.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID,
   SepaDirectDebitDetails.JSON_PROPERTY_TYPE
@@ -34,6 +36,9 @@ import java.util.logging.Logger;
 public class SepaDirectDebitDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
+  private String dueDate;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
@@ -44,6 +49,9 @@ public class SepaDirectDebitDetails {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -128,6 +136,39 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+  /**
+   * The date that the the shopper&#39;s bank account is charged.
+   *
+   * @param dueDate The date that the the shopper&#39;s bank account is charged.
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   */
+  public SepaDirectDebitDetails dueDate(String dueDate) {
+    this.dueDate = dueDate;
+    return this;
+  }
+
+  /**
+   * The date that the the shopper&#39;s bank account is charged.
+   *
+   * @return dueDate The date that the the shopper&#39;s bank account is charged.
+   */
+  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDueDate() {
+    return dueDate;
+  }
+
+  /**
+   * The date that the the shopper&#39;s bank account is charged.
+   *
+   * @param dueDate The date that the the shopper&#39;s bank account is charged.
+   */
+  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDueDate(String dueDate) {
+    this.dueDate = dueDate;
   }
 
   /**
@@ -239,6 +280,40 @@ public class SepaDirectDebitDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringDetailReference(String recurringDetailReference) {
     this.recurringDetailReference = recurringDetailReference;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code SepaDirectDebitDetails} instance, allowing for method chaining
+   */
+  public SepaDirectDebitDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
   }
 
   /**
@@ -363,10 +438,12 @@ public class SepaDirectDebitDetails {
     }
     SepaDirectDebitDetails sepaDirectDebitDetails = (SepaDirectDebitDetails) o;
     return Objects.equals(this.checkoutAttemptId, sepaDirectDebitDetails.checkoutAttemptId)
+        && Objects.equals(this.dueDate, sepaDirectDebitDetails.dueDate)
         && Objects.equals(this.iban, sepaDirectDebitDetails.iban)
         && Objects.equals(this.ownerName, sepaDirectDebitDetails.ownerName)
         && Objects.equals(
             this.recurringDetailReference, sepaDirectDebitDetails.recurringDetailReference)
+        && Objects.equals(this.sdkData, sepaDirectDebitDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, sepaDirectDebitDetails.storedPaymentMethodId)
         && Objects.equals(this.transferInstrumentId, sepaDirectDebitDetails.transferInstrumentId)
         && Objects.equals(this.type, sepaDirectDebitDetails.type);
@@ -376,9 +453,11 @@ public class SepaDirectDebitDetails {
   public int hashCode() {
     return Objects.hash(
         checkoutAttemptId,
+        dueDate,
         iban,
         ownerName,
         recurringDetailReference,
+        sdkData,
         storedPaymentMethodId,
         transferInstrumentId,
         type);
@@ -389,11 +468,13 @@ public class SepaDirectDebitDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class SepaDirectDebitDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

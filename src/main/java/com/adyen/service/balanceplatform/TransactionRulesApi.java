@@ -69,7 +69,7 @@ public class TransactionRulesApi extends Service {
    * Create a transaction rule
    *
    * @param transactionRuleInfo {@link TransactionRuleInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRule }
    * @throws ApiException if fails to make API call
@@ -102,7 +102,7 @@ public class TransactionRulesApi extends Service {
    *
    * @param transactionRuleId {@link String } The unique identifier of the transaction rule.
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRule }
    * @throws ApiException if fails to make API call
@@ -142,7 +142,7 @@ public class TransactionRulesApi extends Service {
    *
    * @param transactionRuleId {@link String } The unique identifier of the transaction rule.
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRuleResponse }
    * @throws ApiException if fails to make API call
@@ -185,7 +185,7 @@ public class TransactionRulesApi extends Service {
    * @param transactionRuleId {@link String } The unique identifier of the transaction rule.
    *     (required)
    * @param transactionRuleInfo {@link TransactionRuleInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRule }
    * @throws ApiException if fails to make API call

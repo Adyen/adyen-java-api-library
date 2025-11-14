@@ -68,7 +68,7 @@ public class NetworkTokensApi extends Service {
    * Get a network token
    *
    * @param networkTokenId {@link String } The unique identifier of the network token. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GetNetworkTokenResponse }
    * @throws ApiException if fails to make API call
@@ -107,7 +107,7 @@ public class NetworkTokensApi extends Service {
    *
    * @param networkTokenId {@link String } The unique identifier of the network token. (required)
    * @param updateNetworkTokenRequest {@link UpdateNetworkTokenRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */

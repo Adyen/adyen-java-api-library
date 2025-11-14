@@ -69,7 +69,7 @@ public class ClientKeyCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GenerateClientKeyResponse }
    * @throws ApiException if fails to make API call

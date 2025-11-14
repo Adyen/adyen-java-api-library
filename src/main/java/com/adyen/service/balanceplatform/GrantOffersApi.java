@@ -73,7 +73,7 @@ public class GrantOffersApi extends Service {
    *
    * @param accountHolderId {@link String } Query: The unique identifier of the grant account.
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GrantOffers }
    * @throws ApiException if fails to make API call
@@ -115,7 +115,7 @@ public class GrantOffersApi extends Service {
    * Get a grant offer
    *
    * @param grantOfferId {@link String } The unique identifier of the grant offer. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GrantOffer }
    * @throws ApiException if fails to make API call

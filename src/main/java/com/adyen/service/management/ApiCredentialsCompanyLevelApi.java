@@ -74,7 +74,7 @@ public class ApiCredentialsCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param createCompanyApiCredentialRequest {@link CreateCompanyApiCredentialRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreateCompanyApiCredentialResponse }
    * @throws ApiException if fails to make API call
@@ -117,7 +117,7 @@ public class ApiCredentialsCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CompanyApiCredential }
    * @throws ApiException if fails to make API call
@@ -164,7 +164,7 @@ public class ApiCredentialsCompanyLevelApi extends Service {
    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListCompanyApiCredentialsResponse }
    * @throws ApiException if fails to make API call
@@ -220,7 +220,7 @@ public class ApiCredentialsCompanyLevelApi extends Service {
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
    * @param updateCompanyApiCredentialRequest {@link UpdateCompanyApiCredentialRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CompanyApiCredential }
    * @throws ApiException if fails to make API call

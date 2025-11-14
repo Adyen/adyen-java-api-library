@@ -66,10 +66,12 @@ import java.util.logging.Logger;
   PaymentMethodSetupInfo.JSON_PROPERTY_SOFORT,
   PaymentMethodSetupInfo.JSON_PROPERTY_STAR,
   PaymentMethodSetupInfo.JSON_PROPERTY_STORE_IDS,
+  PaymentMethodSetupInfo.JSON_PROPERTY_SVS,
   PaymentMethodSetupInfo.JSON_PROPERTY_SWISH,
   PaymentMethodSetupInfo.JSON_PROPERTY_TICKET,
   PaymentMethodSetupInfo.JSON_PROPERTY_TWINT,
   PaymentMethodSetupInfo.JSON_PROPERTY_TYPE,
+  PaymentMethodSetupInfo.JSON_PROPERTY_VALUE_LINK,
   PaymentMethodSetupInfo.JSON_PROPERTY_VIPPS,
   PaymentMethodSetupInfo.JSON_PROPERTY_VISA,
   PaymentMethodSetupInfo.JSON_PROPERTY_WECHATPAY,
@@ -248,6 +250,9 @@ public class PaymentMethodSetupInfo {
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
   private List<String> storeIds;
 
+  public static final String JSON_PROPERTY_SVS = "svs";
+  private SvsInfo svs;
+
   public static final String JSON_PROPERTY_SWISH = "swish";
   private SwishInfo swish;
 
@@ -390,6 +395,8 @@ public class PaymentMethodSetupInfo {
 
     KLARNA_ACCOUNT(String.valueOf("klarna_account")),
 
+    KLARNA_B2B(String.valueOf("klarna_b2b")),
+
     KLARNA_PAYNOW(String.valueOf("klarna_paynow")),
 
     LE_CARD(String.valueOf("le_card")),
@@ -472,6 +479,8 @@ public class PaymentMethodSetupInfo {
 
     STAR(String.valueOf("star")),
 
+    SVS(String.valueOf("svs")),
+
     SWISH(String.valueOf("swish")),
 
     TICKET(String.valueOf("ticket")),
@@ -495,6 +504,8 @@ public class PaymentMethodSetupInfo {
     VALE_REFEICAO(String.valueOf("vale_refeicao")),
 
     VALE_REFEICAO_PREPAID(String.valueOf("vale_refeicao_prepaid")),
+
+    VALUELINK(String.valueOf("valueLink")),
 
     VEGAS_CARD(String.valueOf("vegas_card")),
 
@@ -559,6 +570,9 @@ public class PaymentMethodSetupInfo {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_VALUE_LINK = "valueLink";
+  private ValueLinkInfo valueLink;
 
   public static final String JSON_PROPERTY_VIPPS = "vipps";
   private VippsInfo vipps;
@@ -1996,6 +2010,39 @@ public class PaymentMethodSetupInfo {
   }
 
   /**
+   * svs
+   *
+   * @param svs
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo svs(SvsInfo svs) {
+    this.svs = svs;
+    return this;
+  }
+
+  /**
+   * Get svs
+   *
+   * @return svs
+   */
+  @JsonProperty(JSON_PROPERTY_SVS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SvsInfo getSvs() {
+    return svs;
+  }
+
+  /**
+   * svs
+   *
+   * @param svs
+   */
+  @JsonProperty(JSON_PROPERTY_SVS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSvs(SvsInfo svs) {
+    this.svs = svs;
+  }
+
+  /**
    * swish
    *
    * @param swish
@@ -2131,6 +2178,39 @@ public class PaymentMethodSetupInfo {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+  }
+
+  /**
+   * valueLink
+   *
+   * @param valueLink
+   * @return the current {@code PaymentMethodSetupInfo} instance, allowing for method chaining
+   */
+  public PaymentMethodSetupInfo valueLink(ValueLinkInfo valueLink) {
+    this.valueLink = valueLink;
+    return this;
+  }
+
+  /**
+   * Get valueLink
+   *
+   * @return valueLink
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE_LINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ValueLinkInfo getValueLink() {
+    return valueLink;
+  }
+
+  /**
+   * valueLink
+   *
+   * @param valueLink
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE_LINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValueLink(ValueLinkInfo valueLink) {
+    this.valueLink = valueLink;
   }
 
   /**
@@ -2316,10 +2396,12 @@ public class PaymentMethodSetupInfo {
         && Objects.equals(this.sofort, paymentMethodSetupInfo.sofort)
         && Objects.equals(this.star, paymentMethodSetupInfo.star)
         && Objects.equals(this.storeIds, paymentMethodSetupInfo.storeIds)
+        && Objects.equals(this.svs, paymentMethodSetupInfo.svs)
         && Objects.equals(this.swish, paymentMethodSetupInfo.swish)
         && Objects.equals(this.ticket, paymentMethodSetupInfo.ticket)
         && Objects.equals(this.twint, paymentMethodSetupInfo.twint)
         && Objects.equals(this.type, paymentMethodSetupInfo.type)
+        && Objects.equals(this.valueLink, paymentMethodSetupInfo.valueLink)
         && Objects.equals(this.vipps, paymentMethodSetupInfo.vipps)
         && Objects.equals(this.visa, paymentMethodSetupInfo.visa)
         && Objects.equals(this.wechatpay, paymentMethodSetupInfo.wechatpay)
@@ -2370,10 +2452,12 @@ public class PaymentMethodSetupInfo {
         sofort,
         star,
         storeIds,
+        svs,
         swish,
         ticket,
         twint,
         type,
+        valueLink,
         vipps,
         visa,
         wechatpay,
@@ -2425,10 +2509,12 @@ public class PaymentMethodSetupInfo {
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
     sb.append("    star: ").append(toIndentedString(star)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
+    sb.append("    svs: ").append(toIndentedString(svs)).append("\n");
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
     sb.append("    ticket: ").append(toIndentedString(ticket)).append("\n");
     sb.append("    twint: ").append(toIndentedString(twint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    valueLink: ").append(toIndentedString(valueLink)).append("\n");
     sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
     sb.append("    visa: ").append(toIndentedString(visa)).append("\n");
     sb.append("    wechatpay: ").append(toIndentedString(wechatpay)).append("\n");

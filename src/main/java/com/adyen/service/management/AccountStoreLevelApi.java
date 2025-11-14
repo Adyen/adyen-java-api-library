@@ -74,7 +74,7 @@ public class AccountStoreLevelApi extends Service {
    *
    * @param storeCreationWithMerchantCodeRequest {@link StoreCreationWithMerchantCodeRequest }
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Store }
    * @throws ApiException if fails to make API call
@@ -108,7 +108,7 @@ public class AccountStoreLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param storeCreationRequest {@link StoreCreationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Store }
    * @throws ApiException if fails to make API call
@@ -147,7 +147,7 @@ public class AccountStoreLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param storeId {@link String } The unique identifier of the store. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Store }
    * @throws ApiException if fails to make API call
@@ -188,7 +188,7 @@ public class AccountStoreLevelApi extends Service {
    * Get a store
    *
    * @param storeId {@link String } The unique identifier of the store. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Store }
    * @throws ApiException if fails to make API call
@@ -228,7 +228,7 @@ public class AccountStoreLevelApi extends Service {
    * @param reference {@link String } Query: The reference of the store. (optional)
    * @param merchantId {@link String } Query: The unique identifier of the merchant account.
    *     (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListStoresResponse }
    * @throws ApiException if fails to make API call
@@ -283,7 +283,7 @@ public class AccountStoreLevelApi extends Service {
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
    * @param reference {@link String } Query: The reference of the store. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListStoresResponse }
    * @throws ApiException if fails to make API call
@@ -342,7 +342,7 @@ public class AccountStoreLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param storeId {@link String } The unique identifier of the store. (required)
    * @param updateStoreRequest {@link UpdateStoreRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Store }
    * @throws ApiException if fails to make API call
@@ -390,7 +390,7 @@ public class AccountStoreLevelApi extends Service {
    *
    * @param storeId {@link String } The unique identifier of the store. (required)
    * @param updateStoreRequest {@link UpdateStoreRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Store }
    * @throws ApiException if fails to make API call

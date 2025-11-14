@@ -80,7 +80,7 @@ public class PaymentInstrumentsApi extends Service {
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
    * @param networkTokenActivationDataRequest {@link NetworkTokenActivationDataRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link NetworkTokenActivationDataResponse }
    * @throws ApiException if fails to make API call
@@ -122,7 +122,7 @@ public class PaymentInstrumentsApi extends Service {
    * Create a payment instrument
    *
    * @param paymentInstrumentInfo {@link PaymentInstrumentInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentInstrument }
    * @throws ApiException if fails to make API call
@@ -153,7 +153,7 @@ public class PaymentInstrumentsApi extends Service {
    * Get all transaction rules for a payment instrument
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRulesResponse }
    * @throws ApiException if fails to make API call
@@ -191,7 +191,7 @@ public class PaymentInstrumentsApi extends Service {
    * Get network token activation data
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link NetworkTokenActivationDataResponse }
    * @throws ApiException if fails to make API call
@@ -230,7 +230,7 @@ public class PaymentInstrumentsApi extends Service {
    * Get the PAN of a payment instrument
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentInstrumentRevealInfo }
    * @throws ApiException if fails to make API call
@@ -266,7 +266,7 @@ public class PaymentInstrumentsApi extends Service {
    * Get a payment instrument
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentInstrument }
    * @throws ApiException if fails to make API call
@@ -302,7 +302,7 @@ public class PaymentInstrumentsApi extends Service {
    * List network tokens
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListNetworkTokensResponse }
    * @throws ApiException if fails to make API call
@@ -341,7 +341,7 @@ public class PaymentInstrumentsApi extends Service {
    * Reveal the data of a payment instrument
    *
    * @param paymentInstrumentRevealRequest {@link PaymentInstrumentRevealRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentInstrumentRevealResponse }
    * @throws ApiException if fails to make API call
@@ -375,7 +375,7 @@ public class PaymentInstrumentsApi extends Service {
    *
    * @param id {@link String } The unique identifier of the payment instrument. (required)
    * @param paymentInstrumentUpdateRequest {@link PaymentInstrumentUpdateRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link UpdatePaymentInstrument }
    * @throws ApiException if fails to make API call

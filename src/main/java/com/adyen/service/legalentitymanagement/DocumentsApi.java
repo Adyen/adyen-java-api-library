@@ -65,7 +65,7 @@ public class DocumentsApi extends Service {
    * Delete a document
    *
    * @param id {@link String } The unique identifier of the document to be deleted. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -100,7 +100,7 @@ public class DocumentsApi extends Service {
    * @param id {@link String } The unique identifier of the document. (required)
    * @param skipContent {@link Boolean } Query: Do not load document content while fetching the
    *     document. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Document }
    * @throws ApiException if fails to make API call
@@ -145,7 +145,7 @@ public class DocumentsApi extends Service {
    *
    * @param id {@link String } The unique identifier of the document to be updated. (required)
    * @param document {@link Document } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Document }
    * @throws ApiException if fails to make API call
@@ -182,7 +182,7 @@ public class DocumentsApi extends Service {
    * Upload a document for verification checks
    *
    * @param document {@link Document } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Document }
    * @throws ApiException if fails to make API call

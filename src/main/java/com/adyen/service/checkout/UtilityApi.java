@@ -72,7 +72,7 @@ public class UtilityApi extends Service {
    * Get an Apple Pay session
    *
    * @param applePaySessionRequest {@link ApplePaySessionRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ApplePaySessionResponse }
    * @throws ApiException if fails to make API call
@@ -105,7 +105,7 @@ public class UtilityApi extends Service {
    * Create originKey values for domains
    *
    * @param utilityRequest {@link UtilityRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link UtilityResponse }
    * @throws ApiException if fails to make API call
@@ -137,7 +137,7 @@ public class UtilityApi extends Service {
    * Updates the order for PayPal Express Checkout
    *
    * @param paypalUpdateOrderRequest {@link PaypalUpdateOrderRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaypalUpdateOrderResponse }
    * @throws ApiException if fails to make API call
@@ -156,7 +156,6 @@ public class UtilityApi extends Service {
    * Validates shopper Id
    *
    * @param validateShopperIdRequest {@link ValidateShopperIdRequest } (required)
-   * @param validateShopperIdRequest {@link ValidateShopperIdRequest } (required)
    * @return {@link ValidateShopperIdResponse }
    * @throws ApiException if fails to make API call
    */
@@ -169,7 +168,7 @@ public class UtilityApi extends Service {
    * Validates shopper Id
    *
    * @param validateShopperIdRequest {@link ValidateShopperIdRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ValidateShopperIdResponse }
    * @throws ApiException if fails to make API call

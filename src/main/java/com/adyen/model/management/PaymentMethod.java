@@ -69,10 +69,12 @@ import java.util.logging.Logger;
   PaymentMethod.JSON_PROPERTY_SOFORT,
   PaymentMethod.JSON_PROPERTY_STAR,
   PaymentMethod.JSON_PROPERTY_STORE_IDS,
+  PaymentMethod.JSON_PROPERTY_SVS,
   PaymentMethod.JSON_PROPERTY_SWISH,
   PaymentMethod.JSON_PROPERTY_TICKET,
   PaymentMethod.JSON_PROPERTY_TWINT,
   PaymentMethod.JSON_PROPERTY_TYPE,
+  PaymentMethod.JSON_PROPERTY_VALUE_LINK,
   PaymentMethod.JSON_PROPERTY_VERIFICATION_STATUS,
   PaymentMethod.JSON_PROPERTY_VIPPS,
   PaymentMethod.JSON_PROPERTY_VISA,
@@ -212,6 +214,9 @@ public class PaymentMethod {
   public static final String JSON_PROPERTY_STORE_IDS = "storeIds";
   private List<String> storeIds;
 
+  public static final String JSON_PROPERTY_SVS = "svs";
+  private SvsInfo svs;
+
   public static final String JSON_PROPERTY_SWISH = "swish";
   private SwishInfo swish;
 
@@ -223,6 +228,9 @@ public class PaymentMethod {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  public static final String JSON_PROPERTY_VALUE_LINK = "valueLink";
+  private ValueLinkInfo valueLink;
 
   /**
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
@@ -1806,6 +1814,39 @@ public class PaymentMethod {
   }
 
   /**
+   * svs
+   *
+   * @param svs
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod svs(SvsInfo svs) {
+    this.svs = svs;
+    return this;
+  }
+
+  /**
+   * Get svs
+   *
+   * @return svs
+   */
+  @JsonProperty(JSON_PROPERTY_SVS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SvsInfo getSvs() {
+    return svs;
+  }
+
+  /**
+   * svs
+   *
+   * @param svs
+   */
+  @JsonProperty(JSON_PROPERTY_SVS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSvs(SvsInfo svs) {
+    this.svs = svs;
+  }
+
+  /**
    * swish
    *
    * @param swish
@@ -1941,6 +1982,39 @@ public class PaymentMethod {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+  }
+
+  /**
+   * valueLink
+   *
+   * @param valueLink
+   * @return the current {@code PaymentMethod} instance, allowing for method chaining
+   */
+  public PaymentMethod valueLink(ValueLinkInfo valueLink) {
+    this.valueLink = valueLink;
+    return this;
+  }
+
+  /**
+   * Get valueLink
+   *
+   * @return valueLink
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE_LINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ValueLinkInfo getValueLink() {
+    return valueLink;
+  }
+
+  /**
+   * valueLink
+   *
+   * @param valueLink
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE_LINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValueLink(ValueLinkInfo valueLink) {
+    this.valueLink = valueLink;
   }
 
   /**
@@ -2165,10 +2239,12 @@ public class PaymentMethod {
         && Objects.equals(this.sofort, paymentMethod.sofort)
         && Objects.equals(this.star, paymentMethod.star)
         && Objects.equals(this.storeIds, paymentMethod.storeIds)
+        && Objects.equals(this.svs, paymentMethod.svs)
         && Objects.equals(this.swish, paymentMethod.swish)
         && Objects.equals(this.ticket, paymentMethod.ticket)
         && Objects.equals(this.twint, paymentMethod.twint)
         && Objects.equals(this.type, paymentMethod.type)
+        && Objects.equals(this.valueLink, paymentMethod.valueLink)
         && Objects.equals(this.verificationStatus, paymentMethod.verificationStatus)
         && Objects.equals(this.vipps, paymentMethod.vipps)
         && Objects.equals(this.visa, paymentMethod.visa)
@@ -2223,10 +2299,12 @@ public class PaymentMethod {
         sofort,
         star,
         storeIds,
+        svs,
         swish,
         ticket,
         twint,
         type,
+        valueLink,
         verificationStatus,
         vipps,
         visa,
@@ -2282,10 +2360,12 @@ public class PaymentMethod {
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
     sb.append("    star: ").append(toIndentedString(star)).append("\n");
     sb.append("    storeIds: ").append(toIndentedString(storeIds)).append("\n");
+    sb.append("    svs: ").append(toIndentedString(svs)).append("\n");
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
     sb.append("    ticket: ").append(toIndentedString(ticket)).append("\n");
     sb.append("    twint: ").append(toIndentedString(twint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    valueLink: ").append(toIndentedString(valueLink)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
     sb.append("    visa: ").append(toIndentedString(visa)).append("\n");

@@ -44,7 +44,8 @@ public class RecurringApi extends Service {
    */
   public RecurringApi(Client client) {
     super(client);
-    this.baseURL = createBaseURL("https://pal-test.adyen.com/pal/servlet/Recurring/v68");
+    this.baseURL =
+        createBaseURL("https://paltokenization-test.adyen.com/pal/servlet/Recurring/v68");
   }
 
   /**
@@ -78,7 +79,7 @@ public class RecurringApi extends Service {
    * Create new permits linked to a recurring contract.
    *
    * @param createPermitRequest {@link CreatePermitRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreatePermitResult }
    * @throws ApiException if fails to make API call
@@ -110,7 +111,7 @@ public class RecurringApi extends Service {
    * Disable stored payment details
    *
    * @param disableRequest {@link DisableRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link DisableResult }
    * @throws ApiException if fails to make API call
@@ -142,7 +143,7 @@ public class RecurringApi extends Service {
    * Disable an existing permit.
    *
    * @param disablePermitRequest {@link DisablePermitRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link DisablePermitResult }
    * @throws ApiException if fails to make API call
@@ -175,7 +176,7 @@ public class RecurringApi extends Service {
    * Get stored payment details
    *
    * @param recurringDetailsRequest {@link RecurringDetailsRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link RecurringDetailsResult }
    * @throws ApiException if fails to make API call
@@ -206,7 +207,7 @@ public class RecurringApi extends Service {
    * Ask issuer to notify the shopper
    *
    * @param notifyShopperRequest {@link NotifyShopperRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link NotifyShopperResult }
    * @throws ApiException if fails to make API call
@@ -238,7 +239,7 @@ public class RecurringApi extends Service {
    * Schedule running the Account Updater
    *
    * @param scheduleAccountUpdaterRequest {@link ScheduleAccountUpdaterRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ScheduleAccountUpdaterResult }
    * @throws ApiException if fails to make API call

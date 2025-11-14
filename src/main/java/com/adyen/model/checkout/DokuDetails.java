@@ -26,6 +26,7 @@ import java.util.logging.Logger;
   DokuDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   DokuDetails.JSON_PROPERTY_FIRST_NAME,
   DokuDetails.JSON_PROPERTY_LAST_NAME,
+  DokuDetails.JSON_PROPERTY_SDK_DATA,
   DokuDetails.JSON_PROPERTY_SHOPPER_EMAIL,
   DokuDetails.JSON_PROPERTY_TYPE
 })
@@ -38,6 +39,9 @@ public class DokuDetails {
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
@@ -206,6 +210,40 @@ public class DokuDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code DokuDetails} instance, allowing for method chaining
+   */
+  public DokuDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * The shopper&#39;s email.
    *
    * @param shopperEmail The shopper&#39;s email.
@@ -284,13 +322,14 @@ public class DokuDetails {
     return Objects.equals(this.checkoutAttemptId, dokuDetails.checkoutAttemptId)
         && Objects.equals(this.firstName, dokuDetails.firstName)
         && Objects.equals(this.lastName, dokuDetails.lastName)
+        && Objects.equals(this.sdkData, dokuDetails.sdkData)
         && Objects.equals(this.shopperEmail, dokuDetails.shopperEmail)
         && Objects.equals(this.type, dokuDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, firstName, lastName, shopperEmail, type);
+    return Objects.hash(checkoutAttemptId, firstName, lastName, sdkData, shopperEmail, type);
   }
 
   @Override
@@ -300,6 +339,7 @@ public class DokuDetails {
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

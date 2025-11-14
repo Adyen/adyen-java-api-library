@@ -76,7 +76,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param orderId {@link String } The unique identifier of the order. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalOrder }
    * @throws ApiException if fails to make API call
@@ -121,7 +121,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param terminalOrderRequest {@link TerminalOrderRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalOrder }
    * @throws ApiException if fails to make API call
@@ -162,7 +162,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param shippingLocation {@link ShippingLocation } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ShippingLocation }
    * @throws ApiException if fails to make API call
@@ -202,7 +202,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param orderId {@link String } The unique identifier of the order. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalOrder }
    * @throws ApiException if fails to make API call
@@ -245,7 +245,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param name {@link String } Query: The name of the billing entity. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BillingEntitiesResponse }
    * @throws ApiException if fails to make API call
@@ -295,7 +295,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    *     Placed, Confirmed, Cancelled, Shipped, Delivered. (optional)
    * @param offset {@link Integer } Query: The number of orders to skip. (optional)
    * @param limit {@link Integer } Query: The number of orders to return. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalOrdersResponse }
    * @throws ApiException if fails to make API call
@@ -358,7 +358,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    * @param name {@link String } Query: The name of the shipping location. (optional)
    * @param offset {@link Integer } Query: The number of locations to skip. (optional)
    * @param limit {@link Integer } Query: The number of locations to return. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ShippingLocationsResponse }
    * @throws ApiException if fails to make API call
@@ -410,7 +410,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    * Get a list of terminal models
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalModelsResponse }
    * @throws ApiException if fails to make API call
@@ -436,7 +436,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    * Get a list of terminal products
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
-   * @param country {@link String } The country to return products for, in [ISO 3166-1
+   * @param country {@link String } Query: The country to return products for, in [ISO 3166-1
    *     alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. For example, **US**
    *     (required)
    * @return {@link TerminalProductsResponse }
@@ -460,7 +460,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    *     response. For example, **Verifone.M400** (optional)
    * @param offset {@link Integer } Query: The number of products to skip. (optional)
    * @param limit {@link Integer } Query: The number of products to return. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalProductsResponse }
    * @throws ApiException if fails to make API call
@@ -525,7 +525,7 @@ public class TerminalOrdersCompanyLevelApi extends Service {
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param orderId {@link String } The unique identifier of the order. (required)
    * @param terminalOrderRequest {@link TerminalOrderRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalOrder }
    * @throws ApiException if fails to make API call

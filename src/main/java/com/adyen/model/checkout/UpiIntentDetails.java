@@ -27,6 +27,7 @@ import java.util.logging.Logger;
   UpiIntentDetails.JSON_PROPERTY_BILLING_SEQUENCE_NUMBER,
   UpiIntentDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   UpiIntentDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  UpiIntentDetails.JSON_PROPERTY_SDK_DATA,
   UpiIntentDetails.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
   UpiIntentDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   UpiIntentDetails.JSON_PROPERTY_TYPE
@@ -44,6 +45,9 @@ public class UpiIntentDetails {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE =
       "shopperNotificationReference";
@@ -250,6 +254,40 @@ public class UpiIntentDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code UpiIntentDetails} instance, allowing for method chaining
+   */
+  public UpiIntentDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to
    * notify the shopper. Used for recurring payment only.
    *
@@ -374,6 +412,7 @@ public class UpiIntentDetails {
         && Objects.equals(this.billingSequenceNumber, upiIntentDetails.billingSequenceNumber)
         && Objects.equals(this.checkoutAttemptId, upiIntentDetails.checkoutAttemptId)
         && Objects.equals(this.recurringDetailReference, upiIntentDetails.recurringDetailReference)
+        && Objects.equals(this.sdkData, upiIntentDetails.sdkData)
         && Objects.equals(
             this.shopperNotificationReference, upiIntentDetails.shopperNotificationReference)
         && Objects.equals(this.storedPaymentMethodId, upiIntentDetails.storedPaymentMethodId)
@@ -387,6 +426,7 @@ public class UpiIntentDetails {
         billingSequenceNumber,
         checkoutAttemptId,
         recurringDetailReference,
+        sdkData,
         shopperNotificationReference,
         storedPaymentMethodId,
         type);
@@ -404,6 +444,7 @@ public class UpiIntentDetails {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    shopperNotificationReference: ")
         .append(toIndentedString(shopperNotificationReference))
         .append("\n");

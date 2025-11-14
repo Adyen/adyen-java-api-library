@@ -58,7 +58,6 @@ public class PaymentsAppApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param boardingTokenRequest {@link BoardingTokenRequest } (required)
-   * @param boardingTokenRequest {@link BoardingTokenRequest } (required)
    * @return {@link BoardingTokenResponse }
    * @throws ApiException if fails to make API call
    */
@@ -73,7 +72,7 @@ public class PaymentsAppApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param boardingTokenRequest {@link BoardingTokenRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BoardingTokenResponse }
    * @throws ApiException if fails to make API call
@@ -103,7 +102,6 @@ public class PaymentsAppApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param storeId {@link String } The unique identifier of the store. (required)
    * @param boardingTokenRequest {@link BoardingTokenRequest } (required)
-   * @param boardingTokenRequest {@link BoardingTokenRequest } (required)
    * @return {@link BoardingTokenResponse }
    * @throws ApiException if fails to make API call
    */
@@ -120,7 +118,7 @@ public class PaymentsAppApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param storeId {@link String } The unique identifier of the store. (required)
    * @param boardingTokenRequest {@link BoardingTokenRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BoardingTokenResponse }
    * @throws ApiException if fails to make API call
@@ -175,7 +173,7 @@ public class PaymentsAppApi extends Service {
    *     values: * **BOARDING** * **BOARDED** * **REVOKED** (optional)
    * @param limit {@link Integer } Query: The number of items to return. (optional, default to 10)
    * @param offset {@link Long } Query: The number of items to skip. (optional, default to 0)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentsAppResponse }
    * @throws ApiException if fails to make API call
@@ -234,7 +232,7 @@ public class PaymentsAppApi extends Service {
    *     values: * **BOARDING** * **BOARDED** * **REVOKED** (optional)
    * @param limit {@link Integer } Query: The number of items to return. (optional, default to 10)
    * @param offset {@link Long } Query: The number of items to skip. (optional, default to 0)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentsAppResponse }
    * @throws ApiException if fails to make API call
@@ -299,7 +297,7 @@ public class PaymentsAppApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param installationId {@link String } The unique identifier of the Payments App instance on a
    *     device. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */

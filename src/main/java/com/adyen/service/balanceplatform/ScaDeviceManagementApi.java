@@ -73,7 +73,7 @@ public class ScaDeviceManagementApi extends Service {
    * Begin SCA device registration
    *
    * @param beginScaDeviceRegistrationRequest {@link BeginScaDeviceRegistrationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BeginScaDeviceRegistrationResponse }
    * @throws ApiException if fails to make API call
@@ -112,7 +112,7 @@ public class ScaDeviceManagementApi extends Service {
    *     associating with a resource. (required)
    * @param finishScaDeviceRegistrationRequest {@link FinishScaDeviceRegistrationRequest }
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link FinishScaDeviceRegistrationResponse }
    * @throws ApiException if fails to make API call
@@ -157,7 +157,7 @@ public class ScaDeviceManagementApi extends Service {
    * @param deviceId {@link String } The unique identifier of the SCA device that you are
    *     associating with a resource. (required)
    * @param submitScaAssociationRequest {@link SubmitScaAssociationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SubmitScaAssociationResponse }
    * @throws ApiException if fails to make API call

@@ -80,7 +80,7 @@ public class ManageScaDevicesApi extends Service {
    * @param deviceId {@link String } The unique identifier of the SCA device that you are
    *     associating with a resource. (required)
    * @param associationFinaliseRequest {@link AssociationFinaliseRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AssociationFinaliseResponse }
    * @throws ApiException if fails to make API call
@@ -129,7 +129,7 @@ public class ManageScaDevicesApi extends Service {
    *     POST&amp;nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id)
    *     request. (required)
    * @param registerSCARequest {@link RegisterSCARequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link RegisterSCAFinalResponse }
    * @throws ApiException if fails to make API call
@@ -170,7 +170,7 @@ public class ManageScaDevicesApi extends Service {
    * @param id {@link String } The unique identifier of the SCA device. (required)
    * @param paymentInstrumentId {@link String } Query: The unique identifier of the payment
    *     instrument linked to the SCA device. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -218,7 +218,7 @@ public class ManageScaDevicesApi extends Service {
    * @param deviceId {@link String } The unique identifier of the SCA device that you are
    *     associating with a resource. (required)
    * @param associationInitiateRequest {@link AssociationInitiateRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AssociationInitiateResponse }
    * @throws ApiException if fails to make API call
@@ -259,7 +259,7 @@ public class ManageScaDevicesApi extends Service {
    * Initiate the registration of an SCA device
    *
    * @param registerSCARequest {@link RegisterSCARequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link RegisterSCAResponse }
    * @throws ApiException if fails to make API call
@@ -298,7 +298,7 @@ public class ManageScaDevicesApi extends Service {
    *     first page is 0 (zero). Default: 0. (optional)
    * @param pageSize {@link Integer } Query: The number of items to have on a page. Default: 20.
    *     Maximum: 100. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SearchRegisteredDevicesResponse }
    * @throws ApiException if fails to make API call

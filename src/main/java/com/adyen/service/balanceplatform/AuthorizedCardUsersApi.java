@@ -69,7 +69,7 @@ public class AuthorizedCardUsersApi extends Service {
    *
    * @param paymentInstrumentId {@link String } (required)
    * @param authorisedCardUsers {@link AuthorisedCardUsers } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -109,7 +109,7 @@ public class AuthorizedCardUsersApi extends Service {
    * Delete the authorized users for a card.
    *
    * @param paymentInstrumentId {@link String } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -147,7 +147,7 @@ public class AuthorizedCardUsersApi extends Service {
    * Get authorized users for a card.
    *
    * @param paymentInstrumentId {@link String } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AuthorisedCardUsers }
    * @throws ApiException if fails to make API call
@@ -190,7 +190,7 @@ public class AuthorizedCardUsersApi extends Service {
    *
    * @param paymentInstrumentId {@link String } (required)
    * @param authorisedCardUsers {@link AuthorisedCardUsers } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */

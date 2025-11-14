@@ -75,7 +75,7 @@ public class PaymentMethodsMerchantLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
    * @param applePayInfo {@link ApplePayInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -129,7 +129,7 @@ public class PaymentMethodsMerchantLevelApi extends Service {
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentMethodResponse }
    * @throws ApiException if fails to make API call
@@ -191,7 +191,7 @@ public class PaymentMethodsMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ApplePayInfo }
    * @throws ApiException if fails to make API call
@@ -240,7 +240,7 @@ public class PaymentMethodsMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentMethod }
    * @throws ApiException if fails to make API call
@@ -289,7 +289,7 @@ public class PaymentMethodsMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param paymentMethodSetupInfo {@link PaymentMethodSetupInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentMethod }
    * @throws ApiException if fails to make API call
@@ -335,7 +335,7 @@ public class PaymentMethodsMerchantLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param paymentMethodId {@link String } The unique identifier of the payment method. (required)
    * @param updatePaymentMethodInfo {@link UpdatePaymentMethodInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentMethod }
    * @throws ApiException if fails to make API call

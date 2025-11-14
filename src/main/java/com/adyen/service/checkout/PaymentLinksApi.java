@@ -68,7 +68,7 @@ public class PaymentLinksApi extends Service {
    * Get a payment link
    *
    * @param linkId {@link String } Unique identifier of the payment link. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentLinkResponse }
    * @throws ApiException if fails to make API call
@@ -105,7 +105,7 @@ public class PaymentLinksApi extends Service {
    * Create a payment link
    *
    * @param paymentLinkRequest {@link PaymentLinkRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentLinkResponse }
    * @throws ApiException if fails to make API call
@@ -139,7 +139,7 @@ public class PaymentLinksApi extends Service {
    *
    * @param linkId {@link String } Unique identifier of the payment link. (required)
    * @param updatePaymentLinkRequest {@link UpdatePaymentLinkRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentLinkResponse }
    * @throws ApiException if fails to make API call

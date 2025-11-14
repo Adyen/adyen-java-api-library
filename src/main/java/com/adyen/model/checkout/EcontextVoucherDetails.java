@@ -26,6 +26,7 @@ import java.util.logging.Logger;
   EcontextVoucherDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   EcontextVoucherDetails.JSON_PROPERTY_FIRST_NAME,
   EcontextVoucherDetails.JSON_PROPERTY_LAST_NAME,
+  EcontextVoucherDetails.JSON_PROPERTY_SDK_DATA,
   EcontextVoucherDetails.JSON_PROPERTY_SHOPPER_EMAIL,
   EcontextVoucherDetails.JSON_PROPERTY_TELEPHONE_NUMBER,
   EcontextVoucherDetails.JSON_PROPERTY_TYPE
@@ -39,6 +40,9 @@ public class EcontextVoucherDetails {
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
@@ -198,6 +202,40 @@ public class EcontextVoucherDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code EcontextVoucherDetails} instance, allowing for method chaining
+   */
+  public EcontextVoucherDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * The shopper&#39;s email.
    *
    * @param shopperEmail The shopper&#39;s email.
@@ -321,6 +359,7 @@ public class EcontextVoucherDetails {
     return Objects.equals(this.checkoutAttemptId, econtextVoucherDetails.checkoutAttemptId)
         && Objects.equals(this.firstName, econtextVoucherDetails.firstName)
         && Objects.equals(this.lastName, econtextVoucherDetails.lastName)
+        && Objects.equals(this.sdkData, econtextVoucherDetails.sdkData)
         && Objects.equals(this.shopperEmail, econtextVoucherDetails.shopperEmail)
         && Objects.equals(this.telephoneNumber, econtextVoucherDetails.telephoneNumber)
         && Objects.equals(this.type, econtextVoucherDetails.type);
@@ -329,7 +368,7 @@ public class EcontextVoucherDetails {
   @Override
   public int hashCode() {
     return Objects.hash(
-        checkoutAttemptId, firstName, lastName, shopperEmail, telephoneNumber, type);
+        checkoutAttemptId, firstName, lastName, sdkData, shopperEmail, telephoneNumber, type);
   }
 
   @Override
@@ -339,6 +378,7 @@ public class EcontextVoucherDetails {
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

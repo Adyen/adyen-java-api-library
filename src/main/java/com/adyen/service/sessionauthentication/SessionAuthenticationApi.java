@@ -54,7 +54,6 @@ public class SessionAuthenticationApi extends Service {
    * Create a session token
    *
    * @param authenticationSessionRequest {@link AuthenticationSessionRequest } (required)
-   * @param authenticationSessionRequest {@link AuthenticationSessionRequest } (required)
    * @return {@link AuthenticationSessionResponse }
    * @throws ApiException if fails to make API call
    */
@@ -67,7 +66,7 @@ public class SessionAuthenticationApi extends Service {
    * Create a session token
    *
    * @param authenticationSessionRequest {@link AuthenticationSessionRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AuthenticationSessionResponse }
    * @throws ApiException if fails to make API call

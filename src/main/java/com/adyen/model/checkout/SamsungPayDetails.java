@@ -27,6 +27,7 @@ import java.util.logging.Logger;
   SamsungPayDetails.JSON_PROPERTY_FUNDING_SOURCE,
   SamsungPayDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   SamsungPayDetails.JSON_PROPERTY_SAMSUNG_PAY_TOKEN,
+  SamsungPayDetails.JSON_PROPERTY_SDK_DATA,
   SamsungPayDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   SamsungPayDetails.JSON_PROPERTY_TYPE
 })
@@ -87,6 +88,9 @@ public class SamsungPayDetails {
 
   public static final String JSON_PROPERTY_SAMSUNG_PAY_TOKEN = "samsungPayToken";
   private String samsungPayToken;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -289,6 +293,40 @@ public class SamsungPayDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code SamsungPayDetails} instance, allowing for method chaining
+   */
+  public SamsungPayDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -374,6 +412,7 @@ public class SamsungPayDetails {
         && Objects.equals(this.fundingSource, samsungPayDetails.fundingSource)
         && Objects.equals(this.recurringDetailReference, samsungPayDetails.recurringDetailReference)
         && Objects.equals(this.samsungPayToken, samsungPayDetails.samsungPayToken)
+        && Objects.equals(this.sdkData, samsungPayDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, samsungPayDetails.storedPaymentMethodId)
         && Objects.equals(this.type, samsungPayDetails.type);
   }
@@ -385,6 +424,7 @@ public class SamsungPayDetails {
         fundingSource,
         recurringDetailReference,
         samsungPayToken,
+        sdkData,
         storedPaymentMethodId,
         type);
   }
@@ -399,6 +439,7 @@ public class SamsungPayDetails {
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
     sb.append("    samsungPayToken: ").append(toIndentedString(samsungPayToken)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

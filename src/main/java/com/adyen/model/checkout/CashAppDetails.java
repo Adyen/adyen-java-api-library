@@ -30,6 +30,7 @@ import java.util.logging.Logger;
   CashAppDetails.JSON_PROPERTY_ON_FILE_GRANT_ID,
   CashAppDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
   CashAppDetails.JSON_PROPERTY_REQUEST_ID,
+  CashAppDetails.JSON_PROPERTY_SDK_DATA,
   CashAppDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   CashAppDetails.JSON_PROPERTY_SUBTYPE,
   CashAppDetails.JSON_PROPERTY_TYPE
@@ -56,6 +57,9 @@ public class CashAppDetails {
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -351,6 +355,40 @@ public class CashAppDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code CashAppDetails} instance, allowing for method chaining
+   */
+  public CashAppDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -472,6 +510,7 @@ public class CashAppDetails {
         && Objects.equals(this.onFileGrantId, cashAppDetails.onFileGrantId)
         && Objects.equals(this.recurringDetailReference, cashAppDetails.recurringDetailReference)
         && Objects.equals(this.requestId, cashAppDetails.requestId)
+        && Objects.equals(this.sdkData, cashAppDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, cashAppDetails.storedPaymentMethodId)
         && Objects.equals(this.subtype, cashAppDetails.subtype)
         && Objects.equals(this.type, cashAppDetails.type);
@@ -487,6 +526,7 @@ public class CashAppDetails {
         onFileGrantId,
         recurringDetailReference,
         requestId,
+        sdkData,
         storedPaymentMethodId,
         subtype,
         type);
@@ -505,6 +545,7 @@ public class CashAppDetails {
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

@@ -397,15 +397,16 @@ public class AdditionalDataLevel23 {
 
   /**
    * The code that identifies the item in a standardized commodity coding scheme. There are
-   * different commodity coding schemes: * [UNSPSC commodity codes](https://www.unspsc.org/) * [HS
-   * commodity codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS
-   * commodity codes](https://www.census.gov/naics/) * [NAPCS commodity
+   * different commodity coding schemes: * [UNSPSC commodity
+   * codes](https://www.ungm.org/public/unspsc) * [HS commodity
+   * codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
+   * codes](https://www.census.gov/naics/) * [NAPCS commodity
    * codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
    * Must not start with a space or be all spaces. * Must not be all zeros.
    *
    * @param enhancedSchemeDataItemDetailLineItemNrCommodityCode The code that identifies the item in
    *     a standardized commodity coding scheme. There are different commodity coding schemes: *
-   *     [UNSPSC commodity codes](https://www.unspsc.org/) * [HS commodity
+   *     [UNSPSC commodity codes](https://www.ungm.org/public/unspsc) * [HS commodity
    *     codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    *     codes](https://www.census.gov/naics/) * [NAPCS commodity
    *     codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
@@ -421,15 +422,16 @@ public class AdditionalDataLevel23 {
 
   /**
    * The code that identifies the item in a standardized commodity coding scheme. There are
-   * different commodity coding schemes: * [UNSPSC commodity codes](https://www.unspsc.org/) * [HS
-   * commodity codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS
-   * commodity codes](https://www.census.gov/naics/) * [NAPCS commodity
+   * different commodity coding schemes: * [UNSPSC commodity
+   * codes](https://www.ungm.org/public/unspsc) * [HS commodity
+   * codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
+   * codes](https://www.census.gov/naics/) * [NAPCS commodity
    * codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
    * Must not start with a space or be all spaces. * Must not be all zeros.
    *
    * @return enhancedSchemeDataItemDetailLineItemNrCommodityCode The code that identifies the item
    *     in a standardized commodity coding scheme. There are different commodity coding schemes: *
-   *     [UNSPSC commodity codes](https://www.unspsc.org/) * [HS commodity
+   *     [UNSPSC commodity codes](https://www.ungm.org/public/unspsc) * [HS commodity
    *     codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    *     codes](https://www.census.gov/naics/) * [NAPCS commodity
    *     codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
@@ -443,15 +445,16 @@ public class AdditionalDataLevel23 {
 
   /**
    * The code that identifies the item in a standardized commodity coding scheme. There are
-   * different commodity coding schemes: * [UNSPSC commodity codes](https://www.unspsc.org/) * [HS
-   * commodity codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS
-   * commodity codes](https://www.census.gov/naics/) * [NAPCS commodity
+   * different commodity coding schemes: * [UNSPSC commodity
+   * codes](https://www.ungm.org/public/unspsc) * [HS commodity
+   * codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
+   * codes](https://www.census.gov/naics/) * [NAPCS commodity
    * codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *
    * Must not start with a space or be all spaces. * Must not be all zeros.
    *
    * @param enhancedSchemeDataItemDetailLineItemNrCommodityCode The code that identifies the item in
    *     a standardized commodity coding scheme. There are different commodity coding schemes: *
-   *     [UNSPSC commodity codes](https://www.unspsc.org/) * [HS commodity
+   *     [UNSPSC commodity codes](https://www.ungm.org/public/unspsc) * [HS commodity
    *     codes](https://www.wcoomd.org/en/topics/nomenclature/overview.aspx) * [NAICS commodity
    *     codes](https://www.census.gov/naics/) * [NAPCS commodity
    *     codes](https://www.census.gov/naics/napcs/) * Encoding: ASCII * Max length: 12 characters *

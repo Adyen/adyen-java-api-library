@@ -67,7 +67,7 @@ public class TerminalSettingsTerminalLevelApi extends Service {
    * Get the terminal logo
    *
    * @param terminalId {@link String } The unique identifier of the payment terminal. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
@@ -104,7 +104,7 @@ public class TerminalSettingsTerminalLevelApi extends Service {
    * Get terminal settings
    *
    * @param terminalId {@link String } The unique identifier of the payment terminal. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalSettings }
    * @throws ApiException if fails to make API call
@@ -143,7 +143,7 @@ public class TerminalSettingsTerminalLevelApi extends Service {
    *
    * @param terminalId {@link String } The unique identifier of the payment terminal. (required)
    * @param logo {@link Logo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
@@ -183,7 +183,7 @@ public class TerminalSettingsTerminalLevelApi extends Service {
    *
    * @param terminalId {@link String } The unique identifier of the payment terminal. (required)
    * @param terminalSettings {@link TerminalSettings } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalSettings }
    * @throws ApiException if fails to make API call

@@ -73,7 +73,7 @@ public class ModificationsApi extends Service {
    * Change the authorised amount
    *
    * @param adjustAuthorisationRequest {@link AdjustAuthorisationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModificationResult }
    * @throws ApiException if fails to make API call
@@ -103,7 +103,7 @@ public class ModificationsApi extends Service {
    * Cancel an authorisation
    *
    * @param cancelRequest {@link CancelRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModificationResult }
    * @throws ApiException if fails to make API call
@@ -133,7 +133,7 @@ public class ModificationsApi extends Service {
    * Cancel or refund a payment
    *
    * @param cancelOrRefundRequest {@link CancelOrRefundRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModificationResult }
    * @throws ApiException if fails to make API call
@@ -164,7 +164,7 @@ public class ModificationsApi extends Service {
    * Capture an authorisation
    *
    * @param captureRequest {@link CaptureRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModificationResult }
    * @throws ApiException if fails to make API call
@@ -196,7 +196,7 @@ public class ModificationsApi extends Service {
    * Create a donation
    *
    * @param donationRequest {@link DonationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModificationResult }
    * @throws ApiException if fails to make API call
@@ -227,7 +227,7 @@ public class ModificationsApi extends Service {
    * Refund a captured payment
    *
    * @param refundRequest {@link RefundRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModificationResult }
    * @throws ApiException if fails to make API call
@@ -257,7 +257,7 @@ public class ModificationsApi extends Service {
    * Cancel an authorisation using your reference
    *
    * @param technicalCancelRequest {@link TechnicalCancelRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModificationResult }
    * @throws ApiException if fails to make API call
@@ -288,7 +288,7 @@ public class ModificationsApi extends Service {
    * Cancel an in-person refund
    *
    * @param voidPendingRefundRequest {@link VoidPendingRefundRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModificationResult }
    * @throws ApiException if fails to make API call

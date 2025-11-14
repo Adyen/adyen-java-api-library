@@ -57,9 +57,9 @@ public class TerminalSettingsStoreLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param reference {@link String } The reference that identifies the store. (required)
-   * @param model {@link String } The terminal model. Possible values: E355, VX675WIFIBT, VX680,
-   *     VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus,
-   *     V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
+   * @param model {@link String } Query: The terminal model. Possible values: E355, VX675WIFIBT,
+   *     VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus,
+   *     V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
    */
@@ -76,7 +76,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
    * @param model {@link String } Query: The terminal model. Possible values: E355, VX675WIFIBT,
    *     VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus,
    *     V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
@@ -115,9 +115,9 @@ public class TerminalSettingsStoreLevelApi extends Service {
    * Get the terminal logo
    *
    * @param storeId {@link String } The unique identifier of the store. (required)
-   * @param model {@link String } The terminal model. Possible values: E355, VX675WIFIBT, VX680,
-   *     VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus,
-   *     V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
+   * @param model {@link String } Query: The terminal model. Possible values: E355, VX675WIFIBT,
+   *     VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus,
+   *     V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
    */
@@ -133,7 +133,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
    * @param model {@link String } Query: The terminal model. Possible values: E355, VX675WIFIBT,
    *     VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus,
    *     V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
@@ -179,7 +179,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param reference {@link String } The reference that identifies the store. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalSettings }
    * @throws ApiException if fails to make API call
@@ -225,7 +225,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
    * Get terminal settings
    *
    * @param storeId {@link String } The unique identifier of the store. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalSettings }
    * @throws ApiException if fails to make API call
@@ -252,10 +252,10 @@ public class TerminalSettingsStoreLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param reference {@link String } The reference that identifies the store. (required)
-   * @param model {@link String } The terminal model. Possible values: E355, VX675WIFIBT, VX680,
-   *     VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus,
-   *     V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T (required)
    * @param logo {@link Logo } (required)
+   * @param model {@link String } Query: The terminal model. Possible values: E355, VX675WIFIBT,
+   *     VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus,
+   *     V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T (required)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
    */
@@ -273,7 +273,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
    * @param model {@link String } Query: The terminal model. Possible values: E355, VX675WIFIBT,
    *     VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus,
    *     V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
@@ -312,10 +312,10 @@ public class TerminalSettingsStoreLevelApi extends Service {
    * Update the terminal logo
    *
    * @param storeId {@link String } The unique identifier of the store. (required)
-   * @param model {@link String } The terminal model. Possible values: E355, VX675WIFIBT, VX680,
-   *     VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus,
-   *     V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
    * @param logo {@link Logo } (required)
+   * @param model {@link String } Query: The terminal model. Possible values: E355, VX675WIFIBT,
+   *     VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus,
+   *     V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
    */
@@ -332,7 +332,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
    * @param model {@link String } Query: The terminal model. Possible values: E355, VX675WIFIBT,
    *     VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus,
    *     V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Logo }
    * @throws ApiException if fails to make API call
@@ -382,7 +382,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param reference {@link String } The reference that identifies the store. (required)
    * @param terminalSettings {@link TerminalSettings } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalSettings }
    * @throws ApiException if fails to make API call
@@ -433,7 +433,7 @@ public class TerminalSettingsStoreLevelApi extends Service {
    *
    * @param storeId {@link String } The unique identifier of the store. (required)
    * @param terminalSettings {@link TerminalSettings } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TerminalSettings }
    * @throws ApiException if fails to make API call

@@ -71,7 +71,7 @@ public class CapitalApi extends Service {
    *
    * @param counterpartyAccountHolderId {@link String } Query: The counterparty account holder id.
    *     (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CapitalGrants }
    * @throws ApiException if fails to make API call
@@ -114,7 +114,7 @@ public class CapitalApi extends Service {
    * Get grant reference details
    *
    * @param id {@link String } The unique identifier of the grant. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CapitalGrant }
    * @throws ApiException if fails to make API call
@@ -157,7 +157,7 @@ public class CapitalApi extends Service {
    * Request a grant payout
    *
    * @param capitalGrantInfo {@link CapitalGrantInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CapitalGrant }
    * @throws ApiException if fails to make API call

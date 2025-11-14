@@ -31,6 +31,7 @@ import java.util.List;
   StoredPaymentMethodResource.JSON_PROPERTY_ID,
   StoredPaymentMethodResource.JSON_PROPERTY_ISSUER_NAME,
   StoredPaymentMethodResource.JSON_PROPERTY_LAST_FOUR,
+  StoredPaymentMethodResource.JSON_PROPERTY_MANDATE,
   StoredPaymentMethodResource.JSON_PROPERTY_NAME,
   StoredPaymentMethodResource.JSON_PROPERTY_NETWORK_TX_REFERENCE,
   StoredPaymentMethodResource.JSON_PROPERTY_OWNER_NAME,
@@ -69,6 +70,9 @@ public class StoredPaymentMethodResource {
 
   public static final String JSON_PROPERTY_LAST_FOUR = "lastFour";
   private String lastFour;
+
+  public static final String JSON_PROPERTY_MANDATE = "mandate";
+  private TokenMandate mandate;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -437,6 +441,39 @@ public class StoredPaymentMethodResource {
   }
 
   /**
+   * mandate
+   *
+   * @param mandate
+   * @return the current {@code StoredPaymentMethodResource} instance, allowing for method chaining
+   */
+  public StoredPaymentMethodResource mandate(TokenMandate mandate) {
+    this.mandate = mandate;
+    return this;
+  }
+
+  /**
+   * Get mandate
+   *
+   * @return mandate
+   */
+  @JsonProperty(JSON_PROPERTY_MANDATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TokenMandate getMandate() {
+    return mandate;
+  }
+
+  /**
+   * mandate
+   *
+   * @param mandate
+   */
+  @JsonProperty(JSON_PROPERTY_MANDATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMandate(TokenMandate mandate) {
+    this.mandate = mandate;
+  }
+
+  /**
    * The display name of the stored payment method.
    *
    * @param name The display name of the stored payment method.
@@ -772,6 +809,7 @@ public class StoredPaymentMethodResource {
         && Objects.equals(this.id, storedPaymentMethodResource.id)
         && Objects.equals(this.issuerName, storedPaymentMethodResource.issuerName)
         && Objects.equals(this.lastFour, storedPaymentMethodResource.lastFour)
+        && Objects.equals(this.mandate, storedPaymentMethodResource.mandate)
         && Objects.equals(this.name, storedPaymentMethodResource.name)
         && Objects.equals(this.networkTxReference, storedPaymentMethodResource.networkTxReference)
         && Objects.equals(this.ownerName, storedPaymentMethodResource.ownerName)
@@ -796,6 +834,7 @@ public class StoredPaymentMethodResource {
         id,
         issuerName,
         lastFour,
+        mandate,
         name,
         networkTxReference,
         ownerName,
@@ -823,6 +862,7 @@ public class StoredPaymentMethodResource {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    issuerName: ").append(toIndentedString(issuerName)).append("\n");
     sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
+    sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");

@@ -69,7 +69,7 @@ public class PaymentInstrumentGroupsApi extends Service {
    * Create a payment instrument group
    *
    * @param paymentInstrumentGroupInfo {@link PaymentInstrumentGroupInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentInstrumentGroup }
    * @throws ApiException if fails to make API call
@@ -100,7 +100,7 @@ public class PaymentInstrumentGroupsApi extends Service {
    * Get all transaction rules for a payment instrument group
    *
    * @param id {@link String } The unique identifier of the payment instrument group. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRulesResponse }
    * @throws ApiException if fails to make API call
@@ -138,7 +138,7 @@ public class PaymentInstrumentGroupsApi extends Service {
    * Get a payment instrument group
    *
    * @param id {@link String } The unique identifier of the payment instrument group. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentInstrumentGroup }
    * @throws ApiException if fails to make API call

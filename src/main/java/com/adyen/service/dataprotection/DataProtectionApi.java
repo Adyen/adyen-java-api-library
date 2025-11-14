@@ -69,7 +69,7 @@ public class DataProtectionApi extends Service {
    *
    * @param subjectErasureByPspReferenceRequest {@link SubjectErasureByPspReferenceRequest }
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SubjectErasureResponse }
    * @throws ApiException if fails to make API call

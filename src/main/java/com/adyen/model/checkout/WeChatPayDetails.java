@@ -24,11 +24,15 @@ import java.util.logging.Logger;
 /** WeChatPayDetails */
 @JsonPropertyOrder({
   WeChatPayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  WeChatPayDetails.JSON_PROPERTY_SDK_DATA,
   WeChatPayDetails.JSON_PROPERTY_TYPE
 })
 public class WeChatPayDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   /** **wechatpay** */
   public enum TypeEnum {
@@ -110,6 +114,40 @@ public class WeChatPayDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code WeChatPayDetails} instance, allowing for method chaining
+   */
+  public WeChatPayDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * **wechatpay**
    *
    * @param type **wechatpay**
@@ -153,12 +191,13 @@ public class WeChatPayDetails {
     }
     WeChatPayDetails weChatPayDetails = (WeChatPayDetails) o;
     return Objects.equals(this.checkoutAttemptId, weChatPayDetails.checkoutAttemptId)
+        && Objects.equals(this.sdkData, weChatPayDetails.sdkData)
         && Objects.equals(this.type, weChatPayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, type);
+    return Objects.hash(checkoutAttemptId, sdkData, type);
   }
 
   @Override
@@ -166,6 +205,7 @@ public class WeChatPayDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class WeChatPayDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -75,7 +75,7 @@ public class CardOrdersApi extends Service {
    *     of card order items. (optional)
    * @param limit {@link Integer } Query: The number of card order items returned per page.
    *     **Default:** 10. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaginatedGetCardOrderItemResponse }
    * @throws ApiException if fails to make API call
@@ -146,7 +146,7 @@ public class CardOrdersApi extends Service {
    *     orders. (optional)
    * @param limit {@link Integer } Query: The number of card orders returned per page. **Default:**
    *     10. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaginatedGetCardOrderResponse }
    * @throws ApiException if fails to make API call
