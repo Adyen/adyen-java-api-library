@@ -120,9 +120,9 @@ public class RequestOptions {
   }
 
   /**
-   * Sets requested verification code header.
+   * Set the Requested-Verification-Code header for the request.
    *
-   * @param requestedVerificationCodeHeader the requested verification code header
+   * @param requestedVerificationCodeHeader The requested verification code.
    */
   public void setRequestedVerificationCodeHeader(String requestedVerificationCodeHeader) {
     this.requestedVerificationCodeHeader = requestedVerificationCodeHeader;
