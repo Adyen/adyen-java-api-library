@@ -138,9 +138,9 @@ public class RequestOptions {
   }
 
   /**
-   * Sets additional headers.
+   * Set additional headers for the request.
    *
-   * @param additionalServiceHeaders the additional headers
+   * @param additionalServiceHeaders A map of additional headers.
    */
   public void setAdditionalServiceHeaders(HashMap<String, String> additionalServiceHeaders) {
     this.additionalServiceHeaders = additionalServiceHeaders;
