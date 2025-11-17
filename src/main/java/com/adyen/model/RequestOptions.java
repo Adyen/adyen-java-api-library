@@ -23,9 +23,8 @@ package com.adyen.model;
 import java.util.HashMap;
 
 /**
- * Container for optional HTTP headers that can be included in API requests.
- * These options can be used to specify headers such as the Idempotency-Key, WWW-Authenticate
- * or other custom headers.
+ * Container for optional HTTP headers that can be included in API requests. These options can be
+ * used to specify headers such as the Idempotency-Key, WWW-Authenticate or other custom headers.
  */
 public class RequestOptions {
   private String idempotencyKey;
