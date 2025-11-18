@@ -70,7 +70,7 @@ public class TerminalActionsCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param actionId {@link String } The unique identifier of the terminal action. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ExternalTerminalAction }
    * @throws ApiException if fails to make API call
@@ -123,7 +123,7 @@ public class TerminalActionsCompanyLevelApi extends Service {
    * @param type {@link String } Query: Returns terminal actions of the specified type. Allowed
    *     values: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**,
    *     **UninstallAndroidCertificate**. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListExternalTerminalActionsResponse }
    * @throws ApiException if fails to make API call

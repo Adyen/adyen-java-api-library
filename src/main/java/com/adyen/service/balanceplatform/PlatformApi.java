@@ -72,7 +72,7 @@ public class PlatformApi extends Service {
    * @param offset {@link Integer } Query: The number of items that you want to skip. (optional)
    * @param limit {@link Integer } Query: The number of items returned per page, maximum 100 items.
    *     By default, the response returns 10 items per page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaginatedAccountHoldersResponse }
    * @throws ApiException if fails to make API call
@@ -121,7 +121,7 @@ public class PlatformApi extends Service {
    * Get all transaction rules for a balance platform
    *
    * @param id {@link String } The unique identifier of the balance platform. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRulesResponse }
    * @throws ApiException if fails to make API call
@@ -158,7 +158,7 @@ public class PlatformApi extends Service {
    * Get a balance platform
    *
    * @param id {@link String } The unique identifier of the balance platform. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BalancePlatform }
    * @throws ApiException if fails to make API call

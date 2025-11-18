@@ -29,6 +29,7 @@ import java.util.logging.Logger;
   PayPalDetails.JSON_PROPERTY_PAYER_I_D,
   PayPalDetails.JSON_PROPERTY_PAYER_SELECTED,
   PayPalDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  PayPalDetails.JSON_PROPERTY_SDK_DATA,
   PayPalDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   PayPalDetails.JSON_PROPERTY_SUBTYPE,
   PayPalDetails.JSON_PROPERTY_TYPE
@@ -52,6 +53,9 @@ public class PayPalDetails {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -357,6 +361,40 @@ public class PayPalDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code PayPalDetails} instance, allowing for method chaining
+   */
+  public PayPalDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -477,6 +515,7 @@ public class PayPalDetails {
         && Objects.equals(this.payerID, payPalDetails.payerID)
         && Objects.equals(this.payerSelected, payPalDetails.payerSelected)
         && Objects.equals(this.recurringDetailReference, payPalDetails.recurringDetailReference)
+        && Objects.equals(this.sdkData, payPalDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, payPalDetails.storedPaymentMethodId)
         && Objects.equals(this.subtype, payPalDetails.subtype)
         && Objects.equals(this.type, payPalDetails.type);
@@ -491,6 +530,7 @@ public class PayPalDetails {
         payerID,
         payerSelected,
         recurringDetailReference,
+        sdkData,
         storedPaymentMethodId,
         subtype,
         type);
@@ -508,6 +548,7 @@ public class PayPalDetails {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

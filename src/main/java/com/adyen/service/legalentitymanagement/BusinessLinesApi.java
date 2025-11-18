@@ -69,7 +69,7 @@ public class BusinessLinesApi extends Service {
    * Create a business line
    *
    * @param businessLineInfo {@link BusinessLineInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BusinessLine }
    * @throws ApiException if fails to make API call
@@ -98,7 +98,7 @@ public class BusinessLinesApi extends Service {
    * Delete a business line
    *
    * @param id {@link String } The unique identifier of the business line to be deleted. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -131,7 +131,7 @@ public class BusinessLinesApi extends Service {
    * Get a business line
    *
    * @param id {@link String } The unique identifier of the business line. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BusinessLine }
    * @throws ApiException if fails to make API call
@@ -170,7 +170,7 @@ public class BusinessLinesApi extends Service {
    *
    * @param id {@link String } The unique identifier of the business line. (required)
    * @param businessLineInfoUpdate {@link BusinessLineInfoUpdate } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BusinessLine }
    * @throws ApiException if fails to make API call

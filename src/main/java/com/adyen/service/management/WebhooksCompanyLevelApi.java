@@ -75,7 +75,7 @@ public class WebhooksCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GenerateHmacKeyResponse }
    * @throws ApiException if fails to make API call
@@ -122,7 +122,7 @@ public class WebhooksCompanyLevelApi extends Service {
    * @param companyId {@link String } Unique identifier of the [company
    *     account](https://docs.adyen.com/account/account-structure#company-account). (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Webhook }
    * @throws ApiException if fails to make API call
@@ -168,7 +168,7 @@ public class WebhooksCompanyLevelApi extends Service {
    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListWebhooksResponse }
    * @throws ApiException if fails to make API call
@@ -216,7 +216,7 @@ public class WebhooksCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -260,7 +260,7 @@ public class WebhooksCompanyLevelApi extends Service {
    * @param companyId {@link String } Unique identifier of the [company
    *     account](https://docs.adyen.com/account/account-structure#company-account). (required)
    * @param createCompanyWebhookRequest {@link CreateCompanyWebhookRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Webhook }
    * @throws ApiException if fails to make API call
@@ -305,7 +305,7 @@ public class WebhooksCompanyLevelApi extends Service {
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
    * @param testCompanyWebhookRequest {@link TestCompanyWebhookRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TestWebhookResponse }
    * @throws ApiException if fails to make API call
@@ -356,7 +356,7 @@ public class WebhooksCompanyLevelApi extends Service {
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
    * @param updateCompanyWebhookRequest {@link UpdateCompanyWebhookRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Webhook }
    * @throws ApiException if fails to make API call

@@ -76,7 +76,7 @@ public class TransferLimitsBalanceAccountLevelApi extends Service {
    *
    * @param id {@link String } The unique identifier of the balance account. (required)
    * @param approveTransferLimitRequest {@link ApproveTransferLimitRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -117,7 +117,7 @@ public class TransferLimitsBalanceAccountLevelApi extends Service {
    *
    * @param id {@link String } The unique identifier of the balance account. (required)
    * @param createTransferLimitRequest {@link CreateTransferLimitRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransferLimit }
    * @throws ApiException if fails to make API call
@@ -159,7 +159,7 @@ public class TransferLimitsBalanceAccountLevelApi extends Service {
    *
    * @param id {@link String } The unique identifier of the balance account. (required)
    * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -207,7 +207,7 @@ public class TransferLimitsBalanceAccountLevelApi extends Service {
    * @param transferType {@link TransferType } Query: The type of transfer to which the limit
    *     applies. Possible values: * **instant**: the limit applies to transfers with an **instant**
    *     priority. * **all**: the limit applies to all transfers, regardless of priority. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransferLimitListResponse }
    * @throws ApiException if fails to make API call
@@ -258,7 +258,7 @@ public class TransferLimitsBalanceAccountLevelApi extends Service {
    *
    * @param id {@link String } The unique identifier of the balance account. (required)
    * @param transferLimitId {@link String } The unique identifier of the transfer limit. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransferLimit }
    * @throws ApiException if fails to make API call
@@ -312,7 +312,7 @@ public class TransferLimitsBalanceAccountLevelApi extends Service {
    *     **active**: the limit is currently active. * **inactive**: the limit is currently inactive.
    *     * **pendingSCA**: the limit is pending until your user performs SCA. * **scheduled**: the
    *     limit is scheduled to become active at a future date. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransferLimitListResponse }
    * @throws ApiException if fails to make API call

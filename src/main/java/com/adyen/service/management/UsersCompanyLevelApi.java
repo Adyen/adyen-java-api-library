@@ -74,7 +74,7 @@ public class UsersCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param createCompanyUserRequest {@link CreateCompanyUserRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreateCompanyUserResponse }
    * @throws ApiException if fails to make API call
@@ -116,7 +116,7 @@ public class UsersCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param userId {@link String } The unique identifier of the user. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CompanyUser }
    * @throws ApiException if fails to make API call
@@ -162,7 +162,7 @@ public class UsersCompanyLevelApi extends Service {
    *     **100**. The default is **10** items on a page. (optional)
    * @param username {@link String } Query: The partial or complete username to select all users
    *     that match. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListCompanyUsersResponse }
    * @throws ApiException if fails to make API call
@@ -222,7 +222,7 @@ public class UsersCompanyLevelApi extends Service {
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param userId {@link String } The unique identifier of the user. (required)
    * @param updateCompanyUserRequest {@link UpdateCompanyUserRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CompanyUser }
    * @throws ApiException if fails to make API call

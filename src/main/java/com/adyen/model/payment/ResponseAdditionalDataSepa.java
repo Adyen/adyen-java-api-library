@@ -21,6 +21,7 @@ import java.util.*;
 @JsonPropertyOrder({
   ResponseAdditionalDataSepa.JSON_PROPERTY_SEPADIRECTDEBIT_DATE_OF_SIGNATURE,
   ResponseAdditionalDataSepa.JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID,
+  ResponseAdditionalDataSepa.JSON_PROPERTY_SEPADIRECTDEBIT_SEPADIRECTDEBIT_DUE_DATE,
   ResponseAdditionalDataSepa.JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE
 })
 public class ResponseAdditionalDataSepa {
@@ -30,6 +31,10 @@ public class ResponseAdditionalDataSepa {
 
   public static final String JSON_PROPERTY_SEPADIRECTDEBIT_MANDATE_ID = "sepadirectdebit.mandateId";
   private String sepadirectdebitMandateId;
+
+  public static final String JSON_PROPERTY_SEPADIRECTDEBIT_SEPADIRECTDEBIT_DUE_DATE =
+      "sepadirectdebit.sepadirectdebit.dueDate";
+  private String sepadirectdebitSepadirectdebitDueDate;
 
   public static final String JSON_PROPERTY_SEPADIRECTDEBIT_SEQUENCE_TYPE =
       "sepadirectdebit.sequenceType";
@@ -105,6 +110,44 @@ public class ResponseAdditionalDataSepa {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSepadirectdebitMandateId(String sepadirectdebitMandateId) {
     this.sepadirectdebitMandateId = sepadirectdebitMandateId;
+  }
+
+  /**
+   * The date that the the shopper&#39;s bank account is charged.
+   *
+   * @param sepadirectdebitSepadirectdebitDueDate The date that the the shopper&#39;s bank account
+   *     is charged.
+   * @return the current {@code ResponseAdditionalDataSepa} instance, allowing for method chaining
+   */
+  public ResponseAdditionalDataSepa sepadirectdebitSepadirectdebitDueDate(
+      String sepadirectdebitSepadirectdebitDueDate) {
+    this.sepadirectdebitSepadirectdebitDueDate = sepadirectdebitSepadirectdebitDueDate;
+    return this;
+  }
+
+  /**
+   * The date that the the shopper&#39;s bank account is charged.
+   *
+   * @return sepadirectdebitSepadirectdebitDueDate The date that the the shopper&#39;s bank account
+   *     is charged.
+   */
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_SEPADIRECTDEBIT_DUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSepadirectdebitSepadirectdebitDueDate() {
+    return sepadirectdebitSepadirectdebitDueDate;
+  }
+
+  /**
+   * The date that the the shopper&#39;s bank account is charged.
+   *
+   * @param sepadirectdebitSepadirectdebitDueDate The date that the the shopper&#39;s bank account
+   *     is charged.
+   */
+  @JsonProperty(JSON_PROPERTY_SEPADIRECTDEBIT_SEPADIRECTDEBIT_DUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSepadirectdebitSepadirectdebitDueDate(
+      String sepadirectdebitSepadirectdebitDueDate) {
+    this.sepadirectdebitSepadirectdebitDueDate = sepadirectdebitSepadirectdebitDueDate;
   }
 
   /**
@@ -184,6 +227,9 @@ public class ResponseAdditionalDataSepa {
         && Objects.equals(
             this.sepadirectdebitMandateId, responseAdditionalDataSepa.sepadirectdebitMandateId)
         && Objects.equals(
+            this.sepadirectdebitSepadirectdebitDueDate,
+            responseAdditionalDataSepa.sepadirectdebitSepadirectdebitDueDate)
+        && Objects.equals(
             this.sepadirectdebitSequenceType,
             responseAdditionalDataSepa.sepadirectdebitSequenceType);
   }
@@ -191,7 +237,10 @@ public class ResponseAdditionalDataSepa {
   @Override
   public int hashCode() {
     return Objects.hash(
-        sepadirectdebitDateOfSignature, sepadirectdebitMandateId, sepadirectdebitSequenceType);
+        sepadirectdebitDateOfSignature,
+        sepadirectdebitMandateId,
+        sepadirectdebitSepadirectdebitDueDate,
+        sepadirectdebitSequenceType);
   }
 
   @Override
@@ -203,6 +252,9 @@ public class ResponseAdditionalDataSepa {
         .append("\n");
     sb.append("    sepadirectdebitMandateId: ")
         .append(toIndentedString(sepadirectdebitMandateId))
+        .append("\n");
+    sb.append("    sepadirectdebitSepadirectdebitDueDate: ")
+        .append(toIndentedString(sepadirectdebitSepadirectdebitDueDate))
         .append("\n");
     sb.append("    sepadirectdebitSequenceType: ")
         .append(toIndentedString(sepadirectdebitSequenceType))

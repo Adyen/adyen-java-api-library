@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   VisaCheckoutDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   VisaCheckoutDetails.JSON_PROPERTY_FUNDING_SOURCE,
+  VisaCheckoutDetails.JSON_PROPERTY_SDK_DATA,
   VisaCheckoutDetails.JSON_PROPERTY_TYPE,
   VisaCheckoutDetails.JSON_PROPERTY_VISA_CHECKOUT_CALL_ID
 })
@@ -78,6 +79,9 @@ public class VisaCheckoutDetails {
 
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   /** **visacheckout** */
   public enum TypeEnum {
@@ -202,6 +206,40 @@ public class VisaCheckoutDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code VisaCheckoutDetails} instance, allowing for method chaining
+   */
+  public VisaCheckoutDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * **visacheckout**
    *
    * @param type **visacheckout**
@@ -288,13 +326,14 @@ public class VisaCheckoutDetails {
     VisaCheckoutDetails visaCheckoutDetails = (VisaCheckoutDetails) o;
     return Objects.equals(this.checkoutAttemptId, visaCheckoutDetails.checkoutAttemptId)
         && Objects.equals(this.fundingSource, visaCheckoutDetails.fundingSource)
+        && Objects.equals(this.sdkData, visaCheckoutDetails.sdkData)
         && Objects.equals(this.type, visaCheckoutDetails.type)
         && Objects.equals(this.visaCheckoutCallId, visaCheckoutDetails.visaCheckoutCallId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, fundingSource, type, visaCheckoutCallId);
+    return Objects.hash(checkoutAttemptId, fundingSource, sdkData, type, visaCheckoutCallId);
   }
 
   @Override
@@ -303,6 +342,7 @@ public class VisaCheckoutDetails {
     sb.append("class VisaCheckoutDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    visaCheckoutCallId: ").append(toIndentedString(visaCheckoutCallId)).append("\n");
     sb.append("}");

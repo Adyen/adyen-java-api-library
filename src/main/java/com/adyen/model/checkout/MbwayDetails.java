@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 /** MbwayDetails */
 @JsonPropertyOrder({
   MbwayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  MbwayDetails.JSON_PROPERTY_SDK_DATA,
   MbwayDetails.JSON_PROPERTY_SHOPPER_EMAIL,
   MbwayDetails.JSON_PROPERTY_TELEPHONE_NUMBER,
   MbwayDetails.JSON_PROPERTY_TYPE
@@ -31,6 +32,9 @@ import java.util.logging.Logger;
 public class MbwayDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_SHOPPER_EMAIL = "shopperEmail";
   private String shopperEmail;
@@ -113,6 +117,40 @@ public class MbwayDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCheckoutAttemptId(String checkoutAttemptId) {
     this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code MbwayDetails} instance, allowing for method chaining
+   */
+  public MbwayDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
   }
 
   /**
@@ -213,6 +251,7 @@ public class MbwayDetails {
     }
     MbwayDetails mbwayDetails = (MbwayDetails) o;
     return Objects.equals(this.checkoutAttemptId, mbwayDetails.checkoutAttemptId)
+        && Objects.equals(this.sdkData, mbwayDetails.sdkData)
         && Objects.equals(this.shopperEmail, mbwayDetails.shopperEmail)
         && Objects.equals(this.telephoneNumber, mbwayDetails.telephoneNumber)
         && Objects.equals(this.type, mbwayDetails.type);
@@ -220,7 +259,7 @@ public class MbwayDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, shopperEmail, telephoneNumber, type);
+    return Objects.hash(checkoutAttemptId, sdkData, shopperEmail, telephoneNumber, type);
   }
 
   @Override
@@ -228,6 +267,7 @@ public class MbwayDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class MbwayDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

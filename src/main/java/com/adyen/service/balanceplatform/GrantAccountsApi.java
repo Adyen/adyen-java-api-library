@@ -69,7 +69,7 @@ public class GrantAccountsApi extends Service {
    * Get a grant account
    *
    * @param id {@link String } The unique identifier of the grant account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CapitalGrantAccount }
    * @throws ApiException if fails to make API call

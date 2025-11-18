@@ -75,7 +75,7 @@ public class WebhooksMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param webhookId {@link String } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GenerateHmacKeyResponse }
    * @throws ApiException if fails to make API call
@@ -120,7 +120,7 @@ public class WebhooksMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Webhook }
    * @throws ApiException if fails to make API call
@@ -164,7 +164,7 @@ public class WebhooksMerchantLevelApi extends Service {
    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListWebhooksResponse }
    * @throws ApiException if fails to make API call
@@ -212,7 +212,7 @@ public class WebhooksMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -254,7 +254,7 @@ public class WebhooksMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param createMerchantWebhookRequest {@link CreateMerchantWebhookRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Webhook }
    * @throws ApiException if fails to make API call
@@ -299,7 +299,7 @@ public class WebhooksMerchantLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
    * @param testWebhookRequest {@link TestWebhookRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TestWebhookResponse }
    * @throws ApiException if fails to make API call
@@ -353,7 +353,7 @@ public class WebhooksMerchantLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param webhookId {@link String } Unique identifier of the webhook configuration. (required)
    * @param updateMerchantWebhookRequest {@link UpdateMerchantWebhookRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Webhook }
    * @throws ApiException if fails to make API call

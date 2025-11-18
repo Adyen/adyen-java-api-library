@@ -71,7 +71,7 @@ public class MyApiCredentialApi extends Service {
    * Add allowed origin
    *
    * @param createAllowedOriginRequest {@link CreateAllowedOriginRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AllowedOrigin }
    * @throws ApiException if fails to make API call
@@ -99,7 +99,7 @@ public class MyApiCredentialApi extends Service {
   /**
    * Generate a client key
    *
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GenerateClientKeyResponse }
    * @throws ApiException if fails to make API call
@@ -128,7 +128,7 @@ public class MyApiCredentialApi extends Service {
    * Get allowed origin details
    *
    * @param originId {@link String } Unique identifier of the allowed origin. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AllowedOrigin }
    * @throws ApiException if fails to make API call
@@ -162,7 +162,7 @@ public class MyApiCredentialApi extends Service {
   /**
    * Get allowed origins
    *
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AllowedOriginsResponse }
    * @throws ApiException if fails to make API call
@@ -189,7 +189,7 @@ public class MyApiCredentialApi extends Service {
   /**
    * Get API credential details
    *
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link MeApiCredential }
    * @throws ApiException if fails to make API call
@@ -217,7 +217,7 @@ public class MyApiCredentialApi extends Service {
    * Remove allowed origin
    *
    * @param originId {@link String } Unique identifier of the allowed origin. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */

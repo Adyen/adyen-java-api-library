@@ -88,7 +88,7 @@ public class TermsOfServiceApi extends Service {
    * @param termsofservicedocumentid {@link String } The unique identifier of the Terms of Service
    *     document. (required)
    * @param acceptTermsOfServiceRequest {@link AcceptTermsOfServiceRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AcceptTermsOfServiceResponse }
    * @throws ApiException if fails to make API call
@@ -148,7 +148,7 @@ public class TermsOfServiceApi extends Service {
    *     accepted Terms of Service. (required)
    * @param termsOfServiceDocumentFormat {@link String } Query: The format of the Terms of Service
    *     document. Possible values: **JSON**, **PDF**, or **TXT** (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GetAcceptedTermsOfServiceDocumentResponse }
    * @throws ApiException if fails to make API call
@@ -213,7 +213,7 @@ public class TermsOfServiceApi extends Service {
    *     this is the individual legal entity ID of the owner. For organizations, this is the ID of
    *     the organization. (required)
    * @param getTermsOfServiceDocumentRequest {@link GetTermsOfServiceDocumentRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GetTermsOfServiceDocumentResponse }
    * @throws ApiException if fails to make API call
@@ -258,7 +258,7 @@ public class TermsOfServiceApi extends Service {
    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships,
    *     this is the individual legal entity ID of the owner. For organizations, this is the ID of
    *     the organization. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GetTermsOfServiceAcceptanceInfosResponse }
    * @throws ApiException if fails to make API call
@@ -301,7 +301,7 @@ public class TermsOfServiceApi extends Service {
    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships,
    *     this is the individual legal entity ID of the owner. For organizations, this is the ID of
    *     the organization. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CalculateTermsOfServiceStatusResponse }
    * @throws ApiException if fails to make API call

@@ -72,7 +72,7 @@ public class HostedOnboardingApi extends Service {
    *
    * @param id {@link String } The unique identifier of the legal entity (required)
    * @param onboardingLinkInfo {@link OnboardingLinkInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link OnboardingLink }
    * @throws ApiException if fails to make API call
@@ -110,7 +110,7 @@ public class HostedOnboardingApi extends Service {
    * Get an onboarding link theme
    *
    * @param id {@link String } The unique identifier of the theme (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link OnboardingTheme }
    * @throws ApiException if fails to make API call
@@ -144,7 +144,7 @@ public class HostedOnboardingApi extends Service {
   /**
    * Get a list of hosted onboarding page themes
    *
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link OnboardingThemes }
    * @throws ApiException if fails to make API call

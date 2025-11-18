@@ -71,7 +71,7 @@ public class ManageCardPinApi extends Service {
    * Change a card PIN
    *
    * @param pinChangeRequest {@link PinChangeRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PinChangeResponse }
    * @throws ApiException if fails to make API call
@@ -103,7 +103,7 @@ public class ManageCardPinApi extends Service {
    *     **pinChange**, **pinReveal**, **panReveal**. Default value: **pinReveal**. (optional)
    * @param format {@link String } Query: The encoding format of public key. Possible values:
    *     **jwk**, **pem**. Default value: **pem**. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PublicKeyResponse }
    * @throws ApiException if fails to make API call
@@ -143,7 +143,7 @@ public class ManageCardPinApi extends Service {
    * Reveal a card PIN
    *
    * @param revealPinRequest {@link RevealPinRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link RevealPinResponse }
    * @throws ApiException if fails to make API call

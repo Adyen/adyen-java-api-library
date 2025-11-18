@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 @JsonPropertyOrder({
   CellulantDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   CellulantDetails.JSON_PROPERTY_ISSUER,
+  CellulantDetails.JSON_PROPERTY_SDK_DATA,
   CellulantDetails.JSON_PROPERTY_TYPE
 })
 public class CellulantDetails {
@@ -33,6 +34,9 @@ public class CellulantDetails {
 
   public static final String JSON_PROPERTY_ISSUER = "issuer";
   private String issuer;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   /** **Cellulant** */
   public enum TypeEnum {
@@ -145,6 +149,40 @@ public class CellulantDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code CellulantDetails} instance, allowing for method chaining
+   */
+  public CellulantDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * **Cellulant**
    *
    * @param type **Cellulant**
@@ -189,12 +227,13 @@ public class CellulantDetails {
     CellulantDetails cellulantDetails = (CellulantDetails) o;
     return Objects.equals(this.checkoutAttemptId, cellulantDetails.checkoutAttemptId)
         && Objects.equals(this.issuer, cellulantDetails.issuer)
+        && Objects.equals(this.sdkData, cellulantDetails.sdkData)
         && Objects.equals(this.type, cellulantDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, issuer, type);
+    return Objects.hash(checkoutAttemptId, issuer, sdkData, type);
   }
 
   @Override
@@ -203,6 +242,7 @@ public class CellulantDetails {
     sb.append("class CellulantDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

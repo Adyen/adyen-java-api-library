@@ -75,7 +75,7 @@ public class BalanceAccountsApi extends Service {
    * Create a balance account
    *
    * @param balanceAccountInfo {@link BalanceAccountInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BalanceAccount }
    * @throws ApiException if fails to make API call
@@ -111,7 +111,7 @@ public class BalanceAccountsApi extends Service {
    * @param balanceAccountId {@link String } The unique identifier of the balance account.
    *     (required)
    * @param createSweepConfigurationV2 {@link CreateSweepConfigurationV2 } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SweepConfigurationV2 }
    * @throws ApiException if fails to make API call
@@ -155,7 +155,7 @@ public class BalanceAccountsApi extends Service {
    * @param balanceAccountId {@link String } The unique identifier of the balance account.
    *     (required)
    * @param sweepId {@link String } The unique identifier of the sweep. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -200,7 +200,7 @@ public class BalanceAccountsApi extends Service {
    * @param offset {@link Integer } Query: The number of items that you want to skip. (optional)
    * @param limit {@link Integer } Query: The number of items returned per page, maximum 100 items.
    *     By default, the response returns 10 items per page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BalanceSweepConfigurationsResponse }
    * @throws ApiException if fails to make API call
@@ -249,7 +249,7 @@ public class BalanceAccountsApi extends Service {
    * Get all transaction rules for a balance account
    *
    * @param id {@link String } The unique identifier of the balance account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRulesResponse }
    * @throws ApiException if fails to make API call
@@ -286,7 +286,7 @@ public class BalanceAccountsApi extends Service {
    * Get a balance account
    *
    * @param id {@link String } The unique identifier of the balance account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BalanceAccount }
    * @throws ApiException if fails to make API call
@@ -328,7 +328,7 @@ public class BalanceAccountsApi extends Service {
    *     By default, the response returns 10 items per page. (optional)
    * @param status {@link String } Query: The status of the payment instruments that you want to
    *     get. By default, the response includes payment instruments with any status. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaginatedPaymentInstrumentsResponse }
    * @throws ApiException if fails to make API call
@@ -384,7 +384,7 @@ public class BalanceAccountsApi extends Service {
    * @param balanceAccountId {@link String } The unique identifier of the balance account.
    *     (required)
    * @param sweepId {@link String } The unique identifier of the sweep. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SweepConfigurationV2 }
    * @throws ApiException if fails to make API call
@@ -431,7 +431,7 @@ public class BalanceAccountsApi extends Service {
    *
    * @param id {@link String } The unique identifier of the balance account. (required)
    * @param balanceAccountUpdateRequest {@link BalanceAccountUpdateRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BalanceAccount }
    * @throws ApiException if fails to make API call
@@ -480,7 +480,7 @@ public class BalanceAccountsApi extends Service {
    *     (required)
    * @param sweepId {@link String } The unique identifier of the sweep. (required)
    * @param updateSweepConfigurationV2 {@link UpdateSweepConfigurationV2 } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SweepConfigurationV2 }
    * @throws ApiException if fails to make API call

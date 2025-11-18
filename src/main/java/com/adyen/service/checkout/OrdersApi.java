@@ -70,7 +70,7 @@ public class OrdersApi extends Service {
    * Cancel an order
    *
    * @param cancelOrderRequest {@link CancelOrderRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CancelOrderResponse }
    * @throws ApiException if fails to make API call
@@ -101,7 +101,7 @@ public class OrdersApi extends Service {
    * Get the balance of a gift card
    *
    * @param balanceCheckRequest {@link BalanceCheckRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BalanceCheckResponse }
    * @throws ApiException if fails to make API call
@@ -132,7 +132,7 @@ public class OrdersApi extends Service {
    * Create an order
    *
    * @param createOrderRequest {@link CreateOrderRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreateOrderResponse }
    * @throws ApiException if fails to make API call

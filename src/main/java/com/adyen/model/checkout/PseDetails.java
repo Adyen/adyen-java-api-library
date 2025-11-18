@@ -28,6 +28,7 @@ import java.util.logging.Logger;
   PseDetails.JSON_PROPERTY_CLIENT_TYPE,
   PseDetails.JSON_PROPERTY_IDENTIFICATION,
   PseDetails.JSON_PROPERTY_IDENTIFICATION_TYPE,
+  PseDetails.JSON_PROPERTY_SDK_DATA,
   PseDetails.JSON_PROPERTY_TYPE
 })
 public class PseDetails {
@@ -45,6 +46,9 @@ public class PseDetails {
 
   public static final String JSON_PROPERTY_IDENTIFICATION_TYPE = "identificationType";
   private String identificationType;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   /** The payment method type. */
   public enum TypeEnum {
@@ -256,6 +260,40 @@ public class PseDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code PseDetails} instance, allowing for method chaining
+   */
+  public PseDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * The payment method type.
    *
    * @param type The payment method type.
@@ -303,13 +341,14 @@ public class PseDetails {
         && Objects.equals(this.clientType, pseDetails.clientType)
         && Objects.equals(this.identification, pseDetails.identification)
         && Objects.equals(this.identificationType, pseDetails.identificationType)
+        && Objects.equals(this.sdkData, pseDetails.sdkData)
         && Objects.equals(this.type, pseDetails.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        bank, checkoutAttemptId, clientType, identification, identificationType, type);
+        bank, checkoutAttemptId, clientType, identification, identificationType, sdkData, type);
   }
 
   @Override
@@ -321,6 +360,7 @@ public class PseDetails {
     sb.append("    clientType: ").append(toIndentedString(clientType)).append("\n");
     sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
     sb.append("    identificationType: ").append(toIndentedString(identificationType)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

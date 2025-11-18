@@ -66,7 +66,7 @@ public class ReviewingApi extends Service {
    * Confirm a payout
    *
    * @param modifyRequest {@link ModifyRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModifyResponse }
    * @throws ApiException if fails to make API call
@@ -96,7 +96,7 @@ public class ReviewingApi extends Service {
    * Cancel a payout
    *
    * @param modifyRequest {@link ModifyRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ModifyResponse }
    * @throws ApiException if fails to make API call

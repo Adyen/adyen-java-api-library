@@ -71,7 +71,7 @@ public class ScaAssociationManagementApi extends Service {
    * Approve a pending approval association
    *
    * @param approveAssociationRequest {@link ApproveAssociationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ApproveAssociationResponse }
    * @throws ApiException if fails to make API call
@@ -117,7 +117,7 @@ public class ScaAssociationManagementApi extends Service {
    *     (required)
    * @param pageNumber {@link Integer } Query: The index of the page to retrieve. The index of the
    *     first page is **0** (zero). Default: **0**. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListAssociationsResponse }
    * @throws ApiException if fails to make API call
@@ -167,7 +167,7 @@ public class ScaAssociationManagementApi extends Service {
    * Delete association to devices
    *
    * @param removeAssociationRequest {@link RemoveAssociationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */

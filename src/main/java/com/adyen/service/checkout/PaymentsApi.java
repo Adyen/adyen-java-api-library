@@ -77,7 +77,7 @@ public class PaymentsApi extends Service {
    * Get the brands and other details of a card
    *
    * @param cardDetailsRequest {@link CardDetailsRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CardDetailsResponse }
    * @throws ApiException if fails to make API call
@@ -96,8 +96,8 @@ public class PaymentsApi extends Service {
    * Get the result of a payment session
    *
    * @param sessionId {@link String } A unique identifier of the session. (required)
-   * @param sessionResult {@link String } The &#x60;sessionResult&#x60; value from the Drop-in or
-   *     Component. (required)
+   * @param sessionResult {@link String } Query: The &#x60;sessionResult&#x60; value from the
+   *     Drop-in or Component. (required)
    * @return {@link SessionResultResponse }
    * @throws ApiException if fails to make API call
    */
@@ -112,7 +112,7 @@ public class PaymentsApi extends Service {
    * @param sessionId {@link String } A unique identifier of the session. (required)
    * @param sessionResult {@link String } Query: The &#x60;sessionResult&#x60; value from the
    *     Drop-in or Component. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SessionResultResponse }
    * @throws ApiException if fails to make API call
@@ -157,7 +157,7 @@ public class PaymentsApi extends Service {
    * Get a list of available payment methods
    *
    * @param paymentMethodsRequest {@link PaymentMethodsRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentMethodsResponse }
    * @throws ApiException if fails to make API call
@@ -187,7 +187,7 @@ public class PaymentsApi extends Service {
    * Start a transaction
    *
    * @param paymentRequest {@link PaymentRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentResponse }
    * @throws ApiException if fails to make API call
@@ -217,7 +217,7 @@ public class PaymentsApi extends Service {
    * Submit details for a payment
    *
    * @param paymentDetailsRequest {@link PaymentDetailsRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentDetailsResponse }
    * @throws ApiException if fails to make API call
@@ -248,7 +248,7 @@ public class PaymentsApi extends Service {
    * Create a payment session
    *
    * @param createCheckoutSessionRequest {@link CreateCheckoutSessionRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreateCheckoutSessionResponse }
    * @throws ApiException if fails to make API call

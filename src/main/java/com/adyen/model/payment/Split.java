@@ -45,26 +45,28 @@ public class Split {
   /**
    * The part of the payment you want to book to the specified &#x60;account&#x60;. Possible values
    * for the [Balance Platform](https://docs.adyen.com/adyen-for-platforms-model): *
-   * **BalanceAccount**: books part of the payment (specified in &#x60;amount&#x60;) to the
+   * **BalanceAccount**: Books part of the payment (specified in &#x60;amount&#x60;) to the
    * specified &#x60;account&#x60;. * Transaction fees types that you can book to the specified
-   * &#x60;account&#x60;: * **AcquiringFees**: the aggregated amount of the interchange and scheme
-   * fees. * **PaymentFee**: the aggregated amount of all transaction fees. * **AdyenFees**: the
-   * aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: the
+   * &#x60;account&#x60;: * **AcquiringFees**: The aggregated amount of the interchange and scheme
+   * fees. * **PaymentFee**: The aggregated amount of all transaction fees. * **AdyenFees**: The
+   * aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: The
    * transaction fees due to Adyen under [blended
-   * rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**: the
+   * rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**: The
    * transaction fees due to Adyen under [Interchange ++
    * pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **Interchange**:
-   * the fees paid to the issuer for each payment made with the card network. * **SchemeFee**: the
-   * fees paid to the card scheme for using their network. * **Commission**: your platform&#39;s
+   * The fees paid to the issuer for each payment made with the card network. * **SchemeFee**: The
+   * fees paid to the card scheme for using their network. * **Commission**: Your platform&#39;s
    * commission on the payment (specified in &#x60;amount&#x60;), booked to your liable balance
-   * account. * **Remainder**: the amount left over after a currency conversion, booked to the
-   * specified &#x60;account&#x60;. * **TopUp**: allows you and your users to top up balance
-   * accounts using direct debit, card payments, or other payment methods. * **VAT**: the
-   * value-added tax charged on the payment, booked to your platforms liable balance account. *
-   * **Default**: in very specific use cases, allows you to book the specified &#x60;amount&#x60; to
-   * the specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
-   * for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
-   * **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
+   * account. * **Remainder**: The amount left over after a currency conversion, booked to the
+   * specified &#x60;account&#x60;. * **Surcharge**: The payment acceptance fee imposed by the card
+   * scheme or debit network provider, paid by your user&#39;s customer. * **TopUp**: Allows you and
+   * your users to top up balance accounts using direct debit, card payments, or other payment
+   * methods. * **VAT**: The value-added tax charged on the payment, booked to your platforms liable
+   * balance account. * **Default**: In very specific use cases, allows you to book the specified
+   * &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information, contact Adyen
+   * support. Possible values for the [Classic Platforms
+   * integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
+   * **MarketPlace**, **PaymentFee**, **VAT**.
    */
   public enum TypeEnum {
     ACQUIRINGFEES(String.valueOf("AcquiringFees")),
@@ -346,51 +348,54 @@ public class Split {
   /**
    * The part of the payment you want to book to the specified &#x60;account&#x60;. Possible values
    * for the [Balance Platform](https://docs.adyen.com/adyen-for-platforms-model): *
-   * **BalanceAccount**: books part of the payment (specified in &#x60;amount&#x60;) to the
+   * **BalanceAccount**: Books part of the payment (specified in &#x60;amount&#x60;) to the
    * specified &#x60;account&#x60;. * Transaction fees types that you can book to the specified
-   * &#x60;account&#x60;: * **AcquiringFees**: the aggregated amount of the interchange and scheme
-   * fees. * **PaymentFee**: the aggregated amount of all transaction fees. * **AdyenFees**: the
-   * aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: the
+   * &#x60;account&#x60;: * **AcquiringFees**: The aggregated amount of the interchange and scheme
+   * fees. * **PaymentFee**: The aggregated amount of all transaction fees. * **AdyenFees**: The
+   * aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: The
    * transaction fees due to Adyen under [blended
-   * rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**: the
+   * rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**: The
    * transaction fees due to Adyen under [Interchange ++
    * pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **Interchange**:
-   * the fees paid to the issuer for each payment made with the card network. * **SchemeFee**: the
-   * fees paid to the card scheme for using their network. * **Commission**: your platform&#39;s
+   * The fees paid to the issuer for each payment made with the card network. * **SchemeFee**: The
+   * fees paid to the card scheme for using their network. * **Commission**: Your platform&#39;s
    * commission on the payment (specified in &#x60;amount&#x60;), booked to your liable balance
-   * account. * **Remainder**: the amount left over after a currency conversion, booked to the
-   * specified &#x60;account&#x60;. * **TopUp**: allows you and your users to top up balance
-   * accounts using direct debit, card payments, or other payment methods. * **VAT**: the
-   * value-added tax charged on the payment, booked to your platforms liable balance account. *
-   * **Default**: in very specific use cases, allows you to book the specified &#x60;amount&#x60; to
-   * the specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
-   * for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
-   * **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
+   * account. * **Remainder**: The amount left over after a currency conversion, booked to the
+   * specified &#x60;account&#x60;. * **Surcharge**: The payment acceptance fee imposed by the card
+   * scheme or debit network provider, paid by your user&#39;s customer. * **TopUp**: Allows you and
+   * your users to top up balance accounts using direct debit, card payments, or other payment
+   * methods. * **VAT**: The value-added tax charged on the payment, booked to your platforms liable
+   * balance account. * **Default**: In very specific use cases, allows you to book the specified
+   * &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information, contact Adyen
+   * support. Possible values for the [Classic Platforms
+   * integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
+   * **MarketPlace**, **PaymentFee**, **VAT**.
    *
    * @param type The part of the payment you want to book to the specified &#x60;account&#x60;.
    *     Possible values for the [Balance
-   *     Platform](https://docs.adyen.com/adyen-for-platforms-model): * **BalanceAccount**: books
+   *     Platform](https://docs.adyen.com/adyen-for-platforms-model): * **BalanceAccount**: Books
    *     part of the payment (specified in &#x60;amount&#x60;) to the specified &#x60;account&#x60;.
    *     * Transaction fees types that you can book to the specified &#x60;account&#x60;: *
-   *     **AcquiringFees**: the aggregated amount of the interchange and scheme fees. *
-   *     **PaymentFee**: the aggregated amount of all transaction fees. * **AdyenFees**: the
-   *     aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: the
+   *     **AcquiringFees**: The aggregated amount of the interchange and scheme fees. *
+   *     **PaymentFee**: The aggregated amount of all transaction fees. * **AdyenFees**: The
+   *     aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: The
    *     transaction fees due to Adyen under [blended
    *     rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**:
-   *     the transaction fees due to Adyen under [Interchange ++
+   *     The transaction fees due to Adyen under [Interchange ++
    *     pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained). *
-   *     **Interchange**: the fees paid to the issuer for each payment made with the card network. *
-   *     **SchemeFee**: the fees paid to the card scheme for using their network. * **Commission**:
-   *     your platform&#39;s commission on the payment (specified in &#x60;amount&#x60;), booked to
-   *     your liable balance account. * **Remainder**: the amount left over after a currency
-   *     conversion, booked to the specified &#x60;account&#x60;. * **TopUp**: allows you and your
-   *     users to top up balance accounts using direct debit, card payments, or other payment
-   *     methods. * **VAT**: the value-added tax charged on the payment, booked to your platforms
-   *     liable balance account. * **Default**: in very specific use cases, allows you to book the
-   *     specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information,
-   *     contact Adyen support. Possible values for the [Classic Platforms
-   *     integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
-   *     **MarketPlace**, **PaymentFee**, **VAT**.
+   *     **Interchange**: The fees paid to the issuer for each payment made with the card network. *
+   *     **SchemeFee**: The fees paid to the card scheme for using their network. * **Commission**:
+   *     Your platform&#39;s commission on the payment (specified in &#x60;amount&#x60;), booked to
+   *     your liable balance account. * **Remainder**: The amount left over after a currency
+   *     conversion, booked to the specified &#x60;account&#x60;. * **Surcharge**: The payment
+   *     acceptance fee imposed by the card scheme or debit network provider, paid by your
+   *     user&#39;s customer. * **TopUp**: Allows you and your users to top up balance accounts
+   *     using direct debit, card payments, or other payment methods. * **VAT**: The value-added tax
+   *     charged on the payment, booked to your platforms liable balance account. * **Default**: In
+   *     very specific use cases, allows you to book the specified &#x60;amount&#x60; to the
+   *     specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
+   *     for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
+   *     **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
    * @return the current {@code Split} instance, allowing for method chaining
    */
   public Split type(TypeEnum type) {
@@ -401,51 +406,54 @@ public class Split {
   /**
    * The part of the payment you want to book to the specified &#x60;account&#x60;. Possible values
    * for the [Balance Platform](https://docs.adyen.com/adyen-for-platforms-model): *
-   * **BalanceAccount**: books part of the payment (specified in &#x60;amount&#x60;) to the
+   * **BalanceAccount**: Books part of the payment (specified in &#x60;amount&#x60;) to the
    * specified &#x60;account&#x60;. * Transaction fees types that you can book to the specified
-   * &#x60;account&#x60;: * **AcquiringFees**: the aggregated amount of the interchange and scheme
-   * fees. * **PaymentFee**: the aggregated amount of all transaction fees. * **AdyenFees**: the
-   * aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: the
+   * &#x60;account&#x60;: * **AcquiringFees**: The aggregated amount of the interchange and scheme
+   * fees. * **PaymentFee**: The aggregated amount of all transaction fees. * **AdyenFees**: The
+   * aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: The
    * transaction fees due to Adyen under [blended
-   * rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**: the
+   * rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**: The
    * transaction fees due to Adyen under [Interchange ++
    * pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **Interchange**:
-   * the fees paid to the issuer for each payment made with the card network. * **SchemeFee**: the
-   * fees paid to the card scheme for using their network. * **Commission**: your platform&#39;s
+   * The fees paid to the issuer for each payment made with the card network. * **SchemeFee**: The
+   * fees paid to the card scheme for using their network. * **Commission**: Your platform&#39;s
    * commission on the payment (specified in &#x60;amount&#x60;), booked to your liable balance
-   * account. * **Remainder**: the amount left over after a currency conversion, booked to the
-   * specified &#x60;account&#x60;. * **TopUp**: allows you and your users to top up balance
-   * accounts using direct debit, card payments, or other payment methods. * **VAT**: the
-   * value-added tax charged on the payment, booked to your platforms liable balance account. *
-   * **Default**: in very specific use cases, allows you to book the specified &#x60;amount&#x60; to
-   * the specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
-   * for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
-   * **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
+   * account. * **Remainder**: The amount left over after a currency conversion, booked to the
+   * specified &#x60;account&#x60;. * **Surcharge**: The payment acceptance fee imposed by the card
+   * scheme or debit network provider, paid by your user&#39;s customer. * **TopUp**: Allows you and
+   * your users to top up balance accounts using direct debit, card payments, or other payment
+   * methods. * **VAT**: The value-added tax charged on the payment, booked to your platforms liable
+   * balance account. * **Default**: In very specific use cases, allows you to book the specified
+   * &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information, contact Adyen
+   * support. Possible values for the [Classic Platforms
+   * integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
+   * **MarketPlace**, **PaymentFee**, **VAT**.
    *
    * @return type The part of the payment you want to book to the specified &#x60;account&#x60;.
    *     Possible values for the [Balance
-   *     Platform](https://docs.adyen.com/adyen-for-platforms-model): * **BalanceAccount**: books
+   *     Platform](https://docs.adyen.com/adyen-for-platforms-model): * **BalanceAccount**: Books
    *     part of the payment (specified in &#x60;amount&#x60;) to the specified &#x60;account&#x60;.
    *     * Transaction fees types that you can book to the specified &#x60;account&#x60;: *
-   *     **AcquiringFees**: the aggregated amount of the interchange and scheme fees. *
-   *     **PaymentFee**: the aggregated amount of all transaction fees. * **AdyenFees**: the
-   *     aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: the
+   *     **AcquiringFees**: The aggregated amount of the interchange and scheme fees. *
+   *     **PaymentFee**: The aggregated amount of all transaction fees. * **AdyenFees**: The
+   *     aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: The
    *     transaction fees due to Adyen under [blended
    *     rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**:
-   *     the transaction fees due to Adyen under [Interchange ++
+   *     The transaction fees due to Adyen under [Interchange ++
    *     pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained). *
-   *     **Interchange**: the fees paid to the issuer for each payment made with the card network. *
-   *     **SchemeFee**: the fees paid to the card scheme for using their network. * **Commission**:
-   *     your platform&#39;s commission on the payment (specified in &#x60;amount&#x60;), booked to
-   *     your liable balance account. * **Remainder**: the amount left over after a currency
-   *     conversion, booked to the specified &#x60;account&#x60;. * **TopUp**: allows you and your
-   *     users to top up balance accounts using direct debit, card payments, or other payment
-   *     methods. * **VAT**: the value-added tax charged on the payment, booked to your platforms
-   *     liable balance account. * **Default**: in very specific use cases, allows you to book the
-   *     specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information,
-   *     contact Adyen support. Possible values for the [Classic Platforms
-   *     integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
-   *     **MarketPlace**, **PaymentFee**, **VAT**.
+   *     **Interchange**: The fees paid to the issuer for each payment made with the card network. *
+   *     **SchemeFee**: The fees paid to the card scheme for using their network. * **Commission**:
+   *     Your platform&#39;s commission on the payment (specified in &#x60;amount&#x60;), booked to
+   *     your liable balance account. * **Remainder**: The amount left over after a currency
+   *     conversion, booked to the specified &#x60;account&#x60;. * **Surcharge**: The payment
+   *     acceptance fee imposed by the card scheme or debit network provider, paid by your
+   *     user&#39;s customer. * **TopUp**: Allows you and your users to top up balance accounts
+   *     using direct debit, card payments, or other payment methods. * **VAT**: The value-added tax
+   *     charged on the payment, booked to your platforms liable balance account. * **Default**: In
+   *     very specific use cases, allows you to book the specified &#x60;amount&#x60; to the
+   *     specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
+   *     for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
+   *     **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -456,51 +464,54 @@ public class Split {
   /**
    * The part of the payment you want to book to the specified &#x60;account&#x60;. Possible values
    * for the [Balance Platform](https://docs.adyen.com/adyen-for-platforms-model): *
-   * **BalanceAccount**: books part of the payment (specified in &#x60;amount&#x60;) to the
+   * **BalanceAccount**: Books part of the payment (specified in &#x60;amount&#x60;) to the
    * specified &#x60;account&#x60;. * Transaction fees types that you can book to the specified
-   * &#x60;account&#x60;: * **AcquiringFees**: the aggregated amount of the interchange and scheme
-   * fees. * **PaymentFee**: the aggregated amount of all transaction fees. * **AdyenFees**: the
-   * aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: the
+   * &#x60;account&#x60;: * **AcquiringFees**: The aggregated amount of the interchange and scheme
+   * fees. * **PaymentFee**: The aggregated amount of all transaction fees. * **AdyenFees**: The
+   * aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: The
    * transaction fees due to Adyen under [blended
-   * rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**: the
+   * rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**: The
    * transaction fees due to Adyen under [Interchange ++
    * pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **Interchange**:
-   * the fees paid to the issuer for each payment made with the card network. * **SchemeFee**: the
-   * fees paid to the card scheme for using their network. * **Commission**: your platform&#39;s
+   * The fees paid to the issuer for each payment made with the card network. * **SchemeFee**: The
+   * fees paid to the card scheme for using their network. * **Commission**: Your platform&#39;s
    * commission on the payment (specified in &#x60;amount&#x60;), booked to your liable balance
-   * account. * **Remainder**: the amount left over after a currency conversion, booked to the
-   * specified &#x60;account&#x60;. * **TopUp**: allows you and your users to top up balance
-   * accounts using direct debit, card payments, or other payment methods. * **VAT**: the
-   * value-added tax charged on the payment, booked to your platforms liable balance account. *
-   * **Default**: in very specific use cases, allows you to book the specified &#x60;amount&#x60; to
-   * the specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
-   * for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
-   * **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
+   * account. * **Remainder**: The amount left over after a currency conversion, booked to the
+   * specified &#x60;account&#x60;. * **Surcharge**: The payment acceptance fee imposed by the card
+   * scheme or debit network provider, paid by your user&#39;s customer. * **TopUp**: Allows you and
+   * your users to top up balance accounts using direct debit, card payments, or other payment
+   * methods. * **VAT**: The value-added tax charged on the payment, booked to your platforms liable
+   * balance account. * **Default**: In very specific use cases, allows you to book the specified
+   * &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information, contact Adyen
+   * support. Possible values for the [Classic Platforms
+   * integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
+   * **MarketPlace**, **PaymentFee**, **VAT**.
    *
    * @param type The part of the payment you want to book to the specified &#x60;account&#x60;.
    *     Possible values for the [Balance
-   *     Platform](https://docs.adyen.com/adyen-for-platforms-model): * **BalanceAccount**: books
+   *     Platform](https://docs.adyen.com/adyen-for-platforms-model): * **BalanceAccount**: Books
    *     part of the payment (specified in &#x60;amount&#x60;) to the specified &#x60;account&#x60;.
    *     * Transaction fees types that you can book to the specified &#x60;account&#x60;: *
-   *     **AcquiringFees**: the aggregated amount of the interchange and scheme fees. *
-   *     **PaymentFee**: the aggregated amount of all transaction fees. * **AdyenFees**: the
-   *     aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: the
+   *     **AcquiringFees**: The aggregated amount of the interchange and scheme fees. *
+   *     **PaymentFee**: The aggregated amount of all transaction fees. * **AdyenFees**: The
+   *     aggregated amount of Adyen&#39;s commission and markup fees. * **AdyenCommission**: The
    *     transaction fees due to Adyen under [blended
    *     rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained). * **AdyenMarkup**:
-   *     the transaction fees due to Adyen under [Interchange ++
+   *     The transaction fees due to Adyen under [Interchange ++
    *     pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained). *
-   *     **Interchange**: the fees paid to the issuer for each payment made with the card network. *
-   *     **SchemeFee**: the fees paid to the card scheme for using their network. * **Commission**:
-   *     your platform&#39;s commission on the payment (specified in &#x60;amount&#x60;), booked to
-   *     your liable balance account. * **Remainder**: the amount left over after a currency
-   *     conversion, booked to the specified &#x60;account&#x60;. * **TopUp**: allows you and your
-   *     users to top up balance accounts using direct debit, card payments, or other payment
-   *     methods. * **VAT**: the value-added tax charged on the payment, booked to your platforms
-   *     liable balance account. * **Default**: in very specific use cases, allows you to book the
-   *     specified &#x60;amount&#x60; to the specified &#x60;account&#x60;. For more information,
-   *     contact Adyen support. Possible values for the [Classic Platforms
-   *     integration](https://docs.adyen.com/classic-platforms): **Commission**, **Default**,
-   *     **MarketPlace**, **PaymentFee**, **VAT**.
+   *     **Interchange**: The fees paid to the issuer for each payment made with the card network. *
+   *     **SchemeFee**: The fees paid to the card scheme for using their network. * **Commission**:
+   *     Your platform&#39;s commission on the payment (specified in &#x60;amount&#x60;), booked to
+   *     your liable balance account. * **Remainder**: The amount left over after a currency
+   *     conversion, booked to the specified &#x60;account&#x60;. * **Surcharge**: The payment
+   *     acceptance fee imposed by the card scheme or debit network provider, paid by your
+   *     user&#39;s customer. * **TopUp**: Allows you and your users to top up balance accounts
+   *     using direct debit, card payments, or other payment methods. * **VAT**: The value-added tax
+   *     charged on the payment, booked to your platforms liable balance account. * **Default**: In
+   *     very specific use cases, allows you to book the specified &#x60;amount&#x60; to the
+   *     specified &#x60;account&#x60;. For more information, contact Adyen support. Possible values
+   *     for the [Classic Platforms integration](https://docs.adyen.com/classic-platforms):
+   *     **Commission**, **Default**, **MarketPlace**, **PaymentFee**, **VAT**.
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

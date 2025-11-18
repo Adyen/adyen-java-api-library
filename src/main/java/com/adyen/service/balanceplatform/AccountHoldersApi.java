@@ -72,7 +72,7 @@ public class AccountHoldersApi extends Service {
    * Create an account holder
    *
    * @param accountHolderInfo {@link AccountHolderInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AccountHolder }
    * @throws ApiException if fails to make API call
@@ -102,7 +102,7 @@ public class AccountHoldersApi extends Service {
    * Get an account holder
    *
    * @param id {@link String } The unique identifier of the account holder. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AccountHolder }
    * @throws ApiException if fails to make API call
@@ -142,7 +142,7 @@ public class AccountHoldersApi extends Service {
    * @param offset {@link Integer } Query: The number of items that you want to skip. (optional)
    * @param limit {@link Integer } Query: The number of items returned per page, maximum 100 items.
    *     By default, the response returns 10 items per page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaginatedBalanceAccountsResponse }
    * @throws ApiException if fails to make API call
@@ -191,7 +191,7 @@ public class AccountHoldersApi extends Service {
    * Get all transaction rules for an account holder
    *
    * @param id {@link String } The unique identifier of the account holder. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionRulesResponse }
    * @throws ApiException if fails to make API call
@@ -239,7 +239,7 @@ public class AccountHoldersApi extends Service {
    *     retrieve (required)
    * @param legalEntityId {@link String } Query: The legal entity reference whose tax form you want
    *     to retrieve (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GetTaxFormResponse }
    * @throws ApiException if fails to make API call
@@ -293,7 +293,7 @@ public class AccountHoldersApi extends Service {
    *
    * @param id {@link String } The unique identifier of the account holder. (required)
    * @param accountHolderUpdateRequest {@link AccountHolderUpdateRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AccountHolder }
    * @throws ApiException if fails to make API call

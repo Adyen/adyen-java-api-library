@@ -32,6 +32,7 @@ import java.util.logging.Logger;
   AchDetails.JSON_PROPERTY_ENCRYPTED_BANK_LOCATION_ID,
   AchDetails.JSON_PROPERTY_OWNER_NAME,
   AchDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  AchDetails.JSON_PROPERTY_SDK_DATA,
   AchDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   AchDetails.JSON_PROPERTY_TRANSFER_INSTRUMENT_ID,
   AchDetails.JSON_PROPERTY_TYPE
@@ -157,6 +158,9 @@ public class AchDetails {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -580,6 +584,40 @@ public class AchDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code AchDetails} instance, allowing for method chaining
+   */
+  public AchDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -709,6 +747,7 @@ public class AchDetails {
         && Objects.equals(this.encryptedBankLocationId, achDetails.encryptedBankLocationId)
         && Objects.equals(this.ownerName, achDetails.ownerName)
         && Objects.equals(this.recurringDetailReference, achDetails.recurringDetailReference)
+        && Objects.equals(this.sdkData, achDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, achDetails.storedPaymentMethodId)
         && Objects.equals(this.transferInstrumentId, achDetails.transferInstrumentId)
         && Objects.equals(this.type, achDetails.type);
@@ -726,6 +765,7 @@ public class AchDetails {
         encryptedBankLocationId,
         ownerName,
         recurringDetailReference,
+        sdkData,
         storedPaymentMethodId,
         transferInstrumentId,
         type);
@@ -750,6 +790,7 @@ public class AchDetails {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

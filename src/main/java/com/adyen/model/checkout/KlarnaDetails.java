@@ -28,6 +28,7 @@ import java.util.logging.Logger;
   KlarnaDetails.JSON_PROPERTY_DELIVERY_ADDRESS,
   KlarnaDetails.JSON_PROPERTY_PERSONAL_DETAILS,
   KlarnaDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  KlarnaDetails.JSON_PROPERTY_SDK_DATA,
   KlarnaDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   KlarnaDetails.JSON_PROPERTY_SUBTYPE,
   KlarnaDetails.JSON_PROPERTY_TYPE
@@ -48,6 +49,9 @@ public class KlarnaDetails {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -289,6 +293,40 @@ public class KlarnaDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code KlarnaDetails} instance, allowing for method chaining
+   */
+  public KlarnaDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -408,6 +446,7 @@ public class KlarnaDetails {
         && Objects.equals(this.deliveryAddress, klarnaDetails.deliveryAddress)
         && Objects.equals(this.personalDetails, klarnaDetails.personalDetails)
         && Objects.equals(this.recurringDetailReference, klarnaDetails.recurringDetailReference)
+        && Objects.equals(this.sdkData, klarnaDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, klarnaDetails.storedPaymentMethodId)
         && Objects.equals(this.subtype, klarnaDetails.subtype)
         && Objects.equals(this.type, klarnaDetails.type);
@@ -421,6 +460,7 @@ public class KlarnaDetails {
         deliveryAddress,
         personalDetails,
         recurringDetailReference,
+        sdkData,
         storedPaymentMethodId,
         subtype,
         type);
@@ -437,6 +477,7 @@ public class KlarnaDetails {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

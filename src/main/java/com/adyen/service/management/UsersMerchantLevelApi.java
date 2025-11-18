@@ -74,7 +74,7 @@ public class UsersMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } Unique identifier of the merchant. (required)
    * @param createMerchantUserRequest {@link CreateMerchantUserRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreateUserResponse }
    * @throws ApiException if fails to make API call
@@ -115,7 +115,7 @@ public class UsersMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } Unique identifier of the merchant. (required)
    * @param userId {@link String } Unique identifier of the user. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link User }
    * @throws ApiException if fails to make API call
@@ -161,7 +161,7 @@ public class UsersMerchantLevelApi extends Service {
    *     **100**. The default is **10** items on a page. (optional)
    * @param username {@link String } Query: The partial or complete username to select all users
    *     that match. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListMerchantUsersResponse }
    * @throws ApiException if fails to make API call
@@ -221,7 +221,7 @@ public class UsersMerchantLevelApi extends Service {
    * @param merchantId {@link String } Unique identifier of the merchant. (required)
    * @param userId {@link String } Unique identifier of the user. (required)
    * @param updateMerchantUserRequest {@link UpdateMerchantUserRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link User }
    * @throws ApiException if fails to make API call

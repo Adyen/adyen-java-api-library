@@ -68,7 +68,7 @@ public class TransferInstrumentsApi extends Service {
    * Create a transfer instrument
    *
    * @param transferInstrumentInfo {@link TransferInstrumentInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransferInstrument }
    * @throws ApiException if fails to make API call
@@ -99,7 +99,7 @@ public class TransferInstrumentsApi extends Service {
    *
    * @param id {@link String } The unique identifier of the transfer instrument to be deleted.
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -132,7 +132,7 @@ public class TransferInstrumentsApi extends Service {
    * Get a transfer instrument
    *
    * @param id {@link String } The unique identifier of the transfer instrument. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransferInstrument }
    * @throws ApiException if fails to make API call
@@ -171,7 +171,7 @@ public class TransferInstrumentsApi extends Service {
    *
    * @param id {@link String } The unique identifier of the transfer instrument. (required)
    * @param transferInstrumentInfo {@link TransferInstrumentInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransferInstrument }
    * @throws ApiException if fails to make API call

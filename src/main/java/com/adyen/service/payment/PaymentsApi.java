@@ -71,7 +71,7 @@ public class PaymentsApi extends Service {
    * Create an authorisation
    *
    * @param paymentRequest {@link PaymentRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentResult }
    * @throws ApiException if fails to make API call
@@ -101,7 +101,7 @@ public class PaymentsApi extends Service {
    * Complete a 3DS authorisation
    *
    * @param paymentRequest3d {@link PaymentRequest3d } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentResult }
    * @throws ApiException if fails to make API call
@@ -131,7 +131,7 @@ public class PaymentsApi extends Service {
    * Complete a 3DS2 authorisation
    *
    * @param paymentRequest3ds2 {@link PaymentRequest3ds2 } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PaymentResult }
    * @throws ApiException if fails to make API call
@@ -162,7 +162,7 @@ public class PaymentsApi extends Service {
    * Get the 3DS authentication result
    *
    * @param authenticationResultRequest {@link AuthenticationResultRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AuthenticationResultResponse }
    * @throws ApiException if fails to make API call
@@ -193,7 +193,7 @@ public class PaymentsApi extends Service {
    * Get the 3DS2 authentication result
    *
    * @param threeDS2ResultRequest {@link ThreeDS2ResultRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ThreeDS2ResultResponse }
    * @throws ApiException if fails to make API call

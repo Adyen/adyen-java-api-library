@@ -11,19 +11,102 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 /** AffirmInfo */
-@JsonPropertyOrder({AffirmInfo.JSON_PROPERTY_SUPPORT_EMAIL})
+@JsonPropertyOrder({AffirmInfo.JSON_PROPERTY_PRICE_PLAN, AffirmInfo.JSON_PROPERTY_SUPPORT_EMAIL})
 public class AffirmInfo {
+  /** Merchant price plan */
+  public enum PricePlanEnum {
+    BRONZE(String.valueOf("BRONZE")),
+
+    SILVER(String.valueOf("SILVER")),
+
+    GOLD(String.valueOf("GOLD"));
+
+    private static final Logger LOG = Logger.getLogger(PricePlanEnum.class.getName());
+
+    private String value;
+
+    PricePlanEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PricePlanEnum fromValue(String value) {
+      for (PricePlanEnum b : PricePlanEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      // handling unexpected value
+      LOG.warning(
+          "PricePlanEnum: unexpected enum value '"
+              + value
+              + "' - Supported values are "
+              + Arrays.toString(PricePlanEnum.values()));
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_PRICE_PLAN = "pricePlan";
+  private PricePlanEnum pricePlan;
+
   public static final String JSON_PROPERTY_SUPPORT_EMAIL = "supportEmail";
   private String supportEmail;
 
   public AffirmInfo() {}
+
+  /**
+   * Merchant price plan
+   *
+   * @param pricePlan Merchant price plan
+   * @return the current {@code AffirmInfo} instance, allowing for method chaining
+   */
+  public AffirmInfo pricePlan(PricePlanEnum pricePlan) {
+    this.pricePlan = pricePlan;
+    return this;
+  }
+
+  /**
+   * Merchant price plan
+   *
+   * @return pricePlan Merchant price plan
+   */
+  @JsonProperty(JSON_PROPERTY_PRICE_PLAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PricePlanEnum getPricePlan() {
+    return pricePlan;
+  }
+
+  /**
+   * Merchant price plan
+   *
+   * @param pricePlan Merchant price plan
+   */
+  @JsonProperty(JSON_PROPERTY_PRICE_PLAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPricePlan(PricePlanEnum pricePlan) {
+    this.pricePlan = pricePlan;
+  }
 
   /**
    * Merchant support email
@@ -68,18 +151,20 @@ public class AffirmInfo {
       return false;
     }
     AffirmInfo affirmInfo = (AffirmInfo) o;
-    return Objects.equals(this.supportEmail, affirmInfo.supportEmail);
+    return Objects.equals(this.pricePlan, affirmInfo.pricePlan)
+        && Objects.equals(this.supportEmail, affirmInfo.supportEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supportEmail);
+    return Objects.hash(pricePlan, supportEmail);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AffirmInfo {\n");
+    sb.append("    pricePlan: ").append(toIndentedString(pricePlan)).append("\n");
     sb.append("    supportEmail: ").append(toIndentedString(supportEmail)).append("\n");
     sb.append("}");
     return sb.toString();

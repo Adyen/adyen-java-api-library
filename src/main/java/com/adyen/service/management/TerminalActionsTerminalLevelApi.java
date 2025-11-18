@@ -67,7 +67,7 @@ public class TerminalActionsTerminalLevelApi extends Service {
    * Create a terminal action
    *
    * @param scheduleTerminalActionsRequest {@link ScheduleTerminalActionsRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ScheduleTerminalActionsResponse }
    * @throws ApiException if fails to make API call

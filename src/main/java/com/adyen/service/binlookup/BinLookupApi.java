@@ -68,7 +68,7 @@ public class BinLookupApi extends Service {
    * Check if 3D Secure is available
    *
    * @param threeDSAvailabilityRequest {@link ThreeDSAvailabilityRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ThreeDSAvailabilityResponse }
    * @throws ApiException if fails to make API call
@@ -99,7 +99,7 @@ public class BinLookupApi extends Service {
    * Get a fees cost estimate
    *
    * @param costEstimateRequest {@link CostEstimateRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CostEstimateResponse }
    * @throws ApiException if fails to make API call

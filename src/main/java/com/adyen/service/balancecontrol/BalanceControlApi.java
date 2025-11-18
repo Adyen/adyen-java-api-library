@@ -68,7 +68,7 @@ public class BalanceControlApi extends Service {
    * Start a balance transfer
    *
    * @param balanceTransferRequest {@link BalanceTransferRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link BalanceTransferResponse }
    * @throws ApiException if fails to make API call

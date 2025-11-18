@@ -26,6 +26,7 @@ import java.util.logging.Logger;
   AmazonPayDetails.JSON_PROPERTY_AMAZON_PAY_TOKEN,
   AmazonPayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   AmazonPayDetails.JSON_PROPERTY_CHECKOUT_SESSION_ID,
+  AmazonPayDetails.JSON_PROPERTY_SDK_DATA,
   AmazonPayDetails.JSON_PROPERTY_TYPE
 })
 public class AmazonPayDetails {
@@ -37,6 +38,9 @@ public class AmazonPayDetails {
 
   public static final String JSON_PROPERTY_CHECKOUT_SESSION_ID = "checkoutSessionId";
   private String checkoutSessionId;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   /** **amazonpay** */
   public enum TypeEnum {
@@ -209,6 +213,40 @@ public class AmazonPayDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code AmazonPayDetails} instance, allowing for method chaining
+   */
+  public AmazonPayDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * **amazonpay**
    *
    * @param type **amazonpay**
@@ -254,12 +292,13 @@ public class AmazonPayDetails {
     return Objects.equals(this.amazonPayToken, amazonPayDetails.amazonPayToken)
         && Objects.equals(this.checkoutAttemptId, amazonPayDetails.checkoutAttemptId)
         && Objects.equals(this.checkoutSessionId, amazonPayDetails.checkoutSessionId)
+        && Objects.equals(this.sdkData, amazonPayDetails.sdkData)
         && Objects.equals(this.type, amazonPayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amazonPayToken, checkoutAttemptId, checkoutSessionId, type);
+    return Objects.hash(amazonPayToken, checkoutAttemptId, checkoutSessionId, sdkData, type);
   }
 
   @Override
@@ -269,6 +308,7 @@ public class AmazonPayDetails {
     sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    checkoutSessionId: ").append(toIndentedString(checkoutSessionId)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

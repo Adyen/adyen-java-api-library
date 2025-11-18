@@ -74,7 +74,7 @@ public class TransfersApi extends Service {
    * Approve initiated transfers
    *
    * @param approveTransfersRequest {@link ApproveTransfersRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -101,7 +101,7 @@ public class TransfersApi extends Service {
    * Cancel initiated transfers
    *
    * @param cancelTransfersRequest {@link CancelTransfersRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -116,13 +116,14 @@ public class TransfersApi extends Service {
   /**
    * Get all transfers
    *
-   * @param createdSince {@link OffsetDateTime } Only include transfers that have been created on or
-   *     after this point in time. The value must be in ISO 8601 format and not earlier than 6
-   *     months before the &#x60;createdUntil&#x60; date. For example, **2021-05-30T15:07:40Z**.
-   *     (required)
-   * @param createdUntil {@link OffsetDateTime } Only include transfers that have been created on or
-   *     before this point in time. The value must be in ISO 8601 format and not later than 6 months
-   *     after the &#x60;createdSince&#x60; date. For example, **2021-05-30T15:07:40Z**. (required)
+   * @param createdSince {@link OffsetDateTime } Query: Only include transfers that have been
+   *     created on or after this point in time. The value must be in ISO 8601 format and not
+   *     earlier than 6 months before the &#x60;createdUntil&#x60; date. For example,
+   *     **2021-05-30T15:07:40Z**. (required)
+   * @param createdUntil {@link OffsetDateTime } Query: Only include transfers that have been
+   *     created on or before this point in time. The value must be in ISO 8601 format and not later
+   *     than 6 months after the &#x60;createdSince&#x60; date. For example,
+   *     **2021-05-30T15:07:40Z**. (required)
    * @return {@link FindTransfersResponse }
    * @throws ApiException if fails to make API call
    */
@@ -182,7 +183,7 @@ public class TransfersApi extends Service {
    *     previous response. (optional)
    * @param limit {@link Integer } Query: The number of items returned per page, maximum of 100
    *     items. By default, the response returns 10 items per page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link FindTransfersResponse }
    * @throws ApiException if fails to make API call
@@ -260,7 +261,7 @@ public class TransfersApi extends Service {
    * Get a transfer
    *
    * @param id {@link String } Unique identifier of the transfer. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransferData }
    * @throws ApiException if fails to make API call
@@ -302,7 +303,7 @@ public class TransfersApi extends Service {
    * @param transferId {@link String } The unique identifier of the transfer to be returned.
    *     (required)
    * @param returnTransferRequest {@link ReturnTransferRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ReturnTransferResponse }
    * @throws ApiException if fails to make API call
@@ -339,7 +340,7 @@ public class TransfersApi extends Service {
    * Transfer funds
    *
    * @param transferInfo {@link TransferInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Transfer }
    * @throws ApiException if fails to make API call

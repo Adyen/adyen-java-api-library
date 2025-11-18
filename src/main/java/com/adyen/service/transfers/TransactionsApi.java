@@ -56,11 +56,11 @@ public class TransactionsApi extends Service {
   /**
    * Get all transactions
    *
-   * @param createdSince {@link OffsetDateTime } Only include transactions that have been created on
-   *     or after this point in time. The value must be in ISO 8601 format. For example,
+   * @param createdSince {@link OffsetDateTime } Query: Only include transactions that have been
+   *     created on or after this point in time. The value must be in ISO 8601 format. For example,
    *     **2021-05-30T15:07:40Z**. (required)
-   * @param createdUntil {@link OffsetDateTime } Only include transactions that have been created on
-   *     or before this point in time. The value must be in ISO 8601 format. For example,
+   * @param createdUntil {@link OffsetDateTime } Query: Only include transactions that have been
+   *     created on or before this point in time. The value must be in ISO 8601 format. For example,
    *     **2021-05-30T15:07:40Z**. (required)
    * @return {@link TransactionSearchResponse }
    * @throws ApiException if fails to make API call
@@ -108,7 +108,7 @@ public class TransactionsApi extends Service {
    *     most recent to oldest. Default value: **asc**. (optional)
    * @param limit {@link Integer } Query: The number of items returned per page, maximum of 100
    *     items. By default, the response returns 10 items per page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link TransactionSearchResponse }
    * @throws ApiException if fails to make API call
@@ -178,7 +178,7 @@ public class TransactionsApi extends Service {
    * Get a transaction
    *
    * @param id {@link String } The unique identifier of the transaction. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Transaction }
    * @throws ApiException if fails to make API call

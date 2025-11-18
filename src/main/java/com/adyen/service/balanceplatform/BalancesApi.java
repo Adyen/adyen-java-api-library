@@ -79,7 +79,7 @@ public class BalancesApi extends Service {
    *     (required)
    * @param webhookId {@link String } The unique identifier of the balance webhook. (required)
    * @param balanceWebhookSettingInfo {@link BalanceWebhookSettingInfo } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link WebhookSetting }
    * @throws ApiException if fails to make API call
@@ -135,7 +135,7 @@ public class BalancesApi extends Service {
    * @param webhookId {@link String } The unique identifier of the balance webhook. (required)
    * @param settingId {@link String } The unique identifier of the balance webhook setting.
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -187,7 +187,7 @@ public class BalancesApi extends Service {
    * @param balancePlatformId {@link String } The unique identifier of the balance platform.
    *     (required)
    * @param webhookId {@link String } The unique identifier of the balance webhook. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link WebhookSettings }
    * @throws ApiException if fails to make API call
@@ -242,7 +242,7 @@ public class BalancesApi extends Service {
    * @param webhookId {@link String } The unique identifier of the balance webhook. (required)
    * @param settingId {@link String } The unique identifier of the balance webhook setting.
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link WebhookSetting }
    * @throws ApiException if fails to make API call
@@ -308,7 +308,7 @@ public class BalancesApi extends Service {
    * @param settingId {@link String } The unique identifier of the balance webhook setting.
    *     (required)
    * @param balanceWebhookSettingInfoUpdate {@link BalanceWebhookSettingInfoUpdate } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link WebhookSetting }
    * @throws ApiException if fails to make API call

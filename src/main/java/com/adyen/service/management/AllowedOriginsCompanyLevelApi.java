@@ -73,7 +73,7 @@ public class AllowedOriginsCompanyLevelApi extends Service {
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
    * @param allowedOrigin {@link AllowedOrigin } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AllowedOrigin }
    * @throws ApiException if fails to make API call
@@ -125,7 +125,7 @@ public class AllowedOriginsCompanyLevelApi extends Service {
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
    * @param originId {@link String } Unique identifier of the allowed origin. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -177,7 +177,7 @@ public class AllowedOriginsCompanyLevelApi extends Service {
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
    * @param originId {@link String } Unique identifier of the allowed origin. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AllowedOrigin }
    * @throws ApiException if fails to make API call
@@ -230,7 +230,7 @@ public class AllowedOriginsCompanyLevelApi extends Service {
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AllowedOriginsResponse }
    * @throws ApiException if fails to make API call

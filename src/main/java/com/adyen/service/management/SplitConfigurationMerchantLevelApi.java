@@ -80,7 +80,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
    *     (required)
    * @param splitConfigurationRule {@link SplitConfigurationRule } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfiguration }
    * @throws ApiException if fails to make API call
@@ -131,7 +131,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfiguration {@link SplitConfiguration } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfiguration }
    * @throws ApiException if fails to make API call
@@ -174,7 +174,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfiguration }
    * @throws ApiException if fails to make API call
@@ -227,7 +227,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
    *     (required)
    * @param ruleId {@link String } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfiguration }
    * @throws ApiException if fails to make API call
@@ -282,7 +282,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfiguration }
    * @throws ApiException if fails to make API call
@@ -328,7 +328,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    * Get a list of split configuration profiles
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfigurationList }
    * @throws ApiException if fails to make API call
@@ -381,7 +381,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    * @param ruleId {@link String } The unique identifier of the split configuration rule. (required)
    * @param updateSplitConfigurationRuleRequest {@link UpdateSplitConfigurationRuleRequest }
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfiguration }
    * @throws ApiException if fails to make API call
@@ -446,7 +446,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    * @param splitConfigurationId {@link String } The unique identifier of the split configuration.
    *     (required)
    * @param updateSplitConfigurationRequest {@link UpdateSplitConfigurationRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfiguration }
    * @throws ApiException if fails to make API call
@@ -520,7 +520,7 @@ public class SplitConfigurationMerchantLevelApi extends Service {
    *     (required)
    * @param updateSplitConfigurationLogicRequest {@link UpdateSplitConfigurationLogicRequest }
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SplitConfiguration }
    * @throws ApiException if fails to make API call

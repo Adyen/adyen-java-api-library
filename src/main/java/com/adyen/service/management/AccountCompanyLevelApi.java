@@ -68,7 +68,7 @@ public class AccountCompanyLevelApi extends Service {
    * Get a company account
    *
    * @param companyId {@link String } The unique identifier of the company account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link Company }
    * @throws ApiException if fails to make API call
@@ -105,7 +105,7 @@ public class AccountCompanyLevelApi extends Service {
    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListCompanyResponse }
    * @throws ApiException if fails to make API call
@@ -149,7 +149,7 @@ public class AccountCompanyLevelApi extends Service {
    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListMerchantResponse }
    * @throws ApiException if fails to make API call

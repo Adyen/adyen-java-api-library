@@ -28,6 +28,7 @@ import java.util.logging.Logger;
   OpenInvoiceDetails.JSON_PROPERTY_DELIVERY_ADDRESS,
   OpenInvoiceDetails.JSON_PROPERTY_PERSONAL_DETAILS,
   OpenInvoiceDetails.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  OpenInvoiceDetails.JSON_PROPERTY_SDK_DATA,
   OpenInvoiceDetails.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID,
   OpenInvoiceDetails.JSON_PROPERTY_TYPE
 })
@@ -47,6 +48,9 @@ public class OpenInvoiceDetails {
   public static final String JSON_PROPERTY_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
   private String storedPaymentMethodId;
@@ -277,6 +281,40 @@ public class OpenInvoiceDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code OpenInvoiceDetails} instance, allowing for method chaining
+   */
+  public OpenInvoiceDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the
    * token.
    *
@@ -364,6 +402,7 @@ public class OpenInvoiceDetails {
         && Objects.equals(this.personalDetails, openInvoiceDetails.personalDetails)
         && Objects.equals(
             this.recurringDetailReference, openInvoiceDetails.recurringDetailReference)
+        && Objects.equals(this.sdkData, openInvoiceDetails.sdkData)
         && Objects.equals(this.storedPaymentMethodId, openInvoiceDetails.storedPaymentMethodId)
         && Objects.equals(this.type, openInvoiceDetails.type);
   }
@@ -376,6 +415,7 @@ public class OpenInvoiceDetails {
         deliveryAddress,
         personalDetails,
         recurringDetailReference,
+        sdkData,
         storedPaymentMethodId,
         type);
   }
@@ -391,6 +431,7 @@ public class OpenInvoiceDetails {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    storedPaymentMethodId: ")
         .append(toIndentedString(storedPaymentMethodId))
         .append("\n");

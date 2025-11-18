@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 
 /** CardDonations */
 @JsonPropertyOrder({
+  CardDonations.JSON_PROPERTY_BILLING_SEQUENCE_NUMBER,
   CardDonations.JSON_PROPERTY_BRAND,
   CardDonations.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
   CardDonations.JSON_PROPERTY_CUPSECUREPLUS_SMSCODE,
@@ -41,6 +42,7 @@ import java.util.logging.Logger;
   CardDonations.JSON_PROPERTY_NETWORK_PAYMENT_REFERENCE,
   CardDonations.JSON_PROPERTY_NUMBER,
   CardDonations.JSON_PROPERTY_RECURRING_DETAIL_REFERENCE,
+  CardDonations.JSON_PROPERTY_SDK_DATA,
   CardDonations.JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE,
   CardDonations.JSON_PROPERTY_SRC_CORRELATION_ID,
   CardDonations.JSON_PROPERTY_SRC_DIGITAL_CARD_ID,
@@ -51,6 +53,9 @@ import java.util.logging.Logger;
   CardDonations.JSON_PROPERTY_TYPE
 })
 public class CardDonations {
+  public static final String JSON_PROPERTY_BILLING_SEQUENCE_NUMBER = "billingSequenceNumber";
+  private String billingSequenceNumber;
+
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
@@ -151,6 +156,9 @@ public class CardDonations {
   @Deprecated // deprecated since Adyen Checkout API v49: Use `storedPaymentMethodId` instead.
   private String recurringDetailReference;
 
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
+
   public static final String JSON_PROPERTY_SHOPPER_NOTIFICATION_REFERENCE =
       "shopperNotificationReference";
   private String shopperNotificationReference;
@@ -229,6 +237,48 @@ public class CardDonations {
   private TypeEnum type;
 
   public CardDonations() {}
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @param billingSequenceNumber The sequence number for the debit. For example, send **2** if this
+   *     is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   * @return the current {@code CardDonations} instance, allowing for method chaining
+   */
+  public CardDonations billingSequenceNumber(String billingSequenceNumber) {
+    this.billingSequenceNumber = billingSequenceNumber;
+    return this;
+  }
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @return billingSequenceNumber The sequence number for the debit. For example, send **2** if
+   *     this is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   */
+  @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBillingSequenceNumber() {
+    return billingSequenceNumber;
+  }
+
+  /**
+   * The sequence number for the debit. For example, send **2** if this is the second debit for the
+   * subscription. The sequence number is included in the notification sent to the shopper.
+   *
+   * @param billingSequenceNumber The sequence number for the debit. For example, send **2** if this
+   *     is the second debit for the subscription. The sequence number is included in the
+   *     notification sent to the shopper.
+   */
+  @JsonProperty(JSON_PROPERTY_BILLING_SEQUENCE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBillingSequenceNumber(String billingSequenceNumber) {
+    this.billingSequenceNumber = billingSequenceNumber;
+  }
 
   /**
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
@@ -900,6 +950,40 @@ public class CardDonations {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code CardDonations} instance, allowing for method chaining
+   */
+  public CardDonations sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to
    * notify the shopper. Used only for recurring payments in India.
    *
@@ -1197,7 +1281,8 @@ public class CardDonations {
       return false;
     }
     CardDonations cardDonations = (CardDonations) o;
-    return Objects.equals(this.brand, cardDonations.brand)
+    return Objects.equals(this.billingSequenceNumber, cardDonations.billingSequenceNumber)
+        && Objects.equals(this.brand, cardDonations.brand)
         && Objects.equals(this.checkoutAttemptId, cardDonations.checkoutAttemptId)
         && Objects.equals(this.cupsecureplusSmscode, cardDonations.cupsecureplusSmscode)
         && Objects.equals(this.cvc, cardDonations.cvc)
@@ -1215,6 +1300,7 @@ public class CardDonations {
         && Objects.equals(this.networkPaymentReference, cardDonations.networkPaymentReference)
         && Objects.equals(this.number, cardDonations.number)
         && Objects.equals(this.recurringDetailReference, cardDonations.recurringDetailReference)
+        && Objects.equals(this.sdkData, cardDonations.sdkData)
         && Objects.equals(
             this.shopperNotificationReference, cardDonations.shopperNotificationReference)
         && Objects.equals(this.srcCorrelationId, cardDonations.srcCorrelationId)
@@ -1229,6 +1315,7 @@ public class CardDonations {
   @Override
   public int hashCode() {
     return Objects.hash(
+        billingSequenceNumber,
         brand,
         checkoutAttemptId,
         cupsecureplusSmscode,
@@ -1247,6 +1334,7 @@ public class CardDonations {
         networkPaymentReference,
         number,
         recurringDetailReference,
+        sdkData,
         shopperNotificationReference,
         srcCorrelationId,
         srcDigitalCardId,
@@ -1261,6 +1349,9 @@ public class CardDonations {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardDonations {\n");
+    sb.append("    billingSequenceNumber: ")
+        .append(toIndentedString(billingSequenceNumber))
+        .append("\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    cupsecureplusSmscode: ")
@@ -1293,6 +1384,7 @@ public class CardDonations {
     sb.append("    recurringDetailReference: ")
         .append(toIndentedString(recurringDetailReference))
         .append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    shopperNotificationReference: ")
         .append(toIndentedString(shopperNotificationReference))
         .append("\n");

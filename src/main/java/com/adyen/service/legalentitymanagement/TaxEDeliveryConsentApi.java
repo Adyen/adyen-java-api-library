@@ -73,7 +73,7 @@ public class TaxEDeliveryConsentApi extends Service {
    * @param id {@link String } The unique identifier of the legal entity. For sole proprietorships,
    *     this is the individual legal entity ID of the owner. For organizations, this is the ID of
    *     the organization. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CheckTaxElectronicDeliveryConsentResponse }
    * @throws ApiException if fails to make API call
@@ -122,7 +122,7 @@ public class TaxEDeliveryConsentApi extends Service {
    *     the organization. (required)
    * @param setTaxElectronicDeliveryConsentRequest {@link SetTaxElectronicDeliveryConsentRequest }
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */

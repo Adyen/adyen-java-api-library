@@ -24,11 +24,15 @@ import java.util.logging.Logger;
 /** MobilePayDetails */
 @JsonPropertyOrder({
   MobilePayDetails.JSON_PROPERTY_CHECKOUT_ATTEMPT_ID,
+  MobilePayDetails.JSON_PROPERTY_SDK_DATA,
   MobilePayDetails.JSON_PROPERTY_TYPE
 })
 public class MobilePayDetails {
   public static final String JSON_PROPERTY_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
   private String checkoutAttemptId;
+
+  public static final String JSON_PROPERTY_SDK_DATA = "sdkData";
+  private String sdkData;
 
   /** **mobilepay** */
   public enum TypeEnum {
@@ -108,6 +112,40 @@ public class MobilePayDetails {
   }
 
   /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   * @return the current {@code MobilePayDetails} instance, allowing for method chaining
+   */
+  public MobilePayDetails sdkData(String sdkData) {
+    this.sdkData = sdkData;
+    return this;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @return sdkData Base64-encoded JSON object containing SDK related parameters required by the
+   *     SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSdkData() {
+    return sdkData;
+  }
+
+  /**
+   * Base64-encoded JSON object containing SDK related parameters required by the SDK
+   *
+   * @param sdkData Base64-encoded JSON object containing SDK related parameters required by the SDK
+   */
+  @JsonProperty(JSON_PROPERTY_SDK_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSdkData(String sdkData) {
+    this.sdkData = sdkData;
+  }
+
+  /**
    * **mobilepay**
    *
    * @param type **mobilepay**
@@ -151,12 +189,13 @@ public class MobilePayDetails {
     }
     MobilePayDetails mobilePayDetails = (MobilePayDetails) o;
     return Objects.equals(this.checkoutAttemptId, mobilePayDetails.checkoutAttemptId)
+        && Objects.equals(this.sdkData, mobilePayDetails.sdkData)
         && Objects.equals(this.type, mobilePayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkoutAttemptId, type);
+    return Objects.hash(checkoutAttemptId, sdkData, type);
   }
 
   @Override
@@ -164,6 +203,7 @@ public class MobilePayDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class MobilePayDetails {\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
+    sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

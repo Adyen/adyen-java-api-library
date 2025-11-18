@@ -73,7 +73,7 @@ public class PayoutSettingsMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param payoutSettingsRequest {@link PayoutSettingsRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PayoutSettings }
    * @throws ApiException if fails to make API call
@@ -113,7 +113,7 @@ public class PayoutSettingsMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param payoutSettingsId {@link String } The unique identifier of the payout setting. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @throws ApiException if fails to make API call
    */
@@ -156,7 +156,7 @@ public class PayoutSettingsMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param payoutSettingsId {@link String } The unique identifier of the payout setting. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PayoutSettings }
    * @throws ApiException if fails to make API call
@@ -200,7 +200,7 @@ public class PayoutSettingsMerchantLevelApi extends Service {
    * Get a list of payout settings
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PayoutSettingsResponse }
    * @throws ApiException if fails to make API call
@@ -245,7 +245,7 @@ public class PayoutSettingsMerchantLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param payoutSettingsId {@link String } The unique identifier of the payout setting. (required)
    * @param updatePayoutSettingsRequest {@link UpdatePayoutSettingsRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PayoutSettings }
    * @throws ApiException if fails to make API call

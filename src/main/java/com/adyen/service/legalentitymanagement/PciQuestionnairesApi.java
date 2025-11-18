@@ -79,7 +79,7 @@ public class PciQuestionnairesApi extends Service {
    * @param id {@link String } The unique identifier of the legal entity to calculate PCI status.
    *     (required)
    * @param calculatePciStatusRequest {@link CalculatePciStatusRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CalculatePciStatusResponse }
    * @throws ApiException if fails to make API call
@@ -124,7 +124,7 @@ public class PciQuestionnairesApi extends Service {
    * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire
    *     information. (required)
    * @param generatePciDescriptionRequest {@link GeneratePciDescriptionRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GeneratePciDescriptionResponse }
    * @throws ApiException if fails to make API call
@@ -172,7 +172,7 @@ public class PciQuestionnairesApi extends Service {
    * @param id {@link String } The legal entity ID of the individual who signed the PCI
    *     questionnaire. (required)
    * @param pciid {@link String } The unique identifier of the signed PCI questionnaire. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GetPciQuestionnaireResponse }
    * @throws ApiException if fails to make API call
@@ -216,7 +216,7 @@ public class PciQuestionnairesApi extends Service {
    *
    * @param id {@link String } The unique identifier of the legal entity to get PCI questionnaire
    *     information. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link GetPciQuestionnaireInfosResponse }
    * @throws ApiException if fails to make API call
@@ -258,7 +258,7 @@ public class PciQuestionnairesApi extends Service {
    * @param id {@link String } The legal entity ID of the user that has a contractual relationship
    *     with your platform. (required)
    * @param pciSigningRequest {@link PciSigningRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link PciSigningResponse }
    * @throws ApiException if fails to make API call

@@ -70,7 +70,7 @@ public class InitializationApi extends Service {
    * Store payout details
    *
    * @param storeDetailRequest {@link StoreDetailRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StoreDetailResponse }
    * @throws ApiException if fails to make API call
@@ -101,7 +101,7 @@ public class InitializationApi extends Service {
    * Store details and submit a payout
    *
    * @param storeDetailAndSubmitRequest {@link StoreDetailAndSubmitRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link StoreDetailAndSubmitResponse }
    * @throws ApiException if fails to make API call
@@ -132,7 +132,7 @@ public class InitializationApi extends Service {
    * Submit a payout
    *
    * @param submitRequest {@link SubmitRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SubmitResponse }
    * @throws ApiException if fails to make API call

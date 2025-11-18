@@ -76,7 +76,7 @@ public class ApiCredentialsMerchantLevelApi extends Service {
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param createMerchantApiCredentialRequest {@link CreateMerchantApiCredentialRequest }
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link CreateApiCredentialResponse }
    * @throws ApiException if fails to make API call
@@ -119,7 +119,7 @@ public class ApiCredentialsMerchantLevelApi extends Service {
    *
    * @param merchantId {@link String } The unique identifier of the merchant account. (required)
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ApiCredential }
    * @throws ApiException if fails to make API call
@@ -166,7 +166,7 @@ public class ApiCredentialsMerchantLevelApi extends Service {
    * @param pageNumber {@link Integer } Query: The number of the page to fetch. (optional)
    * @param pageSize {@link Integer } Query: The number of items to have on a page, maximum 100. The
    *     default is 10 items on a page. (optional)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ListMerchantApiCredentialsResponse }
    * @throws ApiException if fails to make API call
@@ -225,7 +225,7 @@ public class ApiCredentialsMerchantLevelApi extends Service {
    * @param apiCredentialId {@link String } Unique identifier of the API credential. (required)
    * @param updateMerchantApiCredentialRequest {@link UpdateMerchantApiCredentialRequest }
    *     (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link ApiCredential }
    * @throws ApiException if fails to make API call

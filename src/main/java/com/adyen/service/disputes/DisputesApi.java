@@ -74,7 +74,7 @@ public class DisputesApi extends Service {
    * Accept a dispute
    *
    * @param acceptDisputeRequest {@link AcceptDisputeRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link AcceptDisputeResponse }
    * @throws ApiException if fails to make API call
@@ -105,7 +105,7 @@ public class DisputesApi extends Service {
    * Defend a dispute
    *
    * @param defendDisputeRequest {@link DefendDisputeRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link DefendDisputeResponse }
    * @throws ApiException if fails to make API call
@@ -136,7 +136,7 @@ public class DisputesApi extends Service {
    * Delete a defense document
    *
    * @param deleteDefenseDocumentRequest {@link DeleteDefenseDocumentRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link DeleteDefenseDocumentResponse }
    * @throws ApiException if fails to make API call
@@ -167,7 +167,7 @@ public class DisputesApi extends Service {
    * Get applicable defense reasons
    *
    * @param defenseReasonsRequest {@link DefenseReasonsRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link DefenseReasonsResponse }
    * @throws ApiException if fails to make API call
@@ -199,7 +199,7 @@ public class DisputesApi extends Service {
    * Supply a defense document
    *
    * @param supplyDefenseDocumentRequest {@link SupplyDefenseDocumentRequest } (required)
-   * @param requestOptions {@link RequestOptions } Object to store additional data such as
+   * @param requestOptions {@link RequestOptions } Object to store additional HTTP headers such as
    *     idempotency-keys (optional)
    * @return {@link SupplyDefenseDocumentResponse }
    * @throws ApiException if fails to make API call

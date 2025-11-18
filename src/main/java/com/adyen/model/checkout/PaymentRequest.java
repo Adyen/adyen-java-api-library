@@ -72,6 +72,7 @@ import java.util.logging.Logger;
   PaymentRequest.JSON_PROPERTY_ORDER_REFERENCE,
   PaymentRequest.JSON_PROPERTY_ORIGIN,
   PaymentRequest.JSON_PROPERTY_PAYMENT_METHOD,
+  PaymentRequest.JSON_PROPERTY_PAYMENT_VALIDATIONS,
   PaymentRequest.JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC,
   PaymentRequest.JSON_PROPERTY_RECURRING_EXPIRY,
   PaymentRequest.JSON_PROPERTY_RECURRING_FREQUENCY,
@@ -372,6 +373,9 @@ public class PaymentRequest {
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private CheckoutPaymentMethod paymentMethod;
+
+  public static final String JSON_PROPERTY_PAYMENT_VALIDATIONS = "paymentValidations";
+  private PaymentValidations paymentValidations;
 
   public static final String JSON_PROPERTY_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
   private PlatformChargebackLogic platformChargebackLogic;
@@ -1812,18 +1816,18 @@ public class PaymentRequest {
 
   /**
    * The &#x60;localizedShopperStatement&#x60; field lets you use dynamic values for your shopper
-   * statement in a local character set. If not supplied, left empty, or for cross-border
-   * transactions, **shopperStatement** is used. Adyen currently supports the ja-Kana character set
-   * for Visa and Mastercard payments in Japan using Japanese cards. This character set supports: *
-   * UTF-8 based Katakana, capital letters, numbers and special characters. * Half-width or
-   * full-width characters.
+   * statement in a local character set. If this parameter is left empty, not provided, or not
+   * applicable (in case of cross-border transactions), then **shopperStatement** is used.
+   * Currently, &#x60;localizedShopperStatement&#x60; is only supported for payments with Visa,
+   * Mastercard, JCB, Diners, and Discover. **Supported characters**: Hiragana, Katakana, Kanji, and
+   * alphanumeric.
    *
    * @param localizedShopperStatement The &#x60;localizedShopperStatement&#x60; field lets you use
-   *     dynamic values for your shopper statement in a local character set. If not supplied, left
-   *     empty, or for cross-border transactions, **shopperStatement** is used. Adyen currently
-   *     supports the ja-Kana character set for Visa and Mastercard payments in Japan using Japanese
-   *     cards. This character set supports: * UTF-8 based Katakana, capital letters, numbers and
-   *     special characters. * Half-width or full-width characters.
+   *     dynamic values for your shopper statement in a local character set. If this parameter is
+   *     left empty, not provided, or not applicable (in case of cross-border transactions), then
+   *     **shopperStatement** is used. Currently, &#x60;localizedShopperStatement&#x60; is only
+   *     supported for payments with Visa, Mastercard, JCB, Diners, and Discover. **Supported
+   *     characters**: Hiragana, Katakana, Kanji, and alphanumeric.
    * @return the current {@code PaymentRequest} instance, allowing for method chaining
    */
   public PaymentRequest localizedShopperStatement(Map<String, String> localizedShopperStatement) {
@@ -1842,18 +1846,18 @@ public class PaymentRequest {
 
   /**
    * The &#x60;localizedShopperStatement&#x60; field lets you use dynamic values for your shopper
-   * statement in a local character set. If not supplied, left empty, or for cross-border
-   * transactions, **shopperStatement** is used. Adyen currently supports the ja-Kana character set
-   * for Visa and Mastercard payments in Japan using Japanese cards. This character set supports: *
-   * UTF-8 based Katakana, capital letters, numbers and special characters. * Half-width or
-   * full-width characters.
+   * statement in a local character set. If this parameter is left empty, not provided, or not
+   * applicable (in case of cross-border transactions), then **shopperStatement** is used.
+   * Currently, &#x60;localizedShopperStatement&#x60; is only supported for payments with Visa,
+   * Mastercard, JCB, Diners, and Discover. **Supported characters**: Hiragana, Katakana, Kanji, and
+   * alphanumeric.
    *
    * @return localizedShopperStatement The &#x60;localizedShopperStatement&#x60; field lets you use
-   *     dynamic values for your shopper statement in a local character set. If not supplied, left
-   *     empty, or for cross-border transactions, **shopperStatement** is used. Adyen currently
-   *     supports the ja-Kana character set for Visa and Mastercard payments in Japan using Japanese
-   *     cards. This character set supports: * UTF-8 based Katakana, capital letters, numbers and
-   *     special characters. * Half-width or full-width characters.
+   *     dynamic values for your shopper statement in a local character set. If this parameter is
+   *     left empty, not provided, or not applicable (in case of cross-border transactions), then
+   *     **shopperStatement** is used. Currently, &#x60;localizedShopperStatement&#x60; is only
+   *     supported for payments with Visa, Mastercard, JCB, Diners, and Discover. **Supported
+   *     characters**: Hiragana, Katakana, Kanji, and alphanumeric.
    */
   @JsonProperty(JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1863,18 +1867,18 @@ public class PaymentRequest {
 
   /**
    * The &#x60;localizedShopperStatement&#x60; field lets you use dynamic values for your shopper
-   * statement in a local character set. If not supplied, left empty, or for cross-border
-   * transactions, **shopperStatement** is used. Adyen currently supports the ja-Kana character set
-   * for Visa and Mastercard payments in Japan using Japanese cards. This character set supports: *
-   * UTF-8 based Katakana, capital letters, numbers and special characters. * Half-width or
-   * full-width characters.
+   * statement in a local character set. If this parameter is left empty, not provided, or not
+   * applicable (in case of cross-border transactions), then **shopperStatement** is used.
+   * Currently, &#x60;localizedShopperStatement&#x60; is only supported for payments with Visa,
+   * Mastercard, JCB, Diners, and Discover. **Supported characters**: Hiragana, Katakana, Kanji, and
+   * alphanumeric.
    *
    * @param localizedShopperStatement The &#x60;localizedShopperStatement&#x60; field lets you use
-   *     dynamic values for your shopper statement in a local character set. If not supplied, left
-   *     empty, or for cross-border transactions, **shopperStatement** is used. Adyen currently
-   *     supports the ja-Kana character set for Visa and Mastercard payments in Japan using Japanese
-   *     cards. This character set supports: * UTF-8 based Katakana, capital letters, numbers and
-   *     special characters. * Half-width or full-width characters.
+   *     dynamic values for your shopper statement in a local character set. If this parameter is
+   *     left empty, not provided, or not applicable (in case of cross-border transactions), then
+   *     **shopperStatement** is used. Currently, &#x60;localizedShopperStatement&#x60; is only
+   *     supported for payments with Visa, Mastercard, JCB, Diners, and Discover. **Supported
+   *     characters**: Hiragana, Katakana, Kanji, and alphanumeric.
    */
   @JsonProperty(JSON_PROPERTY_LOCALIZED_SHOPPER_STATEMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2354,6 +2358,39 @@ public class PaymentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(CheckoutPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
+  }
+
+  /**
+   * paymentValidations
+   *
+   * @param paymentValidations
+   * @return the current {@code PaymentRequest} instance, allowing for method chaining
+   */
+  public PaymentRequest paymentValidations(PaymentValidations paymentValidations) {
+    this.paymentValidations = paymentValidations;
+    return this;
+  }
+
+  /**
+   * Get paymentValidations
+   *
+   * @return paymentValidations
+   */
+  @JsonProperty(JSON_PROPERTY_PAYMENT_VALIDATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public PaymentValidations getPaymentValidations() {
+    return paymentValidations;
+  }
+
+  /**
+   * paymentValidations
+   *
+   * @param paymentValidations
+   */
+  @JsonProperty(JSON_PROPERTY_PAYMENT_VALIDATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPaymentValidations(PaymentValidations paymentValidations) {
+    this.paymentValidations = paymentValidations;
   }
 
   /**
@@ -3853,6 +3890,7 @@ public class PaymentRequest {
         && Objects.equals(this.orderReference, paymentRequest.orderReference)
         && Objects.equals(this.origin, paymentRequest.origin)
         && Objects.equals(this.paymentMethod, paymentRequest.paymentMethod)
+        && Objects.equals(this.paymentValidations, paymentRequest.paymentValidations)
         && Objects.equals(this.platformChargebackLogic, paymentRequest.platformChargebackLogic)
         && Objects.equals(this.recurringExpiry, paymentRequest.recurringExpiry)
         && Objects.equals(this.recurringFrequency, paymentRequest.recurringFrequency)
@@ -3931,6 +3969,7 @@ public class PaymentRequest {
         orderReference,
         origin,
         paymentMethod,
+        paymentValidations,
         platformChargebackLogic,
         recurringExpiry,
         recurringFrequency,
@@ -4016,6 +4055,7 @@ public class PaymentRequest {
     sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    paymentValidations: ").append(toIndentedString(paymentValidations)).append("\n");
     sb.append("    platformChargebackLogic: ")
         .append(toIndentedString(platformChargebackLogic))
         .append("\n");
