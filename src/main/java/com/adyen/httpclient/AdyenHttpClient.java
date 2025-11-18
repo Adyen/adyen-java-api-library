@@ -62,6 +62,7 @@ import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.net.URIBuilder;
 import org.apache.hc.core5.ssl.SSLContexts;
+import org.apache.hc.core5.util.Timeout;
 
 /** HTTP client implementation to invoke the Adyen APIs. Built on top of org.apache.hc.client5 */
 public class AdyenHttpClient implements ClientInterface {
@@ -155,7 +156,7 @@ public class AdyenHttpClient implements ClientInterface {
     RequestConfig.Builder builder = RequestConfig.custom();
 
     builder.setResponseTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS);
-    builder.setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS);
+		builder.setConnectionRequestTimeout(Timeout.ofMilliseconds(config.getConnectionTimeoutMillis()));
     builder.setDefaultKeepAlive(config.getDefaultKeepAliveMillis(), TimeUnit.MILLISECONDS);
     builder.setConnectionRequestTimeout(
         config.getConnectionRequestTimeoutMillis(), TimeUnit.MILLISECONDS);
