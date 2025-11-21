@@ -104,14 +104,14 @@ public class TransferRoute {
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
-   * fees that you have to pay. Possible values: * **regular**: for normal, low-value transactions.
-   * * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for
-   * high-priority, low-value transactions. * **wire**: the fastest way to transfer funds, but this
+   * fees that you have to pay. Possible values: * **regular**: For normal, low-value transactions.
+   * * **fast**: A faster way to transfer funds, but the fees are higher. Recommended for
+   * high-priority, low-value transactions. * **wire**: The fastest way to transfer funds, but this
    * has the highest fees. Recommended for high-priority, high-value transactions. * **instant**:
-   * for instant funds transfers within the United States and in [SEPA
+   * For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    */
   public enum PriorityEnum {
@@ -292,26 +292,26 @@ public class TransferRoute {
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
-   * fees that you have to pay. Possible values: * **regular**: for normal, low-value transactions.
-   * * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for
-   * high-priority, low-value transactions. * **wire**: the fastest way to transfer funds, but this
+   * fees that you have to pay. Possible values: * **regular**: For normal, low-value transactions.
+   * * **fast**: A faster way to transfer funds, but the fees are higher. Recommended for
+   * high-priority, low-value transactions. * **wire**: The fastest way to transfer funds, but this
    * has the highest fees. Recommended for high-priority, high-value transactions. * **instant**:
-   * for instant funds transfers within the United States and in [SEPA
+   * For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
-   *     is sent and the fees that you have to pay. Possible values: * **regular**: for normal,
-   *     low-value transactions. * **fast**: a faster way to transfer funds, but the fees are
-   *     higher. Recommended for high-priority, low-value transactions. * **wire**: the fastest way
+   *     is sent and the fees that you have to pay. Possible values: * **regular**: For normal,
+   *     low-value transactions. * **fast**: A faster way to transfer funds, but the fees are
+   *     higher. Recommended for high-priority, low-value transactions. * **wire**: The fastest way
    *     to transfer funds, but this has the highest fees. Recommended for high-priority, high-value
-   *     transactions. * **instant**: for instant funds transfers within the United States and in
+   *     transactions. * **instant**: For instant funds transfers within the United States and in
    *     [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    * @return the current {@code TransferRoute} instance, allowing for method chaining
    */
@@ -322,26 +322,26 @@ public class TransferRoute {
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
-   * fees that you have to pay. Possible values: * **regular**: for normal, low-value transactions.
-   * * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for
-   * high-priority, low-value transactions. * **wire**: the fastest way to transfer funds, but this
+   * fees that you have to pay. Possible values: * **regular**: For normal, low-value transactions.
+   * * **fast**: A faster way to transfer funds, but the fees are higher. Recommended for
+   * high-priority, low-value transactions. * **wire**: The fastest way to transfer funds, but this
    * has the highest fees. Recommended for high-priority, high-value transactions. * **instant**:
-   * for instant funds transfers within the United States and in [SEPA
+   * For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @return priority The priority for the bank transfer. This sets the speed at which the transfer
-   *     is sent and the fees that you have to pay. Possible values: * **regular**: for normal,
-   *     low-value transactions. * **fast**: a faster way to transfer funds, but the fees are
-   *     higher. Recommended for high-priority, low-value transactions. * **wire**: the fastest way
+   *     is sent and the fees that you have to pay. Possible values: * **regular**: For normal,
+   *     low-value transactions. * **fast**: A faster way to transfer funds, but the fees are
+   *     higher. Recommended for high-priority, low-value transactions. * **wire**: The fastest way
    *     to transfer funds, but this has the highest fees. Recommended for high-priority, high-value
-   *     transactions. * **instant**: for instant funds transfers within the United States and in
+   *     transactions. * **instant**: For instant funds transfers within the United States and in
    *     [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
@@ -352,26 +352,26 @@ public class TransferRoute {
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
-   * fees that you have to pay. Possible values: * **regular**: for normal, low-value transactions.
-   * * **fast**: a faster way to transfer funds, but the fees are higher. Recommended for
-   * high-priority, low-value transactions. * **wire**: the fastest way to transfer funds, but this
+   * fees that you have to pay. Possible values: * **regular**: For normal, low-value transactions.
+   * * **fast**: A faster way to transfer funds, but the fees are higher. Recommended for
+   * high-priority, low-value transactions. * **wire**: The fastest way to transfer funds, but this
    * has the highest fees. Recommended for high-priority, high-value transactions. * **instant**:
-   * for instant funds transfers within the United States and in [SEPA
+   * For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
-   *     is sent and the fees that you have to pay. Possible values: * **regular**: for normal,
-   *     low-value transactions. * **fast**: a faster way to transfer funds, but the fees are
-   *     higher. Recommended for high-priority, low-value transactions. * **wire**: the fastest way
+   *     is sent and the fees that you have to pay. Possible values: * **regular**: For normal,
+   *     low-value transactions. * **fast**: A faster way to transfer funds, but the fees are
+   *     higher. Recommended for high-priority, low-value transactions. * **wire**: The fastest way
    *     to transfer funds, but this has the highest fees. Recommended for high-priority, high-value
-   *     transactions. * **instant**: for instant funds transfers within the United States and in
+   *     transactions. * **instant**: For instant funds transfers within the United States and in
    *     [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
