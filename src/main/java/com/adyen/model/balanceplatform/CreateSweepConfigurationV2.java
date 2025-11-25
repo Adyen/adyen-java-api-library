@@ -205,6 +205,8 @@ public class CreateSweepConfigurationV2 {
 
     SCAFAILED(String.valueOf("scaFailed")),
 
+    SCHEMEADVICE(String.valueOf("schemeAdvice")),
+
     TRANSFERINSTRUMENTDOESNOTEXIST(String.valueOf("transferInstrumentDoesNotExist")),
 
     UNKNOWN(String.valueOf("unknown"));
@@ -577,14 +579,14 @@ public class CreateSweepConfigurationV2 {
    * priorities is valid (i.e., supported by Adyen and activated for your platform). For example, if
    * you provide &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    * supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   * Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   * Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    * transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.
-   * * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional priorities
    * setup for
    * [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -600,14 +602,14 @@ public class CreateSweepConfigurationV2 {
    *     activated for your platform). For example, if you provide
    *     &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    *     supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   *     Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster
+   *     Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster
    *     way to transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional
    *     priorities setup for
    *     [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -637,14 +639,14 @@ public class CreateSweepConfigurationV2 {
    * priorities is valid (i.e., supported by Adyen and activated for your platform). For example, if
    * you provide &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    * supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   * Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   * Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    * transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.
-   * * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional priorities
    * setup for
    * [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -660,14 +662,14 @@ public class CreateSweepConfigurationV2 {
    *     activated for your platform). For example, if you provide
    *     &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    *     supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   *     Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster
+   *     Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster
    *     way to transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional
    *     priorities setup for
    *     [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -689,14 +691,14 @@ public class CreateSweepConfigurationV2 {
    * priorities is valid (i.e., supported by Adyen and activated for your platform). For example, if
    * you provide &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    * supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   * Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   * Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    * transfer funds, but the fees are higher. Recommended for high-priority, low-value transactions.
-   * * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional priorities
    * setup for
    * [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
@@ -712,14 +714,14 @@ public class CreateSweepConfigurationV2 {
    *     activated for your platform). For example, if you provide
    *     &#x60;[\&quot;wire\&quot;,\&quot;regular\&quot;]&#x60;, and &#x60;wire&#x60; is not
    *     supported but &#x60;regular&#x60; is, the request will still be accepted and processed.
-   *     Possible values: * **regular**: for normal, low-value transactions. * **fast**: a faster
+   *     Possible values: * **regular**: For normal, low-value transactions. * **fast**: A faster
    *     way to transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Set &#x60;category&#x60; to **bank**. For more details, see optional
    *     priorities setup for
    *     [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)

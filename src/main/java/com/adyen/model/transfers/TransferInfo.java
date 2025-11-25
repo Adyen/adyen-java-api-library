@@ -48,14 +48,14 @@ public class TransferInfo {
   private String balanceAccountId;
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   public enum CategoryEnum {
     BANK(String.valueOf("bank")),
@@ -175,14 +175,14 @@ public class TransferInfo {
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    */
   public enum PriorityEnum {
@@ -408,24 +408,24 @@ public class TransferInfo {
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category The category of the transfer. Possible values: - **bank**: a transfer involving
+   * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    * @return the current {@code TransferInfo} instance, allowing for method chaining
    */
   public TransferInfo category(CategoryEnum category) {
@@ -434,24 +434,24 @@ public class TransferInfo {
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @return category The category of the transfer. Possible values: - **bank**: a transfer
+   * @return category The category of the transfer. Possible values: - **bank**: A transfer
    *     involving a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -460,24 +460,24 @@ public class TransferInfo {
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category The category of the transfer. Possible values: - **bank**: a transfer involving
+   * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -675,14 +675,14 @@ public class TransferInfo {
    * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent
    * and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay
    * out using the priority you list first. If that&#39;s not possible, it moves on to the next
-   * option in the order of your provided priorities. Possible values: * **regular**: for normal,
-   * low-value transactions. * **fast**: a faster way to transfer funds, but the fees are higher.
-   * Recommended for high-priority, low-value transactions. * **wire**: the fastest way to transfer
+   * option in the order of your provided priorities. Possible values: * **regular**: For normal,
+   * low-value transactions. * **fast**: A faster way to transfer funds, but the fees are higher.
+   * Recommended for high-priority, low-value transactions. * **wire**: The fastest way to transfer
    * funds, but this has the highest fees. Recommended for high-priority, high-value transactions. *
-   * **instant**: for instant funds transfers within the United States and in [SEPA
+   * **instant**: For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details, see
    * [fallback
    * priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -691,14 +691,14 @@ public class TransferInfo {
    *     the transfer is sent and the fees that you have to pay. You can provide multiple
    *     priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not
    *     possible, it moves on to the next option in the order of your provided priorities. Possible
-   *     values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   *     values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    *     transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details,
    *     see [fallback
    *     priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -721,14 +721,14 @@ public class TransferInfo {
    * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent
    * and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay
    * out using the priority you list first. If that&#39;s not possible, it moves on to the next
-   * option in the order of your provided priorities. Possible values: * **regular**: for normal,
-   * low-value transactions. * **fast**: a faster way to transfer funds, but the fees are higher.
-   * Recommended for high-priority, low-value transactions. * **wire**: the fastest way to transfer
+   * option in the order of your provided priorities. Possible values: * **regular**: For normal,
+   * low-value transactions. * **fast**: A faster way to transfer funds, but the fees are higher.
+   * Recommended for high-priority, low-value transactions. * **wire**: The fastest way to transfer
    * funds, but this has the highest fees. Recommended for high-priority, high-value transactions. *
-   * **instant**: for instant funds transfers within the United States and in [SEPA
+   * **instant**: For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details, see
    * [fallback
    * priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -737,14 +737,14 @@ public class TransferInfo {
    *     the transfer is sent and the fees that you have to pay. You can provide multiple
    *     priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not
    *     possible, it moves on to the next option in the order of your provided priorities. Possible
-   *     values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   *     values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    *     transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details,
    *     see [fallback
    *     priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -759,14 +759,14 @@ public class TransferInfo {
    * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent
    * and the fees that you have to pay. You can provide multiple priorities. Adyen will try to pay
    * out using the priority you list first. If that&#39;s not possible, it moves on to the next
-   * option in the order of your provided priorities. Possible values: * **regular**: for normal,
-   * low-value transactions. * **fast**: a faster way to transfer funds, but the fees are higher.
-   * Recommended for high-priority, low-value transactions. * **wire**: the fastest way to transfer
+   * option in the order of your provided priorities. Possible values: * **regular**: For normal,
+   * low-value transactions. * **fast**: A faster way to transfer funds, but the fees are higher.
+   * Recommended for high-priority, low-value transactions. * **wire**: The fastest way to transfer
    * funds, but this has the highest fees. Recommended for high-priority, high-value transactions. *
-   * **instant**: for instant funds transfers within the United States and in [SEPA
+   * **instant**: For instant funds transfers within the United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details, see
    * [fallback
    * priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -775,14 +775,14 @@ public class TransferInfo {
    *     the transfer is sent and the fees that you have to pay. You can provide multiple
    *     priorities. Adyen will try to pay out using the priority you list first. If that&#39;s not
    *     possible, it moves on to the next option in the order of your provided priorities. Possible
-   *     values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to
+   *     values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to
    *     transfer funds, but the fees are higher. Recommended for high-priority, low-value
-   *     transactions. * **wire**: the fastest way to transfer funds, but this has the highest fees.
-   *     Recommended for high-priority, high-value transactions. * **instant**: for instant funds
+   *     transactions. * **wire**: The fastest way to transfer funds, but this has the highest fees.
+   *     Recommended for high-priority, high-value transactions. * **instant**: For instant funds
    *     transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN). Required for transfers with &#x60;category&#x60; **bank**. For more details,
    *     see [fallback
    *     priorities](https://docs.adyen.com/payouts/payout-service/payout-to-users/#fallback-priorities).
@@ -796,26 +796,26 @@ public class TransferInfo {
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    * @return the current {@code TransferInfo} instance, allowing for method chaining
    */
@@ -827,26 +827,26 @@ public class TransferInfo {
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @return priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
@@ -858,26 +858,26 @@ public class TransferInfo {
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)

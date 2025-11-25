@@ -20,7 +20,8 @@ import java.util.*;
 /** BankAccountV3 */
 @JsonPropertyOrder({
   BankAccountV3.JSON_PROPERTY_ACCOUNT_HOLDER,
-  BankAccountV3.JSON_PROPERTY_ACCOUNT_IDENTIFICATION
+  BankAccountV3.JSON_PROPERTY_ACCOUNT_IDENTIFICATION,
+  BankAccountV3.JSON_PROPERTY_STORED_PAYMENT_METHOD_ID
 })
 public class BankAccountV3 {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
@@ -28,6 +29,9 @@ public class BankAccountV3 {
 
   public static final String JSON_PROPERTY_ACCOUNT_IDENTIFICATION = "accountIdentification";
   private BankAccountV3AccountIdentification accountIdentification;
+
+  public static final String JSON_PROPERTY_STORED_PAYMENT_METHOD_ID = "storedPaymentMethodId";
+  private String storedPaymentMethodId;
 
   public BankAccountV3() {}
 
@@ -98,6 +102,45 @@ public class BankAccountV3 {
     this.accountIdentification = accountIdentification;
   }
 
+  /**
+   * The unique token that identifies the stored bank account details of the counterparty for a
+   * payout.
+   *
+   * @param storedPaymentMethodId The unique token that identifies the stored bank account details
+   *     of the counterparty for a payout.
+   * @return the current {@code BankAccountV3} instance, allowing for method chaining
+   */
+  public BankAccountV3 storedPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+    return this;
+  }
+
+  /**
+   * The unique token that identifies the stored bank account details of the counterparty for a
+   * payout.
+   *
+   * @return storedPaymentMethodId The unique token that identifies the stored bank account details
+   *     of the counterparty for a payout.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStoredPaymentMethodId() {
+    return storedPaymentMethodId;
+  }
+
+  /**
+   * The unique token that identifies the stored bank account details of the counterparty for a
+   * payout.
+   *
+   * @param storedPaymentMethodId The unique token that identifies the stored bank account details
+   *     of the counterparty for a payout.
+   */
+  @JsonProperty(JSON_PROPERTY_STORED_PAYMENT_METHOD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+    this.storedPaymentMethodId = storedPaymentMethodId;
+  }
+
   /** Return true if this BankAccountV3 object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -109,12 +152,13 @@ public class BankAccountV3 {
     }
     BankAccountV3 bankAccountV3 = (BankAccountV3) o;
     return Objects.equals(this.accountHolder, bankAccountV3.accountHolder)
-        && Objects.equals(this.accountIdentification, bankAccountV3.accountIdentification);
+        && Objects.equals(this.accountIdentification, bankAccountV3.accountIdentification)
+        && Objects.equals(this.storedPaymentMethodId, bankAccountV3.storedPaymentMethodId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountHolder, accountIdentification);
+    return Objects.hash(accountHolder, accountIdentification, storedPaymentMethodId);
   }
 
   @Override
@@ -124,6 +168,9 @@ public class BankAccountV3 {
     sb.append("    accountHolder: ").append(toIndentedString(accountHolder)).append("\n");
     sb.append("    accountIdentification: ")
         .append(toIndentedString(accountIdentification))
+        .append("\n");
+    sb.append("    storedPaymentMethodId: ")
+        .append(toIndentedString(storedPaymentMethodId))
         .append("\n");
     sb.append("}");
     return sb.toString();

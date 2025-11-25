@@ -30,10 +30,12 @@ public class Amount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @param currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount currency(String currency) {
@@ -43,10 +45,12 @@ public class Amount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @return currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -56,10 +60,12 @@ public class Amount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @param currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -68,10 +74,10 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor
+   * The numeric value of the amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value The amount of the transaction, in [minor
+   * @param value The numeric value of the amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    * @return the current {@code Amount} instance, allowing for method chaining
    */
@@ -81,10 +87,10 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor
+   * The numeric value of the amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @return value The amount of the transaction, in [minor
+   * @return value The numeric value of the amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
@@ -94,10 +100,10 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor
+   * The numeric value of the amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value The amount of the transaction, in [minor
+   * @param value The numeric value of the amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
