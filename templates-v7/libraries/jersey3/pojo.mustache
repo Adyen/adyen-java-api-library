@@ -282,8 +282,25 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
   {{/isReadOnly}}
+  {{#isDateTime}}
+
+  /**
+  * @deprecated Use instead {{setter}}({{{datatypeWithEnum}}} {{name}})
+  */
+  @Deprecated
+  public void {{setter}}(XMLGregorianCalendar {{name}}) {
+      if ({{name}} == null) {
+        this.{{name}} = null;
+        return;
+      }
+
+      // Convert XMLGregorianCalendar to OffsetDateTime
+      this.{{name}} = {{name}}.toGregorianCalendar().toZonedDateTime().toOffsetDateTime();
+  }
+  {{/isDateTime}}
   {{/vars}}
 {{>libraries/jersey2/additional_properties}}
+
   /**
    * Return true if this {{name}} object is equal to o.
    */
