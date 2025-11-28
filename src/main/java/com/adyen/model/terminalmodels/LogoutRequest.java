@@ -67,6 +67,11 @@ public class LogoutRequest {
     this.maintenanceAllowed = maintenanceAllowed;
   }
 
+  /** Gets the value of maintenanceAllowed */
+  public boolean isMaintenanceAllowed() {
+    return Objects.requireNonNullElse(maintenanceAllowed, true);
+  }
+
   /** Return true if this LogoutRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {

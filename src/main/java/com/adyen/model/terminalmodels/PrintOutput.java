@@ -191,6 +191,11 @@ public class PrintOutput {
     this.integratedPrintFlag = integratedPrintFlag;
   }
 
+  /** Gets the value of integratedPrintFlag */
+  public boolean isIntegratedPrintFlag() {
+    return Objects.requireNonNullElse(integratedPrintFlag, true);
+  }
+
   /**
    * Indicates that the cardholder payment receipt requires a physical signature by the Customer.
    *
@@ -225,6 +230,11 @@ public class PrintOutput {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequiredSignatureFlag(Boolean requiredSignatureFlag) {
     this.requiredSignatureFlag = requiredSignatureFlag;
+  }
+
+  /** Gets the value of requiredSignatureFlag */
+  public boolean isRequiredSignatureFlag() {
+    return Objects.requireNonNullElse(requiredSignatureFlag, true);
   }
 
   /**

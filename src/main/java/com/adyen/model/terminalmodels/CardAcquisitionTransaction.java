@@ -384,6 +384,11 @@ public class CardAcquisitionTransaction {
     this.forceCustomerSelectionFlag = forceCustomerSelectionFlag;
   }
 
+  /** Gets the value of forceCustomerSelectionFlag */
+  public boolean isForceCustomerSelectionFlag() {
+    return Objects.requireNonNullElse(forceCustomerSelectionFlag, true);
+  }
+
   /**
    * Amount of a transaction. In the Card Acquisition Request message, it allows the processing of a
    * contactless card.
@@ -512,6 +517,11 @@ public class CardAcquisitionTransaction {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCashBackFlag(Boolean cashBackFlag) {
     this.cashBackFlag = cashBackFlag;
+  }
+
+  /** Gets the value of cashBackFlag */
+  public boolean isCashBackFlag() {
+    return Objects.requireNonNullElse(cashBackFlag, true);
   }
 
   /** Return true if this CardAcquisitionTransaction object is equal to o. */

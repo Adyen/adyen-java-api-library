@@ -417,6 +417,11 @@ public class OutputText {
     this.endOfLineFlag = endOfLineFlag;
   }
 
+  /** Gets the value of endOfLineFlag */
+  public boolean isEndOfLineFlag() {
+    return Objects.requireNonNullElse(endOfLineFlag, true);
+  }
+
   /** Return true if this OutputText object is equal to o. */
   @Override
   public boolean equals(Object o) {

@@ -248,6 +248,11 @@ public class TransactionConditions {
     this.debitPreferredFlag = debitPreferredFlag;
   }
 
+  /** Gets the value of debitPreferredFlag */
+  public boolean isDebitPreferredFlag() {
+    return Objects.requireNonNullElse(debitPreferredFlag, true);
+  }
+
   /**
    * Loyalty brands or programs allowed by the Sale System for the loyalty transaction. Restrict
    * brand if data sent.
@@ -419,6 +424,11 @@ public class TransactionConditions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceOnlineFlag(Boolean forceOnlineFlag) {
     this.forceOnlineFlag = forceOnlineFlag;
+  }
+
+  /** Gets the value of forceOnlineFlag */
+  public boolean isForceOnlineFlag() {
+    return Objects.requireNonNullElse(forceOnlineFlag, true);
   }
 
   /**

@@ -139,6 +139,11 @@ public class LoginResponse {
     this.tokenRequestStatus = tokenRequestStatus;
   }
 
+  /** Gets the value of tokenRequestStatus */
+  public boolean isTokenRequestStatus() {
+    return Objects.requireNonNullElse(tokenRequestStatus, true);
+  }
+
   /** Return true if this LoginResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {

@@ -91,6 +91,11 @@ public class DisplayOutput {
     this.responseRequiredFlag = responseRequiredFlag;
   }
 
+  /** Gets the value of responseRequiredFlag */
+  public boolean isResponseRequiredFlag() {
+    return Objects.requireNonNullElse(responseRequiredFlag, true);
+  }
+
   /**
    * Number of seconds the message has to be displayed.
    *

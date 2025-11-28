@@ -140,6 +140,11 @@ public class Input {
     this.confirmedFlag = confirmedFlag;
   }
 
+  /** Gets the value of confirmedFlag */
+  public boolean isConfirmedFlag() {
+    return Objects.requireNonNullElse(confirmedFlag, true);
+  }
+
   /**
    * The number of the function key which is typed by the Customer on the POI or the Cashier on the
    * Sale Terminal.

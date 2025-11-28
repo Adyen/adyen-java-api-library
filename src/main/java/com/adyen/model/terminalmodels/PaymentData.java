@@ -138,6 +138,11 @@ public class PaymentData {
     this.splitPaymentFlag = splitPaymentFlag;
   }
 
+  /** Gets the value of splitPaymentFlag */
+  public boolean isSplitPaymentFlag() {
+    return Objects.requireNonNullElse(splitPaymentFlag, true);
+  }
+
   /**
    * Requested validity date for the reservation. Allows a specific period for the reservation
    * according to the need of the Merchant for the first reservation and the reservation updates as

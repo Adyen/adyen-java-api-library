@@ -132,6 +132,11 @@ public class MenuEntry {
     this.defaultSelectedFlag = defaultSelectedFlag;
   }
 
+  /** Gets the value of defaultSelectedFlag */
+  public boolean isDefaultSelectedFlag() {
+    return Objects.requireNonNullElse(defaultSelectedFlag, true);
+  }
+
   /**
    * Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
    *

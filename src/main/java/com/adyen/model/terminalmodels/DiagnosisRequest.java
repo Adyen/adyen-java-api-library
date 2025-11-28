@@ -112,6 +112,11 @@ public class DiagnosisRequest {
     this.hostDiagnosisFlag = hostDiagnosisFlag;
   }
 
+  /** Gets the value of hostDiagnosisFlag */
+  public boolean isHostDiagnosisFlag() {
+    return Objects.requireNonNullElse(hostDiagnosisFlag, true);
+  }
+
   /**
    * Identification of the Acquirer. Present if requesting the diagnosis of these hosts only.
    *

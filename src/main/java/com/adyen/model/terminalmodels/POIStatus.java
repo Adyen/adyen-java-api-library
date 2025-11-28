@@ -129,6 +129,11 @@ public class POIStatus {
     this.securityOKFlag = securityOKFlag;
   }
 
+  /** Gets the value of securityOKFlag */
+  public boolean isSecurityOKFlag() {
+    return Objects.requireNonNullElse(securityOKFlag, true);
+  }
+
   /**
    * Indicates if the PED is working and usable. If PED present.
    *
@@ -160,6 +165,11 @@ public class POIStatus {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPeDOKFlag(Boolean peDOKFlag) {
     this.peDOKFlag = peDOKFlag;
+  }
+
+  /** Gets the value of peDOKFlag */
+  public boolean isPEDOKFlag() {
+    return Objects.requireNonNullElse(peDOKFlag, true);
   }
 
   /**
@@ -196,6 +206,11 @@ public class POIStatus {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardReaderOKFlag(Boolean cardReaderOKFlag) {
     this.cardReaderOKFlag = cardReaderOKFlag;
+  }
+
+  /** Gets the value of cardReaderOKFlag */
+  public boolean isCardReaderOKFlag() {
+    return Objects.requireNonNullElse(cardReaderOKFlag, true);
   }
 
   /**
@@ -273,6 +288,11 @@ public class POIStatus {
     this.communicationOKFlag = communicationOKFlag;
   }
 
+  /** Gets the value of communicationOKFlag */
+  public boolean isCommunicationOKFlag() {
+    return Objects.requireNonNullElse(communicationOKFlag, true);
+  }
+
   /**
    * Indicates a suspicion of fraud by the POI System. Could be set to True by the POI system to
    * notify to the Sale system and the Cashier that a suspicion of fraud had been detected on the
@@ -316,6 +336,11 @@ public class POIStatus {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraudPreventionFlag(Boolean fraudPreventionFlag) {
     this.fraudPreventionFlag = fraudPreventionFlag;
+  }
+
+  /** Gets the value of fraudPreventionFlag */
+  public boolean isFraudPreventionFlag() {
+    return Objects.requireNonNullElse(fraudPreventionFlag, true);
   }
 
   /** Return true if this POIStatus object is equal to o. */

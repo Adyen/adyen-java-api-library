@@ -97,6 +97,11 @@ public class HostStatus {
     this.isReachableFlag = isReachableFlag;
   }
 
+  /** Gets the value of isReachableFlag */
+  public boolean isIsReachableFlag() {
+    return Objects.requireNonNullElse(isReachableFlag, true);
+  }
+
   /** Return true if this HostStatus object is equal to o. */
   @Override
   public boolean equals(Object o) {

@@ -276,6 +276,11 @@ public class EventNotification {
     this.maintenanceRequiredFlag = maintenanceRequiredFlag;
   }
 
+  /** Gets the value of maintenanceRequiredFlag */
+  public boolean isMaintenanceRequiredFlag() {
+    return Objects.requireNonNullElse(maintenanceRequiredFlag, true);
+  }
+
   /**
    * Information to display and the way to process the display. To display an event message.
    *

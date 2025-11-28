@@ -206,6 +206,11 @@ public class OriginalPOITransaction {
     this.reuseCardDataFlag = reuseCardDataFlag;
   }
 
+  /** Gets the value of reuseCardDataFlag */
+  public boolean isReuseCardDataFlag() {
+    return Objects.requireNonNullElse(reuseCardDataFlag, true);
+  }
+
   /**
    * Code assigned to a transaction approval by the Acquirer. If referral.
    *

@@ -290,6 +290,11 @@ public class LoginRequest {
     this.trainingModeFlag = trainingModeFlag;
   }
 
+  /** Gets the value of trainingModeFlag */
+  public boolean isTrainingModeFlag() {
+    return Objects.requireNonNullElse(trainingModeFlag, true);
+  }
+
   /**
    * Language of the Cashier or Operator. Default value for Device type displays.
    *

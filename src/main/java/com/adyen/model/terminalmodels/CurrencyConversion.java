@@ -91,6 +91,11 @@ public class CurrencyConversion {
     this.customerApprovedFlag = customerApprovedFlag;
   }
 
+  /** Gets the value of customerApprovedFlag */
+  public boolean isCustomerApprovedFlag() {
+    return Objects.requireNonNullElse(customerApprovedFlag, true);
+  }
+
   /**
    * Amount after a currency conversion.
    *

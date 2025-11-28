@@ -413,6 +413,11 @@ public class PaymentResult {
     this.merchantOverrideFlag = merchantOverrideFlag;
   }
 
+  /** Gets the value of merchantOverrideFlag */
+  public boolean isMerchantOverrideFlag() {
+    return Objects.requireNonNullElse(merchantOverrideFlag, true);
+  }
+
   /**
    * Numeric value of a handwritten signature. Contains the value of a handwritten signature, e.g.
    * the signature of a cardholder on the merchant payment receipt. Only one format of the signature
@@ -612,6 +617,11 @@ public class PaymentResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOnlineFlag(Boolean onlineFlag) {
     this.onlineFlag = onlineFlag;
+  }
+
+  /** Gets the value of onlineFlag */
+  public boolean isOnlineFlag() {
+    return Objects.requireNonNullElse(onlineFlag, true);
   }
 
   /**

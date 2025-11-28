@@ -293,6 +293,11 @@ public class InputData {
     this.notifyCardInputFlag = notifyCardInputFlag;
   }
 
+  /** Gets the value of notifyCardInputFlag */
+  public boolean isNotifyCardInputFlag() {
+    return Objects.requireNonNullElse(notifyCardInputFlag, true);
+  }
+
   /**
    * Maximum input time in seconds. Limits the time to answer to an Input request message.
    *
@@ -366,6 +371,11 @@ public class InputData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setImmediateResponseFlag(Boolean immediateResponseFlag) {
     this.immediateResponseFlag = immediateResponseFlag;
+  }
+
+  /** Gets the value of immediateResponseFlag */
+  public boolean isImmediateResponseFlag() {
+    return Objects.requireNonNullElse(immediateResponseFlag, true);
   }
 
   /**
@@ -528,6 +538,11 @@ public class InputData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWaitUserValidationFlag(Boolean waitUserValidationFlag) {
     this.waitUserValidationFlag = waitUserValidationFlag;
+  }
+
+  /** Gets the value of waitUserValidationFlag */
+  public boolean isWaitUserValidationFlag() {
+    return Objects.requireNonNullElse(waitUserValidationFlag, true);
   }
 
   /**
@@ -701,6 +716,11 @@ public class InputData {
     this.fromRightToLeftFlag = fromRightToLeftFlag;
   }
 
+  /** Gets the value of fromRightToLeftFlag */
+  public boolean isFromRightToLeftFlag() {
+    return Objects.requireNonNullElse(fromRightToLeftFlag, true);
+  }
+
   /**
    * Indicates to mask the characters entered by the user (i.e. replacing in the display of the
    * input, the entered character by a standard character as *).
@@ -740,6 +760,11 @@ public class InputData {
     this.maskCharactersFlag = maskCharactersFlag;
   }
 
+  /** Gets the value of maskCharactersFlag */
+  public boolean isMaskCharactersFlag() {
+    return Objects.requireNonNullElse(maskCharactersFlag, true);
+  }
+
   /**
    * Indicates, when the user press a key, if a beep has to be generated (value True).
    *
@@ -774,6 +799,11 @@ public class InputData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBeepKeyFlag(Boolean beepKeyFlag) {
     this.beepKeyFlag = beepKeyFlag;
+  }
+
+  /** Gets the value of beepKeyFlag */
+  public boolean isBeepKeyFlag() {
+    return Objects.requireNonNullElse(beepKeyFlag, true);
   }
 
   /**
@@ -818,6 +848,11 @@ public class InputData {
     this.globalCorrectionFlag = globalCorrectionFlag;
   }
 
+  /** Gets the value of globalCorrectionFlag */
+  public boolean isGlobalCorrectionFlag() {
+    return Objects.requireNonNullElse(globalCorrectionFlag, true);
+  }
+
   /**
    * Indicates if the Cancel function key has to be deactivated (value True).
    *
@@ -852,6 +887,11 @@ public class InputData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisableCancelFlag(Boolean disableCancelFlag) {
     this.disableCancelFlag = disableCancelFlag;
+  }
+
+  /** Gets the value of disableCancelFlag */
+  public boolean isDisableCancelFlag() {
+    return Objects.requireNonNullElse(disableCancelFlag, true);
   }
 
   /**
@@ -899,6 +939,11 @@ public class InputData {
     this.disableCorrectFlag = disableCorrectFlag;
   }
 
+  /** Gets the value of disableCorrectFlag */
+  public boolean isDisableCorrectFlag() {
+    return Objects.requireNonNullElse(disableCorrectFlag, true);
+  }
+
   /**
    * Indicates if the Valid function key has to be deactivated (value True). During the processing
    * of an Input command &#x60;GetConfirmation&#x60;, &#x60;SiteManager&#x60;, or
@@ -942,6 +987,11 @@ public class InputData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisableValidFlag(Boolean disableValidFlag) {
     this.disableValidFlag = disableValidFlag;
+  }
+
+  /** Gets the value of disableValidFlag */
+  public boolean isDisableValidFlag() {
+    return Objects.requireNonNullElse(disableValidFlag, true);
   }
 
   /**
@@ -990,6 +1040,11 @@ public class InputData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMenuBackFlag(Boolean menuBackFlag) {
     this.menuBackFlag = menuBackFlag;
+  }
+
+  /** Gets the value of menuBackFlag */
+  public boolean isMenuBackFlag() {
+    return Objects.requireNonNullElse(menuBackFlag, true);
   }
 
   /** Return true if this InputData object is equal to o. */

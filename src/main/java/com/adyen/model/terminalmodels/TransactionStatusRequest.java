@@ -115,6 +115,11 @@ public class TransactionStatusRequest {
     this.receiptReprintFlag = receiptReprintFlag;
   }
 
+  /** Gets the value of receiptReprintFlag */
+  public boolean isReceiptReprintFlag() {
+    return Objects.requireNonNullElse(receiptReprintFlag, true);
+  }
+
   /**
    * Qualification of the document to print to the Cashier or the Customer. Allows the manager of
    * the printer, Sale or POI Terminal, to send the information to a particular physical printer or
