@@ -15,31 +15,45 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/**
- * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
- * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
- * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
- */
-public enum AccountType {
-  CARD_TOTALS("CardTotals"),
+/** Gets or Sets ErrorCondition */
+public enum ErrorConditionType {
+  ABORTED("Aborted"),
 
-  CHECKING("Checking"),
+  BUSY("Busy"),
 
-  CREDIT_CARD("CreditCard"),
+  CANCEL("Cancel"),
 
-  DEFAULT("Default"),
+  DEVICE_OUT("DeviceOut"),
 
-  EPURSE_CARD("EpurseCard"),
+  IN_PROGRESS("InProgress"),
 
-  INVESTMENT("Investment"),
+  INSERTED_CARD("InsertedCard"),
 
-  SAVINGS("Savings"),
+  INVALID_CARD("InvalidCard"),
 
-  UNIVERSAL("Universal");
+  LOGGED_OUT("LoggedOut"),
+
+  MESSAGE_FORMAT("MessageFormat"),
+
+  NOT_ALLOWED("NotAllowed"),
+
+  NOT_FOUND("NotFound"),
+
+  PAYMENT_RESTRICTION("PaymentRestriction"),
+
+  REFUSAL("Refusal"),
+
+  UNAVAILABLE_DEVICE("UnavailableDevice"),
+
+  UNAVAILABLE_SERVICE("UnavailableService"),
+
+  UNREACHABLE_HOST("UnreachableHost"),
+
+  WRONG_PIN("WrongPIN");
 
   private String value;
 
-  AccountType(String value) {
+  ErrorConditionType(String value) {
     this.value = value;
   }
 
@@ -54,8 +68,8 @@ public enum AccountType {
   }
 
   @JsonCreator
-  public static AccountType fromValue(String value) {
-    for (AccountType b : AccountType.values()) {
+  public static ErrorConditionType fromValue(String value) {
+    for (ErrorConditionType b : ErrorConditionType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

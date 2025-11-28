@@ -15,31 +15,29 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/**
- * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
- * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
- * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
- */
-public enum AccountType {
-  CARD_TOTALS("CardTotals"),
+/** Gets or Sets InputCommand */
+public enum InputCommandType {
+  DECIMAL_STRING("DecimalString"),
 
-  CHECKING("Checking"),
+  DIGIT_STRING("DigitString"),
 
-  CREDIT_CARD("CreditCard"),
+  GET_ANY_KEY("GetAnyKey"),
 
-  DEFAULT("Default"),
+  GET_CONFIRMATION("GetConfirmation"),
 
-  EPURSE_CARD("EpurseCard"),
+  GET_FUNCTION_KEY("GetFunctionKey"),
 
-  INVESTMENT("Investment"),
+  GET_MENU_ENTRY("GetMenuEntry"),
 
-  SAVINGS("Savings"),
+  PASSWORD("Password"),
 
-  UNIVERSAL("Universal");
+  SITE_MANAGER("SiteManager"),
+
+  TEXT_STRING("TextString");
 
   private String value;
 
-  AccountType(String value) {
+  InputCommandType(String value) {
     this.value = value;
   }
 
@@ -54,8 +52,8 @@ public enum AccountType {
   }
 
   @JsonCreator
-  public static AccountType fromValue(String value) {
-    for (AccountType b : AccountType.values()) {
+  public static InputCommandType fromValue(String value) {
+    for (InputCommandType b : InputCommandType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

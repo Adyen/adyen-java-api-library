@@ -16,30 +16,20 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
 /**
- * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
- * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
- * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
+ * Action to realise on a transaction. In an &#x60;EnableService&#x60; request message: - Starts a
+ * transaction by a swipe-ahead mechanism, with the services which are enabled. - Aborts a
+ * swipe-ahead transaction or started by a &#x60;CardAcquisition&#x60;, and not followed by a
+ * service request from the Sale System to complete the transaction. Possible values: *
+ * **AbortTransaction** * **StartTransaction**
  */
-public enum AccountType {
-  CARD_TOTALS("CardTotals"),
+public enum TransactionActionType {
+  ABORT_TRANSACTION("AbortTransaction"),
 
-  CHECKING("Checking"),
-
-  CREDIT_CARD("CreditCard"),
-
-  DEFAULT("Default"),
-
-  EPURSE_CARD("EpurseCard"),
-
-  INVESTMENT("Investment"),
-
-  SAVINGS("Savings"),
-
-  UNIVERSAL("Universal");
+  START_TRANSACTION("StartTransaction");
 
   private String value;
 
-  AccountType(String value) {
+  TransactionActionType(String value) {
     this.value = value;
   }
 
@@ -54,8 +44,8 @@ public enum AccountType {
   }
 
   @JsonCreator
-  public static AccountType fromValue(String value) {
-    for (AccountType b : AccountType.values()) {
+  public static TransactionActionType fromValue(String value) {
+    for (TransactionActionType b : TransactionActionType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

@@ -15,31 +15,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
-/**
- * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
- * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
- * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
- */
-public enum AccountType {
-  CARD_TOTALS("CardTotals"),
+/** Magnetic track or magnetic ink characters line. Possible values: * **AAMVA** * **ISO** */
+public enum TrackFormatType {
+  AAMVA("AAMVA"),
 
-  CHECKING("Checking"),
-
-  CREDIT_CARD("CreditCard"),
-
-  DEFAULT("Default"),
-
-  EPURSE_CARD("EpurseCard"),
-
-  INVESTMENT("Investment"),
-
-  SAVINGS("Savings"),
-
-  UNIVERSAL("Universal");
+  ISO("ISO");
 
   private String value;
 
-  AccountType(String value) {
+  TrackFormatType(String value) {
     this.value = value;
   }
 
@@ -54,8 +38,8 @@ public enum AccountType {
   }
 
   @JsonCreator
-  public static AccountType fromValue(String value) {
-    for (AccountType b : AccountType.values()) {
+  public static TrackFormatType fromValue(String value) {
+    for (TrackFormatType b : TrackFormatType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

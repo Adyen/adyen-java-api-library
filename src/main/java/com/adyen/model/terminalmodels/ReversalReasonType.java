@@ -16,30 +16,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.*;
 
 /**
- * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
- * account used for the transaction. Possible values: * **CardTotals** * **Checking** *
- * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
+ * Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** *
+ * **MerchantCancel** * **Unable2Compl**
  */
-public enum AccountType {
-  CARD_TOTALS("CardTotals"),
+public enum ReversalReasonType {
+  CUST_CANCEL("CustCancel"),
 
-  CHECKING("Checking"),
+  MALFUNCTION("Malfunction"),
 
-  CREDIT_CARD("CreditCard"),
+  MERCHANT_CANCEL("MerchantCancel"),
 
-  DEFAULT("Default"),
-
-  EPURSE_CARD("EpurseCard"),
-
-  INVESTMENT("Investment"),
-
-  SAVINGS("Savings"),
-
-  UNIVERSAL("Universal");
+  UNABLE2_COMPL("Unable2Compl");
 
   private String value;
 
-  AccountType(String value) {
+  ReversalReasonType(String value) {
     this.value = value;
   }
 
@@ -54,8 +45,8 @@ public enum AccountType {
   }
 
   @JsonCreator
-  public static AccountType fromValue(String value) {
-    for (AccountType b : AccountType.values()) {
+  public static ReversalReasonType fromValue(String value) {
+    for (ReversalReasonType b : ReversalReasonType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
