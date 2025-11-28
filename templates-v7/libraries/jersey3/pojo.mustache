@@ -298,6 +298,15 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       this.{{name}} = {{name}}.toGregorianCalendar().toZonedDateTime().toOffsetDateTime();
   }
   {{/isDateTime}}
+  {{#isBoolean}}
+
+  /**
+  * Gets the value of {{name}}
+  */
+  public boolean is{{baseName}}() {
+    return Objects.requireNonNullElse({{name}}, true);
+  }
+  {{/isBoolean}}
   {{/vars}}
 {{>libraries/jersey2/additional_properties}}
 
