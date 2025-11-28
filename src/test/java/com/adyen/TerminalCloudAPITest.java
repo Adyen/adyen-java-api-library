@@ -22,25 +22,25 @@ package com.adyen;
 
 import static org.junit.Assert.*;
 
-import com.adyen.model.nexo.MessageCategoryType;
-import com.adyen.model.nexo.MessageClassType;
-import com.adyen.model.nexo.MessageHeader;
-import com.adyen.model.nexo.MessageType;
-import com.adyen.model.nexo.OutputFormatType;
-import com.adyen.model.nexo.OutputText;
-import com.adyen.model.nexo.POIData;
-import com.adyen.model.nexo.PaymentInstrumentType;
-import com.adyen.model.nexo.PaymentReceipt;
-import com.adyen.model.nexo.PaymentRequest;
-import com.adyen.model.nexo.PaymentResult;
-import com.adyen.model.nexo.Response;
-import com.adyen.model.nexo.ResultType;
-import com.adyen.model.nexo.SaleData;
-import com.adyen.model.nexo.SaleToPOIRequest;
-import com.adyen.model.nexo.SaleToPOIResponse;
-import com.adyen.model.terminal.SaleToAcquirerData;
-import com.adyen.model.terminal.TerminalAPIRequest;
-import com.adyen.model.terminal.TerminalAPIResponse;
+import com.adyen.model.terminalmodels.MessageCategoryType;
+import com.adyen.model.terminalmodels.MessageClassType;
+import com.adyen.model.terminalmodels.MessageHeader;
+import com.adyen.model.terminalmodels.MessageType;
+import com.adyen.model.terminalmodels.OutputFormatType;
+import com.adyen.model.terminalmodels.OutputText;
+import com.adyen.model.terminalmodels.POIData;
+import com.adyen.model.terminalmodels.PaymentInstrumentType;
+import com.adyen.model.terminalmodels.PaymentReceipt;
+import com.adyen.model.terminalmodels.PaymentRequest;
+import com.adyen.model.terminalmodels.PaymentResult;
+import com.adyen.model.terminalmodels.Response;
+import com.adyen.model.terminalmodels.ResultType;
+import com.adyen.model.terminalmodels.SaleData;
+import com.adyen.model.terminalmodels.SaleToAcquirerData;
+import com.adyen.model.terminalmodels.SaleToPOIRequest;
+import com.adyen.model.terminalmodels.SaleToPOIResponse;
+import com.adyen.model.terminalmodels.TerminalAPIRequest;
+import com.adyen.model.terminalmodels.TerminalAPIResponse;
 import com.adyen.service.TerminalCloudAPI;
 import java.math.BigDecimal;
 import java.util.List;
@@ -75,8 +75,9 @@ public class TerminalCloudAPITest extends BaseTest {
     SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
     PaymentRequest paymentRequest = new PaymentRequest();
     SaleData saleDataRequest = new SaleData();
-    SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
-    saleDataRequest.setSaleToAcquirerData(saleToAcquirerData);
+    //    SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
+    //    saleDataRequest.setSaleToAcquirerData(saleToAcquirerData);
+    saleDataRequest.setSaleToAcquirerData("saleToAcquirerData as string");
     paymentRequest.setSaleData(saleDataRequest);
     saleToPOIRequest.setPaymentRequest(paymentRequest);
     terminalAPIPaymentRequest.setSaleToPOIRequest(saleToPOIRequest);
@@ -104,14 +105,14 @@ public class TerminalCloudAPITest extends BaseTest {
     assertEquals(ResultType.SUCCESS, response.getResult());
     assertNotNull(response.getAdditionalResponse());
 
-    assertNotNull(saleToPoiResponse.getPaymentResponse().getPOIData());
-    POIData poiData = saleToPoiResponse.getPaymentResponse().getPOIData();
-    assertEquals("1000", poiData.getPOIReconciliationID());
-    assertNotNull(poiData.getPOITransactionID());
+    assertNotNull(saleToPoiResponse.getPaymentResponse().getPoIData());
+    POIData poiData = saleToPoiResponse.getPaymentResponse().getPoIData();
+    assertEquals("1000", poiData.getPoIReconciliationID());
+    assertNotNull(poiData.getPoITransactionID());
     assertEquals(
-        "4r7i001556529591000.8515565295894301", poiData.getPOITransactionID().getTransactionID());
+        "4r7i001556529591000.8515565295894301", poiData.getPoITransactionID().getTransactionID());
     assertEquals(
-        "2019-04-29T00:00:00.000Z", poiData.getPOITransactionID().getTimeStamp().toString());
+        "2019-04-29T00:00:00.000Z", poiData.getPoITransactionID().getTimeStamp().toString());
 
     assertNotNull(saleToPoiResponse.getPaymentResponse().getSaleData());
     SaleData saleData = saleToPoiResponse.getPaymentResponse().getSaleData();

@@ -32,15 +32,6 @@ import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.additionalData.InvoiceLine;
-import com.adyen.model.nexo.AmountsReq;
-import com.adyen.model.nexo.MessageCategoryType;
-import com.adyen.model.nexo.MessageClassType;
-import com.adyen.model.nexo.MessageHeader;
-import com.adyen.model.nexo.MessageType;
-import com.adyen.model.nexo.PaymentTransaction;
-import com.adyen.model.nexo.SaleData;
-import com.adyen.model.nexo.SaleToPOIRequest;
-import com.adyen.model.nexo.TransactionIdentification;
 import com.adyen.model.payment.ApplicationInfo;
 import com.adyen.model.payment.AuthenticationResultRequest;
 import com.adyen.model.payment.BrowserInfo;
@@ -51,7 +42,16 @@ import com.adyen.model.payment.PaymentRequest;
 import com.adyen.model.payment.PaymentRequest3d;
 import com.adyen.model.payment.PaymentRequest3ds2;
 import com.adyen.model.payment.ThreeDS2RequestData;
-import com.adyen.model.terminal.TerminalAPIRequest;
+import com.adyen.model.terminalmodels.AmountsReq;
+import com.adyen.model.terminalmodels.MessageCategoryType;
+import com.adyen.model.terminalmodels.MessageClassType;
+import com.adyen.model.terminalmodels.MessageHeader;
+import com.adyen.model.terminalmodels.MessageType;
+import com.adyen.model.terminalmodels.PaymentTransaction;
+import com.adyen.model.terminalmodels.SaleData;
+import com.adyen.model.terminalmodels.SaleToPOIRequest;
+import com.adyen.model.terminalmodels.TerminalAPIRequest;
+import com.adyen.model.terminalmodels.TransactionIdentification;
 import com.adyen.terminal.serialization.XMLGregorianCalendarTypeAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -341,7 +341,8 @@ public class BaseTest {
 
     saleToPOIRequest.setMessageHeader(messageHeader);
 
-    com.adyen.model.nexo.PaymentRequest paymentRequest = new com.adyen.model.nexo.PaymentRequest();
+    com.adyen.model.terminalmodels.PaymentRequest paymentRequest =
+        new com.adyen.model.terminalmodels.PaymentRequest();
 
     SaleData saleData = new SaleData();
     TransactionIdentification transactionIdentification = new TransactionIdentification();
