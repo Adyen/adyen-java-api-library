@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class Key {
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   private String identifier;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIdentifier = false;
+
   public static final String JSON_PROPERTY_PASSPHRASE = "passphrase";
   private String passphrase;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPassphrase = false;
+
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetVersion = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Key() {}
 
@@ -43,6 +60,7 @@ public class Key {
    */
   public Key identifier(String identifier) {
     this.identifier = identifier;
+    isSetIdentifier = true; // mark as set
     return this;
   }
 
@@ -66,31 +84,32 @@ public class Key {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIdentifier(String identifier) {
     this.identifier = identifier;
+    isSetIdentifier = true; // mark as set
   }
 
   /**
    * The secure passphrase to protect the shared key. Must consist of: * At least 12 characters. *
    * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase letter:
    * &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special character.
-   * Limited to the following: &#x60;~&#x60;, &#x60;!&#x60;, &#x60;@&#x60;, &#x60;#&#x60;,
-   * &#x60;$&#x60;, &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
-   * &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;,
-   * &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;,
-   * &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
+   * Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;, &#x60;%&#x60;,
+   * &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;,
+   * &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
+   * &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&lt;&#x60;.
    *
    * @param passphrase The secure passphrase to protect the shared key. Must consist of: * At least
    *     12 characters. * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase
    *     letter: &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special
-   *     character. Limited to the following: &#x60;~&#x60;, &#x60;!&#x60;, &#x60;@&#x60;,
-   *     &#x60;#&#x60;, &#x60;$&#x60;, &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;,
-   *     &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;,
-   *     &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
-   *     &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;,
-   *     &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
+   *     character. Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;,
+   *     &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;,
+   *     &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;,
+   *     &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
    * @return the current {@code Key} instance, allowing for method chaining
    */
   public Key passphrase(String passphrase) {
     this.passphrase = passphrase;
+    isSetPassphrase = true; // mark as set
     return this;
   }
 
@@ -98,21 +117,20 @@ public class Key {
    * The secure passphrase to protect the shared key. Must consist of: * At least 12 characters. *
    * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase letter:
    * &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special character.
-   * Limited to the following: &#x60;~&#x60;, &#x60;!&#x60;, &#x60;@&#x60;, &#x60;#&#x60;,
-   * &#x60;$&#x60;, &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
-   * &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;,
-   * &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;,
-   * &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
+   * Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;, &#x60;%&#x60;,
+   * &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;,
+   * &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
+   * &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&lt;&#x60;.
    *
    * @return passphrase The secure passphrase to protect the shared key. Must consist of: * At least
    *     12 characters. * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase
    *     letter: &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special
-   *     character. Limited to the following: &#x60;~&#x60;, &#x60;!&#x60;, &#x60;@&#x60;,
-   *     &#x60;#&#x60;, &#x60;$&#x60;, &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;,
-   *     &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;,
-   *     &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
-   *     &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;,
-   *     &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
+   *     character. Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;,
+   *     &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;,
+   *     &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;,
+   *     &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,26 +142,26 @@ public class Key {
    * The secure passphrase to protect the shared key. Must consist of: * At least 12 characters. *
    * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase letter:
    * &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special character.
-   * Limited to the following: &#x60;~&#x60;, &#x60;!&#x60;, &#x60;@&#x60;, &#x60;#&#x60;,
-   * &#x60;$&#x60;, &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
-   * &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;,
-   * &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;,
-   * &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
+   * Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;, &#x60;%&#x60;,
+   * &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;,
+   * &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
+   * &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&lt;&#x60;.
    *
    * @param passphrase The secure passphrase to protect the shared key. Must consist of: * At least
    *     12 characters. * At least 1 uppercase letter: &#x60;[A-Z]&#x60;. * At least 1 lowercase
    *     letter: &#x60;[a-z]&#x60;. * At least 1 digit: &#x60;[0-9]&#x60;. * At least 1 special
-   *     character. Limited to the following: &#x60;~&#x60;, &#x60;!&#x60;, &#x60;@&#x60;,
-   *     &#x60;#&#x60;, &#x60;$&#x60;, &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;,
-   *     &#x60;*&#x60;, &#x60;(&#x60;, &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;,
-   *     &#x60;&#x3D;&#x60;, &#x60;}&#x60;, &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;,
-   *     &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;, &#x60;.&#x60;, &#x60;,&#x60;,
-   *     &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
+   *     character. Limited to the following: &#x60;~&#x60;, &#x60;@&#x60;, &#x60;$&#x60;,
+   *     &#x60;%&#x60;, &#x60;^&#x60;, &#x60;&amp;&#x60;, &#x60;*&#x60;, &#x60;(&#x60;,
+   *     &#x60;)&#x60;, &#x60;_&#x60;, &#x60;+&#x60;, &#x60;&#x3D;&#x60;, &#x60;}&#x60;,
+   *     &#x60;{&#x60;, &#x60;]&#x60;, &#x60;[&#x60;, &#x60;;&#x60;, &#x60;:&#x60;, &#x60;?&#x60;,
+   *     &#x60;.&#x60;, &#x60;,&#x60;, &#x60;&gt;&#x60;, &#x60;&lt;&#x60;.
    */
   @JsonProperty(JSON_PROPERTY_PASSPHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassphrase(String passphrase) {
     this.passphrase = passphrase;
+    isSetPassphrase = true; // mark as set
   }
 
   /**
@@ -154,6 +172,7 @@ public class Key {
    */
   public Key version(Integer version) {
     this.version = version;
+    isSetVersion = true; // mark as set
     return this;
   }
 
@@ -177,6 +196,26 @@ public class Key {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVersion(Integer version) {
     this.version = version;
+    isSetVersion = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Key object is equal to o. */
@@ -218,6 +257,36 @@ public class Key {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetIdentifier) {
+      addIfNull(nulls, JSON_PROPERTY_IDENTIFIER, this.identifier);
+    }
+    if (isSetPassphrase) {
+      addIfNull(nulls, JSON_PROPERTY_PASSPHRASE, this.passphrase);
+    }
+    if (isSetVersion) {
+      addIfNull(nulls, JSON_PROPERTY_VERSION, this.version);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

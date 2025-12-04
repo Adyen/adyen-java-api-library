@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class PayoutSettingsRequest {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnabled = false;
+
   public static final String JSON_PROPERTY_ENABLED_FROM_DATE = "enabledFromDate";
   private String enabledFromDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEnabledFromDate = false;
+
   public static final String JSON_PROPERTY_TRANSFER_INSTRUMENT_ID = "transferInstrumentId";
   private String transferInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTransferInstrumentId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PayoutSettingsRequest() {}
 
@@ -46,6 +63,7 @@ public class PayoutSettingsRequest {
    */
   public PayoutSettingsRequest enabled(Boolean enabled) {
     this.enabled = enabled;
+    isSetEnabled = true; // mark as set
     return this;
   }
 
@@ -75,6 +93,7 @@ public class PayoutSettingsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+    isSetEnabled = true; // mark as set
   }
 
   /**
@@ -98,6 +117,7 @@ public class PayoutSettingsRequest {
    */
   public PayoutSettingsRequest enabledFromDate(String enabledFromDate) {
     this.enabledFromDate = enabledFromDate;
+    isSetEnabledFromDate = true; // mark as set
     return this;
   }
 
@@ -147,6 +167,7 @@ public class PayoutSettingsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabledFromDate(String enabledFromDate) {
     this.enabledFromDate = enabledFromDate;
+    isSetEnabledFromDate = true; // mark as set
   }
 
   /**
@@ -161,6 +182,7 @@ public class PayoutSettingsRequest {
    */
   public PayoutSettingsRequest transferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
+    isSetTransferInstrumentId = true; // mark as set
     return this;
   }
 
@@ -192,6 +214,26 @@ public class PayoutSettingsRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTransferInstrumentId(String transferInstrumentId) {
     this.transferInstrumentId = transferInstrumentId;
+    isSetTransferInstrumentId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PayoutSettingsRequest object is equal to o. */
@@ -235,6 +277,36 @@ public class PayoutSettingsRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetEnabled) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLED, this.enabled);
+    }
+    if (isSetEnabledFromDate) {
+      addIfNull(nulls, JSON_PROPERTY_ENABLED_FROM_DATE, this.enabledFromDate);
+    }
+    if (isSetTransferInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_TRANSFER_INSTRUMENT_ID, this.transferInstrumentId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

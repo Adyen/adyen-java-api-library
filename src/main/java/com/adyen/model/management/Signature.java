@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class Signature {
   public static final String JSON_PROPERTY_ASK_SIGNATURE_ON_SCREEN = "askSignatureOnScreen";
   private Boolean askSignatureOnScreen;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAskSignatureOnScreen = false;
+
   public static final String JSON_PROPERTY_DEVICE_NAME = "deviceName";
   private String deviceName;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceName = false;
 
   public static final String JSON_PROPERTY_DEVICE_SLOGAN = "deviceSlogan";
   private String deviceSlogan;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDeviceSlogan = false;
+
   public static final String JSON_PROPERTY_SKIP_SIGNATURE = "skipSignature";
   private Boolean skipSignature;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSkipSignature = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Signature() {}
 
@@ -50,6 +70,7 @@ public class Signature {
    */
   public Signature askSignatureOnScreen(Boolean askSignatureOnScreen) {
     this.askSignatureOnScreen = askSignatureOnScreen;
+    isSetAskSignatureOnScreen = true; // mark as set
     return this;
   }
 
@@ -79,6 +100,7 @@ public class Signature {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAskSignatureOnScreen(Boolean askSignatureOnScreen) {
     this.askSignatureOnScreen = askSignatureOnScreen;
+    isSetAskSignatureOnScreen = true; // mark as set
   }
 
   /**
@@ -89,6 +111,7 @@ public class Signature {
    */
   public Signature deviceName(String deviceName) {
     this.deviceName = deviceName;
+    isSetDeviceName = true; // mark as set
     return this;
   }
 
@@ -112,6 +135,7 @@ public class Signature {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceName(String deviceName) {
     this.deviceName = deviceName;
+    isSetDeviceName = true; // mark as set
   }
 
   /**
@@ -122,6 +146,7 @@ public class Signature {
    */
   public Signature deviceSlogan(String deviceSlogan) {
     this.deviceSlogan = deviceSlogan;
+    isSetDeviceSlogan = true; // mark as set
     return this;
   }
 
@@ -145,6 +170,7 @@ public class Signature {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDeviceSlogan(String deviceSlogan) {
     this.deviceSlogan = deviceSlogan;
+    isSetDeviceSlogan = true; // mark as set
   }
 
   /**
@@ -158,6 +184,7 @@ public class Signature {
    */
   public Signature skipSignature(Boolean skipSignature) {
     this.skipSignature = skipSignature;
+    isSetSkipSignature = true; // mark as set
     return this;
   }
 
@@ -187,6 +214,26 @@ public class Signature {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSkipSignature(Boolean skipSignature) {
     this.skipSignature = skipSignature;
+    isSetSkipSignature = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Signature object is equal to o. */
@@ -232,6 +279,39 @@ public class Signature {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAskSignatureOnScreen) {
+      addIfNull(nulls, JSON_PROPERTY_ASK_SIGNATURE_ON_SCREEN, this.askSignatureOnScreen);
+    }
+    if (isSetDeviceName) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_NAME, this.deviceName);
+    }
+    if (isSetDeviceSlogan) {
+      addIfNull(nulls, JSON_PROPERTY_DEVICE_SLOGAN, this.deviceSlogan);
+    }
+    if (isSetSkipSignature) {
+      addIfNull(nulls, JSON_PROPERTY_SKIP_SIGNATURE, this.skipSignature);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

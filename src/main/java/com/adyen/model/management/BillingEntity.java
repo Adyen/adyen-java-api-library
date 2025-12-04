@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,35 +31,57 @@ public class BillingEntity {
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private Address address;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAddress = false;
+
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public BillingEntity() {}
 
   /**
-   * address
+   * The address details of the billing entity.
    *
-   * @param address
+   * @param address The address details of the billing entity.
    * @return the current {@code BillingEntity} instance, allowing for method chaining
    */
   public BillingEntity address(Address address) {
     this.address = address;
+    isSetAddress = true; // mark as set
     return this;
   }
 
   /**
-   * Get address
+   * The address details of the billing entity.
    *
-   * @return address
+   * @return address The address details of the billing entity.
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -66,14 +90,15 @@ public class BillingEntity {
   }
 
   /**
-   * address
+   * The address details of the billing entity.
    *
-   * @param address
+   * @param address The address details of the billing entity.
    */
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Address address) {
     this.address = address;
+    isSetAddress = true; // mark as set
   }
 
   /**
@@ -84,6 +109,7 @@ public class BillingEntity {
    */
   public BillingEntity email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -107,6 +133,7 @@ public class BillingEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -119,6 +146,7 @@ public class BillingEntity {
    */
   public BillingEntity id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -146,6 +174,7 @@ public class BillingEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -156,6 +185,7 @@ public class BillingEntity {
    */
   public BillingEntity name(String name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
@@ -179,6 +209,7 @@ public class BillingEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -189,6 +220,7 @@ public class BillingEntity {
    */
   public BillingEntity taxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
     return this;
   }
 
@@ -212,6 +244,26 @@ public class BillingEntity {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BillingEntity object is equal to o. */
@@ -257,6 +309,42 @@ public class BillingEntity {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAddress) {
+      addIfNull(nulls, JSON_PROPERTY_ADDRESS, this.address);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetTaxId) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_ID, this.taxId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

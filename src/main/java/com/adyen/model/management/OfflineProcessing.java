@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,8 +30,20 @@ public class OfflineProcessing {
   public static final String JSON_PROPERTY_CHIP_FLOOR_LIMIT = "chipFloorLimit";
   private Integer chipFloorLimit;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetChipFloorLimit = false;
+
   public static final String JSON_PROPERTY_OFFLINE_SWIPE_LIMITS = "offlineSwipeLimits";
   private List<MinorUnitsMonetaryValue> offlineSwipeLimits;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOfflineSwipeLimits = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public OfflineProcessing() {}
 
@@ -44,6 +58,7 @@ public class OfflineProcessing {
    */
   public OfflineProcessing chipFloorLimit(Integer chipFloorLimit) {
     this.chipFloorLimit = chipFloorLimit;
+    isSetChipFloorLimit = true; // mark as set
     return this;
   }
 
@@ -73,6 +88,7 @@ public class OfflineProcessing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChipFloorLimit(Integer chipFloorLimit) {
     this.chipFloorLimit = chipFloorLimit;
+    isSetChipFloorLimit = true; // mark as set
   }
 
   /**
@@ -84,6 +100,7 @@ public class OfflineProcessing {
    */
   public OfflineProcessing offlineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {
     this.offlineSwipeLimits = offlineSwipeLimits;
+    isSetOfflineSwipeLimits = true; // mark as set
     return this;
   }
 
@@ -118,6 +135,26 @@ public class OfflineProcessing {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineSwipeLimits(List<MinorUnitsMonetaryValue> offlineSwipeLimits) {
     this.offlineSwipeLimits = offlineSwipeLimits;
+    isSetOfflineSwipeLimits = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this OfflineProcessing object is equal to o. */
@@ -157,6 +194,33 @@ public class OfflineProcessing {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetChipFloorLimit) {
+      addIfNull(nulls, JSON_PROPERTY_CHIP_FLOOR_LIMIT, this.chipFloorLimit);
+    }
+    if (isSetOfflineSwipeLimits) {
+      addIfNull(nulls, JSON_PROPERTY_OFFLINE_SWIPE_LIMITS, this.offlineSwipeLimits);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

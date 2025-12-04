@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,23 +35,50 @@ public class CreateMerchantRequest {
   public static final String JSON_PROPERTY_BUSINESS_LINE_ID = "businessLineId";
   private String businessLineId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBusinessLineId = false;
+
   public static final String JSON_PROPERTY_COMPANY_ID = "companyId";
   private String companyId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompanyId = false;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_LEGAL_ENTITY_ID = "legalEntityId";
   private String legalEntityId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLegalEntityId = false;
 
   public static final String JSON_PROPERTY_PRICING_PLAN = "pricingPlan";
   private String pricingPlan;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPricingPlan = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
+
   public static final String JSON_PROPERTY_SALES_CHANNELS = "salesChannels";
   private List<String> salesChannels;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSalesChannels = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateMerchantRequest() {}
 
@@ -65,6 +94,7 @@ public class CreateMerchantRequest {
    */
   public CreateMerchantRequest businessLineId(String businessLineId) {
     this.businessLineId = businessLineId;
+    isSetBusinessLineId = true; // mark as set
     return this;
   }
 
@@ -96,6 +126,7 @@ public class CreateMerchantRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBusinessLineId(String businessLineId) {
     this.businessLineId = businessLineId;
+    isSetBusinessLineId = true; // mark as set
   }
 
   /**
@@ -106,6 +137,7 @@ public class CreateMerchantRequest {
    */
   public CreateMerchantRequest companyId(String companyId) {
     this.companyId = companyId;
+    isSetCompanyId = true; // mark as set
     return this;
   }
 
@@ -129,6 +161,7 @@ public class CreateMerchantRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
+    isSetCompanyId = true; // mark as set
   }
 
   /**
@@ -139,6 +172,7 @@ public class CreateMerchantRequest {
    */
   public CreateMerchantRequest description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -162,6 +196,7 @@ public class CreateMerchantRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -176,6 +211,7 @@ public class CreateMerchantRequest {
    */
   public CreateMerchantRequest legalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
     return this;
   }
 
@@ -207,6 +243,7 @@ public class CreateMerchantRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalEntityId(String legalEntityId) {
     this.legalEntityId = legalEntityId;
+    isSetLegalEntityId = true; // mark as set
   }
 
   /**
@@ -219,6 +256,7 @@ public class CreateMerchantRequest {
    */
   public CreateMerchantRequest pricingPlan(String pricingPlan) {
     this.pricingPlan = pricingPlan;
+    isSetPricingPlan = true; // mark as set
     return this;
   }
 
@@ -246,6 +284,7 @@ public class CreateMerchantRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPricingPlan(String pricingPlan) {
     this.pricingPlan = pricingPlan;
+    isSetPricingPlan = true; // mark as set
   }
 
   /**
@@ -264,6 +303,7 @@ public class CreateMerchantRequest {
    */
   public CreateMerchantRequest reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -303,6 +343,7 @@ public class CreateMerchantRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -313,6 +354,7 @@ public class CreateMerchantRequest {
    */
   public CreateMerchantRequest salesChannels(List<String> salesChannels) {
     this.salesChannels = salesChannels;
+    isSetSalesChannels = true; // mark as set
     return this;
   }
 
@@ -344,6 +386,26 @@ public class CreateMerchantRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSalesChannels(List<String> salesChannels) {
     this.salesChannels = salesChannels;
+    isSetSalesChannels = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateMerchantRequest object is equal to o. */
@@ -400,6 +462,48 @@ public class CreateMerchantRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBusinessLineId) {
+      addIfNull(nulls, JSON_PROPERTY_BUSINESS_LINE_ID, this.businessLineId);
+    }
+    if (isSetCompanyId) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY_ID, this.companyId);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetLegalEntityId) {
+      addIfNull(nulls, JSON_PROPERTY_LEGAL_ENTITY_ID, this.legalEntityId);
+    }
+    if (isSetPricingPlan) {
+      addIfNull(nulls, JSON_PROPERTY_PRICING_PLAN, this.pricingPlan);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetSalesChannels) {
+      addIfNull(nulls, JSON_PROPERTY_SALES_CHANNELS, this.salesChannels);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

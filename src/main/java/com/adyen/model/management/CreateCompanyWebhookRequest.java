@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -47,19 +49,34 @@ public class CreateCompanyWebhookRequest {
       "acceptsExpiredCertificate";
   private Boolean acceptsExpiredCertificate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsExpiredCertificate = false;
+
   public static final String JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE =
       "acceptsSelfSignedCertificate";
   private Boolean acceptsSelfSignedCertificate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsSelfSignedCertificate = false;
 
   public static final String JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE =
       "acceptsUntrustedRootCertificate";
   private Boolean acceptsUntrustedRootCertificate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAcceptsUntrustedRootCertificate = false;
+
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetActive = false;
+
   public static final String JSON_PROPERTY_ADDITIONAL_SETTINGS = "additionalSettings";
   private AdditionalSettings additionalSettings;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdditionalSettings = false;
 
   /**
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json**
@@ -109,8 +126,14 @@ public class CreateCompanyWebhookRequest {
   public static final String JSON_PROPERTY_COMMUNICATION_FORMAT = "communicationFormat";
   private CommunicationFormatEnum communicationFormat;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCommunicationFormat = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
 
   /**
    * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible
@@ -161,6 +184,9 @@ public class CreateCompanyWebhookRequest {
 
   public static final String JSON_PROPERTY_ENCRYPTION_PROTOCOL = "encryptionProtocol";
   private EncryptionProtocolEnum encryptionProtocol;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptionProtocol = false;
 
   /**
    * Shows how merchant accounts are filtered when configuring the webhook. Possible values: *
@@ -217,8 +243,14 @@ public class CreateCompanyWebhookRequest {
       "filterMerchantAccountType";
   private FilterMerchantAccountTypeEnum filterMerchantAccountType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFilterMerchantAccountType = false;
+
   public static final String JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS = "filterMerchantAccounts";
   private List<String> filterMerchantAccounts;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFilterMerchantAccounts = false;
 
   /**
    * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**
@@ -267,20 +299,44 @@ public class CreateCompanyWebhookRequest {
   public static final String JSON_PROPERTY_NETWORK_TYPE = "networkType";
   private NetworkTypeEnum networkType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNetworkType = false;
+
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPassword = false;
 
   public static final String JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER = "populateSoapActionHeader";
   private Boolean populateSoapActionHeader;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPopulateSoapActionHeader = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUrl = false;
+
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUsername = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateCompanyWebhookRequest() {}
 
@@ -293,6 +349,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest acceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
+    isSetAcceptsExpiredCertificate = true; // mark as set
     return this;
   }
 
@@ -318,6 +375,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsExpiredCertificate(Boolean acceptsExpiredCertificate) {
     this.acceptsExpiredCertificate = acceptsExpiredCertificate;
+    isSetAcceptsExpiredCertificate = true; // mark as set
   }
 
   /**
@@ -330,6 +388,7 @@ public class CreateCompanyWebhookRequest {
   public CreateCompanyWebhookRequest acceptsSelfSignedCertificate(
       Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
+    isSetAcceptsSelfSignedCertificate = true; // mark as set
     return this;
   }
 
@@ -355,6 +414,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsSelfSignedCertificate(Boolean acceptsSelfSignedCertificate) {
     this.acceptsSelfSignedCertificate = acceptsSelfSignedCertificate;
+    isSetAcceptsSelfSignedCertificate = true; // mark as set
   }
 
   /**
@@ -367,6 +427,7 @@ public class CreateCompanyWebhookRequest {
   public CreateCompanyWebhookRequest acceptsUntrustedRootCertificate(
       Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
+    isSetAcceptsUntrustedRootCertificate = true; // mark as set
     return this;
   }
 
@@ -392,6 +453,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAcceptsUntrustedRootCertificate(Boolean acceptsUntrustedRootCertificate) {
     this.acceptsUntrustedRootCertificate = acceptsUntrustedRootCertificate;
+    isSetAcceptsUntrustedRootCertificate = true; // mark as set
   }
 
   /**
@@ -404,6 +466,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest active(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
     return this;
   }
 
@@ -431,23 +494,39 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActive(Boolean active) {
     this.active = active;
+    isSetActive = true; // mark as set
   }
 
   /**
-   * additionalSettings
+   * Additional shopper and transaction information to be included in your [standard
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
+   * Find out more about the available [additional
+   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
    *
-   * @param additionalSettings
+   * @param additionalSettings Additional shopper and transaction information to be included in your
+   *     [standard
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
+   *     Find out more about the available [additional
+   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
    * @return the current {@code CreateCompanyWebhookRequest} instance, allowing for method chaining
    */
   public CreateCompanyWebhookRequest additionalSettings(AdditionalSettings additionalSettings) {
     this.additionalSettings = additionalSettings;
+    isSetAdditionalSettings = true; // mark as set
     return this;
   }
 
   /**
-   * Get additionalSettings
+   * Additional shopper and transaction information to be included in your [standard
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
+   * Find out more about the available [additional
+   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
    *
-   * @return additionalSettings
+   * @return additionalSettings Additional shopper and transaction information to be included in
+   *     your [standard
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
+   *     Find out more about the available [additional
+   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -456,14 +535,22 @@ public class CreateCompanyWebhookRequest {
   }
 
   /**
-   * additionalSettings
+   * Additional shopper and transaction information to be included in your [standard
+   * webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
+   * Find out more about the available [additional
+   * settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
    *
-   * @param additionalSettings
+   * @param additionalSettings Additional shopper and transaction information to be included in your
+   *     [standard
+   *     webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes).
+   *     Find out more about the available [additional
+   *     settings](https://docs.adyen.com/development-resources/webhooks/additional-settings).
    */
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdditionalSettings(AdditionalSettings additionalSettings) {
     this.additionalSettings = additionalSettings;
+    isSetAdditionalSettings = true; // mark as set
   }
 
   /**
@@ -476,6 +563,7 @@ public class CreateCompanyWebhookRequest {
   public CreateCompanyWebhookRequest communicationFormat(
       CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
+    isSetCommunicationFormat = true; // mark as set
     return this;
   }
 
@@ -501,6 +589,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommunicationFormat(CommunicationFormatEnum communicationFormat) {
     this.communicationFormat = communicationFormat;
+    isSetCommunicationFormat = true; // mark as set
   }
 
   /**
@@ -511,6 +600,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -534,6 +624,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -549,6 +640,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest encryptionProtocol(EncryptionProtocolEnum encryptionProtocol) {
     this.encryptionProtocol = encryptionProtocol;
+    isSetEncryptionProtocol = true; // mark as set
     return this;
   }
 
@@ -582,6 +674,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionProtocol(EncryptionProtocolEnum encryptionProtocol) {
     this.encryptionProtocol = encryptionProtocol;
+    isSetEncryptionProtocol = true; // mark as set
   }
 
   /**
@@ -603,6 +696,7 @@ public class CreateCompanyWebhookRequest {
   public CreateCompanyWebhookRequest filterMerchantAccountType(
       FilterMerchantAccountTypeEnum filterMerchantAccountType) {
     this.filterMerchantAccountType = filterMerchantAccountType;
+    isSetFilterMerchantAccountType = true; // mark as set
     return this;
   }
 
@@ -647,6 +741,7 @@ public class CreateCompanyWebhookRequest {
   public void setFilterMerchantAccountType(
       FilterMerchantAccountTypeEnum filterMerchantAccountType) {
     this.filterMerchantAccountType = filterMerchantAccountType;
+    isSetFilterMerchantAccountType = true; // mark as set
   }
 
   /**
@@ -664,6 +759,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest filterMerchantAccounts(List<String> filterMerchantAccounts) {
     this.filterMerchantAccounts = filterMerchantAccounts;
+    isSetFilterMerchantAccounts = true; // mark as set
     return this;
   }
 
@@ -710,6 +806,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilterMerchantAccounts(List<String> filterMerchantAccounts) {
     this.filterMerchantAccounts = filterMerchantAccounts;
+    isSetFilterMerchantAccounts = true; // mark as set
   }
 
   /**
@@ -722,6 +819,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest networkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
+    isSetNetworkType = true; // mark as set
     return this;
   }
 
@@ -749,6 +847,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNetworkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
+    isSetNetworkType = true; // mark as set
   }
 
   /**
@@ -759,6 +858,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest password(String password) {
     this.password = password;
+    isSetPassword = true; // mark as set
     return this;
   }
 
@@ -782,6 +882,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPassword(String password) {
     this.password = password;
+    isSetPassword = true; // mark as set
   }
 
   /**
@@ -794,6 +895,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest populateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
+    isSetPopulateSoapActionHeader = true; // mark as set
     return this;
   }
 
@@ -821,6 +923,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPopulateSoapActionHeader(Boolean populateSoapActionHeader) {
     this.populateSoapActionHeader = populateSoapActionHeader;
+    isSetPopulateSoapActionHeader = true; // mark as set
   }
 
   /**
@@ -850,6 +953,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -911,6 +1015,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
   }
 
   /**
@@ -923,6 +1028,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest url(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
     return this;
   }
 
@@ -950,6 +1056,7 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUrl(String url) {
     this.url = url;
+    isSetUrl = true; // mark as set
   }
 
   /**
@@ -960,6 +1067,7 @@ public class CreateCompanyWebhookRequest {
    */
   public CreateCompanyWebhookRequest username(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
     return this;
   }
 
@@ -983,6 +1091,26 @@ public class CreateCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateCompanyWebhookRequest object is equal to o. */
@@ -1088,6 +1216,79 @@ public class CreateCompanyWebhookRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAcceptsExpiredCertificate) {
+      addIfNull(nulls, JSON_PROPERTY_ACCEPTS_EXPIRED_CERTIFICATE, this.acceptsExpiredCertificate);
+    }
+    if (isSetAcceptsSelfSignedCertificate) {
+      addIfNull(
+          nulls, JSON_PROPERTY_ACCEPTS_SELF_SIGNED_CERTIFICATE, this.acceptsSelfSignedCertificate);
+    }
+    if (isSetAcceptsUntrustedRootCertificate) {
+      addIfNull(
+          nulls,
+          JSON_PROPERTY_ACCEPTS_UNTRUSTED_ROOT_CERTIFICATE,
+          this.acceptsUntrustedRootCertificate);
+    }
+    if (isSetActive) {
+      addIfNull(nulls, JSON_PROPERTY_ACTIVE, this.active);
+    }
+    if (isSetAdditionalSettings) {
+      addIfNull(nulls, JSON_PROPERTY_ADDITIONAL_SETTINGS, this.additionalSettings);
+    }
+    if (isSetCommunicationFormat) {
+      addIfNull(nulls, JSON_PROPERTY_COMMUNICATION_FORMAT, this.communicationFormat);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetEncryptionProtocol) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTION_PROTOCOL, this.encryptionProtocol);
+    }
+    if (isSetFilterMerchantAccountType) {
+      addIfNull(nulls, JSON_PROPERTY_FILTER_MERCHANT_ACCOUNT_TYPE, this.filterMerchantAccountType);
+    }
+    if (isSetFilterMerchantAccounts) {
+      addIfNull(nulls, JSON_PROPERTY_FILTER_MERCHANT_ACCOUNTS, this.filterMerchantAccounts);
+    }
+    if (isSetNetworkType) {
+      addIfNull(nulls, JSON_PROPERTY_NETWORK_TYPE, this.networkType);
+    }
+    if (isSetPassword) {
+      addIfNull(nulls, JSON_PROPERTY_PASSWORD, this.password);
+    }
+    if (isSetPopulateSoapActionHeader) {
+      addIfNull(nulls, JSON_PROPERTY_POPULATE_SOAP_ACTION_HEADER, this.populateSoapActionHeader);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+    if (isSetUrl) {
+      addIfNull(nulls, JSON_PROPERTY_URL, this.url);
+    }
+    if (isSetUsername) {
+      addIfNull(nulls, JSON_PROPERTY_USERNAME, this.username);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

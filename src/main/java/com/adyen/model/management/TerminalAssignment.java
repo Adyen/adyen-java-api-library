@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,11 +35,20 @@ public class TerminalAssignment {
   public static final String JSON_PROPERTY_COMPANY_ID = "companyId";
   private String companyId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompanyId = false;
+
   public static final String JSON_PROPERTY_MERCHANT_ID = "merchantId";
   private String merchantId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantId = false;
+
   public static final String JSON_PROPERTY_REASSIGNMENT_TARGET = "reassignmentTarget";
   private TerminalReassignmentTarget reassignmentTarget;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReassignmentTarget = false;
 
   /**
    * The status of the reassignment. Possible values: * &#x60;reassignmentInProgress&#x60;: the
@@ -94,8 +105,20 @@ public class TerminalAssignment {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   public static final String JSON_PROPERTY_STORE_ID = "storeId";
   private String storeId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TerminalAssignment() {}
 
@@ -107,6 +130,7 @@ public class TerminalAssignment {
    */
   public TerminalAssignment companyId(String companyId) {
     this.companyId = companyId;
+    isSetCompanyId = true; // mark as set
     return this;
   }
 
@@ -130,6 +154,7 @@ public class TerminalAssignment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompanyId(String companyId) {
     this.companyId = companyId;
+    isSetCompanyId = true; // mark as set
   }
 
   /**
@@ -140,6 +165,7 @@ public class TerminalAssignment {
    */
   public TerminalAssignment merchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
     return this;
   }
 
@@ -163,23 +189,27 @@ public class TerminalAssignment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+    isSetMerchantId = true; // mark as set
   }
 
   /**
-   * reassignmentTarget
+   * Indicates where the terminal is in the process of being reassigned to.
    *
-   * @param reassignmentTarget
+   * @param reassignmentTarget Indicates where the terminal is in the process of being reassigned
+   *     to.
    * @return the current {@code TerminalAssignment} instance, allowing for method chaining
    */
   public TerminalAssignment reassignmentTarget(TerminalReassignmentTarget reassignmentTarget) {
     this.reassignmentTarget = reassignmentTarget;
+    isSetReassignmentTarget = true; // mark as set
     return this;
   }
 
   /**
-   * Get reassignmentTarget
+   * Indicates where the terminal is in the process of being reassigned to.
    *
-   * @return reassignmentTarget
+   * @return reassignmentTarget Indicates where the terminal is in the process of being reassigned
+   *     to.
    */
   @JsonProperty(JSON_PROPERTY_REASSIGNMENT_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,14 +218,16 @@ public class TerminalAssignment {
   }
 
   /**
-   * reassignmentTarget
+   * Indicates where the terminal is in the process of being reassigned to.
    *
-   * @param reassignmentTarget
+   * @param reassignmentTarget Indicates where the terminal is in the process of being reassigned
+   *     to.
    */
   @JsonProperty(JSON_PROPERTY_REASSIGNMENT_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReassignmentTarget(TerminalReassignmentTarget reassignmentTarget) {
     this.reassignmentTarget = reassignmentTarget;
+    isSetReassignmentTarget = true; // mark as set
   }
 
   /**
@@ -217,6 +249,7 @@ public class TerminalAssignment {
    */
   public TerminalAssignment status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -262,6 +295,7 @@ public class TerminalAssignment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -272,6 +306,7 @@ public class TerminalAssignment {
    */
   public TerminalAssignment storeId(String storeId) {
     this.storeId = storeId;
+    isSetStoreId = true; // mark as set
     return this;
   }
 
@@ -295,6 +330,26 @@ public class TerminalAssignment {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreId(String storeId) {
     this.storeId = storeId;
+    isSetStoreId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalAssignment object is equal to o. */
@@ -340,6 +395,42 @@ public class TerminalAssignment {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCompanyId) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY_ID, this.companyId);
+    }
+    if (isSetMerchantId) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_ID, this.merchantId);
+    }
+    if (isSetReassignmentTarget) {
+      addIfNull(nulls, JSON_PROPERTY_REASSIGNMENT_TARGET, this.reassignmentTarget);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetStoreId) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_ID, this.storeId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

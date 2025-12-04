@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,36 +33,59 @@ public class Nexo {
   public static final String JSON_PROPERTY_DISPLAY_URLS = "displayUrls";
   private NotificationUrl displayUrls;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDisplayUrls = false;
+
   public static final String JSON_PROPERTY_ENCRYPTION_KEY = "encryptionKey";
   private Key encryptionKey;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEncryptionKey = false;
 
   public static final String JSON_PROPERTY_EVENT_URLS = "eventUrls";
   private EventUrl eventUrls;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEventUrls = false;
+
   public static final String JSON_PROPERTY_NEXO_EVENT_URLS = "nexoEventUrls";
-  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   private List<String> nexoEventUrls;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNexoEventUrls = false;
 
   public static final String JSON_PROPERTY_NOTIFICATION = "notification";
   private Notification notification;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNotification = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public Nexo() {}
 
   /**
-   * displayUrls
+   * The list of local and public URLs to send display notifications to when using Terminal API.
    *
-   * @param displayUrls
+   * @param displayUrls The list of local and public URLs to send display notifications to when
+   *     using Terminal API.
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo displayUrls(NotificationUrl displayUrls) {
     this.displayUrls = displayUrls;
+    isSetDisplayUrls = true; // mark as set
     return this;
   }
 
   /**
-   * Get displayUrls
+   * The list of local and public URLs to send display notifications to when using Terminal API.
    *
-   * @return displayUrls
+   * @return displayUrls The list of local and public URLs to send display notifications to when
+   *     using Terminal API.
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -69,31 +94,36 @@ public class Nexo {
   }
 
   /**
-   * displayUrls
+   * The list of local and public URLs to send display notifications to when using Terminal API.
    *
-   * @param displayUrls
+   * @param displayUrls The list of local and public URLs to send display notifications to when
+   *     using Terminal API.
    */
   @JsonProperty(JSON_PROPERTY_DISPLAY_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDisplayUrls(NotificationUrl displayUrls) {
     this.displayUrls = displayUrls;
+    isSetDisplayUrls = true; // mark as set
   }
 
   /**
-   * encryptionKey
+   * The key you share with Adyen to secure local communications when using Terminal API.
    *
-   * @param encryptionKey
+   * @param encryptionKey The key you share with Adyen to secure local communications when using
+   *     Terminal API.
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo encryptionKey(Key encryptionKey) {
     this.encryptionKey = encryptionKey;
+    isSetEncryptionKey = true; // mark as set
     return this;
   }
 
   /**
-   * Get encryptionKey
+   * The key you share with Adyen to secure local communications when using Terminal API.
    *
-   * @return encryptionKey
+   * @return encryptionKey The key you share with Adyen to secure local communications when using
+   *     Terminal API.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,31 +132,36 @@ public class Nexo {
   }
 
   /**
-   * encryptionKey
+   * The key you share with Adyen to secure local communications when using Terminal API.
    *
-   * @param encryptionKey
+   * @param encryptionKey The key you share with Adyen to secure local communications when using
+   *     Terminal API.
    */
   @JsonProperty(JSON_PROPERTY_ENCRYPTION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEncryptionKey(Key encryptionKey) {
     this.encryptionKey = encryptionKey;
+    isSetEncryptionKey = true; // mark as set
   }
 
   /**
-   * eventUrls
+   * The list of local and public URLs to send event notifications to when using Terminal API.
    *
-   * @param eventUrls
+   * @param eventUrls The list of local and public URLs to send event notifications to when using
+   *     Terminal API.
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo eventUrls(EventUrl eventUrls) {
     this.eventUrls = eventUrls;
+    isSetEventUrls = true; // mark as set
     return this;
   }
 
   /**
-   * Get eventUrls
+   * The list of local and public URLs to send event notifications to when using Terminal API.
    *
-   * @return eventUrls
+   * @return eventUrls The list of local and public URLs to send event notifications to when using
+   *     Terminal API.
    */
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,14 +170,16 @@ public class Nexo {
   }
 
   /**
-   * eventUrls
+   * The list of local and public URLs to send event notifications to when using Terminal API.
    *
-   * @param eventUrls
+   * @param eventUrls The list of local and public URLs to send event notifications to when using
+   *     Terminal API.
    */
   @JsonProperty(JSON_PROPERTY_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventUrls(EventUrl eventUrls) {
     this.eventUrls = eventUrls;
+    isSetEventUrls = true; // mark as set
   }
 
   /**
@@ -150,11 +187,10 @@ public class Nexo {
    *
    * @param nexoEventUrls One or more URLs to send event messages to when using Terminal API.
    * @return the current {@code Nexo} instance, allowing for method chaining
-   * @deprecated since Management API v1 Use &#x60;eventUrls&#x60; instead.
    */
-  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   public Nexo nexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
+    isSetNexoEventUrls = true; // mark as set
     return this;
   }
 
@@ -170,9 +206,7 @@ public class Nexo {
    * One or more URLs to send event messages to when using Terminal API.
    *
    * @return nexoEventUrls One or more URLs to send event messages to when using Terminal API.
-   * @deprecated // deprecated since Management API v1: Use `eventUrls` instead.
    */
-  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getNexoEventUrls() {
@@ -183,30 +217,34 @@ public class Nexo {
    * One or more URLs to send event messages to when using Terminal API.
    *
    * @param nexoEventUrls One or more URLs to send event messages to when using Terminal API.
-   * @deprecated since Management API v1 Use &#x60;eventUrls&#x60; instead.
    */
-  @Deprecated // deprecated since Management API v1: Use `eventUrls` instead.
   @JsonProperty(JSON_PROPERTY_NEXO_EVENT_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexoEventUrls(List<String> nexoEventUrls) {
     this.nexoEventUrls = nexoEventUrls;
+    isSetNexoEventUrls = true; // mark as set
   }
 
   /**
-   * notification
+   * Configures sending event notifications by pressing a button on a terminal, for example used for
+   * pay-at-table.
    *
-   * @param notification
+   * @param notification Configures sending event notifications by pressing a button on a terminal,
+   *     for example used for pay-at-table.
    * @return the current {@code Nexo} instance, allowing for method chaining
    */
   public Nexo notification(Notification notification) {
     this.notification = notification;
+    isSetNotification = true; // mark as set
     return this;
   }
 
   /**
-   * Get notification
+   * Configures sending event notifications by pressing a button on a terminal, for example used for
+   * pay-at-table.
    *
-   * @return notification
+   * @return notification Configures sending event notifications by pressing a button on a terminal,
+   *     for example used for pay-at-table.
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,14 +253,36 @@ public class Nexo {
   }
 
   /**
-   * notification
+   * Configures sending event notifications by pressing a button on a terminal, for example used for
+   * pay-at-table.
    *
-   * @param notification
+   * @param notification Configures sending event notifications by pressing a button on a terminal,
+   *     for example used for pay-at-table.
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotification(Notification notification) {
     this.notification = notification;
+    isSetNotification = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Nexo object is equal to o. */
@@ -268,6 +328,42 @@ public class Nexo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetDisplayUrls) {
+      addIfNull(nulls, JSON_PROPERTY_DISPLAY_URLS, this.displayUrls);
+    }
+    if (isSetEncryptionKey) {
+      addIfNull(nulls, JSON_PROPERTY_ENCRYPTION_KEY, this.encryptionKey);
+    }
+    if (isSetEventUrls) {
+      addIfNull(nulls, JSON_PROPERTY_EVENT_URLS, this.eventUrls);
+    }
+    if (isSetNexoEventUrls) {
+      addIfNull(nulls, JSON_PROPERTY_NEXO_EVENT_URLS, this.nexoEventUrls);
+    }
+    if (isSetNotification) {
+      addIfNull(nulls, JSON_PROPERTY_NOTIFICATION, this.notification);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

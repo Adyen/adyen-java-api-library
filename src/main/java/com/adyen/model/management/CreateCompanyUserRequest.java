@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,27 +36,57 @@ public class CreateCompanyUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_GROUPS = "accountGroups";
   private List<String> accountGroups;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountGroups = false;
+
   public static final String JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS =
       "associatedMerchantAccounts";
   private List<String> associatedMerchantAccounts;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssociatedMerchantAccounts = false;
+
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
 
   public static final String JSON_PROPERTY_LOGIN_METHOD = "loginMethod";
   private String loginMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLoginMethod = false;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private Name name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
   private List<String> roles;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRoles = false;
+
   public static final String JSON_PROPERTY_TIME_ZONE_CODE = "timeZoneCode";
   private String timeZoneCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeZoneCode = false;
+
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetUsername = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateCompanyUserRequest() {}
 
@@ -69,6 +101,7 @@ public class CreateCompanyUserRequest {
    */
   public CreateCompanyUserRequest accountGroups(List<String> accountGroups) {
     this.accountGroups = accountGroups;
+    isSetAccountGroups = true; // mark as set
     return this;
   }
 
@@ -106,6 +139,7 @@ public class CreateCompanyUserRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountGroups(List<String> accountGroups) {
     this.accountGroups = accountGroups;
+    isSetAccountGroups = true; // mark as set
   }
 
   /**
@@ -121,6 +155,7 @@ public class CreateCompanyUserRequest {
   public CreateCompanyUserRequest associatedMerchantAccounts(
       List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
+    isSetAssociatedMerchantAccounts = true; // mark as set
     return this;
   }
 
@@ -161,6 +196,7 @@ public class CreateCompanyUserRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssociatedMerchantAccounts(List<String> associatedMerchantAccounts) {
     this.associatedMerchantAccounts = associatedMerchantAccounts;
+    isSetAssociatedMerchantAccounts = true; // mark as set
   }
 
   /**
@@ -171,6 +207,7 @@ public class CreateCompanyUserRequest {
    */
   public CreateCompanyUserRequest email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -194,6 +231,7 @@ public class CreateCompanyUserRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -208,6 +246,7 @@ public class CreateCompanyUserRequest {
    */
   public CreateCompanyUserRequest loginMethod(String loginMethod) {
     this.loginMethod = loginMethod;
+    isSetLoginMethod = true; // mark as set
     return this;
   }
 
@@ -239,23 +278,25 @@ public class CreateCompanyUserRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLoginMethod(String loginMethod) {
     this.loginMethod = loginMethod;
+    isSetLoginMethod = true; // mark as set
   }
 
   /**
-   * name
+   * The user&#39;s full name. Allowed length: 1—80 characters.
    *
-   * @param name
+   * @param name The user&#39;s full name. Allowed length: 1—80 characters.
    * @return the current {@code CreateCompanyUserRequest} instance, allowing for method chaining
    */
   public CreateCompanyUserRequest name(Name name) {
     this.name = name;
+    isSetName = true; // mark as set
     return this;
   }
 
   /**
-   * Get name
+   * The user&#39;s full name. Allowed length: 1—80 characters.
    *
-   * @return name
+   * @return name The user&#39;s full name. Allowed length: 1—80 characters.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,14 +305,15 @@ public class CreateCompanyUserRequest {
   }
 
   /**
-   * name
+   * The user&#39;s full name. Allowed length: 1—80 characters.
    *
-   * @param name
+   * @param name The user&#39;s full name. Allowed length: 1—80 characters.
    */
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Name name) {
     this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -282,6 +324,7 @@ public class CreateCompanyUserRequest {
    */
   public CreateCompanyUserRequest roles(List<String> roles) {
     this.roles = roles;
+    isSetRoles = true; // mark as set
     return this;
   }
 
@@ -313,6 +356,7 @@ public class CreateCompanyUserRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoles(List<String> roles) {
     this.roles = roles;
+    isSetRoles = true; // mark as set
   }
 
   /**
@@ -326,6 +370,7 @@ public class CreateCompanyUserRequest {
    */
   public CreateCompanyUserRequest timeZoneCode(String timeZoneCode) {
     this.timeZoneCode = timeZoneCode;
+    isSetTimeZoneCode = true; // mark as set
     return this;
   }
 
@@ -355,6 +400,7 @@ public class CreateCompanyUserRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZoneCode(String timeZoneCode) {
     this.timeZoneCode = timeZoneCode;
+    isSetTimeZoneCode = true; // mark as set
   }
 
   /**
@@ -367,6 +413,7 @@ public class CreateCompanyUserRequest {
    */
   public CreateCompanyUserRequest username(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
     return this;
   }
 
@@ -394,6 +441,26 @@ public class CreateCompanyUserRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsername(String username) {
     this.username = username;
+    isSetUsername = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateCompanyUserRequest object is equal to o. */
@@ -456,6 +523,51 @@ public class CreateCompanyUserRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountGroups) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_GROUPS, this.accountGroups);
+    }
+    if (isSetAssociatedMerchantAccounts) {
+      addIfNull(nulls, JSON_PROPERTY_ASSOCIATED_MERCHANT_ACCOUNTS, this.associatedMerchantAccounts);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetLoginMethod) {
+      addIfNull(nulls, JSON_PROPERTY_LOGIN_METHOD, this.loginMethod);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetRoles) {
+      addIfNull(nulls, JSON_PROPERTY_ROLES, this.roles);
+    }
+    if (isSetTimeZoneCode) {
+      addIfNull(nulls, JSON_PROPERTY_TIME_ZONE_CODE, this.timeZoneCode);
+    }
+    if (isSetUsername) {
+      addIfNull(nulls, JSON_PROPERTY_USERNAME, this.username);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

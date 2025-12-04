@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,38 +32,63 @@ public class ApiCredentialLinks {
   public static final String JSON_PROPERTY_ALLOWED_ORIGINS = "allowedOrigins";
   private LinksElement allowedOrigins;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAllowedOrigins = false;
+
   public static final String JSON_PROPERTY_COMPANY = "company";
   private LinksElement company;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompany = false;
 
   public static final String JSON_PROPERTY_GENERATE_API_KEY = "generateApiKey";
   private LinksElement generateApiKey;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGenerateApiKey = false;
+
   public static final String JSON_PROPERTY_GENERATE_CLIENT_KEY = "generateClientKey";
   private LinksElement generateClientKey;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGenerateClientKey = false;
 
   public static final String JSON_PROPERTY_MERCHANT = "merchant";
   private LinksElement merchant;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchant = false;
+
   public static final String JSON_PROPERTY_SELF = "self";
   private LinksElement self;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelf = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ApiCredentialLinks() {}
 
   /**
-   * allowedOrigins
+   * List of allowed origins.
    *
-   * @param allowedOrigins
+   * @param allowedOrigins List of allowed origins.
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks allowedOrigins(LinksElement allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
+    isSetAllowedOrigins = true; // mark as set
     return this;
   }
 
   /**
-   * Get allowedOrigins
+   * List of allowed origins.
    *
-   * @return allowedOrigins
+   * @return allowedOrigins List of allowed origins.
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -70,31 +97,35 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * allowedOrigins
+   * List of allowed origins.
    *
-   * @param allowedOrigins
+   * @param allowedOrigins List of allowed origins.
    */
   @JsonProperty(JSON_PROPERTY_ALLOWED_ORIGINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowedOrigins(LinksElement allowedOrigins) {
     this.allowedOrigins = allowedOrigins;
+    isSetAllowedOrigins = true; // mark as set
   }
 
   /**
-   * company
+   * Company account that the API credential is linked to. Only present for company-level webhooks.
    *
-   * @param company
+   * @param company Company account that the API credential is linked to. Only present for
+   *     company-level webhooks.
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks company(LinksElement company) {
     this.company = company;
+    isSetCompany = true; // mark as set
     return this;
   }
 
   /**
-   * Get company
+   * Company account that the API credential is linked to. Only present for company-level webhooks.
    *
-   * @return company
+   * @return company Company account that the API credential is linked to. Only present for
+   *     company-level webhooks.
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,31 +134,38 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * company
+   * Company account that the API credential is linked to. Only present for company-level webhooks.
    *
-   * @param company
+   * @param company Company account that the API credential is linked to. Only present for
+   *     company-level webhooks.
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
     this.company = company;
+    isSetCompany = true; // mark as set
   }
 
   /**
-   * generateApiKey
+   * Generates a new API key. When you generate a new one, the existing key remains valid for 24
+   * hours.
    *
-   * @param generateApiKey
+   * @param generateApiKey Generates a new API key. When you generate a new one, the existing key
+   *     remains valid for 24 hours.
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks generateApiKey(LinksElement generateApiKey) {
     this.generateApiKey = generateApiKey;
+    isSetGenerateApiKey = true; // mark as set
     return this;
   }
 
   /**
-   * Get generateApiKey
+   * Generates a new API key. When you generate a new one, the existing key remains valid for 24
+   * hours.
    *
-   * @return generateApiKey
+   * @return generateApiKey Generates a new API key. When you generate a new one, the existing key
+   *     remains valid for 24 hours.
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,31 +174,39 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * generateApiKey
+   * Generates a new API key. When you generate a new one, the existing key remains valid for 24
+   * hours.
    *
-   * @param generateApiKey
+   * @param generateApiKey Generates a new API key. When you generate a new one, the existing key
+   *     remains valid for 24 hours.
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateApiKey(LinksElement generateApiKey) {
     this.generateApiKey = generateApiKey;
+    isSetGenerateApiKey = true; // mark as set
   }
 
   /**
-   * generateClientKey
+   * Generates a new client key, used to authenticate client-side requests. When you generate a new
+   * one, the existing key remains valid for 24 hours.
    *
-   * @param generateClientKey
+   * @param generateClientKey Generates a new client key, used to authenticate client-side requests.
+   *     When you generate a new one, the existing key remains valid for 24 hours.
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks generateClientKey(LinksElement generateClientKey) {
     this.generateClientKey = generateClientKey;
+    isSetGenerateClientKey = true; // mark as set
     return this;
   }
 
   /**
-   * Get generateClientKey
+   * Generates a new client key, used to authenticate client-side requests. When you generate a new
+   * one, the existing key remains valid for 24 hours.
    *
-   * @return generateClientKey
+   * @return generateClientKey Generates a new client key, used to authenticate client-side
+   *     requests. When you generate a new one, the existing key remains valid for 24 hours.
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,31 +215,39 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * generateClientKey
+   * Generates a new client key, used to authenticate client-side requests. When you generate a new
+   * one, the existing key remains valid for 24 hours.
    *
-   * @param generateClientKey
+   * @param generateClientKey Generates a new client key, used to authenticate client-side requests.
+   *     When you generate a new one, the existing key remains valid for 24 hours.
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_CLIENT_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateClientKey(LinksElement generateClientKey) {
     this.generateClientKey = generateClientKey;
+    isSetGenerateClientKey = true; // mark as set
   }
 
   /**
-   * merchant
+   * The merchant account that the API credential is linked to. Only present for merchant-level API
+   * credentials.
    *
-   * @param merchant
+   * @param merchant The merchant account that the API credential is linked to. Only present for
+   *     merchant-level API credentials.
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks merchant(LinksElement merchant) {
     this.merchant = merchant;
+    isSetMerchant = true; // mark as set
     return this;
   }
 
   /**
-   * Get merchant
+   * The merchant account that the API credential is linked to. Only present for merchant-level API
+   * credentials.
    *
-   * @return merchant
+   * @return merchant The merchant account that the API credential is linked to. Only present for
+   *     merchant-level API credentials.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,31 +256,35 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * merchant
+   * The merchant account that the API credential is linked to. Only present for merchant-level API
+   * credentials.
    *
-   * @param merchant
+   * @param merchant The merchant account that the API credential is linked to. Only present for
+   *     merchant-level API credentials.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
     this.merchant = merchant;
+    isSetMerchant = true; // mark as set
   }
 
   /**
-   * self
+   * Link to the resource itself.
    *
-   * @param self
+   * @param self Link to the resource itself.
    * @return the current {@code ApiCredentialLinks} instance, allowing for method chaining
    */
   public ApiCredentialLinks self(LinksElement self) {
     this.self = self;
+    isSetSelf = true; // mark as set
     return this;
   }
 
   /**
-   * Get self
+   * Link to the resource itself.
    *
-   * @return self
+   * @return self Link to the resource itself.
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,14 +293,34 @@ public class ApiCredentialLinks {
   }
 
   /**
-   * self
+   * Link to the resource itself.
    *
-   * @param self
+   * @param self Link to the resource itself.
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
+    isSetSelf = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ApiCredentialLinks object is equal to o. */
@@ -290,6 +368,45 @@ public class ApiCredentialLinks {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAllowedOrigins) {
+      addIfNull(nulls, JSON_PROPERTY_ALLOWED_ORIGINS, this.allowedOrigins);
+    }
+    if (isSetCompany) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY, this.company);
+    }
+    if (isSetGenerateApiKey) {
+      addIfNull(nulls, JSON_PROPERTY_GENERATE_API_KEY, this.generateApiKey);
+    }
+    if (isSetGenerateClientKey) {
+      addIfNull(nulls, JSON_PROPERTY_GENERATE_CLIENT_KEY, this.generateClientKey);
+    }
+    if (isSetMerchant) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT, this.merchant);
+    }
+    if (isSetSelf) {
+      addIfNull(nulls, JSON_PROPERTY_SELF, this.self);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

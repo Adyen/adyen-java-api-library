@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,35 +31,61 @@ public class WebhookLinks {
   public static final String JSON_PROPERTY_COMPANY = "company";
   private LinksElement company;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompany = false;
+
   public static final String JSON_PROPERTY_GENERATE_HMAC = "generateHmac";
   private LinksElement generateHmac;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGenerateHmac = false;
 
   public static final String JSON_PROPERTY_MERCHANT = "merchant";
   private LinksElement merchant;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchant = false;
+
   public static final String JSON_PROPERTY_SELF = "self";
   private LinksElement self;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSelf = false;
 
   public static final String JSON_PROPERTY_TEST_WEBHOOK = "testWebhook";
   private LinksElement testWebhook;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTestWebhook = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public WebhookLinks() {}
 
   /**
-   * company
+   * The company account that the webhook is configured for. Only present for company-level
+   * webhooks.
    *
-   * @param company
+   * @param company The company account that the webhook is configured for. Only present for
+   *     company-level webhooks.
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks company(LinksElement company) {
     this.company = company;
+    isSetCompany = true; // mark as set
     return this;
   }
 
   /**
-   * Get company
+   * The company account that the webhook is configured for. Only present for company-level
+   * webhooks.
    *
-   * @return company
+   * @return company The company account that the webhook is configured for. Only present for
+   *     company-level webhooks.
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -66,31 +94,35 @@ public class WebhookLinks {
   }
 
   /**
-   * company
+   * The company account that the webhook is configured for. Only present for company-level
+   * webhooks.
    *
-   * @param company
+   * @param company The company account that the webhook is configured for. Only present for
+   *     company-level webhooks.
    */
   @JsonProperty(JSON_PROPERTY_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(LinksElement company) {
     this.company = company;
+    isSetCompany = true; // mark as set
   }
 
   /**
-   * generateHmac
+   * Generate an HMAC key.
    *
-   * @param generateHmac
+   * @param generateHmac Generate an HMAC key.
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks generateHmac(LinksElement generateHmac) {
     this.generateHmac = generateHmac;
+    isSetGenerateHmac = true; // mark as set
     return this;
   }
 
   /**
-   * Get generateHmac
+   * Generate an HMAC key.
    *
-   * @return generateHmac
+   * @return generateHmac Generate an HMAC key.
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,31 +131,37 @@ public class WebhookLinks {
   }
 
   /**
-   * generateHmac
+   * Generate an HMAC key.
    *
-   * @param generateHmac
+   * @param generateHmac Generate an HMAC key.
    */
   @JsonProperty(JSON_PROPERTY_GENERATE_HMAC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGenerateHmac(LinksElement generateHmac) {
     this.generateHmac = generateHmac;
+    isSetGenerateHmac = true; // mark as set
   }
 
   /**
-   * merchant
+   * The merchant account that the webhook is configured for. Only present for merchant-level
+   * webhooks.
    *
-   * @param merchant
+   * @param merchant The merchant account that the webhook is configured for. Only present for
+   *     merchant-level webhooks.
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks merchant(LinksElement merchant) {
     this.merchant = merchant;
+    isSetMerchant = true; // mark as set
     return this;
   }
 
   /**
-   * Get merchant
+   * The merchant account that the webhook is configured for. Only present for merchant-level
+   * webhooks.
    *
-   * @return merchant
+   * @return merchant The merchant account that the webhook is configured for. Only present for
+   *     merchant-level webhooks.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,31 +170,35 @@ public class WebhookLinks {
   }
 
   /**
-   * merchant
+   * The merchant account that the webhook is configured for. Only present for merchant-level
+   * webhooks.
    *
-   * @param merchant
+   * @param merchant The merchant account that the webhook is configured for. Only present for
+   *     merchant-level webhooks.
    */
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchant(LinksElement merchant) {
     this.merchant = merchant;
+    isSetMerchant = true; // mark as set
   }
 
   /**
-   * self
+   * Link to the resource itself.
    *
-   * @param self
+   * @param self Link to the resource itself.
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks self(LinksElement self) {
     this.self = self;
+    isSetSelf = true; // mark as set
     return this;
   }
 
   /**
-   * Get self
+   * Link to the resource itself.
    *
-   * @return self
+   * @return self Link to the resource itself.
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,31 +207,33 @@ public class WebhookLinks {
   }
 
   /**
-   * self
+   * Link to the resource itself.
    *
-   * @param self
+   * @param self Link to the resource itself.
    */
   @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSelf(LinksElement self) {
     this.self = self;
+    isSetSelf = true; // mark as set
   }
 
   /**
-   * testWebhook
+   * Test the webhook setup.
    *
-   * @param testWebhook
+   * @param testWebhook Test the webhook setup.
    * @return the current {@code WebhookLinks} instance, allowing for method chaining
    */
   public WebhookLinks testWebhook(LinksElement testWebhook) {
     this.testWebhook = testWebhook;
+    isSetTestWebhook = true; // mark as set
     return this;
   }
 
   /**
-   * Get testWebhook
+   * Test the webhook setup.
    *
-   * @return testWebhook
+   * @return testWebhook Test the webhook setup.
    */
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,14 +242,34 @@ public class WebhookLinks {
   }
 
   /**
-   * testWebhook
+   * Test the webhook setup.
    *
-   * @param testWebhook
+   * @param testWebhook Test the webhook setup.
    */
   @JsonProperty(JSON_PROPERTY_TEST_WEBHOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestWebhook(LinksElement testWebhook) {
     this.testWebhook = testWebhook;
+    isSetTestWebhook = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this WebhookLinks object is equal to o. */
@@ -251,6 +315,42 @@ public class WebhookLinks {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCompany) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY, this.company);
+    }
+    if (isSetGenerateHmac) {
+      addIfNull(nulls, JSON_PROPERTY_GENERATE_HMAC, this.generateHmac);
+    }
+    if (isSetMerchant) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT, this.merchant);
+    }
+    if (isSetSelf) {
+      addIfNull(nulls, JSON_PROPERTY_SELF, this.self);
+    }
+    if (isSetTestWebhook) {
+      addIfNull(nulls, JSON_PROPERTY_TEST_WEBHOOK, this.testWebhook);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

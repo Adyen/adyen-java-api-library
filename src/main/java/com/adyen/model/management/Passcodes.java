@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class Passcodes {
   public static final String JSON_PROPERTY_ADMIN_MENU_PIN = "adminMenuPin";
   private String adminMenuPin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAdminMenuPin = false;
+
   public static final String JSON_PROPERTY_REFUND_PIN = "refundPin";
   private String refundPin;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefundPin = false;
 
   public static final String JSON_PROPERTY_SCREEN_LOCK_PIN = "screenLockPin";
   private String screenLockPin;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScreenLockPin = false;
+
   public static final String JSON_PROPERTY_TX_MENU_PIN = "txMenuPin";
   private String txMenuPin;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTxMenuPin = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Passcodes() {}
 
@@ -47,6 +67,7 @@ public class Passcodes {
    */
   public Passcodes adminMenuPin(String adminMenuPin) {
     this.adminMenuPin = adminMenuPin;
+    isSetAdminMenuPin = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class Passcodes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdminMenuPin(String adminMenuPin) {
     this.adminMenuPin = adminMenuPin;
+    isSetAdminMenuPin = true; // mark as set
   }
 
   /**
@@ -80,6 +102,7 @@ public class Passcodes {
    */
   public Passcodes refundPin(String refundPin) {
     this.refundPin = refundPin;
+    isSetRefundPin = true; // mark as set
     return this;
   }
 
@@ -103,6 +126,7 @@ public class Passcodes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefundPin(String refundPin) {
     this.refundPin = refundPin;
+    isSetRefundPin = true; // mark as set
   }
 
   /**
@@ -113,6 +137,7 @@ public class Passcodes {
    */
   public Passcodes screenLockPin(String screenLockPin) {
     this.screenLockPin = screenLockPin;
+    isSetScreenLockPin = true; // mark as set
     return this;
   }
 
@@ -136,6 +161,7 @@ public class Passcodes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScreenLockPin(String screenLockPin) {
     this.screenLockPin = screenLockPin;
+    isSetScreenLockPin = true; // mark as set
   }
 
   /**
@@ -146,6 +172,7 @@ public class Passcodes {
    */
   public Passcodes txMenuPin(String txMenuPin) {
     this.txMenuPin = txMenuPin;
+    isSetTxMenuPin = true; // mark as set
     return this;
   }
 
@@ -169,6 +196,26 @@ public class Passcodes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTxMenuPin(String txMenuPin) {
     this.txMenuPin = txMenuPin;
+    isSetTxMenuPin = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Passcodes object is equal to o. */
@@ -212,6 +259,39 @@ public class Passcodes {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAdminMenuPin) {
+      addIfNull(nulls, JSON_PROPERTY_ADMIN_MENU_PIN, this.adminMenuPin);
+    }
+    if (isSetRefundPin) {
+      addIfNull(nulls, JSON_PROPERTY_REFUND_PIN, this.refundPin);
+    }
+    if (isSetScreenLockPin) {
+      addIfNull(nulls, JSON_PROPERTY_SCREEN_LOCK_PIN, this.screenLockPin);
+    }
+    if (isSetTxMenuPin) {
+      addIfNull(nulls, JSON_PROPERTY_TX_MENU_PIN, this.txMenuPin);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

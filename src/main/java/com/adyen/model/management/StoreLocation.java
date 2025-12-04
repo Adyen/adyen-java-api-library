@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,23 +33,50 @@ public class StoreLocation {
   public static final String JSON_PROPERTY_CITY = "city";
   private String city;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCity = false;
+
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountry = false;
 
   public static final String JSON_PROPERTY_LINE1 = "line1";
   private String line1;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLine1 = false;
+
   public static final String JSON_PROPERTY_LINE2 = "line2";
   private String line2;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLine2 = false;
 
   public static final String JSON_PROPERTY_LINE3 = "line3";
   private String line3;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLine3 = false;
+
   public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
   private String postalCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPostalCode = false;
+
   public static final String JSON_PROPERTY_STATE_OR_PROVINCE = "stateOrProvince";
   private String stateOrProvince;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStateOrProvince = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public StoreLocation() {}
 
@@ -59,6 +88,7 @@ public class StoreLocation {
    */
   public StoreLocation city(String city) {
     this.city = city;
+    isSetCity = true; // mark as set
     return this;
   }
 
@@ -82,6 +112,7 @@ public class StoreLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
+    isSetCity = true; // mark as set
   }
 
   /**
@@ -94,6 +125,7 @@ public class StoreLocation {
    */
   public StoreLocation country(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
     return this;
   }
 
@@ -121,6 +153,7 @@ public class StoreLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
   }
 
   /**
@@ -131,6 +164,7 @@ public class StoreLocation {
    */
   public StoreLocation line1(String line1) {
     this.line1 = line1;
+    isSetLine1 = true; // mark as set
     return this;
   }
 
@@ -154,6 +188,7 @@ public class StoreLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
     this.line1 = line1;
+    isSetLine1 = true; // mark as set
   }
 
   /**
@@ -164,6 +199,7 @@ public class StoreLocation {
    */
   public StoreLocation line2(String line2) {
     this.line2 = line2;
+    isSetLine2 = true; // mark as set
     return this;
   }
 
@@ -187,6 +223,7 @@ public class StoreLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
     this.line2 = line2;
+    isSetLine2 = true; // mark as set
   }
 
   /**
@@ -197,6 +234,7 @@ public class StoreLocation {
    */
   public StoreLocation line3(String line3) {
     this.line3 = line3;
+    isSetLine3 = true; // mark as set
     return this;
   }
 
@@ -220,6 +258,7 @@ public class StoreLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine3(String line3) {
     this.line3 = line3;
+    isSetLine3 = true; // mark as set
   }
 
   /**
@@ -230,6 +269,7 @@ public class StoreLocation {
    */
   public StoreLocation postalCode(String postalCode) {
     this.postalCode = postalCode;
+    isSetPostalCode = true; // mark as set
     return this;
   }
 
@@ -253,6 +293,7 @@ public class StoreLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
+    isSetPostalCode = true; // mark as set
   }
 
   /**
@@ -268,6 +309,7 @@ public class StoreLocation {
    */
   public StoreLocation stateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
+    isSetStateOrProvince = true; // mark as set
     return this;
   }
 
@@ -301,6 +343,26 @@ public class StoreLocation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
+    isSetStateOrProvince = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this StoreLocation object is equal to o. */
@@ -350,6 +412,48 @@ public class StoreLocation {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCity) {
+      addIfNull(nulls, JSON_PROPERTY_CITY, this.city);
+    }
+    if (isSetCountry) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
+    }
+    if (isSetLine1) {
+      addIfNull(nulls, JSON_PROPERTY_LINE1, this.line1);
+    }
+    if (isSetLine2) {
+      addIfNull(nulls, JSON_PROPERTY_LINE2, this.line2);
+    }
+    if (isSetLine3) {
+      addIfNull(nulls, JSON_PROPERTY_LINE3, this.line3);
+    }
+    if (isSetPostalCode) {
+      addIfNull(nulls, JSON_PROPERTY_POSTAL_CODE, this.postalCode);
+    }
+    if (isSetStateOrProvince) {
+      addIfNull(nulls, JSON_PROPERTY_STATE_OR_PROVINCE, this.stateOrProvince);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

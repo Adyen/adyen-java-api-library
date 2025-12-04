@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,8 +33,14 @@ public class TerminalConnectivityCellular {
   public static final String JSON_PROPERTY_ICCID = "iccid";
   private String iccid;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIccid = false;
+
   public static final String JSON_PROPERTY_ICCID2 = "iccid2";
   private String iccid2;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIccid2 = false;
 
   /**
    * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card
@@ -87,6 +95,15 @@ public class TerminalConnectivityCellular {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public TerminalConnectivityCellular() {}
 
   /**
@@ -98,6 +115,7 @@ public class TerminalConnectivityCellular {
    */
   public TerminalConnectivityCellular iccid(String iccid) {
     this.iccid = iccid;
+    isSetIccid = true; // mark as set
     return this;
   }
 
@@ -123,6 +141,7 @@ public class TerminalConnectivityCellular {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid(String iccid) {
     this.iccid = iccid;
+    isSetIccid = true; // mark as set
   }
 
   /**
@@ -137,6 +156,7 @@ public class TerminalConnectivityCellular {
    */
   public TerminalConnectivityCellular iccid2(String iccid2) {
     this.iccid2 = iccid2;
+    isSetIccid2 = true; // mark as set
     return this;
   }
 
@@ -168,6 +188,7 @@ public class TerminalConnectivityCellular {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIccid2(String iccid2) {
     this.iccid2 = iccid2;
+    isSetIccid2 = true; // mark as set
   }
 
   /**
@@ -180,6 +201,7 @@ public class TerminalConnectivityCellular {
    */
   public TerminalConnectivityCellular status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -207,6 +229,26 @@ public class TerminalConnectivityCellular {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalConnectivityCellular object is equal to o. */
@@ -248,6 +290,36 @@ public class TerminalConnectivityCellular {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetIccid) {
+      addIfNull(nulls, JSON_PROPERTY_ICCID, this.iccid);
+    }
+    if (isSetIccid2) {
+      addIfNull(nulls, JSON_PROPERTY_ICCID2, this.iccid2);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

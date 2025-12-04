@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,11 +29,26 @@ public class ReceiptOptions {
   public static final String JSON_PROPERTY_LOGO = "logo";
   private String logo;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLogo = false;
+
   public static final String JSON_PROPERTY_PROMPT_BEFORE_PRINTING = "promptBeforePrinting";
   private Boolean promptBeforePrinting;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPromptBeforePrinting = false;
+
   public static final String JSON_PROPERTY_QR_CODE_DATA = "qrCodeData";
   private String qrCodeData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetQrCodeData = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ReceiptOptions() {}
 
@@ -45,6 +62,7 @@ public class ReceiptOptions {
    */
   public ReceiptOptions logo(String logo) {
     this.logo = logo;
+    isSetLogo = true; // mark as set
     return this;
   }
 
@@ -72,6 +90,7 @@ public class ReceiptOptions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLogo(String logo) {
     this.logo = logo;
+    isSetLogo = true; // mark as set
   }
 
   /**
@@ -83,6 +102,7 @@ public class ReceiptOptions {
    */
   public ReceiptOptions promptBeforePrinting(Boolean promptBeforePrinting) {
     this.promptBeforePrinting = promptBeforePrinting;
+    isSetPromptBeforePrinting = true; // mark as set
     return this;
   }
 
@@ -108,6 +128,7 @@ public class ReceiptOptions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPromptBeforePrinting(Boolean promptBeforePrinting) {
     this.promptBeforePrinting = promptBeforePrinting;
+    isSetPromptBeforePrinting = true; // mark as set
   }
 
   /**
@@ -124,6 +145,7 @@ public class ReceiptOptions {
    */
   public ReceiptOptions qrCodeData(String qrCodeData) {
     this.qrCodeData = qrCodeData;
+    isSetQrCodeData = true; // mark as set
     return this;
   }
 
@@ -159,6 +181,26 @@ public class ReceiptOptions {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQrCodeData(String qrCodeData) {
     this.qrCodeData = qrCodeData;
+    isSetQrCodeData = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this ReceiptOptions object is equal to o. */
@@ -202,6 +244,36 @@ public class ReceiptOptions {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLogo) {
+      addIfNull(nulls, JSON_PROPERTY_LOGO, this.logo);
+    }
+    if (isSetPromptBeforePrinting) {
+      addIfNull(nulls, JSON_PROPERTY_PROMPT_BEFORE_PRINTING, this.promptBeforePrinting);
+    }
+    if (isSetQrCodeData) {
+      addIfNull(nulls, JSON_PROPERTY_QR_CODE_DATA, this.qrCodeData);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

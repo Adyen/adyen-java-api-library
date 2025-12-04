@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,29 +29,45 @@ public class AllowedOrigin {
   public static final String JSON_PROPERTY_LINKS = "_links";
   private Links links;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLinks = false;
+
   public static final String JSON_PROPERTY_DOMAIN = "domain";
   private String domain;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDomain = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public AllowedOrigin() {}
 
   /**
-   * links
+   * References to resources linked to the allowed origin.
    *
-   * @param links
+   * @param links References to resources linked to the allowed origin.
    * @return the current {@code AllowedOrigin} instance, allowing for method chaining
    */
   public AllowedOrigin links(Links links) {
     this.links = links;
+    isSetLinks = true; // mark as set
     return this;
   }
 
   /**
-   * Get links
+   * References to resources linked to the allowed origin.
    *
-   * @return links
+   * @return links References to resources linked to the allowed origin.
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -58,14 +76,15 @@ public class AllowedOrigin {
   }
 
   /**
-   * links
+   * References to resources linked to the allowed origin.
    *
-   * @param links
+   * @param links References to resources linked to the allowed origin.
    */
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinks(Links links) {
     this.links = links;
+    isSetLinks = true; // mark as set
   }
 
   /**
@@ -76,6 +95,7 @@ public class AllowedOrigin {
    */
   public AllowedOrigin domain(String domain) {
     this.domain = domain;
+    isSetDomain = true; // mark as set
     return this;
   }
 
@@ -99,6 +119,7 @@ public class AllowedOrigin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomain(String domain) {
     this.domain = domain;
+    isSetDomain = true; // mark as set
   }
 
   /**
@@ -109,6 +130,7 @@ public class AllowedOrigin {
    */
   public AllowedOrigin id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -132,6 +154,26 @@ public class AllowedOrigin {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this AllowedOrigin object is equal to o. */
@@ -173,6 +215,36 @@ public class AllowedOrigin {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetLinks) {
+      addIfNull(nulls, JSON_PROPERTY_LINKS, this.links);
+    }
+    if (isSetDomain) {
+      addIfNull(nulls, JSON_PROPERTY_DOMAIN, this.domain);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

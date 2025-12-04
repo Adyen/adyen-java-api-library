@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,37 +26,39 @@ public class CardholderReceipt {
       "headerForAuthorizedReceipt";
   private String headerForAuthorizedReceipt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHeaderForAuthorizedReceipt = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public CardholderReceipt() {}
 
   /**
-   * The structure of the header to show on the shopper receipt. You can define the order of one or
-   * two header lines and blank lines. For example, **header1,header2,filler**. The text of the
-   * header lines is defined in the Customer Area under **In-person payments** &gt; **Terminal
-   * settings** &gt; **Receipts** in the **Receipt lines** block.
+   * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two
+   * comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
    *
-   * @param headerForAuthorizedReceipt The structure of the header to show on the shopper receipt.
-   *     You can define the order of one or two header lines and blank lines. For example,
-   *     **header1,header2,filler**. The text of the header lines is defined in the Customer Area
-   *     under **In-person payments** &gt; **Terminal settings** &gt; **Receipts** in the **Receipt
-   *     lines** block.
+   * @param headerForAuthorizedReceipt A custom header to show on the shopper receipt for an
+   *     authorised transaction. Allows one or two comma-separated header lines, and blank lines.
+   *     For example, &#x60;header,header,filler&#x60;
    * @return the current {@code CardholderReceipt} instance, allowing for method chaining
    */
   public CardholderReceipt headerForAuthorizedReceipt(String headerForAuthorizedReceipt) {
     this.headerForAuthorizedReceipt = headerForAuthorizedReceipt;
+    isSetHeaderForAuthorizedReceipt = true; // mark as set
     return this;
   }
 
   /**
-   * The structure of the header to show on the shopper receipt. You can define the order of one or
-   * two header lines and blank lines. For example, **header1,header2,filler**. The text of the
-   * header lines is defined in the Customer Area under **In-person payments** &gt; **Terminal
-   * settings** &gt; **Receipts** in the **Receipt lines** block.
+   * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two
+   * comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
    *
-   * @return headerForAuthorizedReceipt The structure of the header to show on the shopper receipt.
-   *     You can define the order of one or two header lines and blank lines. For example,
-   *     **header1,header2,filler**. The text of the header lines is defined in the Customer Area
-   *     under **In-person payments** &gt; **Terminal settings** &gt; **Receipts** in the **Receipt
-   *     lines** block.
+   * @return headerForAuthorizedReceipt A custom header to show on the shopper receipt for an
+   *     authorised transaction. Allows one or two comma-separated header lines, and blank lines.
+   *     For example, &#x60;header,header,filler&#x60;
    */
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -63,21 +67,37 @@ public class CardholderReceipt {
   }
 
   /**
-   * The structure of the header to show on the shopper receipt. You can define the order of one or
-   * two header lines and blank lines. For example, **header1,header2,filler**. The text of the
-   * header lines is defined in the Customer Area under **In-person payments** &gt; **Terminal
-   * settings** &gt; **Receipts** in the **Receipt lines** block.
+   * A custom header to show on the shopper receipt for an authorised transaction. Allows one or two
+   * comma-separated header lines, and blank lines. For example, &#x60;header,header,filler&#x60;
    *
-   * @param headerForAuthorizedReceipt The structure of the header to show on the shopper receipt.
-   *     You can define the order of one or two header lines and blank lines. For example,
-   *     **header1,header2,filler**. The text of the header lines is defined in the Customer Area
-   *     under **In-person payments** &gt; **Terminal settings** &gt; **Receipts** in the **Receipt
-   *     lines** block.
+   * @param headerForAuthorizedReceipt A custom header to show on the shopper receipt for an
+   *     authorised transaction. Allows one or two comma-separated header lines, and blank lines.
+   *     For example, &#x60;header,header,filler&#x60;
    */
   @JsonProperty(JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeaderForAuthorizedReceipt(String headerForAuthorizedReceipt) {
     this.headerForAuthorizedReceipt = headerForAuthorizedReceipt;
+    isSetHeaderForAuthorizedReceipt = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CardholderReceipt object is equal to o. */
@@ -118,6 +138,31 @@ public class CardholderReceipt {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetHeaderForAuthorizedReceipt) {
+      addIfNull(
+          nulls, JSON_PROPERTY_HEADER_FOR_AUTHORIZED_RECEIPT, this.headerForAuthorizedReceipt);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

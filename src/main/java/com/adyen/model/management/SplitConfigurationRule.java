@@ -11,7 +11,9 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -94,8 +96,14 @@ public class SplitConfigurationRule {
   public static final String JSON_PROPERTY_CARD_REGION = "cardRegion";
   private CardRegionEnum cardRegion;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardRegion = false;
+
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
 
   /**
    * The funding source of the payment method. Possible values: * **credit** * **debit** *
@@ -152,11 +160,20 @@ public class SplitConfigurationRule {
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private FundingSourceEnum fundingSource;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
+
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
+
   public static final String JSON_PROPERTY_RULE_ID = "ruleId";
   private String ruleId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRuleId = false;
 
   /**
    * The sales channel condition that defines whether the split logic applies. Possible values: *
@@ -216,8 +233,20 @@ public class SplitConfigurationRule {
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private ShopperInteractionEnum shopperInteraction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
+
   public static final String JSON_PROPERTY_SPLIT_LOGIC = "splitLogic";
   private SplitConfigurationLogic splitLogic;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSplitLogic = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public SplitConfigurationRule() {}
 
@@ -256,6 +285,7 @@ public class SplitConfigurationRule {
    */
   public SplitConfigurationRule cardRegion(CardRegionEnum cardRegion) {
     this.cardRegion = cardRegion;
+    isSetCardRegion = true; // mark as set
     return this;
   }
 
@@ -321,6 +351,7 @@ public class SplitConfigurationRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardRegion(CardRegionEnum cardRegion) {
     this.cardRegion = cardRegion;
+    isSetCardRegion = true; // mark as set
   }
 
   /**
@@ -333,6 +364,7 @@ public class SplitConfigurationRule {
    */
   public SplitConfigurationRule currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
@@ -360,6 +392,7 @@ public class SplitConfigurationRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
@@ -372,6 +405,7 @@ public class SplitConfigurationRule {
    */
   public SplitConfigurationRule fundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -399,6 +433,7 @@ public class SplitConfigurationRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(FundingSourceEnum fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -416,6 +451,7 @@ public class SplitConfigurationRule {
    */
   public SplitConfigurationRule paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -453,6 +489,7 @@ public class SplitConfigurationRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -486,6 +523,7 @@ public class SplitConfigurationRule {
    */
   public SplitConfigurationRule shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -533,23 +571,25 @@ public class SplitConfigurationRule {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
   }
 
   /**
-   * splitLogic
+   * Contains the split logic that is applied if the rule conditions are met.
    *
-   * @param splitLogic
+   * @param splitLogic Contains the split logic that is applied if the rule conditions are met.
    * @return the current {@code SplitConfigurationRule} instance, allowing for method chaining
    */
   public SplitConfigurationRule splitLogic(SplitConfigurationLogic splitLogic) {
     this.splitLogic = splitLogic;
+    isSetSplitLogic = true; // mark as set
     return this;
   }
 
   /**
-   * Get splitLogic
+   * Contains the split logic that is applied if the rule conditions are met.
    *
-   * @return splitLogic
+   * @return splitLogic Contains the split logic that is applied if the rule conditions are met.
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -558,14 +598,34 @@ public class SplitConfigurationRule {
   }
 
   /**
-   * splitLogic
+   * Contains the split logic that is applied if the rule conditions are met.
    *
-   * @param splitLogic
+   * @param splitLogic Contains the split logic that is applied if the rule conditions are met.
    */
   @JsonProperty(JSON_PROPERTY_SPLIT_LOGIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSplitLogic(SplitConfigurationLogic splitLogic) {
     this.splitLogic = splitLogic;
+    isSetSplitLogic = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this SplitConfigurationRule object is equal to o. */
@@ -616,6 +676,48 @@ public class SplitConfigurationRule {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardRegion) {
+      addIfNull(nulls, JSON_PROPERTY_CARD_REGION, this.cardRegion);
+    }
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetRuleId) {
+      addIfNull(nulls, JSON_PROPERTY_RULE_ID, this.ruleId);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+    if (isSetSplitLogic) {
+      addIfNull(nulls, JSON_PROPERTY_SPLIT_LOGIC, this.splitLogic);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

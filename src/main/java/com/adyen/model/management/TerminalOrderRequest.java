@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,20 +34,44 @@ public class TerminalOrderRequest {
   public static final String JSON_PROPERTY_BILLING_ENTITY_ID = "billingEntityId";
   private String billingEntityId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBillingEntityId = false;
+
   public static final String JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE = "customerOrderReference";
   private String customerOrderReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCustomerOrderReference = false;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
   private List<OrderItem> items;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetItems = false;
+
   public static final String JSON_PROPERTY_ORDER_TYPE = "orderType";
   private String orderType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOrderType = false;
 
   public static final String JSON_PROPERTY_SHIPPING_LOCATION_ID = "shippingLocationId";
   private String shippingLocationId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShippingLocationId = false;
+
   public static final String JSON_PROPERTY_TAX_ID = "taxId";
   private String taxId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTaxId = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TerminalOrderRequest() {}
 
@@ -60,6 +86,7 @@ public class TerminalOrderRequest {
    */
   public TerminalOrderRequest billingEntityId(String billingEntityId) {
     this.billingEntityId = billingEntityId;
+    isSetBillingEntityId = true; // mark as set
     return this;
   }
 
@@ -89,6 +116,7 @@ public class TerminalOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBillingEntityId(String billingEntityId) {
     this.billingEntityId = billingEntityId;
+    isSetBillingEntityId = true; // mark as set
   }
 
   /**
@@ -99,6 +127,7 @@ public class TerminalOrderRequest {
    */
   public TerminalOrderRequest customerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
+    isSetCustomerOrderReference = true; // mark as set
     return this;
   }
 
@@ -122,6 +151,7 @@ public class TerminalOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomerOrderReference(String customerOrderReference) {
     this.customerOrderReference = customerOrderReference;
+    isSetCustomerOrderReference = true; // mark as set
   }
 
   /**
@@ -132,6 +162,7 @@ public class TerminalOrderRequest {
    */
   public TerminalOrderRequest items(List<OrderItem> items) {
     this.items = items;
+    isSetItems = true; // mark as set
     return this;
   }
 
@@ -163,6 +194,7 @@ public class TerminalOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(List<OrderItem> items) {
     this.items = items;
+    isSetItems = true; // mark as set
   }
 
   /**
@@ -173,6 +205,7 @@ public class TerminalOrderRequest {
    */
   public TerminalOrderRequest orderType(String orderType) {
     this.orderType = orderType;
+    isSetOrderType = true; // mark as set
     return this;
   }
 
@@ -196,6 +229,7 @@ public class TerminalOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrderType(String orderType) {
     this.orderType = orderType;
+    isSetOrderType = true; // mark as set
   }
 
   /**
@@ -206,6 +240,7 @@ public class TerminalOrderRequest {
    */
   public TerminalOrderRequest shippingLocationId(String shippingLocationId) {
     this.shippingLocationId = shippingLocationId;
+    isSetShippingLocationId = true; // mark as set
     return this;
   }
 
@@ -229,6 +264,7 @@ public class TerminalOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShippingLocationId(String shippingLocationId) {
     this.shippingLocationId = shippingLocationId;
+    isSetShippingLocationId = true; // mark as set
   }
 
   /**
@@ -239,6 +275,7 @@ public class TerminalOrderRequest {
    */
   public TerminalOrderRequest taxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
     return this;
   }
 
@@ -262,6 +299,26 @@ public class TerminalOrderRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaxId(String taxId) {
     this.taxId = taxId;
+    isSetTaxId = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalOrderRequest object is equal to o. */
@@ -312,6 +369,45 @@ public class TerminalOrderRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBillingEntityId) {
+      addIfNull(nulls, JSON_PROPERTY_BILLING_ENTITY_ID, this.billingEntityId);
+    }
+    if (isSetCustomerOrderReference) {
+      addIfNull(nulls, JSON_PROPERTY_CUSTOMER_ORDER_REFERENCE, this.customerOrderReference);
+    }
+    if (isSetItems) {
+      addIfNull(nulls, JSON_PROPERTY_ITEMS, this.items);
+    }
+    if (isSetOrderType) {
+      addIfNull(nulls, JSON_PROPERTY_ORDER_TYPE, this.orderType);
+    }
+    if (isSetShippingLocationId) {
+      addIfNull(nulls, JSON_PROPERTY_SHIPPING_LOCATION_ID, this.shippingLocationId);
+    }
+    if (isSetTaxId) {
+      addIfNull(nulls, JSON_PROPERTY_TAX_ID, this.taxId);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

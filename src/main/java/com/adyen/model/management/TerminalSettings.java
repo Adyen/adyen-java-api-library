@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -48,86 +50,159 @@ public class TerminalSettings {
   public static final String JSON_PROPERTY_CARDHOLDER_RECEIPT = "cardholderReceipt";
   private CardholderReceipt cardholderReceipt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCardholderReceipt = false;
+
   public static final String JSON_PROPERTY_CONNECTIVITY = "connectivity";
   private Connectivity connectivity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConnectivity = false;
 
   public static final String JSON_PROPERTY_GRATUITIES = "gratuities";
   private List<Gratuity> gratuities;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetGratuities = false;
+
   public static final String JSON_PROPERTY_HARDWARE = "hardware";
   private Hardware hardware;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHardware = false;
 
   public static final String JSON_PROPERTY_LOCALIZATION = "localization";
   private Localization localization;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLocalization = false;
+
   public static final String JSON_PROPERTY_NEXO = "nexo";
   private Nexo nexo;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNexo = false;
 
   public static final String JSON_PROPERTY_OFFLINE_PROCESSING = "offlineProcessing";
   private OfflineProcessing offlineProcessing;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOfflineProcessing = false;
+
   public static final String JSON_PROPERTY_OPI = "opi";
   private Opi opi;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetOpi = false;
 
   public static final String JSON_PROPERTY_PASSCODES = "passcodes";
   private Passcodes passcodes;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPasscodes = false;
+
   public static final String JSON_PROPERTY_PAY_AT_TABLE = "payAtTable";
   private PayAtTable payAtTable;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayAtTable = false;
 
   public static final String JSON_PROPERTY_PAYMENT = "payment";
   private Payment payment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPayment = false;
+
   public static final String JSON_PROPERTY_RECEIPT_OPTIONS = "receiptOptions";
   private ReceiptOptions receiptOptions;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReceiptOptions = false;
 
   public static final String JSON_PROPERTY_RECEIPT_PRINTING = "receiptPrinting";
   private ReceiptPrinting receiptPrinting;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReceiptPrinting = false;
+
   public static final String JSON_PROPERTY_REFUNDS = "refunds";
   private Refunds refunds;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRefunds = false;
 
   public static final String JSON_PROPERTY_SIGNATURE = "signature";
   private Signature signature;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSignature = false;
+
   public static final String JSON_PROPERTY_STANDALONE = "standalone";
   private Standalone standalone;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStandalone = false;
 
   public static final String JSON_PROPERTY_STORE_AND_FORWARD = "storeAndForward";
   private StoreAndForward storeAndForward;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStoreAndForward = false;
+
   public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
   private Surcharge surcharge;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSurcharge = false;
 
   public static final String JSON_PROPERTY_TAP_TO_PAY = "tapToPay";
   private TapToPay tapToPay;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTapToPay = false;
+
   public static final String JSON_PROPERTY_TERMINAL_INSTRUCTIONS = "terminalInstructions";
   private TerminalInstructions terminalInstructions;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTerminalInstructions = false;
 
   public static final String JSON_PROPERTY_TIMEOUTS = "timeouts";
   private Timeouts timeouts;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTimeouts = false;
+
   public static final String JSON_PROPERTY_WIFI_PROFILES = "wifiProfiles";
   private WifiProfiles wifiProfiles;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetWifiProfiles = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TerminalSettings() {}
 
   /**
-   * cardholderReceipt
+   * Settings to define the header of the shopper receipt.
    *
-   * @param cardholderReceipt
+   * @param cardholderReceipt Settings to define the header of the shopper receipt.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings cardholderReceipt(CardholderReceipt cardholderReceipt) {
     this.cardholderReceipt = cardholderReceipt;
+    isSetCardholderReceipt = true; // mark as set
     return this;
   }
 
   /**
-   * Get cardholderReceipt
+   * Settings to define the header of the shopper receipt.
    *
-   * @return cardholderReceipt
+   * @return cardholderReceipt Settings to define the header of the shopper receipt.
    */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,31 +211,33 @@ public class TerminalSettings {
   }
 
   /**
-   * cardholderReceipt
+   * Settings to define the header of the shopper receipt.
    *
-   * @param cardholderReceipt
+   * @param cardholderReceipt Settings to define the header of the shopper receipt.
    */
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_RECEIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCardholderReceipt(CardholderReceipt cardholderReceipt) {
     this.cardholderReceipt = cardholderReceipt;
+    isSetCardholderReceipt = true; // mark as set
   }
 
   /**
-   * connectivity
+   * Settings for terminal connectivity features.
    *
-   * @param connectivity
+   * @param connectivity Settings for terminal connectivity features.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings connectivity(Connectivity connectivity) {
     this.connectivity = connectivity;
+    isSetConnectivity = true; // mark as set
     return this;
   }
 
   /**
-   * Get connectivity
+   * Settings for terminal connectivity features.
    *
-   * @return connectivity
+   * @return connectivity Settings for terminal connectivity features.
    */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,14 +246,15 @@ public class TerminalSettings {
   }
 
   /**
-   * connectivity
+   * Settings for terminal connectivity features.
    *
-   * @param connectivity
+   * @param connectivity Settings for terminal connectivity features.
    */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(Connectivity connectivity) {
     this.connectivity = connectivity;
+    isSetConnectivity = true; // mark as set
   }
 
   /**
@@ -190,6 +268,7 @@ public class TerminalSettings {
    */
   public TerminalSettings gratuities(List<Gratuity> gratuities) {
     this.gratuities = gratuities;
+    isSetGratuities = true; // mark as set
     return this;
   }
 
@@ -227,23 +306,25 @@ public class TerminalSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGratuities(List<Gratuity> gratuities) {
     this.gratuities = gratuities;
+    isSetGratuities = true; // mark as set
   }
 
   /**
-   * hardware
+   * Settings for terminal hardware features.
    *
-   * @param hardware
+   * @param hardware Settings for terminal hardware features.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings hardware(Hardware hardware) {
     this.hardware = hardware;
+    isSetHardware = true; // mark as set
     return this;
   }
 
   /**
-   * Get hardware
+   * Settings for terminal hardware features.
    *
-   * @return hardware
+   * @return hardware Settings for terminal hardware features.
    */
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,31 +333,33 @@ public class TerminalSettings {
   }
 
   /**
-   * hardware
+   * Settings for terminal hardware features.
    *
-   * @param hardware
+   * @param hardware Settings for terminal hardware features.
    */
   @JsonProperty(JSON_PROPERTY_HARDWARE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHardware(Hardware hardware) {
     this.hardware = hardware;
+    isSetHardware = true; // mark as set
   }
 
   /**
-   * localization
+   * Settings for localization.
    *
-   * @param localization
+   * @param localization Settings for localization.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings localization(Localization localization) {
     this.localization = localization;
+    isSetLocalization = true; // mark as set
     return this;
   }
 
   /**
-   * Get localization
+   * Settings for localization.
    *
-   * @return localization
+   * @return localization Settings for localization.
    */
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,31 +368,33 @@ public class TerminalSettings {
   }
 
   /**
-   * localization
+   * Settings for localization.
    *
-   * @param localization
+   * @param localization Settings for localization.
    */
   @JsonProperty(JSON_PROPERTY_LOCALIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocalization(Localization localization) {
     this.localization = localization;
+    isSetLocalization = true; // mark as set
   }
 
   /**
-   * nexo
+   * Settings for a Terminal API integration.
    *
-   * @param nexo
+   * @param nexo Settings for a Terminal API integration.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings nexo(Nexo nexo) {
     this.nexo = nexo;
+    isSetNexo = true; // mark as set
     return this;
   }
 
   /**
-   * Get nexo
+   * Settings for a Terminal API integration.
    *
-   * @return nexo
+   * @return nexo Settings for a Terminal API integration.
    */
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,31 +403,35 @@ public class TerminalSettings {
   }
 
   /**
-   * nexo
+   * Settings for a Terminal API integration.
    *
-   * @param nexo
+   * @param nexo Settings for a Terminal API integration.
    */
   @JsonProperty(JSON_PROPERTY_NEXO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNexo(Nexo nexo) {
     this.nexo = nexo;
+    isSetNexo = true; // mark as set
   }
 
   /**
-   * offlineProcessing
+   * Settings for [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
    *
-   * @param offlineProcessing
+   * @param offlineProcessing Settings for [offline
+   *     payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings offlineProcessing(OfflineProcessing offlineProcessing) {
     this.offlineProcessing = offlineProcessing;
+    isSetOfflineProcessing = true; // mark as set
     return this;
   }
 
   /**
-   * Get offlineProcessing
+   * Settings for [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
    *
-   * @return offlineProcessing
+   * @return offlineProcessing Settings for [offline
+   *     payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
    */
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,31 +440,34 @@ public class TerminalSettings {
   }
 
   /**
-   * offlineProcessing
+   * Settings for [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
    *
-   * @param offlineProcessing
+   * @param offlineProcessing Settings for [offline
+   *     payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
    */
   @JsonProperty(JSON_PROPERTY_OFFLINE_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOfflineProcessing(OfflineProcessing offlineProcessing) {
     this.offlineProcessing = offlineProcessing;
+    isSetOfflineProcessing = true; // mark as set
   }
 
   /**
-   * opi
+   * Settings for an Oracle Payment Interface (OPI) integration.
    *
-   * @param opi
+   * @param opi Settings for an Oracle Payment Interface (OPI) integration.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings opi(Opi opi) {
     this.opi = opi;
+    isSetOpi = true; // mark as set
     return this;
   }
 
   /**
-   * Get opi
+   * Settings for an Oracle Payment Interface (OPI) integration.
    *
-   * @return opi
+   * @return opi Settings for an Oracle Payment Interface (OPI) integration.
    */
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -384,31 +476,41 @@ public class TerminalSettings {
   }
 
   /**
-   * opi
+   * Settings for an Oracle Payment Interface (OPI) integration.
    *
-   * @param opi
+   * @param opi Settings for an Oracle Payment Interface (OPI) integration.
    */
   @JsonProperty(JSON_PROPERTY_OPI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOpi(Opi opi) {
     this.opi = opi;
+    isSetOpi = true; // mark as set
   }
 
   /**
-   * passcodes
+   * Settings for
+   * [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
+   * features.
    *
-   * @param passcodes
+   * @param passcodes Settings for
+   *     [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
+   *     features.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings passcodes(Passcodes passcodes) {
     this.passcodes = passcodes;
+    isSetPasscodes = true; // mark as set
     return this;
   }
 
   /**
-   * Get passcodes
+   * Settings for
+   * [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
+   * features.
    *
-   * @return passcodes
+   * @return passcodes Settings for
+   *     [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
+   *     features.
    */
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -417,31 +519,39 @@ public class TerminalSettings {
   }
 
   /**
-   * passcodes
+   * Settings for
+   * [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
+   * features.
    *
-   * @param passcodes
+   * @param passcodes Settings for
+   *     [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab&#x3D;manage_passcodes_with_an_api_call_2#manage-passcodes)
+   *     features.
    */
   @JsonProperty(JSON_PROPERTY_PASSCODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPasscodes(Passcodes passcodes) {
     this.passcodes = passcodes;
+    isSetPasscodes = true; // mark as set
   }
 
   /**
-   * payAtTable
+   * Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) features.
    *
-   * @param payAtTable
+   * @param payAtTable Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x)
+   *     features.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings payAtTable(PayAtTable payAtTable) {
     this.payAtTable = payAtTable;
+    isSetPayAtTable = true; // mark as set
     return this;
   }
 
   /**
-   * Get payAtTable
+   * Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) features.
    *
-   * @return payAtTable
+   * @return payAtTable Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x)
+   *     features.
    */
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -450,31 +560,34 @@ public class TerminalSettings {
   }
 
   /**
-   * payAtTable
+   * Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) features.
    *
-   * @param payAtTable
+   * @param payAtTable Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x)
+   *     features.
    */
   @JsonProperty(JSON_PROPERTY_PAY_AT_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayAtTable(PayAtTable payAtTable) {
     this.payAtTable = payAtTable;
+    isSetPayAtTable = true; // mark as set
   }
 
   /**
-   * payment
+   * Settings for payment features.
    *
-   * @param payment
+   * @param payment Settings for payment features.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings payment(Payment payment) {
     this.payment = payment;
+    isSetPayment = true; // mark as set
     return this;
   }
 
   /**
-   * Get payment
+   * Settings for payment features.
    *
-   * @return payment
+   * @return payment Settings for payment features.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -483,31 +596,33 @@ public class TerminalSettings {
   }
 
   /**
-   * payment
+   * Settings for payment features.
    *
-   * @param payment
+   * @param payment Settings for payment features.
    */
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPayment(Payment payment) {
     this.payment = payment;
+    isSetPayment = true; // mark as set
   }
 
   /**
-   * receiptOptions
+   * Generic receipt settings.
    *
-   * @param receiptOptions
+   * @param receiptOptions Generic receipt settings.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings receiptOptions(ReceiptOptions receiptOptions) {
     this.receiptOptions = receiptOptions;
+    isSetReceiptOptions = true; // mark as set
     return this;
   }
 
   /**
-   * Get receiptOptions
+   * Generic receipt settings.
    *
-   * @return receiptOptions
+   * @return receiptOptions Generic receipt settings.
    */
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -516,31 +631,37 @@ public class TerminalSettings {
   }
 
   /**
-   * receiptOptions
+   * Generic receipt settings.
    *
-   * @param receiptOptions
+   * @param receiptOptions Generic receipt settings.
    */
   @JsonProperty(JSON_PROPERTY_RECEIPT_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptOptions(ReceiptOptions receiptOptions) {
     this.receiptOptions = receiptOptions;
+    isSetReceiptOptions = true; // mark as set
   }
 
   /**
-   * receiptPrinting
+   * Transaction outcomes that you want the terminal to print a merchant receipt or a shopper
+   * receipt for.
    *
-   * @param receiptPrinting
+   * @param receiptPrinting Transaction outcomes that you want the terminal to print a merchant
+   *     receipt or a shopper receipt for.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings receiptPrinting(ReceiptPrinting receiptPrinting) {
     this.receiptPrinting = receiptPrinting;
+    isSetReceiptPrinting = true; // mark as set
     return this;
   }
 
   /**
-   * Get receiptPrinting
+   * Transaction outcomes that you want the terminal to print a merchant receipt or a shopper
+   * receipt for.
    *
-   * @return receiptPrinting
+   * @return receiptPrinting Transaction outcomes that you want the terminal to print a merchant
+   *     receipt or a shopper receipt for.
    */
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -549,31 +670,35 @@ public class TerminalSettings {
   }
 
   /**
-   * receiptPrinting
+   * Transaction outcomes that you want the terminal to print a merchant receipt or a shopper
+   * receipt for.
    *
-   * @param receiptPrinting
+   * @param receiptPrinting Transaction outcomes that you want the terminal to print a merchant
+   *     receipt or a shopper receipt for.
    */
   @JsonProperty(JSON_PROPERTY_RECEIPT_PRINTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReceiptPrinting(ReceiptPrinting receiptPrinting) {
     this.receiptPrinting = receiptPrinting;
+    isSetReceiptPrinting = true; // mark as set
   }
 
   /**
-   * refunds
+   * Settings for refunds.
    *
-   * @param refunds
+   * @param refunds Settings for refunds.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings refunds(Refunds refunds) {
     this.refunds = refunds;
+    isSetRefunds = true; // mark as set
     return this;
   }
 
   /**
-   * Get refunds
+   * Settings for refunds.
    *
-   * @return refunds
+   * @return refunds Settings for refunds.
    */
   @JsonProperty(JSON_PROPERTY_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -582,31 +707,33 @@ public class TerminalSettings {
   }
 
   /**
-   * refunds
+   * Settings for refunds.
    *
-   * @param refunds
+   * @param refunds Settings for refunds.
    */
   @JsonProperty(JSON_PROPERTY_REFUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRefunds(Refunds refunds) {
     this.refunds = refunds;
+    isSetRefunds = true; // mark as set
   }
 
   /**
-   * signature
+   * Settings to skip signature, sign on display, or sign on receipt.
    *
-   * @param signature
+   * @param signature Settings to skip signature, sign on display, or sign on receipt.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings signature(Signature signature) {
     this.signature = signature;
+    isSetSignature = true; // mark as set
     return this;
   }
 
   /**
-   * Get signature
+   * Settings to skip signature, sign on display, or sign on receipt.
    *
-   * @return signature
+   * @return signature Settings to skip signature, sign on display, or sign on receipt.
    */
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -615,31 +742,41 @@ public class TerminalSettings {
   }
 
   /**
-   * signature
+   * Settings to skip signature, sign on display, or sign on receipt.
    *
-   * @param signature
+   * @param signature Settings to skip signature, sign on display, or sign on receipt.
    */
   @JsonProperty(JSON_PROPERTY_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignature(Signature signature) {
     this.signature = signature;
+    isSetSignature = true; // mark as set
   }
 
   /**
-   * standalone
+   * Settings for
+   * [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
+   * features.
    *
-   * @param standalone
+   * @param standalone Settings for
+   *     [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
+   *     features.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings standalone(Standalone standalone) {
     this.standalone = standalone;
+    isSetStandalone = true; // mark as set
     return this;
   }
 
   /**
-   * Get standalone
+   * Settings for
+   * [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
+   * features.
    *
-   * @return standalone
+   * @return standalone Settings for
+   *     [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
+   *     features.
    */
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -648,31 +785,47 @@ public class TerminalSettings {
   }
 
   /**
-   * standalone
+   * Settings for
+   * [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
+   * features.
    *
-   * @param standalone
+   * @param standalone Settings for
+   *     [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
+   *     features.
    */
   @JsonProperty(JSON_PROPERTY_STANDALONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStandalone(Standalone standalone) {
     this.standalone = standalone;
+    isSetStandalone = true; // mark as set
   }
 
   /**
-   * storeAndForward
+   * Settings for store-and-forward offline payments. The &#x60;maxAmount&#x60;,
+   * &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60; parameters must be configured,
+   * either in the request or inherited from a higher level in your account structure.
    *
-   * @param storeAndForward
+   * @param storeAndForward Settings for store-and-forward offline payments. The
+   *     &#x60;maxAmount&#x60;, &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60;
+   *     parameters must be configured, either in the request or inherited from a higher level in
+   *     your account structure.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings storeAndForward(StoreAndForward storeAndForward) {
     this.storeAndForward = storeAndForward;
+    isSetStoreAndForward = true; // mark as set
     return this;
   }
 
   /**
-   * Get storeAndForward
+   * Settings for store-and-forward offline payments. The &#x60;maxAmount&#x60;,
+   * &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60; parameters must be configured,
+   * either in the request or inherited from a higher level in your account structure.
    *
-   * @return storeAndForward
+   * @return storeAndForward Settings for store-and-forward offline payments. The
+   *     &#x60;maxAmount&#x60;, &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60;
+   *     parameters must be configured, either in the request or inherited from a higher level in
+   *     your account structure.
    */
   @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -681,31 +834,40 @@ public class TerminalSettings {
   }
 
   /**
-   * storeAndForward
+   * Settings for store-and-forward offline payments. The &#x60;maxAmount&#x60;,
+   * &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60; parameters must be configured,
+   * either in the request or inherited from a higher level in your account structure.
    *
-   * @param storeAndForward
+   * @param storeAndForward Settings for store-and-forward offline payments. The
+   *     &#x60;maxAmount&#x60;, &#x60;maxPayments&#x60;, and &#x60;supportedCardTypes&#x60;
+   *     parameters must be configured, either in the request or inherited from a higher level in
+   *     your account structure.
    */
   @JsonProperty(JSON_PROPERTY_STORE_AND_FORWARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStoreAndForward(StoreAndForward storeAndForward) {
     this.storeAndForward = storeAndForward;
+    isSetStoreAndForward = true; // mark as set
   }
 
   /**
-   * surcharge
+   * Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
    *
-   * @param surcharge
+   * @param surcharge Settings for payment
+   *     [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings surcharge(Surcharge surcharge) {
     this.surcharge = surcharge;
+    isSetSurcharge = true; // mark as set
     return this;
   }
 
   /**
-   * Get surcharge
+   * Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
    *
-   * @return surcharge
+   * @return surcharge Settings for payment
+   *     [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
    */
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -714,31 +876,34 @@ public class TerminalSettings {
   }
 
   /**
-   * surcharge
+   * Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
    *
-   * @param surcharge
+   * @param surcharge Settings for payment
+   *     [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features.
    */
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSurcharge(Surcharge surcharge) {
     this.surcharge = surcharge;
+    isSetSurcharge = true; // mark as set
   }
 
   /**
-   * tapToPay
+   * Settings for Tap to Pay.
    *
-   * @param tapToPay
+   * @param tapToPay Settings for Tap to Pay.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings tapToPay(TapToPay tapToPay) {
     this.tapToPay = tapToPay;
+    isSetTapToPay = true; // mark as set
     return this;
   }
 
   /**
-   * Get tapToPay
+   * Settings for Tap to Pay.
    *
-   * @return tapToPay
+   * @return tapToPay Settings for Tap to Pay.
    */
   @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -747,31 +912,33 @@ public class TerminalSettings {
   }
 
   /**
-   * tapToPay
+   * Settings for Tap to Pay.
    *
-   * @param tapToPay
+   * @param tapToPay Settings for Tap to Pay.
    */
   @JsonProperty(JSON_PROPERTY_TAP_TO_PAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTapToPay(TapToPay tapToPay) {
     this.tapToPay = tapToPay;
+    isSetTapToPay = true; // mark as set
   }
 
   /**
-   * terminalInstructions
+   * Settings to define the behaviour of the payment terminal.
    *
-   * @param terminalInstructions
+   * @param terminalInstructions Settings to define the behaviour of the payment terminal.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings terminalInstructions(TerminalInstructions terminalInstructions) {
     this.terminalInstructions = terminalInstructions;
+    isSetTerminalInstructions = true; // mark as set
     return this;
   }
 
   /**
-   * Get terminalInstructions
+   * Settings to define the behaviour of the payment terminal.
    *
-   * @return terminalInstructions
+   * @return terminalInstructions Settings to define the behaviour of the payment terminal.
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -780,31 +947,37 @@ public class TerminalSettings {
   }
 
   /**
-   * terminalInstructions
+   * Settings to define the behaviour of the payment terminal.
    *
-   * @param terminalInstructions
+   * @param terminalInstructions Settings to define the behaviour of the payment terminal.
    */
   @JsonProperty(JSON_PROPERTY_TERMINAL_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminalInstructions(TerminalInstructions terminalInstructions) {
     this.terminalInstructions = terminalInstructions;
+    isSetTerminalInstructions = true; // mark as set
   }
 
   /**
-   * timeouts
+   * Settings for device
+   * [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
    *
-   * @param timeouts
+   * @param timeouts Settings for device
+   *     [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings timeouts(Timeouts timeouts) {
     this.timeouts = timeouts;
+    isSetTimeouts = true; // mark as set
     return this;
   }
 
   /**
-   * Get timeouts
+   * Settings for device
+   * [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
    *
-   * @return timeouts
+   * @return timeouts Settings for device
+   *     [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
    */
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -813,31 +986,35 @@ public class TerminalSettings {
   }
 
   /**
-   * timeouts
+   * Settings for device
+   * [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
    *
-   * @param timeouts
+   * @param timeouts Settings for device
+   *     [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
    */
   @JsonProperty(JSON_PROPERTY_TIMEOUTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeouts(Timeouts timeouts) {
     this.timeouts = timeouts;
+    isSetTimeouts = true; // mark as set
   }
 
   /**
-   * wifiProfiles
+   * Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
    *
-   * @param wifiProfiles
+   * @param wifiProfiles Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
    * @return the current {@code TerminalSettings} instance, allowing for method chaining
    */
   public TerminalSettings wifiProfiles(WifiProfiles wifiProfiles) {
     this.wifiProfiles = wifiProfiles;
+    isSetWifiProfiles = true; // mark as set
     return this;
   }
 
   /**
-   * Get wifiProfiles
+   * Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
    *
-   * @return wifiProfiles
+   * @return wifiProfiles Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
    */
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -846,14 +1023,34 @@ public class TerminalSettings {
   }
 
   /**
-   * wifiProfiles
+   * Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
    *
-   * @param wifiProfiles
+   * @param wifiProfiles Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
    */
   @JsonProperty(JSON_PROPERTY_WIFI_PROFILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWifiProfiles(WifiProfiles wifiProfiles) {
     this.wifiProfiles = wifiProfiles;
+    isSetWifiProfiles = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TerminalSettings object is equal to o. */
@@ -957,6 +1154,93 @@ public class TerminalSettings {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCardholderReceipt) {
+      addIfNull(nulls, JSON_PROPERTY_CARDHOLDER_RECEIPT, this.cardholderReceipt);
+    }
+    if (isSetConnectivity) {
+      addIfNull(nulls, JSON_PROPERTY_CONNECTIVITY, this.connectivity);
+    }
+    if (isSetGratuities) {
+      addIfNull(nulls, JSON_PROPERTY_GRATUITIES, this.gratuities);
+    }
+    if (isSetHardware) {
+      addIfNull(nulls, JSON_PROPERTY_HARDWARE, this.hardware);
+    }
+    if (isSetLocalization) {
+      addIfNull(nulls, JSON_PROPERTY_LOCALIZATION, this.localization);
+    }
+    if (isSetNexo) {
+      addIfNull(nulls, JSON_PROPERTY_NEXO, this.nexo);
+    }
+    if (isSetOfflineProcessing) {
+      addIfNull(nulls, JSON_PROPERTY_OFFLINE_PROCESSING, this.offlineProcessing);
+    }
+    if (isSetOpi) {
+      addIfNull(nulls, JSON_PROPERTY_OPI, this.opi);
+    }
+    if (isSetPasscodes) {
+      addIfNull(nulls, JSON_PROPERTY_PASSCODES, this.passcodes);
+    }
+    if (isSetPayAtTable) {
+      addIfNull(nulls, JSON_PROPERTY_PAY_AT_TABLE, this.payAtTable);
+    }
+    if (isSetPayment) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT, this.payment);
+    }
+    if (isSetReceiptOptions) {
+      addIfNull(nulls, JSON_PROPERTY_RECEIPT_OPTIONS, this.receiptOptions);
+    }
+    if (isSetReceiptPrinting) {
+      addIfNull(nulls, JSON_PROPERTY_RECEIPT_PRINTING, this.receiptPrinting);
+    }
+    if (isSetRefunds) {
+      addIfNull(nulls, JSON_PROPERTY_REFUNDS, this.refunds);
+    }
+    if (isSetSignature) {
+      addIfNull(nulls, JSON_PROPERTY_SIGNATURE, this.signature);
+    }
+    if (isSetStandalone) {
+      addIfNull(nulls, JSON_PROPERTY_STANDALONE, this.standalone);
+    }
+    if (isSetStoreAndForward) {
+      addIfNull(nulls, JSON_PROPERTY_STORE_AND_FORWARD, this.storeAndForward);
+    }
+    if (isSetSurcharge) {
+      addIfNull(nulls, JSON_PROPERTY_SURCHARGE, this.surcharge);
+    }
+    if (isSetTapToPay) {
+      addIfNull(nulls, JSON_PROPERTY_TAP_TO_PAY, this.tapToPay);
+    }
+    if (isSetTerminalInstructions) {
+      addIfNull(nulls, JSON_PROPERTY_TERMINAL_INSTRUCTIONS, this.terminalInstructions);
+    }
+    if (isSetTimeouts) {
+      addIfNull(nulls, JSON_PROPERTY_TIMEOUTS, this.timeouts);
+    }
+    if (isSetWifiProfiles) {
+      addIfNull(nulls, JSON_PROPERTY_WIFI_PROFILES, this.wifiProfiles);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

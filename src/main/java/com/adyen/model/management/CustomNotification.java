@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,41 +34,73 @@ public class CustomNotification {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
+
   public static final String JSON_PROPERTY_EVENT_CODE = "eventCode";
   private String eventCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEventCode = false;
 
   public static final String JSON_PROPERTY_EVENT_DATE = "eventDate";
   private OffsetDateTime eventDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEventDate = false;
+
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
   private String merchantReference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantReference = false;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
+
   public static final String JSON_PROPERTY_REASON = "reason";
   private String reason;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReason = false;
 
   public static final String JSON_PROPERTY_SUCCESS = "success";
   private Boolean success;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSuccess = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public CustomNotification() {}
 
   /**
-   * amount
+   * The amount of the payment that the notification is about. Set the value in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param amount
+   * @param amount The amount of the payment that the notification is about. Set the value in [minor
+   *     units](https://docs.adyen.com/development-resources/currency-codes).
    * @return the current {@code CustomNotification} instance, allowing for method chaining
    */
   public CustomNotification amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
   /**
-   * Get amount
+   * The amount of the payment that the notification is about. Set the value in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @return amount
+   * @return amount The amount of the payment that the notification is about. Set the value in
+   *     [minor units](https://docs.adyen.com/development-resources/currency-codes).
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,14 +109,17 @@ public class CustomNotification {
   }
 
   /**
-   * amount
+   * The amount of the payment that the notification is about. Set the value in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes).
    *
-   * @param amount
+   * @param amount The amount of the payment that the notification is about. Set the value in [minor
+   *     units](https://docs.adyen.com/development-resources/currency-codes).
    */
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -101,6 +138,7 @@ public class CustomNotification {
    */
   public CustomNotification eventCode(String eventCode) {
     this.eventCode = eventCode;
+    isSetEventCode = true; // mark as set
     return this;
   }
 
@@ -140,6 +178,7 @@ public class CustomNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventCode(String eventCode) {
     this.eventCode = eventCode;
+    isSetEventCode = true; // mark as set
   }
 
   /**
@@ -152,6 +191,7 @@ public class CustomNotification {
    */
   public CustomNotification eventDate(OffsetDateTime eventDate) {
     this.eventDate = eventDate;
+    isSetEventDate = true; // mark as set
     return this;
   }
 
@@ -179,6 +219,7 @@ public class CustomNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventDate(OffsetDateTime eventDate) {
     this.eventDate = eventDate;
+    isSetEventDate = true; // mark as set
   }
 
   /**
@@ -189,6 +230,7 @@ public class CustomNotification {
    */
   public CustomNotification merchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
     return this;
   }
 
@@ -212,6 +254,7 @@ public class CustomNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantReference(String merchantReference) {
     this.merchantReference = merchantReference;
+    isSetMerchantReference = true; // mark as set
   }
 
   /**
@@ -227,6 +270,7 @@ public class CustomNotification {
    */
   public CustomNotification paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -260,6 +304,7 @@ public class CustomNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -270,6 +315,7 @@ public class CustomNotification {
    */
   public CustomNotification reason(String reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
     return this;
   }
 
@@ -293,6 +339,7 @@ public class CustomNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(String reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
   }
 
   /**
@@ -304,6 +351,7 @@ public class CustomNotification {
    */
   public CustomNotification success(Boolean success) {
     this.success = success;
+    isSetSuccess = true; // mark as set
     return this;
   }
 
@@ -329,6 +377,26 @@ public class CustomNotification {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {
     this.success = success;
+    isSetSuccess = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CustomNotification object is equal to o. */
@@ -379,6 +447,48 @@ public class CustomNotification {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetEventCode) {
+      addIfNull(nulls, JSON_PROPERTY_EVENT_CODE, this.eventCode);
+    }
+    if (isSetEventDate) {
+      addIfNull(nulls, JSON_PROPERTY_EVENT_DATE, this.eventDate);
+    }
+    if (isSetMerchantReference) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_REFERENCE, this.merchantReference);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetReason) {
+      addIfNull(nulls, JSON_PROPERTY_REASON, this.reason);
+    }
+    if (isSetSuccess) {
+      addIfNull(nulls, JSON_PROPERTY_SUCCESS, this.success);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

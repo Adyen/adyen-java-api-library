@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,17 +35,38 @@ public class ModelConfiguration {
   public static final String JSON_PROPERTY_BRAND = "brand";
   private String brand;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBrand = false;
+
   public static final String JSON_PROPERTY_COMMERCIAL = "commercial";
   private Boolean commercial;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCommercial = false;
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private List<String> country;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountry = false;
+
   public static final String JSON_PROPERTY_CURRENCIES = "currencies";
   private List<Currency> currencies;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrencies = false;
+
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<String> sources;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSources = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public ModelConfiguration() {}
 
@@ -57,6 +80,7 @@ public class ModelConfiguration {
    */
   public ModelConfiguration brand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
     return this;
   }
 
@@ -84,6 +108,7 @@ public class ModelConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBrand(String brand) {
     this.brand = brand;
+    isSetBrand = true; // mark as set
   }
 
   /**
@@ -94,6 +119,7 @@ public class ModelConfiguration {
    */
   public ModelConfiguration commercial(Boolean commercial) {
     this.commercial = commercial;
+    isSetCommercial = true; // mark as set
     return this;
   }
 
@@ -117,6 +143,7 @@ public class ModelConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCommercial(Boolean commercial) {
     this.commercial = commercial;
+    isSetCommercial = true; // mark as set
   }
 
   /**
@@ -129,6 +156,7 @@ public class ModelConfiguration {
    */
   public ModelConfiguration country(List<String> country) {
     this.country = country;
+    isSetCountry = true; // mark as set
     return this;
   }
 
@@ -164,6 +192,7 @@ public class ModelConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(List<String> country) {
     this.country = country;
+    isSetCountry = true; // mark as set
   }
 
   /**
@@ -174,6 +203,7 @@ public class ModelConfiguration {
    */
   public ModelConfiguration currencies(List<Currency> currencies) {
     this.currencies = currencies;
+    isSetCurrencies = true; // mark as set
     return this;
   }
 
@@ -205,6 +235,7 @@ public class ModelConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrencies(List<Currency> currencies) {
     this.currencies = currencies;
+    isSetCurrencies = true; // mark as set
   }
 
   /**
@@ -215,6 +246,7 @@ public class ModelConfiguration {
    */
   public ModelConfiguration sources(List<String> sources) {
     this.sources = sources;
+    isSetSources = true; // mark as set
     return this;
   }
 
@@ -246,6 +278,26 @@ public class ModelConfiguration {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSources(List<String> sources) {
     this.sources = sources;
+    isSetSources = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Configuration object is equal to o. */
@@ -291,6 +343,42 @@ public class ModelConfiguration {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBrand) {
+      addIfNull(nulls, JSON_PROPERTY_BRAND, this.brand);
+    }
+    if (isSetCommercial) {
+      addIfNull(nulls, JSON_PROPERTY_COMMERCIAL, this.commercial);
+    }
+    if (isSetCountry) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
+    }
+    if (isSetCurrencies) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCIES, this.currencies);
+    }
+    if (isSetSources) {
+      addIfNull(nulls, JSON_PROPERTY_SOURCES, this.sources);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,11 +31,26 @@ public class TestCompanyWebhookRequest {
   public static final String JSON_PROPERTY_MERCHANT_IDS = "merchantIds";
   private List<String> merchantIds;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMerchantIds = false;
+
   public static final String JSON_PROPERTY_NOTIFICATION = "notification";
   private CustomNotification notification;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetNotification = false;
+
   public static final String JSON_PROPERTY_TYPES = "types";
   private List<String> types;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetTypes = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public TestCompanyWebhookRequest() {}
 
@@ -53,6 +70,7 @@ public class TestCompanyWebhookRequest {
    */
   public TestCompanyWebhookRequest merchantIds(List<String> merchantIds) {
     this.merchantIds = merchantIds;
+    isSetMerchantIds = true; // mark as set
     return this;
   }
 
@@ -100,23 +118,33 @@ public class TestCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMerchantIds(List<String> merchantIds) {
     this.merchantIds = merchantIds;
+    isSetMerchantIds = true; // mark as set
   }
 
   /**
-   * notification
+   * Custom test notification object. Required when the
+   * [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
+   * list contains **CUSTOM**.
    *
-   * @param notification
+   * @param notification Custom test notification object. Required when the
+   *     [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
+   *     list contains **CUSTOM**.
    * @return the current {@code TestCompanyWebhookRequest} instance, allowing for method chaining
    */
   public TestCompanyWebhookRequest notification(CustomNotification notification) {
     this.notification = notification;
+    isSetNotification = true; // mark as set
     return this;
   }
 
   /**
-   * Get notification
+   * Custom test notification object. Required when the
+   * [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
+   * list contains **CUSTOM**.
    *
-   * @return notification
+   * @return notification Custom test notification object. Required when the
+   *     [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
+   *     list contains **CUSTOM**.
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,14 +153,19 @@ public class TestCompanyWebhookRequest {
   }
 
   /**
-   * notification
+   * Custom test notification object. Required when the
+   * [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
+   * list contains **CUSTOM**.
    *
-   * @param notification
+   * @param notification Custom test notification object. Required when the
+   *     [&#x60;types&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookId}/test__reqParam_types)
+   *     list contains **CUSTOM**.
    */
   @JsonProperty(JSON_PROPERTY_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNotification(CustomNotification notification) {
     this.notification = notification;
+    isSetNotification = true; // mark as set
   }
 
   /**
@@ -163,6 +196,7 @@ public class TestCompanyWebhookRequest {
    */
   public TestCompanyWebhookRequest types(List<String> types) {
     this.types = types;
+    isSetTypes = true; // mark as set
     return this;
   }
 
@@ -234,6 +268,26 @@ public class TestCompanyWebhookRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTypes(List<String> types) {
     this.types = types;
+    isSetTypes = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this TestCompanyWebhookRequest object is equal to o. */
@@ -275,6 +329,36 @@ public class TestCompanyWebhookRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetMerchantIds) {
+      addIfNull(nulls, JSON_PROPERTY_MERCHANT_IDS, this.merchantIds);
+    }
+    if (isSetNotification) {
+      addIfNull(nulls, JSON_PROPERTY_NOTIFICATION, this.notification);
+    }
+    if (isSetTypes) {
+      addIfNull(nulls, JSON_PROPERTY_TYPES, this.types);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

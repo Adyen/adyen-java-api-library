@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class UpdateSplitConfigurationRuleRequest {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
+
   public static final String JSON_PROPERTY_FUNDING_SOURCE = "fundingSource";
   private String fundingSource;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFundingSource = false;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
   private String paymentMethod;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentMethod = false;
+
   public static final String JSON_PROPERTY_SHOPPER_INTERACTION = "shopperInteraction";
   private String shopperInteraction;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetShopperInteraction = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public UpdateSplitConfigurationRuleRequest() {}
 
@@ -50,6 +70,7 @@ public class UpdateSplitConfigurationRuleRequest {
    */
   public UpdateSplitConfigurationRuleRequest currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
@@ -77,6 +98,7 @@ public class UpdateSplitConfigurationRuleRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
@@ -90,6 +112,7 @@ public class UpdateSplitConfigurationRuleRequest {
    */
   public UpdateSplitConfigurationRuleRequest fundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
     return this;
   }
 
@@ -117,6 +140,7 @@ public class UpdateSplitConfigurationRuleRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFundingSource(String fundingSource) {
     this.fundingSource = fundingSource;
+    isSetFundingSource = true; // mark as set
   }
 
   /**
@@ -135,6 +159,7 @@ public class UpdateSplitConfigurationRuleRequest {
    */
   public UpdateSplitConfigurationRuleRequest paymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
     return this;
   }
 
@@ -172,6 +197,7 @@ public class UpdateSplitConfigurationRuleRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentMethod(String paymentMethod) {
     this.paymentMethod = paymentMethod;
+    isSetPaymentMethod = true; // mark as set
   }
 
   /**
@@ -195,6 +221,7 @@ public class UpdateSplitConfigurationRuleRequest {
    */
   public UpdateSplitConfigurationRuleRequest shopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
     return this;
   }
 
@@ -242,6 +269,26 @@ public class UpdateSplitConfigurationRuleRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShopperInteraction(String shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
+    isSetShopperInteraction = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this UpdateSplitConfigurationRuleRequest object is equal to o. */
@@ -287,6 +334,39 @@ public class UpdateSplitConfigurationRuleRequest {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetFundingSource) {
+      addIfNull(nulls, JSON_PROPERTY_FUNDING_SOURCE, this.fundingSource);
+    }
+    if (isSetPaymentMethod) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_METHOD, this.paymentMethod);
+    }
+    if (isSetShopperInteraction) {
+      addIfNull(nulls, JSON_PROPERTY_SHOPPER_INTERACTION, this.shopperInteraction);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.management;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,47 +36,91 @@ public class Terminal {
   public static final String JSON_PROPERTY_ASSIGNMENT = "assignment";
   private TerminalAssignment assignment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAssignment = false;
+
   public static final String JSON_PROPERTY_CONNECTIVITY = "connectivity";
   private TerminalConnectivity connectivity;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetConnectivity = false;
 
   public static final String JSON_PROPERTY_FIRMWARE_VERSION = "firmwareVersion";
   private String firmwareVersion;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFirmwareVersion = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_LAST_ACTIVITY_AT = "lastActivityAt";
   private OffsetDateTime lastActivityAt;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastActivityAt = false;
+
   public static final String JSON_PROPERTY_LAST_TRANSACTION_AT = "lastTransactionAt";
   private OffsetDateTime lastTransactionAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLastTransactionAt = false;
 
   public static final String JSON_PROPERTY_MODEL = "model";
   private String model;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetModel = false;
+
   public static final String JSON_PROPERTY_RESTART_LOCAL_TIME = "restartLocalTime";
   private String restartLocalTime;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRestartLocalTime = false;
 
   public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
   private String serialNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSerialNumber = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public Terminal() {}
 
   /**
-   * assignment
+   * Indicates the account level to which the terminal is assigned, the [assignment
+   * status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
+   * and where the terminals is in the process of being reassigned to.
    *
-   * @param assignment
+   * @param assignment Indicates the account level to which the terminal is assigned, the
+   *     [assignment
+   *     status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
+   *     and where the terminals is in the process of being reassigned to.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal assignment(TerminalAssignment assignment) {
     this.assignment = assignment;
+    isSetAssignment = true; // mark as set
     return this;
   }
 
   /**
-   * Get assignment
+   * Indicates the account level to which the terminal is assigned, the [assignment
+   * status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
+   * and where the terminals is in the process of being reassigned to.
    *
-   * @return assignment
+   * @return assignment Indicates the account level to which the terminal is assigned, the
+   *     [assignment
+   *     status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
+   *     and where the terminals is in the process of being reassigned to.
    */
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,31 +129,40 @@ public class Terminal {
   }
 
   /**
-   * assignment
+   * Indicates the account level to which the terminal is assigned, the [assignment
+   * status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
+   * and where the terminals is in the process of being reassigned to.
    *
-   * @param assignment
+   * @param assignment Indicates the account level to which the terminal is assigned, the
+   *     [assignment
+   *     status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
+   *     and where the terminals is in the process of being reassigned to.
    */
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssignment(TerminalAssignment assignment) {
     this.assignment = assignment;
+    isSetAssignment = true; // mark as set
   }
 
   /**
-   * connectivity
+   * Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
    *
-   * @param connectivity
+   * @param connectivity Information about bluetooth, cellular, ethernet and wifi connectivity for
+   *     the terminal.
    * @return the current {@code Terminal} instance, allowing for method chaining
    */
   public Terminal connectivity(TerminalConnectivity connectivity) {
     this.connectivity = connectivity;
+    isSetConnectivity = true; // mark as set
     return this;
   }
 
   /**
-   * Get connectivity
+   * Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
    *
-   * @return connectivity
+   * @return connectivity Information about bluetooth, cellular, ethernet and wifi connectivity for
+   *     the terminal.
    */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,14 +171,16 @@ public class Terminal {
   }
 
   /**
-   * connectivity
+   * Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
    *
-   * @param connectivity
+   * @param connectivity Information about bluetooth, cellular, ethernet and wifi connectivity for
+   *     the terminal.
    */
   @JsonProperty(JSON_PROPERTY_CONNECTIVITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectivity(TerminalConnectivity connectivity) {
     this.connectivity = connectivity;
+    isSetConnectivity = true; // mark as set
   }
 
   /**
@@ -134,6 +191,7 @@ public class Terminal {
    */
   public Terminal firmwareVersion(String firmwareVersion) {
     this.firmwareVersion = firmwareVersion;
+    isSetFirmwareVersion = true; // mark as set
     return this;
   }
 
@@ -157,6 +215,7 @@ public class Terminal {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFirmwareVersion(String firmwareVersion) {
     this.firmwareVersion = firmwareVersion;
+    isSetFirmwareVersion = true; // mark as set
   }
 
   /**
@@ -167,6 +226,7 @@ public class Terminal {
    */
   public Terminal id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -190,6 +250,7 @@ public class Terminal {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -202,6 +263,7 @@ public class Terminal {
    */
   public Terminal lastActivityAt(OffsetDateTime lastActivityAt) {
     this.lastActivityAt = lastActivityAt;
+    isSetLastActivityAt = true; // mark as set
     return this;
   }
 
@@ -229,6 +291,7 @@ public class Terminal {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastActivityAt(OffsetDateTime lastActivityAt) {
     this.lastActivityAt = lastActivityAt;
+    isSetLastActivityAt = true; // mark as set
   }
 
   /**
@@ -241,6 +304,7 @@ public class Terminal {
    */
   public Terminal lastTransactionAt(OffsetDateTime lastTransactionAt) {
     this.lastTransactionAt = lastTransactionAt;
+    isSetLastTransactionAt = true; // mark as set
     return this;
   }
 
@@ -268,6 +332,7 @@ public class Terminal {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastTransactionAt(OffsetDateTime lastTransactionAt) {
     this.lastTransactionAt = lastTransactionAt;
+    isSetLastTransactionAt = true; // mark as set
   }
 
   /**
@@ -278,6 +343,7 @@ public class Terminal {
    */
   public Terminal model(String model) {
     this.model = model;
+    isSetModel = true; // mark as set
     return this;
   }
 
@@ -301,6 +367,7 @@ public class Terminal {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setModel(String model) {
     this.model = model;
+    isSetModel = true; // mark as set
   }
 
   /**
@@ -312,6 +379,7 @@ public class Terminal {
    */
   public Terminal restartLocalTime(String restartLocalTime) {
     this.restartLocalTime = restartLocalTime;
+    isSetRestartLocalTime = true; // mark as set
     return this;
   }
 
@@ -337,6 +405,7 @@ public class Terminal {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRestartLocalTime(String restartLocalTime) {
     this.restartLocalTime = restartLocalTime;
+    isSetRestartLocalTime = true; // mark as set
   }
 
   /**
@@ -347,6 +416,7 @@ public class Terminal {
    */
   public Terminal serialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
+    isSetSerialNumber = true; // mark as set
     return this;
   }
 
@@ -370,6 +440,26 @@ public class Terminal {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(String serialNumber) {
     this.serialNumber = serialNumber;
+    isSetSerialNumber = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public void includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Terminal object is equal to o. */
@@ -432,6 +522,54 @@ public class Terminal {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAssignment) {
+      addIfNull(nulls, JSON_PROPERTY_ASSIGNMENT, this.assignment);
+    }
+    if (isSetConnectivity) {
+      addIfNull(nulls, JSON_PROPERTY_CONNECTIVITY, this.connectivity);
+    }
+    if (isSetFirmwareVersion) {
+      addIfNull(nulls, JSON_PROPERTY_FIRMWARE_VERSION, this.firmwareVersion);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetLastActivityAt) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_ACTIVITY_AT, this.lastActivityAt);
+    }
+    if (isSetLastTransactionAt) {
+      addIfNull(nulls, JSON_PROPERTY_LAST_TRANSACTION_AT, this.lastTransactionAt);
+    }
+    if (isSetModel) {
+      addIfNull(nulls, JSON_PROPERTY_MODEL, this.model);
+    }
+    if (isSetRestartLocalTime) {
+      addIfNull(nulls, JSON_PROPERTY_RESTART_LOCAL_TIME, this.restartLocalTime);
+    }
+    if (isSetSerialNumber) {
+      addIfNull(nulls, JSON_PROPERTY_SERIAL_NUMBER, this.serialNumber);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
