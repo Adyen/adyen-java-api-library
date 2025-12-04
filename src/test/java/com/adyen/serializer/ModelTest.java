@@ -10,6 +10,8 @@ import com.adyen.model.checkout.CheckoutPaymentMethod;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
 import com.adyen.model.checkout.StoredPaymentMethodDetails;
 import com.adyen.model.legalentitymanagement.*;
+import com.adyen.model.management.Connectivity;
+import com.adyen.model.management.TerminalSettings;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.time.Month;
 import java.time.ZoneId;
@@ -194,5 +196,36 @@ public class ModelTest {
     assertEquals(
         StoredPaymentMethodDetails.TypeEnum.BCMC_MOBILE, storedPaymentMethodDetails.getType());
     assertEquals("7219687191761347", storedPaymentMethodDetails.getStoredPaymentMethodId());
+  }
+
+  @Test
+  public void testToJsonTerminalSettingsSurchargeNotSet() throws JsonProcessingException {
+    TerminalSettings terminalSettings = new TerminalSettings();
+    terminalSettings.setConnectivity(
+        new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
+    String json = terminalSettings.toJson();
+    assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+  }
+
+  @Test
+  public void testToJsonTerminalSettingsSurchargeSetToNull() throws JsonProcessingException {
+    TerminalSettings terminalSettings = new TerminalSettings();
+    terminalSettings.includeNullValues(true);
+    terminalSettings.setConnectivity(
+        new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
+    terminalSettings.setSurcharge(null);
+    String json = terminalSettings.toJson();
+    assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"},\"surcharge\":null}", json);
+  }
+
+  @Test
+  public void testToJsonTerminalSettingsSurchargeChainToNull() throws JsonProcessingException {
+    TerminalSettings terminalSettings = new TerminalSettings();
+    terminalSettings
+        .includeNullValues(true)
+        .connectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED))
+        .setSurcharge(null);
+    String json = terminalSettings.toJson();
+    assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"},\"surcharge\":null}", json);
   }
 }
