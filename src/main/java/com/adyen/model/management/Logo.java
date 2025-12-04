@@ -77,8 +77,9 @@ public class Logo {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public void includeNullValues(boolean includeNullValues) {
+  public Logo includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
+    return this;
   }
 
   /** Returns whether null values are explicitly serialized in the JSON payload. */

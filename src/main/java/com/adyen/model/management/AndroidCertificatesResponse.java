@@ -84,8 +84,9 @@ public class AndroidCertificatesResponse {
   /**
    * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
    */
-  public void includeNullValues(boolean includeNullValues) {
+  public AndroidCertificatesResponse includeNullValues(boolean includeNullValues) {
     this.includeNullValues = includeNullValues;
+    return this;
   }
 
   /** Returns whether null values are explicitly serialized in the JSON payload. */
