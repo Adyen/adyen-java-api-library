@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,11 +31,26 @@ public class PaginatedBalanceAccountsResponse {
   public static final String JSON_PROPERTY_BALANCE_ACCOUNTS = "balanceAccounts";
   private List<BalanceAccountBase> balanceAccounts;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccounts = false;
+
   public static final String JSON_PROPERTY_HAS_NEXT = "hasNext";
   private Boolean hasNext;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHasNext = false;
+
   public static final String JSON_PROPERTY_HAS_PREVIOUS = "hasPrevious";
   private Boolean hasPrevious;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHasPrevious = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public PaginatedBalanceAccountsResponse() {}
 
@@ -47,6 +64,7 @@ public class PaginatedBalanceAccountsResponse {
   public PaginatedBalanceAccountsResponse balanceAccounts(
       List<BalanceAccountBase> balanceAccounts) {
     this.balanceAccounts = balanceAccounts;
+    isSetBalanceAccounts = true; // mark as set
     return this;
   }
 
@@ -79,6 +97,7 @@ public class PaginatedBalanceAccountsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccounts(List<BalanceAccountBase> balanceAccounts) {
     this.balanceAccounts = balanceAccounts;
+    isSetBalanceAccounts = true; // mark as set
   }
 
   /**
@@ -90,6 +109,7 @@ public class PaginatedBalanceAccountsResponse {
    */
   public PaginatedBalanceAccountsResponse hasNext(Boolean hasNext) {
     this.hasNext = hasNext;
+    isSetHasNext = true; // mark as set
     return this;
   }
 
@@ -113,6 +133,7 @@ public class PaginatedBalanceAccountsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasNext(Boolean hasNext) {
     this.hasNext = hasNext;
+    isSetHasNext = true; // mark as set
   }
 
   /**
@@ -124,6 +145,7 @@ public class PaginatedBalanceAccountsResponse {
    */
   public PaginatedBalanceAccountsResponse hasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
+    isSetHasPrevious = true; // mark as set
     return this;
   }
 
@@ -147,6 +169,27 @@ public class PaginatedBalanceAccountsResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasPrevious(Boolean hasPrevious) {
     this.hasPrevious = hasPrevious;
+    isSetHasPrevious = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public PaginatedBalanceAccountsResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this PaginatedBalanceAccountsResponse object is equal to o. */
@@ -189,6 +232,36 @@ public class PaginatedBalanceAccountsResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetBalanceAccounts) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNTS, this.balanceAccounts);
+    }
+    if (isSetHasNext) {
+      addIfNull(nulls, JSON_PROPERTY_HAS_NEXT, this.hasNext);
+    }
+    if (isSetHasPrevious) {
+      addIfNull(nulls, JSON_PROPERTY_HAS_PREVIOUS, this.hasPrevious);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,26 +34,56 @@ public class BankAccountDetails {
   public static final String JSON_PROPERTY_ACCOUNT_NUMBER = "accountNumber";
   private String accountNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountNumber = false;
+
   public static final String JSON_PROPERTY_ACCOUNT_TYPE = "accountType";
   private String accountType;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountType = false;
 
   public static final String JSON_PROPERTY_BRANCH_NUMBER = "branchNumber";
   private String branchNumber;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBranchNumber = false;
+
   public static final String JSON_PROPERTY_FORM_FACTOR = "formFactor";
   private String formFactor;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFormFactor = false;
 
   public static final String JSON_PROPERTY_IBAN = "iban";
   private String iban;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetIban = false;
+
   public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
   private String routingNumber;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRoutingNumber = false;
 
   public static final String JSON_PROPERTY_SORT_CODE = "sortCode";
   private String sortCode;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSortCode = false;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BankAccountDetails() {}
 
@@ -63,6 +95,7 @@ public class BankAccountDetails {
    */
   public BankAccountDetails accountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
     return this;
   }
 
@@ -86,6 +119,7 @@ public class BankAccountDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+    isSetAccountNumber = true; // mark as set
   }
 
   /**
@@ -97,6 +131,7 @@ public class BankAccountDetails {
    */
   public BankAccountDetails accountType(String accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
     return this;
   }
 
@@ -122,6 +157,7 @@ public class BankAccountDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountType(String accountType) {
     this.accountType = accountType;
+    isSetAccountType = true; // mark as set
   }
 
   /**
@@ -132,6 +168,7 @@ public class BankAccountDetails {
    */
   public BankAccountDetails branchNumber(String branchNumber) {
     this.branchNumber = branchNumber;
+    isSetBranchNumber = true; // mark as set
     return this;
   }
 
@@ -155,6 +192,7 @@ public class BankAccountDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBranchNumber(String branchNumber) {
     this.branchNumber = branchNumber;
+    isSetBranchNumber = true; // mark as set
   }
 
   /**
@@ -175,6 +213,7 @@ public class BankAccountDetails {
    */
   public BankAccountDetails formFactor(String formFactor) {
     this.formFactor = formFactor;
+    isSetFormFactor = true; // mark as set
     return this;
   }
 
@@ -218,6 +257,7 @@ public class BankAccountDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFactor(String formFactor) {
     this.formFactor = formFactor;
+    isSetFormFactor = true; // mark as set
   }
 
   /**
@@ -230,6 +270,7 @@ public class BankAccountDetails {
    */
   public BankAccountDetails iban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
     return this;
   }
 
@@ -257,6 +298,7 @@ public class BankAccountDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIban(String iban) {
     this.iban = iban;
+    isSetIban = true; // mark as set
   }
 
   /**
@@ -270,6 +312,7 @@ public class BankAccountDetails {
    */
   public BankAccountDetails routingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
+    isSetRoutingNumber = true; // mark as set
     return this;
   }
 
@@ -299,6 +342,7 @@ public class BankAccountDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoutingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
+    isSetRoutingNumber = true; // mark as set
   }
 
   /**
@@ -310,6 +354,7 @@ public class BankAccountDetails {
    */
   public BankAccountDetails sortCode(String sortCode) {
     this.sortCode = sortCode;
+    isSetSortCode = true; // mark as set
     return this;
   }
 
@@ -335,6 +380,7 @@ public class BankAccountDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSortCode(String sortCode) {
     this.sortCode = sortCode;
+    isSetSortCode = true; // mark as set
   }
 
   /**
@@ -345,6 +391,7 @@ public class BankAccountDetails {
    */
   public BankAccountDetails type(String type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -368,6 +415,27 @@ public class BankAccountDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(String type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BankAccountDetails includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BankAccountDetails object is equal to o. */
@@ -420,6 +488,51 @@ public class BankAccountDetails {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_NUMBER, this.accountNumber);
+    }
+    if (isSetAccountType) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_TYPE, this.accountType);
+    }
+    if (isSetBranchNumber) {
+      addIfNull(nulls, JSON_PROPERTY_BRANCH_NUMBER, this.branchNumber);
+    }
+    if (isSetFormFactor) {
+      addIfNull(nulls, JSON_PROPERTY_FORM_FACTOR, this.formFactor);
+    }
+    if (isSetIban) {
+      addIfNull(nulls, JSON_PROPERTY_IBAN, this.iban);
+    }
+    if (isSetRoutingNumber) {
+      addIfNull(nulls, JSON_PROPERTY_ROUTING_NUMBER, this.routingNumber);
+    }
+    if (isSetSortCode) {
+      addIfNull(nulls, JSON_PROPERTY_SORT_CODE, this.sortCode);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

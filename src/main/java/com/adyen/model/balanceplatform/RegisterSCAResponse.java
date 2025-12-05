@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,14 +30,32 @@ public class RegisterSCAResponse {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT_ID = "paymentInstrumentId";
   private String paymentInstrumentId;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrumentId = false;
 
   public static final String JSON_PROPERTY_SDK_INPUT = "sdkInput";
   private String sdkInput;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSdkInput = false;
+
   public static final String JSON_PROPERTY_SUCCESS = "success";
   private Boolean success;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetSuccess = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public RegisterSCAResponse() {}
 
@@ -47,6 +67,7 @@ public class RegisterSCAResponse {
    */
   public RegisterSCAResponse id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -70,6 +91,7 @@ public class RegisterSCAResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -81,6 +103,7 @@ public class RegisterSCAResponse {
    */
   public RegisterSCAResponse paymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
     return this;
   }
 
@@ -106,6 +129,7 @@ public class RegisterSCAResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrumentId(String paymentInstrumentId) {
     this.paymentInstrumentId = paymentInstrumentId;
+    isSetPaymentInstrumentId = true; // mark as set
   }
 
   /**
@@ -118,6 +142,7 @@ public class RegisterSCAResponse {
    */
   public RegisterSCAResponse sdkInput(String sdkInput) {
     this.sdkInput = sdkInput;
+    isSetSdkInput = true; // mark as set
     return this;
   }
 
@@ -145,6 +170,7 @@ public class RegisterSCAResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSdkInput(String sdkInput) {
     this.sdkInput = sdkInput;
+    isSetSdkInput = true; // mark as set
   }
 
   /**
@@ -155,6 +181,7 @@ public class RegisterSCAResponse {
    */
   public RegisterSCAResponse success(Boolean success) {
     this.success = success;
+    isSetSuccess = true; // mark as set
     return this;
   }
 
@@ -178,6 +205,27 @@ public class RegisterSCAResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSuccess(Boolean success) {
     this.success = success;
+    isSetSuccess = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public RegisterSCAResponse includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this RegisterSCAResponse object is equal to o. */
@@ -223,6 +271,39 @@ public class RegisterSCAResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPaymentInstrumentId) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT_ID, this.paymentInstrumentId);
+    }
+    if (isSetSdkInput) {
+      addIfNull(nulls, JSON_PROPERTY_SDK_INPUT, this.sdkInput);
+    }
+    if (isSetSuccess) {
+      addIfNull(nulls, JSON_PROPERTY_SUCCESS, this.success);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

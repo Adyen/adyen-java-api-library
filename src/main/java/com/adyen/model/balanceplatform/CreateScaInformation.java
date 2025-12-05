@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,8 +28,20 @@ public class CreateScaInformation {
   public static final String JSON_PROPERTY_EXEMPTION = "exemption";
   private ScaExemption exemption;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExemption = false;
+
   public static final String JSON_PROPERTY_SCA_ON_APPROVAL = "scaOnApproval";
   private Boolean scaOnApproval;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetScaOnApproval = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public CreateScaInformation() {}
 
@@ -39,6 +53,7 @@ public class CreateScaInformation {
    */
   public CreateScaInformation exemption(ScaExemption exemption) {
     this.exemption = exemption;
+    isSetExemption = true; // mark as set
     return this;
   }
 
@@ -62,6 +77,7 @@ public class CreateScaInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExemption(ScaExemption exemption) {
     this.exemption = exemption;
+    isSetExemption = true; // mark as set
   }
 
   /**
@@ -78,6 +94,7 @@ public class CreateScaInformation {
    */
   public CreateScaInformation scaOnApproval(Boolean scaOnApproval) {
     this.scaOnApproval = scaOnApproval;
+    isSetScaOnApproval = true; // mark as set
     return this;
   }
 
@@ -113,6 +130,27 @@ public class CreateScaInformation {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScaOnApproval(Boolean scaOnApproval) {
     this.scaOnApproval = scaOnApproval;
+    isSetScaOnApproval = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public CreateScaInformation includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this CreateScaInformation object is equal to o. */
@@ -152,6 +190,33 @@ public class CreateScaInformation {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetExemption) {
+      addIfNull(nulls, JSON_PROPERTY_EXEMPTION, this.exemption);
+    }
+    if (isSetScaOnApproval) {
+      addIfNull(nulls, JSON_PROPERTY_SCA_ON_APPROVAL, this.scaOnApproval);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

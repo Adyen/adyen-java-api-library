@@ -11,7 +11,9 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,8 +39,14 @@ public class GrantOffer {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER_ID = "accountHolderId";
   private String accountHolderId;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolderId = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   /** The contract type of the grant offer. Possible value: **cashAdvance**, **loan**. */
   public enum ContractTypeEnum {
@@ -84,20 +92,44 @@ public class GrantOffer {
   public static final String JSON_PROPERTY_CONTRACT_TYPE = "contractType";
   private ContractTypeEnum contractType;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetContractType = false;
+
   public static final String JSON_PROPERTY_EXPIRES_AT = "expiresAt";
   private OffsetDateTime expiresAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExpiresAt = false;
 
   public static final String JSON_PROPERTY_FEE = "fee";
   private Fee fee;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetFee = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
 
   public static final String JSON_PROPERTY_REPAYMENT = "repayment";
   private Repayment repayment;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetRepayment = false;
+
   public static final String JSON_PROPERTY_STARTS_AT = "startsAt";
   private OffsetDateTime startsAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStartsAt = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public GrantOffer() {}
 
@@ -109,6 +141,7 @@ public class GrantOffer {
    */
   public GrantOffer accountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
+    isSetAccountHolderId = true; // mark as set
     return this;
   }
 
@@ -132,6 +165,7 @@ public class GrantOffer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolderId(String accountHolderId) {
     this.accountHolderId = accountHolderId;
+    isSetAccountHolderId = true; // mark as set
   }
 
   /**
@@ -142,6 +176,7 @@ public class GrantOffer {
    */
   public GrantOffer amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -165,6 +200,7 @@ public class GrantOffer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -176,6 +212,7 @@ public class GrantOffer {
    */
   public GrantOffer contractType(ContractTypeEnum contractType) {
     this.contractType = contractType;
+    isSetContractType = true; // mark as set
     return this;
   }
 
@@ -201,6 +238,7 @@ public class GrantOffer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContractType(ContractTypeEnum contractType) {
     this.contractType = contractType;
+    isSetContractType = true; // mark as set
   }
 
   /**
@@ -211,6 +249,7 @@ public class GrantOffer {
    */
   public GrantOffer expiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
     return this;
   }
 
@@ -234,6 +273,7 @@ public class GrantOffer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
+    isSetExpiresAt = true; // mark as set
   }
 
   /**
@@ -244,6 +284,7 @@ public class GrantOffer {
    */
   public GrantOffer fee(Fee fee) {
     this.fee = fee;
+    isSetFee = true; // mark as set
     return this;
   }
 
@@ -267,6 +308,7 @@ public class GrantOffer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFee(Fee fee) {
     this.fee = fee;
+    isSetFee = true; // mark as set
   }
 
   /**
@@ -277,6 +319,7 @@ public class GrantOffer {
    */
   public GrantOffer id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -300,6 +343,7 @@ public class GrantOffer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -310,6 +354,7 @@ public class GrantOffer {
    */
   public GrantOffer repayment(Repayment repayment) {
     this.repayment = repayment;
+    isSetRepayment = true; // mark as set
     return this;
   }
 
@@ -333,6 +378,7 @@ public class GrantOffer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRepayment(Repayment repayment) {
     this.repayment = repayment;
+    isSetRepayment = true; // mark as set
   }
 
   /**
@@ -343,6 +389,7 @@ public class GrantOffer {
    */
   public GrantOffer startsAt(OffsetDateTime startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
     return this;
   }
 
@@ -366,6 +413,27 @@ public class GrantOffer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartsAt(OffsetDateTime startsAt) {
     this.startsAt = startsAt;
+    isSetStartsAt = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public GrantOffer includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this GrantOffer object is equal to o. */
@@ -418,6 +486,51 @@ public class GrantOffer {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolderId) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER_ID, this.accountHolderId);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetContractType) {
+      addIfNull(nulls, JSON_PROPERTY_CONTRACT_TYPE, this.contractType);
+    }
+    if (isSetExpiresAt) {
+      addIfNull(nulls, JSON_PROPERTY_EXPIRES_AT, this.expiresAt);
+    }
+    if (isSetFee) {
+      addIfNull(nulls, JSON_PROPERTY_FEE, this.fee);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetRepayment) {
+      addIfNull(nulls, JSON_PROPERTY_REPAYMENT, this.repayment);
+    }
+    if (isSetStartsAt) {
+      addIfNull(nulls, JSON_PROPERTY_STARTS_AT, this.startsAt);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

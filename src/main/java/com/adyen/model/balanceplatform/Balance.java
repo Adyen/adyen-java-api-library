@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,23 +25,51 @@ import java.util.*;
   Balance.JSON_PROPERTY_BALANCE,
   Balance.JSON_PROPERTY_CURRENCY,
   Balance.JSON_PROPERTY_PENDING,
+  Balance.JSON_PROPERTY_PENDING_AVAILABLE,
   Balance.JSON_PROPERTY_RESERVED
 })
 public class Balance {
   public static final String JSON_PROPERTY_AVAILABLE = "available";
   private Long available;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAvailable = false;
+
   public static final String JSON_PROPERTY_BALANCE = "balance";
   private Long balance;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalance = false;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
+
   public static final String JSON_PROPERTY_PENDING = "pending";
   private Long pending;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPending = false;
+
+  public static final String JSON_PROPERTY_PENDING_AVAILABLE = "pendingAvailable";
+  private Long pendingAvailable;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPendingAvailable = false;
+
   public static final String JSON_PROPERTY_RESERVED = "reserved";
   private Long reserved;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReserved = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Balance() {}
 
@@ -51,6 +81,7 @@ public class Balance {
    */
   public Balance available(Long available) {
     this.available = available;
+    isSetAvailable = true; // mark as set
     return this;
   }
 
@@ -74,6 +105,7 @@ public class Balance {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvailable(Long available) {
     this.available = available;
+    isSetAvailable = true; // mark as set
   }
 
   /**
@@ -84,6 +116,7 @@ public class Balance {
    */
   public Balance balance(Long balance) {
     this.balance = balance;
+    isSetBalance = true; // mark as set
     return this;
   }
 
@@ -107,6 +140,7 @@ public class Balance {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalance(Long balance) {
     this.balance = balance;
+    isSetBalance = true; // mark as set
   }
 
   /**
@@ -119,6 +153,7 @@ public class Balance {
    */
   public Balance currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
@@ -146,6 +181,7 @@ public class Balance {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
@@ -156,6 +192,7 @@ public class Balance {
    */
   public Balance pending(Long pending) {
     this.pending = pending;
+    isSetPending = true; // mark as set
     return this;
   }
 
@@ -179,6 +216,36 @@ public class Balance {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPending(Long pending) {
     this.pending = pending;
+    isSetPending = true; // mark as set
+  }
+
+  /**
+   * @param pendingAvailable
+   * @return the current {@code Balance} instance, allowing for method chaining
+   */
+  public Balance pendingAvailable(Long pendingAvailable) {
+    this.pendingAvailable = pendingAvailable;
+    isSetPendingAvailable = true; // mark as set
+    return this;
+  }
+
+  /**
+   * @return pendingAvailable
+   */
+  @JsonProperty(JSON_PROPERTY_PENDING_AVAILABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPendingAvailable() {
+    return pendingAvailable;
+  }
+
+  /**
+   * @param pendingAvailable
+   */
+  @JsonProperty(JSON_PROPERTY_PENDING_AVAILABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPendingAvailable(Long pendingAvailable) {
+    this.pendingAvailable = pendingAvailable;
+    isSetPendingAvailable = true; // mark as set
   }
 
   /**
@@ -189,6 +256,7 @@ public class Balance {
    */
   public Balance reserved(Long reserved) {
     this.reserved = reserved;
+    isSetReserved = true; // mark as set
     return this;
   }
 
@@ -212,6 +280,27 @@ public class Balance {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReserved(Long reserved) {
     this.reserved = reserved;
+    isSetReserved = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Balance includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Balance object is equal to o. */
@@ -228,12 +317,13 @@ public class Balance {
         && Objects.equals(this.balance, balance.balance)
         && Objects.equals(this.currency, balance.currency)
         && Objects.equals(this.pending, balance.pending)
+        && Objects.equals(this.pendingAvailable, balance.pendingAvailable)
         && Objects.equals(this.reserved, balance.reserved);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(available, balance, currency, pending, reserved);
+    return Objects.hash(available, balance, currency, pending, pendingAvailable, reserved);
   }
 
   @Override
@@ -244,6 +334,7 @@ public class Balance {
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
+    sb.append("    pendingAvailable: ").append(toIndentedString(pendingAvailable)).append("\n");
     sb.append("    reserved: ").append(toIndentedString(reserved)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -257,6 +348,45 @@ public class Balance {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAvailable) {
+      addIfNull(nulls, JSON_PROPERTY_AVAILABLE, this.available);
+    }
+    if (isSetBalance) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE, this.balance);
+    }
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetPending) {
+      addIfNull(nulls, JSON_PROPERTY_PENDING, this.pending);
+    }
+    if (isSetPendingAvailable) {
+      addIfNull(nulls, JSON_PROPERTY_PENDING_AVAILABLE, this.pendingAvailable);
+    }
+    if (isSetReserved) {
+      addIfNull(nulls, JSON_PROPERTY_RESERVED, this.reserved);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

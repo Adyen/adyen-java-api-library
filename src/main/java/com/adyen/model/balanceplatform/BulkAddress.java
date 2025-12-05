@@ -11,6 +11,8 @@
 
 package com.adyen.model.balanceplatform;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +30,7 @@ import java.util.*;
   BulkAddress.JSON_PROPERTY_LINE2,
   BulkAddress.JSON_PROPERTY_LINE3,
   BulkAddress.JSON_PROPERTY_MOBILE,
+  BulkAddress.JSON_PROPERTY_NAME,
   BulkAddress.JSON_PROPERTY_POSTAL_CODE,
   BulkAddress.JSON_PROPERTY_STATE_OR_PROVINCE,
   BulkAddress.JSON_PROPERTY_STREET
@@ -36,38 +39,86 @@ public class BulkAddress {
   public static final String JSON_PROPERTY_CITY = "city";
   private String city;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCity = false;
+
   public static final String JSON_PROPERTY_COMPANY = "company";
   private String company;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCompany = false;
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCountry = false;
+
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetEmail = false;
 
   public static final String JSON_PROPERTY_HOUSE_NUMBER_OR_NAME = "houseNumberOrName";
   private String houseNumberOrName;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetHouseNumberOrName = false;
+
   public static final String JSON_PROPERTY_LINE1 = "line1";
   private String line1;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLine1 = false;
 
   public static final String JSON_PROPERTY_LINE2 = "line2";
   private String line2;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLine2 = false;
+
   public static final String JSON_PROPERTY_LINE3 = "line3";
   private String line3;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetLine3 = false;
 
   public static final String JSON_PROPERTY_MOBILE = "mobile";
   private String mobile;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetMobile = false;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetName = false;
+
   public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
   private String postalCode;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPostalCode = false;
 
   public static final String JSON_PROPERTY_STATE_OR_PROVINCE = "stateOrProvince";
   private String stateOrProvince;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStateOrProvince = false;
+
   public static final String JSON_PROPERTY_STREET = "street";
   private String street;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStreet = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public BulkAddress() {}
 
@@ -79,6 +130,7 @@ public class BulkAddress {
    */
   public BulkAddress city(String city) {
     this.city = city;
+    isSetCity = true; // mark as set
     return this;
   }
 
@@ -102,6 +154,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
+    isSetCity = true; // mark as set
   }
 
   /**
@@ -112,6 +165,7 @@ public class BulkAddress {
    */
   public BulkAddress company(String company) {
     this.company = company;
+    isSetCompany = true; // mark as set
     return this;
   }
 
@@ -135,6 +189,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompany(String company) {
     this.company = company;
+    isSetCompany = true; // mark as set
   }
 
   /**
@@ -145,6 +200,7 @@ public class BulkAddress {
    */
   public BulkAddress country(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
     return this;
   }
 
@@ -168,6 +224,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(String country) {
     this.country = country;
+    isSetCountry = true; // mark as set
   }
 
   /**
@@ -178,6 +235,7 @@ public class BulkAddress {
    */
   public BulkAddress email(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
     return this;
   }
 
@@ -201,6 +259,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmail(String email) {
     this.email = email;
+    isSetEmail = true; // mark as set
   }
 
   /**
@@ -211,6 +270,7 @@ public class BulkAddress {
    */
   public BulkAddress houseNumberOrName(String houseNumberOrName) {
     this.houseNumberOrName = houseNumberOrName;
+    isSetHouseNumberOrName = true; // mark as set
     return this;
   }
 
@@ -234,6 +294,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHouseNumberOrName(String houseNumberOrName) {
     this.houseNumberOrName = houseNumberOrName;
+    isSetHouseNumberOrName = true; // mark as set
   }
 
   /**
@@ -246,6 +307,7 @@ public class BulkAddress {
    */
   public BulkAddress line1(String line1) {
     this.line1 = line1;
+    isSetLine1 = true; // mark as set
     return this;
   }
 
@@ -273,6 +335,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine1(String line1) {
     this.line1 = line1;
+    isSetLine1 = true; // mark as set
   }
 
   /**
@@ -284,6 +347,7 @@ public class BulkAddress {
    */
   public BulkAddress line2(String line2) {
     this.line2 = line2;
+    isSetLine2 = true; // mark as set
     return this;
   }
 
@@ -309,6 +373,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine2(String line2) {
     this.line2 = line2;
+    isSetLine2 = true; // mark as set
   }
 
   /**
@@ -319,6 +384,7 @@ public class BulkAddress {
    */
   public BulkAddress line3(String line3) {
     this.line3 = line3;
+    isSetLine3 = true; // mark as set
     return this;
   }
 
@@ -342,6 +408,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLine3(String line3) {
     this.line3 = line3;
+    isSetLine3 = true; // mark as set
   }
 
   /**
@@ -352,6 +419,7 @@ public class BulkAddress {
    */
   public BulkAddress mobile(String mobile) {
     this.mobile = mobile;
+    isSetMobile = true; // mark as set
     return this;
   }
 
@@ -375,6 +443,42 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMobile(String mobile) {
     this.mobile = mobile;
+    isSetMobile = true; // mark as set
+  }
+
+  /**
+   * The recipient’s name (person or contact), for example ‘John Doe’.
+   *
+   * @param name The recipient’s name (person or contact), for example ‘John Doe’.
+   * @return the current {@code BulkAddress} instance, allowing for method chaining
+   */
+  public BulkAddress name(String name) {
+    this.name = name;
+    isSetName = true; // mark as set
+    return this;
+  }
+
+  /**
+   * The recipient’s name (person or contact), for example ‘John Doe’.
+   *
+   * @return name The recipient’s name (person or contact), for example ‘John Doe’.
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * The recipient’s name (person or contact), for example ‘John Doe’.
+   *
+   * @param name The recipient’s name (person or contact), for example ‘John Doe’.
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+    isSetName = true; // mark as set
   }
 
   /**
@@ -387,6 +491,7 @@ public class BulkAddress {
    */
   public BulkAddress postalCode(String postalCode) {
     this.postalCode = postalCode;
+    isSetPostalCode = true; // mark as set
     return this;
   }
 
@@ -414,6 +519,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
+    isSetPostalCode = true; // mark as set
   }
 
   /**
@@ -426,6 +532,7 @@ public class BulkAddress {
    */
   public BulkAddress stateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
+    isSetStateOrProvince = true; // mark as set
     return this;
   }
 
@@ -453,6 +560,7 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateOrProvince(String stateOrProvince) {
     this.stateOrProvince = stateOrProvince;
+    isSetStateOrProvince = true; // mark as set
   }
 
   /**
@@ -463,6 +571,7 @@ public class BulkAddress {
    */
   public BulkAddress street(String street) {
     this.street = street;
+    isSetStreet = true; // mark as set
     return this;
   }
 
@@ -486,6 +595,27 @@ public class BulkAddress {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStreet(String street) {
     this.street = street;
+    isSetStreet = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BulkAddress includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BulkAddress object is equal to o. */
@@ -507,6 +637,7 @@ public class BulkAddress {
         && Objects.equals(this.line2, bulkAddress.line2)
         && Objects.equals(this.line3, bulkAddress.line3)
         && Objects.equals(this.mobile, bulkAddress.mobile)
+        && Objects.equals(this.name, bulkAddress.name)
         && Objects.equals(this.postalCode, bulkAddress.postalCode)
         && Objects.equals(this.stateOrProvince, bulkAddress.stateOrProvince)
         && Objects.equals(this.street, bulkAddress.street);
@@ -524,6 +655,7 @@ public class BulkAddress {
         line2,
         line3,
         mobile,
+        name,
         postalCode,
         stateOrProvince,
         street);
@@ -542,6 +674,7 @@ public class BulkAddress {
     sb.append("    line2: ").append(toIndentedString(line2)).append("\n");
     sb.append("    line3: ").append(toIndentedString(line3)).append("\n");
     sb.append("    mobile: ").append(toIndentedString(mobile)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
@@ -557,6 +690,66 @@ public class BulkAddress {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCity) {
+      addIfNull(nulls, JSON_PROPERTY_CITY, this.city);
+    }
+    if (isSetCompany) {
+      addIfNull(nulls, JSON_PROPERTY_COMPANY, this.company);
+    }
+    if (isSetCountry) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTRY, this.country);
+    }
+    if (isSetEmail) {
+      addIfNull(nulls, JSON_PROPERTY_EMAIL, this.email);
+    }
+    if (isSetHouseNumberOrName) {
+      addIfNull(nulls, JSON_PROPERTY_HOUSE_NUMBER_OR_NAME, this.houseNumberOrName);
+    }
+    if (isSetLine1) {
+      addIfNull(nulls, JSON_PROPERTY_LINE1, this.line1);
+    }
+    if (isSetLine2) {
+      addIfNull(nulls, JSON_PROPERTY_LINE2, this.line2);
+    }
+    if (isSetLine3) {
+      addIfNull(nulls, JSON_PROPERTY_LINE3, this.line3);
+    }
+    if (isSetMobile) {
+      addIfNull(nulls, JSON_PROPERTY_MOBILE, this.mobile);
+    }
+    if (isSetName) {
+      addIfNull(nulls, JSON_PROPERTY_NAME, this.name);
+    }
+    if (isSetPostalCode) {
+      addIfNull(nulls, JSON_PROPERTY_POSTAL_CODE, this.postalCode);
+    }
+    if (isSetStateOrProvince) {
+      addIfNull(nulls, JSON_PROPERTY_STATE_OR_PROVINCE, this.stateOrProvince);
+    }
+    if (isSetStreet) {
+      addIfNull(nulls, JSON_PROPERTY_STREET, this.street);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
