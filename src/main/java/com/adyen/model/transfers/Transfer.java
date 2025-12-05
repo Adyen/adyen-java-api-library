@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -49,21 +51,30 @@ public class Transfer {
   public static final String JSON_PROPERTY_ACCOUNT_HOLDER = "accountHolder";
   private ResourceReference accountHolder;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAccountHolder = false;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Amount amount;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetAmount = false;
 
   public static final String JSON_PROPERTY_BALANCE_ACCOUNT = "balanceAccount";
   private ResourceReference balanceAccount;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetBalanceAccount = false;
+
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   public enum CategoryEnum {
     BANK(String.valueOf("bank")),
@@ -116,24 +127,45 @@ public class Transfer {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryEnum category;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCategory = false;
+
   public static final String JSON_PROPERTY_CATEGORY_DATA = "categoryData";
   private TransferCategoryData categoryData;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCategoryData = false;
 
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private CounterpartyV3 counterparty;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCounterparty = false;
+
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreatedAt = false;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
   private OffsetDateTime creationDate;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCreationDate = false;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDescription = false;
+
   public static final String JSON_PROPERTY_DIRECT_DEBIT_INFORMATION = "directDebitInformation";
   private DirectDebitInformation directDebitInformation;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDirectDebitInformation = false;
 
   /** The direction of the transfer. Possible values: **incoming**, **outgoing**. */
   public enum DirectionEnum {
@@ -179,14 +211,26 @@ public class Transfer {
   public static final String JSON_PROPERTY_DIRECTION = "direction";
   private DirectionEnum direction;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetDirection = false;
+
   public static final String JSON_PROPERTY_EXECUTION_DATE = "executionDate";
   private ExecutionDate executionDate;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetExecutionDate = false;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetId = false;
+
   public static final String JSON_PROPERTY_PAYMENT_INSTRUMENT = "paymentInstrument";
   private PaymentInstrument paymentInstrument;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPaymentInstrument = false;
 
   /** Additional information about the status of the transfer. */
   public enum ReasonEnum {
@@ -237,6 +281,8 @@ public class Transfer {
 
     SCAFAILED(String.valueOf("scaFailed")),
 
+    SCHEMEADVICE(String.valueOf("schemeAdvice")),
+
     TRANSFERINSTRUMENTDOESNOTEXIST(String.valueOf("transferInstrumentDoesNotExist")),
 
     UNKNOWN(String.valueOf("unknown"));
@@ -279,21 +325,35 @@ public class Transfer {
   public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReason = false;
+
   public static final String JSON_PROPERTY_REFERENCE = "reference";
   private String reference;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReference = false;
 
   public static final String JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY = "referenceForBeneficiary";
   private String referenceForBeneficiary;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReferenceForBeneficiary = false;
+
   public static final String JSON_PROPERTY_REVIEW = "review";
   private TransferReview review;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReview = false;
+
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
-   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
-   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
-   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
-   * by the counterparty&#39;s bank.
+   * created. - **refused**: the transfer request is rejected by Adyen for one of the following
+   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
+   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
+   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   * transfer is returned by the counterparty&#39;s bank.
    */
   public enum StatusEnum {
     APPROVALPENDING(String.valueOf("approvalPending")),
@@ -468,6 +528,9 @@ public class Transfer {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   /**
    * The type of transfer or transaction. For example, **refund**, **payment**,
    * **internalTransfer**, **bankTransfer**.
@@ -587,6 +650,15 @@ public class Transfer {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public Transfer() {}
 
   /**
@@ -597,6 +669,7 @@ public class Transfer {
    */
   public Transfer accountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
     return this;
   }
 
@@ -620,6 +693,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountHolder(ResourceReference accountHolder) {
     this.accountHolder = accountHolder;
+    isSetAccountHolder = true; // mark as set
   }
 
   /**
@@ -630,6 +704,7 @@ public class Transfer {
    */
   public Transfer amount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
     return this;
   }
 
@@ -653,6 +728,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAmount(Amount amount) {
     this.amount = amount;
+    isSetAmount = true; // mark as set
   }
 
   /**
@@ -663,6 +739,7 @@ public class Transfer {
    */
   public Transfer balanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
+    isSetBalanceAccount = true; // mark as set
     return this;
   }
 
@@ -686,53 +763,55 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBalanceAccount(ResourceReference balanceAccount) {
     this.balanceAccount = balanceAccount;
+    isSetBalanceAccount = true; // mark as set
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category The category of the transfer. Possible values: - **bank**: a transfer involving
+   * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer category(CategoryEnum category) {
     this.category = category;
+    isSetCategory = true; // mark as set
     return this;
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @return category The category of the transfer. Possible values: - **bank**: a transfer
+   * @return category The category of the transfer. Possible values: - **bank**: A transfer
    *     involving a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -741,29 +820,30 @@ public class Transfer {
   }
 
   /**
-   * The category of the transfer. Possible values: - **bank**: a transfer involving a [transfer
-   * instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   * or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   * The category of the transfer. Possible values: - **bank**: A transfer involving a [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   * or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    * transfer between [balance
-   * accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   * within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   * **platformPayment**: funds movements related to payments that are acquired for your users. -
-   * **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   * accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   * within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   * **platformPayment**: Funds movements related to payments that are acquired for your users. -
+   * **topUp**: An incoming transfer initiated by your user to top up their balance account.
    *
-   * @param category The category of the transfer. Possible values: - **bank**: a transfer involving
+   * @param category The category of the transfer. Possible values: - **bank**: A transfer involving
    *     a [transfer
-   *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
-   *     or a bank account. - **card**: a transfer involving a third-party card. - **internal**: a
+   *     instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *     or a bank account. - **card**: A transfer involving a third-party card. - **internal**: A
    *     transfer between [balance
-   *     accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
-   *     within your platform. - **issuedCard**: a transfer initiated by an Adyen-issued card. -
-   *     **platformPayment**: funds movements related to payments that are acquired for your users.
-   *     - **topUp**: an incoming transfer initiated by your user to top up their balance account.
+   *     accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *     within your platform. - **issuedCard**: A transfer initiated by an Adyen-issued card. -
+   *     **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *     - **topUp**: An incoming transfer initiated by your user to top up their balance account.
    */
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategory(CategoryEnum category) {
     this.category = category;
+    isSetCategory = true; // mark as set
   }
 
   /**
@@ -774,6 +854,7 @@ public class Transfer {
    */
   public Transfer categoryData(TransferCategoryData categoryData) {
     this.categoryData = categoryData;
+    isSetCategoryData = true; // mark as set
     return this;
   }
 
@@ -797,6 +878,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCategoryData(TransferCategoryData categoryData) {
     this.categoryData = categoryData;
+    isSetCategoryData = true; // mark as set
   }
 
   /**
@@ -807,6 +889,7 @@ public class Transfer {
    */
   public Transfer counterparty(CounterpartyV3 counterparty) {
     this.counterparty = counterparty;
+    isSetCounterparty = true; // mark as set
     return this;
   }
 
@@ -830,6 +913,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCounterparty(CounterpartyV3 counterparty) {
     this.counterparty = counterparty;
+    isSetCounterparty = true; // mark as set
   }
 
   /**
@@ -842,6 +926,7 @@ public class Transfer {
    */
   public Transfer createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
     return this;
   }
 
@@ -869,6 +954,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+    isSetCreatedAt = true; // mark as set
   }
 
   /**
@@ -883,6 +969,7 @@ public class Transfer {
   @Deprecated // deprecated since Transfers API v3: Use createdAt or updatedAt
   public Transfer creationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
     return this;
   }
 
@@ -914,6 +1001,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+    isSetCreationDate = true; // mark as set
   }
 
   /**
@@ -932,6 +1020,7 @@ public class Transfer {
    */
   public Transfer description(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
     return this;
   }
 
@@ -971,6 +1060,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+    isSetDescription = true; // mark as set
   }
 
   /**
@@ -981,6 +1071,7 @@ public class Transfer {
    */
   public Transfer directDebitInformation(DirectDebitInformation directDebitInformation) {
     this.directDebitInformation = directDebitInformation;
+    isSetDirectDebitInformation = true; // mark as set
     return this;
   }
 
@@ -1004,6 +1095,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirectDebitInformation(DirectDebitInformation directDebitInformation) {
     this.directDebitInformation = directDebitInformation;
+    isSetDirectDebitInformation = true; // mark as set
   }
 
   /**
@@ -1014,6 +1106,7 @@ public class Transfer {
    */
   public Transfer direction(DirectionEnum direction) {
     this.direction = direction;
+    isSetDirection = true; // mark as set
     return this;
   }
 
@@ -1037,6 +1130,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDirection(DirectionEnum direction) {
     this.direction = direction;
+    isSetDirection = true; // mark as set
   }
 
   /**
@@ -1047,6 +1141,7 @@ public class Transfer {
    */
   public Transfer executionDate(ExecutionDate executionDate) {
     this.executionDate = executionDate;
+    isSetExecutionDate = true; // mark as set
     return this;
   }
 
@@ -1070,6 +1165,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExecutionDate(ExecutionDate executionDate) {
     this.executionDate = executionDate;
+    isSetExecutionDate = true; // mark as set
   }
 
   /**
@@ -1080,6 +1176,7 @@ public class Transfer {
    */
   public Transfer id(String id) {
     this.id = id;
+    isSetId = true; // mark as set
     return this;
   }
 
@@ -1103,6 +1200,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+    isSetId = true; // mark as set
   }
 
   /**
@@ -1113,6 +1211,7 @@ public class Transfer {
    */
   public Transfer paymentInstrument(PaymentInstrument paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
+    isSetPaymentInstrument = true; // mark as set
     return this;
   }
 
@@ -1136,6 +1235,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPaymentInstrument(PaymentInstrument paymentInstrument) {
     this.paymentInstrument = paymentInstrument;
+    isSetPaymentInstrument = true; // mark as set
   }
 
   /**
@@ -1146,6 +1246,7 @@ public class Transfer {
    */
   public Transfer reason(ReasonEnum reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
     return this;
   }
 
@@ -1169,6 +1270,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
   }
 
   /**
@@ -1181,6 +1283,7 @@ public class Transfer {
    */
   public Transfer reference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
     return this;
   }
 
@@ -1208,6 +1311,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReference(String reference) {
     this.reference = reference;
+    isSetReference = true; // mark as set
   }
 
   /**
@@ -1226,6 +1330,7 @@ public class Transfer {
    */
   public Transfer referenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
+    isSetReferenceForBeneficiary = true; // mark as set
     return this;
   }
 
@@ -1265,6 +1370,7 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReferenceForBeneficiary(String referenceForBeneficiary) {
     this.referenceForBeneficiary = referenceForBeneficiary;
+    isSetReferenceForBeneficiary = true; // mark as set
   }
 
   /**
@@ -1275,6 +1381,7 @@ public class Transfer {
    */
   public Transfer review(TransferReview review) {
     this.review = review;
+    isSetReview = true; // mark as set
     return this;
   }
 
@@ -1298,39 +1405,51 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReview(TransferReview review) {
     this.review = review;
+    isSetReview = true; // mark as set
   }
 
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
-   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
-   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
-   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
-   * by the counterparty&#39;s bank.
+   * created. - **refused**: the transfer request is rejected by Adyen for one of the following
+   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
+   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
+   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   * transfer is returned by the counterparty&#39;s bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
-   *     request is created. - **authorised**: the transfer request is authorized and the funds are
-   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   *     transfer is returned by the counterparty&#39;s bank.
+   *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
+   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
+   *     Transaction rule requirements violated. - **authorised**: the transfer request is
+   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
+   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
+   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   *     bank.
    * @return the current {@code Transfer} instance, allowing for method chaining
    */
   public Transfer status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
-   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
-   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
-   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
-   * by the counterparty&#39;s bank.
+   * created. - **refused**: the transfer request is rejected by Adyen for one of the following
+   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
+   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
+   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   * transfer is returned by the counterparty&#39;s bank.
    *
    * @return status The result of the transfer. For example: - **received**: an outgoing transfer
-   *     request is created. - **authorised**: the transfer request is authorized and the funds are
-   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   *     transfer is returned by the counterparty&#39;s bank.
+   *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
+   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
+   *     Transaction rule requirements violated. - **authorised**: the transfer request is
+   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
+   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
+   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   *     bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1340,21 +1459,27 @@ public class Transfer {
 
   /**
    * The result of the transfer. For example: - **received**: an outgoing transfer request is
-   * created. - **authorised**: the transfer request is authorized and the funds are reserved. -
-   * **booked**: the funds are deducted from your user&#39;s balance account. - **failed**: the
-   * transfer is rejected by the counterparty&#39;s bank. - **returned**: the transfer is returned
-   * by the counterparty&#39;s bank.
+   * created. - **refused**: the transfer request is rejected by Adyen for one of the following
+   * reasons: - Lack of funds in the balance account. - Transfer limit exceeded. - Transaction rule
+   * requirements violated. - **authorised**: the transfer request is authorized and the funds are
+   * reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
+   * **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
+   * transfer is returned by the counterparty&#39;s bank.
    *
    * @param status The result of the transfer. For example: - **received**: an outgoing transfer
-   *     request is created. - **authorised**: the transfer request is authorized and the funds are
-   *     reserved. - **booked**: the funds are deducted from your user&#39;s balance account. -
-   *     **failed**: the transfer is rejected by the counterparty&#39;s bank. - **returned**: the
-   *     transfer is returned by the counterparty&#39;s bank.
+   *     request is created. - **refused**: the transfer request is rejected by Adyen for one of the
+   *     following reasons: - Lack of funds in the balance account. - Transfer limit exceeded. -
+   *     Transaction rule requirements violated. - **authorised**: the transfer request is
+   *     authorized and the funds are reserved. - **booked**: the funds are deducted from your
+   *     user&#39;s balance account. - **failed**: the transfer is rejected by the
+   *     counterparty&#39;s bank. - **returned**: the transfer is returned by the counterparty&#39;s
+   *     bank.
    */
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -1367,6 +1492,7 @@ public class Transfer {
    */
   public Transfer type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -1394,6 +1520,27 @@ public class Transfer {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Transfer includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Transfer object is equal to o. */
@@ -1493,6 +1640,87 @@ public class Transfer {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetAccountHolder) {
+      addIfNull(nulls, JSON_PROPERTY_ACCOUNT_HOLDER, this.accountHolder);
+    }
+    if (isSetAmount) {
+      addIfNull(nulls, JSON_PROPERTY_AMOUNT, this.amount);
+    }
+    if (isSetBalanceAccount) {
+      addIfNull(nulls, JSON_PROPERTY_BALANCE_ACCOUNT, this.balanceAccount);
+    }
+    if (isSetCategory) {
+      addIfNull(nulls, JSON_PROPERTY_CATEGORY, this.category);
+    }
+    if (isSetCategoryData) {
+      addIfNull(nulls, JSON_PROPERTY_CATEGORY_DATA, this.categoryData);
+    }
+    if (isSetCounterparty) {
+      addIfNull(nulls, JSON_PROPERTY_COUNTERPARTY, this.counterparty);
+    }
+    if (isSetCreatedAt) {
+      addIfNull(nulls, JSON_PROPERTY_CREATED_AT, this.createdAt);
+    }
+    if (isSetCreationDate) {
+      addIfNull(nulls, JSON_PROPERTY_CREATION_DATE, this.creationDate);
+    }
+    if (isSetDescription) {
+      addIfNull(nulls, JSON_PROPERTY_DESCRIPTION, this.description);
+    }
+    if (isSetDirectDebitInformation) {
+      addIfNull(nulls, JSON_PROPERTY_DIRECT_DEBIT_INFORMATION, this.directDebitInformation);
+    }
+    if (isSetDirection) {
+      addIfNull(nulls, JSON_PROPERTY_DIRECTION, this.direction);
+    }
+    if (isSetExecutionDate) {
+      addIfNull(nulls, JSON_PROPERTY_EXECUTION_DATE, this.executionDate);
+    }
+    if (isSetId) {
+      addIfNull(nulls, JSON_PROPERTY_ID, this.id);
+    }
+    if (isSetPaymentInstrument) {
+      addIfNull(nulls, JSON_PROPERTY_PAYMENT_INSTRUMENT, this.paymentInstrument);
+    }
+    if (isSetReason) {
+      addIfNull(nulls, JSON_PROPERTY_REASON, this.reason);
+    }
+    if (isSetReference) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE, this.reference);
+    }
+    if (isSetReferenceForBeneficiary) {
+      addIfNull(nulls, JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY, this.referenceForBeneficiary);
+    }
+    if (isSetReview) {
+      addIfNull(nulls, JSON_PROPERTY_REVIEW, this.review);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

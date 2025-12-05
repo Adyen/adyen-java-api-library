@@ -11,7 +11,9 @@
 
 package com.adyen.model.transferwebhooks;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -74,6 +76,9 @@ public class InternalReviewTrackingData {
   public static final String JSON_PROPERTY_REASON = "reason";
   private ReasonEnum reason;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetReason = false;
+
   /**
    * The status of the transfer. Possible values: - **pending**: the transfer is under internal
    * review by Adyen. - **failed**: the transfer failed Adyen&#39;s internal review. For details,
@@ -122,6 +127,9 @@ public class InternalReviewTrackingData {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetStatus = false;
+
   /**
    * The type of tracking event. Possible values: - **internalReview**: the transfer was flagged
    * because it does not comply with Adyen&#39;s risk policy.
@@ -167,6 +175,15 @@ public class InternalReviewTrackingData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public InternalReviewTrackingData() {}
 
   /**
@@ -182,6 +199,7 @@ public class InternalReviewTrackingData {
    */
   public InternalReviewTrackingData reason(ReasonEnum reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
     return this;
   }
 
@@ -215,6 +233,7 @@ public class InternalReviewTrackingData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReason(ReasonEnum reason) {
     this.reason = reason;
+    isSetReason = true; // mark as set
   }
 
   /**
@@ -229,6 +248,7 @@ public class InternalReviewTrackingData {
    */
   public InternalReviewTrackingData status(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
     return this;
   }
 
@@ -260,6 +280,7 @@ public class InternalReviewTrackingData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(StatusEnum status) {
     this.status = status;
+    isSetStatus = true; // mark as set
   }
 
   /**
@@ -272,6 +293,7 @@ public class InternalReviewTrackingData {
    */
   public InternalReviewTrackingData type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -299,6 +321,27 @@ public class InternalReviewTrackingData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public InternalReviewTrackingData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this InternalReviewTrackingData object is equal to o. */
@@ -340,6 +383,36 @@ public class InternalReviewTrackingData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetReason) {
+      addIfNull(nulls, JSON_PROPERTY_REASON, this.reason);
+    }
+    if (isSetStatus) {
+      addIfNull(nulls, JSON_PROPERTY_STATUS, this.status);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
