@@ -242,4 +242,21 @@ public class ModelTest {
     String json = terminalSettings.toJson();
     assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"},\"surcharge\":null}", json);
   }
+
+	// test values, that are not explicitly SET as null, are not serialized (even when includeNullValues is true)
+	@Test
+	public void testToJsonFlagTrueButFieldNotSet() throws JsonProcessingException {
+		TerminalSettings terminalSettings = new TerminalSettings();
+		// must consider null values that are explicitly set
+		terminalSettings.includeNullValues(true);
+
+		// We set connectivity, but we NEVER touch 'surcharge'
+		terminalSettings.setConnectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
+
+		String json = terminalSettings.toJson();
+
+		// Expectation: 'surcharge' should NOT be present, even though the flag is true.
+		// It should only be present if we called setSurcharge().
+		assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+	}
 }
