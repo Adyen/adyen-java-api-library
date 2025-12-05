@@ -198,7 +198,7 @@ public class ModelTest {
     assertEquals("7219687191761347", storedPaymentMethodDetails.getStoredPaymentMethodId());
   }
 
-	// test null values are not serialized
+  // test null values are not serialized
   @Test
   public void testToJsonTerminalSettingsSurchargeNotSet() throws JsonProcessingException {
     TerminalSettings terminalSettings = new TerminalSettings();
@@ -208,18 +208,19 @@ public class ModelTest {
     assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
   }
 
-	// test values set as null are not serialized when includeNullValues is false
-	@Test
-	public void testToJsonTerminalSettingsSurchargeSetToNullWithoutEnablingIncludeNullValues() throws JsonProcessingException {
-		TerminalSettings terminalSettings = new TerminalSettings();
-		terminalSettings
-				.connectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED))
-				.setSurcharge(null);
-		String json = terminalSettings.toJson();
-		assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
-	}
+  // test values set as null are not serialized when includeNullValues is false
+  @Test
+  public void testToJsonTerminalSettingsSurchargeSetToNullWithoutEnablingIncludeNullValues()
+      throws JsonProcessingException {
+    TerminalSettings terminalSettings = new TerminalSettings();
+    terminalSettings
+        .connectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED))
+        .setSurcharge(null);
+    String json = terminalSettings.toJson();
+    assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+  }
 
-	// test values set as null (using setters) are serialized
+  // test values set as null (using setters) are serialized
   @Test
   public void testToJsonTerminalSettingsSurchargeSetToNull() throws JsonProcessingException {
     TerminalSettings terminalSettings = new TerminalSettings();
@@ -231,7 +232,7 @@ public class ModelTest {
     assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"},\"surcharge\":null}", json);
   }
 
-	// test values set as null (using build methods) are serialized
+  // test values set as null (using build methods) are serialized
   @Test
   public void testToJsonTerminalSettingsSurchargeChainToNull() throws JsonProcessingException {
     TerminalSettings terminalSettings = new TerminalSettings();
@@ -243,20 +244,22 @@ public class ModelTest {
     assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"},\"surcharge\":null}", json);
   }
 
-	// test values, that are not explicitly SET as null, are not serialized (even when includeNullValues is true)
-	@Test
-	public void testToJsonFlagTrueButFieldNotSet() throws JsonProcessingException {
-		TerminalSettings terminalSettings = new TerminalSettings();
-		// must consider null values that are explicitly set
-		terminalSettings.includeNullValues(true);
+  // test values, that are not explicitly SET as null, are not serialized (even when
+  // includeNullValues is true)
+  @Test
+  public void testToJsonFlagTrueButFieldNotSet() throws JsonProcessingException {
+    TerminalSettings terminalSettings = new TerminalSettings();
+    // must consider null values that are explicitly set
+    terminalSettings.includeNullValues(true);
 
-		// We set connectivity, but we NEVER touch 'surcharge'
-		terminalSettings.setConnectivity(new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
+    // We set connectivity, but we NEVER touch 'surcharge'
+    terminalSettings.setConnectivity(
+        new Connectivity().simcardStatus(Connectivity.SimcardStatusEnum.ACTIVATED));
 
-		String json = terminalSettings.toJson();
+    String json = terminalSettings.toJson();
 
-		// Expectation: 'surcharge' should NOT be present, even though the flag is true.
-		// It should only be present if we called setSurcharge().
-		assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
-	}
+    // Expectation: 'surcharge' should NOT be present, even though the flag is true.
+    // It should only be present if we called setSurcharge().
+    assertEquals("{\"connectivity\":{\"simcardStatus\":\"ACTIVATED\"}}", json);
+  }
 }
