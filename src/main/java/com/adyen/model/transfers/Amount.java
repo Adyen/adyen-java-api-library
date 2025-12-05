@@ -11,6 +11,8 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,30 +25,47 @@ public class Amount {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetCurrency = false;
+
   public static final String JSON_PROPERTY_VALUE = "value";
   private Long value;
+
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetValue = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
 
   public Amount() {}
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @param currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount currency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
     return this;
   }
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @return currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -56,35 +75,39 @@ public class Amount {
 
   /**
    * The three-character [ISO currency
-   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   * code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   * amount.
    *
    * @param currency The three-character [ISO currency
-   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+   *     code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the
+   *     amount.
    */
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCurrency(String currency) {
     this.currency = currency;
+    isSetCurrency = true; // mark as set
   }
 
   /**
-   * The amount of the transaction, in [minor
+   * The numeric value of the amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value The amount of the transaction, in [minor
+   * @param value The numeric value of the amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    * @return the current {@code Amount} instance, allowing for method chaining
    */
   public Amount value(Long value) {
     this.value = value;
+    isSetValue = true; // mark as set
     return this;
   }
 
   /**
-   * The amount of the transaction, in [minor
+   * The numeric value of the amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @return value The amount of the transaction, in [minor
+   * @return value The numeric value of the amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
@@ -94,16 +117,37 @@ public class Amount {
   }
 
   /**
-   * The amount of the transaction, in [minor
+   * The numeric value of the amount, in [minor
    * units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    *
-   * @param value The amount of the transaction, in [minor
+   * @param value The numeric value of the amount, in [minor
    *     units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
    */
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(Long value) {
     this.value = value;
+    isSetValue = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public Amount includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this Amount object is equal to o. */
@@ -143,6 +187,33 @@ public class Amount {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetCurrency) {
+      addIfNull(nulls, JSON_PROPERTY_CURRENCY, this.currency);
+    }
+    if (isSetValue) {
+      addIfNull(nulls, JSON_PROPERTY_VALUE, this.value);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**

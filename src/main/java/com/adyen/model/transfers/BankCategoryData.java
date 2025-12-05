@@ -11,7 +11,9 @@
 
 package com.adyen.model.transfers;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,14 +29,14 @@ public class BankCategoryData {
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    */
   public enum PriorityEnum {
@@ -88,6 +90,9 @@ public class BankCategoryData {
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private PriorityEnum priority;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetPriority = false;
+
   /** **bank** */
   public enum TypeEnum {
     BANK(String.valueOf("bank"));
@@ -130,62 +135,72 @@ public class BankCategoryData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  /** Mark when the attribute has been explicitly set. */
+  private boolean isSetType = false;
+
+  /**
+   * Sets whether attributes with null values should be explicitly included in the JSON payload.
+   * Default is false.
+   */
+  @JsonIgnore private boolean includeNullValues = false;
+
   public BankCategoryData() {}
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    * @return the current {@code BankCategoryData} instance, allowing for method chaining
    */
   public BankCategoryData priority(PriorityEnum priority) {
     this.priority = priority;
+    isSetPriority = true; // mark as set
     return this;
   }
 
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @return priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
@@ -197,32 +212,33 @@ public class BankCategoryData {
   /**
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the
    * fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**. Possible
-   * values: * **regular**: for normal, low-value transactions. * **fast**: a faster way to transfer
+   * values: * **regular**: For normal, low-value transactions. * **fast**: A faster way to transfer
    * funds, but the fees are higher. Recommended for high-priority, low-value transactions. *
-   * **wire**: the fastest way to transfer funds, but this has the highest fees. Recommended for
-   * high-priority, high-value transactions. * **instant**: for instant funds transfers within the
+   * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   * high-priority, high-value transactions. * **instant**: For instant funds transfers within the
    * United States and in [SEPA
    * locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   * **crossBorder**: for high-value transfers to a recipient in a different country. *
-   * **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   * **crossBorder**: For high-value transfers to a recipient in a different country. *
+   * **internal**: For transfers to an Adyen-issued business bank account (by bank account
    * number/IBAN).
    *
    * @param priority The priority for the bank transfer. This sets the speed at which the transfer
    *     is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60;
-   *     **bank**. Possible values: * **regular**: for normal, low-value transactions. * **fast**: a
+   *     **bank**. Possible values: * **regular**: For normal, low-value transactions. * **fast**: A
    *     faster way to transfer funds, but the fees are higher. Recommended for high-priority,
-   *     low-value transactions. * **wire**: the fastest way to transfer funds, but this has the
-   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: for
+   *     low-value transactions. * **wire**: The fastest way to transfer funds, but this has the
+   *     highest fees. Recommended for high-priority, high-value transactions. * **instant**: For
    *     instant funds transfers within the United States and in [SEPA
    *     locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html). *
-   *     **crossBorder**: for high-value transfers to a recipient in a different country. *
-   *     **internal**: for transfers to an Adyen-issued business bank account (by bank account
+   *     **crossBorder**: For high-value transfers to a recipient in a different country. *
+   *     **internal**: For transfers to an Adyen-issued business bank account (by bank account
    *     number/IBAN).
    */
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(PriorityEnum priority) {
     this.priority = priority;
+    isSetPriority = true; // mark as set
   }
 
   /**
@@ -233,6 +249,7 @@ public class BankCategoryData {
    */
   public BankCategoryData type(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
     return this;
   }
 
@@ -256,6 +273,27 @@ public class BankCategoryData {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
+    isSetType = true; // mark as set
+  }
+
+  /**
+   * Configures whether null values are explicitly serialized in the JSON payload. Default is false.
+   */
+  public BankCategoryData includeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
+    return this;
+  }
+
+  /** Returns whether null values are explicitly serialized in the JSON payload. */
+  public boolean isIncludeNullValues() {
+    return includeNullValues;
+  }
+
+  /**
+   * Sets whether null values should be explicitly serialized in the JSON payload. Default is false.
+   */
+  public void setIncludeNullValues(boolean includeNullValues) {
+    this.includeNullValues = includeNullValues;
   }
 
   /** Return true if this BankCategoryData object is equal to o. */
@@ -295,6 +333,33 @@ public class BankCategoryData {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /** Returns a map of properties to be merged into the JSON payload as explicit null values. */
+  @JsonInclude(JsonInclude.Include.ALWAYS)
+  @JsonAnyGetter
+  public Map<String, Object> getExplicitNulls() {
+    if (!this.includeNullValues) {
+      return Collections.emptyMap();
+    }
+
+    Map<String, Object> nulls = new HashMap<>();
+
+    if (isSetPriority) {
+      addIfNull(nulls, JSON_PROPERTY_PRIORITY, this.priority);
+    }
+    if (isSetType) {
+      addIfNull(nulls, JSON_PROPERTY_TYPE, this.type);
+    }
+
+    return nulls;
+  }
+
+  // add to map when value is null
+  private void addIfNull(Map<String, Object> map, String key, Object value) {
+    if (value == null) {
+      map.put(key, null);
+    }
   }
 
   /**
